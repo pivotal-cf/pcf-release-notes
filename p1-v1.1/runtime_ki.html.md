@@ -10,3 +10,4 @@
 	* RAM (MB) for Cloud Controller must be 4096 (or greater)
 	* Ephemeral Disk (MB) for Compilation must be 6144 (or greater)
 * SSO integration is only supported when using Pivotal CF on vSphere 5.5. SSO integration is a beta feature with the 1.1.0.0 release. 
+* Binding a service to an app will cause an error when requesting status from the app until it is restarted. 
