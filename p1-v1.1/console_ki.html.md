@@ -1,4 +1,4 @@
-# Known for Pivotal Dev Console v.1.1.0.0
+# Pivotal Dev Console v.1.1.0.0 Known Issues
 
 - There are a handful of bugs related to using Dev Console with the Admin user created by Ops Manager. It is recommended that users create a new user, with admin privileges, using the cf command line tools, and login to Dev Console using that user.
 
