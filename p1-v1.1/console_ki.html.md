@@ -17,7 +17,7 @@
 ---
 name: console
 product_version: 1.1.0.0
-metadata_version: 1.0 # unused, in here because we thought Ops Manager would manage apps at some point
+metadata_version: 1.0
 source:
   name: console
   version: "ccbd61"
