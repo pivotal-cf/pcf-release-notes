@@ -10,6 +10,5 @@
 	* Ephemeral Disk (MB) for Compilation must be 6144 (or greater)
 * SSO integration is only supported when using Pivotal CF on vSphere 5.5. SSO integration is a beta feature with the 1.1.0.0 release. 
 * Binding a service to an app will cause an error when requesting status from the app until it is restarted. 
-* cf cli v6.0.1, included with the Developer Console in PCF v1.1, has a bug that will prevent Windows users from pushing archived apps like zips, jars, wars, etc. v6.0.2 has the fix and can be downloaded from here: https://console.run.pivotal.io/tools
 * Deletion of products in Ops Manager must be done separately from applying changes or installing other products or unexpected errors will occur.
 * Upgrading 1.0.0.1 to 1.1.0.0 by exporting / importing will not provide users with an upgraded Dev Console. See Pivotal CF Operations Manager release notes for instructions on how to inject the 1.1 Dev Console when upgrading. 
