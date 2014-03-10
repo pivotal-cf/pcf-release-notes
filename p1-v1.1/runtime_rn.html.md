@@ -20,4 +20,4 @@ Improved Cloud Controller API performance.
 
 ## Affected Components:
 
-** This release will install an updated Operating System image (known as a BOSH stemcell)  and will create new virtual machines for all Pivotal CF Elastic Runtime components. **
+** This release will install an updated Operating System image (known as a BOSH stemcell)  and will create new virtual machines for all Pivotal CF Elastic Runtime components.
