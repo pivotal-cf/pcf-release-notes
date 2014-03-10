@@ -1,8 +1,6 @@
 # Pivotal Elastic Runtime v1.1.0.0 Release Notes
 
-## Summary:
-
-### Elastic Runtime v1.1.0.0 includes new features, bug fixes and security updates
+## Summary: Elastic Runtime v1.1.0.0 includes new features, bug fixes and security updates
 
 ## Changes since v1.0.0.1:
 
@@ -20,6 +18,6 @@ Application information is now removed from the Cloud Controller database when a
 Improved Cloud Controller API performance.
 * New horizontally scalable Health Manager released. The codename for this component was HM9000 during development.
 
-### Affected Components:
+## Affected Components:
 
 ** This release will install an updated Operating System image (known as a BOSH stemcell)  and will create new virtual machines for all Pivotal CF Elastic Runtime components. **
