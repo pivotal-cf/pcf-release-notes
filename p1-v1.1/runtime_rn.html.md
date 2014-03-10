@@ -1,8 +1,8 @@
 # Pivotal Elastic Runtime v1.1.0.0 Release Notes
 
-## Summary: Elastic Runtime v1.1.0.0 includes new features, bug fixes and security updates
+### Summary: Elastic Runtime v1.1.0.0 includes new features, bug fixes and security updates
 
-## Changes since v1.0.0.1:
+### Changes since v1.0.0.1:
 
 * This release upgrades Ruby to version 1.9.3-p484 for the Elastic Runtime subsystems and buildpacks.  Elastic Runtime applications using the default Ruby buildpack will receive the updated Ruby upon restaging.
 * Several improvements and additions were made to the information collected by loggregator: App crash and staging data, the ability to see which app index is causing a log message, and better readability in measuring bytes of memory.
