@@ -1,6 +1,8 @@
 # Pivotal Ops Manager v1.1.0.0 Release Notes
 
-## Pivotal Ops Manager Changes since v1.0.0.1:
+### Summary: Operations Manager v1.1.0.0 includes new features, bug fixes and security updates
+
+### Pivotal Ops Manager Changes since v1.0.0.1:
 
 - Pivotal Ops Manager is now a seperate product from Elastic Runtime and MySQL Dev
 - Elastic Runtime, MySQL Dev, and other Pivotal products must be imported into Ops Manager
