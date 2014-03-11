@@ -12,7 +12,7 @@ additional fields. For more information, see Catalog Metadata.
 * Requests to delete a service instance or binding now get a 200 response with an empty
 JSON body instead of a 204.
 * The broker now returns a clear error when there is no more capacity for additional
-instances during a provision request. The response has status code 507 and the
+instances during a provision request. The response has status code `507`. The
 user-facing error message is "Service plan capacity has been reached."
 
 ## The following components will be re-deployed:
