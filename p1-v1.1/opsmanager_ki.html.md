@@ -1,16 +1,17 @@
-# Pivotal Ops Manager 1.1.0.0 Known Issues
+---
+title: Pivotal Ops Manager 1.1.0.0 Known Issues
+---
+* Deleting products in Ops Manager must be done separately from applying changes or installing other products to avoid unexpected errors.
 
-- Deletion of products in Ops Manager must be done seperately from applying changes or installing other products or unexpected errors will occur.
+* After installing the 'Pivotal Metrics' product (currently in Beta), operators must increase the Collector VM instance count to 1 and re-push Elastic Runtime to have the setting take effect.
 
-- After installation of the 'Pivotal Metrics' product (currently in Beta release), operators will need to increase the collector vm instance count to 1 and re-push Elastic Runtime to have the setting take effect. 
+* Deleting a product that provides a service broker to Elastic Runtime (e.g. HD, MySQL) leaves orphan rows in the Cloud Controller DB. Contact Pivotal Support for more information.
 
-- If you are upgrading from Ops Manager 1.0.0.1 to Ops Manager 1.1.0.0 you will not be able to upgrade the Dev Console without following these steps:
-
-- Deleting a product that provides a service broker to Elastic Runtime (e.g. HD, MySQL) will leave orphan rows in the cloud controller db. Contact Pivotal Support for more information.
-
-1. Login to the Ops Manager virtual machine using SSH. The username is 'tempest' - you set the password during the .ova deployment into vCenter.
-
-1. Replace the file /var/tempest/app_metadata/console.yml with the contents below. Restart the VM and click Apply Changes.
+- If you are upgrading from Ops Manager 1.0.0.1 to Ops Manager 1.1.0.0, follow these steps to upgrade the Developer Console:
+    1. Login to the Ops Manager VM using SSH. The username is `tempest`. You set the password during the .ova deployment into vCenter.
+    1. Replace `/var/tempest/app_metadata/console.yml` with the contents below.
+    1. Restart the VM.
+    1. In Ops Manager, click **Apply Changes**.
 
 ```yaml
 

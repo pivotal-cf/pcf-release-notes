@@ -1,16 +1,19 @@
-# Pivotal Dev Console v.1.1.0.0 Known Issues
+---
+title: Pivotal Dev Console v.1.1.0.0 Known Issues
+---
 
-- There are a handful of bugs related to using Dev Console with the Admin user created by Ops Manager. It is recommended that users create a new user, with admin privileges, using the cf command line tools, and login to Dev Console using that user.
+- There are several bugs related to using Dev Console with the Admin user that Ops Manager creates. Pivotal recommends that users create a new user with admin privileges, using the cf command line tools, and login to Dev Console using that user.
 
-- The 'system' org is reserved for the Developer Console. Spaces cannot be created in the ‘system’ org.
+- The `system` org is reserved for the Developer Console. Spaces cannot be created in the `system` org.
 
-- cf cli v6.0.1, included with the Developer Console in PCF v1.1, has a bug that will prevent Windows users from pushing archived apps like zips, jars, wars, etc. v6.0.2 has the fix and can be downloaded from here: https://console.run.pivotal.io/tools
+- cf cli v6.0.1, included with the Developer Console in PCF v1.1, has a bug that prevents Windows users from pushing archived apps like zips, jars, wars, etc. v6.0.2 has the fix. You can download it here: [https://console.run.pivotal.io/tools](https://console.run.pivotal.io/tools).
 
-- If you are upgrading from Ops Manager 1.0.0.1 to Ops Manager 1.1.0.0 you will not be able to upgrade the Dev Console without following these steps:
+- If you are upgrading from Ops Manager 1.0.0.1 to Ops Manager 1.1.0.0, follow these steps to upgrade the Developer Console:
+    1. Login to the Ops Manager VM using SSH. The username is `tempest`. You set the password during the .ova deployment into vCenter.
+    1. Replace `/var/tempest/app_metadata/console.yml` with the contents below.
+    1. Restart the VM.
+    1. In Ops Manager, click **Apply Changes**.
 
-1. Login to the Ops Manager virtual machine using SSH. The username is 'tempest' - you set the password during the .ova deployment into vCenter.
-
-1. Replace the file /var/tempest/app_metadata/console.yml with the contents below. Restart the VM and click Apply Changes.
 
 ```yaml
 
