@@ -25,7 +25,7 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 * Upgrading 1.0.0.1 to 1.1.0.0 by exporting/importing will not provide users with an upgraded Dev Console. See the Pivotal Operations Manager [Release Notes](./opsmanager_rn.html) for instructions on how to inject the 1.1 Dev Console when upgrading.
 
 * Custom Orgs and domains created in PCF 1.0 cannot be deleted after an upgrade to PCF 1.1:
->
+
 __Example Failure:__
 ```
 $ cf delete-org example-org
