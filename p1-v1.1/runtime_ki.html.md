@@ -26,7 +26,7 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 
 * Custom Orgs and domains created in PCF 1.0 cannot be deleted after an upgrade to PCF 1.1:
 
-### Example Failure:
+__Example Failure:__
 ```
 $ cf delete-org example-org
 
@@ -36,7 +36,7 @@ FAILED
 Internal Server Error
 ```
 
-### Workaround:
+__Workaround:__
 Login to the ccdb and run `TRUNCATE TABLE ONLY domain_organizations;`. If you would like assistance with this process, please contact Pivotal support.
 
 Verify domain organizations table is populated:
@@ -51,14 +51,14 @@ ccdb=> select * from domains_organizations;
 (3 rows)
 ```
 
-Truncate this table:
+__Truncate this table:__
 
 ```
 ccdb=> truncate table only domains_organizations;
 TRUNCATE TABLE
 ```
 
-This table should no longer be populated:
+__This table should no longer be populated:__
 
 ```
 ccdb=> select * from domains_organizations;
@@ -67,7 +67,7 @@ ccdb=> select * from domains_organizations;
 (0 rows)
 ```
 
-### Upon succesful truncation, it will be possible to delete domains and organizations created before the upgrade.
+__Upon succesful truncation, it will be possible to delete domains and organizations created before the upgrade.__
 
 ```
 $ cf delete-org example-org
