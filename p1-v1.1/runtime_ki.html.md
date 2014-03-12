@@ -23,3 +23,56 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 * Deleting products in Ops Manager must be done separately from applying changes or installing other products to avoid unexpected errors.
 
 * Upgrading 1.0.0.1 to 1.1.0.0 by exporting/importing will not provide users with an upgraded Dev Console. See the Pivotal Operations Manager [Release Notes](./opsmanager_rn.html) for instructions on how to inject the 1.1 Dev Console when upgrading.
+
+* Orgs and domains created in PCF 1.0 cannot be deleted after an upgrade to PCF 1.1.
+
+## Example Failure:
+```
+$ cf delete-org example-org
+
+Really delete org example-org and everything associated with it?> yes
+Deleting org example-org as admin...
+FAILED
+Internal Server Error
+```
+
+## Workaround:
+Login to the ccdb and run `TRUNCATE TABLE ONLY domain_organizations;`. If you would like assistance with this process, please contact support.
+
+Domain organizations table is populated:
+
+```
+ccdb=> select * from domains_organizations;
+ domain_id | organization_id
+-----------+-----------------
+         1 |               3
+         1 |               6
+         1 |               8
+(3 rows)
+```
+
+Truncate this table:
+
+```
+ccdb=> truncate table only domains_organizations;
+TRUNCATE TABLE
+```
+
+This table should no longer be populated:
+
+```
+ccdb=> select * from domains_organizations;
+ domain_id | organization_id
+-----------+-----------------
+(0 rows)
+```
+
+Upon succesful truncation, it will be possible to delete domains and organizations created before the upgrade.
+
+```
+$ cf delete-org example-org
+
+Really delete org example-org and everything associated with it?> y
+Deleting org example-org as admin...
+OK
+```
