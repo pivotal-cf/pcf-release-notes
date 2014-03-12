@@ -26,7 +26,6 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 
 * Custom Orgs and domains created in PCF 1.0 cannot be deleted after an upgrade to PCF 1.1:
 
->>
 __Example Failure:__
 ```
 $ cf delete-org example-org
@@ -78,4 +77,4 @@ Deleting org example-org as admin...
 OK
 ```
 
->>
+
