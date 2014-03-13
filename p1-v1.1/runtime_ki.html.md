@@ -25,9 +25,9 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 * Upgrading 1.0.0.1 to 1.1.0.0 by exporting/importing will not provide users with an upgraded Dev Console. See the Pivotal Operations Manager [Release Notes](./opsmanager_rn.html) for instructions on how to inject the 1.1 Dev Console when upgrading.
 
 * If logging data comes in at a high rate, the DEA logging agent may split
-messages on non-line-endings.
+log messages on non-line-endings.
 The DEA logging agent does not drop any bytes when this happens.
-Instead, the agent simply splits one line into two.
+Instead, the agent simply splits one log line into two.
 If this occurs, it should only happen once per 4KB of log messages.
 This behavior is 'as designed' in the current implementation of the DEA logging
 agent.
