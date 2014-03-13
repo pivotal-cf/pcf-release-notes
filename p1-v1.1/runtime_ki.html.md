@@ -27,54 +27,53 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 * Custom Orgs and domains created in PCF 1.0 cannot be deleted after an upgrade to PCF 1.1:
 
 __Example Failure:__
-```
+
+<pre class='terminal'>
 $ cf delete-org example-org
 
 Really delete org example-org and everything associated with it?> yes
 Deleting org example-org as admin...
 FAILED
 Internal Server Error
-```
+</pre>
 
 __Workaround:__
 Login to the ccdb and run `TRUNCATE TABLE ONLY domain_organizations;`. If you would like assistance with this process, please contact Pivotal support.
 
-Verify domain organizations table is populated:
+1. Verify domain organizations table is populated:
 
-```
-ccdb=> select * from domains_organizations;
- domain_id | organization_id
------------+-----------------
-         1 |               3
-         1 |               6
-         1 |               8
-(3 rows)
-```
+    ```
+    ccdb=> select * from domains_organizations;
+     domain_id | organization_id
+    -----------+-----------------
+             1 |               3
+             1 |               6
+             1 |               8
+    (3 rows)
+    ```
 
-__Truncate this table:__
+1. Truncate this table:
 
-```
-ccdb=> truncate table only domains_organizations;
-TRUNCATE TABLE
-```
+    ```
+    ccdb=> truncate table only domains_organizations;
+    TRUNCATE TABLE
+    ```
 
-__This table should no longer be populated:__
+1. This table should no longer be populated:
 
-```
-ccdb=> select * from domains_organizations;
- domain_id | organization_id
------------+-----------------
-(0 rows)
-```
+    ```
+    ccdb=> select * from domains_organizations;
+     domain_id | organization_id
+    -----------+-----------------
+    (0 rows)
+    ```
 
-__Upon succesful truncation, it will be possible to delete domains and organizations created before the upgrade.__
+1. Upon successful truncation, it will be possible to delete domains and organizations created before the upgrade.
 
-```
-$ cf delete-org example-org
+    <pre class='terminal'>
+    $ cf delete-org example-org
 
-Really delete org example-org and everything associated with it?> y
-Deleting org example-org as admin...
-OK
-```
-
-
+    Really delete org example-org and everything associated with it?> y
+    Deleting org example-org as admin...
+    OK
+    </pre>
