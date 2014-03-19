@@ -32,6 +32,8 @@ If this occurs, it should only happen once per 4KB of log messages.
 This behavior is 'as designed' in the current implementation of the DEA logging
 agent.
 
+* When starting multiple applications instances and one of the instances is deployed on a highly-loaded DEA, sometimes the Application logs will not be displayed in loggregator.
+
 * Custom Orgs and domains created in PCF 1.0 cannot be deleted after an upgrade to PCF 1.1:
 
 __Example Failure:__
