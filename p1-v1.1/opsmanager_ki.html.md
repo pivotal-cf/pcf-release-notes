@@ -1,6 +1,8 @@
 ---
 title: Pivotal Ops Manager 1.1.0.0 Known Issues
 ---
+* Reducing the size of a persistent disk to an inadequate size will cause data loss. This setting is found on the Resources tab inside of a product within Pivotal Ops Manager. The change must be applied before a problem occurs.
+
 * Deleting products in Ops Manager must be done separately from applying changes or installing other products to avoid unexpected errors.
 
 * After installing the 'Pivotal Metrics' product (currently in Beta), operators must increase the Collector VM instance count to 1 and re-push Elastic Runtime to have the setting take effect.
