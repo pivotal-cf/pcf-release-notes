@@ -1,0 +1,1 @@
+Notes for the 1.2 release of Pivotal Elastic Runtime
