@@ -12,6 +12,5 @@ Refer to this topic for the Pivotal One release notes. For release notes and kno
 * Pivotal RabbitMQ
 * Pivotal Ops Metrics
 
-## New products introduced as part of this release:
 
 
