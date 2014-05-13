@@ -3,6 +3,7 @@ title: Pivotal MySQL Dev v1.2.0.0 Release Notes
 ---
 
 ## Changes since v1.1.0.0:
+
 * API changes:
     * Dashboard url returned on instance creation.
 * New UI for Service Instance Dashboard:
@@ -18,10 +19,12 @@ title: Pivotal MySQL Dev v1.2.0.0 Release Notes
 * Bosh errands can be used to register and deregister the broker, and to run tests that verify the deployment.
 
 ## The following components will be re-deployed:
+
 * cf-mysql-broker
 * mysql
 
 ## The release includes new components (all used to run Bosh errands):
+
 * broker-registrar
 * broker-deregistrar
 * acceptance-tests
