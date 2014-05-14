@@ -1,18 +1,20 @@
 ---
-title: Pivotal MySQL Dev v1.2.0.0 Release Notes
+title: MySQL for Pivotal CF v1.2.0.0 Release Notes
 ---
 
 ## Changes since v1.1.0.0:
 
+* Service renamed to 'MySQL for Pivotal CF'
 * Plan attributes are configurable
     * Storage quota
     * Concurrent connection quota
     * Max databases
-* Service plan name is configured dynamically based on storage quota
+* Plan name is determined dynamically based on configured storage quota
+* Plan features include disclaimer that the service is not for production use
 * API changes:
     * Dashboard url returned on instance creation.
 * New UI for Service Instance Dashboard:
-    * Styled dashboard shows instance usage.
+    * Styled dashboard shows instance storage usage.
     * Includes warning when quota has been surpassed.
     * Uses new SSO feature in Cloud Controller API. User must approve `openid` and `cloud_controller.read` scopes for UI to work. (Scope approvals can be updated at any time.)
 * Security Upgrades:
