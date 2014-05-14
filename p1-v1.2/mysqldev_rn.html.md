@@ -6,8 +6,8 @@ title: MySQL for Pivotal CF v1.2.0.0 Release Notes
 
 * Service renamed to 'MySQL for Pivotal CF'
 * Plan attributes are configurable
-    * Storage quota
-    * Concurrent connection quota
+    * Max Storage per database
+    * Max Concurrent Connections per user
     * Max databases
 * Plan name is determined dynamically based on configured storage quota
 * Plan features include disclaimer that the service is not for production use
