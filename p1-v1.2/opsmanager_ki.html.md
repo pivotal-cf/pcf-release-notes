@@ -2,9 +2,14 @@
 title: Ops Manager v1.2.0.0 Known Issues
 ---
 
-* User must remember to check the 'accept self signed certs' for self signed cert (not an issue per se).
-* Persistent storage sizes should not be reduced on any VM deployed by Ops Manager
+##Issues
+
+* Persistent storage sizes should not be reduced on any VM that Ops Manager deployed.
 * App domain changes made in Ops Manager must also be changed manually using the CF CLI tool
 * Products should not be imported while an installation is occurring
-* Products should not be deleted and while other products modified at the same time - apply the changes seperately
-* A 1.1 product cannot be installed into the 1.2 Ops Manager. (Imported 1.1 instalations will function properly)
+* Products should not be deleted while other products are simultaneously being modified. Instead, apply the changes separately.
+* You cannot install a 1.1 product in the 1.2 Ops Manager. (Imported 1.1 installations will function properly.)
+
+##Tips
+
+* You must check the 'Accept Self-Signed Certs' checkbox if you want to use a self-signed cert.
