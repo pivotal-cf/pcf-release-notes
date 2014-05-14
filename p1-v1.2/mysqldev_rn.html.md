@@ -4,6 +4,11 @@ title: Pivotal MySQL Dev v1.2.0.0 Release Notes
 
 ## Changes since v1.1.0.0:
 
+* Plan attributes are configurable
+    * Storage quota
+    * Concurrent connection quota
+    * Max databases
+* Service plan name is configured dynamically based on storage quota
 * API changes:
     * Dashboard url returned on instance creation.
 * New UI for Service Instance Dashboard:
@@ -17,6 +22,7 @@ title: Pivotal MySQL Dev v1.2.0.0 Release Notes
 * Supports clustered NATS.
 * Displayed plan name is configurable at deploy time.
 * Bosh errands can be used to register and deregister the broker, and to run tests that verify the deployment.
+* Improved logging in service broker
 
 ## The following components will be re-deployed:
 
