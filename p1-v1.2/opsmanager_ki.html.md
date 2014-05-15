@@ -9,6 +9,7 @@ title: Ops Manager v1.2.0.0 Known Issues
 * Products should not be imported while an installation is occurring
 * Products should not be deleted while other products are simultaneously being modified. Instead, apply the changes separately.
 * You cannot install a 1.1 product in the 1.2 Ops Manager. (Imported 1.1 installations will function properly.)
+* Deleting an installation can result in reconciliation issues if Ops Manager is paused during the delete. VMs must be manually deleted from vCenter.
 
 ##Tips
 
