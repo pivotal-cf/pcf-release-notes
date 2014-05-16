@@ -7,8 +7,6 @@ title: Pivotal Ops Manager v1.2.0.0 Release Notes
 * Uploading .pivotal products in single page
 * Installation logs can be viewed as plain text
 * Uploads can be done via API
-* Ops Manager packaged as a vCD/vCHS Appliance
-* Ops Manager creates a catalog for stemcells on vCD/vCHS
 * Updated Dev Console
 * Multiple Datastore support: can be a comma-delimited list of values
 * API available at `/docs` endpoint
