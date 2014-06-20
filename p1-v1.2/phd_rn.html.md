@@ -1,6 +1,12 @@
 ---
-title: Pivotal HD for Pivotal CF v1.2.0.0 Release Notes
+title: Pivotal HD for Pivotal CF v1.2.1.0 Release Notes
 ---
+
+## Changes since v1.2.0.0:
+* Updates in Ops Manager
+  * Changes to the Service are now reflected properly when an Administrator updates fields in Ops Mgr and applies the changes. Note that active Service Instances are never modified even if the Service Plan has been updated.  Only new Service Instances created after the update reflect changes.
+* Service Instance Dashboard
+  * Service Instances now include a dashboard, which Pivotal CF users can access from the Pivotal CF Web Console.  This dashboard helps Pivotal CF users understand what Pivotal HD components are running and where without having to bind an application
 
 ## Changes since v1.0.0.0:
 * On Demand Clusters
