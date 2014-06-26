@@ -1,7 +1,8 @@
 ---
 title: Pivotal Elastic Runtime v1.2.1.0 Known Issues
 ---
-* An issue was introduced in the Elastic Runtime 1.2.0.0 release that requires manual intervention when upgrading from that release in a running Pivotal Cloud Foundry installation. The following steps must be run to avoid the possibility of running apps stopping and cf push failing to respond:
+
+An issue was introduced in the Elastic Runtime 1.2.0.0 release that requires manual intervention when upgrading from that release in a running Pivotal Cloud Foundry installation. The following steps must be run to avoid the possibility of running apps stopping and cf push failing to respond.
 
 PRIOR to doing the upgrade we need certain directories in the etcd jobs to be emptied out and the processes stopped. 
 
