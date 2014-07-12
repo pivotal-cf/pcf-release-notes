@@ -1,10 +1,11 @@
 ---
-title: Pivotal Elastic Runtime v1.2.1.0 Release Notes
+title: Pivotal Elastic Runtime v1.2.2.0 Release Notes
 ---
 
 ## Changes since v1.2.0.0: 
 * Operators may now specify an external LDAP endpoint to configure for the UAA.
 * An issue was fixed where Pivotal Ops Metrics could not be installed after an external syslog aggregator endpoint was configured.
+* Total etcd jobs have been reduded from 3 to 1.
 
 ## Changes since v1.1.0.0:
 
