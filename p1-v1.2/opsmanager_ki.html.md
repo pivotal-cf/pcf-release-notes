@@ -10,7 +10,7 @@ title: Ops Manager v1.2.0.0 Known Issues
 * Products should not be deleted while other products are simultaneously being modified. Instead, apply the changes separately.
 * You cannot install a 1.1 product in the 1.2 Ops Manager. (Imported 1.1 installations will function properly.)
 * Deleting an installation can result in reconciliation issues if Ops Manager is paused during the delete. VMs must be manually deleted from vCenter.
-* **vCHS/vCloud only**: When installing Ops Manager, the organization name you supply when entering vCHS/vCloud Director credentials cannot include uppercase letters. You must substitute lowercase letters for any uppercase letters present in the vCD organization name.
+* **vCloud Air/vCloud only**: When installing Ops Manager, the organization name you supply when entering vCloud Air/vCloud Director credentials cannot include uppercase letters. You must substitute lowercase letters for any uppercase letters present in the vCD organization name.
 
 ##Tips
 
