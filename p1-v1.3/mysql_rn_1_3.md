@@ -2,8 +2,7 @@
 title: MySQL for Pivotal CF v1.3 Release Notes
 ---
 
-- Syslogs are now forwarded to the same location configured in Elastic Runtime.
-- Admin now manages instance capacity using only persistent disk allocated to mysql nodes; available instance capacity is determined dynamically based on a safe estimate of headroom for system requirements and reserved resources for provisioned instances.
-- Default stemcell is now Trusty go_agent 2682.
-- Dashboard uses more limited permissions to determine whether a user currently has access to a service instance; the cloud_controller_service_permissions.read OAuth scope instead of cloud_controller.read.
-- Timestamps have been added to logs for Monit start processes.
+- **Syslog forwarding**: Syslogs are now streamed to the same host and port configured in Elastic Runtime settings
+- **Dynamic instance capacity management**: Previously operators had to manually configure the maximum number of service instances permitted by the server. This required manual calculation and a knowledge of required system headroom. Admins can now manage instance capacity simply by adjusting persistent disk allocated to mysql nodes. Remaining instance capacity is determined dynamically by subtracting a safe estimate for system headroom and reserved storage for provisioned instances.
+- **Trusty stemcells**: Server and broker are now deployed on Ubuntu “Trusty” 14.04 LTS stemcells, providing improved security, performance, and a smaller resource footprint.
+- **Least necessary privileges**: The MySQL service dashboard uses a new, limited permission OAuth scope to determine whether a user currently has access to a service instance. The dashboard no longer has full read access to a user’s account. 
