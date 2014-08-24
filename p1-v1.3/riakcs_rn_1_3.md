@@ -2,5 +2,5 @@
 title: Riak CS for Pivotal CF v1.3 Release Notes
 ---
 
-- Syslogs are now forwarded to the same location configured in Elastic Runtime.
-- Default stemcell is now Trusty go_agent 2682.
+- **Syslog forwarding**: Syslogs are now streamed to the same host and port configured in Elastic Runtime settings
+- **Trusty stemcells**: Server and broker are now deployed on Ubuntu “Trusty” 14.04 LTS stemcells, providing improved security, performance, and a smaller resource footprint.
