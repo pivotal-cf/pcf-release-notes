@@ -48,7 +48,7 @@ Internal Server Error
 </pre>
 
 __Workaround:__
-Login to the ccdb and run `TRUNCATE TABLE ONLY domain_organizations;`. If you would like assistance with this process, please contact Pivotal support.
+Log in to the ccdb and run `TRUNCATE TABLE ONLY domain_organizations;`. If you would like assistance with this process, please contact Pivotal support.
 
 1. Verify domain organizations table is populated:
 

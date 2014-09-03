@@ -10,7 +10,7 @@ title: Pivotal Ops Manager 1.1.0.0 Known Issues
 * Deleting a product that provides a service broker to Elastic Runtime (e.g. HD, MySQL) leaves orphan rows in the Cloud Controller DB. Contact Pivotal Support for more information.
 
 - If you are upgrading from Ops Manager 1.0.0.1 to Ops Manager 1.1.0.0, follow these steps to upgrade the Developer Console:
-    1. Login to the Ops Manager VM using SSH. The username is `tempest`. You set the password during the .ova deployment into vCenter.
+    1. Log in to the Ops Manager VM using SSH. The username is `tempest`. You set the password during the .ova deployment into vCenter.
     1. Replace `/var/tempest/app_metadata/console.yml` with the contents below.
     1. Restart the VM.
     1. In Ops Manager, click **Apply Changes**.
