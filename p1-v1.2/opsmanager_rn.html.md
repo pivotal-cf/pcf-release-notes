@@ -15,4 +15,4 @@ title: Pivotal Ops Manager v1.2.0.0 Release Notes
 * Support for BOSH Errands to push console, register services, and run diagnostic tests
 * Errands can be turned off to avoid pushing console (or other scripts) on every install
 * BOSH Composite release support
-* Domains are verified even if they do not resolve to the HA Proxy IP address
+* Domains are verified even if they do not resolve to the HAProxy IP address
