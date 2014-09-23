@@ -1,12 +1,15 @@
-# Ops Manager 1.3 Release Notes
+---
+title: Ops Manager 1.3 Release Notes
+---
 
 ## Operator Features
 
 **Operators can...**
+
 * modify Static IPs for products with jobs that expose them
 * change instance counts and Static IPs will be recalculated and reassigned
 * specify more than one network for an installation
-* Designate specific network to deploy individual products
+* designate a specific network to deploy individual products
 * see IP addresses for multiple networks on product status pages
 * be protected from entering IP addresses that clash across products and networks
 * specify which network is designated as Infrastructure vs. Deployment for Director
@@ -23,15 +26,16 @@
 * be protected from reverting to old versions of Director
 * use Ops Manager with some particular optimized pages (load times)
 * specify a vCenter folder for my network
-* sake changes to networks that impact other settings without reference problems
-* sake changes to availability zones that impact other settings without reference problems
+* make changes to networks that impact other settings without reference problems
+* make changes to availability zones that impact other settings without reference problems
 * specify which availability zone in which to place singleton jobs
-* specify which availability zones in which to balance multi instance jobs
+* specify which availability zones in which to balance multi-instance jobs
 * have older releases cleaned out of blobstores after installations complete
 
 ## Product Author Features
 
 **Product Authors can...**
+
 * add products to installations via API
 * display slug fields in collection forms
 * use drop-down property types
@@ -43,16 +47,16 @@
 
 ## Bug fixes
 
-* logs can be downloaded
-* NFS server manifest corrections
-* collection subfields can be optional
-* resource pools are optional
-* integers and booleans in collections work properly
-* multi-select in collections work properly
-* configuring products before Director works properly
-* saving forms dims entire page rather than top 3/4
-* secrets will not be confused with scientific notation (java yaml problem)
-* clusters and resource pools are verified before installation
-* networks are verified before installation
-* configured status for products works properly
-* dynamic IP allocation works properly
+* Logs can be downloaded.
+* NFS server manifest corrections.
+* Collection subfields can be optional.
+* Resource pools are optional.
+* Integers and booleans in collections work properly.
+* Multi-select in collections work properly.
+* Configuring products before Director works properly.
+* Saving forms dims entire page rather than top 3/4.
+* Secrets will not be confused with scientific notation (Java YAML problem).
+* Clusters and resource pools are verified before installation.
+* Networks are verified before installation.
+* Configured status for products works properly.
+* Dynamic IP allocation works properly.
