@@ -4,6 +4,15 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 
 ## Changes since v1.3.3.0:
 
+* AWS support
+* Configurable MySQL HAProxy tier, including ability to add an external load-balancer
+* User notification service and API
+* Cloud Controller feature flags for reconfiguration of core platform settings in real time
+* Autoscaling service is now officially GA
+* API enpoint that supports changing the plan of a running service instance
+* Browser-based streaming logs and services usage billing events
+* Extended the CF CLI with new custom commands
+	* automate zero-downtime application deployment
 * Buildpack updates:
 	* Java (2.6)
 		* Improved Access Logging
