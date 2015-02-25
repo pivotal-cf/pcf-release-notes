@@ -100,9 +100,6 @@ Now it will be sending: Deployment.Job.0.1-2-3-4.some_key
 * UAA
 	* Property changes for loggregator firehose
 * Login Server
-	* Change Email functionality: Login Server now supports Change Email for users. Authenticated users can request a change to their email from the Account Settings page and verify the new email via the same process as Account Creation. Once verified, the new email is reflected on the user account. If the Username is same as the email, both get updated at the same time. This feature is only restricted to users stored in the internal UAA user store. The users from external sources such as LDAP and SAML are treated as read-only
-	* Integration with Notifications Server:
-Login Server now supports integration with a central Notifications Server which provides the ability to manage and send emails. Standard flows like Create New Account, Password Reset, & Change Email can now use the Notifications Server for sending emails to users if configured.
 	* Updated to Spring Security OAuth V2 -The Spring Security OAuth library has been updated from version 1.0.5 to 2.0.3.
 Apart from bug fixes, major highlights include modernization and ease of use for OAuth server and client apps on Spring. More details about the changes can be found here:
 https://spring.io/blog/2014/04/18/spring-security-oauth-2-0-0-rc1-available
