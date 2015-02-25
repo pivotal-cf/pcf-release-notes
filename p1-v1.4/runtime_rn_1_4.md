@@ -13,6 +13,13 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * Browser-based streaming logs and services usage billing events
 * Extended the CF CLI with new custom commands
 	* automate zero-downtime application deployment
+	* automate common tasks (seed a new CF install with orgs, spaces, and apps)
+	* streamline development
+	* visualize CPI and memory usage of an app
+* New commands can accept arguments, invoke other commands, make API calls, and interact with the file system or environment
+* Apply new environment variables to custom groups of running applications, such as all the staging applications, for use on restart
+* Map LDAP Groups to Administrator roles
+* SAML XML support for SSO
 * Buildpack updates:
 	* Java (2.6)
 		* Improved Access Logging
