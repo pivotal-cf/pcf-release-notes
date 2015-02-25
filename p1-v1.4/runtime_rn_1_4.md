@@ -20,6 +20,7 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * Apply new environment variables to custom groups of running applications, such as all the staging applications, for use on restart
 * Map LDAP Groups to Administrator roles
 * SAML XML support for SSO
+* Patch for GHOST security vulnerability
 * Buildpack updates:
 	* Java (2.6)
 		* Improved Access Logging
