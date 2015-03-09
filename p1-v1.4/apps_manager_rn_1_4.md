@@ -28,6 +28,7 @@ title: Pivotal Cloud Foundry Apps Manager v1.4.0.0 Release Notes
 
 ### Usage service 
 
+* New streamlined design. 
 * New feature exposes service usage events as a billing metric for internal chargeback or showback.
 * New security constraints limit access to the Usage Service and Usage Report to users with the Org Manager role (per org) or cloud_controller.admin scope (all orgs).
 
