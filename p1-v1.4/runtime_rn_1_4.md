@@ -22,7 +22,7 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * SAML XML support for SSO
 * Patch for GHOST security vulnerability
 * Buildpack updates:
-	* Java (2.6)
+	* Java (2.7.1)
 		* Improved Access Logging
 		* Improved AppDynamics Integration
 		* New Relic on Java 8
