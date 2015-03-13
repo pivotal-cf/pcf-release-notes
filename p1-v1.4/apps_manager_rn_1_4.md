@@ -28,10 +28,10 @@ title: Pivotal Cloud Foundry Apps Manager v1.4.0.0 Release Notes
 
 ### Usage service 
 
-* New streamlined design. 
+* The usage report has a new streamlined design. 
 * New feature exposes service usage events as a billing metric for internal chargeback or showback.
 * New security constraints limit access to the Usage Service and Usage Report to users with the Org Manager role (per org) or cloud_controller.admin scope (all orgs).
 
 ### Admin-only feature flags 
-* When the `ENABLE_NON_ADMIN_ORG_CREATION` env variable is set to `false` on the console app, only admin users will be able to create new orgs in Apps Manager. This is the default behavior. When it is set to `true`, all users will be able to create new orgs in Apps Manager. 
-* When the `ENABLE_NON_ADMIN_USER_MANAGEMENT` env variable is set to `false` on the console app, only admin users will be able to invite users and manage roles in Apps Manager. This is the default behavior. Also, users will not be able to access the registration or password reset pages. When it is set to `true`, Org Managers and Space Managers will be able to invite users and manage roles in Apps Manager. 
+* When the `ENABLE_NON_ADMIN_ORG_CREATION` env variable is set to `false` on the apps-manager app, only admin users will be able to create new orgs in Apps Manager. This is the default behavior. When it is set to `true`, all users will be able to create new orgs in Apps Manager. 
+* When the `ENABLE_NON_ADMIN_USER_MANAGEMENT` env variable is set to `false` on the apps-manager app, only admin users will be able to invite users and manage roles in Apps Manager. This is the default behavior. Also, users will not be able to access the registration or password reset pages. When it is set to `true`, Org Managers and Space Managers will be able to invite users and manage roles in Apps Manager. 
