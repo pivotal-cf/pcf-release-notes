@@ -15,6 +15,10 @@ title: Pivotal Cloud Foundry Apps Manager v1.4.0.0 Release Notes
 * Previous versions of Apps Manager required three apps to function: the main app, the scheduler app, and the workers app. In v1.4, Apps Manager has been reduced to just the main app. Various refactoring efforts have also removed unused code from the main app. 
 * As a result, the time to deploy Apps Manager is significantly faster in v1.4. 
 
+### New database options
+
+* Previous versions of Apps Manager required a Postgres database. In v1.4, cloud operators have an additional option of using a MySQL database for new installations. Migrations from v1.3 or earlier Postgres databases to v1.4 MySQL databases are not supported. 
+
 ### App dashboard 
 
 * New streaming logs feature enables developers to monitor app and platform activity in real-time from the browser. 
