@@ -7,7 +7,7 @@ title: Pivotal Cloud Foundry Apps Manager v1.4.0.0 Release Notes
 ### New name
 
 * Apps Manager is the new name of Developer Console. 
-* The push-console errand has been renamed push-apps-manager. 
+* The push-console errand has been renamed push-apps-manager and now deploys to the `apps-manager` space in the `system` org. 
 
 ### Less configuration and quicker deploys
 
