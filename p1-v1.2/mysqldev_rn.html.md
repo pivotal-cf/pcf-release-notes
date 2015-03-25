@@ -1,5 +1,5 @@
 ---
-title: MySQL for Pivotal CF v1.2.0.0 Release Notes
+title: MySQL for PCF v1.2.0.0 Release Notes
 ---
 
 ## Changes since v1.1.0.0:

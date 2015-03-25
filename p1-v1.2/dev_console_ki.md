@@ -6,10 +6,10 @@ title: Pivotal Developer Console v1.2.0.0 Known Issues
 
 * On the Org Dashboard, adding a new space does not update the members tab, invite flow, or site navigation. Refresh the page to see and interact with the new space.
 * On the Org Dashboard, user provided services are not shown in the services count.
-* On the Org Dashboard, the quota graph is not dynamically updated and does not account for multiple instances. 
+* On the Org Dashboard, the quota graph is not dynamically updated and does not account for multiple instances.
 * The App Dashboard is not dynamically-updated, so current status is not reflected without a page refresh.
 * On the My Account page, leaving your last org will result in a 500 error.
-* Developer Console in Pivotal CF v1.2 does not honor the value of `ssl.skip_cert_verify` set in Ops Manager, which means SSL certs are not verified in Developer Console by default. This will be fixed in Pivotal CF v1.3. 
+* Developer Console in Pivotal Cloud Foundry v1.2 does not honor the value of `ssl.skip_cert_verify` set in Ops Manager, which means SSL certs are not verified in Developer Console by default. This will be fixed in PCF v1.3.
 
 ##Workaround
 

@@ -1,5 +1,5 @@
 ---
-title: Pivotal CF Developer Console v1.3.0.0 Known Issues
+title: PCF Developer Console v1.3.0.0 Known Issues
 ---
 
 ##Issues

@@ -1,5 +1,5 @@
 ---
-title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
+title: PCF Elastic Runtime 1.1.0.0 Known Issues
 ---
 
 * It's possible for the auth token to expire right before a request to Loggregator, which means that users will be unable to see logs for their app. They will also see an "Error: Invalid authorization" message in Loggregator. Log in again to fix the issue.
@@ -16,7 +16,7 @@ title: Pivotal CF Elastic Runtime 1.1.0.0 Known Issues
 	* RAM (MB) for Cloud Controller must be 4096 or greater
 	* Ephemeral Disk (MB) for Compilation must be 6144 or greater
 
-* SSO integration is only supported for Pivotal CF on vSphere 5.5. SSO integration is a beta feature with the 1.1.0.0 release.
+* SSO integration is only supported for Pivotal Cloud Foundry on vSphere 5.5. SSO integration is a beta feature with the 1.1.0.0 release.
 
 * Binding a service to an app will cause an error when requesting status from the app until the app is restarted.
 

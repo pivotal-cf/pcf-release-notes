@@ -1,5 +1,5 @@
 ---
-title: Riak CS for Pivotal CF v1.3 Release Notes
+title: Riak CS for PCF v1.3 Release Notes
 ---
 
 - **Syslog forwarding**: Syslogs are now streamed to the same host and port configured in Elastic Runtime settings
