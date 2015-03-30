@@ -90,11 +90,32 @@ Originally it was sending: Deployment.Job.0.some_key.
 Now it will be sending: Deployment.Job.0.1-2-3-4.some_key
 * Users can change the plan for a service instance, if support for the feature is declared by the service broker
 * Loggregator
-	* Loggregator firehose
-	* Property changes for firehose
-	* Bug fixed where application shutdown logs were not being collected by loggregator
-	* Loggregator streaming endpoint can use a cookie to get the oauth token (allows js clients to stream logs)
-	* Bug fixes for recovering when NATS connection is lost
+	* Feature: Loggregator firehose (v192)
+	* Changing syslog drain location no longer requires application restaging. (v198)
+	* System now Diego-enabled (v198) 
+	* Application forcibly closing output stream closes both standard out and standard error to logging system - fixes logging agent stability issues (v194)
+	* New tuning parameters for cc polling (created v198, updated v203)
+		* properties.syslog_drain_binder.update_interval_seconds
+		* properties.syslog_drain_binder.polling_batch_size
+	* Standardized --config flag across all components (v203)
+	* Numerous general system fixes 
+		* golang 1.3.X now default for most components (v194)
+		* Bug fixes for recovering when NATS connection is lost (v192)
+		* Honor system’s use_ssl_flag (v201)
+		* Add timestamps to every HttpStartStop envelope (v205) 
+	* Metron features and fixes
+		* No longer report metrics for downed component (v186)
+		* Fixed where application shutdown logs were not being collected (v192)
+		* Stability fixes between dropsonde and Metron (v192, v194)
+		* Tracks cumulative values now in counters (v200)
+	* Doppler features and fixes
+		* Increased buffer size for messages to better handle drops (v198)
+		* Improved channel operations for better durability (v200)
+	* TrafficController / NOAA features and fixes
+		* Streaming endpoint can use a cookie to get the oauth token (allows js clients to stream logs) (v192)
+	* Numerous NOAA additions for firehose (v192)
+		* Attempts to reconnect after unexpected disconnect (v192, improved in v203)
+		* Can fulfill Diego container metrics requests (v200)
 * Syslog
 	* Syslog configuration consolidated into metron package
 	* Syslog aggregator package removed (use metron package for syslog forwarding)
