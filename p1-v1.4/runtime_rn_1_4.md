@@ -85,8 +85,8 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * Allowed login server to be disabled via spiff templates
 * Fixed an issue where logs were not being captured when an app is shutting down
 * Fixed a bug where two apps in two different orgs could be mapped to the same route
-* The format for graphite keys that collector will emit is changing to include the IP address of the job that is reporting metrics
-Originally it was sending: Deployment.Job.0.some_key.
+* The format for Graphite keys that collector will emit is changing to include the IP address of the job that is reporting metrics
+Originally it was sending: Deployment.Job.0.some\_key.
 Now it will be sending: Deployment.Job.0.1-2-3-4.some_key
 * Users can change the plan for a service instance, if support for the feature is declared by the service broker
 * Loggregator:
@@ -116,16 +116,20 @@ Now it will be sending: Deployment.Job.0.1-2-3-4.some_key
 	* Numerous NOAA additions for firehose (v192):
 		* Attempts to reconnect after unexpected disconnect (v192, improved in v203)
 		* Can fulfill Diego container metrics requests (v200)
-* Syslog
+* Syslog:
 	* Syslog configuration consolidated into metron package
 	* Syslog aggregator package removed (use metron package for syslog forwarding)
-* UAA
+* UAA:
 	* Property changes for loggregator firehose
-* Login Server
-	* Updated to Spring Security OAuth V2: The Spring Security OAuth library has been updated from version 1.0.5 to 2.0.3.
+* Login Server:
+	* Updated to Spring Security OAuth V2:
+
+		The Spring Security OAuth library has been updated from version 1.0.5 to 2.0.3.
 Apart from bug fixes, major highlights include modernization and ease of use for OAuth server and client apps on Spring. Refer to the following blog posts for more details about the changes:
-https://spring.io/blog/2014/04/18/spring-security-oauth-2-0-0-rc1-available
-https://spring.io/blog/2014/09/01/spring-security-oauth-2-0-3-available-now
+
+	https://spring.io/blog/2014/04/18/spring-security-oauth-2-0-0-rc1-available
+	https://spring.io/blog/2014/09/01/spring-security-oauth-2-0-3-available-now
+
 * Updated HAProxy to disable SSLv3. This addresses POODLE CVE-2014-3566.
 * Reverted default AWS instance types back to m1 and c1 due to instability experienced with m3 and c3 instance types
 * Added VCAP_APPLICATION to the /v2/apps/:guid/env endpoint
