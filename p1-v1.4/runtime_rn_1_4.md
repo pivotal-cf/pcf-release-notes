@@ -29,7 +29,7 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 		* Secure dependency retrieval via HTTPS
 		* Java 8 as default
 		* Tomcat 8 as default
-	* nodejs (1.1.1)
+	* Node.js (1.1.1)
 	* Go (1.1.1)
 	* Python (1.1.1)
 	* Ruby (1.2)
@@ -40,7 +40,7 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * Add the ability to configure IP restrictions for the UAA and Login Server HTTP ports
 * Make the logging level of the collector configurable
 * Randomize NATS server selection
-* make ha_proxy respect disabling timeout
+* Make ha_proxy respect disabling timeout
 * NO: Fixed an issue where the DEA needed twice the space requested to successfully place an app
 * More flexible nested domain creation rules
 * DEA sends NATS heartbeat even when there are no running instances. This keeps HM9000 from falsely reporting problems.
@@ -78,16 +78,16 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * Upgraded dropsonde
 * Update default request\_timeout\_in\_seconds to 900s (15min)
 * Periodically clean up packages that have been pending for too long
-* Changed HM9000 to communicate with Cloud Countroller over HTTP, and not NATS to address an issue where HM9000's API stops responding to requests
+* Changed HM9000 to communicate with Cloud Controller over HTTP, instead of NATS, to address an issue where HM9000's API stops responding to requests
 * Deprecated AppEvent in Cloud Controller
 * Cloud Controller worker names now include job index
 * Fixed an issue where dir\_server was leaking inotify watches
 * Allowed login server to be disabled via spiff templates
 * Fixed an issue where logs were not being captured when an app is shutting down
 * Fixed a bug where two apps in two different orgs could be mapped to the same route
-* The format for Graphite keys that collector will emit is changing to include the IP address of the job that is reporting metrics
-Originally it was sending: Deployment.Job.0.some\_key.
-Now it will be sending: Deployment.Job.0.1-2-3-4.some_key
+* The format for Graphite keys that collector will emit is changing to include the IP address of the job that is reporting metrics. 
+Originally it was sending: `Deployment.Job.0.some\_key`. 
+Now it will be sending: `Deployment.Job.0.1-2-3-4.some_key`. 
 * Users can change the plan for a service instance, if support for the feature is declared by the service broker
 * Loggregator:
 	* Feature: Loggregator firehose (v192)
@@ -117,10 +117,10 @@ Now it will be sending: Deployment.Job.0.1-2-3-4.some_key
 		* Attempts to reconnect after unexpected disconnect (v192, improved in v203)
 		* Can fulfill Diego container metrics requests (v200)
 * Syslog:
-	* Syslog configuration consolidated into metron package
-	* Syslog aggregator package removed (use metron package for syslog forwarding)
+	* Syslog configuration consolidated into Metron package
+	* Syslog aggregator package removed (use Metron package for syslog forwarding)
 * UAA:
-	* Property changes for loggregator firehose
+	* Property changes for Loggregator firehose
 * Login Server:
 	* Updated to Spring Security OAuth V2:
 
