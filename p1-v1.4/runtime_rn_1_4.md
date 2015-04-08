@@ -9,7 +9,6 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * User notification service and API
 * Cloud Controller feature flags for reconfiguration of core platform settings in real time
 * Autoscaling service is now officially GA
-* API endpoint that supports changing the plan of a running service instance
 * Browser-based streaming logs and services usage billing events
 * Extended the CF CLI with new custom commands:
 	* Automate zero-downtime application deployment
@@ -88,7 +87,7 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * The format for Graphite keys that collector will emit is changing to include the IP address of the job that is reporting metrics. 
 Originally it was sending: `Deployment.Job.0.some\_key`. 
 Now it will be sending: `Deployment.Job.0.1-2-3-4.some_key`. 
-* Users can change the plan for a service instance, if support for the feature is declared by the service broker
+* Users can change the plan for a service instance, if the feature is supported by the service broker
 * Loggregator:
 	* Feature: Loggregator firehose (v192)
 	* Changing syslog drain location no longer requires application restaging (v198)
