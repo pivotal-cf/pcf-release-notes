@@ -5,11 +5,12 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 ## Changes since v1.3.3.0:
 
 * AWS support
-* Configurable MySQL HAProxy tier, including ability to add an external load-balancer
+* MySQL, used by Notifications, Autoscaling, and Console-usage, can be deployed in a highly-available configuration
 * User notification service and API
 * Cloud Controller feature flags for reconfiguration of core platform settings in real time
 * Autoscaling service is now officially GA
-* Browser-based streaming logs and services usage billing events
+* Browser-based log streaming
+* Services usage billing events
 * Extended the CF CLI with new custom commands:
 	* Automate zero-downtime application deployment
 	* Automate common tasks (seed a new CF install with orgs, spaces, and apps)
@@ -53,10 +54,10 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 * Enhanced Graphite and router metrics
 * NO: Fixed Mysql 5.6 issue on timestamp creation
 * Fixed issue where deadlocks were happening on delayed job workers
-* Update Service Plan completed
 * Removed unnecessary warning when plans without instances are deleted during broker catalog sync
 * Fixed Space Developer able to move a service instance from one space to another
-* Pass through message from broker to client for 409 responses
+* Improved service broker error handling and user-facing error messages
+* Improved service orphan mitigation; failed provision requests trigger delete requests with retry and backoff
 * Add timestamp prefix to Postgres logs.
 * Fixed bin/console on the API VMs.
 * Provide a default value for cc.internal\_api\_user
