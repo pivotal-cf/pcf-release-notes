@@ -15,9 +15,9 @@ There is a new stack based on Ubuntu Trusty 14.04 LTS.
 <p>In PCF ER 1.4 support has been added for the new stack called cflinuxfs2 derived from Ubuntu Trusty 14.04. 
 <p>
 ##### What do you need to do? 
-
+<li>
 1. If you have an application or app as a service running on Pivotal Cloud Foundry, ensure that your application works when run with the new stack and the corresponding new buildpacks.  We recommend using a blue/green deployment strategy to ensure there is no down time for the app.  Simply running the following command will result in a small amount of down time as old instances are stopped and the app is restaged with the new stack.
-
+</li>
 	cf push app-name -s cflinuxfs2
 
 2. If you have custom buildpacks, you need to ensure that your buildpacks work when run with the new stack.
