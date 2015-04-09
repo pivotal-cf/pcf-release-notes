@@ -30,7 +30,8 @@ If you have custom buildpacks, you need to ensure that your buildpacks work when
 * Go buildpack
 * Python buildpack
 * Ruby buildpack
-* Operator process for rolling out the new stack
+
+###### Operator process for rolling out the new stack
 
 To stay current with security fixes, operators should configure the default stack for new apps to cflinuxfs2 in the Elastic Runtime configuration tab. This means all new applications will get the new default stack:
 
