@@ -10,7 +10,7 @@ title: Pivotal Cloud Foundry Ops Manager v1.4.0.0 Release Notes
 * Ops Manager saves its state to an EBS volume
 * A new field exists to input an SSH keypair name and value
 * New Selector field allows for different sets of fields to be chosen
-* Resource page for IaaS that have instance types shows a list of instance types w/ defaults
+* Resource page for IaaS that have instance types shows a list of instance types with defaults
 * Delete installation is performed via BOSH delete rather than writing directly to IaaS API
 * Pre-delete errands can be toggled on or off
 * All instance types use EBS for ephemeral disk
@@ -43,7 +43,7 @@ title: Pivotal Cloud Foundry Ops Manager v1.4.0.0 Release Notes
 
 ### Product Author Features
 
-* Product templates offer an ips_by_availability_zone with a hash of az's and ip's
+* Product templates offer an `ips_by_availability_zone` with a hash of AZs and IPs
 * Product templates offer nested properties available in manifest snippets
 * Pre-delete errands can be configurable in the UX
 * Deletes are handled via API
