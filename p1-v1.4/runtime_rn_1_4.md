@@ -177,30 +177,31 @@ There are new features in the tile which allow for utilization of an external re
 * Updated LoggregatorEmitter to 4.0.0
 * System now Diego-enabled.
 * Application forcibly closing output stream closes both standard out and standard error to logging system - fixes logging agent stability issues.
-* New tuning parameters for cc polling
+* New tuning parameters for cc polling.
 	* properties.syslog_drain_binder.update_interval_seconds
 	* properties.syslog_drain_binder.polling_batch_size
 * Standardized --config flag across all components.
 
 ###### Component Features And Bug Fixes
-* Numerous general system fixes 
-	* golang 1.3.X now default for most components
+* Numerous general system fixes.
+	* golang 1.3.X now default for most components.
 	* Bug fixes for recovering when NATS connection is lost	* Honor system’s use_ssl_flag
-	* Add timestamps to every HttpStartStop envelope
-* Metron specific features and fixes
-    * Syslog configuration consolidated into Metron package
-	* No longer report metrics for downed component
-	* Fixed where application shutdown logs were not being collectedt
-	* Stability fixes between dropsonde and Metron
-	* Tracks cumulative values now in counters
-* Doppler features and fixes
-	* Increased buffer size for messages to better handle drops
-	* Improved channel operations for better durability
-* TrafficController / NOAA features and fixes
-	* Streaming endpoint can use a cookie to get the oauth token (allows js clients to stream logs)
-* Numerous NOAA additions for firehose
-	* Attempts to reconnect after unexpected disconnect	* Can fulfill Diego container metrics requests
- * Syslog
- 	* Syslog configuration consolidated into metron package
- 	* Syslog aggregator package removed (use metron package for syslog forwarding)
+	* Add timestamps to every HttpStartStop envelope.
+* Metron specific features and fixes.
+    * Syslog configuration consolidated into Metron package.
+	* No longer report metrics for downed component.
+	* Fixed where application shutdown logs were not being collected.
+	* Stability fixes between dropsonde and Metron.
+	* Tracks cumulative values now in counters.
+* Doppler features and fixes.
+	* Increased buffer size for messages to better handle drops.
+	* Improved channel operations for better durability.
+* TrafficController / NOAA features and fixes.
+	* Streaming endpoint can use a cookie to get the oauth token (allows js clients to stream logs).
+	* Numerous NOAA additions for firehose.
+	* Attempts to reconnect after unexpected disconnect.
+	* Can fulfill Diego container metrics requests.
+ * Syslog features and fixes.
+ 	* Syslog configuration consolidated into metron package.
+ 	* Syslog aggregator package removed (use metron package for syslog forwarding).
 
