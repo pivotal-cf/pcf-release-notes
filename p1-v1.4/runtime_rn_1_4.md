@@ -8,24 +8,24 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 
 ### New Features
 
-##### New Stack: Trusty 14.04
+#### New Stack: Trusty 14.04
 
 There is a new stack based on Ubuntu Trusty 14.04 LTS.
 
-The lucid64 stack that has been part of PCF ER for several years as the root file
+The lucid64 stack that has been part of Pivotal Cloud Foundry Elastic Runtime for several years as the root file
 system for containers will reach end of support for security fixes on April 29th, 2015 by Canonical. Developers or Operators will need to take action to ensure existing applications migrate to using the new stack.
 
-In PCF ER 1.4 support has been added for the new stack called cflinuxfs2 derived from Ubuntu Trusty 14.04.
+In PCF Elastic Runtime 1.4 support has been added for the new stack called cflinuxfs2 derived from Ubuntu Trusty 14.04.
 
 ##### What do you need to do?
 
-If you have an application or app as a service running on Pivotal Cloud Foundry, ensure that your application works when run with the new stack and the corresponding new buildpacks.  We recommend using a blue/green deployment strategy to ensure there is no down time for the app.  Simply running the following command will result in a small amount of down time as old instances are stopped and the app is restaged with the new stack.
+If you have an application or app as a service running on Pivotal Cloud Foundry, ensure that your application works when run with the new stack and the corresponding new buildpacks. We recommend using a blue/green deployment strategy to ensure there is no down time for the app. Simply running the following command will result in a small amount of down time as old instances are stopped and the app is restaged with the new stack.
 
 	cf push app-name -s cflinuxfs2
 
 If you have custom buildpacks, you need to ensure that your buildpacks work when run with the new stack.
 
-###### List of buildpacks that now support cflinuxfs2:
+##### List of buildpacks that now support cflinuxfs2:
 
 * Java buildpack
 * NodeJS buildpack
@@ -34,7 +34,7 @@ If you have custom buildpacks, you need to ensure that your buildpacks work when
 * Python buildpack
 * Ruby buildpack
 
-###### Operator process for rolling out the new stack
+##### Operator process for rolling out the new stack
 
 To stay current with security fixes, operators should configure the default stack for new apps to cflinuxfs2 in the Elastic Runtime configuration tab. This means all new applications will get the new default stack:
 
@@ -42,51 +42,51 @@ To stay current with security fixes, operators should configure the default stac
 
 Applications that were created prior to cflinuxfs2 being the default stack will have the lucid64 stack set and therefore developers or operators need to take action.
 
-Operators should decide when to notify users that they’ll be vulnerable to not getting new security patches once lucid64 reaches end of support.
+Operators should decide when to notify users that they will be vulnerable to not getting new security patches once lucid64 reaches end of support.
 Operators should send notice that lucid64 is close to end of life, and developers should migrate to the new cflinuxfs2 stack.
 Larger deployments should manage carefully forcing restaging of apps onto the new stack.
 
-###### lucid64 reaches end of support for security fixes on April 29th, 2015
+##### lucid64 reaches end of support for security fixes on April 29th, 2015
 
 The lucid64 stack will be removed from the Elastic Runtime tile in the next minor release.
 
 When an Elastic Runtime release without lucid64 is deployed, apps that have not yet switched to cflinuxfs2 will not start because their stack will no longer be available.
 
 Operators will need to force the change to the cflinuxfs2 stack and
-restart the applications. There is a cf CLI plugin [stack-changer](https://github.com/simonleung8/cli-stack-changer) available that can be used by administrators to help determine what applications have not migrated.  It can then also be used to move apps to the new stack in batches.
+restart the applications. There is a cf CLI plugin [stack-changer](https://github.com/simonleung8/cli-stack-changer) available that can be used by administrators to help determine what applications have not migrated. It can then also be used to move apps to the new stack in batches.
 
-Once the migration is complete, to remove lucid64 from the list of stacks that cloud controller returns, an admin will need to delete the stack via the cc api.
+Once the migration is complete, to remove lucid64 from the list of stacks that cloud controller returns, an admin will need to delete the stack via the CC API.
 
-	`cf curl /v2/stacks/:lucid64_stack_guid -X DELETE`
+	cf curl /v2/stacks/:lucid64_stack_guid -X DELETE
 
-<b>Known issue: For apps that use native compiled binaries, when the stack is changed, the app may fail to start.  If this occurs, the current work around is to delete the app and then push the app again.</b>
+<b>Known issue: For apps that use native compiled binaries, when the stack is changed, the app may fail to start. If this occurs, the current work around is to delete the app and then push the app again.</b>
 
-###### External RDS and S3 Options:
+#### External RDS and S3 Options:
 There are new features in the tile which allow for utilization of an external relational-database service for the Elastic Runtime databases and an external Amazon S3 bucket for Elastic Runtime’s file storage. This feature is especially useful for those who want to install their product on AWS and take advantage of the RDS and S3 services, and also reduce the number of VMs that Elastic Runtime would otherwise require to serve as the databases.
 
-###### API/cf CLI
+#### API/cf CLI
 * Org and space users can now list other users in the org/space [details](https://www.pivotaltracker.com/n/projects/966314/stories/63345104)
-	* cf org-users ORG
-	* cf space-users ORG SPACE
+	* `cf org-users ORG`
+	* `cf space-users ORG SPACE`
 * Allow admins to create wildcard routes [details](https://www.pivotaltracker.com/n/projects/966314/stories/84533566)
 	* This feature allows cf admins to specify a wildcard route `cf create-route SPACE DOMAIN -n "*"`
 	* The host name must be specified exactly as `"*"`
 	* If you map this wildcard route to an app, requests to any matching routes will be routed to the app. Exact matches of routes will take precedence over the wildcard route.
 * Org Managers can now share private domains across specific organizations [details](https://www.pivotaltracker.com/n/projects/966314/stories/81780716)
-* Added VCAP_APPLICATION to the /v2/apps/:guid/env endpoint [details](https://www.pivotaltracker.com/n/projects/966314/stories/80664762)
-	* cf env APP_NAME
+* Added `VCAP_APPLICATION` to the /v2/apps/:guid/env endpoint [details](https://www.pivotaltracker.com/n/projects/966314/stories/80664762)
+	* `cf env APP_NAME`
 * Added /v2/apps/:guid/copy_bits endpoint [details](https://www.pivotaltracker.com/n/projects/966314/stories/78847148)
-	* cf env APP_NAME
+	* `cf env APP_NAME`
 * Added new endpoint to return memory usage of an org /v2/organizations/:guid/memory_usage [details](https://www.pivotaltracker.com/n/projects/966314/stories/81065364)
 * More flexible nested domain creation rules [details](https://www.pivotaltracker.com/n/projects/966314/stories/83505974)
 * Deprecated AppEvent in Cloud Controller [details](https://www.pivotaltracker.com/n/projects/966314/stories/77626184)
 * Inlined relations api performance enhancements [details](https://www.pivotaltracker.com/n/projects/966314/stories/79917792)
 * Respect true, t, false, and f when querying boolean values [details](https://www.pivotaltracker.com/n/projects/966314/stories/84942534)
 * /v2/apps can now be filtered by organization_guid [details](https://www.pivotaltracker.com/n/projects/966314/stories/85250536)
-* Users can now specify via the api longer start commands [details](https://www.pivotaltracker.com/n/projects/966314/stories/86262896)
+* Users can now specify longer start commands via the API [details](https://www.pivotaltracker.com/n/projects/966314/stories/86262896)
 * /v2/routes can now be queried by organization guid [details](https://www.pivotaltracker.com/n/projects/966314/stories/85007712)
 
-###### Improved stability
+#### Improved stability
 * Added drain for restarts due to memory usage [details](https://www.pivotaltracker.com/n/projects/966314/stories/79416982)
 * Changed HM9000 to communicate with Cloud Controller over HTTP, and not NATS to address an issue where HM9000's API stops responding to requests [details](https://www.pivotaltracker.com/n/projects/966314/stories/80850336)
 * Updated Cloud Controller's Ruby version to 2.1.4 [details](https://www.pivotaltracker.com/n/projects/966314/stories/82227520)
@@ -100,7 +100,7 @@ There are new features in the tile which allow for utilization of an external re
 * Upgraded DEA and Warden to Ruby 2.1.4 [details](https://www.pivotaltracker.com/n/projects/966314/stories/89148118)
 * Update collector, login, and uaa to Ruby 2.1.4 and remove Ruby 1.9.3 [details](https://www.pivotaltracker.com/n/projects/966314/stories/89148118)
 
-###### Services API
+#### Services API
 * Update Service Plan completed [details](https://www.pivotaltracker.com/n/projects/1211680/epics/1533368)
 * Users can change the plan for a service instance, if support for the feature is declared by the service broker [details](https://www.pivotaltracker.com/n/projects/969486/stories/76633662)
 * Removed unnecessary warning when plans without instances are deleted during broker catalog sync [details](https://www.pivotaltracker.com/n/projects/1211680/stories/81215738)
@@ -118,7 +118,7 @@ There are new features in the tile which allow for utilization of an external re
 	* Audit events created for async operations
 	* API docs being published, changes for this feature are marked Experimental and subject to backward incompatible change
 
-###### Misc
+#### Misc
 * Update default `request_timeout_in_seconds` to 900s (15min) [details](https://www.pivotaltracker.com/n/projects/966314/stories/80931258)
 * Upgrade HAProxy to 1.5.10 [details](https://www.pivotaltracker.com/n/projects/966314/stories/82271326)
 * make ha_proxy respect disabling timeout [details](https://www.pivotaltracker.com/n/projects/966314/stories/84079612)
@@ -129,49 +129,48 @@ There are new features in the tile which allow for utilization of an external re
 * Allow core files to be generated in warden [details](https://www.pivotaltracker.com/n/projects/966314/stories/83102260)
 * Sets the status code for upgrade to Websocket and TCP scenarios [details](https://www.pivotaltracker.com/n/projects/966314/stories/84515474)
 * Update nginx for cloud controller to nginx-1.6.2 and pcre to pcre-8.36 [details](https://www.pivotaltracker.com/n/projects/966314/stories/85449216)
-* Re-enabled SIGCHLD on children of wshd details
-* Write hm9000 logs to a file instead of STDOUT details
-* cloud controller worker and clock jobs now logs to files instead of STDOUT details
-* Output timestamps in all ctl logs details
-* nginx_status endpoint is always enabled details
-* Org Auditors can now see space related /v2/events details
-* Escape VCAP_SERVICES and VCAP_APPLICATION env variables details
-* cloudfoundry/gorouter #75: Allow keepalives to the front-end proxy details
-* Add content-type to blobstore file creation details
-* Security Groups applied to the space are visible to non-admins with correct permissions details
+* Re-enabled SIGCHLD on children of wshd [details](https://www.pivotaltracker.com/n/projects/966314/stories/83352380)
+* Write hm9000 logs to a file instead of STDOUT [details](https://www.pivotaltracker.com/n/projects/966314/stories/83879376)
+* cloud controller worker and clock jobs now logs to files instead of STDOUT [details](https://www.pivotaltracker.com/n/projects/966314/stories/76069390)
+* Output timestamps in all ctl logs [details](https://www.pivotaltracker.com/n/projects/966314/stories/80698234)
+* nginx_status endpoint is always enabled [details](https://www.pivotaltracker.com/n/projects/966314/stories/87152482)
+* Org Auditors can now see space related /v2/events [details](https://www.pivotaltracker.com/n/projects/966314/stories/84973576)
+* Escape `VCAP_SERVICES` and `VCAP_APPLICATION` env variables [details](https://www.pivotaltracker.com/n/projects/966314/stories/77045902)
+* cloudfoundry/gorouter #75: Allow keepalives to the front-end proxy [details](https://www.pivotaltracker.com/n/projects/966314/stories/88383116)
+* Add content-type to blobstore file creation [details](https://www.pivotaltracker.com/n/projects/966314/stories/89861714)
+* Security Groups applied to the space are visible to non-admins with correct permissions [details](https://www.pivotaltracker.com/n/projects/966314/stories/82055042)
 
-###### Bug Fixes
+### Bug Fixes
 * Fixed several NATS split brain issues
 * Fixed several container transitions on the DEA
 * Fixed an issue where logs were not being captured when an app is shutting down
-* Fixed an issue where the DEA needed twice the space requested to successfully place an app details
-* Fix key type issue in graphite historian details
-* Fixed Mysql 5.6 issue on timestamp creation details
-* Fixed issue where deadlocks were happening on delayed job workers details
-* Fixed SpaceDeveloper able to move a service instance from one space to another details
-* Fix incompatibility with MySQL 5.5 when setting timezone details
-* Fixed time consistency in cloud controller details
-* Renaming a service instance no longer causes instance to become stuck in 'update in progress' details
-* Fixed an issue where deleting a route bound to a running app with multiple routes would actually result in a small amount of downtime for the app details
-* Fixed a bug when an app has a lot of fingerprints matched during resource matching, it should still be able to stage details
+* Fixed an issue where the DEA needed twice the space requested to successfully place an app [details](https://www.pivotaltracker.com/n/projects/966314/stories/81721664)
+* Fix key type issue in graphite historian [details](https://www.pivotaltracker.com/n/projects/966314/stories/83720516)
+* Fixed Mysql 5.6 issue on timestamp creation [details](https://www.pivotaltracker.com/n/projects/966314/stories/78499982)
+* Fixed issue where deadlocks were happening on delayed job workers [details](https://www.pivotaltracker.com/n/projects/966314/stories/84346198)
+* Fixed SpaceDeveloper able to move a service instance from one space to another [details](https://www.pivotaltracker.com/n/projects/1211680/stories/84152630)
+* Fix incompatibility with MySQL 5.5 when setting timezone [details](https://www.pivotaltracker.com/n/projects/966314/stories/78499982)
+* Fixed time consistency in cloud controller [details](https://www.pivotaltracker.com/n/projects/966314/stories/82077856)
+* Renaming a service instance no longer causes instance to become stuck in 'update in progress' [details](https://www.pivotaltracker.com/n/projects/1211680/stories/88802018)
+* Fixed an issue where deleting a route bound to a running app with multiple routes would actually result in a small amount of downtime for the app [details](https://www.pivotaltracker.com/n/projects/966314/stories/88643384)
+* Fixed a bug when an app has a lot of fingerprints matched during resource matching, it should still be able to stage [details](https://www.pivotaltracker.com/n/projects/966314/stories/89572944)
 * Recursive deletion of a space no longer aborts after first failure to delete a resource within (deleting all resources that can be deleted) and deletion of service instances and bindings are not rolled back, preventing orphans. Deletion of applications during recursive deletion of a space remains in a transaction; failure to delete one app will roll back deletion of all apps in the space.
 
 ## UAA and Login Server
-###### New Features
-* Improved SAML SSO Setup via Ops Manager Console
+### New Features
+* Improved SAML SSO Setup via Ops Manager Console:
 
 	Earlier Single Sign-On for the platform could be
-	set up only by providing the Meta Data URL for the SAML Identity Provider.We now support two ways to set up the Identity provider for SSO : Meta Data URL and Meta Data XML. This feature extends support for Identity Providers which don’t support a Meta Data URL.
-	<Need to add the link to the doc page containing SSO Configuration>
+	set up only by providing the Meta Data URL for the SAML Identity Provider. We now support two ways to set up the Identity provider for SSO: Meta Data URL and Meta Data XML. This feature extends support for Identity Providers that do not support a Meta Data URL.
+	For more information, refer to [Configuring Single Sign-On](../../opsguide/sso.html).
 
-* Mapping LDAP Groups to Administrator Role  via Ops Manager
-
+* Mapping LDAP Groups to Administrator Role  via Ops Manager:
 
 	The LDAP Configuration page now supports configuring the LDAP Group information. This allows for LDAP groups to mapped to the Administrator Role in Cloud Foundry.
-	<Need to add the link to the doc page containing LDAP Configuration>
+	For more information, refer to [Connecting Elastic Runtime to LDAP](../../customizing/ldap-uaa.html).
 
 ## Logging, Analytics and Metrics
-###### New Features
+### New Features
 
 * Loggregator Firehose.
 * Changing syslog drain location no longer requires application restaging.
@@ -179,11 +178,11 @@ There are new features in the tile which allow for utilization of an external re
 * System now Diego-enabled.
 * Application forcibly closing output stream closes both standard out and standard error to logging system - fixes logging agent stability issues.
 * New tuning parameters for cc polling.
-	* properties.syslog_drain_binder.update_interval_seconds
-	* properties.syslog_drain_binder.polling_batch_size
-* Standardized --config flag across all components.
+	* properties.syslog\_drain\_binder.update\_interval\_seconds
+	* properties.syslog\_drain\_binder.polling\_batch\_size
+* Standardized `--config` flag across all components.
 
-###### Component Features And Bug Fixes
+### Component Features And Bug Fixes
 * Numerous general system fixes.
 	* golang 1.3.X now default for most components.
 	* Bug fixes for recovering when NATS connection is lost.
@@ -207,10 +206,10 @@ There are new features in the tile which allow for utilization of an external re
  	* Syslog configuration consolidated into metron package.
  	* Syslog aggregator package removed (use metron package for syslog forwarding).
 
-###### Bug Fixes
+### Bug Fixes
 
-* Bug fixed where application shutdown logs were not being collected by loggregator
-* Bug fixes for recovering when NATS connection is lost
+* Bug fixed where application shutdown logs were not being collected by loggregator.
+* Bug fixes for recovering when NATS connection is lost.
 
 ## Notifications
 
@@ -221,7 +220,7 @@ There are new features in the tile which allow for utilization of an external re
 * Manage existing internal notifications and custom messages via an API so that administrators can:
 	* Create and edit custom message templates in HTML and plain text
 	* Send notifications to individuals, spaces, organizations or all users
-* You can configure your own SMTP server in the runtime tile
+* You can configure your own SMTP server in the runtime tile.
 
 ## Autoscaling
 
@@ -304,7 +303,7 @@ There are new features in the tile which allow for utilization of an external re
 	* Windows build improvements (via [Josh Ghiloni](https://github.com/cloudfoundry/java-buildpack/pull/117))
 	* JRebel support
 
-## Security - CVE fixes have been implemented since v1.3.0.0 and released via security patches. 
+## Security - CVE fixes have been implemented since v1.3.0.0 and released via security patches.
 
 * BASH Shellshock CVE-2014-6271, CVE-2014-7169, CVE-2014-7186, and CVE-2014-7187
 * Updated HAProxy to disable SSLv3. This addresses POODLE CVE-2014-3566
@@ -317,6 +316,4 @@ There are new features in the tile which allow for utilization of an external re
 * Updated rootfs to address openssl vulnerabilities [details](https://github.com/cloudfoundry/cf-release/commit/e36a1c2) [ubuntu-notice](http://www.ubuntu.com/usn/usn-2459-1/)
 * Updated default cipher string for HAProxy [details](https://www.pivotaltracker.com/n/projects/966314/stories/86175600)
 * Application Security Groups now support logging of the first packet of outbound tcp traffic [details](https://www.pivotaltracker.com/n/projects/966314/stories/73905126) [apidoc](http://apidocs.cloudfoundry.org/198/security_groups/creating_a_security_group.html)
-
->>>>>>> Adding content for 1.4 runtime release notes, adding image, starting to add links and formatting
 
