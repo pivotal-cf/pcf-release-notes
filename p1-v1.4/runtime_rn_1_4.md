@@ -142,6 +142,8 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 * cloudfoundry/gorouter #75: Allow keepalives to the front-end proxy [details](https://www.pivotaltracker.com/n/projects/966314/stories/88383116)
 * Add content-type to blobstore file creation [details](https://www.pivotaltracker.com/n/projects/966314/stories/89861714)
 * Security Groups applied to the space are visible to non-admins with correct permissions [details](https://www.pivotaltracker.com/n/projects/966314/stories/82055042)
+* Improved service broker error handling and user-facing error messages
+* Improved service orphan mitigation; failed provision requests trigger delete requests with retry and backoff
 
 ### Bug Fixes
 * Fixed several NATS split brain issues
