@@ -174,7 +174,7 @@ There are new features in the tile which allow for utilization of an external re
 ###### New Features
 * Loggregator Firehose.
 * Changing syslog drain location no longer requires application restaging.
-* Updated LoggregatorEmitter to 4.0.0
+* Updated LoggregatorEmitter to 4.0.0 .
 * System now Diego-enabled.
 * Application forcibly closing output stream closes both standard out and standard error to logging system - fixes logging agent stability issues.
 * New tuning parameters for cc polling.
@@ -185,7 +185,8 @@ There are new features in the tile which allow for utilization of an external re
 ###### Component Features And Bug Fixes
 * Numerous general system fixes.
 	* golang 1.3.X now default for most components.
-	* Bug fixes for recovering when NATS connection is lost	* Honor system’s use_ssl_flag
+	* Bug fixes for recovering when NATS connection is lost.
+	* Honor system’s use_ssl_flag.
 	* Add timestamps to every HttpStartStop envelope.
 * Metron specific features and fixes.
     * Syslog configuration consolidated into Metron package.
@@ -201,7 +202,7 @@ There are new features in the tile which allow for utilization of an external re
 	* Numerous NOAA additions for firehose.
 	* Attempts to reconnect after unexpected disconnect.
 	* Can fulfill Diego container metrics requests.
- * Syslog features and fixes.
+* Syslog features and fixes.
  	* Syslog configuration consolidated into metron package.
  	* Syslog aggregator package removed (use metron package for syslog forwarding).
 
