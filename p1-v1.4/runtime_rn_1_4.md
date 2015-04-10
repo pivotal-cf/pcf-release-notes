@@ -212,6 +212,23 @@ There are new features in the tile which allow for utilization of an external re
 * Bug fixed where application shutdown logs were not being collected by loggregator
 * Bug fixes for recovering when NATS connection is lost
 
+## Notifications
+
+* A new centrally-managed application service to notify users about platform and application events such as:
+	* New service invitations
+	* Planned downtime alerts
+	* Application performance warnings
+* Manage existing internal notifications and custom messages via an API so that administrators can:
+	* Create and edit custom message templates in HTML and plain text
+	* Send notifications to individuals, spaces, organizations or all users
+* You can configure your own SMTP server in the runtime tile
+
+## Autoscaling
+
+* Auto-scaling is now officially GA after a successful beta period
+* Set min and max instances by % CPU utilization or calendar schedule
+* Configured from console
+
 ## Buildpacks
 
 ### New Features
@@ -287,26 +304,7 @@ There are new features in the tile which allow for utilization of an external re
 	* Windows build improvements (via [Josh Ghiloni](https://github.com/cloudfoundry/java-buildpack/pull/117))
 	* JRebel support
 
-#### Bug Fixes
-
-## Notifications
-
-* A new centrally-managed application service to notify users about platform and application events such as:
-	* New service invitations
-	* Planned downtime alerts
-	* Application performance warnings
-* Manage existing internal notifications and custom messages via an API so that administrators can:
-	* Create and edit custom message templates in HTML and plain text
-	* Send notifications to individuals, spaces, organizations or all users
-* You can configure your own SMTP server in the runtime tile
-
-## Autoscaling
-
-* Auto-scaling is now officially GA after a successful beta period
-* Set min and max instances by % CPU utilization or calendar schedule
-* Configured from console
-
-## Security
+## Security - CVE fixes have been implemented since v1.3.0.0 and released via security patches. 
 
 * BASH Shellshock CVE-2014-6271, CVE-2014-7169, CVE-2014-7186, and CVE-2014-7187
 * Updated HAProxy to disable SSLv3. This addresses POODLE CVE-2014-3566
