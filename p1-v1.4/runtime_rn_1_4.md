@@ -229,7 +229,7 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 
 * Auto-scaling is now officially GA after a successful beta period
 * Set min and max instances by % CPU utilization or calendar schedule
-* Configured from console
+* Configured from apps manager.
 
 ## Buildpacks
 
