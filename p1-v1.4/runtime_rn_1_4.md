@@ -171,7 +171,7 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 * Mapping LDAP Groups to Administrator Role via Ops Manager:
 
 	The LDAP Configuration page now supports configuring the LDAP Group information. This allows for LDAP groups to mapped to the Administrator Role in Cloud Foundry.
-	For more information, refer to [Connecting Elastic Runtime to LDAP](../../opsguide/ldap-uaa.html).
+	For more information, refer to [Configuring LDAP](../../opsguide/ldap-uaa.html).
 
 ## Logging, Analytics and Metrics
 ### New Features
