@@ -12,8 +12,7 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 
 There is a new stack based on Ubuntu Trusty 14.04 LTS.
 
-The lucid64 stack that has been part of Pivotal Cloud Foundry Elastic Runtime for several years as the root file
-system for containers will reach end of support for security fixes on April 29th, 2015 by Canonical. Developers or Operators will need to take action to ensure existing applications migrate to using the new stack.
+The lucid64 stack that has been part of Pivotal Cloud Foundry Elastic Runtime for several years as the root file system for containers will reach end of support for security fixes on April 29th, 2015 by Canonical. Developers or Operators will need to take action to ensure existing applications migrate to using the new stack.
 
 In PCF Elastic Runtime 1.4 support has been added for the new stack called cflinuxfs2 derived from Ubuntu Trusty 14.04.
 
@@ -169,10 +168,10 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 	set up only by providing the Meta Data URL for the SAML Identity Provider. We now support two ways to set up the Identity provider for SSO: Meta Data URL and Meta Data XML. This feature extends support for Identity Providers that do not support a Meta Data URL.
 	For more information, refer to [Configuring Single Sign-On](../../opsguide/sso.html).
 
-* Mapping LDAP Groups to Administrator Role  via Ops Manager:
+* Mapping LDAP Groups to Administrator Role via Ops Manager:
 
 	The LDAP Configuration page now supports configuring the LDAP Group information. This allows for LDAP groups to mapped to the Administrator Role in Cloud Foundry.
-	For more information, refer to [Connecting Elastic Runtime to LDAP](../../customizing/ldap-uaa.html).
+	For more information, refer to [Connecting Elastic Runtime to LDAP](../../opsguide/ldap-uaa.html).
 
 ## Logging, Analytics and Metrics
 ### New Features
@@ -191,7 +190,7 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 * Numerous general system fixes.
 	* golang 1.3.X now default for most components.
 	* Bug fixes for recovering when NATS connection is lost.
-	* Honor system’s use_ssl_flag.
+	* Honor system’s use\_ssl\_flag.
 	* Add timestamps to every HttpStartStop envelope.
 * Metron specific features and fixes.
     * Syslog configuration consolidated into Metron package.
@@ -208,8 +207,8 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 	* Attempts to reconnect after unexpected disconnect.
 	* Can fulfill Diego container metrics requests.
 * Syslog features and fixes.
- 	* Syslog configuration consolidated into metron package.
- 	* Syslog aggregator package removed (use metron package for syslog forwarding).
+ 	* Syslog configuration consolidated into Metron package.
+ 	* Syslog aggregator package removed (use Metron package for syslog forwarding).
 
 ### Bug Fixes
 
