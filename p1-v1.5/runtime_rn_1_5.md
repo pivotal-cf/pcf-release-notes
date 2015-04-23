@@ -33,11 +33,8 @@ If you have custom buildpacks, you need to ensure that your buildpacks work when
 
 <b>Known issue: For apps that use native compiled binaries, when the stack is changed, the app may fail to start. If this occurs, the current work around is to delete the app and then push the app again.</b>
 
-#### External RDS and S3 Options:
-There are new features in the tile which allow for utilization of an external relational-database service for the Elastic Runtime databases and an external Amazon S3 bucket for Elastic Runtime’s file storage. This feature is especially useful for those who want to install their product on AWS and take advantage of the RDS and S3 services, and also reduce the number of VMs that Elastic Runtime would otherwise require to serve as the databases.
-
-#### Highly Available MySQL Service
-MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed in a highly-available configuration. This introduces a proxy tier which routes MySQL connections from internal components to healthy cluster nodes.
+#### Improved MySQL Service
+MySQL, used by Notifications, Autoscaling, and Apps Manager, ... explain switchboard + improved failure recovery
 
 #### API/cf CLI
 * Org and space users can now list other users in the org/space [details](https://www.pivotaltracker.com/n/projects/966314/stories/63345104)
