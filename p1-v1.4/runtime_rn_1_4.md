@@ -6,6 +6,8 @@ title: Pivotal Elastic Runtime v1.4.0.0 Release Notes
 
 ## Elastic Runtime
 
+CF Runtime Version: 205
+
 ### New Features
 
 #### New Stack: Trusty 14.04
