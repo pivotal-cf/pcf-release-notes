@@ -3,15 +3,17 @@ title: Pivotal Elastic Runtime v1.2.2.0 Release Notes
 ---
 
 ## Changes since v1.2.1.0: 
+CF Runtime Version: 172
 * Total etcd jobs have been reduded from 3 to 1.
 * DEA deterministic evacuation timeout has been increased from 2 to 10 minutes.
 
 ## Changes since v1.2.0.0: 
+CF Runtime Version: 170
 * Operators may now specify an external LDAP endpoint to configure for the UAA.
 * An issue was fixed where Pivotal Ops Metrics could not be installed after an external syslog aggregator endpoint was configured.
 
 ## Changes since v1.1.0.0:
-
+CF Runtime Version: 158
 * Go-router now supports sending `X-Vcap-Request-Id` to all routes to give both CF users and CF components the ability to trace the lifecycle of a request.
 * Space attributes such as id and name are now included in `VCAP_APPLICATION`.
 * You can now find Cloud Controller API docs at [http://apidocs.cloudfoundry.org](http://apidocs.cloudfoundry.org).
