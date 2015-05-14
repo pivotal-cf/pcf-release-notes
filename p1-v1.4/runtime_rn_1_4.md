@@ -1,6 +1,10 @@
 ---
 title: Pivotal Elastic Runtime v1.4 Release Notes
 ---
+## v1.4.2 patch release:
+
+Elastic Runtime 1.4.2 cleans up some configuration files in cf-release.
+
 ## v1.4.1 patch release:
 
 Elastic Runtime 1.4.1 includes a fix for v1.4.0 that enables configuration of the number of Doppler and Loggregator Traffic-Controller instances for HA deployments.
