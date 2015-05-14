@@ -16,7 +16,7 @@ Ops Manager 1.4.1.0 has an increased timeout setting of 30 minutes for thin web 
 
 * AWS support
 * Ops Manager saves its state to an EBS volume
-* A new field exists to input an SSH keypair name and value
+* A new field exists to input an SSH key pair name and value
 * New Selector field allows for different sets of fields to be chosen
 * Resource page for IaaS that have instance types shows a list of instance types with defaults
 * Delete installation is performed via BOSH delete rather than writing directly to IaaS API
@@ -27,7 +27,7 @@ Ops Manager 1.4.1.0 has an increased timeout setting of 30 minutes for thin web 
 * Validation of values works in selectors
 * Elastic Load Balancer support
 * Compilation VMs are re-used
-* Installation files nolonger include the bloat of stemcells of compiled packages
+* Installation files no longer include the bloat of stemcells of compiled packages
 * Importing installation files into the wrong IaaS is handled gracefully
 * Verifiers built for S3 and MySQL
 
@@ -40,12 +40,12 @@ Ops Manager 1.4.1.0 has an increased timeout setting of 30 minutes for thin web 
 
 * Ops Manager allocates enough IPs for compilation VMs
 * Jobs can be scaled down with static IPs
-* MicroBOSH DNS is nolonger prepended to the DNS list in any manifest
+* MicroBOSH DNS is no longer prepended to the DNS list in any manifest
 * AZ Verifiers on vCD do not fail
 * Boolean properties can be defaulted to 'true'
 * Null byte errors during errands
 * Ruby errors removed from BOSH install log
-* NGINX Upload modules inclded across IaaS
+* NGINX Upload modules included across IaaS
 * Compilation VMs have adequate sizes
 * Uploads increased to 15GB
 
