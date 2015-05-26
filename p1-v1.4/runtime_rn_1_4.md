@@ -1,9 +1,13 @@
 ---
 title: Pivotal Elastic Runtime v1.4 Release Notes
 ---
+## v1.4.3 patch release:
+
+Elastic Runtime 1.4.3 includes a patch for the Canonical Ubuntu USN-2617-1 FUSE vulnerability, which allows privilege escalation via lack of environment scrubbing.
+
 ## v1.4.2 patch release:
 
-Elastic Runtime 1.4.2 cleans up some configuration files in cf-release.
+Elastic Runtime 1.4.2 includes a patch for the Cloud Foundry CVE-2015-1855 Cloud Controller Path Traversal vulnerability, which allows a remote authenticated attacker to upload arbitrary files to the server running a Cloud Controller instance outside the isolated application container.
 
 ## v1.4.1 patch release:
 
