@@ -38,7 +38,7 @@ If you have custom buildpacks, you need to ensure that your buildpacks work when
 
 (link to Ben's doc?)
 
-#### Security Config of Runtime
+#### Security Configuration of Runtime
 
 This new section allows configuration of security settings for your Pivotal Cloud Foundry Elastic Runtime components, such as HAProxy, Router, and the DEAs, to ensure that your system meets expected security standards.
 
@@ -48,6 +48,11 @@ Also in this section are fields which allow setting of the HAProxy SSL certifica
 
 #### Other Runtime Features
 
+##### S3-Compatible Filestore Configuration
+
+OpenStack allows for use of an external filestore that is compatible with Amazon's AWS S3 buckets. You can now choose whether you want to deploy Pivotal Elastic Runtime using an internal filestore or an external S3-compatible bucket, whether it is hosted by AWS or Openstack.
+
+If using an external filestore, you can configure the URL endpoint of your S3-compatible filestore under the File Storage Config section. For example, if you are using AWS S3, you can keep this field configured with the default value https://s3.amazonaws.com.
 
 #### Improved MySQL Service
 MySQL, used by Notifications, Autoscaling, and Apps Manager, ... explain switchboard + improved failure recovery
