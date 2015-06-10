@@ -4,9 +4,9 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * Pivotal Apps Mananger may be unreachable for a brief period of time during the upgrade of Pivotal Elastic Runtime to v1.5. This is due to the consolidation of UAA and Login Server in this particular upgrade.
 
-* The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already applied your own cipher sets. The ciphers will not return to their default values when deleted, and will instead be interpretted as an empty cipher set.
+* The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpretted as an empty cipher set.
 
-* If you had LDAP groups configured in the LDAP Configuration of Elastic Runtime from previous versions, then upon upgrade to v1.5 you will need to go back into the LDAP Config to re-add those groups. These fields in v1.5 are now nested under a radio button selector which defaults to "No Groups" in v1.5. Simply switch your selection to "Admin Groups" and fill in the corresponding fields.
+* If you had LDAP Admin groups configured in the LDAP Configuration of Elastic Runtime from v1.4, then upon upgrade to v1.5 you will need to go back into the LDAP Config section to re-add those groups. These fields in v1.5 are now nested under a radio button selector which defaults to "No Groups" in v1.5. You can witch your selection to "Enable Admin Groups" and fill in the corresponding fields with the same values you used in configuring v1.4.
 
 #### Pivotal Elastic Runtime v1.4 Known Issues Which Still Apply in v1.5
 
