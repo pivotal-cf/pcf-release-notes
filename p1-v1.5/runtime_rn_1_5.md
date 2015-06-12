@@ -56,7 +56,7 @@ Also in this section are fields which allow setting of the HAProxy SSL certifica
 
 OpenStack allows for use of an external filestore that is compatible with Amazon's AWS S3 buckets. You can now choose whether you want to deploy Pivotal Elastic Runtime using an internal filestore or an external S3-compatible bucket, whether it is hosted by AWS or Openstack.
 
-If using an external filestore, you can configure the URL endpoint of your S3-compatible filestore under the File Storage Config section. For example, if you are using AWS S3, you can keep this field configured with the default value https://s3.amazonaws.com.
+If using an external filestore, you can configure the URL endpoint of your S3-compatible filestore under the File Storage Config section. For example, if you are using AWS S3, you can keep this field configured with the default value https://s3.amazonaws.com. Note that this default points to US East region.
 
 #### Improved MySQL Service
 MySQL, used by Notifications, Autoscaling, and Apps Manager, ... explain switchboard + improved failure recovery
