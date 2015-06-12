@@ -8,11 +8,11 @@ title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 
 ### New Features
 
-#### Default Stack: Trusty 14.04
+#### Default Stack: cflinuxfs2
 
 The lucid64 stack that has been part of Pivotal Cloud Foundry Elastic Runtime for several years as the root file system for containers reached end of support for security fixes on April 29th, 2015 by Canonical. Developers or Operators will need to take action to ensure existing applications migrate to using the new stack.
 
-Lucid64 is now no longer an option as the default stack for Pivotal Cloud Foundry Elastic Runtime. The default will be cflinuxfs2 derived from Ubuntu Trusty 14.04. The lucid64 stack is however still available as one of the non-default options when choosing your app stack.
+Lucid64 is now no longer an option as the default stack for Pivotal Cloud Foundry Elastic Runtime. The default will be cflinuxfs2 derived from Ubuntu Trusty Tahr 14.04. The lucid64 stack is however still available as one of the non-default options when choosing your app stack.
 
 ##### What do you need to do?
 
