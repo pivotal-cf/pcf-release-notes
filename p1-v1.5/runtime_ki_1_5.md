@@ -8,7 +8,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * If you had LDAP Admin groups configured in the LDAP Configuration of Elastic Runtime from v1.4, then upon upgrade to v1.5 you will need to go back into the LDAP Config section to re-add those groups. These fields in v1.5 are now nested under a radio button selector which defaults to "No Groups" in v1.5. You can witch your selection to "Enable Admin Groups" and fill in the corresponding fields with the same values you used in configuring v1.4.
 
-* If upgrading PCF Elastic Runtime from v1.4 to v1.5, you will want to move the new static buildpack that was introduced in v1.5 to be the first buildpack in your system's list of buildpacks, so that any application with a static file will detect the presence of the static buildpack first. New installations of PCF Elastic Runtime v1.5 will have this static buildpack positioned at the front of the list automatically.
+* If upgrading PCF Elastic Runtime from v1.4 to v1.5, you may want to move the new static buildpack that was introduced in v1.5 to be the first buildpack in your system's list of buildpacks, so that any application with a static file will detect the presence of the static buildpack first. New installations of PCF Elastic Runtime v1.5 will have this static buildpack positioned at the front of the list automatically.
 
 #### Pivotal Elastic Runtime v1.4 Known Issues Which Still Apply in v1.5
 
