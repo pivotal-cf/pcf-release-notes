@@ -1,6 +1,9 @@
 ---
 title: Pivotal Elastic Runtime v1.4 Release Notes
 ---
+## v1.4.4 patch release:
+Elastic Runtime 1.4.4 includes a patch for the Canonical Ubuntu USN-2635-1 security fix. This patch resolves a use-after-free flaw that was discovered in the Linux kernel’s ipv4 ping support. A local user could exploit this flaw to gain administrative privileges on the system. Note that a corresponding stemcell for the specific IaaS that Pivotal Cloud Foundry is running on (2983 - also included in the Pivotal Network release for this patch) must be uploaded and installed along with this Elastic Runtime release. 
+
 ## v1.4.3 patch release:
 
 Elastic Runtime 1.4.3 includes a patch for the Canonical Ubuntu USN-2617-1 FUSE vulnerability, which allows privilege escalation via lack of environment scrubbing.
