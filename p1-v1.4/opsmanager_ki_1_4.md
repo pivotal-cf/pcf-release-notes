@@ -15,6 +15,7 @@ Some of these issues have been fixed in subsequent patch releases to 1.4. Consul
 * DNS and Gateway ICMP errors will occur on AWS even if ICMP is allowed
 * Unnecessary job instances must be reduced manually (MySQL, HA Proxy if RDS & ELBs are used)
 * Multiple users browsing Ops Manager at the same time can cause locking issues
+* Before upgrading tiles on Ops Manager 1.4 or earlier, Pivotal recommends that you increase the size of Ops Manager Director’s persistent disk to at least 40 GB.  This is controlled by accessing Ops Manager Director tile -> Resource Config -> Ops Man Director -> Persistent Disk (MB).
 
 ## Existing issues
 
