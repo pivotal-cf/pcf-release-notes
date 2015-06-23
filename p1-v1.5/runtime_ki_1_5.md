@@ -2,7 +2,7 @@
 title: Pivotal Elastic Runtime v1.5 Known Issues
 ---
 
-* Pivotal Apps Mananger may be unreachable for a brief period of time during the upgrade of Pivotal Elastic Runtime to v1.5. This is due to a migration of all Apps Manager instances that were running on the unsupported Lucid64 stack over to  Ubuntu Trusty Tahr 14.04. This downtime can be avoided if you manually push Apps Manager to the newer stack if it hasn't been already, before you upgrade Elastic Runtime to v1.5.
+* If you Apps Manager and Apps Usage Service applications are running on the unsupported Lucid64 stack, you should peep these errands on Pivotal Elastic Runtime turned on for the v1.5 upgrade, so that they migrate the appropriate system applications over to the new Ubuntu Trusty Tahr 14.04 stack: Push Apps Manager and Push App Usage Service. These applications may be unreachable for a brief period of time during the upgrade of Pivotal Elastic Runtime to v1.5. This downtime can be avoided if you manually push these applications to the Ubuntu Trusty Tahr 14.04 stack before you upgrade Elastic Runtime to v1.5.
 
 * The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpretted as an empty cipher set.
 
