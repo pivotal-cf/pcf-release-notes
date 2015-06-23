@@ -10,6 +10,11 @@ title: Pivotal Cloud Foundry Apps Manager v1.5.0.0 Known Issues
 * The App Usage Service worker app is not multi-threaded and should not be scaled beyond one instance. 
 * Deployments with self-signed or invalid certs should have 'Trust Self-Signed Certificates' setting checked when configuring 'IPs and Ports' for Elastic Runtime in Ops Manager. If not, users will likely see redirect loops on login. 
 
+### Miscellaneous
+
+* The version of Apps Manager v1.5 in the page footer erroneously shows v1.4. 
+* Invitations created before the change from the 'console' subdomain to the 'apps' will fail silently. 
+
 ## Existing issues
 
 * Users with the cloud_controller.admin scope do not see events on the App Dashboard unless they also have the Space Developer role.
