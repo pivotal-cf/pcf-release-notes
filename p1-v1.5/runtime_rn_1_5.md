@@ -11,8 +11,11 @@ title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 #### Default Stack: cflinuxfs2
 
 New deployments will no longer have the lucid64 stack available.
+
 Operators are encouraged to migrate all apps to cflinuxfs2 as mentioned in the v1.4 release notes.
+
 A future release will completely remove the lucid64 stack from Pivotal Cloud Foundry and after upgrading to this subsequent release, apps that have not been migrated to cflinuxfs2 will fail to start.
+
 Further details can be found here: https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack
 
 #### Diego-beta Tile and Windows 2012 stack 
@@ -29,7 +32,11 @@ By checking the ???? checkbox, self-signed SSL certificates used by HAProxy or y
 
 By checking the ???? checkbox, it disables a restriction on the DEA that disallows containers on a particular DEA from communicating with each other.  It is not recommended to check this checkbox for multi-tenant environments.  
 
-This section also includes fields which allow setting of the HAProxy SSL certificate, HAProxy SSL ciphers, and Router SSL ciphers. The HAProxy SSL certificate field is now an optional field as of 1.5. You do not need to provide a certificate if you are using an external load-balancer instead of Cloud Foundry HAProxy. The cipher fields are also optional, and will use default Cloud Foundry cipher sets unless you enter your own.
+This section also includes fields which allow setting of the HAProxy SSL certificate, HAProxy cipher string, and GoRouter cipher string. 
+
+The HAProxy SSL certificate field is now an optional field.
+
+Custom cipher strings for HAProxy and GoRouter are also optional fields.
 
 #### Other Runtime Features
 
@@ -43,7 +50,13 @@ If using an external filestore, you can configure the URL endpoint of your S3-co
 MySQL, used by Notifications, Autoscaling, and Apps Manager, ... explain switchboard + improved failure recovery
 
 #### API/cf CLI
-* 
+
+A space developer can create a wildcard route for private domains.  Previously, only admins were allowed to create wildcard routes.
+
+`cf create-route SPACE DOMAIN -n "*"`
+
+For example, you could create a wildcard route *.example.com to be mapped to a special 404 app called my404app and myapp.example.com to be mapped to myapp.
+Traffic to myapp.example.com would be routed to myapp and traffic to unknown.example.com would be routed to my404app. 
 
 #### Improved stability
 * 
@@ -72,7 +85,7 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, ... explain switchb
 
 ### Bug Fixes
 
-* Bug fixed 
+* Fixed an issue where buildpack_cache was not busted when switching stacks
 
 ## Buildpacks
 
