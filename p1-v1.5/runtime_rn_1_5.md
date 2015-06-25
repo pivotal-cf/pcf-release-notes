@@ -71,9 +71,23 @@ Traffic to myapp.example.com would be routed to myapp and traffic to unknown.exa
 * Fixed an issue where buildpack_cache was not busted when switching stacks
 
 ## UAA and Login Server
-### New Features
-#### UAA and Login Server are now merged into one instance.
-* 
+#### UAA & Login Server Merger
+UAA and Login Server have been merged into a single component. For Pivotal Cloud Foundry deployment this translates to fewer vms and ease of operations. [Details](https://github.com/cloudfoundry/uaa/releases/tag/2.0.0)
+
+#### Single Sign-On for Applications on Pivotal Cloud Foundry
+Muti-tenancy support has been added to UAA. [Details](https://github.com/cloudfoundry/uaa/releases/tag/2.1.0)
+
+This is leveraged by the new Pivotal Single Sign-On Service. Pivotal Single Sign-On service provides a quick and hassle free way for your applications to be secured by federated identity providers with minimal coding effort. It connects your applications via Single Sign-On while streamlining the end user experience. It is a multi-tenant service which allows both Applications & Identity Providers to be segregated based on the organization needs. [Details](http://docs.pivotal.io/p-identity/index.html)
+
+#### Runbooks available for CA SiteMinder and Ping Identity Single Sign-On
+Detailed steps for configuring Single Sign-On between Pivotal Cloud Foundry and industry standard identity providers like CA SiteMinder & Ping Identity are now available. [Details](http://docs.pivotal.io/pivotalcf/opsguide/sso.html#configure-identity-provider)
+
+#### Bug Fixes
+The issue with LDAP authentication not working if LDAP group search base is not speficied has been addressed. 
+[Details](http://docs.pivotal.io/pivotalcf/pcf-release-notes/p1-v1.4/runtime_ki_1_4.html)
+
+When LDAP is configured via Ops Manager console, the operator is now provided an option whether they want to enable Admin Group Mapping. This is an optional configuration. 
+For existing deployments using the LDAP Admin group mapping, please manually make the right selection and populate the Admin Search Group base and the Search Filter before applying the changes in the Elactic Runtime tile for upgrade.
 
 ## Logging, Analytics and Metrics
 
