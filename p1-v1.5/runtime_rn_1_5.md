@@ -68,7 +68,7 @@ Traffic to myapp.example.com would be routed to myapp and traffic to unknown.exa
 * 
 
 ### Bug Fixes
-* Fixed 
+* Fixed an issue where buildpack_cache was not busted when switching stacks
 
 ## UAA and Login Server
 ### New Features
@@ -76,16 +76,32 @@ Traffic to myapp.example.com would be routed to myapp and traffic to unknown.exa
 * 
 
 ## Logging, Analytics and Metrics
+
 ### New Features
-
-* 
-
-### Component Features And Bug Fixes
-* Numerous general system fixes.
+* Metron now supports statsd protocol endpoint.
+  * Conduit support for statsd. [details] (https://www.pivotaltracker.com/story/show/74358484)
+  * Support for:
+    * ...gauges. [details] (https://www.pivotaltracker.com/story/show/91452210)
+    * ...counters. [details] (https://www.pivotaltracker.com/story/show/91450340)
+    * ...timers. [details] (https://www.pivotaltracker.com/story/show/91452204)
+  * Sample statsd implementation:
+    * ...in go. [details] (https://www.pivotaltracker.com/story/show/91449852)
+    * ...in ruby. [details] (https://www.pivotaltracker.com/story/show/91449874)
+    * ...in java. [details] (https://www.pivotaltracker.com/story/show/91450916)
+  * Verified that increment/decrement function correctly. [details] (https://www.pivotaltracker.com/story/show/91697848)
+* Loggregator now generates UUID for components. [details] (https://www.pivotaltracker.com/story/show/91691260)
+* Additional Doppler integration tests to prevent regression:
+  * ... for metrics emission. [details] (https://www.pivotaltracker.com/story/show/89116544)
+  * ... and for goroutine dumps. [details](https://www.pivotaltracker.com/story/show/89069346)
+* PR: Updated go package path. [details] (https://www.pivotaltracker.com/story/show/90392586)
+* PR: InstrumentedResponseWriter conforms to CloseNotifier interface. [details](https://www.pivotaltracker.com/story/show/91151056)
+* All components are now built using Go 1.4
 
 ### Bug Fixes
-
-* Fixed an issue where buildpack_cache was not busted when switching stacks
+* Fixed an issue where an incorrect typecast would cause a Doppler panic. [details] (https://www.pivotaltracker.com/story/show/91277702)
+* Fixed Doppler incorrectly computing totalDroppedMessages as a result of fixing typecast issue.  [details] (https://www.pivotaltracker.com/story/show/91862858)
+* PR: Fixed an issue where syslog drain binder assumes that cc is available via http by default.  [details](https://www.pivotaltracker.com/story/show/89053898)
+* PR: Additional typos and broken links. [detail 1](https://www.pivotaltracker.com/story/show/90569414) [detail 2](https://www.pivotaltracker.com/story/show/91918380)
 
 ## Buildpacks
 
