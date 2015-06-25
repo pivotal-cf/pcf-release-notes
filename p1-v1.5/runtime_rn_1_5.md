@@ -89,9 +89,33 @@ Traffic to myapp.example.com would be routed to myapp and traffic to unknown.exa
 
 ## Buildpacks
 
-##### Static buildpack
+##### Static File Buildpack
 
-A new buildpack was added.
+A new buildpack was added, named `staticfile_buildpack` by default,
+which allows the deployment of an application made up solely of static
+assets.
+
+The application uses a minimal nginx instance to serve the assets, and
+so may be deployed with a lower memory quota than generally required
+for a full-blown web application.
+
+Full documentation is available at
+[github.com/cloudfoundry/staticfile-buildpack](https://github.com/cloudfoundry/staticfile-buildpack).
+
+
+##### Binary Buildpack
+
+A new buildpack was added, named `binary_buildpack` by default, which
+allows the deployment of a suitably-compiled binary executable.
+
+Also known as a "null buildpack", the Binary Buildpack does require
+that the compiled binary work on the target rootfs (or "stack"), but
+instructions for compiling within the Cloud Foundry Docker images is
+available at
+[github.com/cloudfoundry/binary-buildpack](https://github.com/cloudfoundry/binary-buildpack),
+as is further usage documentation.
+
+
 
 ### New Features
 
