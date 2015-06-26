@@ -132,12 +132,6 @@ for a full-blown web application.
 Full documentation is available at
 [github.com/cloudfoundry/staticfile-buildpack](https://github.com/cloudfoundry/staticfile-buildpack).
 
-
-
-### New Features
-
-* 
-
 ## Security - CVE fixes have been implemented since v1.4.0.0 and released via security patches.
 
 * 
