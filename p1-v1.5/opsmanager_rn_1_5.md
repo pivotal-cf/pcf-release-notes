@@ -6,7 +6,7 @@ title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 
 ### Major Features
 
-* OpenStack support
+* OpenStack support (beta)
 * vSAN support
 * Local disk support on vSphere
 * vSphere 6.0 is now supported
