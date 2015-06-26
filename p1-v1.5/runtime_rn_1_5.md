@@ -20,7 +20,7 @@ Further details can be found here: https://support.pivotal.io/hc/en-us/articles/
 
 #### Diego-beta Tile and Windows 2012 stack 
 
-(link to Ben's doc?)
+http://docs.pivotal.io/pivotalcf/opsguide/diego-beta.html
 
 #### Security Configuration of Runtime
 
