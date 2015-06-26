@@ -16,11 +16,11 @@ Operators are encouraged to migrate all apps to cflinuxfs2 as mentioned in the v
 
 A future release will completely remove the lucid64 stack from Pivotal Cloud Foundry and after upgrading to this subsequent release, apps that have not been migrated to cflinuxfs2 will fail to start.
 
-Further details can be found here: https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack
+Further details can be found [here](https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack)
 
 #### Diego-beta Tile and Windows 2012 stack 
 
-http://docs.pivotal.io/pivotalcf/opsguide/diego-beta.html
+Diego can be used to run your apps in Pivotal Cloud Foundry v.1.5, you will need to download and install and additional tile however. [Details](http://docs.pivotal.io/pivotalcf/opsguide/diego-beta.html)
 
 #### Security Configuration of Runtime
 
