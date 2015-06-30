@@ -134,5 +134,8 @@ Full documentation is available at
 
 ## Security - CVE fixes have been implemented since v1.4.0.0 and released via security patches.
 
-* 
+* Cloud Foundry CVE-2015-1855 Cloud Controller Path Traversal
+* Canonical Ubuntu USN-2617-1 FUSE vulnerability
+* Canonical Ubuntu USN-2635-1
+* Canonical Ubuntu CVE-2015-1328
 
