@@ -32,11 +32,7 @@ By checking the "Trust Self-Signed Certificates" checkbox, self-signed SSL certi
 
 By checking the "Enable cross-container traffic within each DEA" checkbox, it disables a restriction on the DEA that disallows containers on a particular DEA from communicating with each other.  It is not recommended to check this checkbox for multi-tenant environments.  
 
-This section also includes fields which allow setting of the HAProxy SSL certificate, HAProxy cipher string, and GoRouter cipher string. 
-
-The HAProxy SSL certificate field is now an optional field.
-
-Custom cipher strings for HAProxy and GoRouter are also optional fields.
+This section also includes fields which allow setting of the HAProxy SSL certificate and HAProxy cipher string, the latter of which is an optional field. The SSL certificate is not optional, even if you use an external load-balancer instead of HAProxy, since it could potentially be referenced by other Pivotal Cloud Foundry services that you may choose to install.
 
 #### Other Runtime Features
 
