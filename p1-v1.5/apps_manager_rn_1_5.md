@@ -11,7 +11,7 @@ title: Pivotal Cloud Foundry Apps Manager v1.5.0.0 Release Notes
 ### New features
 
 * The new Accounting Report presents an admin-only view of app instance usage across an instance of Pivotal Cloud Foundry. Monthly average app instance counts and maximum app instance counts are shown for all orgs, minus the `system` org which is used for Pivotal apps like Apps Manager, Auto-scaling, and Notifications.
-* Apps Manager honors the 'HAProxy allows HTTPS traffic only' setting in Ops Manager v1.5 and will only show https app routes.
+* Apps Manager now only shows `https` app routes.
 * Per-org Usage Reports are now viewable by users with the Org Auditor role. 
 
 ### Performance enhancements
