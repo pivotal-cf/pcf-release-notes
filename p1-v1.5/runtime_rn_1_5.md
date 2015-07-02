@@ -60,15 +60,6 @@ A space developer can create a wildcard route for private domains.  Previously, 
 For example, you could create a wildcard route *.example.com to be mapped to a special 404 app called my404app and myapp.example.com to be mapped to myapp.
 Traffic to myapp.example.com would be routed to myapp and traffic to unknown.example.com would be routed to my404app. 
 
-#### Improved stability
-* 
-
-#### Services API
-* 
-
-#### Misc
-* 
-
 ### Bug Fixes
 * Fixed an issue where buildpack_cache was not busted when switching stacks
 
