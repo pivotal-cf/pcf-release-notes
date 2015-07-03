@@ -49,7 +49,7 @@ By checking the "Disable HTTP traffic to HAProxy" checkbox, all port 80 traffic 
 By checking the "Disable HTTP traffic to UAA" checkbox, all port 80 traffic to the UAA authentication server will be rejected.
 
 #### Improved MySQL Service
-MySQL, used by Notifications, Autoscaling, and Apps Manager, ... explain switchboard + improved failure recovery
+MySQL, used by Notifications, Autoscaling, and Apps Manager, has been upgraded with a new proxy tier that has improved availability and a dashboard that displays node health in real time.
 
 #### API/cf CLI
 
