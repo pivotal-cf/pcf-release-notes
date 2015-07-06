@@ -2,6 +2,8 @@
 title: Pivotal Elastic Runtime v1.5 Known Issues
 ---
 
+* Upgrading Pivotal Elastic Runtime from v1.4.x to v1.5 on Amazon Web Services may fail to install on the first attempt, usually on the Apps Manager push errand. If it does fail, simply re-try the upgrade install and it should procede successfully on the second attempt.
+
 * If your Apps Manager and Apps Usage Service applications are running on the unsupported lucid64 stack, you should keep the Push Apps Manager and Push App Usage Service errands turned on for the v1.5 upgrade to ensure that they migrate the appropriate system applications over to the new cflinuxfs2 stack. These applications may be unreachable for a brief period of time during the upgrade of Pivotal Elastic Runtime to v1.5. More details about migrating to the new stack can be found here: https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack
 
 * The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.
