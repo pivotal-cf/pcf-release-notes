@@ -20,7 +20,7 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 #### Diego-beta Tile and Windows 2012 stack
 
-You can use Diego to run your apps in Pivotal Cloud Foundry v.1.5. However, you will need to download and install and additional tile. [Details](http://docs.pivotal.io/pivotalcf/opsguide/diego-beta.html)
+You can use Diego to run your apps in Pivotal Cloud Foundry v.1.5. However, you will need to download and install and additional tile. [Details](../../opsguide/diego-beta.html)
 
 #### Security Configuration of Runtime
 
@@ -76,7 +76,7 @@ Pivotal Single Sign-On service provides a quick and hassle-free way for your app
 Detailed steps for configuring Single Sign-On between Pivotal Cloud Foundry and industry standard identity providers like CA SiteMinder & Ping Identity are now available. [Details](../../opsguide/sso.html#configure-identity-provider)
 
 #### Bug Fixes
-The issue with LDAP authentication not working if LDAP Group Search base is not specified has been addressed.
+The issue from 1.4 with LDAP authentication not working if LDAP Group Search base is not specified has been addressed.
 [Details](../p1-v1.4/runtime_ki_1_4.html)
 
 When LDAP is configured via Ops Manager console, the operator is now provided the option of whether they want to enable Admin Group Mapping. This is an optional configuration.
@@ -86,29 +86,29 @@ For existing deployments using the LDAP Admin group mapping, please manually mak
 
 ### New Features
 * Metron now supports statsd protocol endpoint.
-  * Conduit support for statsd. [details](https://www.pivotaltracker.com/story/show/74358484)
+  * Conduit support for statsd. [Details](https://www.pivotaltracker.com/story/show/74358484)
   * Support for:
-    * gauges [details](https://www.pivotaltracker.com/story/show/91452210)
-    * counters [details](https://www.pivotaltracker.com/story/show/91450340)
-    * timers [details](https://www.pivotaltracker.com/story/show/91452204)
+    * gauges [Details](https://www.pivotaltracker.com/story/show/91452210)
+    * counters [Details](https://www.pivotaltracker.com/story/show/91450340)
+    * timers [Details](https://www.pivotaltracker.com/story/show/91452204)
   * Sample statsd implementation:
-    * in Go [details](https://www.pivotaltracker.com/story/show/91449852)
-    * in Ruby [details](https://www.pivotaltracker.com/story/show/91449874)
-    * in Java [details](https://www.pivotaltracker.com/story/show/91450916)
+    * in Go [Details](https://www.pivotaltracker.com/story/show/91449852)
+    * in Ruby [Details](https://www.pivotaltracker.com/story/show/91449874)
+    * in Java [Details](https://www.pivotaltracker.com/story/show/91450916)
   * Verified that increment/decrement function correctly. [details](https://www.pivotaltracker.com/story/show/91697848)
-* Loggregator now generates UUID for components. [details](https://www.pivotaltracker.com/story/show/91691260)
+* Loggregator now generates UUID for components. [Details](https://www.pivotaltracker.com/story/show/91691260)
 * Additional Doppler integration tests to prevent regression:
-  * for metrics emission. [details](https://www.pivotaltracker.com/story/show/89116544)
-  * ... and for goroutine dumps. [details](https://www.pivotaltracker.com/story/show/89069346)
-* PR: Updated go package path. [details](https://www.pivotaltracker.com/story/show/90392586)
-* PR: InstrumentedResponseWriter conforms to CloseNotifier interface. [details](https://www.pivotaltracker.com/story/show/91151056)
+  * for metrics emission. [Details](https://www.pivotaltracker.com/story/show/89116544)
+  * ... and for goroutine dumps. [Details](https://www.pivotaltracker.com/story/show/89069346)
+* PR: Updated go package path. [Details](https://www.pivotaltracker.com/story/show/90392586)
+* PR: InstrumentedResponseWriter conforms to CloseNotifier interface. [Details](https://www.pivotaltracker.com/story/show/91151056)
 * All components are now built using Go 1.4
 
 ### Bug Fixes
-* Fixed an issue where an incorrect typecast would cause a Doppler panic. [details](https://www.pivotaltracker.com/story/show/91277702)
-* Fixed Doppler incorrectly computing totalDroppedMessages as a result of fixing typecast issue.  [details](https://www.pivotaltracker.com/story/show/91862858)
-* PR: Fixed an issue where syslog drain binder assumes that cc is available via http by default.  [details](https://www.pivotaltracker.com/story/show/89053898)
-* PR: Additional typos and broken links. [detail 1](https://www.pivotaltracker.com/story/show/90569414) [detail 2](https://www.pivotaltracker.com/story/show/91918380)
+* Fixed an issue where an incorrect typecast would cause a Doppler panic. [Details](https://www.pivotaltracker.com/story/show/91277702)
+* Fixed Doppler incorrectly computing totalDroppedMessages as a result of fixing typecast issue.  [Details](https://www.pivotaltracker.com/story/show/91862858)
+* PR: Fixed an issue where syslog drain binder assumes that cc is available via http by default.  [Details](https://www.pivotaltracker.com/story/show/89053898)
+* PR: Additional typos and broken links. [Detail 1](https://www.pivotaltracker.com/story/show/90569414) [Detail 2](https://www.pivotaltracker.com/story/show/91918380)
 
 ## Buildpacks
 
