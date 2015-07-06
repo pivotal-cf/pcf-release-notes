@@ -6,6 +6,8 @@ title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 
 ## Elastic Runtime
 
+##### CF Release Version: 208
+
 ### New Features
 
 #### Default Stack: cflinuxfs2
