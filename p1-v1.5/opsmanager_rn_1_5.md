@@ -20,7 +20,7 @@ title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 ### Minor Features
 * Ops Manager now informs the user when a stemcell needs to be downloaded
 * Commonly used legacy stemcells are now available on Pivotal Network
-* Import/export process has been improved to warn users that certain sequences of product upgrades may corrupt Ops Manager's state
+* Import/export process has been improved to warn users that certain sequences of product upgrades may corrupt the Ops Manager state
 * Ops Manager now deletes uploaded bosh assets (stemcells/releases) from the IaaS when deleting an installation
 * For proof-of-concept deployments, it is now possible to have BOSH deploy all VMs with the same password instead of choosing random passwords
 * Installation log now includes time stamps before every BOSH command

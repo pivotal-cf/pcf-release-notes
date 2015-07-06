@@ -6,14 +6,14 @@ title: Pivotal Cloud Foundry Apps Manager v1.5.0.0 Known Issues
 
 ### App Usage Service
 
-* In the new Accounting Report, average app instance counts will be shown for all months in which data exists in the Usage Service, including the months prior to v1.5 being deployed. Maximum app instance counts will be shown only for those months in which v1.5 is running. 
-* The App Usage Service worker app is not multi-threaded and should not be scaled beyond one instance. 
-* Deployments with self-signed or invalid certs should have 'Trust Self-Signed Certificates' setting checked when configuring 'IPs and Ports' for Elastic Runtime in Ops Manager. If not, users will likely see redirect loops on login. 
+* In the new Accounting Report, average app instance counts display for all months in which data exists in the Usage Service, including the months prior to v1.5 being deployed. Maximum app instance counts display only for those months in which v1.5 is running.
+* The App Usage Service worker app is not multi-threaded and should not be scaled beyond one instance.
+* Deployments with self-signed or invalid certs should have 'Trust Self-Signed Certificates' setting checked when configuring 'IPs and Ports' for Elastic Runtime in Ops Manager. If not, users will likely see redirect loops on login.
 
 ### Miscellaneous
 
-* The version of Apps Manager v1.5 in the page footer erroneously shows v1.4. 
-* Invitations created before the change from the 'console' subdomain to the 'apps' will fail silently. 
+* The version of Apps Manager v1.5 in the page footer erroneously shows v1.4.
+* Invitations created before the change from the 'console' subdomain to the 'apps' will fail silently.
 
 ## Existing issues
 
