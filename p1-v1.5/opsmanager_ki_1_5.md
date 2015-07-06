@@ -10,6 +10,7 @@ Some of these issues may be fixed in subsequent patch releases to 1.5. Consult t
 * Ops Manager 1.5 does not support AWS S3 buckets in `eu-central-1` (Frankfurt) due to an issue with Amazon's authentication APIs in this region. Therefore, Pivotal does not recommend customers use the `eu-central-1` region for deployments that require high performance.
 * On AWS environments that were initialized with our CloudFormation template, by default it is only possible to use "light-bosh" stemcells. If you need to use a full (non-light) stemcell, you must first enable the `ec2:RegisterImage` privilege for your Ops Manager's IAM user.
 * If you are using OpenStack Juno, make sure you have applied this patch:  [https://bugs.launchpad.net/horizon/+bug/1394051](https://bugs.launchpad.net/horizon/+bug/1394051)
+* Operators should be aware that on AWS, we require users to provide the same SSL certificate when configuring Elastic Runtime inside Ops Manager as their Elastic Load Balancers are using, even though this information won't be used by Ops Manager.  This is due to a temporary limitation in Cloud Controller; this oddity will be patched in an upcoming release.
 
 ## Existing issues
 
