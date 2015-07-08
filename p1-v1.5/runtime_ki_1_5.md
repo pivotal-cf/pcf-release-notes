@@ -2,7 +2,9 @@
 title: Pivotal Elastic Runtime v1.5 Known Issues
 ---
 
-* Upgrading Pivotal Elastic Runtime from v1.4.x to v1.5 on Amazon Web Services may fail to install on the first attempt, usually on the Apps Manager push errand. If it does fail, simply re-try the upgrade install and it should procede successfully on the second attempt.
+* Currently there is no certified use case of non-AWS S3 buckets as an external replacement for the Pivotal Elastic Runtime filestore. In future releases or announcements, there should be compatible versions of Swift or Ceph object stores that can be used as S3 containers.
+
+* Upgrading Pivotal Elastic Runtime from v1.4.x to v1.5 on Amazon Web Services may fail to install on the first attempt, usually on the Apps Manager push errand or whichever errand runs first. If it does fail, simply re-try the upgrade install and it should procede successfully on the second attempt. This is due to a "system warm-up" period that might require more time post-install before the errands can run successfully.
 
 * If your Apps Manager and Apps Usage Service applications are running on the unsupported lucid64 stack, you should keep the Push Apps Manager and Push App Usage Service errands turned on for the v1.5 upgrade to ensure that they migrate the appropriate system applications over to the new cflinuxfs2 stack. These applications may be unreachable for a brief period of time during the upgrade of Pivotal Elastic Runtime to v1.5. More details about migrating to the new stack can be found here: https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack
 
