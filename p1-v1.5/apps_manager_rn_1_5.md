@@ -2,6 +2,12 @@
 title: Pivotal Cloud Foundry Apps Manager v1.5.0.0 Release Notes
 ---
 
+## v1.5.1.0 patch release:
+
+* Fixed a bug where the version of Apps Manager in the page footer now correctly shows v1.5.
+* Fixed a bug so that invitations created before the change from the 'console' subdomain to the 'apps' will now succeed.
+* Fixed the following security vulnerabilities: [CVE-2015-1840](https://groups.google.com/forum/#!msg/rubyonrails-security/XIZPbobuwaY/fqnzzpuOlA4J), [CVE-2015-3225](https://groups.google.com/forum/#!msg/rubyonrails-security/gcUbICUmKMc/qiCotVZwXrMJ), [CVE-2015-3226](https://groups.google.com/forum/#!msg/rubyonrails-security/7VlB_pck3hU/3QZrGIaQW6cJ), and [CVE-2015-3227](https://groups.google.com/forum/#!msg/rubyonrails-security/bahr2JLnxvk/x4EocXnHPp8J )
+
 ## Changes since v1.4.0.0:
 
 ### Route change
