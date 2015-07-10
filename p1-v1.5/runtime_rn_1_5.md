@@ -2,6 +2,10 @@
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
 
+## v1.5.1.0 Patch
+
+Elastic Runtime v1.5.1.0 includes CVE patches for CVE-2015-1420, CVE-2015-1330, CVE-2015-1330, and USN-2639-1. There is also some updates to Apps Manager (refer to Apps Manager release notes). There is also a notifications bug fix for incorrect setting of a verify_ssl flag variable.
+
 ## Changes since v1.4.0.0:
 
 ## Elastic Runtime
