@@ -1,5 +1,5 @@
 ---
-title: Pivotal Cloud Foundry Apps Manager v1.5.0.0 Known Issues
+title: Pivotal Cloud Foundry Apps Manager v1.5 Known Issues
 ---
 
 ## New issues
