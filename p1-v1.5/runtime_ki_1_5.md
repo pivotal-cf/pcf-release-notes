@@ -2,7 +2,7 @@
 title: Pivotal Elastic Runtime v1.5 Known Issues
 ---
 
-* Currently there is no certified use case of Openstack Swift object stores that can be used as the filestore for Elastic Runtime v1.5. Ceph is certified to work.
+* Currently there is no certified use case of Openstack Swift object stores that can be used as the filestore for Elastic Runtime v1.5. However, Ceph is certified to work.
 
 * Upgrading Pivotal Elastic Runtime from v1.4.x to v1.5 on Amazon Web Services may fail to install on the first attempt, usually on the Apps Manager push errand or whichever errand runs first. If it does fail, simply re-try the upgrade install and it should proceed successfully on the second attempt. This is due to a "system warm-up" period which may require more time post-install before the errands can run successfully.
 
