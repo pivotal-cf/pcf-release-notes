@@ -16,6 +16,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * Recent versions of the cf CLI, including the version shipped with v1.5, will report a version mismatch with Elastic Runtime. The message is harmless and ignorable, there is no need to upgrade the CLI. This will be fixed in a future version of the cf CLI. 
 
+* On AWS, users must provide the same SSL cert in runtime config that their load balancers are using, even though this information won't be used by Ops Manager. This is due to a temporary limitation in Cloud Controller; this will be patched in an upcoming release.
+
 #### Pivotal Elastic Runtime v1.4 Known Issues That Still Apply in v1.5
 
 * When selecting between internal and external System Database and/or File Storage config, if saved values for external systems fail verification (e.g. a host is not reachable from Ops Manager), the values will persist if you then select 'Internal Databases' or 'Internal File Store'. To resolve this issue, return to your Ops Manager Installation Dashboard and click **Revert**, located in the upper right corner of the page.
