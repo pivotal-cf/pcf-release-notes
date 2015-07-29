@@ -2,10 +2,13 @@
 title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 ---
 
+## v1.5.2.0 patch release:
+
+Ops Manager 1.5.2.0 fixes a bug on OpenStack in which availability zones specified in Director tile were not passed to BOSH, as well as a bug in which certain fields became disabled after a failed deploy.
+
 ## v1.5.1.0 patch release:
 
-Ops Manager 1.5.1.0 fixes a bug on OpenStack in which availability zones specified in Director tile were not passed to BOSH, as well as a bug in which certain fields became disabled after a failed deploy.
-
+This release was made available prematurely by mistaken and then immediately withdrawn.  To avoid confusion, the next release after 1.5.0.0 will be called 1.5.2.0.  We apologize for the confusion.
 
 ## Version 1.5.0.0 (changes since v1.4.2.0)
 
