@@ -2,9 +2,13 @@
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
 
+## v1.5.2.0 Patch
+
+This patch release includes CVE patches for [USN-2670-1](http://www.ubuntu.com/usn/usn-2670-1/), [USN-2684-1](http://www.ubuntu.com/usn/usn-2684-1/) and [USN-2690-1](http://www.ubuntu.com/usn/usn-2690-1/). Additional information can be found at https://pivotal.io/security
+
 ## v1.5.1.0 Patch
 
-Elastic Runtime v1.5.1.0 includes CVE patches for [CVE-2015-1420](http://www.pivotal.io/security/cve-2015-1420), [CVE-2015-1330](http://www.pivotal.io/security/cve-2015-1330), [CVE-2015-3281](http://www.pivotal.io/security/cve-2015-3281), and [USN-2639-1](http://www.pivotal.io/security/usn-2639-1). There is also some updates to Apps Manager ([details](http://docs.pivotal.io/pivotalcf/pcf-release-notes/p1-v1.5/apps_manager_rn_1_5.html)). There is also a notifications bug fix for incorrect setting of a verify_ssl flag variable.
+Elastic Runtime v1.5.1.0 includes CVE patches for [CVE-2015-1420](http://www.pivotal.io/security/cve-2015-1420), [CVE-2015-1330](http://www.pivotal.io/security/cve-2015-1330), [CVE-2015-3281](http://www.pivotal.io/security/cve-2015-3281), and [USN-2639-1](http://www.pivotal.io/security/usn-2639-1). There are also some updates to Apps Manager ([details](http://docs.pivotal.io/pivotalcf/pcf-release-notes/p1-v1.5/apps_manager_rn_1_5.html)), and a notifications bug fix for incorrect setting of a verify_ssl flag variable.
 
 ## Changes since v1.4.0.0:
 
