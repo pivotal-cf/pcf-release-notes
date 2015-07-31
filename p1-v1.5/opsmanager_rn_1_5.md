@@ -16,7 +16,7 @@ This release was made available prematurely and then quickly withdrawn.  To avoi
 
 * OpenStack support (beta)
 * vSAN support
-* Local disk support on vSphere
+* VMs use disks local to a cluster
 * vSphere 6.0 is now supported
 * AWS multi-region support
 * An AWS CloudFormation template is now provided that vastly simplifies AWS configuration
