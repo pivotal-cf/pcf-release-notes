@@ -4,7 +4,7 @@ title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 
 ## v1.5.3.0 Patch
 
-This patch release includes a CVE patch for [USN-2696-1](http://www.ubuntu.com/usn/usn-2696-1/) and fixes an intermittent issue where Windows 7 users could encounter cli commands dropping with an error that the connection was “forcibly dropped”. 
+This patch release includes a CVE patch for [USN-2696-1](http://www.ubuntu.com/usn/usn-2696-1/) and fixes an intermittent issue where Windows 7 users could encounter cli commands dropping with an error that the connection was “forcibly dropped”. Additional information can be found at https://pivotal.io/security
 
 ## v1.5.2.0 Patch
 
