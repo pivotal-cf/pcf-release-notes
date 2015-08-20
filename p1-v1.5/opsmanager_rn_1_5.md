@@ -3,11 +3,11 @@ title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 ---
 
 ## v1.5.3.0 patch release:
-Ops Manager 1.5.3.0 adds two configuration options on OpenStack:  "Disable DHCP" checkbox (which controls BOSH's "use_dhcp" flag) and an advanced section called "Advanced Infrastructure Config" that allows operators to set an Openstack connection_options string, which acccepts JSON.  Lastly, text area fields have been widened in the Ops Manager user interface.
+Ops Manager 1.5.3.0 adds two configuration options on OpenStack:  "Disable DHCP" checkbox (which controls BOSH's "use_dhcp" flag) and an advanced section called "Advanced Infrastructure Config" that allows operators to set an Openstack connection_options string, which acccepts JSON.  Release notes starting with 1.5.2.0 will now include the version number of the embedded stemcell.  Text area fields have been widened in the Ops Manager user interface.  (Embedded stemcell:  3026)
 
 ## v1.5.2.0 patch release:
 
-Ops Manager 1.5.2.0 fixes a bug on OpenStack in which availability zones specified in Director tile were not passed to BOSH, as well as a bug in which certain fields became disabled after a failed deploy.  It also includes a new BOSH stemcell with important security updates to Ubuntu.
+Ops Manager 1.5.2.0 fixes a bug on OpenStack in which availability zones specified in Director tile were not passed to BOSH, as well as a bug in which certain fields became disabled after a failed deploy.  It also includes a new BOSH stemcell with important security updates to Ubuntu.  (Embedded stemcell:  3026)
 
 ## v1.5.1.0 patch release:
 
