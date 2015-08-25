@@ -6,7 +6,7 @@ title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 Ops Manager 1.5.4.0 is an invitation-only release for vCloud Air and vCloud Director customers.  It fixes a bug to allow use of the 6.0 and higher vCA API.  If you are a vCA/vCD customer and would like access to this release, please contact Pivotal Support.  (Embedded stemcell 3056, Ops Manager build ea7ddc)
 
 ## v1.5.3.0 patch release:
-Ops Manager 1.5.3.0 adds two configuration options on OpenStack:  "Disable DHCP" checkbox (which controls BOSH's "use_dhcp" flag) and an advanced section called "Advanced Infrastructure Config" that allows operators to set an Openstack connection_options string, which acccepts JSON.  Release notes starting with 1.5.2.0 will now include the version number of the embedded stemcell.  Text area fields have been widened in the Ops Manager user interface.  (Embedded stemcell:  3026)
+Ops Manager 1.5.3.0 adds two configuration options on OpenStack:  "Disable DHCP" checkbox (which controls BOSH's "use_dhcp" flag) and an advanced section called "Advanced Infrastructure Config" that allows operators to set an Openstack connection_options string, which acccepts JSON.  Release notes starting with 1.5.2.0 will now include the version number of the embedded stemcell.  Text area fields have been widened in the Ops Manager user interface.  (Embedded stemcell 3026, Ops Manager build f7555)
 
 ## v1.5.2.0 patch release:
 
