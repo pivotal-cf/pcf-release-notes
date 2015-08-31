@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 ---
 
+## v1.5.5.0 patch release:
+Ops Manager 1.5.5.0 is a security patch release that incorporates low and medium CVEs from the previous month.  (Embedded stemcell 3062, Ops Manager build 80543d)
+
 ## v1.5.4.0 patch release:
 Ops Manager 1.5.4.0 is an invitation-only release for vCloud Air and vCloud Director customers.  It fixes a bug to allow use of the 6.0 and higher vCA API.  If you are a vCA/vCD customer and would like access to this release, please contact Pivotal Support.  (Embedded stemcell 3056, Ops Manager build ea7ddc)
 
