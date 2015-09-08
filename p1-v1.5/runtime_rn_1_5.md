@@ -2,6 +2,10 @@
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
 
+## v1.5.4.0 Patch
+This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL for Pivotal Cloud Foundry, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2718-1](http://www.ubuntu.com/usn/usn-2718-1/), [USN-2694-1](http://www.ubuntu.com/usn/usn-2694-1), [USN-2698-1](http://www.ubuntu.com/usn/usn-2698-1), [USN-2710-1](http://www.ubuntu.com/usn/usn-2710-1/) and [USN-2710-2](http://www.ubuntu.com/usn/usn-2710-2/). Additional details regarding each fix can be found at https://pivotal.io/security. 
+
+
 ## v1.5.3.0 Patch
 
 This patch release includes a CVE patch for [USN-2696-1](http://www.ubuntu.com/usn/usn-2696-1/) and fixes an intermittent issue where Windows 7 users could encounter cli commands dropping with an error that the connection was “forcibly dropped”. Additional information can be found at https://pivotal.io/security
