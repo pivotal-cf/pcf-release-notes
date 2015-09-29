@@ -7,6 +7,9 @@ title: Pivotal Cloud Foundry Ops Manager v1.6.0 Known Issues
 Some of these issues may be fixed in subsequent patch releases to 1.6. Consult the Ops Manager 1.6 [Release Notes](opsmanager_rn_1_6.html) for more information.
 
 * If EBS encryption is initially disabled, and then later enabled, the change will not apply to the Director's persistent disk.
+* The new "Trusted Certificates" feature does not insert the certificate (or certificate chain) that you provide into your application containers.
+* The new "Trusted Certificates" feature does not insert the certificate (or certificate chain) that you provide into UAA's JVM store (which would be necessary to enable UAA -> SASL trust).
+* Once the above issues with "Trusted Certificates" are resolved, "Trusted Certificates" will be moved out of the Experimental Features section.
 
 ## Existing issues
 
