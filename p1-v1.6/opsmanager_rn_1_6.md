@@ -28,3 +28,6 @@ title: Pivotal Cloud Foundry Ops Manager v1.6.0 Release Notes
 ### Product Author Features
 
 * New product author documentation has been made available here:  http://docs.pivotal.io/pivotalcf/packaging/index.html
+
+### Notes
+Embedded stemcell 3074
