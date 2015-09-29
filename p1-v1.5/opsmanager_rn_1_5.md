@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Release Notes
 ---
 
+## v1.5.6.0 patch release:
+Ops Manager 1.5.6.0 is a security patch release that incorporates low and medium CVEs from the previous month.  (Embedded stemcell 3074, Ops Manager build cf8f9a)
+
 ## v1.5.5.0 patch release:
 Ops Manager 1.5.5.0 is a security patch release that incorporates low and medium CVEs from the previous month.  (Embedded stemcell 3062, Ops Manager build 80543d)
 
