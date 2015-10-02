@@ -19,8 +19,4 @@ Some of these issues may be fixed in subsequent patch releases to 1.6. Consult t
 * DNS and Gateway ICMP errors will occur on AWS even if ICMP is allowed.
 * Resource Pools cannot be deleted from Availability Zones. If a resource pool is inadvertently deleted, run BOSH recreate.
 * Compiled Packages are missing from installation exports, which can cause a failure if the product contained and referenced them. A fix is to SSH into the Ops Manager VM and remove references to compiled_packages in every file located in the /var/tempest/workspace/metadata directory.
-* PCF products with Ruby BOSH Agent stemcells must be upgraded prior to importing into this version of Ops Manager.
-IP reassignment must be handled by scaling a job down to zero instances and re-entering new IP addresses before scaling the job back up.
 * Unnecessary job instances must be reduced manually (MySQL, HA Proxy if RDS & ELBs are used).
-* Before upgrading tiles on Ops Manager 1.4 or earlier, Pivotal recommends that you increase the size of Ops Manager Director’s persistent disk to at least 40 GB. (This is the default in Ops Manager 1.5 and above.) To change the size of the persistent disk, navigate to Ops Manager Director tile -> Resource Config -> Ops Man Director -> Persistent Disk (MB).
-* Ops Manager does not support the installation of Pivotal HD.
