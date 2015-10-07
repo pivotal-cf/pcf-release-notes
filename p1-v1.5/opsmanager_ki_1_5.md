@@ -2,7 +2,10 @@
 title: Pivotal Cloud Foundry Ops Manager v1.5.0.0 Known Issues
 ---
 
-## New Issues
+## New Issues in Ops Manager 1.5.7
+* The OpenStack build of Ops Manager 1.5.7 will not work with S3/Swift blobstore.  It **will** work if configured with the internal blobstore option.
+
+## Known Issues in 1.5.x
 
 Some of these issues may be fixed in subsequent patch releases to 1.5. Consult the Ops Manager 1.5 [Release Notes](opsmanager_rn_1_5.html) for more information.
 
@@ -12,7 +15,7 @@ Some of these issues may be fixed in subsequent patch releases to 1.5. Consult t
 * If you are using OpenStack Juno, make sure you have applied this patch:  [https://bugs.launchpad.net/horizon/+bug/1394051](https://bugs.launchpad.net/horizon/+bug/1394051)
 * Operators should be aware that on AWS, we require users to provide the same SSL certificate when configuring Elastic Runtime inside Ops Manager as their Elastic Load Balancers are using, even though this information won't be used by Ops Manager.  This is due to a temporary limitation in Cloud Controller; this oddity will be patched in an upcoming release.
 
-## Existing issues
+## Pre-existing Issues Affecting 1.5.x
 
 * DNS and Gateway ICMP errors will occur on AWS even if ICMP is allowed.
 * Resource Pools cannot be deleted from Availability Zones. If a resource pool is inadvertently deleted, run `BOSH recreate`.
