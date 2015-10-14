@@ -10,6 +10,7 @@ Some of these issues may be fixed in subsequent patch releases to 1.6. Consult t
 * The new "Trusted Certificates" feature does not insert the certificate (or certificate chain) that you provide into your application containers.
 * The new "Trusted Certificates" feature does not insert the certificate (or certificate chain) that you provide into UAA's JVM store (which would be necessary to enable UAA -> SASL trust).
 * Once the above issues with "Trusted Certificates" are resolved, "Trusted Certificates" will be moved out of the Experimental Features section.
+* The "Generate Self-Signed Certificate" link no longer generates a self-signed certificate.  (The certificate it generates is signed by Ops Mananager's internal CA, which is generated once at installation time for each Ops Manager and persists across exports/imports.)  The link will be renamed "Generate Certificate" in future versions of Ops Manager.
 
 ## Existing issues
 
