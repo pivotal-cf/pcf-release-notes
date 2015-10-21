@@ -34,7 +34,7 @@ The SSL Termination Certificate input now applies to both HAProxy (if you use th
 
 If you have multiple domains to map to the Router, such as separate system and apps domains, you can only use one SSL certificate. The Router does not yet support multiple certificates. However one SSL certificate with multiple domains attributed to it is acceptable.
 
-The "Enable cross-container traffic" checkbox now controls the restriction of cross-container traffic for both DEAs and Diego Cells, depeneding on which runtime backend platform you choose. It is not recommended to check this checkbox for multi-tenant environments, but this does enable using microservices, such as Pivotal Spring Cloud Services.
+The "Enable cross-container traffic" checkbox now controls the restriction of cross-container traffic for both DEAs and Diego Cells, depending on which runtime backend platform you choose. It is not recommended to check this checkbox for multi-tenant environments, but this does enable using microservices, such as Pivotal Spring Cloud Services.
 
 This section also includes fields which allow specifying the HAProxy and Router ciphers, both of which are optional fields.
 
