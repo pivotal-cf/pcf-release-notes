@@ -18,6 +18,8 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 Diego is the new application container orchestration technology that Pivotal Cloud Foundry will use by default to run your apps.
 
+Diego enables many new features and enhancements, details for which can be found here.
+
 #### Windows 2012 stack
 
 You can use the Windows .NET MSI to run Windows containers.
