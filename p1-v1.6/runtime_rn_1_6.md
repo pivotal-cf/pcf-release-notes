@@ -14,9 +14,9 @@ Operators are encouraged to migrate all apps to cflinuxfs2 as mentioned in the v
 
 Further details can be found [here](https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack).
 
-#### Diego
+#### Cloud Foundry Runtime - Diego
 
-Diego is the new application container orchestration technology that Pivotal Cloud Foundry will use by default to run your apps.
+Diego is the new application runtime that Pivotal Cloud Foundry will use by default to run your apps.
 
 Diego enables many new features and enhancements, details for which can be found here.
 
@@ -36,7 +36,7 @@ The SSL Termination Certificate input now applies to both HAProxy (if you use th
 
 If you have multiple domains to map to the Router, such as separate system and apps domains, you can only use one SSL certificate. The Router does not yet support multiple certificates. However one SSL certificate with multiple domains attributed to it is acceptable.
 
-The "Enable cross-container traffic" checkbox now controls the restriction of cross-container traffic for both DEAs and Diego Cells, depending on which runtime backend platform you choose. It is not recommended to check this checkbox for multi-tenant environments, but this does enable using microservices, such as Pivotal Spring Cloud Services.
+The "Enable cross-container traffic" checkbox now controls the restriction of cross-container traffic for both DEAs and Diego Cells, depending on which runtime backend platform you choose. It is not recommended to check this checkbox for multi-tenant environments, but this does enable using application container to connect to other application containers directly without going through the router which may be desired for microservices, which may be optionally used with Pivotal Spring Cloud Services.
 
 This section also includes fields which allow specifying the HAProxy and Router ciphers, both of which are optional fields.
 
@@ -46,7 +46,7 @@ This section also includes fields which allow specifying the HAProxy and Router 
 
 It is now possible to configure four different S3 buckets to comprise the Cloud Controller's filesystem, instead of just one.
 
-You can choose to use four different buckets if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one bucket to a new one.
+You can choose to use four different buckets if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from the one bucket configuration in 1.5 to separate buckets in 1.6. It is recommended to use separate buckets for new deployments, but existing deployments are supported with one bucket.
 
 ##### Experimental Features
 
@@ -55,7 +55,7 @@ There are no experimental features being introduced in PCF Elastic Runtime for v
 #### Improved MySQL Service
 MySQL, used by some of the Pivotal Cloud Foundry system applications in the past, is now usable for every Pivotal Cloud Foundry system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications may have solely relied upon in previous versions.
 
-You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one database to a new one.
+You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one database to a new one. A future releases is intended to address a data migration for installations that started with a postgres database.
 
 #### API/cf CLI
 
