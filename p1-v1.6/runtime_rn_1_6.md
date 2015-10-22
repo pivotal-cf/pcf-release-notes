@@ -48,8 +48,12 @@ It is now possible to configure four different S3 buckets to comprise the Cloud 
 
 There are no experimental features being introduced in PCF Elastic Runtime for v1.6.
 
+You can choose to use four different buckets if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one bucket to a new one.
+
 #### Improved MySQL Service
-MySQL, used by some of the Pivotal Cloud Foundry system applications in the past, is now usable for every Pivotal Cloud Foundry system component and application, including Cloud Controller and UAA.
+MySQL, used by some of the Pivotal Cloud Foundry system applications in the past, is now usable for every Pivotal Cloud Foundry system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications may have solely relied upon in previous versions.
+
+You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one database to a new one.
 
 #### API/cf CLI
 
