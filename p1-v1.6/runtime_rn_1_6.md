@@ -2,7 +2,10 @@
 
 ## Elastic Runtime
 
-* CF Release Version: 222
+* CF Release version: 222
+* Diego version: 0.1437.0
+* Garden version: 0.308.0
+* CF MySQL version: 23
 
 ### New Features
 
