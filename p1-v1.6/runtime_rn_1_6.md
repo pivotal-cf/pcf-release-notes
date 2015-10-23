@@ -61,6 +61,12 @@ You can choose to use this MySQL service if you are installing Pivotal Cloud Fou
 
 Add points about CLI, e.g for Diego, here...
 
+Note: These features are available via API only; cf CLI support coming soon
+- Org Managers and Space Managers can now manage roles without requiring admin privileges
+- Max number of private domains can be specified in the Organization Quota.
+- Max number of app instances can be specified in the Organization Quota and Space Quota
+- Admins can purge a single service instance and its bindings.  This is a more targeted purge to resolve a single service instance than the purge service offering.
+
 ### Bug Fixes
 
 ## UAA and Login Server
