@@ -2,7 +2,7 @@
 
 ## Elastic Runtime
 
-##### CF Release Version: 222
+* CF Release Version: 222
 
 ### New Features
 
