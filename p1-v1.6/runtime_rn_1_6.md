@@ -70,6 +70,10 @@ Note: These features are available via API only; cf CLI support coming soon
 - Max number of app instances can be specified in the Organization Quota and Space Quota
 - Admins can purge a single service instance and its bindings.  This is a more targeted purge to resolve a single service instance than the purge service offering.
 
+#### DEAs
+
+Multiple stability and performance improvements were made to DEAs. They can now handle many more simultaneous connections, for instance.
+
 ### Bug Fixes
 
 ## UAA and Login Server
