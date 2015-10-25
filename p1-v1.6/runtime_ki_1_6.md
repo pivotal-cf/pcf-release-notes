@@ -15,7 +15,7 @@ In case that upgrade fails, there are some mitigations [documented here](https:/
 
 * After you upgrade to Pivotal Cloud Foundry 1.6, you may want to call [this end point](http://apidocs.cloudfoundry.org/222/blobstores/delete_all_blobs_in_the_buildpack_cache_blobstore.html) that deletes all buildpack caches from the blobstore after the v1.6 upgrade is complete, to reclaim some blobstore space due to some orphaned blobs.
 
-* This upgrade includes a migration that modifies the events table on the Cloud Controller database. This table may be very large, and the migration may cause the upgrade to fail if it takes too long to run. If the migration causes the deployment to fail, the api_z1/0 job will fail to start. If this happens, do not restart the deploy until the migration has finished running. The deploy can be restarted once the space_id foreign key constraint has been removed from the events table.
+* This upgrade includes a migration that modifies the events table on the Cloud Controller database. This table may be very large, and the migration may cause the upgrade to fail at the Cloud Controller job if it takes too long. If this happens, do not restart the deploy until the migration has finished running. The deploy can be restarted once the space_id foreign key constraint has been removed from the events table.
 To avoid the possibility of the migration causing a failure, truncate the events table before the deployment starts. The data in the events table are audit and log data, and Cloud Foundry can function without it.
 
 * .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended to run "trusted" apps.
