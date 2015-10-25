@@ -18,6 +18,8 @@ In case that upgrade fails, there are some mitigations [documented here](https:/
 * This upgrade includes a migration that modifies the events table on the Cloud Controller database. This table may be very large, and the migration may cause the upgrade to fail if it takes too long to run. If the migration causes the deployment to fail, the api_z1/0 job will fail to start. If this happens, do not restart the deploy until the migration has finished running. The deploy can be restarted once the space_id foreign key constraint has been removed from the events table.
 To avoid the possibility of the migration causing a failure, truncate the events table before the deployment starts. The data in the events table are audit and log data, and Cloud Foundry can function without it.
 
+* .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended to run "trusted" apps.
+
 #### Pivotal Elastic Runtime v1.5 Known Issues That Still Apply in v1.6
 
 * The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.
