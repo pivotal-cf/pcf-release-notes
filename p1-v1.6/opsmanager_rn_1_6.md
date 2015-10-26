@@ -6,14 +6,14 @@ title: Pivotal Cloud Foundry Ops Manager v1.6.0 Release Notes
 
 ### Major Features
 
-* EBS encryption is now available for AWS deployments.  This enables AWS customers to have encrypted data at rest on persistent disks.
+* EBS encryption is now available for AWS deployments. This enables AWS customers to have encrypted data at rest on persistent disks.
 
 ### API Changes
-* Previously, Ops Manager provided an API endpoint called `/api/users` that allowed for the creation of multiple user accounts, though only the first one was functional.  To correct this, `/api/users` has been replaced by `/api/setup` that provides the same functionality for creating the first user, but does not attempt to create secondary, tertiary, etc., users, since these user accounts would not be functional.  Please see API documentation at `http://your-ops-man-ip/docs` for more information.  **Please note that the API is not officially support and may change without warning in the future.**
+* Previously, Ops Manager provided an API endpoint called `/api/users` that allowed for the creation of multiple user accounts, though only the first one was functional. To correct this, `/api/users` has been replaced by `/api/setup` that provides the same functionality for creating the first user, but does not attempt to create secondary, tertiary, etc., users, since these user accounts would not be functional. Please see API documentation at `http://your-ops-man-ip/docs` for more information. **Please note that the API is not officially supported and may change without warning in the future.**
 
 ### Security Features
 
-* Multiple CVE fixes per [pivotal.io/security](http://pivotal.io/security)
+* Multiple CVE fixes per [pivotal.io/security](http://pivotal.io/security).
 * VM passwords are now scrubbed from the output logs and replaced with asterisks.
 
 ### Minor Features
@@ -22,13 +22,13 @@ title: Pivotal Cloud Foundry Ops Manager v1.6.0 Release Notes
 
 ### Bug Fixes
 
-* Credentials no longer shows incorrect credentials when "Use default BOSH password" is selected
+* Credentials no longer shows incorrect credentials when "Use default BOSH password" is selected.
 * Upgrades no longer fail if product version contains a dash.
 * A migration that exists but is null no longer results in a 500 error.
 
 ### Product Author Features
 
-* New product author documentation has been made available here:  http://docs.pivotal.io/pivotalcf/packaging/index.html
+* New product author documentation has been made available here: http://docs.pivotal.io/pivotalcf/packaging/index.html
 
 ### Notes
 Embedded stemcell 3074

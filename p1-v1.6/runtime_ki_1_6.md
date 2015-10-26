@@ -2,13 +2,15 @@
 title: Pivotal Elastic Runtime v1.5 Known Issues
 ---
 
+#### New Issues
+
 * Diego Cells may sometimes fail, but we have a workaround...
 
-* The CLI command for seeing application files, "cf files", does not work with applications on Diego.
+* The CLI command for viewing application files, "cf files", does not work with applications on Diego.
 
 * The Diego BBS may output a TLS handshake error every 3 seconds in the sys logs. This is fine to ignore, and will be fixed in a future release of Diego.
 
-* To SSH into an application container on Diego, the CF user that you use must have the SpaceDeveloper role attached to it, per the space that your application is in. 
+* To SSH into an application container on Diego, your CF user must have the Space Developer role attached to it for the application space.
 
 * If you have Postgresql databases in your deployment, the version of Postgres has been upgraded to 9.4.2, and so during the upgrade, Cloud Controller and UAA will be unavailable.
 In case that upgrade fails, there are some mitigations [documented here](https://github.com/cloudfoundry/cf-release/releases/tag/v211).
@@ -20,13 +22,13 @@ To avoid the possibility of the migration causing a failure, truncate the events
 
 * .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended to run "trusted" apps.
 
-* Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set them on both versions in order to keep the configuration consistent. 
+* Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set them on both versions in order to keep the configuration consistent.
 
-#### Pivotal Elastic Runtime v1.5 Known Issues That Still Apply in v1.6
+#### Existing Issues
 
-* The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.
+* The HAProxy and Router Cipher fields in the Security Config page of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.
 
 * When selecting between internal and external System Database and/or File Storage config, if saved values for external systems fail verification (e.g. a host is not reachable from Ops Manager), the values will persist if you then select 'Internal Databases' or 'Internal File Store'. To resolve this issue, return to your Ops Manager Installation Dashboard and click **Revert**, located in the upper right corner of the page.
 
-* Recent versions of the cf CLI, including the version shipped with v1.6, will report a version mismatch with Elastic Runtime. The message is harmless and ignorable, there is no need to upgrade the CLI. This will be fixed in a future version of the cf CLI. 
+* Recent versions of the cf CLI, including the version shipped with v1.6, will report a version mismatch with Elastic Runtime. The message is harmless and ignorable, there is no need to upgrade the CLI. This will be fixed in a future version of the cf CLI.
 
