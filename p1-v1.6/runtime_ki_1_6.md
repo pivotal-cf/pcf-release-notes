@@ -4,7 +4,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 #### New Issues
 
-* Diego Cells may sometimes fail, but we have a workaround...
+* Diego Cells may sometimes experience slow performance for various actions like staging new applications. If this happens, you can bosh-recreate the affected Diego Cell VM.
 
 * The CLI command for viewing application files, "cf files", does not work with applications on Diego.
 
