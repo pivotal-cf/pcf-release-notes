@@ -82,8 +82,6 @@ Two new environment variables are introduced and one is removed in v1.6:
 
 Multiple stability and performance improvements were made to DEAs. They can now handle many more simultaneous connections, for instance.
 
-### Bug Fixes
-
 ## UAA and Login Server
 #### Feature name here...
 
@@ -142,4 +140,8 @@ rootfs in a maintainable manner.
 ## Security - CVE fixes have been implemented since v1.5.0.0 and released via security patches.
 
 * Canonical Ubuntu USN-
+* 
+
+### Other Bug Fixes
+We fixed an issue with the v1.5.6 patch for Openstack deployments. The BOSH stemcell v3094, which this version of Elastic Runtime references, has a limiation affecting Openstack users only: * Elastic Runtime 1.5.6 on Openstack does not work with S3/Swift blobstores. * Elastic Runtime 1.5.6 on Openstack users must configure their object storage to use the internal blobstore option. * vSphere, AWS and vCloud users are not affected. * This is fixed in v1.6.0
 
