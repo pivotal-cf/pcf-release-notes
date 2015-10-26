@@ -20,6 +20,8 @@ To avoid the possibility of the migration causing a failure, truncate the events
 
 * .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended to run "trusted" apps.
 
+* Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set them on both versions in order to keep the configuration consistent. 
+
 #### Pivotal Elastic Runtime v1.5 Known Issues That Still Apply in v1.6
 
 * The HAProxy and Router Cipher fields in the Security Config of Elastic Runtime should not be completely erased once you have already supplied your own cipher sets and saved that configuration. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.

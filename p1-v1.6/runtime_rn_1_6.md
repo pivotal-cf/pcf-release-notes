@@ -58,7 +58,7 @@ There are no experimental features being introduced in PCF Elastic Runtime for v
 #### Improved MySQL Service
 MySQL, used by some of the Pivotal Cloud Foundry system applications in the past, is now usable for every Pivotal Cloud Foundry system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications may have solely relied upon in previous versions.
 
-You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one database to a new one. A future releases is intended to address a data migration for installations that started with a postgres database.
+You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from one database to a new one. A future release is intended to address a data migration for installations that started with a postgres database.
 
 #### API/cf CLI
 
@@ -70,6 +70,16 @@ Note: These features are available via API only; cf CLI support coming soon
 - Max number of app instances can be specified in the Organization Quota and Space Quota
 - Admins can purge a single service instance and its bindings.  This is a more targeted purge to resolve a single service instance than the purge service offering.
 
+#### Apps Manager
+
+This release adds support for the Diego Runtime, and features numerous fixes and enhancements for it. 
+
+Two new environment variables are introduced and one is removed in v1.6: 
+
+* The new `ENABLE_INTERNAL_USER_STORE` environment variable controls org and space user invitations, new user registrations, and password updates to the PCF internal user store. The default is set to `false`, which means that none of the features are exposed in Apps Manager. Set to `true` to expose these features. 
+* The new `ENABLE_NON_ADMIN_ROLE_MANAGEMENT` environment variable allows org managers and spaces managers to manage user roles regardless of where these users are created. The default is set to `false`, which means that none of the features are exposed in Apps Manager. Set to `true` to expose these features. 
+* The previous `ENABLE_NON_ADMIN_USER_MANAGEMENT` environment variable that controlled many of these same features is removed in v1.6.
+
 #### DEAs
 
 Multiple stability and performance improvements were made to DEAs. They can now handle many more simultaneous connections, for instance.
@@ -77,7 +87,7 @@ Multiple stability and performance improvements were made to DEAs. They can now 
 ### Bug Fixes
 
 ## UAA and Login Server
-#### FEature name here...
+#### Feature name here...
 
 #### Bug Fixes
 
