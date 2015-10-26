@@ -101,9 +101,44 @@ Multiple stability and performance improvements were made to DEAs. They can now 
 
 ## Buildpacks
 
-##### Smaller Buildpacks
+### Smaller, More Secure Buildpacks
 
-##### Binary Buildpack
+Buildpacks in PCF 1.6 are smaller than in PCF 1.5, since older,
+unsupported versions of third-party dependencies are no longer being
+packaged.
+
+An example of this is Ruby 1.9.x, which reached
+[End Of Life on February 23, 2015][ruby-eol] and was removed in
+[ruby-buildpack v1.4.0][ruby-140].
+
+  [ruby-eol]: https://www.ruby-lang.org/en/news/2014/01/10/ruby-1-9-3-will-end-on-2015/).
+  [ruby-140]: https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.4.0
+
+PCF 1.6 also is only providing the __last two__ patch releases on any
+`major.minor` branch, with the goal of allowing an upgrade path, while
+also encouraging developers to upgrade to the latest security releases
+whenever possible.
+
+The smaller buildpacks sizes also means a faster PCF installation, as
+nwell as improved staging performance.
+
+For any customers who want to customize the binaries that are shipped
+with a buildpack, the tooling for generating custom buildpacks has
+been open-sourced:
+
+  * [buildpack-packager](https://github.com/cloudfoundry/buildpack-packager)
+  * [binary-builder](https://github.com/cloudfoundry/binary-builder)
+
+
+### Binary Buildpack
+
+PCF 1.6 also provides a "binary buildpack", for customers to run
+precompiled binaries, for those occasions when developers want a bit
+more control over the executables that are running in the container.
+
+The [binary-builder](https://github.com/cloudfoundry/binary-builder)
+tooling can also be used to help build executables for a specific
+rootfs in a maintainable manner.
 
 
 ## Security - CVE fixes have been implemented since v1.5.0.0 and released via security patches.
