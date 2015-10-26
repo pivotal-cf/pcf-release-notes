@@ -99,13 +99,6 @@ Multiple stability and performance improvements were made to DEAs. They can now 
  - UAA tokens now contain an origin field which signifies the Identity Prvider used for authenitcaiton. If SAML IDP is used for authenitcation, the Identity Provider alias is set in as the origin value
  - Support for nonce parameter in OAuth requests to prevent against CSRF attacks
 
-## Logging, Analytics and Metrics
-
-### New Features
-
-
-### Bug Fixes
-
 ## Buildpacks
 
 ### Smaller, More Secure Buildpacks
