@@ -25,7 +25,7 @@ Diego enables many new features and enhancements, details for which can be found
 
 #### Windows 2012 stack
 
-You can use the Windows .NET MSI to run Windows containers. Details here about installing and running this feature.
+You can use the Windows .NET MSI to run you applications on Windows containers. Further details on enabling this feature can be found [here](../../opsguide/deploying-diego.html)
 
 #### Docker
 
