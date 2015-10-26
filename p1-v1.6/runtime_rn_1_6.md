@@ -21,7 +21,9 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 Diego is the new application runtime that Pivotal Cloud Foundry will use by default to run your apps.
 
-Diego enables many new features and enhancements.
+Diego enables many new features and enhancements, such as allowing the deployment of thousands of applications and resurrecting crashed applications within seconds. It also supports new workloads, such as .NET on Windows and Docker on Linux, and enables SSH access to containers.
+
+Details about how Diego works can be found [here](../../concepts/diego/diego-auction.html)
 
 Details about SSH access to application containers on Diego can be found [here](../../customizing/diego-ssh/index.html).
 
