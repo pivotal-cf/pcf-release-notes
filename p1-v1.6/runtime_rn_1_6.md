@@ -62,8 +62,6 @@ You can choose to use this MySQL service if you are installing Pivotal Cloud Fou
 
 #### API/cf CLI
 
-Add points about CLI, e.g for Diego, here...
-
 Note: These features are available via API only; cf CLI support coming soon
 - Org Managers and Space Managers can now manage roles without requiring admin privileges
 - Max number of private domains can be specified in the Organization Quota.
