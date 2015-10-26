@@ -139,8 +139,27 @@ rootfs in a maintainable manner.
 
 ## Security - CVE fixes have been implemented since v1.5.0.0 and released via security patches.
 
-* Canonical Ubuntu USN-
-* 
+* Canonical Ubuntu USN-2765-1
+* Canonical Ubuntu USN-2756-1
+* Canonical Ubuntu USN-2751-1
+* Canonical Ubuntu USN-2740-1
+* Canonical Ubuntu USN-2739-1
+* Canonical Ubuntu USN-2738-1
+* Canonical Ubuntu USN-2726-1
+* Canonical Ubuntu USN-2722-2
+* Canonical Ubuntu USN-2718-1
+* Canonical Ubuntu USN-2710-1
+* Canonical Ubuntu USN-2710-2
+* Canonical Ubuntu USN-2698-1
+* Canonical Ubuntu USN-2696-1
+* Canonical Ubuntu USN-2694-1
+* Canonical Ubuntu USN-2690-1
+* Canonical Ubuntu USN-2684-1
+* Canonical Ubuntu USN-2670-1
+* Canonical Ubuntu USN-2639-1
+* CVE 2015-3281
+* CVE 2015-1420
+* CVE 2015-1330
 
 ### Other Bug Fixes
 We fixed an issue with the v1.5.6 patch for Openstack deployments. The BOSH stemcell v3094, which this version of Elastic Runtime references, has a limiation affecting Openstack users only: * Elastic Runtime 1.5.6 on Openstack does not work with S3/Swift blobstores. * Elastic Runtime 1.5.6 on Openstack users must configure their object storage to use the internal blobstore option. * vSphere, AWS and vCloud users are not affected. * This is fixed in v1.6.0
