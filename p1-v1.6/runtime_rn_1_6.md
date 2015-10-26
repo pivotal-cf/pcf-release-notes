@@ -111,7 +111,7 @@ An example of this is Ruby 1.9.x, which reached
 [End Of Life on February 23, 2015][ruby-eol] and was removed in
 [ruby-buildpack v1.4.0][ruby-140].
 
-  [ruby-eol]: https://www.ruby-lang.org/en/news/2014/01/10/ruby-1-9-3-will-end-on-2015/).
+  [ruby-eol]: https://www.ruby-lang.org/en/news/2014/01/10/ruby-1-9-3-will-end-on-2015/
   [ruby-140]: https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.4.0
 
 PCF 1.6 also is only providing the __last two__ patch releases on any
@@ -120,7 +120,7 @@ also encouraging developers to upgrade to the latest security releases
 whenever possible.
 
 The smaller buildpacks sizes also means a faster PCF installation, as
-nwell as improved staging performance.
+well as improved staging performance.
 
 For any customers who want to customize the binaries that are shipped
 with a buildpack, the tooling for generating custom buildpacks has
