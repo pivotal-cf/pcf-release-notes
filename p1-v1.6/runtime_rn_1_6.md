@@ -64,6 +64,8 @@ MySQL, used by some of the Pivotal Cloud Foundry system applications in the past
 
 You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. A future release is planned that will address data migration for installations that started with a postgres database.
 
+If you do install Pivotal Cloud Foundry on the MySQL databases only, then you can scale down the Apps Manager Database (Postgres), Cloud Controller Database (Postgres), and UAA Database (Postgres) to zero instances. Those components will instead use the MySQL cluster.
+
 #### API/cf CLI
 
 Note: These features are available via API only; cf CLI support coming soon
