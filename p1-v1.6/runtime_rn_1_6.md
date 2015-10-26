@@ -33,7 +33,7 @@ You can use the Windows .NET MSI to run you applications on Windows containers. 
 
 #### Docker
 
-Docker support for Pivotal Cloud Foundry is in beta currently. To enable Docker support in your deployment, you can use a CLI command as a user with the admin role: `cf enable-feature-flag diego_docker`. 
+Docker support for Pivotal Cloud Foundry is in beta currently. To enable Docker support in your deployment, you can use a CLI command as a user with the admin role: `cf enable-feature-flag diego_docker`. Further details about Docker on Diego can be found [here](../../concepts/docker.html)
 
 #### Security Configuration of Runtime
 
