@@ -88,11 +88,16 @@ Two new environment variables are introduced and one is removed in v1.6:
 
 Multiple stability and performance improvements were made to DEAs. They can now handle many more simultaneous connections, for instance.
 
-## UAA and Login Server
-#### Feature name here...
+##  Identity (aka UAA Server)
 
-#### Bug Fixes
-
+- UAA now enforces HTTPS only communication. This was an experimental feature in PCF 1.5.x
+- Added support for UAA Log Rotation via BOSH
+- SAML SSO Integration Updates
+  - Allow Identity Provider Metadata with missing XML Declaration tag
+  - Strict checking for duplicate SAML Entity ID's
+- Token Format Updates
+ - UAA tokens now contain an origin field which signifies the Identity Prvider used for authenitcaiton. If SAML IDP is used for authenitcation, the Identity Provider alias is set in as the origin value
+ - Support for nonce parameter in OAuth requests to prevent against CSRF attacks
 
 ## Logging, Analytics and Metrics
 
