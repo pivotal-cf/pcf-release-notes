@@ -3,11 +3,12 @@ title: Pivotal Cloud Foundry Ops Manager v1.5.x Release Notes
 ---
 
 ## v1.5.7.0 patch release:
-Ops Manager 1.5.7.0 is a fast turnaround security patch release that incorporates a fix for the High severity bug CVE-2015-7613.  Please note that 1.5.7 has a limiation affecting Openstack users only:
-* Ops Manager 1.5.7 for Openstack does not work with S3/Swift blobstores.  
-* Ops Manager 1.5.7 for Openstack users must configure their Director to use the internal blobstore option.
-* vSphere, AWS and vCloud users are not affected. 
-* This will be fixed in the next release.
+Ops Manager 1.5.7.0 is a fast turnaround security patch release that incorporates a fix for the High severity bug CVE-2015-7613.  Please note that 1.5.7 has a limitation affecting Openstack users only:
+
+  * Ops Manager 1.5.7 for OpenStack does not work with S3/Swift blobstores.  
+  * Ops Manager 1.5.7 for OpenStack users must configure their Director to use the internal blobstore option.
+  * vSphere, AWS and vCloud users are not affected. 
+  * This will be fixed in the next release.
 (Embedded stemcell 3094, Ops Manager build 3c5bf2)
 
 ## v1.5.6.0 patch release:
@@ -20,7 +21,7 @@ Ops Manager 1.5.5.0 is a security patch release that incorporates low and medium
 Ops Manager 1.5.4.0 is an invitation-only release for vCloud Air and vCloud Director customers.  It fixes a bug to allow use of the 6.0 and higher vCA API.  If you are a vCA/vCD customer and would like access to this release, please contact Pivotal Support.  (Embedded stemcell 3056, Ops Manager build ea7ddc)
 
 ## v1.5.3.0 patch release:
-Ops Manager 1.5.3.0 adds two configuration options on OpenStack:  "Disable DHCP" checkbox (which controls BOSH's "use_dhcp" flag) and an advanced section called "Advanced Infrastructure Config" that allows operators to set an Openstack connection_options string, which acccepts JSON.  Release notes starting with 1.5.2.0 will now include the version number of the embedded stemcell.  Text area fields have been widened in the Ops Manager user interface.  (Embedded stemcell 3026, Ops Manager build f7555)
+Ops Manager 1.5.3.0 adds two configuration options on OpenStack:  "Disable DHCP" checkbox (which controls BOSH's "use\_dhcp" flag) and an advanced section called "Advanced Infrastructure Config" that allows operators to set an OpenStack connection\_options string, which accepts JSON.  Release notes starting with 1.5.2.0 will now include the version number of the embedded stemcell.  Text area fields have been widened in the Ops Manager user interface.  (Embedded stemcell 3026, Ops Manager build f7555)
 
 ## v1.5.2.0 patch release:
 

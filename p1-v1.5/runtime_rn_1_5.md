@@ -5,12 +5,13 @@ title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ## v1.5.6.0 Patch
 This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2765-1](http://www.ubuntu.com/usn/usn-2765-1/), [USN-2756-1](http://www.ubuntu.com/usn/usn-2756-1), [USN-2751-1](http://www.ubuntu.com/usn/usn-2751-1), [USN-2740-1](http://www.ubuntu.com/usn/usn-2740-1/), [USN-2739-1](http://www.ubuntu.com/usn/usn-2739-1/), [USN-2738-1](http://www.ubuntu.com/usn/usn-2738-1/), [USN-2726-1](http://www.ubuntu.com/usn/usn-2726-1/) and [USN-2722-2](http://www.ubuntu.com/usn/usn-2722-1/). Additional details regarding each fix can be found at https://pivotal.io/security. 
 
-Note one important known issue with the 1.5.6 patch for Openstack deployments. 
-Please note that BOSH stemcell v3094, which this version of Elastic Runtime references, has a limiation affecting Openstack users only: 
-* Elastic Runtime 1.5.6 on Openstack does not work with S3/Swift blobstores.
-* Elastic Runtime 1.5.6 on Openstack users must configure their object storage to use the internal blobstore option. 
-* vSphere, AWS and vCloud users are not affected. 
-* This will be fixed in the next release.
+Note one important known issue with the 1.5.6 patch for OpenStack deployments. 
+Please note that BOSH stemcell v3094, which this version of Elastic Runtime references, has a limitation affecting OpenStack users only: 
+
+  * Elastic Runtime 1.5.6 on OpenStack does not work with S3/Swift blobstores.
+  * Elastic Runtime 1.5.6 on OpenStack users must configure their object storage to use the internal blobstore option. 
+  * vSphere, AWS and vCloud users are not affected. 
+  * This will be fixed in the next release.
 
 ## v1.5.4.0 Patch
 This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2718-1](http://www.ubuntu.com/usn/usn-2718-1/), [USN-2694-1](http://www.ubuntu.com/usn/usn-2694-1), [USN-2698-1](http://www.ubuntu.com/usn/usn-2698-1), [USN-2710-1](http://www.ubuntu.com/usn/usn-2710-1/) and [USN-2710-2](http://www.ubuntu.com/usn/usn-2710-2/). Additional details regarding each fix can be found at https://pivotal.io/security. 
@@ -56,7 +57,7 @@ This new section allows you to configure security settings for your Pivotal Clou
 
 The SSL Termination Certificate input (for HAProxy) and the "Trust Self-Signed Certificates" checkbox have been moved to this section.
 
-By checking the "Enable cross-container traffic within each DEA" checkbox, you can disable a restriction on the DEA that disallows containers on a particular DEA from communicating with each other.  It is not recommended to check this checkbox for multi-tenant environments.
+By checking the "Enable cross-container traffic within each DEA" checkbox, you can disable a restriction on the DEA that disallows containers on a particular DEA from communicating with each other. We do not recommend that you select this checkbox in multi-tenant environments.
 
 This section also includes fields which allow configuring the HAProxy SSL certificate and HAProxy cipher string, the latter of which is an optional field. The SSL certificate is not optional, even if you use an external load-balancer instead of HAProxy, since it could potentially be referenced by other Pivotal Cloud Foundry services that you may choose to install.
 
@@ -64,7 +65,7 @@ This section also includes fields which allow configuring the HAProxy SSL certif
 
 ##### S3-Compatible Filestore Configuration
 
-OpenStack allows for use of an external filestore that is compatible with Amazon's AWS S3 buckets. You can now choose whether you want to deploy Pivotal Elastic Runtime using an internal filestore or an external S3-compatible bucket, whether it is hosted by AWS or Openstack. Note that Swift buckets are NOT known to be compatible at this time, however Ceph-backed containers are compatible.
+OpenStack allows for use of an external filestore that is compatible with Amazon's AWS S3 buckets. You can now choose whether you want to deploy Pivotal Elastic Runtime using an internal filestore or an external S3-compatible bucket, whether it is hosted by AWS or OpenStack. Note that Swift buckets are NOT known to be compatible at this time; however, Ceph-backed containers are compatible.
 
 If using an external filestore, you can configure the URL endpoint of your S3-compatible filestore under the File Storage Config section. For example, if you are using AWS S3, you can keep this field configured with the default value https://s3.amazonaws.com. Note that this default points to US East region.
 
