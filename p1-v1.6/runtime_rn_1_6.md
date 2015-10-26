@@ -23,7 +23,7 @@ Diego is the new application runtime that Pivotal Cloud Foundry will use by defa
 
 Diego enables many new features and enhancements, such as allowing the deployment of thousands of applications and resurrecting crashed applications within seconds. It also supports new workloads, such as .NET on Windows and Docker on Linux, and enables SSH access to containers.
 
-Details about how Diego works can be found [here](../../concepts/diego/diego-auction.html)
+Details about how Diego works can be found [here](../../concepts/diego/diego-auction.html). Details about its architecture can be found [here](../../concepts/diego/diego-architecture.html)
 
 Details about SSH access to application containers on Diego can be found [here](../../customizing/diego-ssh/index.html).
 
