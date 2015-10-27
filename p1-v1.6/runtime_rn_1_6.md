@@ -13,7 +13,7 @@
 
 This release completely removes the lucid64 stack from Pivotal Cloud Foundry. After upgrading to this release, apps that have not been migrated to cflinuxfs2 will fail to start.
 
-Operators are encouraged to migrate all apps to cflinuxfs2 as mentioned in the v1.4 release notes, before upgrading to v1.6.
+Operators are encouraged to migrate all apps to cflinuxfs2, as mentioned in the v1.4 release notes, before upgrading to v1.6.
 
 Further details can be found [here](https://support.pivotal.io/hc/en-us/articles/205751277-New-cflinuxfs2-Stack).
 
@@ -43,7 +43,7 @@ The SSL Termination Certificate input now applies to both HAProxy (if you use th
 
 If you have multiple domains to map to the Router, such as separate system and apps domains, you can only use one SSL certificate. The Router does not yet support multiple certificates. However, one SSL certificate with multiple domains attributed to it is acceptable.
 
-The "Enable cross-container traffic" checkbox now controls the restriction of cross-container traffic for both DEAs and Diego Cells, depending on which runtime backend platform is chosen. It is not recommended to check this checkbox within multi-tenant environments. The feature enables using application containers to connect to other application containers directly, without going through the router. This setup may be desired for microservices, which may be optionally used with Pivotal Spring Cloud Services.
+The "Enable cross-container traffic" checkbox now controls the restriction of cross-container traffic for both DEAs and Diego Cells, depending on which runtime backend platform is chosen. Pivotal does not recommend that you select this checkbox within multi-tenant environments. The feature enables using application containers to connect to other application containers directly, without going through the router. This setup may be desired for microservices, which may be optionally used with Pivotal Spring Cloud Services.
 
 The Security Configuration section also includes fields that allow specifying the HAProxy and Router ciphers, both of which are optional fields.
 
@@ -68,20 +68,20 @@ If you do install Pivotal Cloud Foundry on the MySQL databases only, then you ca
 
 #### API/cf CLI
 
-Note: These features are available via API only; cf CLI support coming soon
-- Org Managers and Space Managers can now manage roles without requiring admin privileges
+Note: These features are available via API only; cf CLI support coming soon.
+- Org Managers and Space Managers can now manage roles without requiring admin privileges.
 - Max number of private domains can be specified in the Organization Quota.
-- Max number of app instances can be specified in the Organization Quota and Space Quota
-- Admins can purge a single service instance and its bindings.  This is a more targeted purge to resolve a single service instance than the purge service offering.
+- Max number of app instances can be specified in the Organization Quota and Space Quota.
+- Admins can purge a single service instance and its bindings. This is a more targeted purge to resolve a single service instance than the purge service offering.
 
 #### Apps Manager
 
-This release adds support for the Diego Runtime, and features numerous fixes and enhancements for it. 
+This release adds support for the Diego Runtime, and features numerous fixes and enhancements for it.
 
-Two new environment variables are introduced and one is removed in v1.6: 
+Two new environment variables are introduced and one is removed in v1.6:
 
-* The new `ENABLE_INTERNAL_USER_STORE` environment variable controls org and space user invitations, new user registrations, and password updates to the PCF internal user store. The default is set to `false`, which means that none of the features are exposed in Apps Manager. Set to `true` to expose these features. 
-* The new `ENABLE_NON_ADMIN_ROLE_MANAGEMENT` environment variable allows org managers and spaces managers to manage user roles regardless of where these users are created. The default is set to `false`, which means that none of the features are exposed in Apps Manager. Set to `true` to expose these features. 
+* The new `ENABLE_INTERNAL_USER_STORE` environment variable controls org and space user invitations, new user registrations, and password updates to the PCF internal user store. The default is set to `false`, which means that none of the features are exposed in Apps Manager. Set to `true` to expose these features.
+* The new `ENABLE_NON_ADMIN_ROLE_MANAGEMENT` environment variable allows org managers and spaces managers to manage user roles regardless of where these users are created. The default is set to `false`, which means that none of the features are exposed in Apps Manager. Set to `true` to expose these features.
 * The previous `ENABLE_NON_ADMIN_USER_MANAGEMENT` environment variable that controlled many of these same features is removed in v1.6.
 
 #### DEAs
@@ -94,9 +94,9 @@ Multiple stability and performance improvements were made to DEAs. They can now 
 - Added support for UAA Log Rotation via BOSH
 - SAML SSO Integration Updates
   - Allow Identity Provider Metadata with missing XML Declaration tag
-  - Strict checking for duplicate SAML Entity ID's
+  - Strict checking for duplicate SAML Entity IDs
 - Token Format Updates
- - UAA tokens now contain an origin field which signifies the Identity Prvider used for authenitcaiton. If SAML IDP is used for authenitcation, the Identity Provider alias is set in as the origin value
+ - UAA tokens now contain an origin field which signifies the Identity Provider used for authentication. If SAML IDP is used for authentication, the Identity Provider alias is set in as the origin value.
  - Support for nonce parameter in OAuth requests to prevent against CSRF attacks
 
 ## Buildpacks
@@ -166,5 +166,10 @@ rootfs in a maintainable manner.
 * CVE 2015-1330
 
 ### Other Bug Fixes
-We fixed an issue with the v1.5.6 patch for Openstack deployments. The BOSH stemcell v3094, which this version of Elastic Runtime references, has a limiation affecting Openstack users only: * Elastic Runtime 1.5.6 on Openstack does not work with S3/Swift blobstores. * Elastic Runtime 1.5.6 on Openstack users must configure their object storage to use the internal blobstore option. * vSphere, AWS and vCloud users are not affected. * This is fixed in v1.6.0
+We fixed an issue with the v1.5.6 patch for Openstack deployments. The BOSH stemcell v3094, which this version of Elastic Runtime references, has a limitation affecting Openstack users only:
+
+* Elastic Runtime 1.5.6 on Openstack does not work with S3/Swift blobstores.
+* Elastic Runtime 1.5.6 on Openstack users must configure their object storage to use the internal blobstore option.
+* vSphere, AWS and vCloud users are not affected.
+* This is fixed in v1.6.0
 
