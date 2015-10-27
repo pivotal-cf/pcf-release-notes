@@ -104,6 +104,10 @@ Multiple stability and performance improvements were made to DEAs. They can now 
 - Token Format Updates
  - UAA tokens now contain an origin field which signifies the Identity Provider used for authentication. If SAML IDP is used for authentication, the Identity Provider alias is set in as the origin value.
  - Support for nonce parameter in OAuth requests to prevent against CSRF attacks
+ 
+## Logging and Metrics
+
+* There is a new field, "Syslog Drain Buffer Size", which allows you to configure the number of messages that your Doppler server will keep before starting to drop messages. Note that a larger buffer may overload your system.
 
 ## Buildpacks
 
