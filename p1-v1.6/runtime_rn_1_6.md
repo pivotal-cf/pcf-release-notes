@@ -31,7 +31,7 @@ Details about how Diego works can be found [here](../../concepts/diego/diego-auc
 
 Details about SSH access to application containers on Diego can be found [here](../../customizing/diego-ssh/index.html).
 
-There is a new field, "Application Containers Subnet Pool", which allows you to configure a specific subnet pool for your applications running on Diego. You can leave this field as its default value unless you specifically want to use a different subnet, say if you have a third-party service or other VMs running with the same IPs in your network. This features is only usable on Diego, not on DEAs.
+There is a new field, "Application Containers Subnet Pool", which allows you to configure a specific subnet pool for your applications running on Diego. You can leave this field as its default value unless you specifically want to use a different subnet, say if you have a third-party service or other VMs running with the same IPs in your network. This features is only usable on Diego, not on DEAs. You can only specify a single CIDR subnet, no "excluded IPs" can be specified.
 
 #### Windows 2012 stack
 
