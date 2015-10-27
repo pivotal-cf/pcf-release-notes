@@ -1,3 +1,7 @@
+---
+title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
+---
+
 ## Changes since v1.5.0.0:
 
 ## Elastic Runtime
