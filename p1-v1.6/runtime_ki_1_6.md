@@ -12,6 +12,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * To SSH into an application container on Diego, your CF user must have the Space Developer role attached to it for the application space.
 
+* The Smoke Tests may occasionally fail at the logging test suite. The Smoke Tests errand is fine to re-run in case of any failures. 
+
 * The version of Postgres has been upgraded to 9.4.2. If you have Postgresql databases in your deployment, Cloud Controller and UAA will be unavailable during the upgrade.
 In case that upgrade fails, there are mitigations [documented here](https://github.com/cloudfoundry/cf-release/releases/tag/v211).
 
