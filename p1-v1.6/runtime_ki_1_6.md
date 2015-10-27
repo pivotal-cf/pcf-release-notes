@@ -4,6 +4,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 #### New Issues
 
+* The PCF Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
+
 * Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
 
 * The CLI command for viewing application files, `cf files`, does not work with applications on Diego.
