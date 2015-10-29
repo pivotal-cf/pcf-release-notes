@@ -25,7 +25,7 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 Diego is the new application runtime that Pivotal Cloud Foundry will use by default to run your apps.
 
-Diego enables many new features and enhancements, such as allowing the deployment of thousands of applications and resurrecting crashed applications within seconds. It also supports new workloads, such as .NET on Windows and Docker on Linux, and enables SSH access to containers.
+Diego enables many new features and enhancements, such as allowing the deployment of thousands of applications and resurrecting crashed applications within seconds. It also supports new workloads, such as .NET applications on Windows, Docker on Linux, and enables SSH access to containers.
 
 Details about how Diego works can be found [here](../../concepts/diego/diego-auction.html). Details about its architecture can be found [here](../../concepts/diego/diego-architecture.html)
 
@@ -35,7 +35,9 @@ There is a new field, "Application Containers Subnet Pool", which allows you to 
 
 #### Windows 2012 stack
 
-You can use the Windows .NET MSI to run you applications on Windows containers. Further details on enabling this feature can be found [here](../../opsguide/deploying-diego.html)
+By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment. Further documentation can be found [here](https://docs.pivotal.io/pivotalcf/opsguide/deploying-diego.html). 
+
+At this time, Windows cells cannot be managed by BOSH, but server deployment can easily be integrated with any number of existing infrastructure tools.
 
 #### Docker
 
