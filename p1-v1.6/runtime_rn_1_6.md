@@ -109,6 +109,10 @@ Multiple stability and performance improvements were made to DEAs. They can now 
  
 ## Logging and Metrics
 
+* Diego metrics now flow through the Loggregator subsystem. 
+  * Collector is deprecated.
+  * DEA and HM9000 continue to use Collector.
+  * A varz nozzle is available for directing metrics coming through Loggregator to Collector.
 * There is a new field, "Syslog Drain Buffer Size", which allows you to configure the number of messages that your Doppler server will keep before starting to drop messages. Note that a larger buffer may overload your system.
 
 ## Buildpacks
