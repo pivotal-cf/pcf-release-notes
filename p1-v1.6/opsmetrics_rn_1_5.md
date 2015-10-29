@@ -13,4 +13,3 @@ title: Pivotal Cloud Foundry Ops Metrics v1.5.0 Release Notes
 
 ### Notes
 Stemcell for 1.5.0 is 3100
-If you would like Ops Metrics to be installable only for Bosh data, please reach out to the Ops Metrics team on socialcast or the Pivotal pcf-lamb Slack channel; we may change course to allow for this based on early feedback.
