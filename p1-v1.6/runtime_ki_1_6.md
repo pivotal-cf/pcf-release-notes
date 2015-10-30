@@ -32,6 +32,8 @@ To avoid the possibility of the migration causing a failure, truncate the events
 
 * Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set `NON-ADMIN` environment variables on both versions in order to keep the configuration consistent.
 
+* If you have installed the Diego Beta tile in a 1.5.x Elastic Runtime environment, it will need to be uninstalled prior to upgrade. The Windows MSI provided with the 1.6 Elastic Runtime release will not work with the older Diego Beta tile. 
+
 #### Existing Issues
 
 * On the Security Config page of Elastic Runtime, after you supply your own cipher sets and click Save, do not erase the HAProxy and Router Cipher fields. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.
