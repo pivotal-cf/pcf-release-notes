@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry Ops Manager v1.5.x Release Notes
 ---
 
+## v1.5.8 patch release:
+Ops Manager 1.5.8 is the security patch rollup for November 2015.  (Embedded stemcell 3112, Ops Manager build 3086f)
+
 ## v1.5.7.0 patch release:
 Ops Manager 1.5.7.0 is a fast turnaround security patch release that incorporates a fix for the High severity bug CVE-2015-7613.  Please note that 1.5.7 has a limitation affecting Openstack users only:
 
