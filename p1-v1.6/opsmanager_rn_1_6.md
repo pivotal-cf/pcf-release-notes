@@ -1,6 +1,9 @@
 ---
-title: Pivotal Cloud Foundry Ops Manager v1.6.0 Release Notes
+title: Pivotal Cloud Foundry Ops Manager v1.6 Release Notes
 ---
+
+## v1.6.1 patch release:
+Ops Manager 1.6.1 is the security patch rollup for November 2015.  (Embedded stemcell 3112)
 
 ## Version 1.6.0 (changes since v1.5.5)
 
