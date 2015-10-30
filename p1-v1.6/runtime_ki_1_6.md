@@ -6,7 +6,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * The PCF Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
  
-* Before upgrading to PCF Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed (these instructions)[http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade].
+* Before upgrading to PCF Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed [these instructions](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
 
 * Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
 
