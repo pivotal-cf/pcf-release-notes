@@ -29,13 +29,13 @@ Diego enables many new features and enhancements, such as allowing the deploymen
 
 Details about how Diego works can be found [here](../../concepts/diego/diego-auction.html). Details about its architecture can be found [here](../../concepts/diego/diego-architecture.html)
 
-To enable SSH access to your application containers on Diego, you will need to make sure that your external load-balancer, if you have one, is listening on port 2222 and forwarding to port 2222 on the Diego Brain. Also, if you are using an external load-balancer for SSH access, separate of the one you have pointed to the Router for general access to Cloud Foundry, you will need to add ssh.(your-domain) to your DNS, pointing to this load-balancer. Details about SSH access to application containers on Diego can be found [here](../../customizing/diego-ssh/index.html). Instructions for setting up the SSH ELB for AWS can be found [here](http://docs.pivotal.io/pivotalcf/customizing/cloudform_elb_ssh_proxy.html).
+To enable SSH access to your application containers on Diego, you will need to make sure that your external load-balancer, if you have one, is listening on port 2222 and forwarding to port 2222 on the Diego Brain. Also, if you are using an external load-balancer for SSH access, separate of the one you have pointed to the Router for general access to Cloud Foundry, you will need to add ssh.(your-domain) to your DNS, pointing to this load-balancer. Details about SSH access to application containers on Diego can be found [here](../../customizing/diego-ssh/index.html). Instructions for setting up the SSH ELB for AWS can be found [here](../../customizing/cloudform_elb_ssh_proxy.html).
 
 There is a new field, "Application Containers Subnet Pool", which allows you to configure a specific subnet pool for your applications running on Diego. You can leave this field as its default value unless you specifically want to use a different subnet, say if you have a third-party service or other VMs running with the same IPs in your network. This features is only usable on Diego, not on DEAs. You can only specify a single CIDR subnet, no "excluded IPs" can be specified.
 
 #### Windows 2012 stack
 
-By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment. Further documentation can be found [here](https://docs.pivotal.io/pivotalcf/opsguide/deploying-diego.html). 
+By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment. Further documentation can be found [here](../../opsguide/deploying-diego.html). 
 
 At this time, Windows cells cannot be managed by BOSH, but server deployment can easily be integrated with any number of existing infrastructure tools.
 
