@@ -35,7 +35,9 @@ There is a new field, "Application Containers Subnet Pool", which allows you to 
 
 #### Windows 2012 stack
 
-By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment. Further documentation can be found [here](../../opsguide/deploying-diego.html). 
+By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment. 
+
+Diego must be enabled for applications to run on the new Windows 2012R2 stack. It can either be enabled by default or must be enabled for the individual application before that app can be started. Further documentation can be found [here](../../opsguide/deploying-diego.html). 
 
 At this time, Windows cells cannot be managed by BOSH, but server deployment can easily be integrated with any number of existing infrastructure tools.
 
