@@ -4,7 +4,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 #### New Issues
 
-* The PCF Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
+* The [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
  
 * Before upgrading to PCF Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed [these instructions](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
 
@@ -21,7 +21,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 * The version of Postgres has been upgraded to 9.4.2. If you have Postgresql databases in your deployment, Cloud Controller and UAA will be unavailable during the upgrade.
 In case that upgrade fails, there are mitigations [documented here](https://github.com/cloudfoundry/cf-release/releases/tag/v211).
 
-* After you upgrade to Pivotal Cloud Foundry 1.6, you may want to reclaim some blobstore space due to some orphaned blobs. To reclaim space, call [this end point](http://apidocs.cloudfoundry.org/222/blobstores/delete_all_blobs_in_the_buildpack_cache_blobstore.html) to delete all buildpack caches from the blobstore after the v1.6 upgrade is complete.
+* After you upgrade to PCF 1.6, you may want to reclaim some blobstore space due to some orphaned blobs. To reclaim space, call [this end point](http://apidocs.cloudfoundry.org/222/blobstores/delete_all_blobs_in_the_buildpack_cache_blobstore.html) to delete all buildpack caches from the blobstore after the v1.6 upgrade is complete.
 
 * This upgrade includes a migration that modifies the events table on the Cloud Controller database. This table may be very large, and the migration may cause the upgrade to fail at the Cloud Controller job if it takes too long. If this happens, do not restart the deploy until the migration has finished running. The deploy can be restarted once the space_id foreign key constraint has been removed from the events table.
 To avoid the possibility of the migration causing a failure, truncate the events table before the deployment starts. The data in the events table are audit and log data, and PCF can function without it.

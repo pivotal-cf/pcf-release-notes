@@ -19,7 +19,7 @@ This patch release includes CVE patches for [USN-2778-1](http://www.ubuntu.com/u
 
 #### Default Stack: cflinuxfs2
 
-This release completely removes the lucid64 stack from Pivotal Cloud Foundry. After upgrading to this release, apps that have not been migrated to cflinuxfs2 will fail to start.
+This release completely removes the lucid64 stack from [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF). After upgrading to this release, apps that have not been migrated to cflinuxfs2 will fail to start.
 
 Operators are encouraged to migrate all apps to cflinuxfs2, as mentioned in the v1.4 release notes, before upgrading to v1.6.
 
@@ -27,7 +27,7 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 #### Cloud Foundry Runtime - Diego
 
-Diego is the new application runtime that Pivotal Cloud Foundry will use by default to run your apps.
+Diego is the new application runtime that Pivotal Cloud Foundry&reg; will use by default to run your apps.
 
 Diego enables many new features and enhancements, such as allowing the deployment of thousands of applications and resurrecting crashed applications within seconds. It also supports new workloads, such as .NET applications on Windows, Docker on Linux, and enables SSH access to containers.
 
@@ -47,11 +47,11 @@ At this time, Windows cells cannot be managed by BOSH, but server deployment can
 
 #### Docker
 
-Docker support for Pivotal Cloud Foundry is in beta currently. To enable Docker support in your deployment, you can use a CLI command as a user with the admin role: `cf enable-feature-flag diego_docker`. Further details about Docker on Diego can be found [here](../../concepts/docker.html)
+Docker support for Pivotal Cloud Foundry&reg; is in beta currently. To enable Docker support in your deployment, you can use a CLI command as a user with the admin role: `cf enable-feature-flag diego_docker`. Further details about Docker on Diego can be found [here](../../concepts/docker.html)
 
 #### Security Configuration of Runtime
 
-This section allows you to configure security settings for your Pivotal Cloud Foundry Elastic Runtime components, such as HAProxy, Router, and the DEA/Diego Cells.
+This section allows you to configure security settings for your Pivotal Cloud Foundry&reg; Elastic Runtime components, such as HAProxy, Router, and the DEA/Diego Cells.
 
 The SSL Termination Certificate input now applies to both HAProxy (if you use this component) and the Cloud Foundry Router. This field is not optional, even if you use an external load-balancer instead of HAProxy, since it will be applied to the Router. It does not have to be the same certificate as the one used by your external load-balancer, as this certificate is only used for SSL traffic between the load-balancer and Router. You can enable SSL termination on the Router with a checkbox in this same section, "Enable TLS on the Router". More details [here](http://docs.pivotal.io/pivotalcf/adminguide/enabling-https-to-routers.html) about securing connections to the Router.
 
@@ -67,18 +67,18 @@ The Security Configuration section also includes fields that allow specifying th
 
 It is now possible to configure four different S3 buckets to comprise the Cloud Controller's filesystem, instead of just one.
 
-You can choose to use four different buckets if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from the one bucket configuration in 1.5 to separate buckets in 1.6. It is recommended to use separate buckets for new deployments. Existing deployments are supported with one bucket.
+You can choose to use four different buckets if you are installing Pivotal Cloud Foundry&reg; for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry&reg; v1.5 to v1.6). This is because the data will not be automatically migrated from the one bucket configuration in 1.5 to separate buckets in 1.6. It is recommended to use separate buckets for new deployments. Existing deployments are supported with one bucket.
 
 ##### Experimental Features
 
 There are no experimental features being introduced in PCF Elastic Runtime for v1.6.
 
 #### Improved MySQL Service
-MySQL, used by some of the Pivotal Cloud Foundry system applications in the past, is now available as a data store for every Pivotal Cloud Foundry system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications relied upon in previous releases.
+MySQL, used by some of the Pivotal Cloud Foundry&reg; system applications in the past, is now available as a data store for every Pivotal Cloud Foundry&reg; system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications relied upon in previous releases.
 
-You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. A future release is planned that will address data migration for installations that started with a postgres database.
+You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry&reg; for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry&reg; v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. A future release is planned that will address data migration for installations that started with a postgres database.
 
-If you do install Pivotal Cloud Foundry on the MySQL databases only, then you can scale down the Apps Manager Database (Postgres), Cloud Controller Database (Postgres), and UAA Database (Postgres) to zero instances. Those components will instead use the MySQL cluster.
+If you do install Pivotal Cloud Foundry&reg; on the MySQL databases only, then you can scale down the Apps Manager Database (Postgres), Cloud Controller Database (Postgres), and UAA Database (Postgres) to zero instances. Those components will instead use the MySQL cluster.
 
 #### API/cf CLI
 
@@ -188,10 +188,10 @@ rootfs in a maintainable manner.
 * CVE 2015-1330
 
 ### Other Bug Fixes
-We fixed an issue with the v1.5.6 patch for Openstack deployments. The BOSH stemcell v3094, which this version of Elastic Runtime references, has a limitation affecting Openstack users only:
+We fixed an issue with the v1.5.6 patch for OpenStack deployments. The BOSH stemcell v3094, which this version of Elastic Runtime references, has a limitation affecting OpenStack users only:
 
-* Elastic Runtime 1.5.6 on Openstack does not work with S3/Swift blobstores.
-* Elastic Runtime 1.5.6 on Openstack users must configure their object storage to use the internal blobstore option.
+* Elastic Runtime 1.5.6 on OpenStack does not work with S3/Swift blobstores.
+* Elastic Runtime 1.5.6 on OpenStack users must configure their object storage to use the internal blobstore option.
 * vSphere, AWS and vCloud users are not affected.
 * This is fixed in v1.6.0
 

@@ -1,11 +1,11 @@
 ---
-title: Pivotal Cloud Foundry Ops Metrics v1.5.0 Release Notes
+title: Pivotal Cloud Foundry&reg; Ops Metrics v1.5.0 Release Notes
 ---
 
 ## Version 1.5.0 (changes since v1.4.x)
 
 ### Known issues
-For Known Issues, please see the [Ops Metrics Known Issues](opsmetrics_ki_1_5.html) documentation.  For Ops Metrics 1.5.X (compatable with Ops Manager and Elastic Runtime 1.6.X ) there is one important install ordering dependency.
+For Known Issues, please see the [Ops Metrics Known Issues](opsmetrics_ki_1_5.html) documentation.  For Ops Metrics 1.5.X (compatible with Ops Manager and Elastic Runtime 1.6.X ) there is one important install ordering dependency.
 
 ### Major Features
 * Ops Metrics now supports the firehose in addition to Bosh and the Collector for data.
