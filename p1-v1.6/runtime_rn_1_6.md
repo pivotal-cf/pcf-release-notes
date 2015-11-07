@@ -2,7 +2,7 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
-## v1.6.1.0 Patch
+## v1.6.2.0 Patch
 
 This release fixes an issue with application security groups not enforcing expected egress traffic rules for applications running on Diego.
 
