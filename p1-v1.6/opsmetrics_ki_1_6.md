@@ -4,7 +4,7 @@ title: Pivotal Cloud Foundry&reg; Ops Metrics v1.5.X Known Issues
 
 ## New Issues
 
-Some of these issues may be fixed in subsequent patch releases to 1.5. Consult the Ops Metrics 1.5 [Release Notes](opsmetrics_rn_1_5.html) - any additional fixes will be added immediately.
+Some of these issues may be fixed in subsequent patch releases to 1.5. Consult the Ops Metrics 1.5 [Release Notes](opsmetrics_rn_1_6.html) - any additional fixes will be added immediately.
 
 * On a new [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) Ops Manager install, you must install an Elastic Runtime tile before installing Ops Metrics 1.5.X . Ops Metrics 1.5.X may fail with a "500 error" if the Elastic Runtime tile is not present. Ops Manager will continue to produce errors for subsequent deployments of Ops Metrics, even if you add the Elastic Runtime tile after.
 * To resolve this issue:
