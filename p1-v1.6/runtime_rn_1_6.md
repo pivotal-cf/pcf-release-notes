@@ -4,7 +4,7 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 ## v1.6.3.0 Patch
 
-This patch release includes CVE patches for [USN-2806-1](http://www.ubuntu.com/usn/usn-2806-1/) and [USN-2788-1](http://www.ubuntu.com/usn/usn-2788-1/). Additional information can be found at https://pivotal.io/security
+This patch release includes CVE patches for [USN-2806-1](http://www.ubuntu.com/usn/usn-2806-1/) and [USN-2798-1](http://www.ubuntu.com/usn/usn-2798-1/). Additional information can be found at https://pivotal.io/security
 
 ## v1.6.2.0 Patch
 
