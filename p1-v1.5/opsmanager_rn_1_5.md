@@ -3,7 +3,7 @@ title: Pivotal Cloud Foundry Ops Manager v1.5.x Release Notes
 ---
 
 ## v1.5.9 patch release:
-Ops Manager 1.5.9 includes security patches for Ubuntu Security Notices USN-2798-1, not USN-2788-1. (Embedded stemcell 3130, Ops Manager build 854c8a)
+Ops Manager 1.5.9 includes security patches for Ubuntu Security Notices USN-2798-1 and USN-2806-1. (Embedded stemcell 3130, Ops Manager build 854c8a)
 
 ## v1.5.8 patch release:
 Ops Manager 1.5.8 is the security patch rollup for November 2015.  (Embedded stemcell 3112, Ops Manager build 3086f)
