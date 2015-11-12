@@ -6,6 +6,8 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 This patch release includes CVE patches for [USN-2806-1](http://www.ubuntu.com/usn/usn-2806-1/) and [USN-2798-1](http://www.ubuntu.com/usn/usn-2798-1/). Additional information can be found at https://pivotal.io/security
 
+This also enables setting the Health Manager instance count to zero, since Health Manager is not used by the Diego runtime components. If you are using DEAs, you should continue to keep Health Manager around.
+
 ## v1.6.2.0 Patch
 
 This release fixes an issue with application security groups not enforcing expected egress traffic rules for applications running on Diego.
