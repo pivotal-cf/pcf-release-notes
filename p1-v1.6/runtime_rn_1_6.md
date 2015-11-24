@@ -9,6 +9,9 @@ This patch release includes CVE patches for [USN-2787-1](http://www.ubuntu.com/u
 This also includes a migration from btrfs to aufs as the filesystem for application containers on Diego, for improved performance. It also fixes an issue with Cloud Controller returning a 503 error code whenever a user requests the status of an application that is still staging.
 
 As as result of these fixes, the OSS Cloud Foundry components were bumped to these versions:
+* CF Release version: 222
+* Diego version: 0.1437.0
+* Garden version: 0.308.0
 
 ## v1.6.3.0 Patch
 
