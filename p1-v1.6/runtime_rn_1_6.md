@@ -8,6 +8,8 @@ This patch release includes CVE patches for [USN-2787-1](http://www.ubuntu.com/u
 
 This also includes a migration from btrfs to aufs as the filesystem for application containers on Diego, for improved performance. It also fixes an issue with Cloud Controller returning a 503 error code whenever a user requests the status of an application that is still staging.
 
+As as result of these fixes, the OSS Cloud Foundry components were bumped to these versions:
+
 ## v1.6.3.0 Patch
 
 This patch release includes CVE patches for [USN-2806-1](http://www.ubuntu.com/usn/usn-2806-1/) and [USN-2798-1](http://www.ubuntu.com/usn/usn-2798-1/). Additional information can be found at https://pivotal.io/security
@@ -26,6 +28,13 @@ This patch release includes CVE patches for [USN-2778-1](http://www.ubuntu.com/u
 
 ## Elastic Runtime
 
+Versions 1.6.4 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
+* CF Release version: 222
+* Diego version: 0.1437.0
+* Garden version: 0.308.0
+* CF MySQL version: 23
+
+Versions 1.6.0 to 1.6.3 of Elastic Runtime consist of these Cloud Foundry versions:
 * CF Release version: 222
 * Diego version: 0.1437.0
 * Garden version: 0.308.0
