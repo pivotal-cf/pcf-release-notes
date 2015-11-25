@@ -6,7 +6,9 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 This patch release includes CVE patches for [USN-2788-1](http://www.ubuntu.com/usn/usn-2788-1/) and [USN-2788-2](http://www.ubuntu.com/usn/usn-2788-2/). Additional information can be found at https://pivotal.io/security
 
-This also includes a migration from btrfs to aufs as the filesystem for application containers on Diego, for improved performance. It also fixes an issue with Cloud Controller returning a 503 error code whenever a user requests the status of an application that is still staging.
+This patch also includes a migration from btrfs to aufs as the filesystem for application containers on Diego, for improved performance. It also fixes an issue with Cloud Controller returning a 503 error code whenever a user requests the status of an application that is still staging.
+
+This patch also updates the Docker registry API to v2 instead of v1.
 
 As as result of these fixes, the OSS Cloud Foundry components were bumped to these versions:
 - CF Release version: 225
