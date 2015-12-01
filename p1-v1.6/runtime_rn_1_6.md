@@ -6,6 +6,8 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 This patch includes CVE patches for [USN-2815-1](http://www.ubuntu.com/usn/usn-2815-1/), [USN-2812-1](http://www.ubuntu.com/usn/usn-2812-1/) and [USN-2810-1](http://www.ubuntu.com/usn/usn-2810-1/). Additional information can be found at https://pivotal.io/security
 
+Also moves Apps Usage service to an HTTPS route intead of plain HTTP.
+
 ## v1.6.4.0 Patch
 
 This patch release includes CVE patches for [USN-2788-1](http://www.ubuntu.com/usn/usn-2788-1/), [USN-2787-1](http://www.ubuntu.com/usn/usn-2787-1/) and [USN-2788-2](http://www.ubuntu.com/usn/usn-2788-2/). Additional information can be found at https://pivotal.io/security
