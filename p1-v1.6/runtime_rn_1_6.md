@@ -2,9 +2,13 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
+## 1.6.5.0 Patch
+
+This patch includes CVE patches for [USN-2815-1](http://www.ubuntu.com/usn/usn-2815-1/), [USN-2812-1](http://www.ubuntu.com/usn/usn-2812-1/) and [USN-2810-1](http://www.ubuntu.com/usn/usn-2810-1/). Additional information can be found at https://pivotal.io/security
+
 ## v1.6.4.0 Patch
 
-This patch release includes CVE patches for [USN-2788-1](http://www.ubuntu.com/usn/usn-2788-1/) and [USN-2788-2](http://www.ubuntu.com/usn/usn-2788-2/). Additional information can be found at https://pivotal.io/security
+This patch release includes CVE patches for [USN-2788-1](http://www.ubuntu.com/usn/usn-2788-1/), [USN-2787-1](http://www.ubuntu.com/usn/usn-2787-1/) and [USN-2788-2](http://www.ubuntu.com/usn/usn-2788-2/). Additional information can be found at https://pivotal.io/security
 
 This patch also includes a migration from btrfs to aufs as the filesystem for application containers on Diego, for improved performance. It also fixes an issue with Cloud Controller returning a 503 error code whenever a user requests the status of an application that is still staging.
 
