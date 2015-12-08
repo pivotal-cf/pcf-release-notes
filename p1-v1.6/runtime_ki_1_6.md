@@ -8,6 +8,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
  
 * Before upgrading to PCF Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed [these instructions](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
 
+* Diego Cells may sometimes time-out on app pushes when any given Diego Cell receives its first app push with no buildpack specified for that app. This is because the Cell is caching all of the buildpacks for subsequent app pushes, and this may take longer than what the app staging allows.
+
 * Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
 
 * The CLI command for viewing application files, `cf files`, does not work with applications on Diego.
