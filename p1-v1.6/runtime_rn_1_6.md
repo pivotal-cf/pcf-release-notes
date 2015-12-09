@@ -2,6 +2,10 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
+## 1.6.7.0 Patch
+
+This version fixes an issue for applications running on Windows containers that have very long file paths in their application project. You don't need to upgrade to this version unless you use Windows .NET applications with long file paths.
+
 ## 1.6.6.0 Patch
 
 This patch includes CVE patches for [USN-2821-1](http://www.ubuntu.com/usn/usn-2821-1/) and [USN-2820-1](http://www.ubuntu.com/usn/usn-2820-1/). Additional information can be found at https://pivotal.io/security
