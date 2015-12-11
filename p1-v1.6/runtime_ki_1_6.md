@@ -12,6 +12,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
 
+* Docker library images require you to specify "library/" in front of the docker image name. E.g "cf p jetty -o library/jetty"
+
 * The CLI command for viewing application files, `cf files`, does not work with applications on Diego.
 
 * The Diego BBS may output a TLS handshake error every three seconds in the sys logs. This error is fine to ignore, and will be fixed in a future release of Diego.
