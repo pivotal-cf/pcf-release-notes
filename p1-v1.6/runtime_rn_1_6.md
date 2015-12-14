@@ -54,18 +54,24 @@ This patch release includes CVE patches for [USN-2778-1](http://www.ubuntu.com/u
 
 ## Elastic Runtime
 
+Versions 1.6.8 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
+- CF Release version: 225
+- Diego version: 0.1441
+- Garden version: 0.330.0
+- CF MySQL version: 23
+- etcd version: 18
 
 Versions 1.6.4 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
 - CF Release version: 225
-- Diego version: 0.1441.0
-- Garden version: 0.327.0
+- Diego version: 0.1441
+- Garden version: 0.327
 - CF MySQL version: 23
 - etcd version: 18
 
 Versions 1.6.0 to 1.6.3 of Elastic Runtime consist of these Cloud Foundry versions:
 - CF Release version: 222
-- Diego version: 0.1437.0
-- Garden version: 0.308.0
+- Diego version: 0.1437
+- Garden version: 0.308
 - CF MySQL version: 23
 - etcd version: 16
 
