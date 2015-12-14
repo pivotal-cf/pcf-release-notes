@@ -2,6 +2,12 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
+## 1.6.8.0 Patch
+
+This version fixes a few issues on Garden containers, such as the inability to run Docker images that are larger than 120 MB and a network communication issue with the Openstack GRE Tunnel network for Pivotal Cloud Foundry deployments to Openstack. This also addresses a DNS resolution issue with Consul that causes several CF CLI command requests to take longer than expected.
+
+As as result of these fixes, the OSS Cloud Foundry release for Garden was bumped to version 0.330.0.
+
 ## 1.6.7.0 Patch
 
 This version fixes an issue for applications running on Windows containers that have very long file paths in their application project. You don't need to upgrade to this version unless you use Windows .NET applications with long file paths.
