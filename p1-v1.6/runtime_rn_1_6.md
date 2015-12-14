@@ -6,7 +6,7 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 This version fixes a few issues on Garden containers, such as the inability to run Docker images that are larger than 120 MB and a network communication issue with the Openstack GRE Tunnel network for Pivotal Cloud Foundry deployments to Openstack. This also addresses a DNS resolution issue with Consul that causes several CF CLI command requests to take longer than expected.
 
-As as result of these fixes, the OSS Cloud Foundry release for Garden was bumped to version 0.330.0.
+As as result of these fixes, the OSS Cloud Foundry release for Garden was bumped to version 0.330.
 
 ## 1.6.7.0 Patch
 
@@ -32,8 +32,8 @@ This patch also updates the Docker registry API to v2 instead of v1.
 
 As as result of these fixes, the OSS Cloud Foundry components were bumped to these versions:
 - CF Release version: 225
-- Diego version: 0.1441.0
-- Garden version: 0.327.0
+- Diego version: 0.1441
+- Garden version: 0.327
 - etcd version: 18
 
 ## v1.6.3.0 Patch
@@ -57,7 +57,7 @@ This patch release includes CVE patches for [USN-2778-1](http://www.ubuntu.com/u
 Versions 1.6.8 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
 - CF Release version: 225
 - Diego version: 0.1441
-- Garden version: 0.330.0
+- Garden version: 0.330
 - CF MySQL version: 23
 - etcd version: 18
 
