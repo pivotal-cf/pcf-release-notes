@@ -14,6 +14,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * Docker library images require you to specify "library/" in front of the docker image name. E.g "cf p jetty -o library/jetty"
 
+* Diego Cells may run out of disk space if they using a lot of different Docker images with different layers.
+
 * The CLI command for viewing application files, `cf files`, does not work with applications on Diego.
 
 * The Diego BBS may output a TLS handshake error every three seconds in the sys logs. This error is fine to ignore, and will be fixed in a future release of Diego.
