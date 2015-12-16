@@ -4,7 +4,9 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 ## 1.6.8.0 Patch
 
-This version fixes a few issues on Garden containers, such as the inability to run Docker images that are larger than 120 MB and a network communication issue with the Openstack GRE Tunnel network for Pivotal Cloud Foundry deployments to Openstack (the Garden network MTU was lowered from 1500 to 1454 to address this). This also addresses a DNS resolution issue with Consul that causes several CF CLI command requests to take longer than expected.
+This version patches a Garden CVE, [CVE-2015-5350](http://pivotal.io/security/cve-2015-5350).
+
+This version also fixes a few issues on Garden containers, such as the inability to run Docker images that are larger than 120 MB and a network communication issue with the Openstack GRE Tunnel network for Pivotal Cloud Foundry deployments to Openstack (the Garden network MTU was lowered from 1500 to 1454 to address this). This also addresses a DNS resolution issue with Consul that causes several CF CLI command requests to take longer than expected.
 
 As as result of these fixes, the OSS Cloud Foundry release for Garden was bumped to version 0.330.
 
