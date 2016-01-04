@@ -4,6 +4,8 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 #### New Issues
 
+* Etcd may somtimes experience orphaned processes that leads to the Diego BBS job failing. This can be remedied by `killall etcd` on the Diego BBS VMs and subsequent redeployment. This will be fixed in a future 1.6.x release soon. 
+
 * The [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
  
 * Before upgrading to PCF Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed [these instructions](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
