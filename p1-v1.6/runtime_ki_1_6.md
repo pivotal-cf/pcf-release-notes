@@ -36,7 +36,9 @@ To avoid the possibility of the migration causing a failure, truncate the events
 
 * .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended for running "trusted" apps.
 
-* At this time, the container accounts on Windows must have permissions to log on locally, which may not be the default.
+* At this time, the container accounts on Windows cells must have permissions to log on locally, which may not be the default.
+
+* Application file names on Windows cells are limited to maximum length of 100 characters. As a workaround, make sure that all filenames in an application directory are shorter than 100 characters before pushing.
 
 * Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set `NON-ADMIN` environment variables on both versions in order to keep the configuration consistent.
 
