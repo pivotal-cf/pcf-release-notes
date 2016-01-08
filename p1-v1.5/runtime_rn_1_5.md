@@ -1,6 +1,9 @@
 ---
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
+## v1.5.10 Patch
+
+This patches [USN-2857-1](http://www.ubuntu.com/usn/usn-2857-1), [USN-2842-1](http://www.ubuntu.com/usn/usn-2842-1), [USN-2842-2](http://www.ubuntu.com/usn/usn-2842-2), [USN-2836-1](http://www.ubuntu.com/usn/usn-2836-1), [USN-2834-1](http://www.ubuntu.com/usn/usn-2834-1), [USN-2830-1](http://www.ubuntu.com/usn/usn-2830-1), and [USN-2829-1](http://www.ubuntu.com/usn/usn-2829-1). Additional information can be found at https://pivotal.io/security.
 
 ## v1.5.9.0 Patch
 
