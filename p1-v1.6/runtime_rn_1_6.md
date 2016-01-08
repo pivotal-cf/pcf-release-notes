@@ -2,6 +2,14 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
+## 1.6.9.0 Patch
+
+This patches [USN-2857-1](http://www.ubuntu.com/usn/usn-2857-1), [USN-2842-1](http://www.ubuntu.com/usn/usn-2842-1), [USN-2842-2](http://www.ubuntu.com/usn/usn-2842-2), [USN-2837-1](http://www.ubuntu.com/usn/usn-2837-1), [USN-2836-1](http://www.ubuntu.com/usn/usn-2836-1), [USN-2835-1](http://www.ubuntu.com/usn/usn-2835-1), [USN-2834-1](http://www.ubuntu.com/usn/usn-2834-1), [USN-2830-1](http://www.ubuntu.com/usn/usn-2830-1), and [USN-2829-1](http://www.ubuntu.com/usn/usn-2829-1). Additional information can be found at https://pivotal.io/security.
+
+There is also a fix to ensure that Consul server is launched before the etcd and Diego BBS jobs, so that the Consul DNS service is ready before those jobs start.
+
+Also, by default the Postgres DBs included in Elastic Runtime now default to zero instances, since we encourage every 1.6.x deployment of Elastic Runtime to not use the Postgres DBs and instead only use MySQL.
+
 ## 1.6.8.0 Patch
 
 This version patches a Garden CVE, [CVE-2015-5350](http://pivotal.io/security/cve-2015-5350).
