@@ -10,7 +10,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
  
 * Before upgrading to Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed [these instructions](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
 
-* The Notifications and Autoscale services in Elastic Runtime will always deploy on Diego as of 1.6. The Apps Manager and Apps Usage service will deploy to Diego only if the "Use Diego by default" checkbox is enabled in the configuration of Elastic Runtime.
+* The Notifications and Autoscale services in Elastic Runtime will always deploy on Diego, even if DEAs are selected as the default backend, in versions 1.6.0 to 1.6.9 (this was fixed in patch 1.6.10). The Apps Manager and Apps Usage service will deploy to Diego only if the "Use Diego by default" checkbox is enabled in the configuration of Elastic Runtime.
 
 * Diego Cells may sometimes time-out on app pushes when any given Diego Cell receives its first app push with no buildpack specified for that app. This is because the Cell is caching all of the buildpacks for subsequent app pushes, and this may take longer than what the app staging allows.
 
