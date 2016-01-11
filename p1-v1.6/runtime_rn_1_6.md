@@ -5,6 +5,8 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 This patch is only applicable for deployments that have not yet migrated to Diego cells from DEAs. In this patch release, the notifications and autoscale applications that come with Elastic Runtime were fixed to deploy to DEAs if you chose not to use Diego as the default runtime backend for your platform.
 
+All the system applications for Elastic Runtime will be deployed to whichever backend, Diego or DEAs, you select as the default in the Elastic Runtime tile. No manual migration should be necessary.
+
 ## 1.6.9.0 Patch
 
 This patches [USN-2857-1](http://www.ubuntu.com/usn/usn-2857-1), [USN-2842-1](http://www.ubuntu.com/usn/usn-2842-1), [USN-2842-2](http://www.ubuntu.com/usn/usn-2842-2), [USN-2837-1](http://www.ubuntu.com/usn/usn-2837-1), [USN-2836-1](http://www.ubuntu.com/usn/usn-2836-1), [USN-2835-1](http://www.ubuntu.com/usn/usn-2835-1), [USN-2834-1](http://www.ubuntu.com/usn/usn-2834-1), [USN-2830-1](http://www.ubuntu.com/usn/usn-2830-1), and [USN-2829-1](http://www.ubuntu.com/usn/usn-2829-1). Additional information can be found at https://pivotal.io/security.
