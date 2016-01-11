@@ -1,6 +1,9 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## 1.6.10.0 Patch
+
+This patch is only applicable for deployments that have not yet migrated to Diego cells from DEAs. In this patch release, the notifications and autoscale applications that come with Elastic Runtime were fixed to deploy to DEAs if you chose not to use Diego as the default runtime backend for your platform.
 
 ## 1.6.9.0 Patch
 
