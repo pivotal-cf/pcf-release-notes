@@ -149,7 +149,7 @@ There are no experimental features being introduced in PCF Elastic Runtime for v
 #### Improved MySQL Service
 MySQL, used by some of the Pivotal Cloud Foundry&reg; system applications in the past, is now available as a data store for every Pivotal Cloud Foundry&reg; system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications relied upon in previous releases.
 
-You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry&reg; for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry&reg; v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. A future release is planned that will address data migration for installations that started with a postgres database.
+You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry&reg; for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry&reg; v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. The Pivotal team is currently working on the migration scripts that will allow for the migration of all databases in Postregesql to the HA MySQL service. We will announce when these scripts are ready for use, the timeframe of which is currently aiming for sometime during the first half of 2016.
 
 If you do install Pivotal Cloud Foundry&reg; on the MySQL databases only, then you can scale down the Apps Manager Database (Postgres), Cloud Controller Database (Postgres), and UAA Database (Postgres) to zero instances. Those components will instead use the MySQL cluster.
 
