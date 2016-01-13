@@ -1,5 +1,5 @@
 ---
-title: Pivotal Elastic Runtime v1.5 Known Issues
+title: Pivotal Elastic Runtime v1.6 Known Issues
 ---
 
 #### New Issues
