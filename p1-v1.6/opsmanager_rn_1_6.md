@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry&reg; Ops Manager v1.6 Release Notes
 ---
 
+## v1.6.7 patch release:
+Ops Manager 1.6.7 includes patches for Ubuntu Security Notice USN-2869-1. (Embedded stemcell 3146.3, Ops Manager build 234cf4d)
+
 ## v1.6.6 patch release:
 Ops Manager 1.6.6 includes patches for Ubuntu Security Notice USN-2857-1. (Embedded stemcell 3146.2, Ops Manager build 236fca1)
 
