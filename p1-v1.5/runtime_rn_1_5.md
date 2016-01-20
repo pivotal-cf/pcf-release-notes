@@ -1,6 +1,9 @@
 ---
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
+## v1.5.12 Patch
+
+This patches [CVE-2016-0715](https://pivotal.io/security/cve-2016-0715). Additional information can be found at https://pivotal.io/security.
 
 ## v1.5.11 Patch
 
