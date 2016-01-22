@@ -1,6 +1,9 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## v1.6.13 Patch
+
+This patches [USN-2871-1](http://www.ubuntu.com/usn/usn-2871-1). Additional information can be found at https://pivotal.io/security.
 
 ## 1.6.12.0 Patch
 
