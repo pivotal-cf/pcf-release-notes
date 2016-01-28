@@ -4,6 +4,8 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 #### New Issues
 
+*  Known issue with the Elastic Rutime 1.6.13 and 1.5.13 releases: There's a linux kernel bug that affects Garden, Docker, and almost certainly Warden for Cloud Foundry deployments on stemcell 3146.5. It manifests in containers failing to be killed properly leaving unkillable zombie processes around consuming lots of CPI and some memory. After a while, Diego cells / DEAs may experience slower performance and eventually may even become unresponsive.
+
 * Etcd may somtimes experience orphaned processes that leads to the Diego BBS job failing. This can be remedied by `killall etcd` on the Diego BBS VMs and subsequent redeployment. This will be fixed in a future 1.6.x release soon. 
 
 * The [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
