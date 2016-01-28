@@ -4,7 +4,7 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 #### New Issues
 
-*  Known issue with the Elastic Rutime 1.6.13 and 1.5.13 releases: There's a linux kernel bug that affects Garden, Docker, and almost certainly Warden for Cloud Foundry deployments on stemcell 3146.5. It manifests in containers failing to be killed properly leaving unkillable zombie processes around consuming lots of CPI and some memory. After a while, Diego cells / DEAs may experience slower performance and eventually may even become unresponsive.
+*  Known issue with the Elastic Rutime 1.6.13 and 1.5.13 releases: There's a linux kernel bug that affects Garden, Docker, and almost certainly Warden for Cloud Foundry deployments on stemcell 3146.5. It manifests in containers failing to be killed properly leaving unkillable zombie processes around consuming lots of CPI and some memory. After a while, Diego cells / DEAs may experience slower performance and eventually may even become unresponsive. The current workaround is to restart these cells / DEAs before they slow down so far as to become unresponsive, or once they become unresponsive.
 
 * Etcd may somtimes experience orphaned processes that leads to the Diego BBS job failing. This can be remedied by `killall etcd` on the Diego BBS VMs and subsequent redeployment. This will be fixed in a future 1.6.x release soon. 
 
