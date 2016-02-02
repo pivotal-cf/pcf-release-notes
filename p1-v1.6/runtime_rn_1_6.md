@@ -1,6 +1,13 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+
+## v1.6.14 Patch
+
+This introduces patches for [CVE-2016-0732](https://pivotal.io/security/cve-2016-0732), [USN-2882-1](http://www.ubuntu.com/usn/usn-2882-1), [USN-2879-1](http://www.ubuntu.com/usn/usn-2879-1), [USN-2875-1](http://www.ubuntu.com/usn/usn-2875-1), and [USN-2874-1](http://www.ubuntu.com/usn/usn-2874-1). Additional info can be found at https://pivotal.io/security.
+
+It was also discovered that several CVE patches since early Dec 2015, while resolved in the BOSH stemcell, were not applied to the root filesystem of application containers running on Diego in PCF Elastic Runtime. PCF Elastic Runtime versions 1.6.5 through 1.6.13 therefore had versions of this root filesystem on Diego that remained vulnerable to several of the CVEs identified and addressed from December 2015 through January 2016. It is recommended that 1.6.13 and below installations of Elastic Runtime running Diego upgrade to 1.6.14 or higher versions to address these CVEs.
+
 ## v1.6.13 Patch
 
 This patches [USN-2871-1](http://www.ubuntu.com/usn/usn-2871-1). Additional information can be found at https://pivotal.io/security.
