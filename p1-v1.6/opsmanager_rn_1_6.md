@@ -2,7 +2,7 @@
 title: Pivotal Cloud Foundry&reg; Ops Manager v1.6 Release Notes
 ---
 ## v1.6.9 patch release:
-Ops Manager 1.6.9 include a fix for potential rails session hijacking, Ubuntu Security Notice USN-2882-1, USN-2879-1, USN-2875-1, and USN-2874-1. (Embedded stemcell 3146.6, Ops Manager build 1468ac3)
+Ops Manager 1.6.9 includes a fix for potential rails session hijacking, Ubuntu Security Notice USN-2882-1, USN-2879-1, USN-2875-1, and USN-2874-1. (Embedded stemcell 3146.6, Ops Manager build 1468ac3)
 
 ## v1.6.8 patch release:
 Ops Manager 1.6.8 includes patches for Ubuntu Security Notice USN-2870-2. (Embedded stemcell 3146.5, Ops Manager build b69cad)
