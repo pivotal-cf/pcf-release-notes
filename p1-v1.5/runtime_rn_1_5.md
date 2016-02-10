@@ -1,6 +1,11 @@
 ---
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
+
+## v1.5.14 Patch
+
+This fixes a critical Linux kernel bug that led to unkillable AUFS container processes that make the Diego Cells and DEAs unresponsive. The bug was introduced in the previous kernel releases that addressed CVEs. The stemcell in this version of Elastic Runtime patches the bug.
+
 ## v1.5.13 Patch
 
 This patches [USN-2871-1](http://www.ubuntu.com/usn/usn-2871-1). Additional information can be found at https://pivotal.io/security.
