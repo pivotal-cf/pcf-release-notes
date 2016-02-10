@@ -1,6 +1,11 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## v1.6.15 Patch
+
+This fixes a critical Linux kernel bug that led to unkillable AUFS container processes that make the Diego Cells and DEAs unresponsive. The bug was introduced in the previous kernel releases that addressed CVEs. The stemcell in this version of Elastic Runtime patches the bug.
+
+This release also updates the UAA, Diego, Consul, and etcd releases for increased stability and lifecycle operations. The Diego release update (now version 0.1446) allows for larger customized buildpacks to be used in your deployment.
 
 ## v1.6.14 Patch
 
