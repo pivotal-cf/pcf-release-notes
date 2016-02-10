@@ -7,6 +7,8 @@ This fixes a critical Linux kernel bug that led to unkillable AUFS container pro
 
 This release also updates the UAA, Diego, Consul, and etcd releases for increased stability and lifecycle operations. The Diego release update (now version 0.1446) allows for larger customized buildpacks to be used in your deployment.
 
+This release addresses known issues around applications with long file names failing to stage on the Windows 2012 R2 stack. File paths are still subject to the Microsoft Windows MAX_PATH limit of 260 characters. Note that the Diego operating directory adds approximately 40 characters to the path length, in addition to anything in the application directory.
+
 ## v1.6.14 Patch
 
 This introduces patches for [CVE-2016-0732](https://pivotal.io/security/cve-2016-0732), [USN-2882-1](http://www.ubuntu.com/usn/usn-2882-1), [USN-2879-1](http://www.ubuntu.com/usn/usn-2879-1), [USN-2875-1](http://www.ubuntu.com/usn/usn-2875-1), and [USN-2874-1](http://www.ubuntu.com/usn/usn-2874-1). Additional info can be found at https://pivotal.io/security.
