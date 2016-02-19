@@ -1,6 +1,10 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## v1.6.16 Patch
+
+Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), USN-2897-1, and USN-2896-1.
+
 ## v1.6.15 Patch
 
 This fixes a critical Linux kernel bug that led to unkillable AUFS container processes that make the Diego Cells and DEAs unresponsive. The bug was introduced in the previous kernel releases that addressed CVEs. The stemcell in this version of Elastic Runtime patches the bug.
