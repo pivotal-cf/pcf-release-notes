@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry Ops Manager v1.5.x Release Notes
 ---
 
+## v1.5.15 patch release:
+Ops Manager 1.5.15 includes a fix for Ubuntu Security Notice USN-2900-1 for CVE-2015-7547. (Embedded stemcell 3146.8, Ops Manager build 4605dde)
+
 ## v1.5.14 patch release:
 Ops Manager 1.5.14 includes a fix for Pivotal CVE-2016-0883, Ubuntu Security Notice USN-2882-1, USN-2879-1, USN-2875-1, and USN-2874-1. (Embedded stemcell 3146.6, Ops Manager build 92e942b)
 
