@@ -5,6 +5,8 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), USN-2897-1, and USN-2896-1.
 
+Fixes an issue with v1.6.15 where UAA startup fails for installs that use LDAP, when upgrading from Elastic Runtime v1.5.x.
+
 ## v1.6.15 Patch
 
 This fixes a critical Linux kernel bug that led to unkillable AUFS container processes that make the Diego Cells and DEAs unresponsive. The bug was introduced in the previous kernel releases that addressed CVEs. The stemcell in this version of Elastic Runtime patches the bug.
@@ -12,6 +14,8 @@ This fixes a critical Linux kernel bug that led to unkillable AUFS container pro
 This release also updates the UAA, Diego, Consul, and etcd releases for increased stability and lifecycle operations. The Diego release update (now version 0.1446) allows for larger customized buildpacks to be used in your deployment.
 
 This release addresses known issues around applications with long file names failing to stage on the Windows 2012 R2 stack. File paths are still subject to the Microsoft Windows MAX_PATH limit of 260 characters. Note that the Diego operating directory adds approximately 40 characters to the path length, in addition to anything in the application directory.
+
+There is known issue with UAA startup when LDAP is configured, please prefer to the Known Issues section for more details and remediation.
 
 ## v1.6.14 Patch
 
