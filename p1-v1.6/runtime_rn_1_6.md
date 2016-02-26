@@ -3,7 +3,7 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 ## v1.6.17 Patch
 
-Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), CVE-2016-0761 (critical Cloud Foundry Garden CVE with respect to Docker Host File managment), USN-2910-1 (high CVE in the Linux kernel), USN-2897-1, and USN-2896-1.
+Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), [CVE-2016-0761](http://pivotal.io/security/cve-2016-0761) (critical Cloud Foundry Garden CVE with respect to Docker Host File managment), USN-2910-1 (high CVE in the Linux kernel), USN-2897-1, and USN-2896-1.
 
 This also fixes an IP allocation issue with v1.6.16 where Cloud Controller would sometimes try to take the IP address of another job.
 
