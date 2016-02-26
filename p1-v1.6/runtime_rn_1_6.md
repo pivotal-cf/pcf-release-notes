@@ -1,11 +1,11 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
-## v1.6.16 Patch
+## v1.6.17 Patch
 
-Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), USN-2897-1, and USN-2896-1.
+Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), CVE-2016-0761 (critical Cloud Foundry Garden CVE with respect to Docker Host File managment), USN-2910-1 (high CVE in the Linux kernel), USN-2897-1, and USN-2896-1.
 
-Fixes an issue with v1.6.15 where UAA startup fails for installs that use LDAP, when upgrading from Elastic Runtime v1.5.x or v1.6.0-1.6.14.
+This also fixes an issue with v1.6.15 where UAA startup fails for installs that use LDAP, when upgrading from Elastic Runtime v1.5.x or v1.6.0-1.6.14.
 
 ## v1.6.15 Patch
 
