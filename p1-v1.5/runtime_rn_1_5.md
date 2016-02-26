@@ -1,6 +1,10 @@
 ---
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 ---
+## v1.5.16 Patch
+
+Patches USN-2910-1 (a high CVE in Linux kernel).
+
 ## v1.5.15 Patch
 
 Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), USN-2897-1, and USN-2896-1.
