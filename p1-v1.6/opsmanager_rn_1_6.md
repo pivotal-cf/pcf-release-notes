@@ -1,5 +1,6 @@
 ---
 title: Pivotal Cloud Foundry&reg; Ops Manager v1.6 Release Notes
+owner: Ops Manager
 ---
 
 ## v1.6.11 patch release:

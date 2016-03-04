@@ -1,13 +1,14 @@
 ---
 title: Pivotal Elastic Runtime v1.2.2.0 Release Notes
+owner: RelEng
 ---
 
-## Changes since v1.2.1.0: 
+## Changes since v1.2.1.0:
 CF Runtime Version: 172
 * Total etcd jobs have been reduded from 3 to 1.
 * DEA deterministic evacuation timeout has been increased from 2 to 10 minutes.
 
-## Changes since v1.2.0.0: 
+## Changes since v1.2.0.0:
 CF Runtime Version: 170
 * Operators may now specify an external LDAP endpoint to configure for the UAA.
 * An issue was fixed where Pivotal Ops Metrics could not be installed after an external syslog aggregator endpoint was configured.

@@ -1,5 +1,6 @@
 ---
 title: Pivotal MySQL Dev v1.1.0.0 Release Notes
+owner: MySQL
 ---
 
 ### MySQL Dev v1.1.0.0 includes minor bug fixes and updates.

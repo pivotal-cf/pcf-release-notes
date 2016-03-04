@@ -1,5 +1,6 @@
 ---
 title: Pivotal Elastic Runtime v1.2.1.0 Known Issues
+owner: RelEng
 ---
 
 * If, after upgrading to 1.2.1.0 from 1.2.0.0, running apps appear to be down and `cf push` fails, you must restart the etcd job. To do so, first identify the three etcd job VMs by navigating to Ops Manager and selecting **Elastic Runtime >> Status**. Then, restart them using the vCenter UI.

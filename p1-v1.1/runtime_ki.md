@@ -1,4 +1,7 @@
-# PCF Elastic Runtime Known Issues
+---
+title: PCF Elastic Runtime Known Issues
+owner: RelEng
+---
 ## 1.1.0.0 Release
 
 * It's possible for the auth token to expire right before a request is made to Loggregator, which means that users will be unable to see logs for their app. They will also see an "Error: Invalid authorization" message in Loggregator. Logging in again will fix the issue.

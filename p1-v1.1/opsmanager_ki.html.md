@@ -1,5 +1,6 @@
 ---
 title: Pivotal Ops Manager 1.1.0.0 Known Issues
+owner: Ops Manager
 ---
 * Reducing the size of a persistent disk to an inadequate size will cause data loss. This setting is found on the Resources tab inside of a product within Pivotal Ops Manager. The change must be applied before a problem occurs.
 

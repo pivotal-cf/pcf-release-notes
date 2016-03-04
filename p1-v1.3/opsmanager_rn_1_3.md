@@ -1,5 +1,6 @@
 ---
 title: Ops Manager 1.3 Release Notes
+owner: Ops Manager
 ---
 
 ## Operator Features

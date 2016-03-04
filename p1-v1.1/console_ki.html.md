@@ -1,5 +1,6 @@
 ---
 title: Pivotal Dev Console v.1.1.0.0 Known Issues
+owner: Apps Manager
 ---
 
 - There are several bugs related to using Dev Console with the Admin user that Ops Manager creates. Pivotal recommends that users create a new user with admin privileges, using the cf command line tools, and log in to Dev Console using that user.

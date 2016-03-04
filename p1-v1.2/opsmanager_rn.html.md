@@ -1,5 +1,6 @@
 ---
 title: Pivotal Ops Manager v1.2.0.0 Release Notes
+owner: Ops Manager
 ---
 
 ## Changes since v1.1.0.0:

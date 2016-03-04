@@ -1,5 +1,6 @@
 ---
 title: Pivotal Cloud Foundry Apps Manager v1.5 Known Issues
+owner: Apps Manager
 ---
 
 ## New issues

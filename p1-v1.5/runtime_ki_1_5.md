@@ -1,5 +1,6 @@
 ---
 title: Pivotal Elastic Runtime v1.5 Known Issues
+owner: RelEng
 ---
 
 * Currently there is no certified use case of OpenStack Swift object stores that can be used as the filestore for Elastic Runtime v1.5. However, Ceph is certified to work.
@@ -14,7 +15,7 @@ title: Pivotal Elastic Runtime v1.5 Known Issues
 
 * When upgrading PCF Elastic Runtime from v1.4 to v1.5, you might want to move the new static buildpack that was introduced in v1.5 to be the first buildpack in your system's list of buildpacks, so that applications with a file named Staticfile will be detected by the static buildpack and not by the Ruby or Node buildpacks. New installations of PCF Elastic Runtime v1.5 will have this static buildpack positioned at the front of the list automatically.
 
-* Recent versions of the cf CLI, including the version shipped with v1.5, will report a version mismatch with Elastic Runtime. The message is harmless and ignorable, there is no need to upgrade the CLI. This will be fixed in a future version of the cf CLI. 
+* Recent versions of the cf CLI, including the version shipped with v1.5, will report a version mismatch with Elastic Runtime. The message is harmless and ignorable, there is no need to upgrade the CLI. This will be fixed in a future version of the cf CLI.
 
 * On AWS, users must provide the same SSL cert in runtime config that their load balancers are using, even though this information won't be used by Ops Manager. This is due to a temporary limitation in Cloud Controller; this will be patched in an upcoming release.
 

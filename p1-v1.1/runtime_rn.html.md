@@ -1,5 +1,6 @@
 ---
 title: Pivotal Elastic Runtime v1.1.0.0 Release Notes
+owner: RelEng
 ---
 
 ### Elastic Runtime v1.1.0.0 includes new features, bug fixes and security updates.

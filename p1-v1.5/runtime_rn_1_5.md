@@ -1,5 +1,6 @@
 ---
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
+owner: RelEng
 ---
 ## v1.5.16 Patch
 
@@ -42,18 +43,18 @@ This patch release includes CVE patches for [USN-2806-1](http://www.ubuntu.com/u
 This patch release includes CVE patches for [USN-2778-1](http://www.ubuntu.com/usn/usn-2778-1/) and [USN-2767-1](http://www.ubuntu.com/usn/usn-2767-1/). Additional information can be found at https://pivotal.io/security
 
 ## v1.5.6.0 Patch
-This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2765-1](http://www.ubuntu.com/usn/usn-2765-1/), [USN-2756-1](http://www.ubuntu.com/usn/usn-2756-1), [USN-2751-1](http://www.ubuntu.com/usn/usn-2751-1), [USN-2740-1](http://www.ubuntu.com/usn/usn-2740-1/), [USN-2739-1](http://www.ubuntu.com/usn/usn-2739-1/), [USN-2738-1](http://www.ubuntu.com/usn/usn-2738-1/), [USN-2726-1](http://www.ubuntu.com/usn/usn-2726-1/) and [USN-2722-2](http://www.ubuntu.com/usn/usn-2722-1/). Additional details regarding each fix can be found at https://pivotal.io/security. 
+This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2765-1](http://www.ubuntu.com/usn/usn-2765-1/), [USN-2756-1](http://www.ubuntu.com/usn/usn-2756-1), [USN-2751-1](http://www.ubuntu.com/usn/usn-2751-1), [USN-2740-1](http://www.ubuntu.com/usn/usn-2740-1/), [USN-2739-1](http://www.ubuntu.com/usn/usn-2739-1/), [USN-2738-1](http://www.ubuntu.com/usn/usn-2738-1/), [USN-2726-1](http://www.ubuntu.com/usn/usn-2726-1/) and [USN-2722-2](http://www.ubuntu.com/usn/usn-2722-1/). Additional details regarding each fix can be found at https://pivotal.io/security.
 
-Note one important known issue with the 1.5.6 patch for OpenStack deployments. 
-Please note that BOSH stemcell v3094, which this version of Elastic Runtime references, has a limitation affecting OpenStack users only: 
+Note one important known issue with the 1.5.6 patch for OpenStack deployments.
+Please note that BOSH stemcell v3094, which this version of Elastic Runtime references, has a limitation affecting OpenStack users only:
 
   * Elastic Runtime 1.5.6 on OpenStack does not work with S3/Swift blobstores.
-  * Elastic Runtime 1.5.6 on OpenStack users must configure their object storage to use the internal blobstore option. 
-  * vSphere, AWS and vCloud users are not affected. 
+  * Elastic Runtime 1.5.6 on OpenStack users must configure their object storage to use the internal blobstore option.
+  * vSphere, AWS and vCloud users are not affected.
   * This will be fixed in the next release.
 
 ## v1.5.4.0 Patch
-This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2718-1](http://www.ubuntu.com/usn/usn-2718-1/), [USN-2694-1](http://www.ubuntu.com/usn/usn-2694-1), [USN-2698-1](http://www.ubuntu.com/usn/usn-2698-1), [USN-2710-1](http://www.ubuntu.com/usn/usn-2710-1/) and [USN-2710-2](http://www.ubuntu.com/usn/usn-2710-2/). Additional details regarding each fix can be found at https://pivotal.io/security. 
+This release includes CVE fixes for several low / medium vulnerabilities as part of the monthly patch release schedule for the PCF Suite of products (Ops Manager, Elastic Runtime, MySQL, Ops Metrics, Gemfire SSC, Redis and RabbitMQ for Pivotal Cloud Foundry). The CVEs being fixed are [USN-2718-1](http://www.ubuntu.com/usn/usn-2718-1/), [USN-2694-1](http://www.ubuntu.com/usn/usn-2694-1), [USN-2698-1](http://www.ubuntu.com/usn/usn-2698-1), [USN-2710-1](http://www.ubuntu.com/usn/usn-2710-1/) and [USN-2710-2](http://www.ubuntu.com/usn/usn-2710-2/). Additional details regarding each fix can be found at https://pivotal.io/security.
 
 
 ## v1.5.3.0 Patch

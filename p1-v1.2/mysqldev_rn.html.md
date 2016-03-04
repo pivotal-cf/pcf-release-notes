@@ -1,5 +1,6 @@
 ---
 title: MySQL for PCF v1.2.0.0 Release Notes
+owner: MySQL
 ---
 
 ## Changes since v1.1.0.0:

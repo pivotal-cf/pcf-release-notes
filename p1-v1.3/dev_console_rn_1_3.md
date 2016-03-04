@@ -1,5 +1,6 @@
 ---
 title: PCF Developer Console v1.3.0.0 Release Notes
+owner: Apps Manager
 ---
 
 ## Changes since v1.2.0.0:

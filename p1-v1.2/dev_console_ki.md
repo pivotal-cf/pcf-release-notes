@@ -1,5 +1,6 @@
 ---
 title: Pivotal Developer Console v1.2.0.0 Known Issues
+owner: Apps Manager
 ---
 
 ##Issues

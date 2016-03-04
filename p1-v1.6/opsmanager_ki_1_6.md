@@ -1,5 +1,6 @@
 ---
 title: Pivotal Cloud Foundry&reg; Ops Manager v1.6.0 Known Issues
+owner: Ops Manager
 ---
 
 ## New Issues

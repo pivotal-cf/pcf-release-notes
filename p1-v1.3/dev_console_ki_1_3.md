@@ -1,5 +1,6 @@
 ---
 title: PCF Developer Console v1.3.0.0 Known Issues
+owner: Apps Manager
 ---
 
 ##Issues

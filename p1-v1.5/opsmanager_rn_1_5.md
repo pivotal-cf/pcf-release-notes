@@ -1,5 +1,6 @@
 ---
 title: Pivotal Cloud Foundry Ops Manager v1.5.x Release Notes
+owner: Ops Manager
 ---
 
 ## v1.5.16 patch release:
@@ -32,9 +33,9 @@ Ops Manager 1.5.8 is the security patch rollup for November 2015.  (Embedded ste
 ## v1.5.7.0 patch release:
 Ops Manager 1.5.7.0 is a fast turnaround security patch release that incorporates a fix for the High severity bug CVE-2015-7613.  Please note that 1.5.7 has a limitation affecting Openstack users only:
 
-  * Ops Manager 1.5.7 for OpenStack does not work with S3/Swift blobstores.  
+  * Ops Manager 1.5.7 for OpenStack does not work with S3/Swift blobstores.
   * Ops Manager 1.5.7 for OpenStack users must configure their Director to use the internal blobstore option.
-  * vSphere, AWS and vCloud users are not affected. 
+  * vSphere, AWS and vCloud users are not affected.
   * This will be fixed in the next release.
 (Embedded stemcell 3094, Ops Manager build 3c5bf2)
 

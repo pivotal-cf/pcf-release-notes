@@ -1,5 +1,6 @@
 ---
 title: Pivotal Elastic Runtime v1.3.0.0 Release Notes
+owner: RelEng
 ---
 
 CF Runtime Version: 183

@@ -1,5 +1,6 @@
 ---
 title: Pivotal Ops Manager v1.1.0.0 Release Notes
+owner: Ops Manager
 ---
 
 ### Operations Manager v1.1.0.0 includes new features, bug fixes and security updates.

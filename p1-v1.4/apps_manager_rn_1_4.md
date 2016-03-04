@@ -1,5 +1,6 @@
 ---
 title: Pivotal Cloud Foundry Apps Manager v1.4.0.0 Release Notes
+owner: Apps Manager
 ---
 
 ## Changes since v1.3.0.0:

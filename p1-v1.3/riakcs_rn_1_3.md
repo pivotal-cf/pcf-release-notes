@@ -1,5 +1,6 @@
 ---
 title: Riak CS for PCF v1.3 Release Notes
+owner: Riak
 ---
 
 - **Syslog forwarding**: Syslogs are now streamed to the same host and port configured in Elastic Runtime settings

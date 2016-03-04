@@ -1,5 +1,6 @@
 ---
 title: Pivotal Elastic Runtime v1.4 Known Issues
+owner: RelEng
 ---
 
 * When selecting between internal and external System Database and/or File Storage config, if saved values for external systems fail verification (e.g. a host is not reachable from Ops Manager), the values will persist if you then select 'Internal Databases' or 'Internal File Store'. To resolve this issue, return to your Ops Manager Installation Dashboard and click **Revert**, located in the upper right corner of the page.

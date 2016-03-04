@@ -1,5 +1,6 @@
 ---
 title: Pivotal Dev Console v1.1.0.0 Release Notes
+owner: Apps Manager
 ---
 
 ## Changes since v1.0.0.1:
