@@ -2,6 +2,19 @@
 title: Pivotal Cloud Foundry&reg; Ops Metrics v1.6.X and v1.5.X Release Notes
 owner: Metrix
 ---
+## v1.6.9 patch release:
+* Changed the JMX metrics tree structure.
+
+Instead of `opentsdb-firehose-nozzle` as the folder name in the tree, it will be called `maximus`. The names of the opentsdb-firehose-nozzle metrics will remain unchanged.
+
+```
+deployment:	{p-metrics}
+  job:	{opentsdb-firehose-nozzle -> maximus}
+    ip: {127.0.0.1}
+      instance: {0}
+	     metric: {opentsdb.nozzle.totalMetricsSent}
+```
+
 ## Version 1.6.X (changes since v1.5.x)
 
 ### Known issues
