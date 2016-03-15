@@ -2,6 +2,10 @@
 title: Pivotal Cloud Foundry&reg; Ops Metrics v1.6.X and v1.5.X Release Notes
 owner: Metrix
 ---
+
+## v1.6.10 patch release:
+Ops Metrics 1.6.10 includes a fix for Ubuntu Security Notice USN-2929-1. (Embedded stemcell 3146.10, Ops Metrics build bdb56a2)
+
 ## Version 1.6.X (changes since v1.5.x)
 
 ### Known issues
