@@ -1,6 +1,6 @@
 ---
 title: Pivotal Cloud Foundry&reg; Ops Metrics v1.7.X and v1.6.X Release Notes
-owner: Metrix
+owner: PCF Metrics
 ---
 ## Version 1.6.X (changes since v1.5.x)
 

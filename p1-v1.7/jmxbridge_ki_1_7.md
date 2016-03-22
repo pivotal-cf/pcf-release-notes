@@ -1,6 +1,6 @@
 ---
 title: Pivotal Cloud Foundry&reg; JMX Bridge v1.7.X and v1.6.X Known Issues
-owner: Metrix
+owner: PCF Metrics
 ---
 ## New Issues for 1.7.X
 Some of these issues may be fixed in subsequent patch releases to 1.7. Consult the JMX Bridge 1.7 [Release Notes](opsmetrics_rn_1_7.html) - any additional fixes will be added immediately.
