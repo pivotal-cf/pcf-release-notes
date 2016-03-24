@@ -1,6 +1,10 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## v1.6.19 Patch
+
+Patches USN-2938-1. Additional info can be found at https://pivotal.io/security.
+
 ## v1.6.18 Patch
 
 Patches USN-2929-1. Additional info can be found at https://pivotal.io/security.
