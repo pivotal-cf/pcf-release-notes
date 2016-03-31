@@ -9,7 +9,6 @@ None as of 2016-03-31.
 # Version 1.7.0 New Features
 
 ## Major Features
-Feature details
 
 ### IDP-backed Accounts for Ops Manager
 Feature details
