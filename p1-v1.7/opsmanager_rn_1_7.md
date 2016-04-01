@@ -12,10 +12,14 @@ None as of 2016-03-31.
 
 ### All IaaS
 
+[Upgrading PCF](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade)
+
+* Admin user is migrated into CF UAA using password as passphrase
+
 * Support for multiple user accounts using local identity management
 * Support for multiple user accounts using remote SAML service
 * All Ops Manager pages are protected using CF UAA
-* Admin user is migrated into CF UAA using password as passphrase
+
 * Support for custom certificates provisioned by BOSH
 * Both BOSH and Ops Manager use same identity management system
 * Automatic cleanup of /tmp directory for 24 hour old files
@@ -59,12 +63,17 @@ None as of 2016-03-31.
 
 ### AWS 
 
+[EBS Encryption](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/cloudform-om-ebs-config.html) Is the bottom of this page out of date?
 * EBS encryption is supported on all instance types
 * AMIs are built in Frankfurt and Seoul
 * AWS S3 version 4 is supported
+
+[Cloud Formation](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/cloudform-template.html)
 * CloudFormation script change - RDS is optional
-* CloudFormation supports mulitple AZs
+* CloudFormation supports multiple AZs
 * CloudFormation supports HA NAT instance
+
+
 * Security groups are now referenced by id
 * Operators can only import light HVM stemcells
 
