@@ -18,11 +18,14 @@ Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 - etcd version: 38
  
 ### Diego replaces DEAs completely
-(we may have a comprehensive doc on docs.pivotal.io for this, so these details may not be necessary here)
+
+Before you upgrade to Pivotal Cloud Foundry 1.7, you must migrate all apps that are currently running on DEA architecture to run on Diego architecture. Pivotal does not support DEA architecture in Pivotal Cloud Foundry 1.7. You may need to scale up your VMs before migrating applications. More information can be found [here](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/apps-enable-diego.html).
+
+If you have any issues migrating your applications to Diego, please contact [Support]().
+
 - migrate-before-you-upgrade reference to docs
 - scaling (for HA)
 - architecture diagram if we have it (link)
-- 
 
 ### Postgres-to-MySQL migration
 
