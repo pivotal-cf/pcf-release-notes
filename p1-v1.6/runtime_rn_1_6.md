@@ -1,6 +1,14 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## v1.6.19 Patch
+
+Patches USN-2938-1. Additional info can be found at https://pivotal.io/security.
+
+## v1.6.18 Patch
+
+Patches USN-2929-1. Additional info can be found at https://pivotal.io/security.
+
 ## v1.6.17 Patch
 
 Patches USN-2900-1 (this one is a critical GNU C lib (glibc) CVE), [CVE-2016-0761](http://pivotal.io/security/cve-2016-0761) (critical Cloud Foundry Garden CVE with respect to Docker Host File managment), USN-2910-1 (high CVE in the Linux kernel), USN-2897-1, and USN-2896-1.
