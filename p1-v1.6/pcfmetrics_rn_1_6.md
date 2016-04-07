@@ -6,7 +6,7 @@ owner: Metrix
 ## Version 1.0.2-beta
 
 ### Known issues
-For Known Issues, please see [PCF Metrics Known Issues](../p1-v1.7/pcfmetrics_ki_1_7.html).
+For Known Issues, please see [PCF Metrics Known Issues](../p1-v1.6/pcfmetrics_ki_1_6.html).
 
 ### Notes
 * This beta requires Elastic Runtime v1.6.16 or greater. 
