@@ -17,25 +17,17 @@ Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 - CF MySQL version: 25
 - etcd version: 38
  
-### Diego replaces DEAs completely
+### Diego completely replaces DEAs
 
 Before you upgrade to Pivotal Cloud Foundry 1.7, you must migrate all apps that are currently running on DEA architecture to run on Diego architecture. Pivotal does not support DEA architecture in Pivotal Cloud Foundry 1.7. You may need to scale up your VMs before migrating applications. More information can be found [here](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/apps-enable-diego.html).
 
 If you have any issues migrating your applications to Diego, please contact [Support]().
 
-- migrate-before-you-upgrade reference to docs
-- scaling (for HA)
-- architecture diagram if we have it (link)
-
 ### Postgres-to-MySQL migration
 
-(we may have a comprehensive doc on docs.pivotal.io for this, so these details may not be necessary here)
-- must start with 1.6.4 ERT before you upgrade
-- migration will only occur if you had Postgres data to begin with (i.e. you originally started with ERT <1.6.0)
-- do not delete postgres DBs before upgrading!
-- reference backup and restore doc updates
-- contact Support if any issues arise
-- 
+Upgrading to 1.7 will include a mandatory migration from postgres to MySQL if you are still using postgres databases. Do not delete postgres databases or scale down to `0` before upgrading. You must upgrade the Pivotal Elastic Runtime tile to 1.6.4 or higher before upgrading to 1.7. For further instructions, please reference the [Upgrading Operations Manager](http://www.docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#prepareyourdatabaseandapps) and [Backing Up Pivotal Cloud Foundry&reg;](http://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf.html) documents.
+
+If you have any issues migrating your databses from postgres to MySQL, please contact [Support]().
 
 ### Elastic Runtime Tile UI Changes
 
@@ -49,31 +41,28 @@ Installs and upgrades of Elastic Runtime are now much faster than before, as the
 
 http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/config-er-vmware.html#internal-mysql
 
-### Trusted Self-Signed SSL Certificates
-(this is probably better explained in the Ops Mgr release notes, this is the doc we're working on: https://docs.google.com/document/d/1PJD8GOHRp_jO_j3PQd7NZsoXLlOqnj0t7-l0N2lIuTE/edit)
-
 ### Docker Private Registries
 
-(reference docs.pivotal.io for this, http://docs-pcf-pre-release.cfapps.io/pivotalcf/opsguide/docker-registry.html)
+Please see [this document](http://docs-pcf-pre-release.cfapps.io/pivotalcf/opsguide/docker-registry.html) for information on Docker Trusted and Private registries.
 
-### Route Services
+### Experimental Feature: Route Services
+Route Services are a new kind of Marketplace Service that developers can use to apply various transformations to application requests by binding an application’s route to a service instance. Through integrations with service brokers and optionally with the Cloud Foundry routing tier, providers can offer these services to developers with a familiar automated, self-service, and on-demand user experience.
 
-(http://docs-pcf-pre-release.cfapps.io/pivotalcf/services/route-services.html)
+Please see [this document](http://docs.pivotal.io/pivotalcf/services/route-services.html) for more information.
+
 
 ### Experimental Feature: Disk & Memory Overcommit Settings
 
-http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/cloudform-er-config.html#experimental-features
+If your apps do not use the full allocation of disk space and memory set in the <strong>Resource Config</strong> tab, you may want use this feature. These fields control the amount to overcommit disk and memory resources to assign more memory and disk space to each Diego Cell VM.
+
+Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/cloudform-er-config.html#experimental-features) for more information.
 
 ### AWS Cloudformation Script Update
 
 You can now specify whether you would like to enable HTTP traffic to port 80 of your ELB if you are setting up an environment in AWS to deploy PCF.
 
-New Feature Details
-
 ### App Manager White Labeling
 (multiple places in docs, such as http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/config-er-vmware.html#customize-apps-man)
-
-New feature details
 
 ### App Manager React
 
