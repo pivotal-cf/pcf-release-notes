@@ -68,12 +68,7 @@ Pivotal Cloud Foundry® operators can now visually brand Apps Manager by changin
 
 Please see [this document](http://docs.pivotal.io/pivotalcf/opsguide/whitelabeling.html) for more information.
 
-### App Manager React
-
-Space page only? Ask Mike Gresham if anything needs to be said about this
-
 ##  Identity (aka UAA Server)
-
 
 ### Coarse and Fine-Grained Authorization for Apps and APIs
 
@@ -83,10 +78,12 @@ New feature details
 
 ### UAA PW Policy Config in ERT
 
-http://docs-pcf-pre-release.cfapps.io/pivotalcf/opsguide/pw-policy.html
+Operators can now specify some password policies in the UAA section of Elastic Runtime, including password length, specific character type requirements, expiration, and maximum password attempts allowed.
+
+Please see [this document](http://doc.pivotal.io/pivotalcf/opsguide/pw-policy.html) for more information.
 
 ### UAA SAML features
-http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#er-auth-config
+Please see [this document](http://docs.pivotal.io/pivotalcf/opsguide/auth-sso.html) for more information.
 
 ### UAA Token Lifetime Settings
 http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#er-auth-config
