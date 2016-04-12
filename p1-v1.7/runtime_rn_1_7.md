@@ -39,7 +39,9 @@ Installs and upgrades of Elastic Runtime are now much faster than before, as the
 
 ### Automated Backups
 
-http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/config-er-vmware.html#internal-mysql
+Operators using Pivotal Elastic Runtime can enable automatic backup on S3-compatible blobstores. This feature can be enabled for ERT running AWS, OpenStack, or vSphere.
+
+Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf.html#backup-mysql) for more information.
 
 ### Docker Private Registries
 
@@ -62,7 +64,9 @@ Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/cloudfor
 You can now specify whether you would like to enable HTTP traffic to port 80 of your ELB if you are setting up an environment in AWS to deploy PCF.
 
 ### App Manager White Labeling
-(multiple places in docs, such as http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/config-er-vmware.html#customize-apps-man)
+Pivotal Cloud Foundry® operators can now visually brand Apps Manager by changing certain text, colors, and images of the interface. Developers will see the customized interface when logging in, creating an account, resetting a password, or using Apps Manager.
+
+Please see [this document](http://docs.pivotal.io/pivotalcf/opsguide/whitelabeling.html) for more information.
 
 ### App Manager React
 
