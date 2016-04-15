@@ -6,7 +6,7 @@ Patches CVE-2016-0781 and CVE-2016-2165. Additional info can be found at https:/
 
 ## v1.6.19 Patch
 
-Patches USN-2938-1. Additional info can be found at https://pivotal.io/security.
+Patches USN-2939-1. Additional info can be found at https://pivotal.io/security.
 
 ## v1.6.18 Patch
 
