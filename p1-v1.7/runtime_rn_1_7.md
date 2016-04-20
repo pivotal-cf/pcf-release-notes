@@ -11,7 +11,7 @@ None as of 2016-03-31.
 
 Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
 
-- CF Release version: 232
+- CF Release version: 235
 - Diego version: 0.1467.0
 - Garden version: 0.337
 - CF MySQL version: 25.2
