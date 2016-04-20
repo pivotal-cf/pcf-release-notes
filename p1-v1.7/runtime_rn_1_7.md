@@ -12,10 +12,11 @@ None as of 2016-03-31.
 Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
 
 - CF Release version: 232
-- Diego version: 0.1460.0
-- Garden version: 0.334
-- CF MySQL version: 25
-- etcd version: 38
+- Diego version: 0.1467.0
+- Garden version: 0.337
+- CF MySQL version: 25.2
+- etcd version: 45
+- Apps Manager release version: 597
  
 ### Diego completely replaces DEAs
 
