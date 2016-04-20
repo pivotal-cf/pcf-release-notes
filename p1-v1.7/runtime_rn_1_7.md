@@ -18,6 +18,7 @@ Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 - etcd version: 45
 - Apps Manager release version: 597
 - UAA version: 3.2.1
+- Consul version: 80
  
 ### Diego completely replaces DEAs
 
