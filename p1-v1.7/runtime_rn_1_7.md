@@ -24,7 +24,7 @@ Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 Before you upgrade to Pivotal Cloud Foundry 1.7, you must migrate all apps that are currently running on DEA architecture to run on Diego architecture. Pivotal does not support DEA architecture in Pivotal Cloud Foundry 1.7. You may need to scale up your VMs before migrating applications. More information can be found [here](../../customizing/apps-enable-diego.html).
 
-If you have any issues migrating your applications to Diego, please contact [Support]().
+If you have any issues migrating your applications to Diego, please contact Support.
 
 ### Postgres-to-MySQL migration
 
@@ -68,7 +68,7 @@ You can now specify whether you would like to enable HTTP traffic to port 80 of 
 ### App Manager White Labeling
 Pivotal Cloud Foundry® operators can now visually brand Apps Manager by changing certain text, colors, and images of the interface. Developers will see the customized interface when logging in, creating an account, resetting a password, or using Apps Manager.
 
-Please see [this document](../../opsguide/whitelabeling.html) for more information.
+Please see [this document](../../opsguide/custom-branding.html) for more information.
 
 ##  Identity (aka UAA Server)
 
