@@ -1,5 +1,5 @@
 ---
-title: Pivotal Elastic Runtime&reg; v1.6.0.0 Release Notes
+title: Pivotal Elastic Runtime&reg; v1.7.0.0 Release Notes
 owner: Release Engineering
 ---
 # 1.7.x Patches
