@@ -12,7 +12,7 @@ None as of 2016-03-31.
 
 ### All IaaS
 
-[Upgrading PCF](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade)
+[Upgrading PCF](../../customizing/upgrading-pcf.html)
 
 * Admin user is migrated into CF UAA using password as passphrase
 
@@ -62,10 +62,10 @@ None as of 2016-03-31.
 * Get a bosh manifest for bosh-init deployment
 
 ### AWS 
-For AWS installations, EBS is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-ebs-config.html) Amazon Machine Images (AMIs) are now built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
+For AWS installations, EBS is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](../../customizing/cloudform-om-ebs-config.html) Amazon Machine Images (AMIs) are now built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
 
 Several changes have been made for CloudFormation on AWS. The script now considers RDS (Relational Database Service) as optional and supports an HA NAT instance and multiple AZs. For more information, please see the
-[Deploying the CloudFormation Template for PCF on AWS](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/cloudform-template.html) document.
+[Deploying the CloudFormation Template for PCF on AWS](../../customizing/cloudform-template.html) document.
 
 
 * Security groups are now referenced by id
