@@ -6,7 +6,9 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 This release fixes an issue with connection flooding in the Loggregator traffic controller.
 
-It also updates Digeo to version 0.1446.5 which includes fixes for NOAA, file descriptor limits on listeners, and a race condition experienced in some 3-node Diego DB clusters.
+It also updates Digeo to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners
+
+<p class="note"><strong>Known Issue</strong>: A race condition experienced in some 3-node Diego DB clusters will be fixed in a follow-on release.</p>
 
 ## v1.6.20 Patch
 Patches CVE-2016-0781 and CVE-2016-2165. Additional info can be found at https://pivotal.io/security.
