@@ -5,7 +5,7 @@ owner: Release Engineering
 
 #### New Issues
 
-* The Apps Manager console URL has changed from console.run._YourURL_ to apps.run._YourURL_. 
+* The Apps Manager console URL has changed from *console*.run._YourURL_ to *apps*.run._YourURL_. 
 
 
 #### Existing Issues
