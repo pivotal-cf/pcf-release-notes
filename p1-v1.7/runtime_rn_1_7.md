@@ -26,12 +26,6 @@ Before you upgrade to Pivotal Cloud Foundry 1.7, you must migrate all apps that 
 
 If you have any issues migrating your applications to Diego, please contact [Support]().
 
-### Postgres-to-MySQL migration
-
-Upgrading to 1.7 will include a mandatory migration from postgres to MySQL if you are still using postgres databases. Do not delete postgres databases or scale down to `0` before upgrading. You must upgrade the Pivotal Elastic Runtime tile to 1.6.4 or higher before upgrading to 1.7. For further instructions, please reference the [Upgrading Operations Manager](http://www.docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#prepareyourdatabaseandapps) and [Backing Up Pivotal Cloud Foundry&reg;](http://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf.html) documents.
-
-If you have any issues migrating your databses from postgres to MySQL, please contact [Support]().
-
 ### Elastic Runtime Tile UI Changes
 
 The tile has been re-designed in layout to improve the configuration workflow for operators. Several configuration fields have been moved to different sections of the tile. Also, more advanced logic has been implemented for some sections to make configuring complicated networking use cases easier for operators.
