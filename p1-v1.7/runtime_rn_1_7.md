@@ -44,7 +44,7 @@ Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/backup-r
 
 Please see [this document](http://docs-pcf-pre-release.cfapps.io/pivotalcf/opsguide/docker-registry.html) for information on Docker Trusted and Private registries.
 
-### Experimental Feature: Route Services
+### Route Services
 Route Services are a new kind of Marketplace Service that developers can use to apply various transformations to application requests by binding an application’s route to a service instance. Through integrations with service brokers and optionally with the Cloud Foundry routing tier, providers can offer these services to developers with a familiar automated, self-service, and on-demand user experience.
 
 Please see [this document](http://docs.pivotal.io/pivotalcf/services/route-services.html) for more information.
@@ -55,6 +55,10 @@ Please see [this document](http://docs.pivotal.io/pivotalcf/services/route-servi
 If your apps do not use the full allocation of disk space and memory set in the <strong>Resource Config</strong> tab, you may want use this feature. These fields control the amount to overcommit disk and memory resources to assign more memory and disk space to each Diego Cell VM.
 
 Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/cloudform-er-config.html#experimental-features) for more information.
+
+### Experimental Feature: Diego Tasks
+
+Please see [this document](http://v3-apidocs.cloudfoundry.org) for more information.
 
 ### AWS Cloudformation Script Update
 
