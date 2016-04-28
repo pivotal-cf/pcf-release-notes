@@ -8,34 +8,38 @@ None as of 2016-03-31.
 
 # Version 1.7.0 New Features
 
+Upgrading Pivotal Cloud Foundry is documented [here](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
+
 ## Major Features
 
-### All IaaS
-
-[Upgrading PCF](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade)
-
+### Security
 * Admin user is migrated into CF UAA using password as passphrase
-
 * Support for multiple user accounts using local identity management
 * Support for multiple user accounts using remote SAML service
 * All Ops Manager pages are protected using CF UAA
-
 * Support for custom certificates provisioned by BOSH
 * Both BOSH and Ops Manager use same identity management system
 * Automatic cleanup of /tmp directory for 24 hour old files
 * Users can only upgrade stemcells
 * Import installation occurs before login
-* When a second user attempts to login - ask to logout initial user
+* When a second user attempts to login - ask to logout initial 
+* Stemcells can be updated using floating third digit (patch release)
+* Security groups are now referenced by id
+* Operators can only import light HVM stemcells
+
+### Networks and Availability
 * Networks are now a logical collection of subnets
 * Users can add one or many subnets to a network
 * Users can create more than one network
 * Users can add more than one availability zone
 * Users can assign products to networks and availability zone
 * Jobs in a deployment will be balanced across subnets and availability zones
+
+
 * Instance types operate the same way across IaaS
 * Rescue mode exists in case CF UAA fails or is misconfigured
 * Credentials page nolonger shows secrets as HTML
-* Stemcells can be updated using floating third digit (patch release)
+
 * Operator can see change log by user
 * Operators can select and deselect errands before applying changes
 * BOSH is deployed using new init implementation
@@ -68,8 +72,7 @@ Several changes have been made for CloudFormation on AWS. The script now conside
 [Deploying the CloudFormation Template for PCF on AWS](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/cloudform-template.html) document.
 
 
-* Security groups are now referenced by id
-* Operators can only import light HVM stemcells
+
 
 ### vSphere 
 
@@ -114,3 +117,8 @@ Several changes have been made for CloudFormation on AWS. The script now conside
 * Broken EULA links
 * Selector checkboxes were not persisting
 * Exports with empty releases causes 500 error
+
+## Operational Improvements
+In addition to the major features, there are a number of smaller improvements that will enhance the Operator's experience with installing and maintaining Pivotal Cloud Foundry.
+
+
