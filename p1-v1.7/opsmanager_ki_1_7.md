@@ -10,6 +10,7 @@ Some of these issues may be fixed in subsequent patch releases to 1.7. Consult t
 * Ops Manager 1.7.0 limits the integration with products like CA Siteminder in that a single BOSH Director and Ops Manager can be registered. This limitation will be addressed in 1.7.1.
 * Ops Manager uses new instance sizes on vSphere that may result in higher capacity VMs being deployed
 * The initial setup of Ops Manager should be done using a FQDN via DNS as the UAA will use the address for redirects. If the initial setup of Ops Manager is performed by accessing Ops Manager via an IP address or URL that you do not control - that address must not change.
+* Ops Manager director is now limited to one network to avoid assymetric routing. Ops Manager will assign the director to the deployment network unless the user limits the director to one network before upgrading. BOSH can be multi-homed manually. Please file a [support ticket](http://support.pivotal.io) if you need help.
 
 ## Existing Issues
 
