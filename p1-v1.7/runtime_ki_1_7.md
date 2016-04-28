@@ -3,7 +3,7 @@ title: Pivotal Elastic Runtime&reg; v1.7 Known Issues
 owner: Release Engineering
 ---
 
-#### New Issues
+## New Issues
 
 * The Apps Manager console URL has changed from **console**._YourSystemDomain_ to **apps**._YourSystemDomain_.
 
@@ -15,7 +15,6 @@ owner: Release Engineering
 
 * The cross-container traffic checkbox is removed from Elastic Runtime, because since the migration from the DEA architecture to Diego this feature setting is now actually controlled by your CF application security groups.
 
-
-#### Existing Issues
+## Existing Issues
 
 * Existing issues here
