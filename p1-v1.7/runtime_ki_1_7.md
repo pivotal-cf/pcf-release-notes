@@ -13,7 +13,7 @@ owner: Release Engineering
 
 * Java apps can take advantage of the custom certificate authority feature of PCF 1.7, but it requires using a more recent Java buildpack version than the one included with Elastic Runtime 1.7.0. The buildpack version is 3.7, and it requires that you also enable the Container Certificate Trust Store feature. The feature is turned off by default, because it can impact staging performance of Java apps, adding an extra 45 seconds or so.
 
-* The cross-container traffic checkbox is removed from Elastic Runtime, because this feature setting is actually controlled by your CF application security groups.
+* The cross-container traffic checkbox is removed from Elastic Runtime, because since the migration from the DEA architecture to Diego this feature setting is now actually controlled by your CF application security groups.
 
 
 #### Existing Issues
