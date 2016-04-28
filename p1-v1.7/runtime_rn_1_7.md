@@ -76,10 +76,6 @@ Please see [this document](../../opsguide/custom-branding.html) for more informa
 
 ##  Identity (aka UAA Server)
 
-### Coarse and Fine-Grained Authorization for Apps and APIs
-
-check with Kevin Huang if he needs SSO release notes
-
 New feature details
 
 ### UAA PW Policy Config in ERT
