@@ -49,6 +49,11 @@ Route Services are a new kind of Marketplace Service that developers can use to 
 
 Please see [this document](http://docs.pivotal.io/pivotalcf/services/route-services.html) for more information.
 
+### Space Scoped Private Brokers
+Space scoped private brokers allow a space developer to create and manage a service broker and scope it to a single space in order to allow faster iteration on service brokers without requiring full admin privileges.
+
+Please see [managing service brokers](http://docs.pivotal.io/pivotalcf/services/managing-service-brokers.html) topic for more information.
+This feature can be managed with the `space_scoped_private_broker_creation` cloud controller feature flag.
 
 ### Experimental Feature: Disk & Memory Overcommit Settings
 
