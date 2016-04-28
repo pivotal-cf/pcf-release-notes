@@ -58,7 +58,7 @@ Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/cloudfor
 
 ### Experimental Feature: Diego Tasks
 
-Please see [this document](http://v3-apidocs.cloudfoundry.org) for more information.
+Please see [this document](http://v3-apidocs.cloudfoundry.org) for more information about running one-off tasks in Cloud Foundry.
 
 ### AWS Cloudformation Script Update
 
