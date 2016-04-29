@@ -101,6 +101,7 @@ ask Danny Rosen for details on what changed between CF-225 and CF-232
 
 New feature details
 
-# We would like to dedicate this work in memory of our dear friend and colleague Dave Liebreich, who passed away on February 22, 2016. Thank you for everything, Dave, you are missed by your family here at Pivotal!
+# In memory...
+We would like to dedicate this work in memory of our dear friend and colleague Dave Liebreich, who passed away on February 22, 2016. Thank you for everything, Dave, you are missed by your family here at Pivotal!
 
 ![Dave Liebreich](Dave.png)
