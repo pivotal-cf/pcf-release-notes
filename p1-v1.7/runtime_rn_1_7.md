@@ -46,7 +46,7 @@ Please see [this document](http://docs-pcf-pre-release.cfapps.io/pivotalcf/opsgu
 
 ### Unused Docker Image Cleanup
 
-Operators using Pivotal Elastic Runtime can configure how aggressively unused Docker Image files are removed from disk on Diego Cell VMs. The advantage to cleaning up less frequently is that subsequent push/scale events for Docker Images which have previously been run on the platform may be faster, since the image does not need to be downloaded from the Docker registry again. The "Threshold of Disk-Used (MB)" value refers to the total size of all Docker Images (whether in use or not) on an individual Cell VM.
+In the Application Containers configuration section of Elastic Runtime, you can configure how aggressively unused Docker Image files are removed from disk on Diego Cell VMs. The advantage to cleaning up less frequently is that subsequent push/scale events for Docker Images which have previously been run on the platform may be faster, since the image does not need to be downloaded from the Docker registry again. The "Threshold of Disk-Used (MB)" value refers to the total size of all Docker Images (whether in use or not) on an individual Cell VM.
 
 ### Route Services
 Route Services are a new kind of Marketplace Service that developers can use to apply various transformations to application requests by binding an application’s route to a service instance. Through integrations with service brokers and optionally with the Cloud Foundry routing tier, providers can offer these services to developers with a familiar automated, self-service, and on-demand user experience.
