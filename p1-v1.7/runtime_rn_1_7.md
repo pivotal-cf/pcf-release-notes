@@ -1,5 +1,5 @@
 ---
-title: Pivotal Elastic Runtime&reg; v1.6.0.0 Release Notes
+title: Pivotal Elastic Runtime&reg; v1.7.0.0 Release Notes
 owner: Release Engineering
 ---
 # 1.7.x Patches
@@ -22,9 +22,9 @@ Versions 1.7.0 and higher versions of Elastic Runtime consist of these Cloud Fou
  
 ### Diego completely replaces DEAs
 
-Before you upgrade to Pivotal Cloud Foundry 1.7, you must migrate all apps that are currently running on DEA architecture to run on Diego architecture. Pivotal does not support DEA architecture in Pivotal Cloud Foundry 1.7. You may need to scale up your VMs before migrating applications. More information can be found [here](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/apps-enable-diego.html).
+Before you upgrade to Pivotal Cloud Foundry 1.7, you must migrate all apps that are currently running on DEA architecture to run on Diego architecture. Pivotal does not support DEA architecture in Pivotal Cloud Foundry 1.7. You may need to scale up your VMs before migrating applications. More information can be found [here](../../customizing/apps-enable-diego.html).
 
-If you have any issues migrating your applications to Diego, please contact [Support]().
+If you have any issues migrating your applications to Diego, please contact Support.
 
 ### Elastic Runtime Tile UI Changes
 
@@ -43,6 +43,10 @@ Please see [this document](http://docs.pivotal.io/pivotalcf/customizing/backup-r
 ### Docker Private Registries
 
 Please see [this document](http://docs-pcf-pre-release.cfapps.io/pivotalcf/opsguide/docker-registry.html) for information on Docker Trusted and Private registries.
+
+### Unused Docker Image Cleanup
+
+In the Application Containers configuration section of Elastic Runtime, you can configure how aggressively unused Docker Image files are removed from disk on Diego Cell VMs. The advantage to cleaning up less frequently is that subsequent push/scale events for Docker Images which have previously been run on the platform may be faster, since the image does not need to be downloaded from the Docker registry again. The "Threshold of Disk-Used (MB)" value refers to the total size of all Docker Images (whether in use or not) on an individual Cell VM.
 
 ### Route Services
 Route Services are a new kind of Marketplace Service that developers can use to apply various transformations to application requests by binding an application’s route to a service instance. Through integrations with service brokers and optionally with the Cloud Foundry routing tier, providers can offer these services to developers with a familiar automated, self-service, and on-demand user experience.
@@ -72,13 +76,9 @@ You can now specify whether you would like to enable HTTP traffic to port 80 of 
 ### App Manager White Labeling
 Pivotal Cloud Foundry® operators can now visually brand Apps Manager by changing certain text, colors, and images of the interface. Developers will see the customized interface when logging in, creating an account, resetting a password, or using Apps Manager.
 
-Please see [this document](http://docs.pivotal.io/pivotalcf/opsguide/whitelabeling.html) for more information.
+Please see [this document](../../opsguide/custom-branding.html) for more information.
 
 ##  Identity (aka UAA Server)
-
-### Coarse and Fine-Grained Authorization for Apps and APIs
-
-check with Kevin Huang if he needs SSO release notes
 
 New feature details
 
@@ -86,13 +86,13 @@ New feature details
 
 Operators can now specify some password policies in the UAA section of Elastic Runtime, including password length, specific character type requirements, expiration, and maximum password attempts allowed.
 
-Please see [this document](http://doc.pivotal.io/pivotalcf/opsguide/pw-policy.html) for more information.
+Please see [this document](../../opsguide/pw-policy.html) for more information.
 
 ### UAA SAML features
-Please see [this document](http://docs.pivotal.io/pivotalcf/opsguide/auth-sso.html) for more information.
+Please see [this document](../../opsguide/auth-sso.html) for more information.
 
 ### UAA Token Lifetime Settings
-http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#er-auth-config
+Please see [this document](../../customizing/cloudform-er-config.html#er-auth-config).
  
 ## Logging and Metrics
 
@@ -105,4 +105,7 @@ ask Danny Rosen for details on what changed between CF-225 and CF-232
 
 New feature details
 
-# Notes
+# In memory...
+We would like to dedicate this work in memory of our dear friend and colleague Dave Liebreich, who passed away on February 22, 2016. Thank you for everything, Dave, you are missed everyday by your family here at Pivotal!
+
+![Dave Liebreich](Dave.png)

@@ -3,104 +3,101 @@ title: Pivotal Cloud Foundry&reg; Ops Manager v1.7 Release Notes
 owner: Ops Manager
 ---
 
+# <a id='how-to-upgrade'>How to Upgrade</a>
+Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
+
 # v1.7.x Patches
-None as of 2016-03-31.
+None
 
 # Version 1.7.0 New Features
 
-Upgrading Pivotal Cloud Foundry is documented [here](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/upgrading-pcf.html#pcf16upgrade).
+## <a id='major-features'></a> Major Features ##
 
-## Major Features
+### <a id='security'></a> Security ###
+ 
+All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](../../concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](../../customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](../../opsguide/auth-sso.html) identity management. In order to avoid consistency issues, OpsManager restricts the number of concurrent users in the system by allowing only one user to log in at a time.  
 
-### Security
-* Admin user is migrated into CF UAA using password as passphrase
-* Support for multiple user accounts using local identity management
-* Support for multiple user accounts using remote SAML service
-* All Ops Manager pages are protected using CF UAA
-* Support for custom certificates provisioned by BOSH
-* Both BOSH and Ops Manager use same identity management system
-* Automatic cleanup of /tmp directory for 24 hour old files
-* Users can only upgrade stemcells
-* Import installation occurs before login
-* When a second user attempts to login - ask to logout initial 
-* Stemcells can be updated using floating third digit (patch release)
-* Security groups are now referenced by id
-* Operators can only import light HVM stemcells
+Users now have the capability to add custom certificates to all the VMs managed in a BOSH deployment. Please see below for more information about custom certificates:
+[Amazon Web Services](../../customizing/cloudform-om-config.html#security)
+[OpenStack](../../customizing/openstack-om-config.html#security)
+[vSphere](../../customizing/vsphere-config.html#security-config)
+[vCloud]((../../customizing/vchs-vcloud-config.html#security-config)
 
-### Networks and Availability
-* Networks are now a logical collection of subnets
-* Users can add one or many subnets to a network
-* Users can create more than one network
-* Users can add more than one availability zone
-* Users can assign products to networks and availability zone
-* Jobs in a deployment will be balanced across subnets and availability zones
+Operators can now see a detailed change log that describes all actions performed by all authenticated users. 
 
+Several improvements to stemcell management have been added to Ops Manager 1.7.0. Operators can only upgrade stemcells (i.e. stemcells cannot be downgraded). For AWS installations, only the Light HVM versions can be used. Additionally, tiles installed in Ops Manager will not need to be manually upgraded for security patches to a minor version of the stemcell.
 
-* Instance types operate the same way across IaaS
-* Rescue mode exists in case CF UAA fails or is misconfigured
-* Credentials page nolonger shows secrets as HTML
+### <a id='network-az'></a> Networks and Availability ###
 
-* Operator can see change log by user
-* Operators can select and deselect errands before applying changes
-* BOSH is deployed using new init implementation
-* Existing BOSH installations will be upgraded to new init method
-* Ops Manager director is limited to one network to avoid assymetric routing
-* Support for compiled releases
-* Users can disable ICMP checks (default off on AWS)
-* Checkbox exists to run "bosh deploy --recreate" (recreates all VMs)
-* Support for monitoring and pager duty BOSH plugins
-* UAAC gem added to Ops Manager VM
+For Ops Manager 1.7.0, networks are now a logical collection of subnets. Users can create more than one network, and add one or many subnets to those networks. For Availability Zones (AZs), users can add more than one AZ per subnet. They can also assign products to both networks and AZs. Jobs in a deployment will be balanced across subnets and Availability Zones. Please see the following documents for more information on configuring subnets and AZs.
+[Amazon Web Services](../../customizing/cloudform-om-config.html#az)
+[OpenStack](../../customizing/openstack-om-config.html#az-config)
+[vSphere](../../customizing/vsphere-config.html#create-az)
+[vCloud](../..//customizing/vchs-vcloud-config.html)
 
-### API Endpoints
+### <a id='resource-config'></a> Resource Configuration ###
 
-* All API endpoints protected by CF UAA
+There is a new workflow for configuring resources in Ops Manager. This workflow includes a standard way of configuring instance sizes across all infrastructures. Operators also have the ability to opt in or opt out of default sizes set by Pivotal [product tiles](../../partners/product-template-reference.html). For more information, please see:
+[Amazon Web Services](../../customizing/cloudform-om-config.html#resource-config).
+[OpenStack](../../customizing/openstack-om-config.html#resource-config)
+[vSphere](../../customizing/vsphere-config.html#resource-config)
+
+### <a id='api-endpoints'></a> API Endpoints ### 
+
+As of Ops Manager 1.7, all API endpoints are protected by PCF UAA (User Authentication and Authorization) (../../concepts/architecture/uaa.html).
+
+Ops Manager has these new endpoints:
 * List installed products
 * List vm credentials by product
 * Unlock Ops Manager with passphrase
 * CRUD disk types and vm types
 * List static ips
-* Private keys are optional for SSL certs
-* Manifests before and after deployments
+* Manifest for staged products
+* Manifest for deployed products 
 * Token expiration time can be configured
 * Diagnostic information to attach to support tickets
 * Get a bosh manifest for bosh-init deployment
 
-### AWS 
-For AWS installations, EBS is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-ebs-config.html) Amazon Machine Images (AMIs) are now built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
+### <a id='aws'></a> AWS  ### 
+For AWS installations, EBS (Elastic Blob Store) is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](../../customizing/cloudform-om-ebs-config.html) Amazon Machine Images (AMIs) can now be built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
 
 Several changes have been made for CloudFormation on AWS. The script now considers RDS (Relational Database Service) as optional and supports an HA NAT instance and multiple AZs. For more information, please see the
-[Deploying the CloudFormation Template for PCF on AWS](http://docs-pcf-pre-release.cfapps.io/pivotalcf/customizing/cloudform-template.html) document.
+[Deploying the CloudFormation Template for PCF on AWS](../../customizing/cloudform-template.html) document.
 
+Security groups that are assigned to EC2 instances are now referenced by ID. Please see below for more information:
+[Amazon Web Services](../../customizing/cloudform-om-config.html#aws-config)
+[OpenStack](../../customizing/openstack-om-config.html#openstack-config)
 
-
-
-### vSphere 
+### <a id='vsphere'></a> vSphere  ### 
 
 * Datastores can be split by Ephemeral and Persistent disk types
-* Subnets can span availability zones (possible prior - distinct from other IaaS)
+* Unlike other IASS providers, subnets on vSphere can span availability zones
 * vCenter IP field now supports IP or host
 
-### OpenStack
+### <a id='openstack'></a> OpenStack ### 
+For OpenStack Deployments, [Ops Manager 1.7.0](../../customizing/openstack.html) now supports connection options and Keystone version 3.
 
-* Support for connection options
-* Support for Keystone version 3
+### <a id='tile-authors'></a> Tile Authors  ### 
 
-### Tile Authors
+Multiple improvements have been included in Ops Manager 1.7.0 for [Tile Authors](../../partners/index.html). PCF product tiles now must be upgraded using ECMA (JavaScript) [migration](../../partners/migrations.html) syntax. Imports into 1.7 are limited to ECMA script migrations only.
 
-* PCF product tiles are upgraded using ECMA (JavaScript) migration syntax
-* Imports into 1.7 are limited to ECMA script migrations only
-* Invalid user input can be rejected using regular expressions
-* Form fields support placeholder text
-* A job's instance count can be toggled to 0 based on a selector value
-* Markdown can be used above a form
-* Product template must include minimum_version_for_upgrade
-* Products with pre 1.7 metadata are limited to single subnet
-* Products either get persistent disk or not. Can't be optional
-* First-network-deprecated has been removed as an key / value pair
-* Tile authors can limit a product's jobs to a single AZ
-* Accessor available for trusted certificates
+For forms, invalid user input can be rejected using regular expressions and form fields support placeholder text. Markdown can be used above a form.
 
-### Bug Fixes
+Several changes to how products and jobs are configured are included in Ops Manager 1.7.0. A job's instance count can be toggled to 0 based on a selector value. The [product template](../../partners/product-template-reference.html) must include <code>minimum_version_for_upgrade</code>. Additionally, products with pre 1.7 metadata are limited to a single subnet. Users must specify whether their products gets persistent disk or not - the field is required. `First-network-deprecated` has been removed as a key / value pair. Tile authors can limit a product’s jobs to a single AZ. Additionally, Accessor information is available for trusted certificates.
+
+## <a id='improvements'></a> Operational Improvements ##
+
+In addition to the major features, there are a number of smaller improvements that will enhance the Operator's experience with installing and maintaining Pivotal Cloud Foundry.
+
+* Operators can select and deselect errands before applying changes
+* Support for compiled releases
+* Users can disable ICMP checks (default off on AWS)
+* Checkbox exists to run "bosh deploy --recreate" (recreates all VMs)
+* Support for monitoring and pager duty BOSH plugins
+* UAAC gem added to Ops Manager VM
+* Automatic cleanup of /tmp directory for 24 hour old files
+
+## <a id='bug-fixes'></a> Bug Fixes  ##
 
 * Some products could not be uploaded via API
 * Wrong tile version shown in error messages
@@ -117,8 +114,3 @@ Several changes have been made for CloudFormation on AWS. The script now conside
 * Broken EULA links
 * Selector checkboxes were not persisting
 * Exports with empty releases causes 500 error
-
-## Operational Improvements
-In addition to the major features, there are a number of smaller improvements that will enhance the Operator's experience with installing and maintaining Pivotal Cloud Foundry.
-
-
