@@ -18,7 +18,7 @@ Users now have the capability to add custom certificates to all the VMs managed 
 [Amazon Web Services](../../customizing/cloudform-om-config.html#security)
 [OpenStack](../../customizing/openstack-om-config.html#security)
 [vSphere](../../customizing/vsphere-config.html#security-config)
-[vCloud]((../../customizing/vchs-vcloud-config.html#security-config)
+[vCloud](../../customizing/vchs-vcloud-config.html#security-config)
 
 Operators can now see a detailed change log that describes all actions performed by all authenticated users. 
 
@@ -41,7 +41,7 @@ There is a new workflow for configuring resources in Ops Manager. This workflow 
 
 ### <a id='api-endpoints'></a> API Endpoints
 
-As of Ops Manager 1.7, all API endpoints are protected by PCF UAA (User Authentication and Authorization) (../../concepts/architecture/uaa.html).
+As of Ops Manager 1.7, all API endpoints are protected by PCF UAA (User Authentication and Authorization)(../../concepts/architecture/uaa.html).
 
 Ops Manager has these new endpoints:
 * List installed products
