@@ -6,9 +6,6 @@ owner: Ops Manager
 # <a id='how-to-upgrade'>How to Upgrade</a>
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
-# v1.7.x Patches
-None
-
 # Version 1.7.0 New Features
 
 ## <a id='major-features'></a> Major Features ##
