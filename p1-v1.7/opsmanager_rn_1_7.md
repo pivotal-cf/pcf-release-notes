@@ -3,7 +3,7 @@ title: Pivotal Cloud Foundry&reg; Ops Manager v1.7 Release Notes
 owner: Ops Manager
 ---
 
-# <a id='how-to-upgrade'>How to Upgrade</a>
+# <a id='how-to-upgrade'></a>How to Upgrade
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
 # Version 1.7.0 New Features
