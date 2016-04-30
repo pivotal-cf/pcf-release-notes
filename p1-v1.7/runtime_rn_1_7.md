@@ -80,8 +80,6 @@ Please see [this document](../../opsguide/custom-branding.html) for more informa
 
 ##  Identity (aka UAA Server)
 
-New feature details
-
 ### UAA PW Policy Config in ERT
 
 Operators can now specify some password policies in the UAA section of Elastic Runtime, including password length, specific character type requirements, expiration, and maximum password attempts allowed.
