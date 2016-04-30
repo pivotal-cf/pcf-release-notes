@@ -93,15 +93,6 @@ Please see [this document](../../opsguide/auth-sso.html) for more information.
 
 ### UAA Token Lifetime Settings
 Please see [this document](../../customizing/cloudform-er-config.html#er-auth-config).
- 
-## Logging and Metrics
-
-ask Jim CF Campbell for details on what changed between CF-225 and CF-232
-
-
-## Buildpacks
-
-ask Danny Rosen for details on what changed between CF-225 and CF-232
 
 New feature details
 
