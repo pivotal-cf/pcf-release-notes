@@ -97,6 +97,6 @@ Please see [this document](../../customizing/cloudform-er-config.html#er-auth-co
 New feature details
 
 # In memory...
-We would like to dedicate this work in memory of our dear friend and colleague Dave Liebreich, who passed away on February 22, 2016. Thank you for everything, Dave, you are missed everyday by your family here at Pivotal!
+We would like to dedicate this work in memory of our dear friend and colleague Dave Liebreich, who passed away on February 22, 2016. Thank you for everything, Dave, you are missed every day by your family here at Pivotal!
 
 ![Dave Liebreich](Dave.png)
