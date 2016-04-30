@@ -8,9 +8,9 @@ Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading
 
 # Version 1.7.0 New Features
 
-## <a id='major-features'></a> Major Features ##
+## <a id='major-features'></a> Major Features
 
-### <a id='security'></a> Security ###
+### <a id='security'></a> Security
  
 All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](../../concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](../../customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](../../opsguide/auth-sso.html) identity management. In order to avoid consistency issues, OpsManager restricts the number of concurrent users in the system by allowing only one user to log in at a time.  
 
@@ -24,7 +24,7 @@ Operators can now see a detailed change log that describes all actions performed
 
 Several improvements to stemcell management have been added to Ops Manager 1.7.0. Operators can only upgrade stemcells (i.e. stemcells cannot be downgraded). For AWS installations, only the Light HVM versions can be used. Additionally, tiles installed in Ops Manager will not need to be manually upgraded for security patches to a minor version of the stemcell.
 
-### <a id='network-az'></a> Networks and Availability ###
+### <a id='network-az'></a> Networks and Availability
 
 For Ops Manager 1.7.0, networks are now a logical collection of subnets. Users can create more than one network, and add one or many subnets to those networks. For Availability Zones (AZs), users can add more than one AZ per subnet. They can also assign products to both networks and AZs. Jobs in a deployment will be balanced across subnets and Availability Zones. Please see the following documents for more information on configuring subnets and AZs.
 [Amazon Web Services](../../customizing/cloudform-om-config.html#az)
@@ -32,14 +32,14 @@ For Ops Manager 1.7.0, networks are now a logical collection of subnets. Users c
 [vSphere](../../customizing/vsphere-config.html#create-az)
 [vCloud](../..//customizing/vchs-vcloud-config.html)
 
-### <a id='resource-config'></a> Resource Configuration ###
+### <a id='resource-config'></a> Resource Configuration
 
 There is a new workflow for configuring resources in Ops Manager. This workflow includes a standard way of configuring instance sizes across all infrastructures. Operators also have the ability to opt in or opt out of default sizes set by Pivotal [product tiles](../../partners/product-template-reference.html). For more information, please see:
 [Amazon Web Services](../../customizing/cloudform-om-config.html#resource-config).
 [OpenStack](../../customizing/openstack-om-config.html#resource-config)
 [vSphere](../../customizing/vsphere-config.html#resource-config)
 
-### <a id='api-endpoints'></a> API Endpoints ### 
+### <a id='api-endpoints'></a> API Endpoints
 
 As of Ops Manager 1.7, all API endpoints are protected by PCF UAA (User Authentication and Authorization) (../../concepts/architecture/uaa.html).
 
@@ -55,7 +55,7 @@ Ops Manager has these new endpoints:
 * Diagnostic information to attach to support tickets
 * Get a bosh manifest for bosh-init deployment
 
-### <a id='aws'></a> AWS  ### 
+### <a id='aws'></a> AWS
 For AWS installations, EBS (Elastic Blob Store) is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](../../customizing/cloudform-om-ebs-config.html) Amazon Machine Images (AMIs) can now be built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
 
 Several changes have been made for CloudFormation on AWS. The script now considers RDS (Relational Database Service) as optional and supports an HA NAT instance and multiple AZs. For more information, please see the
@@ -65,16 +65,16 @@ Security groups that are assigned to EC2 instances are now referenced by ID. Ple
 [Amazon Web Services](../../customizing/cloudform-om-config.html#aws-config)
 [OpenStack](../../customizing/openstack-om-config.html#openstack-config)
 
-### <a id='vsphere'></a> vSphere  ### 
+### <a id='vsphere'></a> vSphere
 
 * Datastores can be split by Ephemeral and Persistent disk types
 * Unlike other IASS providers, subnets on vSphere can span availability zones
 * vCenter IP field now supports IP or host
 
-### <a id='openstack'></a> OpenStack ### 
+### <a id='openstack'></a> OpenStack
 For OpenStack Deployments, [Ops Manager 1.7.0](../../customizing/openstack.html) now supports connection options and Keystone version 3.
 
-### <a id='tile-authors'></a> Tile Authors  ### 
+### <a id='tile-authors'></a> Tile Authors
 
 Multiple improvements have been included in Ops Manager 1.7.0 for [Tile Authors](../../partners/index.html). PCF product tiles now must be upgraded using ECMA (JavaScript) [migration](../../partners/migrations.html) syntax. Imports into 1.7 are limited to ECMA script migrations only.
 
@@ -82,7 +82,7 @@ For forms, invalid user input can be rejected using regular expressions and form
 
 Several changes to how products and jobs are configured are included in Ops Manager 1.7.0. A job's instance count can be toggled to 0 based on a selector value. The [product template](../../partners/product-template-reference.html) must include <code>minimum_version_for_upgrade</code>. Additionally, products with pre 1.7 metadata are limited to a single subnet. Users must specify whether their products gets persistent disk or not - the field is required. `First-network-deprecated` has been removed as a key / value pair. Tile authors can limit a product’s jobs to a single AZ. Additionally, Accessor information is available for trusted certificates.
 
-## <a id='improvements'></a> Operational Improvements ##
+## <a id='improvements'></a> Operational Improvements
 
 In addition to the major features, there are a number of smaller improvements that will enhance the Operator's experience with installing and maintaining Pivotal Cloud Foundry.
 
@@ -94,7 +94,7 @@ In addition to the major features, there are a number of smaller improvements th
 * UAAC gem added to Ops Manager VM
 * Automatic cleanup of /tmp directory for 24 hour old files
 
-## <a id='bug-fixes'></a> Bug Fixes  ##
+## <a id='bug-fixes'></a> Bug Fixes
 
 * Some products could not be uploaded via API
 * Wrong tile version shown in error messages
