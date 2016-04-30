@@ -2,8 +2,6 @@
 title: Pivotal Elastic Runtime&reg; v1.7.0.0 Release Notes
 owner: Release Engineering
 ---
-# 1.7.x Patches
-None as of 2016-03-31.
 
 # Version 1.7.0 New Features
 
