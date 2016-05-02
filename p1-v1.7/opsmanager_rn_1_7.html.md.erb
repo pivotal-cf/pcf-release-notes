@@ -28,6 +28,7 @@ Several improvements to stemcell management have been added to Ops Manager 1.7.0
 ### <a id='network-az'></a> Networks and Availability
 
 For Ops Manager 1.7.0, networks are now a logical collection of subnets. Users can create more than one network, and add one or many subnets to those networks. For Availability Zones (AZs), users can add more than one AZ per subnet. They can also assign products to both networks and AZs. Jobs in a deployment will be balanced across subnets and Availability Zones. Please see the following documents for more information on configuring subnets and AZs.
+
 * [Amazon Web Services](../../customizing/cloudform-om-config.html#az)
 * [OpenStack](../../customizing/openstack-om-config.html#az-config)
 * [vSphere](../../customizing/vsphere-config.html#create-az)
@@ -36,6 +37,7 @@ For Ops Manager 1.7.0, networks are now a logical collection of subnets. Users c
 ### <a id='resource-config'></a> Resource Configuration
 
 There is a new workflow for configuring resources in Ops Manager. This workflow includes a standard way of configuring instance sizes across all infrastructures. Operators also have the ability to opt in or opt out of default sizes set by Pivotal [product tiles](../../partners/product-template-reference.html). For more information, please see:
+
 * [Amazon Web Services](../../customizing/cloudform-om-config.html#resource-config).
 * [OpenStack](../../customizing/openstack-om-config.html#resource-config)
 * [vSphere](../../customizing/vsphere-config.html#resource-config)
