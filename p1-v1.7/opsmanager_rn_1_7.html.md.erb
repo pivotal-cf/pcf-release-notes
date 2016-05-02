@@ -11,8 +11,8 @@ Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading
 ## <a id='major-features'></a> Major Features
 
 ### <a id='security'></a> Security
- 
-All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](../../concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](../../customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](../../opsguide/auth-sso.html) identity management. In order to avoid consistency issues, OpsManager restricts the number of concurrent users in the system by allowing only one user to log in at a time.  
+
+All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](../../concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](../../customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](../../opsguide/auth-sso.html) identity management. In order to avoid consistency issues, OpsManager restricts the number of concurrent users in the system by allowing only one user to log in at a time.
 
 Users now have the capability to add custom certificates to all the VMs managed in a BOSH deployment. Please see below for more information about custom certificates:
 
@@ -21,7 +21,7 @@ Users now have the capability to add custom certificates to all the VMs managed 
 * [vSphere](../../customizing/vsphere-config.html#security-config)
 * [vCloud](../../customizing/vchs-vcloud-config.html#security-config)
 
-Operators can now see a detailed change log that describes all actions performed by all authenticated users. 
+Operators can now see a detailed change log that describes all actions performed by all authenticated users.
 
 Several improvements to stemcell management have been added to Ops Manager 1.7.0. Operators can only upgrade stemcells (i.e. stemcells cannot be downgraded). For AWS installations, only the Light HVM versions can be used. Additionally, tiles installed in Ops Manager will not need to be manually upgraded for security patches to a minor version of the stemcell.
 
@@ -52,7 +52,7 @@ Ops Manager has these new endpoints:
 * CRUD disk types and vm types
 * List static ips
 * Manifest for staged products
-* Manifest for deployed products 
+* Manifest for deployed products
 * Token expiration time can be configured
 * Diagnostic information to attach to support tickets
 * Get a bosh manifest for bosh-init deployment
@@ -92,7 +92,7 @@ In addition to the major features, there are a number of smaller improvements th
 * Support for compiled releases
 * Users can disable ICMP checks (default off on AWS)
 * Checkbox exists to run "bosh deploy --recreate" (recreates all VMs)
-* Support for monitoring and pager duty BOSH plugins
+* Support for monitoring and Pager Duty(TM) BOSH plugins
 * UAAC gem added to Ops Manager VM
 * Automatic cleanup of /tmp directory for 24 hour old files
 
