@@ -1,6 +1,11 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## v1.6.22 Patch
+
+This patch addresses a race condition experienced in some multi-node Diego DB (BBS) clusters. It also adds the Cloud Controller statsd metrics to the firehose output.
+
+It also updates Digeo to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners
 
 ## v1.6.21 Patch
 
