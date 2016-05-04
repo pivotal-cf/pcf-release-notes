@@ -57,7 +57,7 @@ Space scoped private brokers allow a space developer to create and manage a serv
 Please see [managing service brokers](../../services/managing-service-brokers.html) topic for more information.
 This feature can be managed with the `space_scoped_private_broker_creation` cloud controller feature flag.
 
-### Experimental Feature: Disk & Memory Overcommit Settings
+### Experimental Feature: Disk and Memory Overcommit Settings
 
 If your apps do not use the full allocation of disk space and memory set in the <strong>Resource Config</strong> tab, you may want use this feature. These fields control the amount to overcommit disk and memory resources to assign more memory and disk space to each Diego Cell VM.
 
@@ -65,7 +65,10 @@ Please see [this topic](../../customizing/cloudform-er-config.html#experimental-
 
 ### Experimental Feature: Diego Tasks
 
-Please see [this topic](http://v3-apidocs.cloudfoundry.org) for more information about running one-off tasks in Cloud Foundry.
+Although you can use the V3 Tasks API to run asynchronous tasks, Pivotal reserves 
+the right to change this API or truncate the data about past task runs. For more 
+information about running one-off tasks in Cloud Foundry, see the 
+[Cloud Foundry V3 API Docs](http://v3-apidocs.cloudfoundry.org/version/release-candidate/index.html#tasks).
 
 ### AWS Cloudformation Script Update
 
