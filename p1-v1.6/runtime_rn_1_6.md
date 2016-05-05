@@ -1,6 +1,11 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+
+## v1.6.23 Patch
+
+Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Additional info can be found at https://pivotal.io/security
+
 ## v1.6.22 Patch
 
 This patch addresses a race condition experienced in some multi-node Diego DB (BBS) clusters. It also adds the Cloud Controller statsd metrics to the firehose output.
