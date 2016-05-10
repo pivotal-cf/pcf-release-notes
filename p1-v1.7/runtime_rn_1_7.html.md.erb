@@ -6,7 +6,7 @@ owner: Release Engineering
 
 Introduces an option to configure security event tracking in the Cloud Controller logs. Also adds statsd metrics from Cloud Controller.
 
-Also patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Additional info can be found at https://pivotal.io/security
+Also patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Additional info can be found at https://pivotal.io/security.
 
 If you are using Single Sign-On 1.1.0, it is recommended that you update to Single Sign-On 1.1.1. Additional info can be found at http://docs.pivotal.io/p-identity/release-notes.html.
 
@@ -43,11 +43,11 @@ Installs and upgrades of Elastic Runtime are now much faster than before, as the
 
 Operators using Pivotal Elastic Runtime can enable automatic backup on S3-compatible blobstores. This feature can be enabled for ERT running AWS, OpenStack, or vSphere.
 
-Please see [this document](../../customizing/backup-restore/backup-pcf.html#backup-mysql) for more information.
+Please see [this topic](../../customizing/backup-restore/backup-pcf.html#backup-mysql) for more information.
 
 ### Docker Private Registries
 
-Please see [this document](../../opsguide/docker-registry.html) for information on Docker Trusted and Private registries.
+Please see [this topic](../../opsguide/docker-registry.html) for information on Docker Trusted and Private registries.
 
 ### Unused Docker Image Cleanup
 
@@ -61,7 +61,7 @@ Please see [this topic](../../services/route-services.html) for more information
 ### Space Scoped Private Brokers
 Space scoped private brokers allow a space developer to create and manage a service broker and scope it to a single space in order to allow faster iteration on service brokers without requiring full admin privileges.
 
-Please see [managing service brokers](../../services/managing-service-brokers.html) topic for more information.
+Please see the [managing service brokers](../../services/managing-service-brokers.html) topic for more information.
 This feature can be managed with the `space_scoped_private_broker_creation` cloud controller feature flag.
 
 ### Experimental Feature: Disk and Memory Overcommit Settings
@@ -72,9 +72,9 @@ Please see [this topic](../../customizing/cloudform-er-config.html#experimental-
 
 ### Experimental Feature: Diego Tasks
 
-Although you can use the V3 Tasks API to run asynchronous tasks, Pivotal reserves 
-the right to change this API or truncate the data about past task runs. For more 
-information about running one-off tasks in Cloud Foundry, see the 
+Although you can use the V3 Tasks API to run asynchronous tasks, Pivotal reserves
+the right to change this API or truncate the data about past task runs. For more
+information about running one-off tasks in Cloud Foundry, see the
 [Cloud Foundry V3 API Docs](http://v3-apidocs.cloudfoundry.org/version/release-candidate/index.html#tasks).
 
 ### AWS Cloudformation Script Update
