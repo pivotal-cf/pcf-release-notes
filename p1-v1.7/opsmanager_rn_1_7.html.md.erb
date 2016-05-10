@@ -8,8 +8,8 @@ Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading
 
 ## 1.7.1 Patch
 
-Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. 
-Additional info can be found at https://pivotal.io/security
+Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2.
+Additional info can be found at https://pivotal.io/security.
 
 # Version 1.7.0 New Features
 
@@ -54,30 +54,31 @@ As of Ops Manager 1.7, all API endpoints are protected by PCF UAA [User Authenti
 Ops Manager has these new endpoints:
 
 * List installed products
-* List vm credentials by product
+* List VM credentials by product
 * Unlock Ops Manager with passphrase
 * CRUD disk types and vm types
-* List static ips
+* List static IPs
 * Manifest for staged products
 * Manifest for deployed products
 * Token expiration time can be configured
 * Diagnostic information to attach to support tickets
-* Get a bosh manifest for bosh-init deployment
+* Get a BOSH manifest for bosh-init deployment
 
 ### <a id='aws'></a> AWS
-For AWS installations, EBS (Elastic Blob Store) is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](../../customizing/cloudform-om-ebs-config.html) Amazon Machine Images (AMIs) can now be built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
+For AWS installations, EBS (Elastic Blob Store) is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](../../customizing/cloudform-om-ebs-config.html). Amazon Machine Images (AMIs) can now be built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
 
 Several changes have been made for CloudFormation on AWS. The script now considers RDS (Relational Database Service) as optional and supports an HA NAT instance and multiple AZs. For more information, please see the
 [Deploying the CloudFormation Template for PCF on AWS](../../customizing/cloudform-template.html) topic.
 
 Security groups that are assigned to EC2 instances are now referenced by ID. Please see below for more information:
-[Amazon Web Services](../../customizing/cloudform-om-config.html#aws-config)
-[OpenStack](../../customizing/openstack-om-config.html#openstack-config)
+
+* [Amazon Web Services](../../customizing/cloudform-om-config.html#aws-config)
+* [OpenStack](../../customizing/openstack-om-config.html#openstack-config)
 
 ### <a id='vsphere'></a> vSphere
 
 * Datastores can be split by Ephemeral and Persistent disk types
-* Unlike other IASS providers, subnets on vSphere can span availability zones
+* Unlike other IaaS providers, subnets on vSphere can span availability zones
 * vCenter IP field now supports IP or host
 
 ### <a id='openstack'></a> OpenStack
@@ -89,19 +90,19 @@ Multiple improvements have been included in Ops Manager 1.7.0 for [Tile Authors]
 
 For forms, invalid user input can be rejected using regular expressions and form fields support placeholder text. Markdown can be used above a form.
 
-Several changes to how products and jobs are configured are included in Ops Manager 1.7.0. A job's instance count can be toggled to 0 based on a selector value. The [product template](../../partners/product-template-reference.html) must include <code>minimum_version_for_upgrade</code>. Additionally, products with pre 1.7 metadata are limited to a single subnet. Users must specify whether their products gets persistent disk or not - the field is required. `First-network-deprecated` has been removed as a key / value pair. Tile authors can limit a product’s jobs to a single AZ. Additionally, Accessor information is available for trusted certificates.
+Several changes to how products and jobs are configured are included in Ops Manager 1.7.0. A job's instance count can be toggled to 0 based on a selector value. The [product template](../../partners/product-template-reference.html) must include <code>minimum\_version\_for\_upgrade</code>. Additionally, products with pre 1.7 metadata are limited to a single subnet. Users must specify whether their product gets persistent disk or not: the field is required. `First-network-deprecated` has been removed as a key / value pair. Tile authors can limit a product’s jobs to a single AZ. Additionally, Accessor information is available for trusted certificates.
 
 ## <a id='improvements'></a> Operational Improvements
 
-In addition to the major features, there are a number of smaller improvements that will enhance the Operator's experience with installing and maintaining Pivotal Cloud Foundry.
+In addition to the major features, there are a number of smaller improvements that will enhance the operator's experience with installing and maintaining Pivotal Cloud Foundry.
 
 * Operators can select and deselect errands before applying changes
 * Support for compiled releases
 * Users can disable ICMP checks (default off on AWS)
-* Checkbox exists to run "bosh deploy --recreate" (recreates all VMs)
+* Checkbox exists to run `bosh deploy --recreate` (recreates all VMs)
 * Support for monitoring and Pager Duty &trade; BOSH plugins
 * UAAC gem added to Ops Manager VM
-* Automatic cleanup of /tmp directory for 24 hour old files
+* Automatic cleanup of `/tmp` directory for 24-hour-old files
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
