@@ -6,10 +6,16 @@ owner: Ops Manager
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
+### 1.7.4 Patch
+
+* Fixes an issue that caused Ops Manager deploys to fail due to a Bosh-init bug
+* Fixes an issue that caused JavaScript migrations to fail for large tiles
+* Bumps UAA to version 3.3.0
+
 ### 1.7.2 Patch
 
-Fixes a bug that caused initial UAA [User Authorization and Authentication] setup to stall in upgrade cases
-Upgraded stemcell version to 3232.3
+* Fixes a bug that caused initial User Authorization and Authentication (UAA) setup to stall in upgrade cases
+* Upgraded stemcell version to 3232.3
 
 ### 1.7.1 Patch
 
