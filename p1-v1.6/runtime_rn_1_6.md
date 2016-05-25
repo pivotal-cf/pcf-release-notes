@@ -14,7 +14,7 @@ Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Addition
 
 This patch addresses a race condition experienced in some multi-node Diego DB (BBS) clusters. It also adds the Cloud Controller statsd metrics to the firehose output.
 
-It also updates Digeo to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners
+It also updates Diego to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners
 
 ## v1.6.21 Patch
 
