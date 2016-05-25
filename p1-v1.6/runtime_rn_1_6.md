@@ -2,7 +2,7 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
-## v1.6.23 Patch
+## v1.6.24 Patch
 
 Patches USN-2977-1. Additional info can be found at https://pivotal.io/security. Also increases the robustness of etcd.
 
