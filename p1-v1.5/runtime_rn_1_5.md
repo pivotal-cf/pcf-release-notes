@@ -2,6 +2,9 @@
 title: Pivotal Elastic Runtime v1.5.0.0 Release Notes
 owner: RelEng
 ---
+## v1.5.20 Patch
+Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Additional info can be found at https://pivotal.io/security.
+
 ## v1.5.19 Patch
 Patches CVE-2016-2165. Additional info can be found at https://pivotal.io/security.
 
