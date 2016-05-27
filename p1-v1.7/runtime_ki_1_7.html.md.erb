@@ -5,7 +5,10 @@ owner: Release Engineering
 
 ## New Issues
 
+
 * The Single Sign-On service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.6 to PCF 1.7 and you are using SSO v1.0.x, you must upgrade to the SSO v1.1.0 service tile when you upgrade the Elastic Runtime Tile to 1.7.
+
+*  LDAP SSL with self-signed certificate is not functional in PCF 1.7.2 release. Upgrading to this release will cause UAA to not start up . This issue will be addressed in the next patch release (1.7.3) of PCF 
 
 * The Push Notifications service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.6 to PCF 1.7 and you are using Push Notifications v1.4.4 or earlier versions, you must upgrade to the Push Notifications v1.4.5 tile when you upgrade the Elastic Runtime Tile to 1.7.
 
@@ -20,6 +23,7 @@ owner: Release Engineering
 * Java apps can take advantage of the custom certificate authority feature of PCF 1.7, but it requires using a more recent Java buildpack version than the one included with Elastic Runtime 1.7.0. The buildpack version is 3.7, and it requires that you also enable the Container Certificate Trust Store feature. The feature is turned off by default, because it can impact staging performance of Java apps, adding an extra 45 seconds or so.
 
 * The cross-container traffic checkbox is removed from Elastic Runtime, because since the migration from the DEA architecture to Diego, this feature setting is now controlled by your CF application security groups.
+
 
 ## Existing Issues
 
