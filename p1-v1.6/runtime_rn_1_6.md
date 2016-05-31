@@ -2,6 +2,10 @@
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
 
+As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
+
+This also introduces patches a regression bug that was introduced by Elastic Runtime 1.6.24 which reverted a patch for Diego introduced in Elastic Runtime 1.6.21 that fixed descriptor limits on listeners.
+
 ## v1.6.24 Patch
 
 Patches USN-2977-1. Additional info can be found at https://pivotal.io/security. Also increases the robustness of etcd.
@@ -14,13 +18,11 @@ Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Addition
 
 This patch addresses a race condition experienced in some multi-node Diego DB (BBS) clusters. It also adds the Cloud Controller statsd metrics to the firehose output.
 
-It also updates Diego to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners
-
 ## v1.6.21 Patch
 
 This release fixes an issue with connection flooding in the Loggregator traffic controller.
 
-It also updates Digeo to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners
+It also updates Digeo to version 0.1446.5 which includes fixes for NOAA and file descriptor limits on listeners.
 
 <p class="note"><strong>Known Issue</strong>: A race condition experienced in some 3-node Diego DB clusters will be fixed in a follow-on release.</p>
 
