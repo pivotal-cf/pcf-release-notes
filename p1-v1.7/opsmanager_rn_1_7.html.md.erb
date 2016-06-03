@@ -6,6 +6,10 @@ owner: Ops Manager
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
+### 1.7.5 Patch
+
+* Bumps Bosh-Init to v.0.92 to disable HTTP connection reuse to avoid issues observed only on OpenStack environments
+
 ### 1.7.4 Patch
 
 * Fixes an issue that caused Ops Manager deploys to fail due to a Bosh-init bug
