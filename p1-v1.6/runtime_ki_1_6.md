@@ -4,6 +4,8 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 #### New Issues
 
+* Elastic Runtime 1.6.24 has known issues with upgrades. Upgrading Elastic Runtime to or from this version may not be accepted by bosh. If you have Elastic Runtime 1.6.24 added to your PCF environment but not successfully installed, you should remove it. If it is installed, you can upgrade to later versions but you may have to `bosh delete` a release package that bosh believes has a conflicting file hash.
+
 * Known issue with Elastic Runtime 1.6.15: There's a UAA startup issue for customers using the LDAP user store when they upgrade from Elastic Runtime 1.5.x or v1.6.0-1.6.14 to 1.6.15. The workaround is to manually delete the LDAP provider from the UAA DB by issuing the following query DELETE FROM identity_provider WHERE type='ldap', and then upgrade to 1.6.15. This issue was resolved in Elastic Runtime 1.6.16.
 
 * Known issue with the Elastic Runtime 1.6.13, 1.6.14, and 1.5.13 releases: There's a linux kernel bug that affects Garden, Docker, and almost certainly Warden for Cloud Foundry deployments on stemcell 3146.5. It manifests in containers failing to be killed properly leaving unkillable zombie processes around consuming lots of CPU and some memory. After a while, Diego cells / DEAs may experience slower performance and eventually may even become unresponsive. The current workaround is to restart these cells / DEAs before they slow down so far as to become unresponsive, or once they become unresponsive. This issue was resolved in Elastic Runtime 1.6.15 and 1.5.14.
