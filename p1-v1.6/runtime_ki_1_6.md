@@ -10,7 +10,7 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 * Known issue with the Elastic Runtime 1.6.13, 1.6.14, and 1.5.13 releases: There's a linux kernel bug that affects Garden, Docker, and almost certainly Warden for Cloud Foundry deployments on stemcell 3146.5. It manifests in containers failing to be killed properly leaving unkillable zombie processes around consuming lots of CPU and some memory. After a while, Diego cells / DEAs may experience slower performance and eventually may even become unresponsive. The current workaround is to restart these cells / DEAs before they slow down so far as to become unresponsive, or once they become unresponsive. This issue was resolved in Elastic Runtime 1.6.15 and 1.5.14.
 
-* Etcd may somtimes experience orphaned processes that leads to the Diego BBS job failing. This can be remedied by `killall etcd` on the Diego BBS VMs and subsequent redeployment. This will be fixed in a future 1.6.x release soon. 
+* Do not put an apostrophe in database passwords for Elastic Runtime. The notifications and autoscale system apps are unable to use a password with an apostrophe.
 
 * The [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
  
@@ -51,6 +51,7 @@ To avoid the possibility of the migration causing a failure, truncate the events
 * Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set `NON-ADMIN` environment variables on both versions in order to keep the configuration consistent.
 
 * If you have installed the Diego Beta tile in a 1.5.x Elastic Runtime environment, it will need to be uninstalled prior to upgrade. The Windows MSI provided with the 1.6 Elastic Runtime release will not work with the older Diego Beta tile. 
+
 
 #### Existing Issues
 
