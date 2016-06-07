@@ -27,6 +27,8 @@ owner: Release Engineering
 
 ## Existing Issues
 
+* Do not put an apostrophe in database passwords for Elastic Runtime. The notifications and autoscale system apps are unable to use a password with an apostrophe.
+
 * Diego Cells may sometimes time-out on app pushes when any given Diego Cell receives its first app push with no buildpack specified for that app. This is because the Cell is caching all of the buildpacks for subsequent app pushes, and this may take longer than what the app staging allows.
 
 * Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
