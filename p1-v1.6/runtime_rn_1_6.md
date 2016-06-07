@@ -1,15 +1,15 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
+## 1.6.26 Patch
+
+This just updates your Diego Cell and Diego BBS jobs to not use static IPs. This is useful if you want to scale up Diego jobs and do not have enough IP addresses reserved on your network.
+
 ## v1.6.25 Patch
 
 As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
 
-This also patches a regression bug that was introduced by Elastic Runtime 1.6.24 which reverted a patch for Diego introduced in Elastic Runtime 1.6.21 that fixed descriptor limits on listeners.
-
-## v1.6.24 Patch
-
-Patches USN-2977-1. Additional info can be found at https://pivotal.io/security. Also increases the robustness of etcd.
+This also patches USN-2977-1. Additional info can be found at https://pivotal.io/security. Also increases the robustness of etcd. This also patches a regression bug that was introduced by Elastic Runtime 1.6.24 which reverted a patch for Diego introduced in Elastic Runtime 1.6.21 that fixed descriptor limits on listeners.
 
 ## v1.6.23 Patch
 
