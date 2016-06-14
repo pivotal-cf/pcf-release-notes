@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry&reg; Ops Manager v1.6 Release Notes
 owner: Ops Manager
 ---
+## v1.6.16 patch release:
+Patches USN-3001-1. Additional information can be found at https://pivotal.io/security.
+
 ## v1.6.15 patch release:
 Patches USN-2016-4435, USN-2985-2, USN-2985-1, USN-2981-1, and USN-2966-1. Additional information can be found at https://pivotal.io/security.
 
