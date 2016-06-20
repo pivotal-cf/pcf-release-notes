@@ -103,7 +103,7 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 #### Diego-beta Tile and Windows 2012 stack
 
-You can use Diego to run your apps in Pivotal Cloud Foundry v.1.5. However, you will need to download and install an additional tile. [Details](../../opsguide/diego-overview.html)
+You can use Diego to run your apps in Pivotal Cloud Foundry v.1.5. However, you will need to download and install an additional tile. [Details](../../concepts/diego/diego-architecture.html)
 
 #### Security Configuration of Runtime
 
