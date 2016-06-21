@@ -153,7 +153,7 @@ UAA and Login Server have been merged into a single component. For Pivotal Cloud
 #### Single Sign-On for Applications on Pivotal Cloud Foundry
 Muti-tenancy support has been added to UAA, which is leveraged by the new Pivotal Single Sign-On Services for Application on Pivotal Cloud Foundry. [Details](https://github.com/cloudfoundry/uaa/releases/tag/2.1.0)
 
-Pivotal Single Sign-On service provides a quick and hassle-free way for your applications to be secured by federated identity providers with minimal coding effort. It connects your applications via Single Sign-On while streamlining the end user experience. It is a multi-tenant service which allows both Applications & Identity Providers to be segregated based on organizational needs. [Details](../../../p-identity/index.html)
+Pivotal Single Sign-On service provides a quick and hassle-free way for your applications to be secured by federated identity providers with minimal coding effort. It connects your applications via Single Sign-On while streamlining the end user experience. It is a multi-tenant service which allows both Applications & Identity Providers to be segregated based on organizational needs. [Details](http://docs.pivotal.io/p-identity/index.html)
 
 #### Runbooks available for CA SiteMinder and Ping Identity Single Sign-On
 Detailed steps for configuring Single Sign-On between Pivotal Cloud Foundry and industry standard identity providers like CA SiteMinder & Ping Identity are now available. [Details](../../opsguide/sso.html#configure-identity-provider)
