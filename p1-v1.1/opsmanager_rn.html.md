@@ -11,8 +11,8 @@ owner: Ops Manager
 - Elastic Runtime, MySQL Dev, and other Pivotal products must be imported into Ops Manager.
 - Imported products have greater flexibility to present forms and properties.
 - Changed to Ruby version 1.9.3-p484.
-- Created migrations for upgrading from 1.0.0.1 to 1.1.0.0 of Ops Manager.
-- Created migrations for upgrading from 1.0.0.1 to 1.1.0.0 of products installed by Ops Manager.
+- Created migrations for upgrading from v1.0.0.1 to v1.1.0.0 of Ops Manager.
+- Created migrations for upgrading from v1.0.0.1 to v1.1.0.0 of products installed by Ops Manager.
 - Updated the MicroBOSH stemcell.
 - Infrastructure support abstraction in preparation for vCloud Air support.
 - User can enter paths to vSphere networks.
