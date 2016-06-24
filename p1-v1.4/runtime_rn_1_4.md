@@ -265,7 +265,7 @@ MySQL, used by Notifications, Autoscaling, and Apps Manager, can now be deployed
 		* Added support for mod_lua to httpd 2.4.10 (also supported in httpd 2.4.12).
 		* Removed support for nginx 1.7.7, however, nginx 1.5.{11,12,13}, 1.6.{0,1,2}, and 1.7.{8,9,10} are still supported.
 		* Replaced support for composer 1.0.0-alpha8 with 1.0.0-alpha9.
-		* Replaced support for newrelic 4.15.0.74 with 4.18.0.89.
+		* Replaced support for newrelic v4.15.0.74 with v4.18.0.89.
 	* On the `cflinuxfs2` stack, **only** the following packages are supported:
 		* PHP 5.4.{36,37,38}, 5.5.{20.21.22}, and 5.6.{4,5,6}.
 		* HHVM 3.5.0 and 3.6.0
