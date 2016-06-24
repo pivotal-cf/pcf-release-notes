@@ -1,21 +1,21 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
-## 1.6.29
+## v1.6.29
 
 Improved reliability of Elastic Runtime.
 
-## 1.6.28 Patch
+## v1.6.28 Patch
 
 Patches USN-3001-1. Additional info can be found at https://pivotal.io/security.
 
-## 1.6.27 Patch
+## v1.6.27 Patch
 
 Patches USN-2985-1, USN-2985-2, USN-2981-1, USN-2970-1, USN-2966-1, USN-2994-1, USN-2987-1, USN-2990-1, USN-2983-1, and USN-2961-1. Additional info can be found at https://pivotal.io/security.
 
 This also addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
 
-## 1.6.26 Patch
+## v1.6.26 Patch
 
 This just updates your Diego Cell and Diego BBS jobs to not use static IPs. This is useful if you want to scale up Diego jobs and do not have enough IP addresses reserved on your network.
 
@@ -80,21 +80,21 @@ It was also discovered that several CVE patches since early Dec 2015, while reso
 
 This patches [USN-2871-1](http://www.ubuntu.com/usn/usn-2871-1). Additional information can be found at https://pivotal.io/security.
 
-## 1.6.12.0 Patch
+## v1.6.12.0 Patch
 
 This patches [CVE-2016-0715](https://pivotal.io/security/cve-2016-0715). Additional information can be found at https://pivotal.io/security.
 
-## 1.6.11.0 Patch
+## v1.6.11.0 Patch
 
 This patches [CVE-2016-0708](https://pivotal.io/security/cve-2016-0708), [USN-2869-1](http://www.ubuntu.com/usn/usn-2869-1), [USN-2868-1](http://www.ubuntu.com/usn/usn-2868-1), [USN-2865-1](http://www.ubuntu.com/usn/usn-2865-1), and [USN-2861-1](http://www.ubuntu.com/usn/usn-2861-1). Additional information can be found at https://pivotal.io/security.
 
-## 1.6.10.0 Patch
+## v1.6.10.0 Patch
 
 This patch is only applicable for deployments that have not yet migrated to Diego cells from DEAs. In this patch release, the notifications and autoscale applications that come with Elastic Runtime were fixed to deploy to DEAs if you chose not to use Diego as the default runtime backend for your platform.
 
 All the system applications for Elastic Runtime will be deployed to whichever backend, Diego or DEAs, you select as the default in the Elastic Runtime tile. No manual migration should be necessary.
 
-## 1.6.9.0 Patch
+## v1.6.9.0 Patch
 
 This patches [USN-2857-1](http://www.ubuntu.com/usn/usn-2857-1), [USN-2842-1](http://www.ubuntu.com/usn/usn-2842-1), [USN-2842-2](http://www.ubuntu.com/usn/usn-2842-2), [USN-2837-1](http://www.ubuntu.com/usn/usn-2837-1), [USN-2836-1](http://www.ubuntu.com/usn/usn-2836-1), [USN-2835-1](http://www.ubuntu.com/usn/usn-2835-1), [USN-2834-1](http://www.ubuntu.com/usn/usn-2834-1), [USN-2830-1](http://www.ubuntu.com/usn/usn-2830-1), and [USN-2829-1](http://www.ubuntu.com/usn/usn-2829-1). Additional information can be found at https://pivotal.io/security.
 
@@ -102,7 +102,7 @@ There is also a fix to ensure that Consul server is launched before the etcd and
 
 Also, by default the Postgres DBs included in Elastic Runtime now default to zero instances, since we encourage every 1.6.x deployment of Elastic Runtime to not use the Postgres DBs and instead only use MySQL.
 
-## 1.6.8.0 Patch
+## v1.6.8.0 Patch
 
 This version patches a Garden CVE, [CVE-2015-5350](http://pivotal.io/security/cve-2015-5350).
 
@@ -110,15 +110,15 @@ This version also fixes a few issues on Garden containers, such as the inability
 
 As as result of these fixes, the OSS Cloud Foundry release for Garden was bumped to version 0.330.
 
-## 1.6.7.0 Patch
+## v1.6.7.0 Patch
 
 This version fixes an issue for applications running on Windows containers that have very long file paths in their application project. You don't need to upgrade to this version unless you use Windows .NET applications with long file paths.
 
-## 1.6.6.0 Patch
+## v1.6.6.0 Patch
 
 This patch includes CVE patches for [USN-2821-1](http://www.ubuntu.com/usn/usn-2821-1/) and [USN-2820-1](http://www.ubuntu.com/usn/usn-2820-1/). Additional information can be found at https://pivotal.io/security
 
-## 1.6.5.0 Patch
+## v1.6.5.0 Patch
 
 This patch includes CVE patches for [USN-2815-1](http://www.ubuntu.com/usn/usn-2815-1/), [USN-2812-1](http://www.ubuntu.com/usn/usn-2812-1/) and [USN-2810-1](http://www.ubuntu.com/usn/usn-2810-1/). Additional information can be found at https://pivotal.io/security
 
