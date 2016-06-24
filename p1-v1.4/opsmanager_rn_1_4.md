@@ -5,11 +5,11 @@ owner: Ops Manager
 
 ## v1.4.2 patch release:
 
-Ops Manager 1.4.2.0 fixes a problem in both 1.4.0.0, and 1.4.1.0, in which jobs with persistent disk, known as 'singletons,' are improperly placed in the first availability zone for balanced jobs. As of 1.4.2.0 jobs will be properly placed in the singleton availability zone.
+Ops Manager v1.4.2.0 fixes a problem in both v1.4.0.0, and v1.4.1.0, in which jobs with persistent disk, known as 'singletons,' are improperly placed in the first availability zone for balanced jobs. As of v1.4.2.0 jobs will be properly placed in the singleton availability zone.
 
 ## v1.4.1 patch release:
 
-Ops Manager 1.4.1.0 has an increased timeout setting of 30 minutes for thin web server to prevent exports from failing.
+Ops Manager v1.4.1.0 has an increased timeout setting of 30 minutes for thin web server to prevent exports from failing.
 
 ## Changes since v1.3.4.0:
 
