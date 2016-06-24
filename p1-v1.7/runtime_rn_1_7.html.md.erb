@@ -2,35 +2,35 @@
 title: Pivotal Elastic Runtime&reg; v1.7.0.0 Release Notes
 owner: Release Engineering
 ---
-## 1.7.7 Patch
+## v1.7.7 Patch
 
 Improved reliability for Elastic Runtime.
 
-## 1.7.6 Patch
+## v1.7.6 Patch
 
 Patches USN-3001-1. Additional info can be found at https://pivotal.io/security.
 
-## 1.7.5 Patch
+## v1.7.5 Patch
 
 Patches USN-2985-1, USN-2985-2, USN-2981-1, USN-2970-1, USN-2966-1, USN-2994-1, USN-2987-1, USN-2990-1, USN-2983-1, and USN-2961-1. Additional info can be found at https://pivotal.io/security.
 
 This also addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
 
-## 1.7.4 Patch
+## v1.7.4 Patch
 
 This only patches the CF CLI version used to push the Elastic Runtime system apps, like Apps Manager, to be more reliable. You do not need to upgrade to this version if you're already at Elastic Runtime 1.7.3.
 
-## 1.7.3 Patch
+## v1.7.3 Patch
 
 As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
 
 This also introduces a few bug fixes, including a patch to Diego to prevent rare occurances of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos. 
 
-## 1.7.2 Patch
+## v1.7.2 Patch
 
 Patches USN-2977-1 and CVE-2016-3084. Additional info can be found at https://pivotal.io/security. Also increases the maximum length you can have for CF task commands and ensures greater reliability for etcd.
 
-## 1.7.1 Patch
+## v1.7.1 Patch
 
 Introduces an option to configure security event tracking in the Cloud Controller logs. Also adds statsd metrics from Cloud Controller.
 
