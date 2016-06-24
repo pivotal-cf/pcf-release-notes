@@ -9,7 +9,7 @@ owner: Apps Manager
 
 - cf cli v6.0.1, included with the Developer Console in PCF v1.1, has a bug that prevents Windows users from pushing archived apps like zips, jars, wars, etc. v6.0.2 has the fix. You can download it here: [https://console.run.pivotal.io/tools](https://console.run.pivotal.io/tools).
 
-- If you are upgrading from Ops Manager 1.0.0.1 to Ops Manager 1.1.0.0, follow these steps to upgrade the Developer Console:
+- If you are upgrading from Ops Manager v1.0.0.1 to Ops Manager v1.1.0.0, follow these steps to upgrade the Developer Console:
     1. Log in to the Ops Manager VM using SSH. The username is `tempest`. You set the password during the .ova deployment into vCenter.
     1. Replace `/var/tempest/app_metadata/console.yml` with the contents below.
     1. Restart the VM.
