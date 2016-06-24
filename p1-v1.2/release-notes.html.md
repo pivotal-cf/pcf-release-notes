@@ -1,5 +1,5 @@
 ---
-title: P1 Release 1.2.0.0
+title: P1 Release v1.2.0.0
 ---
 
 Refer to this topic for the Pivotal One release notes. For release notes and known issues for individual products, see the other topics in this section.
