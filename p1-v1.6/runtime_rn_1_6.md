@@ -22,9 +22,15 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - CF MySQL version: 23
 - etcd version: 16
 
+## v1.6.30
+
+Patches CVE-2016-0928. Additional info can be found at https://pivotal.io/security.
+
+This also addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
+
 ## v1.6.29
 
-Improved reliability of Elastic Runtime.
+Improved reliability of Elastic Runtime. Patches CVE-2016-4468. Additional info can be found at https://pivotal.io/security.
 
 ## v1.6.28 Patch
 
