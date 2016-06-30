@@ -2,6 +2,9 @@
 title: Pivotal Cloud Foundry&reg; Ops Manager v1.6 Release Notes
 owner: Ops Manager
 ---
+## v1.6.18 patch release:
+* Patches USN-3020-1. Additional information can be found at https://pivotal.io/security.
+
 ## v1.6.17 patch release:
 * Patches CVE-2016-0897 and CVE-2016-0927 . Additional information can be found at https://pivotal.io/security.
 * Customers using vSphere or vCloud Air are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at http://docs.pivotal.io/pivotalcf/1-6/customizing/vsphere.html
