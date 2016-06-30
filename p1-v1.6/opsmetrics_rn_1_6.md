@@ -1,12 +1,9 @@
 ---
-title: Pivotal Cloud Foundry&reg; Ops Metrics v1.6.X and v1.5.X Release Notes
+title: Pivotal Cloud Foundry&reg; Ops Metrics v1.6.X Release Notes
 owner: PCF Metrics
 ---
 
-## v1.6.10 patch release:
-Ops Metrics 1.6.10 includes a fix for Ubuntu Security Notice USN-2929-1. (Embedded stemcell 3146.10, Ops Metrics build bdb56a2)
-
-## Version 1.6.13 
+## Version 1.6.15 
 
 ### Known issues
 For Known Issues, please see the [Ops Metrics Known Issues](./opsmetrics_ki_1_6.html) documentation.  For Ops Metrics 1.6.X there is one important install ordering dependency before enabling the OpenTSDB firehose nozzle job.
@@ -26,4 +23,4 @@ For Known Issues, please see the [Ops Metrics Known Issues](./opsmetrics_ki_1_6.
 * Upgrading from Ops Metrics 1.4.X to 1.6.X will leave the firehose nozzle job disabled (since it did not exist previously).
 * Upgrading from Ops Metrics 1.5.X to 1.6.X will enable the firehose nozzle by default (since it was enabled before upgrading).
   * If you are upgrading to resolve an installation error with 1.5.X, immediately disable the firehose job before deploying, and enable once you have deployed Elastic Runtime.
-* Stemcell for 1.6.13 is 3232.6
+* Stemcell for 1.6.15 is 3232.12
