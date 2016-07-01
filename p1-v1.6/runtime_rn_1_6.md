@@ -22,6 +22,10 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - CF MySQL version: 23
 - etcd version: 16
 
+## v1.6.31
+
+Patches USN-3020-1. Additional info can be found at https://pivotal.io/security.
+
 ## v1.6.30
 
 Patches CVE-2016-0928. Additional info can be found at https://pivotal.io/security.
