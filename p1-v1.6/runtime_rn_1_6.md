@@ -1,17 +1,11 @@
 ---
 title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 ---
-### Versions 1.6.8 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
-- CF Release version: 225
-- Diego version: 0.1441
-- Garden version: 0.330
-- CF MySQL version: 23
-- etcd version: 18
 
 ### Versions 1.6.4 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
 - CF Release version: 225
 - Diego version: 0.1441
-- Garden version: 0.327
+- Garden version: 0.327 -> 0.330 as of Elastic Runtime 1.6.8 -> 0.338 as of Elastic Runtime 1.6.27
 - CF MySQL version: 23
 - etcd version: 18
 
