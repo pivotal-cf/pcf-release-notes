@@ -28,7 +28,7 @@ This also addresses an issue with rare occurrences of application containers bei
 
 ## v1.6.29
 
-Improved reliability of Elastic Runtime. Patches CVE-2016-4468. Additional info can be found at https://pivotal.io/security.
+Patches CVE-2016-4468. Additional info can be found at https://pivotal.io/security.
 
 ## v1.6.28 Patch
 
