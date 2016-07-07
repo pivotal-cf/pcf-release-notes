@@ -14,6 +14,12 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80
 
+## 1.7.10
+
+Updates the Cloud Foundry CLI used by the Pivotal Notifications and Autoscaling system applications, to address an issue where the errands that push these apps may sometimes fail on an environment with higher network latency.
+
+This also patches Diego to increase the log-streamer message size from 4 Kb to 60 Kb. See [tracker story](https://www.pivotaltracker.com/story/show/111866195) for details. 
+
 ## 1.7.9
 
 Patches USN-3020-1. Additional info can be found at https://pivotal.io/security.
@@ -22,7 +28,7 @@ This also addresses an issue with Loggregator not properly setting timeouts on T
 
 ## v1.7.8 Patch
 
-Patches CVE-2016-0928. Additional info can be found at https://pivotal.io/security.
+Patches CVE-2016-0928 and CVE-2016-0926. Additional info can be found at https://pivotal.io/security.
 
 This also addresses an issue with the Apps Manager push errand sometimes failing.
 
