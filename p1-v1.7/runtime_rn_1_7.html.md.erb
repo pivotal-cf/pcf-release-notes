@@ -14,6 +14,16 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80
 
+## 1.7.11
+
+Note: The Cloudformation script for PCF setup on AWS was updated at the same time as this release to switch over to using a NAT EC2 instance instead of a NAT gateway, as there is a known issue with AWS NAT gateways handling hairpin routing requests.
+
+Patches USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
+
+Also introduces a fix for GoRouter to address an issue where failover of requests to unresponsive app instances was not working properly whenever the request has a body. See [tracker story](https://www.pivotaltracker.com/n/projects/1358110/stories/118532589) for details.
+
+Also increases the default instance size of the UAA instance to handle larger logs.
+
 ## 1.7.10
 
 Updates the Cloud Foundry CLI used by the Pivotal Notifications and Autoscaling system applications, to address an issue where the errands that push these apps may sometimes fail on an environment with higher network latency.
