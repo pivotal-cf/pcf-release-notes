@@ -12,7 +12,15 @@ owner: Release Engineering
 - etcd version: 45
 - Apps Manager release version: 629
 - UAA version: 3.2.1
-- Consul version: 80
+- Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
+
+## 1.7.12
+
+This release adds all link-local addresses, in the range of 169.254.0.0/16, to be excluded from access in the default application security group of Elastic Runtime. This range includes the metadata endpoints of most IaaS providers, such as AWS. This security group does not take effect for upgrades, only new installs of Elastic Runtime. If you would like to update your pre-existing deployment, please refer to the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
+
+This also introduces a patch to Cloud Controller's API that will enable use of the upcoming Spring Cloud Data Flow’s Task support on Cloud Foundry. More about this release will be announced soon.
+
+This also updates Consul to v96 in preparation for future upgrades to Elastic Runtime 1.8 (the release of which is upcoming), which will require all components to adopt a new format for the bosh manifest.
 
 ## 1.7.11
 
