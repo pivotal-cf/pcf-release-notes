@@ -16,6 +16,12 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - CF MySQL version: 23
 - etcd version: 16
 
+## v1.6.34
+
+This release adds all link-local addresses, in the range of 169.254.0.0/16, to be excluded from access in the default application security group of Elastic Runtime. This range includes the metadata endpoints of most IaaS providers, such as AWS. This security group does not take effect for upgrades, only new installs of Elastic Runtime. If you would like to update your pre-existing deployment, please refer to the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
+
+Also introduces a fix for GoRouter to address an issue where failover of requests to unresponsive app instances was not working properly whenever the request has a body. See this [Pivotal Tracker story](https://www.pivotaltracker.com/n/projects/1358110/stories/118532589) for details.
+
 ## v1.6.33
 
 Patches USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
