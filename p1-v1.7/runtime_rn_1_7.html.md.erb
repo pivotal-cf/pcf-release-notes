@@ -1,5 +1,5 @@
 ---
-title: Pivotal Elastic Runtime&reg; v1.7.0.0 Release Notes
+title: Pivotal Elastic Runtime v1.7.0.0 Release Notes
 owner: Release Engineering
 ---
 
@@ -36,7 +36,7 @@ Also increases the default instance size of the UAA instance to handle larger lo
 
 Updates the Cloud Foundry CLI used by the Pivotal Notifications and Autoscaling system applications, to address an issue where the errands that push these apps may sometimes fail on an environment with higher network latency.
 
-This also patches Diego to increase the log-streamer message size from 4 Kb to 60 Kb. See [tracker story](https://www.pivotaltracker.com/story/show/111866195) for details. 
+This also patches Diego to increase the log-streamer message size from 4 Kb to 60 Kb. See [tracker story](https://www.pivotaltracker.com/story/show/111866195) for details.
 
 ## 1.7.9
 
@@ -74,7 +74,7 @@ This only patches the CF CLI version used to push the Elastic Runtime system app
 
 As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
 
-This also introduces a few bug fixes, including a patch to Diego to prevent rare occurances of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos. 
+This also introduces a few bug fixes, including a patch to Diego to prevent rare occurances of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos.
 
 ## v1.7.2 Patch
 
