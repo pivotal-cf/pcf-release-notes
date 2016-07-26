@@ -24,7 +24,7 @@ Also introduces a fix for GoRouter to address an issue where failover of request
 
 ## v1.6.33
 
-Patches USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
+Patches CVE-2016-5006, USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
 
 ## v1.6.32
 
