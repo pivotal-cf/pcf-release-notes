@@ -26,7 +26,7 @@ This also updates Consul to v96 in preparation for future upgrades to Elastic Ru
 
 Note: The Cloudformation script for PCF setup on AWS was updated at the same time as this release to switch over to using a NAT EC2 instance instead of a NAT gateway, as there is a known issue with AWS NAT gateways handling hairpin routing requests.
 
-Patches USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
+Patches CVE-2016-5006, USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
 
 Also introduces a fix for GoRouter to address an issue where failover of requests to unresponsive app instances was not working properly whenever the request has a body. See [tracker story](https://www.pivotaltracker.com/n/projects/1358110/stories/118532589) for details.
 
