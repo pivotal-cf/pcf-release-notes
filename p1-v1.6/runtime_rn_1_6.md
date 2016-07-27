@@ -8,6 +8,7 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - Garden version: 0.327 -> 0.330 as of Elastic Runtime 1.6.8 -> 0.338 as of Elastic Runtime 1.6.27
 - CF MySQL version: 23
 - etcd version: 18
+- consul version: seperate release from CF Release as of Elastic Runtime 1.6.35, and was bumped to v87
 
 ### Versions 1.6.0 to 1.6.3 of Elastic Runtime consist of these Cloud Foundry versions:
 - CF Release version: 222
@@ -15,6 +16,12 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - Garden version: 0.308
 - CF MySQL version: 23
 - etcd version: 16
+
+## v1.6.35
+
+This release updates Consul to address an issue where the loss of a leader Consul node in the Consul cluster can lead to loss of application routes.
+
+This also fixes an issue where Doppler servers did not add instance IDs to the syslog drain messages for applications deployed to Diego.
 
 ## v1.6.34
 
