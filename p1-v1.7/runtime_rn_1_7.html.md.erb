@@ -14,6 +14,10 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 
+## 1.7.13
+
+This release addresses an issue where metron sometimes panics from a concurrency fault while aggregating messages when the load is higher.
+
 ## 1.7.12
 
 This release adds all link-local addresses, in the range of 169.254.0.0/16, to be excluded from access in the default application security group of Elastic Runtime. This range includes the metadata endpoints of most IaaS providers, such as AWS. This security group does not take effect for upgrades, only new installs of Elastic Runtime. If you would like to update your pre-existing deployment, please refer to the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
