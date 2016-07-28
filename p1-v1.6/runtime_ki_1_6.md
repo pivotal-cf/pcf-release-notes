@@ -10,10 +10,10 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 * Known issue with the Elastic Runtime 1.6.13, 1.6.14, and 1.5.13 releases: There's a linux kernel bug that affects Garden, Docker, and almost certainly Warden for Cloud Foundry deployments on stemcell 3146.5. It manifests in containers failing to be killed properly leaving unkillable zombie processes around consuming lots of CPU and some memory. After a while, Diego cells / DEAs may experience slower performance and eventually may even become unresponsive. The current workaround is to restart these cells / DEAs before they slow down so far as to become unresponsive, or once they become unresponsive. This issue was resolved in Elastic Runtime 1.6.15 and 1.5.14.
 
-* Etcd may somtimes experience orphaned processes that leads to the Diego BBS job failing. This can be remedied by `killall etcd` on the Diego BBS VMs and subsequent redeployment. This will be fixed in a future 1.6.x release soon. 
+* Etcd may somtimes experience orphaned processes that leads to the Diego BBS job failing. This can be remedied by `killall etcd` on the Diego BBS VMs and subsequent redeployment. This will be fixed in a future 1.6.x release soon.
 
-* The [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
- 
+* The [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF) Elastic Runtime tile v.1.6.0 will show "1.6.0-build.315" in the tile version. This is fine.
+
 * Before upgrading to Elastic Runtime v.1.6.0 from v.1.5.x, make sure you have followed [these instructions](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html).
 
 * The Notifications and Autoscale services in Elastic Runtime will always deploy on Diego, even if DEAs are selected as the default backend, in versions 1.6.0 to 1.6.9 (this was fixed in patch 1.6.10). The Apps Manager and Apps Usage service will deploy to Diego only if the "Use Diego by default" checkbox is enabled in the configuration of Elastic Runtime.
@@ -32,7 +32,7 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 * To SSH into an application container on Diego, your CF user must have the Space Developer role attached to it for the application space.
 
-* The Smoke Tests may occasionally fail at the logging test suite. The Smoke Tests errand is fine to re-run in case of any failures. 
+* The Smoke Tests may occasionally fail at the logging test suite. The Smoke Tests errand is fine to re-run in case of any failures.
 
 * The version of Postgres has been upgraded to 9.4.2. If you have Postgresql databases in your deployment, Cloud Controller and UAA will be unavailable during the upgrade.
 In case that upgrade fails, there are mitigations [documented here](https://github.com/cloudfoundry/cf-release/releases/tag/v211).
@@ -50,7 +50,7 @@ To avoid the possibility of the migration causing a failure, truncate the events
 
 * Apps Manager now has a zero-downtime blue green deploy. As of v1.6, any `NON_ADMIN` environment variable changed from the default setting will not be applied to the second app version. You will need to set `NON-ADMIN` environment variables on both versions in order to keep the configuration consistent.
 
-* If you have installed the Diego Beta tile in a 1.5.x Elastic Runtime environment, it will need to be uninstalled prior to upgrade. The Windows MSI provided with the 1.6 Elastic Runtime release will not work with the older Diego Beta tile. 
+* If you have installed the Diego Beta tile in a 1.5.x Elastic Runtime environment, it will need to be uninstalled prior to upgrade. The Windows MSI provided with the 1.6 Elastic Runtime release will not work with the older Diego Beta tile.
 
 #### Existing Issues
 

@@ -206,7 +206,7 @@ This patch release includes CVE patches for [USN-2778-1](http://www.ubuntu.com/u
 
 #### Default Stack: cflinuxfs2
 
-This release completely removes the lucid64 stack from [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF). After upgrading to this release, apps that have not been migrated to cflinuxfs2 will fail to start.
+This release completely removes the lucid64 stack from [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF). After upgrading to this release, apps that have not been migrated to cflinuxfs2 will fail to start.
 
 Operators are encouraged to migrate all apps to cflinuxfs2, as mentioned in the v1.4 release notes, before upgrading to v1.6.
 
@@ -214,7 +214,7 @@ Further details can be found [here](https://support.pivotal.io/hc/en-us/articles
 
 #### Cloud Foundry Runtime - Diego
 
-Diego is the new application runtime that Pivotal Cloud Foundry&reg; will use by default to run your apps.
+Diego is the new application runtime that Pivotal Cloud Foundry will use by default to run your apps.
 
 Diego enables many new features and enhancements, such as allowing the deployment of thousands of applications and resurrecting crashed applications within seconds. It also supports new workloads, such as .NET applications on Windows, Docker on Linux, and enables SSH access to containers.
 
@@ -226,19 +226,19 @@ There is a new field, "Application Containers Subnet Pool", which allows you to 
 
 #### Windows 2012 stack
 
-By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment. 
+By instantiating and setting up Windows cells in your Cloud Foundry environment, users will be able to deploy Windows .NET applications with the same familiar `cf push` commands they are used to. These applications run inside Windows containers on Windows 2012 R2 servers within your environment.
 
-Diego must be enabled for applications to run on the new Windows 2012R2 stack. It can either be enabled by default or must be enabled for the individual application before that app can be started. Further documentation can be found [here](../../opsguide/deploying-diego.html). 
+Diego must be enabled for applications to run on the new Windows 2012R2 stack. It can either be enabled by default or must be enabled for the individual application before that app can be started. Further documentation can be found [here](../../opsguide/deploying-diego.html).
 
 At this time, Windows cells cannot be managed by BOSH, but server deployment can easily be integrated with any number of existing infrastructure tools.
 
 #### Docker
 
-Docker support for Pivotal Cloud Foundry&reg; is in beta currently. To enable Docker support in your deployment, you can use a CLI command as a user with the admin role: `cf enable-feature-flag diego_docker`. Further details about Docker on Diego can be found [here](../../concepts/docker.html)
+Docker support for Pivotal Cloud Foundry is in beta currently. To enable Docker support in your deployment, you can use a CLI command as a user with the admin role: `cf enable-feature-flag diego_docker`. Further details about Docker on Diego can be found [here](../../concepts/docker.html)
 
 #### Security Configuration of Runtime
 
-This section allows you to configure security settings for your Pivotal Cloud Foundry&reg; Elastic Runtime components, such as HAProxy, Router, and the DEA/Diego Cells.
+This section allows you to configure security settings for your Pivotal Cloud Foundry Elastic Runtime components, such as HAProxy, Router, and the DEA/Diego Cells.
 
 The SSL Termination Certificate input now applies to both HAProxy (if you use this component) and the Cloud Foundry Router. This field is not optional, even if you use an external load-balancer instead of HAProxy, since it will be applied to the Router. It does not have to be the same certificate as the one used by your external load-balancer, as this certificate is only used for SSL traffic between the load-balancer and Router. You can enable SSL termination on the Router with a checkbox in this same section, "Enable TLS on the Router". More details [here](http://docs.pivotal.io/pivotalcf/adminguide/enabling-https-to-routers.html) about securing connections to the Router.
 
@@ -254,18 +254,18 @@ The Security Configuration section also includes fields that allow specifying th
 
 It is now possible to configure four different S3 buckets to comprise the Cloud Controller's filesystem, instead of just one.
 
-You can choose to use four different buckets if you are installing Pivotal Cloud Foundry&reg; for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry&reg; v1.5 to v1.6). This is because the data will not be automatically migrated from the one bucket configuration in 1.5 to separate buckets in 1.6. It is recommended to use separate buckets for new deployments. Existing deployments are supported with one bucket.
+You can choose to use four different buckets if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (i.e., from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from the one bucket configuration in 1.5 to separate buckets in 1.6. It is recommended to use separate buckets for new deployments. Existing deployments are supported with one bucket.
 
 ##### Experimental Features
 
 There are no experimental features being introduced in PCF Elastic Runtime for v1.6.
 
 #### Improved MySQL Service
-MySQL, used by some of the Pivotal Cloud Foundry&reg; system applications in the past, is now available as a data store for every Pivotal Cloud Foundry&reg; system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications relied upon in previous releases.
+MySQL, used by some of the Pivotal Cloud Foundry system applications in the past, is now available as a data store for every Pivotal Cloud Foundry system component and application, including Cloud Controller and UAA. This is an improvement over the non-highly-available Postgresql databases that these components and applications relied upon in previous releases.
 
-You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry&reg; for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry&reg; v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. The Pivotal team is currently working on the migration scripts that will allow for the migration of all databases in Postregesql to the HA MySQL service. We will announce when these scripts are ready for use, the timeframe of which is currently aiming for sometime during the first half of 2016.
+You can choose to use this MySQL service if you are installing Pivotal Cloud Foundry for the first time, but not for an upgrade (e.g.: from Pivotal Cloud Foundry v1.5 to v1.6). This is because the data will not be automatically migrated from an existing database to a new one. The Pivotal team is currently working on the migration scripts that will allow for the migration of all databases in Postregesql to the HA MySQL service. We will announce when these scripts are ready for use, the timeframe of which is currently aiming for sometime during the first half of 2016.
 
-If you do install Pivotal Cloud Foundry&reg; on the MySQL databases only, then you can scale down the Apps Manager Database (Postgres), Cloud Controller Database (Postgres), and UAA Database (Postgres) to zero instances. Those components will instead use the MySQL cluster.
+If you do install Pivotal Cloud Foundry on the MySQL databases only, then you can scale down the Apps Manager Database (Postgres), Cloud Controller Database (Postgres), and UAA Database (Postgres) to zero instances. Those components will instead use the MySQL cluster.
 
 #### API/cf CLI
 
@@ -299,10 +299,10 @@ Multiple stability and performance improvements were made to DEAs. They can now 
 - Token Format Updates
  - UAA tokens now contain an origin field which signifies the Identity Provider used for authentication. If SAML IDP is used for authentication, the Identity Provider alias is set in as the origin value.
  - Support for nonce parameter in OAuth requests to prevent against CSRF attacks
- 
+
 ## Logging and Metrics
 
-* Diego metrics now flow through the Loggregator subsystem. 
+* Diego metrics now flow through the Loggregator subsystem.
   * Collector is deprecated.
   * DEA and HM9000 continue to use Collector.
   * A varz nozzle is available for directing metrics coming through Loggregator to Collector.

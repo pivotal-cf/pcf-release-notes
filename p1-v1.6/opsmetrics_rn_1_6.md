@@ -1,9 +1,9 @@
 ---
-title: Pivotal Cloud Foundry&reg; Ops Metrics v1.6.X Release Notes
+title: Pivotal Cloud Foundry Ops Metrics v1.6.X Release Notes
 owner: PCF Metrics
 ---
 
-## Version 1.6.15 
+## Version 1.6.15
 
 ### Known issues
 For Known Issues, please see the [Ops Metrics Known Issues](./opsmetrics_ki_1_6.html) documentation.  For Ops Metrics 1.6.X there is one important install ordering dependency before enabling the OpenTSDB firehose nozzle job.

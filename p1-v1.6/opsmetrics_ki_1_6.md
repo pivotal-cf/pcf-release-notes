@@ -1,5 +1,5 @@
 ---
-title: Pivotal Cloud Foundry&reg; Ops Metrics v1.6.X Known Issues
+title: Pivotal Cloud Foundry Ops Metrics v1.6.X Known Issues
 owner: PCF Metrics
 ---
 ## New Issues for 1.6.X
