@@ -3,6 +3,26 @@ title: Pivotal Elastic Runtime v1.7 Known Issues
 owner: Release Engineering
 ---
 
+## Issues with Autoscaling in PCF Elastic Runtime v1.7.10 - 1.7.13
+
+Issue:
+PCF Elastic Runtime versions 1.7.10 to 1.7.13 contain a version of PCF Autoscale app (a service used to scale your app instances automatically) that periodically crashes once a scaling event has taken place.
+
+This will be fixed soon in a future patch release of Elastic Runtime.
+
+**Recommended action:**
+
+If you are planning to install these affected versions of Elastic Runtime and you use the autoscaling service, before you deploy the upgrade, disable the following:
+The errand that pushes an updated autoscale app (Deploy CF Autoscaling App)
+The errand to register the service broker (Register Autoscaling Service Broker)
+
+Disabling these errands will prevent the new malfunctioning autoscale app from being deployed, and will allow you to continue using the old autoscale app as before.
+
+**Please note:**
+If you have already upgraded to PCF Elastic Runtime versions 1.7.10 to 1.7.13 and you did not disable these errands, your updated version of the PCF Autoscale app will intermittently crash until a patch has been released. If you are experiencing this issue, you will need to manually scale your apps until the fix has been released.
+
+If you need further assistance, please contact Pivotal Support at https://support.pivotal.io/. 
+
 ## New Issues
 
 * Autoscaling does not work in PCF Elastic Runtime versions 1.7.10 to 1.7.13.
