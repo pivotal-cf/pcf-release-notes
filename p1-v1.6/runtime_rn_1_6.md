@@ -19,6 +19,8 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 
 ## v1.6.35
 
+<p class="note"><strong>Note</strong>: Do not upgrade to this release if you are using LDAP with SSL enabled. The next patch version will address this issue.</p>
+
 This release updates Consul to address an issue where the loss of a leader Consul node in the Consul cluster can lead to loss of application routes.
 
 This also fixes an issue where Doppler servers did not add instance IDs to the syslog drain messages for applications deployed to Diego.
