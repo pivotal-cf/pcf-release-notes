@@ -6,6 +6,18 @@ owner: Ops Manager
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
+### 1.7.10 Patch
+
+* Introduced a new feature that lets operators specify a custom host name for the Bosh Director. Please note that this feature only works on clean installs of 1.7.10.   
+* Introduced a new feature that lets operators add a Load Balancer to the Ops Manager Director Job
+* Fixed API endpoint to log out all active sessions
+* Versions
+** Stemcell: 3232.12
+** vSphere CPI: 26
+** AWS CPI: 57
+** OpenStack CPI: 23
+
+
 ### 1.7.9 Patch
 
 * Patches USN-3020-1. Additional information can be found at https://pivotal.io/security.
