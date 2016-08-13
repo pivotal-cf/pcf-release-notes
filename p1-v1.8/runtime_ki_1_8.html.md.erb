@@ -23,6 +23,12 @@ owner: Release Engineering
 
 ## Existing Issues
 
+* Consul server cluster can fail to recover from quorum loss.
+
+* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain.
+
+* Disaster recovery for etcd or Consul clusters still requires manual intervention.
+
 * Diego Cells may sometimes time-out on app pushes when any given Diego Cell receives its first app push with no buildpack specified for that app. This is because the Cell is caching all of the buildpacks for subsequent app pushes, and this may take longer than what the app staging allows.
 
 * Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
