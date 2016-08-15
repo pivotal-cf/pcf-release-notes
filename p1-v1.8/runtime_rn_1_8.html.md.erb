@@ -45,3 +45,7 @@ Please see [this topic - needs link updated when 1.8 docs published](http://docs
 Blobstores for Cloud Controller can now be encrypted at rest using SSE-S3. Existing blobs will not be encrypted.
 
 Please see [this topic - needs link updated when 1.8 docs published](http://docs-pcf-staging.cfapps.io/pivotalcf/1-8/customizing/pcf-aws-manual-er-config.html#file-store-config) for more information.
+
+### API Environment Variable Visibility
+
+Similar to `space_developer_env_var_visibility`, there is a new feature flag, `env_var_visibility` that can be disabled to disallow all users, including administrators, access to `/v2/apps/:guid/env`. 
