@@ -21,6 +21,8 @@ owner: Release Engineering
 
 * The cross-container traffic checkbox is removed from Elastic Runtime, because since the migration from the DEA architecture to Diego, this feature setting is now controlled by your CF application security groups.
 
+* If you choose to enable TCP Routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release. 
+
 ## Existing Issues
 
 * Consul server cluster can fail to recover from quorum loss.
