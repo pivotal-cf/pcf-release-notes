@@ -14,6 +14,16 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 
+## 1.7.14
+
+Introduces a feature which allows you to use AWS's Server-Side Encryption (SSE) feature for your S3 buckets if you use S3 buckets as Cloud Controller's file store.
+
+Also updates the version of Golang used by system apps in Elastic Runtime to a newer version, since Golang 1.5 will soon be end of life.
+
+Also patches Apps Manager to address an issue where app events were not appearing in the older version of Apps Manager (the Ruby version).
+
+Also patches Autoscale to address an issue where autoscaling was not properly scaling apps automatically and sending notifications.
+
 ## 1.7.13
 
 This release addresses an issue where metron sometimes panics from a concurrency fault while aggregating messages when the load is higher.
