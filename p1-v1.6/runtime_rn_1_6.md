@@ -17,6 +17,12 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - CF MySQL version: 23
 - etcd version: 16
 
+## v1.6.36
+
+Addresses an issue with using an LDAP server over SSL for user authentication.
+
+Also updates the version of Golang used by system apps in Elastic Runtime to a newer version, since Golang 1.5 will soon be end of life.
+
 ## v1.6.35
 
 <p class="note"><strong>Note</strong>: Do not upgrade to this release if you are using LDAP with SSL enabled. The next patch version will address this issue.</p>
