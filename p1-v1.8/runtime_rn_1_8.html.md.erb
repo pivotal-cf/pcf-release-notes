@@ -34,6 +34,18 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 - Route services whose domain names are resolved using EDNS0 are now supported.
 
 
+### Authenitcation and Authorization
+
+- Apps Manager now supports inviting external users from LDAP & SAML user stores. Please refer to the [Link Topic] for more details. 
+
+- PCF Admin role can now be derived from SAML group memberships. Please refer to the [Link Topic] for more details.
+
+- Basic User Attributes including First Name, Last Name and Email can now be derived from the the SAML or LDAP enabled external user store. Please refer to [Link Topic] for more details.
+
+- The Login prompts displayed on the Login Page and in the CF CLI can now be configured. Please refer to [Link Topic] for more details.
+
+- New API Docs for UAA are now available at http://docs.cloudfoundry.org/api/uaa/
+
 ### Docker Proxy server
 
 This feature allows you to put a proxy server between your PCF deployment and Docker Hub, for access to image files.
