@@ -1,19 +1,17 @@
 ---
-title: Pivotal Elastic RuntimeFoundry v1.8 Known Issues
+title: Pivotal Elastic Runtime v1.8 Known Issues
 owner: Release Engineering
 ---
 
 ## New Issues
 
-* The Single Sign-On service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and you are using SSO v?, you must upgrade to the SSO v? service tile when you upgrade the Elastic Runtime Tile to 1.8.
+* The Single Sign-On service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and you are using SSO v1.1.X, you must upgrade to the SSO v1.2.0 service tile when you upgrade the Elastic Runtime Tile to 1.8. 
 
-* The Push Notifications service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.6 to PCF 1.7 and you are using Push Notifications v1.4.4 or earlier versions, you must upgrade to the Push Notifications v1.4.5 tile when you upgrade the Elastic Runtime Tile to 1.7. <- not sure about this, ask Matthew Smith
+* The Push Notifications service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and you are using Push Notifications v1.4.4 or earlier versions, you must upgrade to the Push Notifications v1.4.5 tile when you upgrade the Elastic Runtime Tile to 1.8. <- not sure about this, ask Matthew Smith, sent email
 
-* Apps Manager's "Tools" page links to the incorrect version of the cf CLI. To get the latest version, download it directly from [the CLI releases page](https://github.com/cloudfoundry/cli/releases). <- ask Mike G
+* If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
 
-* If you choose to enable TCP Routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
-
-* If you choose to enable TCP Routing, you will also have to add the TCP routing domain post-deployment of Elastic Runtime via the CF CLI, it is not configurable in the Elastic Runtime tile itself. <- ask Abby/Shannon
+* If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
 
 ## Existing Issues
 
@@ -23,12 +21,7 @@ owner: Release Engineering
 
 * Disaster recovery for etcd or Consul clusters still requires manual intervention.
 
-(ask Eric M. about the following 3 items)
-* Diego Cells may sometimes experience slow performance for various actions like staging new applications. If you experience slow performance, you can SSH into the Ops Manager VM and `bosh-recreate` the affected Diego Cell VM.
-
-* Docker library images require you to specify "library/" in front of the docker image name. E.g "cf p jetty -o library/jetty"
-
-* The CLI command for viewing application files, `cf files`, does not work with applications on Diego.
+* The CLI command for viewing application files, `cf files`, does not work with apps on Diego.
 
 * .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended for running "trusted" apps.
 
