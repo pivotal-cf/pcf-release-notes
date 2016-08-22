@@ -35,7 +35,7 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 ### Authentication and Authorization
 
-- Apps Manager now supports inviting external users from LDAP & SAML user stores. Please refer to the [Link Topic] for more details. 
+- Apps Manager now supports inviting external users from LDAP & SAML user stores. Please refer to the [Link Topic](http://docs-pcf-staging.cfapps.io/pivotalcf/1-8/opsguide/external-user-management.html) for more details. 
 
 - PCF Admin role can now be derived from SAML group memberships. Please refer to the [Link Topic] for more details.
 
@@ -62,6 +62,22 @@ Please see [this topic - needs link updated when 1.8 docs published](http://docs
 Blobstores for Cloud Controller can now be encrypted at rest using SSE-S3. Existing blobs will not be encrypted.
 
 Please see [this topic - needs link updated when 1.8 docs published](http://docs-pcf-staging.cfapps.io/pivotalcf/1-8/customizing/pcf-aws-manual-er-config.html#file-store-config) for more information.
+
+### NFS Migration to WebDav
+
+The internal file store provisioned by Cloud Foundry for Cloud Controller files has been switched from an NFS server to the WebDav protocol. There will be no actual data migration as part of this switch, it will simply change the protocol on this file server. When you upgrade to Elastic Runtime 1.8.0 or greater, you will automatically be switched over.
+
+### Configurable SSH Proxy for Diego Containers
+
+As of 1.8.0, you can also now specify the static IP addresses for the Diego Brain job, which allows you to configure a load balancer to forward SSH traffic over port 2222 to these proxies, which then grant you access to application containers.
+
+### Console DB Disappears
+
+With the introduction of a new Apps Manager app written in Javascript, there is no longer a need for a backend to this app. Therefore, the Apps Manager's database (console is the DB name) will be dropped from the Elastic Runtime tile. If your backend is MySQL for console-db, you can drop this database from the MySQL server yourself if you wish. You also no longer need to backup and restore this database.
+
+## Collector deprecation
+
+As of 1.8.0, the JMX Bridge (previously known as Ops Metrics) no longer requires an log streaming input from the Collector job on Elastic Runtime, therefore you may scale down this job to zero instances once you have the ? JMX bridge version installed.
 
 ### API Environment Variable Visibility
 
