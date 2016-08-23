@@ -7,8 +7,6 @@ owner: Release Engineering
 
 * The Single Sign-On service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and you are using SSO v1.1.X, you must upgrade to the SSO v1.2.0 service tile when you upgrade the Elastic Runtime Tile to 1.8. 
 
-* The Push Notifications service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and you are using Push Notifications v1.4.4 or earlier versions, you must upgrade to the Push Notifications v1.4.5 tile when you upgrade the Elastic Runtime Tile to 1.8. <- not sure about this, ask Matthew Smith, sent email
-
 * If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
 
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
