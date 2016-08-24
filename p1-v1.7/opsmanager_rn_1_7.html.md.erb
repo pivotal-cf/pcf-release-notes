@@ -6,6 +6,34 @@ owner: Ops Manager
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
+### 1.7.11 Patch
+
+* Patches USN-3064-1. Additional information can be found at https://pivotal.io/security. 
+* Bumped UAA to version 11.4
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3232.17</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 23</td>
+	</tr>
+	</tbody>
+	</table>
+
+
 ### 1.7.10 Patch
 
 * Introduced a new feature that lets operators specify a custom host name for the Bosh Director. Please note that this feature only works on clean installs of 1.7.10.   
