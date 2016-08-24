@@ -92,3 +92,9 @@ As of PCF v1.8.0, the JMX Bridge (previously known as Ops Metrics) no longer req
 Similar to `space_developer_env_var_visibility`, the new feature flag `env_var_visibility` can be disabled to deny access to `/v2/apps/:guid/env` for all users, including administrators. 
 
 See the [Feature Flags](../../adminguide/listing-feature-flags.html#flags) topic for more information.
+
+### Service Broker Improvements
+
+Service brokers can respond with an `operation` string in the body of responses for asynchronous operations. This string will be returned to the broker when the Cloud Controller polls for the state of asynchronous operations (see below). For more information, see the response body for [Provisioning](http://docs.pivotal.io/pivotalcf/1-7/services/api-v2.9.html#provisioning), [Deprovisioning](http://docs.pivotal.io/pivotalcf/1-7/services/api-v2.9.html#deprovisioning), and [Updating](http://docs.pivotal.io/pivotalcf/1-7/services/api-v2.9.html#updating_service_instance).
+
+Service brokers will now receive `service_id`, `plan_id`, and `operation` when polled for last operation state by the Cloud Controller. These extra query parameters can be used by brokers to help determine the state of the last operation. See [Polling Last Operation](http://docs.pivotal.io/pivotalcf/1-7/services/api-v2.9.html#polling) for more information.
