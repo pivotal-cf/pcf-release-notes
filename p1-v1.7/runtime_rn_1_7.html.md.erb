@@ -14,6 +14,16 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 
+## 1.7.15
+
+Patches USN-3064-1, USN-3048-1, USN-3060-1, USN-3061-1, and USN-3065-1. Additional info can be found at https://pivotal.io/security.
+
+Also introduces a patch which addresses application downtime whenever IPSec has been applied to the PCF environment.
+
+Also fixes an issue where the legacy Apps Manager and Apps Usage system applications were not always completely deleted from the environment to make way for the latest versions of these apps.
+
+Also updates the size of the push-errand VM for Autoscale, to increase the chances of the errand's success.
+
 ## 1.7.14
 
 Introduces a feature which allows you to use AWS's Server-Side Encryption (SSE) feature for your S3 buckets if you use S3 buckets as Cloud Controller's file store.
