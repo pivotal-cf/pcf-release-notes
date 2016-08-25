@@ -3,6 +3,15 @@ title: Pivotal Elastic Runtime v1.7 Known Issues
 owner: Release Engineering
 ---
 
+## Issues with Application Uptime in PCF Elastic Runtime v1.7.0 - v1.7.15
+
+Issue:
+If you kill the NATS server without stopping it cleanly or if you upgrade/stop/restart NATS in an environment where the IPSec add-on is applied, then you may experience a period of application downtime. More information can be found in this [Knowledge Base](https://discuss.zendesk.com/hc/en-us/articles/226130787-NATS-timeout-issue) article.
+
+### Recommended action
+
+Contact Pivotal Support for remediation of application downtime if you have IPSec versions older than 1.5.37 and an Elastic Runtime older than 1.7.15.
+
 ## Issues with Autoscaling in PCF Elastic Runtime v1.7.10 - 1.7.13
 
 Issue:
@@ -21,7 +30,7 @@ Disabling these errands will prevent the new malfunctioning autoscale app from b
 ### Please note
 If you have already upgraded to PCF Elastic Runtime versions 1.7.10 to 1.7.13 and you did not disable these errands, your updated version of the PCF Autoscale app will intermittently crash until a patch has been released. If you are experiencing this issue, you will need to manually scale your apps until the fix has been released.
 
-If you need further assistance, please contact [Pivotal Support](https://support.pivotal.io/). 
+If you need further assistance, please contact [Pivotal Support](https://support.pivotal.io/).
 
 ## New Issues
 
