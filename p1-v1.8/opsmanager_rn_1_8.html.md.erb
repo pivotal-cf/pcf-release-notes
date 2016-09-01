@@ -1,128 +1,104 @@
 ---
-title: Pivotal Cloud Foundry Ops Manager v1.7 Release Notes
+title: Pivotal Cloud Foundry Ops Manager v1.8 Release Notes
 owner: Ops Manager
 ---
 
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
-Upgrading Pivotal Cloud Foundry is documented [here](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html).
 
-### 1.7.2 Patch
+The procedure for upgrading to Pivotal Cloud Foundry Ops Manager v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
-Fixes a bug that caused initial UAA [User Authorization and Authentication] setup to stall in upgrade cases
-Upgraded stemcell version to 3232.3
+## <a id='major-features'></a> Version 1.8.0 New Features
 
-### 1.7.1 Patch
+### <a id='bosh'></a> BOSH Updates
 
-Patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2.
-Additional info can be found at https://pivotal.io/security.
+Ops Manager now generates BOSH 2.0 manifests and has enabled BOSH link support. For more information on using BOSH links see the [BOSH documentation](https://bosh.io/docs/links.html). 
 
+### <a id='odb'></a> Support for On-Demand Service Broker and Service Networks
 
+On-Demand Service Brokers can be deployed using Ops Manager.
 
-## <a id='major-features'></a> Version 1.7.0 New Features
+Ops Manager allows Operators to create a Service Network. Service Networks are used by On-Demand Service Brokers to dynamically provision VMs. 
 
-### <a id='security'></a> Security
+See the [On-Demand Broker SDK](https://docs.pivotal.io/on-demand-service-broker) documentation for more information on using the broker.
 
-All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](http://docs.pivotal.io/pivotalcf/concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](http://docs.pivotal.io/pivotalcf/opsguide/auth-sso.html) identity management. In order to avoid consistency issues, OpsManager restricts the number of concurrent users in the system by allowing only one user to log in at a time.
+### <a id='pivnet_token'></a> Pivotal Network Token
 
-Users now have the capability to add custom certificates to all the VMs managed in a BOSH deployment. Please see below for more information about custom certificates:
+Operators can choose to enter their Pivotal Network token into Ops Manager and download product tile updates from within the Ops Manager UI. See the [Using Pivotal Network API to Upgrade Products](../../customizing/add-delete.html#pivnet-api) for more information.
 
-* [Amazon Web Services](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-config.html#security)
-* [OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-om-config.html#security)
-* [vSphere](http://docs.pivotal.io/pivotalcf/customizing/vsphere-config.html#security-config)
-* [vCloud](http://docs.pivotal.io/pivotalcf/customizing/vchs-vcloud-config.html#security-config)
+### <a id='new_endpoints'></a> New Ops Manager API Endpoints and Redesigned API Documentation
 
-Operators can now see a detailed change log that describes all actions performed by all authenticated users.
+This release also introduces many new API endpoints, including:
 
-Several improvements to stemcell management have been added to Ops Manager 1.7.0. Operators can only upgrade stemcells (i.e. stemcells cannot be downgraded). For AWS installations, only the Light HVM versions can be used. Additionally, tiles installed in Ops Manager will not need to be manually upgraded for security patches to a minor version of the stemcell.
+   * Configuring product tiles
+   * Configuring Ops Manager authentication
+   * Downloading product updates from PivNet
+   * Viewing logs and credentials
+   * Errands 
+   * Resources Assigned to a Job
 
-### <a id='network-az'></a> Networks and Availability
+For more information on API endpoints, see the Ops Manager API documentation, which has been updated to appear in a new format. 
 
-For Ops Manager 1.7.0, networks are now a logical collection of subnets. Users can create more than one network, and add one or many subnets to those networks. For Availability Zones (AZs), users can add more than one AZ per subnet. They can also assign products to both networks and AZs. Jobs in a deployment will be balanced across subnets and Availability Zones. Please see the following topics for more information on configuring subnets and AZs.
+Visit http<span>s</span>://YOUR-OPSMAN/docs to view the Ops Manager API documentation included with your Ops Manager installation.
 
-* [Amazon Web Services](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-config.html#az)
-* [OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-om-config.html#az-config)
-* [vSphere](http://docs.pivotal.io/pivotalcf/customizing/vsphere-config.html#create-az)
-* [vCloud](http://docs.pivotal.io/pivotalcf//customizing/vchs-vcloud-config.html)
+### <a id='settings'></a> Ops Manager Settings Page
 
-### <a id='resource-config'></a> Resource Configuration
+Ops Manager has a consolidated Settings page which includes the following fields:
 
-There is a new workflow for configuring resources in Ops Manager. This workflow includes a standard way of configuring instance sizes across all infrastructures. Operators also have the ability to opt in or opt out of default sizes set by Pivotal [product tiles](http://docs.pivotal.io/partners/product-template-reference.html). For more information, please see:
+   * Decryption Passphrase 
+   * Authentication Method 
+   * External API Access
+   * Proxy Settings
+   * Export Installation Settings
+   * Advanced
 
-* [Amazon Web Services](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-config.html#resource-config).
-* [OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-om-config.html#resource-config)
-* [vSphere](http://docs.pivotal.io/pivotalcf/customizing/vsphere-config.html#resource-config)
+See the [Understanding the Ops Manager Interface](../../customizing/pcf-interface.html) topic for more information.
 
-### <a id='api-endpoints'></a> API Endpoints
+### <a id='resource_config'></a> Custom Instance Counts in Ops Manager Director Resource Config
 
-As of Ops Manager 1.7, all API endpoints are protected by PCF UAA [User Authentication and Authorization](http://docs.pivotal.io/pivotalcf/concepts/architecture/uaa.html).
+Operators can now enter custom values in the Instances column of the Resource Config page in Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](customizing/cloudform-om-config.html#resource-config).
 
-Ops Manager has these new endpoints:
+### <a id='vsphere'></a> vSphere Admin Default Password Requirement
 
-* List installed products
-* List VM credentials by product
-* Unlock Ops Manager with passphrase
-* CRUD disk types and vm types
-* List static IPs
-* Manifest for staged products
-* Manifest for deployed products
-* Token expiration time can be configured
-* Diagnostic information to attach to support tickets
-* Get a BOSH manifest for bosh-init deployment
+Customers using vSphere are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at [Installing Pivotal Cloud Foundry on vSphere](../../customizing/vsphere.html).
 
-### <a id='aws'></a> AWS
-For AWS installations, EBS (Elastic Blob Store) is not supported on all instances. For more information on EBS encryption, please see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-ebs-config.html). Amazon Machine Images (AMIs) can now be built in Frankfurt and Seoul. Additionally, AWS S3 version 4 is now supported.
+### <a id='dualhomebosh'></a> Dual-Home BOSH Director
 
-Several changes have been made for CloudFormation on AWS. The script now considers RDS (Relational Database Service) as optional and supports an HA NAT instance and multiple AZs. For more information, please see the
-[Deploying the CloudFormation Template for PCF on AWS](http://docs.pivotal.io/pivotalcf/customizing/cloudform-template.html) topic.
+Customers can now dual-home their BOSH Director starting with new deployments of v1.8.0. This release includes a new Bosh Networking release with the correct RPFilter necessary for dual-homing scenarios.
 
-Security groups that are assigned to EC2 instances are now referenced by ID. Please see below for more information:
+Additionally, customers using the dual-homed feature in OpsManager v1.6 can now import their installations into v1.8.0 and continue to use the dual-homed BOSH Director. 
 
-* [Amazon Web Services](http://docs.pivotal.io/pivotalcf/customizing/cloudform-om-config.html#aws-config)
-* [OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-om-config.html#openstack-config)
+For more information on how to use the dual-homing feature, please refer to the [How to use a dual-homed Director with Ops Manager](https://discuss.zendesk.com/hc/en-us/articles/222027247) KB article.
 
-### <a id='vsphere'></a> vSphere
+### <a id='hostnameforboshdirector'></a> Hostname for BOSH Director
 
-* Datastores can be split by Ephemeral and Persistent disk types
-* Unlike other IaaS providers, subnets on vSphere can span availability zones
-* vCenter IP field now supports IP or host
+Operators can now specify a custom hostname for the BOSH Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
 
-### <a id='openstack'></a> OpenStack
-For OpenStack Deployments, [Ops Manager 1.7.0](http://docs.pivotal.io/pivotalcf/customizing/openstack.html) now supports connection options and Keystone version 3.
+### <a id='loadblancer'></a>Load Balancer for Ops Manager Job
 
-### <a id='tile-authors'></a> Tile Authors
+Introduced a new feature that lets operators add a Load Balancer to the Ops Manager Director Job
 
-Multiple improvements have been included in Ops Manager 1.7.0 for [Tile Authors](http://docs.pivotal.io/pivotalcf/partners/index.html). PCF product tiles now must be upgraded using ECMA (JavaScript) [migration](http://docs.pivotal.io/pivotalcf/partners/migrations.html) syntax. Imports into 1.7 are limited to ECMA script migrations only.
+For more information on how to set up a load balancer in front of the Director, please refer to the [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588) KB article.
 
-For forms, invalid user input can be rejected using regular expressions and form fields support placeholder text. Markdown can be used above a form.
+### <a id='boshcompilerflag'></a> BOSH Manifest Flag to Remove Compilers
 
-Several changes to how products and jobs are configured are included in Ops Manager 1.7.0. A job's instance count can be toggled to 0 based on a selector value. The [product template](http://docs.pivotal.io/pivotalcf/partners/product-template-reference.html) must include <code>minimum\_version\_for\_upgrade</code>. Additionally, products with pre 1.7 metadata are limited to a single subnet. Users must specify whether their product gets persistent disk or not: the field is required. `First-network-deprecated` has been removed as a key / value pair. Tile authors can limit a product’s jobs to a single AZ. Additionally, Accessor information is available for trusted certificates.
+This release adds a flag to the BOSH manifest that removes compilers.
 
-## <a id='improvements'></a> Operational Improvements
+### <a id='boshretries'></a> BOSH Director Retries Disabled by Default
 
-In addition to the major features, there are a number of smaller improvements that will enhance the operator's experience with installing and maintaining Pivotal Cloud Foundry.
+In this release BOSH Director retries are turned off by default. You can enable BOSH Director retries in the Director Config page of Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
 
-* Operators can select and deselect errands before applying changes
-* Support for compiled releases
-* Users can disable ICMP checks (default off on AWS)
-* Checkbox exists to run `bosh deploy --recreate` (recreates all VMs)
-* Support for monitoring and Pager Duty &trade; BOSH plugins
-* UAAC gem added to Ops Manager VM
-* Automatic cleanup of `/tmp` directory for 24-hour-old files
+### <a id='postdeployscripts'></a> Support for Post Deployment Scripts
+
+Ops Manager now supports configuring the appropriate settings in the Director to run post deploy scripts. This setting can be toggled on the Director Config form. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
+
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
-* Some products could not be uploaded via API
-* Wrong tile version shown in error messages
-* Passwords aggressively scrubbed from logs resulting in non-secret obfuscation
-* Job logs cleaned up by file cleaner
-* Hints in selectors fixed
-* Users had to specify resource pools on vSphere
-* Installations were slower by writing logs to database
-* When DNS is unreachable 500 error
-* Importing installation errors with resource pools result in 500 error
-* Partial selection of errands results in all errands checked
-* Powering off VM can result in empty installation.yml under certain conditions
-* Many API docs errata fixes
-* Broken EULA links
-* Selector checkboxes were not persisting
-* Exports with empty releases causes 500 error
+* Fixed an issue with rollbacks in case of database import failures during upgrades
+* Fixed an issue where Metrics IP address was not getting propagated into the Bosh manifest
+* Fixed an issue where errands were failing to run on a deploy
+* Fixed an issue where Static IP assignments were not being cleared correctly
+* Fixed an issue where re-saving the Networks and AZs form on product tiles was throwing a misleading error
+* Fixed API endpoint to log out all active sessions
+* Fixed an issue that allowed for multiple AZs to have the same name 
+
