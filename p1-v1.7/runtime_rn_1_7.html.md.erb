@@ -14,6 +14,10 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 
+## 1.7.17
+
+Removes the maximum memory restriction for the NATS vm. This artificial limit prevented some IAASes from provisioning VMs that could support the NATS job.
+
 ## 1.7.16
 
 Patches CVE-2016-5388 and USN-3024-1. Additional info can be found at https://pivotal.io/security.
