@@ -57,23 +57,23 @@ Operators can now enter custom values in the Instances column of the Resource Co
 
 Customers using vSphere are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at [Installing Pivotal Cloud Foundry on vSphere](../../customizing/vsphere.html).
 
-### <a id='dualhomebosh'></a> Dual-Home BOSH Director
+### <a id='dualhomebosh'></a> Dual-Home Ops Manager Director (BOSH Director)
 
-Customers can now dual-home their BOSH Director starting with new deployments of v1.8.0. This release includes a new Bosh Networking release with the correct RPFilter necessary for dual-homing scenarios.
+Customers can now dual-home their Ops Manager Director (BOSH Director) starting with new deployments of v1.8.0. This release includes a new BOSH networking release with the RPFilter necessary for dual-homing scenarios.
 
-Additionally, customers using the dual-homed feature in OpsManager v1.6 can now import their installations into v1.8.0 and continue to use the dual-homed BOSH Director. 
+Additionally, customers using the dual-homed feature in Ops Manager v1.6 can now import their installations into v1.8.0 and continue to use the dual-homed Ops Manager Director. 
 
 For more information on how to use the dual-homing feature, please refer to the [How to use a dual-homed Director with Ops Manager](https://discuss.zendesk.com/hc/en-us/articles/222027247) KB article.
 
-### <a id='hostnameforboshdirector'></a> Hostname for BOSH Director
+### <a id='hostnameforboshdirector'></a> Hostname for Ops Manager Director
 
-Operators can now specify a custom hostname for the BOSH Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
+Operators can now specify a custom hostname for the Ops Manager Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config). This hostname can be set to a load balancer as described in [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588).
 
-### <a id='loadblancer'></a>Load Balancer for Ops Manager Job
+### <a id='loadblancer'></a>Load Balancer for Ops Manager Director
 
-Introduced a new feature that lets operators add a Load Balancer to the Ops Manager Director Job
+Operators can now add a load balancer in front of the Ops Manager Director.
 
-For more information on how to set up a load balancer in front of the Director, please refer to the [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588) KB article.
+For more information on how to set up a load balancer for Ops Manager Director, refer to the [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588) KB article.
 
 ### <a id='boshcompilerflag'></a> BOSH Manifest Flag to Remove Compilers
 
@@ -87,6 +87,37 @@ In this release BOSH Director retries are turned off by default. You can enable 
 
 Ops Manager now supports configuring the appropriate settings in the Director to run post deploy scripts. This setting can be toggled on the Director Config form. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
 
+## <a id='tileauthorchanges'></a> Changes in Ops Manager v1.8.0 for Tile Authors
+
+* Tile authors can mark their tiles as a service broker by setting `service_broker: true`.
+* `instance_definition` and `resource_definition` no longer require that you specify the type as integer.
+* Tile authors no longer need to manage compilation jobs. Ops Manager now deploys the BOSH Director with a master compilation job. Older tiles that specify compilation jobs will not be affected.
+* Individual property blueprints can now be frozen after a deploy by using `freeze_on_deploy`. 
+* Ops Manager supports BOSH links and has introduced `provides` and `consumes` keys.
+* In order to mark a tile as an on-demand service, tile authors need to set `service_broker: true`.
+* Tile Authors can now issue a lite version of their tiles that do not contain packaged releases. Tile authors can specify a `base_releases_url`, which will prompt BOSH to download the releases from the specified URL.
+* Tile authors can now specify a `dropdown_select` under `collections`.
+* New property blueprints:
+   * `vm_type_dropdown`
+   * `disk_type_dropdown`
+   * `service_network_az_single_select`
+   * `service_network_az_multi_select`
+* New accessors: 
+
+   * `(( $self.uaa_client_name ))` 
+   * `(( $self.uaa_client_secret ))`
+   * `(( $ops_manager.http_proxy ))`
+   * `(( $ops_manager.https_proxy ))`
+   * `(( $ops_manager.no_proxy ))`
+   * `(( $director.hostname ))` 
+   * `(( .deployment_name ))` or `(( ..cf.deployment_name ))`
+   * `(( $director.ca_public_key ))` 
+   * `(( $self.stemcell_version ))` 
+   * `(( $self.service_network ))` <br/><br/>  For more information on how to use accessors, refer to (link to New Partner doc)
+
+* Deprecated accessors:
+   * `(( availability_zone ))`
+   * `(( bosh_job_partition_stats ))`
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
