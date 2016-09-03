@@ -6,6 +6,35 @@ owner: Ops Manager
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
+### 1.7.12 Patch
+
+* Customers can now opt in to provison a UAA admin client while configuring their Ops Manager with SAML. This client can be used to run scripts againts the Bosh Director.
+* Fixed a bug with the logout workflow 
+* Customers can now enter a custom value for instance count in the Resource Config Form
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3232.17</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 23</td>
+	</tr>
+	</tbody>
+	</table>
+
+
 ### 1.7.11 Patch
 
 * Patches USN-3064-1. Additional information can be found at https://pivotal.io/security. 
