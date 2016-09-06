@@ -14,6 +14,37 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 
+## 1.7.18
+
+We've discovered a rare condition where a PCF deployment running an internal MySQL cluster can experience a fault in replication that may result in some data loss. When this occurs, previous releases do not log the root cause of the bug. In order to best address this issue, version 1.7.18 contains significant additional telemetry and several defensive features which will account for the failure condition and prevent data loss.
+
+<p class='note'><strong>If any of these protections activate, it is critical that you contact Pivotal support immediately.</strong> Support will work with you to determine the nature of the cluster's failure, and advise a suggested resolution. Additionally, contacting Support will provide us with evidence that will enable us to identify and address the root cause in the future.</p>
+
+  - **Introducing the Replication Canary**
+
+    We've included a new long-running monitor, the **Replication Canary**. The Replication Canary continually monitors the MySQL cluster, watching for instances in which cross-cluster replication has failed. It is enabled by default, and requires an e-mail address in the Advanced Options configuration pane.<br><br>
+
+    In the event that replication has failed, the Canary performs two actions:
+
+    - E-mail the Operator: Part of the Replication Canary's configuration is an e-mail address, which can be directed to any Operator e-mail address, or an escalation system similar to PagerDuty.
+    - Deny Access: When replication has failed, the Replication Canary will automatically disable user and applications' ability to access the cluster via the Proxies.
+
+    - You **must** set the `Monitoring` job to 1 in the Resource Config pane, or the Replication Canary will not be enabled, regardless of configuration.
+    - You **must** also confirm that the Elastic Runtime tile is properly configured to send e-mail. These settings are necessary for any standard Cloud Foundry configuration.
+      - Ensure that the `Notifications` errand has been enabled.
+      - Ensure that `SMTP Config` has been properly configured.
+
+        If either of these are not set, configure and **Apply Changes** before deploying version 1.7.18.
+
+  - **Introducing the Interruptor**
+
+    The MySQL nodes have new logic that, when enabled, will prevent a node from re-joining a cluster under certain conditions. This is a second level of protection against the possibility of data loss.<br><br>
+
+  - **New feature**: Backup Improvements
+
+    - In the Internal MySQL configuration pane, there's now an option to take backups from all MySQL nodes. This feature protects your users from data loss in the case that some nodes have different data than the others.
+    - Additionally, there is now the option to provide either an S3-compatible bucket or SCP endpoint for automated backups.
+
 ## 1.7.17
 
 Removes the maximum memory restriction for the NATS VM. This artificial limit prevented some IaaSes from provisioning VMs that could support the NATS job.
