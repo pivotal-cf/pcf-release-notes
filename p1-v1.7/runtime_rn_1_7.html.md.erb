@@ -14,6 +14,10 @@ owner: Release Engineering
 - UAA version: 3.2.1
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 
+## 1.7.19
+
+Bumps the PHP buildpack to v4.3.18. The buildpack was exposing the `.profile` file which could contain environment variables and credentials. The PHP buildpack prior to v4.3.18 did not actually allow for execution of the .profile file, so it is unlikely that many applications were using it.
+
 ## 1.7.18
 
 We've discovered a rare condition where a PCF deployment running an internal MySQL cluster can experience a fault in replication that may result in some data loss. When this occurs, previous releases do not log the root cause of the bug. In order to best address this issue, version 1.7.18 contains significant additional telemetry and several defensive features which will account for the failure condition and prevent data loss.
