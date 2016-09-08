@@ -104,6 +104,8 @@ Service brokers will now receive `service_id`, `plan_id`, and `operation` when p
 
 ### <a id='newissues'></a> New Issues
 
+* During the upgrade to Pivotal Cloud Foundry v1.8, BOSH deployment deletes the `console` database, which in previous releases supports Apps Manager. In PCF v1.8 the database is no longer used. During upgrade existing Apps Manager deployments output 500 errors until the end up the deployment when the upgraded Apps Manager is in place.  
+
 * The Single Sign-On service tile operates in lockstep with Pivotal Elastic Runtime. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and you are using SSO v1.1.X, you must upgrade to the SSO v1.2.0 service tile when you upgrade the Elastic Runtime Tile to 1.8. 
 
 * If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
