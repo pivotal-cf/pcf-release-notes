@@ -17,7 +17,7 @@ Ops Manager now generates BOSH 2.0 manifests and has enabled BOSH link support. 
 
 Ops Manager allows Operators to create a Service Network. Service Networks are used to dynamically provision VMs for on-demand services. For an example of how to enable a Service Network in Ops Manager, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#network).
 
-### <a id='pivnet_token'></a> Pivotal Network Token
+### <a id='pivnet_token'></a> Pivotal Network Integration
 
 Operators can choose to enter their Pivotal Network token into Ops Manager and download product tile updates from within the Ops Manager UI. See the [Using Pivotal Network API to Upgrade Products](../../customizing/add-delete.html#pivnet-api) for more information.
 
@@ -69,12 +69,6 @@ For more information on how to use the dual-homing feature, please refer to the 
 
 Operators can now specify a custom hostname for the Ops Manager Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config). This hostname can be set to a load balancer as described in [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588).
 
-### <a id='loadblancer'></a>Load Balancer for Ops Manager Director
-
-Operators can now add a load balancer in front of the Ops Manager Director.
-
-For more information on how to set up a load balancer for Ops Manager Director, refer to the [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588) KB article.
-
 ### <a id='boshcompilerflag'></a> BOSH Manifest Flag to Remove Compilers
 
 This release adds a flag to the BOSH manifest that removes compilers.
@@ -94,7 +88,6 @@ Ops Manager now supports configuring the appropriate settings in the Director to
 * Tile authors no longer need to manage compilation jobs. Ops Manager now deploys the BOSH Director with a master compilation job. Older tiles that specify compilation jobs will not be affected.
 * Individual property blueprints can now be frozen after a deploy by using `freeze_on_deploy`. 
 * Ops Manager supports BOSH links and has introduced `provides` and `consumes` keys.
-* In order to mark a tile as an on-demand service, tile authors need to set `service_broker: true`.
 * Tile Authors can now issue a lite version of their tiles that do not contain packaged releases. Tile authors can specify a `base_releases_url`, which will prompt BOSH to download the releases from the specified URL.
 * Tile authors can now specify a `dropdown_select` under `collections`.
 * New property blueprints:
