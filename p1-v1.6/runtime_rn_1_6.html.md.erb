@@ -17,6 +17,11 @@ title: Pivotal Elastic Runtime v1.6.0.0 Release Notes
 - CF MySQL version: 23
 - etcd version: 16
 
+## 1.6.38
+
+
+Bumps the PHP buildpack to v4.3.18. The buildpack was exposing the `.profile` file which could contain environment variables and credentials. The PHP buildpack prior to v4.3.18 did not actually allow for execution of the `.profile` file, so it is unlikely that many applications were using it.
+
 ## 1.6.37
 
 Patches USN-3064-1, USN-3048-1, USN-3060-1, USN-3061-1, and USN-3065-1. Additional info can be found at https://pivotal.io/security.
