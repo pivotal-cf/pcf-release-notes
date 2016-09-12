@@ -37,7 +37,7 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 
 * Before upgrading to PCF v1.8, remove any product tiles that are no longer supported. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
 
-* Some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
+* After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
  
 * Some partner services may be incompatible with PCF v1.8. For information about which partner service releases are compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io) or contact the partner organization that produces the tile. 
 
@@ -99,7 +99,7 @@ For example, see the [Configure Networking](../../customizing/cloudform-er-confi
 
 ### <a id='consoledeprecation'></a> Console Database Removed
 
-With the introduction of a new Apps Manager app written in Javascript, there is no longer a need for a backend to this app. Therefore, the Apps Manager database (`console`) is dropped from the Elastic Runtime tile. However, if you selected MySQL as the backend database for `console` during initial Elastic Runtime deployment, you can drop this database from the MySQL server yourself. If you do not drop the database, you no longer need to backup and restore this database.
+With the introduction of a new Apps Manager app written in Javascript, there is no longer a need for a backend to this app. Therefore, the Apps Manager database (`console`) is no longer required by the Elastic Runtime tile. After a successful upgrade to PCF v1.8. you can safely scale the Apps Manager database (postgres) job to `0` in the **Resource Config** page of the Elastic Runtime tile. However, if you selected MySQL as the backend database for `console` during initial Elastic Runtime deployment, you can drop this database from the MySQL server yourself. If you keep the database, you no longer need to backup and restore it.
 
 ### <a id='collectordeprecate'></a> Collector Deprecation
 
