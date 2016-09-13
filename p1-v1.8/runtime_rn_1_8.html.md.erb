@@ -35,11 +35,11 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic. When upgrading to v1.8, be aware of the following upgrade considerations:
 
-* Before upgrading to PCF v1.8, remove any product tiles that are no longer supported. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
+* Before upgrading to PCF v1.8, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
 
 * After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
  
-* Some partner services may be incompatible with PCF v1.8. For information about which partner service releases are compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io) or contact the partner organization that produces the tile. 
+* Some partner services such as CloudBees Jenkins Platform for PCF may be incompatible with PCF v1.8. For information about which partner service releases are compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile. 
 
 ## <a id='versions'></a> New Features in Elastic Runtime v1.8.0 
 
@@ -128,7 +128,6 @@ Service brokers will now receive `service_id`, `plan_id`, and `operation` when p
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
 
 * If you choose to enable TCP routing, do not remove etcd data stores during failure recovery procedures since router group data added by the routing API is not ephemeral.
-
 
 ### <a id='existingissues'></a> Existing Issues
 
