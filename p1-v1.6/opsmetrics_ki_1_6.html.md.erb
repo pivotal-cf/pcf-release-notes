@@ -5,6 +5,9 @@ owner: PCF Metrics
 ## New Issues for 1.6.X
 Some of these issues may be fixed in subsequent patch releases to 1.6. Consult the Ops Metrics 1.6 [Release Notes](opsmetrics_rn_1_6.html) - any additional fixes will be added immediately.
 
+For releases earlier than 1.6.17:
+* An increase in disconnects between the OpenTSDB Firehose Nozzle and the Firehose, resulting in a need to restart the nozzle, may be due to the NOAA client becoming too far out-of-date. Version 1.6.17 updates the NOAA client and other service related dependencies. 
+
 For all 1.6.X releases:
 
 * To fix the possibility of installation deadlock with Elastic Runtime 1.6.X, the OpenTSDB Firehose Nozzle job (responsible for receiving Diego metric data) has been disabled by default.
