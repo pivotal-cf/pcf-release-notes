@@ -117,7 +117,13 @@ Service brokers can respond with an `operation` string in the body of responses 
 
 Service brokers will now receive `service_id`, `plan_id`, and `operation` when polled for last operation state by the Cloud Controller. These extra query parameters can be used by brokers to help determine the state of the last operation. See [Polling Last Operation](../../services/api-v2.9.html#polling) for more information.
 
+### <a id='cli_v3_support'></a> Cloud Foundry CLI Plugin v3 Support
+
+This release of Elastic Runtime includes support for the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. Both the plugin and the API are still under active development, so use caution when using this feature. For more information on how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
+
 ## <a id='knownissues'></a> Known Issues
+
+This section lists new and existing known issues for Elastic Runtime.
 
 ### <a id='newissues'></a> New Issues
 
