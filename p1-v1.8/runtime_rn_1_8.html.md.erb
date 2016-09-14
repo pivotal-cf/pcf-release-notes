@@ -121,8 +121,6 @@ Service brokers will now receive `service_id`, `plan_id`, and `operation` when p
 
 ### <a id='newissues'></a> New Issues
 
-* During the upgrade to Pivotal Cloud Foundry v1.8, BOSH deployment deletes the `console` database, which in previous releases supports Apps Manager. Existing Apps Manager deployments generate 500 errors until the upgrade to PCF v1.8 completes. Users cannot use Apps Manager to push or manage apps, but can use the Cloud Foundry CLI to manage their apps until the new Apps Manager is in place.
-
 * If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
 
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
