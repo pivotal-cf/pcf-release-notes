@@ -131,7 +131,7 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
 
-* If you choose to enable TCP routing, do not remove etcd data stores during failure recovery procedures since router group data added by the routing API is not ephemeral.
+* If you choose to enable TCP routing, do not delete etcd data stores when performing failure recovery procedures. The routing API persists router group data to maintain associations with other databases. This data should not be removed. 
 
 ### <a id='existingissues'></a> Existing Issues
 
