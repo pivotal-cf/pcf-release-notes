@@ -133,6 +133,8 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ### <a id='newissues'></a> New Issues
 
+* In Elastic Runtime 1.8.0 and 1.8.1, if you are using the internal file storage for Cloud Controller and you have the "Disable SSL certificate verification for this environment" checkbox unchecked, you will not be able to push apps to the system. Pivotal will soon release a 1.8.3 patch which resolves this issue, but if you have upgraded to 1.8.x Elastic Runtime already and you meet these criteria to encounter this issue, you can disable the SSL verification to get around the issue until the 1.8.3 patch is released.
+
 * If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
 
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
