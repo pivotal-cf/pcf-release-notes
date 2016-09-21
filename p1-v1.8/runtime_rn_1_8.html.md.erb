@@ -127,6 +127,10 @@ Service brokers will now receive `service_id`, `plan_id`, and `operation` when p
 
 This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. The CLI v3 plugin is useful for experimenting with the Cloud Controller v3 API without having to curl an oauth token. The Cloud Controller v3 API is under active development and is currently experimental. For more information on how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
 
+### <a id='cc_diego_droplet_checksum'></a> Droplet Checksum Validation
+
+Cloud Controller now sends a SHA1 droplet checksum to Diego for validation of buildpack-based app droplets.
+
 ## <a id='knownissues'></a> Known Issues
 
 This section lists new and existing known issues for Elastic Runtime.
