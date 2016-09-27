@@ -141,6 +141,8 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ### <a id='newissues'></a> New Issues
 
+* In Elastic Runtime 1.8.0 - 1.8.2, if you are using a non-RFC 1918 network as your private network for the deployment and internal file storage for Cloud Controller, then you will not be able to push apps to the system. 1.8.3 will address this issue by allowing you to specify a non-RFC 1918 network that you want to use.
+
 * In Elastic Runtime 1.8.0 and 1.8.1, if you are using the internal file storage for Cloud Controller and you have the "Disable SSL certificate verification for this environment" checkbox unchecked, you will not be able to push apps to the system. 1.8.2 addresses this issue.
 
 * If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
