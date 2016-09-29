@@ -13,35 +13,38 @@ owner: Release Engineering
 - Apps Manager release version: 629
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12
 - UAA versions:
--- Elastic Runtime 1.7.21 and greater are on UAA 3.3.0.6
--- Elastic Runtime 1.7.20 is on UAA 3.6.0 (this is a defective release)
+-- Elastic Runtime 1.7.24 and greater are on UAA 3.6.1
+-- Elastic Runtime 1.7.21 to 1.7.23 are on UAA 3.3.0.6
+-- Elastic Runtime 1.7.20 is on UAA 3.6.0
 -- Elastic Runtime 1.7.16 to 1.7.19 are on UAA 3.3.0.4
 -- Elastic Runtime 1.7.13 to 1.7.15 are on UAA 3.3.0.3
 -- Elastic Runtime 1.7.7 to 1.7.12 are on UAA 3.3.0.2
 -- Elastic Runtime 1.7.3 to 1.7.6 are on UAA 3.3.0.1
 -- Elastic Runtime 1.7.1 to 1.7.3 are on UAA 3.3.0
 
+## 1.7.24
+
+Fixes an issue with upgrades from Elastic Runtime 1.7.20, by updating UAA to version 3.6.1.
+
 ## 1.7.23
 
-Note: If you are starting at Elastic Runtime 1.7.20 before upgrading to this version, please contact Pivotal Support before you proceed with this upgrade.
+Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
 
 Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
 
 ## 1.7.22
 
-Note: If you are starting at Elastic Runtime 1.7.20 before upgrading to this version, please contact Pivotal Support before you proceed with this upgrade.
+Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
 
 Re-orders the MySQL Monitor job deployment to deploy after the UAA job, so that the required UAA client is ready before the monitor deploys.
 
 ## 1.7.21
 
-Note: If you are starting at Elastic Runtime 1.7.20 before upgrading to this version, please contact Pivotal Support before you proceed with this upgrade.
+Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
 
 Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
 
 ## 1.7.20
-
-Note: If you are starting at Elastic Runtime 1.7.20 before upgrading to this version, please contact Pivotal Support before you proceed with this upgrade.
 
 This version adds a manifest change for Diego that enables successful upgrades to a future 1.8.0 version of Elastic Runtime, once that is released.
 
