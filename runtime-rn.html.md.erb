@@ -34,26 +34,24 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 ## Patches:
 
 ## 1.8.4
-
-Resolves an issue where upgrades from v1.7.20 were not working properly, by updating UAA to version 3.6.1.
-
+Bumps UAA to version 
 Also introduces a field in the Advanced Features section which allows you to add any networks that need access to the internal file storage of Elastic Runtime (WebDAV server). The default whitelist includes all RFC 1919 private IP ranges, so if your Elastic Runtime deployment is not using an RFC 1918 network for its private network, then you must add your network to this list. Otherwise, you do not need to do anything here.
 
 ## 1.8.3
 
-Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
+Note: Do not upgrade to this version if you are starting with 1.7.20, or any version 1.7.24 or greater.
 
 Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
 
 ## 1.8.2
 
-Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
+Note: Do not upgrade to this version if you are starting with 1.7.20, or any version 1.7.24 or greater.
 
 Fixes an issue where having SSL validation enabled while using the internal file storage in Elastic Runtime was preventing successful retrieval of files.
 
 ## 1.8.1
 
-Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
+Note: Do not upgrade to this version if you are starting with 1.7.20, or any version 1.7.24 or greater.
 
 Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
 
@@ -152,6 +150,12 @@ This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which 
 This section lists new and existing known issues for Elastic Runtime.
 
 ### <a id='newissues'></a> New Issues
+
+* Do not upgrade to versions 1.8.0 - 1.8.3 if you are starting with 1.7.20, or any version 1.7.24 or greater.
+
+* In Elastic Runtime 1.8.0 - 1.8.2, if you are using a non-RFC 1918 network as your private network for the deployment and internal file storage for Cloud Controller, then you will not be able to push apps to the system. 1.8.3 will address this issue by allowing you to specify a non-RFC 1918 network that you want to use.
+
+* In Elastic Runtime 1.8.0 and 1.8.1, if you are using the internal file storage for Cloud Controller and you have the "Disable SSL certificate verification for this environment" checkbox unchecked, you will not be able to push apps to the system. 1.8.2 addresses this issue.
 
 * If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
 
