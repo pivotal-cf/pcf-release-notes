@@ -37,6 +37,8 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 Resolves an issue where upgrades from v1.7.20 were not working properly, by updating UAA to version 3.6.1.
 
+Also introduces a field in the Advanced Features section which allows you to add any networks that need access to the internal file storage of Elastic Runtime (WebDAV server). The default whitelist includes all RFC 1919 private IP ranges, so if your Elastic Runtime deployment is not using an RFC 1918 network for its private network, then you must add your network to this list. Otherwise, you do not need to do anything here.
+
 ## 1.8.3
 
 Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
