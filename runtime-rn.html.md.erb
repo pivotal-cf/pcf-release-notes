@@ -22,6 +22,12 @@ owner: Release Engineering
 -- Elastic Runtime 1.7.3 to 1.7.6 are on UAA 3.3.0.1
 -- Elastic Runtime 1.7.1 to 1.7.3 are on UAA 3.3.0
 
+## 1.7.25
+
+Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed. This only affects deployments using internal mysql as a database.
+Changes the route for the switchboard UI for the internal mysql proxies. Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DOMAIN`.
+Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`. This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
+
 ## 1.7.24
 
 Fixes an issue with upgrades from Elastic Runtime 1.7.20, by updating UAA to version 3.6.1.
