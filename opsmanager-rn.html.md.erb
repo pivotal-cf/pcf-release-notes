@@ -12,6 +12,33 @@ Before you upgrade to Ops Manager v1.8, ensure that existing product tiles such 
 After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8, as well as other specific product versions if you are using them. For required version numbers and instructions, see [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products).
 
 
+### 1.8.4 Patch
+
+* Fixed a bug that prevented users from having special characters and spaces while defining AZ names in OpsManager. 
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3263.4</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 26</td>
+	</tr>
+	</tbody>
+	</table>
+
+
 ### 1.8.3 Patch
 
 * Patches USN-3087-2. Additional information can be found at https://pivotal.io/security. 
