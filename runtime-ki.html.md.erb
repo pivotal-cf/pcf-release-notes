@@ -38,7 +38,7 @@ If you need further assistance, please contact [Pivotal Support](https://support
 
 * Autoscaling does not work in PCF Elastic Runtime versions 1.7.10 to 1.7.13.
 
-* The Single Sign-On service tile operates in lockstep with PCF Elastic Runtime. If you are a customer upgrading from PCF 1.6 to PCF 1.7 and you are using SSO v1.0.x, you must upgrade to the SSO v1.1.0 service tile when you upgrade the Elastic Runtime Tile to 1.7.
+* The Single Sign-On service tile operates in lockstep with PCF Elastic Runtime. If you are a customer upgrading from PCF 1.6 to PCF 1.7 and you are using SSO v1.0.x, you must upgrade to the SSO v1.1.0 service tile while you are upgrading the Elastic Runtime Tile to 1.7, in the same "Update" step.
 
 * LDAP SSL with self-signed certificates is not functional in the PCF 1.7.2 release. Upgrading to this release will cause UAA to not start up. This issue will be addressed in the next patch release (1.7.3) of PCF.
 
@@ -78,6 +78,3 @@ If you need further assistance, please contact [Pivotal Support](https://support
 * On the Security Config page of Elastic Runtime, after you supply your own cipher sets and click Save, do not erase the HAProxy and Router Cipher fields. The ciphers will not return to their default values when deleted, and will instead be interpreted as an empty cipher set.
 
 * When selecting between internal and external System Database and/or File Storage config, if saved values for external systems fail verification (e.g. a host is not reachable from Ops Manager), the values will persist if you then select 'Internal Databases' or 'Internal File Store'. To resolve this issue, return to your Ops Manager Installation Dashboard and click **Revert**, located in the upper right corner of the page.
-
-
-
