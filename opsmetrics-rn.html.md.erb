@@ -3,7 +3,7 @@ title: Pivotal Cloud Foundry Ops Metrics v1.6.X Release Notes
 owner: PCF Metrics
 ---
 
-## Version 1.6.18
+## Version 1.6.19
 
 ### Known issues
 For Known Issues, please see the [Ops Metrics Known Issues](opsmetrics-ki.html) documentation.  For Ops Metrics 1.6.X there is one important install ordering dependency before enabling the OpenTSDB firehose nozzle job.
@@ -23,4 +23,4 @@ For Known Issues, please see the [Ops Metrics Known Issues](opsmetrics-ki.html) 
 * Upgrading from Ops Metrics 1.4.X to 1.6.X will leave the firehose nozzle job disabled (since it did not exist previously).
 * Upgrading from Ops Metrics 1.5.X to 1.6.X will enable the firehose nozzle by default (since it was enabled before upgrading).
   * If you are upgrading to resolve an installation error with 1.5.X, immediately disable the firehose job before deploying, and enable once you have deployed Elastic Runtime.
-* Stemcell for 1.6.18 is 3232.21
+* Stemcell for 1.6.19 is 3233.1
