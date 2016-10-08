@@ -4,6 +4,8 @@ title: Pivotal Elastic Runtime v1.6 Known Issues
 
 #### New Issues
 
+* **Elastic Runtime 1.6.35 and greater**: There is an issue on these versions where the Consul server deployment may fail if you are deploying to a private network that does not use RFC 1918 private IP addresses.
+
 * **Elastic Runtime 1.6.24 upgrades**: Upgrading Elastic Runtime to or from this version may not be accepted by bosh. If you have Elastic Runtime 1.6.24 added to your PCF environment but not successfully installed, you should remove it. If it is installed, you can upgrade to later versions but you may have to `bosh delete` a release package that bosh believes has a conflicting file hash.
 
 * **Elastic Runtime 1.6.15 UAA with LDAP startup**: There's a UAA startup issue for customers using the LDAP user store when they upgrade from Elastic Runtime 1.5.x or v1.6.0-1.6.14 to 1.6.15. The workaround is to manually delete the LDAP provider from the UAA DB by issuing the following query DELETE FROM identity_provider WHERE type='ldap', and then upgrade to 1.6.15. This issue was resolved in Elastic Runtime 1.6.16.
