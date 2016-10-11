@@ -35,13 +35,15 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 ## 1.8.6
 
-Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed.
-This only affects deployments using internal mysql as a database.
+Adds the ability to perform an HTTP health check against the router VMs. This health-check endpoint is located at port `8080` on the `/health` path.
 
-Additionally, this release changes the route for the switchboard UI for the internal mysql proxies.
-Previously, those dashboards were located at proxy-X-p-mysql.internal.SYSTEM_DOMAIN.
-Now they can be found at proxy-X-p-mysql-ert.SYSTEM_DOMAIN.
-This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
+Fixes an issue with running Windows apps in Diego.
+
+Relaxes the minimum upgrade version back to 1.7.20. This was conservatively raised to 1.7.21, but it was found to be unnecessarily restrictive.
+
+Includes a patch that fixes the default value for the WebDAV network. This value was previously misconfigured with an incorrect network range.
+The result of deploying with this misconfiguration could result in a failed deployment depending upon what network ranges your deployment uses.
+After redeploying with this corrected default, if you find that the smoke tests fail with an error message indicating missing buildpacks, manually rolling the `cloud_controller` VMs should resolve the issue.
 
 ## 1.8.5
 
@@ -49,9 +51,13 @@ Adds the ability to use Google Cloud Storage for your File Storage configuration
 
 Adds an HTTP frontend healthcheck to the HAProxy job, at the /health endpoint.
 
-Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed. This only affects deployments using internal mysql as a database.
-Changes the route for the switchboard UI for the internal mysql proxies. Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DOMAIN`.
-Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`. This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
+Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed.
+This only affects deployments using internal mysql as a database.
+
+Additionally, this release changes the route for the switchboard UI for the internal mysql proxies.
+Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DOMAIN`.
+Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`.
+This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
 
 ## 1.8.4
 
