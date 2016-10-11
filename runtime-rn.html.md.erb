@@ -33,6 +33,16 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 ## Patches:
 
+## 1.8.6
+
+Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed.
+This only affects deployments using internal mysql as a database.
+
+Additionally, this release changes the route for the switchboard UI for the internal mysql proxies.
+Previously, those dashboards were located at proxy-X-p-mysql.internal.SYSTEM_DOMAIN.
+Now they can be found at proxy-X-p-mysql-ert.SYSTEM_DOMAIN.
+This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
+
 ## 1.8.5
 
 Adds the ability to use Google Cloud Storage for your File Storage configuration.
