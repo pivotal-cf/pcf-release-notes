@@ -3,6 +3,15 @@ title: Pivotal Elastic Runtime v1.7 Known Issues
 owner: Release Engineering
 ---
 
+## Issue with upgrade path between PCF Elastic Runtime v1.6.44 and v1.7.27
+
+We have detected an issue with the upgrade path from Elastic Runtime version 1.6.44 to 1.7.27.
+This issue only affect this specific upgrade path.
+When upgrading your Elastic Runtime with these specific versions there is a version clash between the release versions of etcd used in each of these releases.
+If you are currently on 1.6.44 and looking to upgrade to the 1.7 series, there will be a new release soon.
+If you are currently on 1.7.27, you will be able to upgrade to future releases.
+No immediate action is required.
+
 ## Issues with Application Uptime in PCF Elastic Runtime v1.7.0 - v1.7.15
 
 Issue:
