@@ -9,11 +9,12 @@ owner: Release Engineering
 - Diego version: 0.1467
 - Garden version: 0.337 -> 0.338 as of Elastic Runtime 1.7.5
 - CF MySQL version: 25.2
-- etcd version: 45
+- etcd version: 45 -> 49 as of Elastic Runtime 1.7.28
 - Apps Manager release version: 629
 - Consul version: 80 -> 96 as of Elastic Runtime 1.7.12 -> 101 as of Elastic Runtime 1.7.26
 - UAA versions:
--- Elastic Runtime 1.7.24 and greater are on UAA 3.6.1
+-- Elastic Runtime 1.7.27 and greater are on UAA 3.6.2
+-- Elastic Runtime 1.7.24 to 1.7.26 are on UAA 3.6.1
 -- Elastic Runtime 1.7.21 to 1.7.23 are on UAA 3.3.0.6
 -- Elastic Runtime 1.7.20 is on UAA 3.6.0
 -- Elastic Runtime 1.7.16 to 1.7.19 are on UAA 3.3.0.4
@@ -21,6 +22,12 @@ owner: Release Engineering
 -- Elastic Runtime 1.7.7 to 1.7.12 are on UAA 3.3.0.2
 -- Elastic Runtime 1.7.3 to 1.7.6 are on UAA 3.3.0.1
 -- Elastic Runtime 1.7.1 to 1.7.3 are on UAA 3.3.0
+
+## 1.7.28
+
+Bumps the required stemcell version to 3233.2. This stemcell is based on the 4.4 Linux kernel.
+This release also changes out the Garden backend for linux machines from garden-linux to garden-runc.
+Documentation for the garden-runc runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
 
 ## 1.7.27
 
