@@ -37,7 +37,7 @@ If you are currently on Elastic Runtime v1.8.7 or earlier, you should update you
 Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
 Ubuntu is no longer providing CVE patches for Linux kernel v3.19. 
 
-Ensure that you have updated to Ops Manager v1.8.2 or later before updating Elastic Runtime. 
+Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.8.2 or later. 
 
 After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
 
@@ -59,7 +59,9 @@ It enables container-to-container networking and the new “grootfs” OCI-compl
 * Garden-runC uses the same low-level container execution code as docker/k8s for running containers, 
 so that your container images run the same in PCF as elsewhere.
 
-Lastly Garden-runC has been been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month. And, it has been tested at lower load for some months before that. However, as always, make sure to test in a staging environment before deploying to production.
+Lastly Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) 
+for around a month. And, it has been tested at lower load for some months before that. 
+However, as always, make sure to test in a staging environment before deploying to production.
 
 ## 1.8.7
 
