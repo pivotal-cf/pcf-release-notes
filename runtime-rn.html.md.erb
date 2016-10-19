@@ -31,13 +31,35 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 - Ruby Buildpack: 1.6.19
 - Staticfile Buildpack: 1.3.9
 
+### <a name='update'></a>About Updating to Elastic Runtime v1.8.8 or Later
+
+If you are currently on Elastic Runtime v1.8.7 or earlier, you should update your Elastic Runtime. 
+Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
+Ubuntu is no longer providing CVE patches for Linux kernel v3.19. 
+
+Ensure that you have updated to Ops Manager v1.8.2 or later before updating Elastic Runtime. 
+
+After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
+
 ## Patches:
 
-## 1.8.8
+## <a name='188'></a>1.8.8
 
 Bumps the required stemcell version to 3263.7. This stemcell is based on the 4.4 Linux kernel.
-This release also changes out the Garden backend for Linux machines from Garden-Linux to Garden-runC.
+Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
 Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
+
+Advantages of Garden-runC over Garden-Linux are: 
+
+* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers. 
+* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface 
+area for break-out exploits. This is set up out-of-the-box; you don't need to do anything. 
+* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management. 
+It enables container-to-container networking and the new “grootfs” OCI-compliant rootfs downloader.
+* Garden-runC uses the same low-level container execution code as docker/k8s for running containers, 
+so that your container images run the same in PCF as elsewhere.
+
+Lastly Garden-runC has been been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month. And, it has been tested at lower load for some months before that. However, as always, make sure to test in a staging environment before deploying to production.
 
 ## 1.8.7
 
