@@ -23,11 +23,31 @@ owner: Release Engineering
 -- Elastic Runtime 1.7.3 to 1.7.6 are on UAA 3.3.0.1
 -- Elastic Runtime 1.7.1 to 1.7.3 are on UAA 3.3.0
 
-## 1.7.28
+## <a name='update'></a>About Updating to Elastic Runtime v1.7.28 or Later
+
+If you are currently on Ops Manager v1.7.27 or earlier, you should update your Elastic Runtime. 
+Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
+Ubuntu is no longer providing CVE patches for Linux kernel v3.19. 
+
+Ensure that you have updated to Ops Manager v1.7.15 or later before updating Elastic Runtime. 
+
+## <a name='1728'></a>1.7.28
 
 Bumps the required stemcell version to 3233.2. This stemcell is based on the 4.4 Linux kernel.
-This release also changes out the Garden backend for Linux machines from Garden-Linux to Garden-runC.
+Elastic Runtime v1.7.28 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
 Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
+
+Advantages of Garden-runC over Garden-Linux are: 
+
+* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers. 
+* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface 
+area for break-out exploits. This is set up out-of-the-box; you don't need to do anything. 
+* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management. 
+It enables container-to-container networking and the new “grootfs” OCI-compliant rootfs downloader.
+* Garden-runC uses the same low-level container execution code as docker/k8s for running containers, 
+so that your container images run the same in PCF as elsewhere.
+
+Lastly Garden-runC has been been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month. And, it has been tested at lower load for some months before that. However, as always, make sure to test in a staging environment before deploying to production.
 
 ## 1.7.27
 
@@ -35,7 +55,7 @@ Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://p
 
 ## 1.7.26
 
-Fixes an issue where you cannot successflly deploy Consul servers with public IP addresses, in case your network that you have deployed Elastic Runtime to is not an RFC 1918 private network.
+Fixes an issue where you cannot successfully deploy Consul servers with public IP addresses, in case your network that you have deployed Elastic Runtime to is not an RFC 1918 private network.
 Allows the operator to define supported currencies for the service marketplace. This new property can be configured in the "Apps Manager" configuration form.
 Fixes an issue with running Windows apps in Diego.
 

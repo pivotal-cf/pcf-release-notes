@@ -8,6 +8,12 @@ owner: Ops Manager
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading-pcf.html).
 
+### <a name="update"></a> About Updating to Ops Manager v1.7.15 or Later
+
+If you are currently on Ops Manager v1.7.14 or earlier, you should update your Ops Manager. 
+Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
+Ubuntu is no longer providing CVE patches for Linux kernel v3.19. 
+
 ### 1.7.16 Patch
 
 * Patches USN-3099-2. Additional information can be found at https://pivotal.io/security.
