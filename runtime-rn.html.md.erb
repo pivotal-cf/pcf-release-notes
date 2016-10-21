@@ -43,7 +43,15 @@ After updating Elastic Runtime, update your PCF Service tiles to the latest poin
 
 ## Patches:
 
-## <a name='188'></a>1.8.8
+## 1.8.9
+
+* Ability to configure `drain_wait` and `load_balancer_healthy_threshold` on the router. Should be helpful to customers with
+F5s.
+* UAA now allows for a custom regular expression to be set for Proxy IP's.
+* Cloud Controller received a patch to prevent monit from hanging when the NFS server becomes unavailable.
+* Split apart diego-bbs and general etcd cluster, they were combined into one large cluster previously.
+
+## 1.8.8
 
 Bumps the required stemcell version to 3263.7. This stemcell is based on the 4.4 Linux kernel.
 Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
