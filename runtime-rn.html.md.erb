@@ -31,7 +31,15 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.7.15 or later.
 
-## <a name='1728'></a>1.7.28
+## 1.7.29
+
+* Fixed an inconsistency between the hostname and the contents of /etc/hosts that would cause some java apps to crash.
+* Ability to configure `drain_wait` and `load_balancer_healthy_threshold` on the router. Should be helpful to customers with
+F5s.
+* UAA now allows for a custom regular expression to be set for Proxy IP's.
+* Cloud Controller received a patch to prevent monit from hanging when the NFS server becomes unavailable.
+
+## 1.7.28
 
 Bumps the required stemcell version to 3233.2. This stemcell is based on the 4.4 Linux kernel.
 Elastic Runtime v1.7.28 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
