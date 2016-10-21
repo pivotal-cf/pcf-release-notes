@@ -41,6 +41,36 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
 
+#### Special note about the diego-bbs for v1.8.9
+
+The Problem
+---
+
+Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what 
+is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
+
+The Impact
+---
+
+This can lead to inconsistencies between diego datasets which can result in app downtime or apps not successfully returning during a deploy.
+
+Upgrade Paths
+---
+
+1.7.x -> 1.8.0-1.8.8
+Customers shouldn’t attempt to upgrade to any version between 1.8.0-1.8.8. If you have already upgraded, you should immediately scale down to one 
+diego-bbs and then upgrade to at least 1.8.9.
+
+1.7.x -> 1.8.9
+Recommended action is to scale down to one diego-bbs before attempting an upgrade. This scale-down can be done before or during the upgrade deployment. 
+Scale back up to an HA configuration after the upgrade deployment has successfully completed.
+
+1.8.x -> 1.8.9
+No action required, you can upgrade a multi-node diego-bbs deployment without issue.
+
+1.8.9 -> 1.8.x
+No action is required.
+
 ## Patches:
 
 ## 1.8.9
