@@ -41,45 +41,14 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
 
-#### Special note about the diego-bbs for v1.8.9
-
-The Problem
----
-
-Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what 
-is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
-
-The Impact
----
-
-This can lead to inconsistencies between diego datasets which can result in app downtime or apps not successfully returning during a deploy.
-
-Upgrade Paths
----
-
-1.7.x -> 1.8.0-1.8.8
-Customers shouldn’t attempt to upgrade to any version between 1.8.0-1.8.8. If you have already upgraded, you should immediately scale down to one 
-diego-bbs and then upgrade to at least 1.8.9.
-
-1.7.x -> 1.8.9
-Recommended action is to scale down to one diego-bbs before attempting an upgrade. This scale-down can be done before or during the upgrade deployment. 
-Scale back up to an HA configuration after the upgrade deployment has successfully completed.
-
-1.8.x -> 1.8.9
-No action required, you can upgrade a multi-node diego-bbs deployment without issue.
-
-1.8.9 -> 1.8.x
-No action is required.
-
 ## Patches:
 
 ## 1.8.9
 
-* Ability to configure `drain_wait` and `load_balancer_healthy_threshold` on the router. Should be helpful to customers with
-F5s.
-* UAA now allows for a custom regular expression to be set for Proxy IP's.
-* Cloud Controller received a patch to prevent monit from hanging when the NFS server becomes unavailable.
-* Split apart diego-bbs and general etcd cluster, they were combined into one large cluster previously.
+* Customers with f5 load balancers can configure `drain_wait` and `load_balancer_healthy_threshold` on the router.
+* UAA now allows for a custom regular expression to be set for Proxy IPs.
+* A patch to the Cloud Controller resolves an issue that caused monit to hang when the NFS server becomes unavailable.
+* This release separates diego-bbs and general etcd into their own clusters. These components were previously part of the same cluster.
 
 ## 1.8.8
 
@@ -161,6 +130,25 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 * After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
  
 * Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile. 
+
+## <a id="upgrade-issue"></a> Resolve Diego-BBS Issue when Upgrading from 1.7 to 1.8
+
+#### The Problem
+
+Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what 
+is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
+
+#### The Impact
+
+Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
+
+#### How to Resolve
+
+How you resolve this issue depends on your upgrade path. See the following list:
+
+* From **1.7.x** to **1.8.0-1.8.8**: Do not attempt to upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded,  scale down to one diego-bbs immediately and then upgrade to 1.8.9 or later.
+* From **1.7.x** to **1.8.9**: Pivotal recommends scaling down to one diego-bbs before attempting an upgrade. You can do this before or during the upgrade deployment. Scale back up to an HA configuration after the upgrade deployment.
+* From **1.8.x** to **1.8.x**: No action required.
 
 ## <a id='versions'></a> New Features in Elastic Runtime v1.8.0 
 
