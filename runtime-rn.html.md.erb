@@ -31,29 +31,77 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.7.15 or later.
 
-#### Special note about the diego-bbs when upgrading to v1.8.9
+### <a name="upgrade-issue"></a> Special Note about Diego-BBS Issue when Upgrading from 1.7 to 1.8
 
-The Problem
----
+#### The Problem
 
 Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what 
 is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
 
-The Impact
----
+See below for instructions on observing the problem.
 
-This can lead to inconsistencies between diego datasets which can result in app downtime or apps not successfully returning during a deploy.
+#### The Impact
 
-Upgrade Paths
----
+Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
 
-1.7.x -> 1.8.0-1.8.8
-Customers shouldn’t attempt to upgrade to any version between 1.8.0-1.8.8. If you have already upgraded, you should immediately scale down to one 
-diego-bbs and then upgrade to at least 1.8.9.
+<p class="note"><strong>Note</strong>: Fresh installations of PCF ER 1.8.9 or higher are <strong>not</strong> affected by this problem.</p>
 
-1.7.x -> 1.8.9
-Recommended action is to scale down to one diego-bbs before attempting an upgrade. This scale-down can be done before or during the upgrade deployment. 
-Scale back up to an HA configuration after the upgrade deployment has successfully completed.
+#### How to Resolve
+
+How you resolve this issue depends on your upgrade path and instance configuration. 
+
+* **From 1.7.x to 1.8.0-1.8.8** 
+	* For **Single node diego-bbs** instance configuration: Do not attempt to install or upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded, immediately upgrade to 1.8.9 or later.
+	* For **Multi node diego-bbs** instance configuration: 
+	Do not attempt install or upgrade to any PCF ER version between 1.8.0-1.8.8. If you have already upgraded, immediately scale down to one diego-bbs (see the section below for instructions) and then upgrade to PCF ER 1.8.9 or later. You can then scale back up to an HA configuration after the upgrade deployment.
+* **From 1.7.x to 1.8.9**
+	* For **Single node diego-bbs** instance configuration: No action required.
+	* For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs (see the section below for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. Scale back up to an HA configuration after the upgrade deployment.
+
+#### Scale Diego-BBS to One Instance
+
+In some cases you will need to scale down your Diego BBS cluster to one instance (please see above for a specific details around your upgrade path). To scale down to one instance:
+
+1. Go to the settings tab in the Pivotal Elastic Runtime Tile
+1. Select Resource Config
+1. Find the “Diego BBS” Job
+1. Set the Instances to “Automatic: 1”
+
+#### Observe The Problem
+
+In a multi-node diego-bbs deployment configuration:
+
+1. ssh to your Ops Manager.
+1. bosh ssh onto your diego-bbs instance
+1. `$ sudo su -`
+1. Execute the following command, replacing `JOB_NAME` and `JOB_INDEX` with their appropriate values:
+
+	<pre class="terminal">
+	/var/vcap/packages/etcd/etcdctl -ca-file=/var/vcap/jobs/etcd/config/certs/server-ca.crt -cert-file=/var/vcap/jobs/etcd/config/certs/client.crt -key-file=/var/vcap/jobs/etcd/config/certs/client.key -C https://{JOB_NAME}-{JOB_INDEX}.etcd.service.cf.internal:4001 member list
+	</pre>
+
+	You  should only see one etcd instance in an output which looks similar to this:
+
+	<pre class="terminal">
+	1b8722e8a026db8e: name={JOB_NAME}-{JOB_INDEX} peerURLs=https://{JOB_NAME}-{JOB_INDEX}.etcd.service.cf.internal:7001 clientURLs=https://{JOB_NAME}-{JOB INDEX}.etcd.service.cf.internal:4001
+	</pre>
+
+	You can also run the following command to confirm that the current node is a leader with no followers:
+
+	<pre class="terminal">
+	curl --cacert /var/vcap/jobs/etcd/config/certs/server-ca.crt \
+	--cert /var/vcap/jobs/etcd/config/certs/client.crt \
+	--key /var/vcap/jobs/etcd/config/certs/client.key \ https://{JOB_NAME}-{JOB_INDEX}.etcd.service.cf.internal:4001/v2/stats/leader
+	</pre>
+
+	You should see similar output to this:
+
+	<pre class="terminal">
+	{"leader":”1b8722e8a026db8e","followers":{}}
+	</pre>
+
+	If you execute the `member list` and the `curl` commands against each node in your diego-bbs job, you will see that each node only contains itself in the member list and the leader query.
+
 
 ## 1.7.29
 
