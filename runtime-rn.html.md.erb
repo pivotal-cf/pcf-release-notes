@@ -58,26 +58,26 @@ Inconsistencies between diego datasets can result in app downtime or apps not su
 
 #### How to Resolve
 
-How you resolve this issue depends on your upgrade path.
+How you resolve this issue depends on your upgrade path and instance configuration. 
 
-**From 1.7.x to 1.8.0-1.8.8** 
+* **From 1.7.x to 1.8.0-1.8.8** 
+	* For **Single node diego-bbs** instance configuration: Do not attempt to install or upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded, immediately upgrade to 1.8.9 or later.
+	* For **Multi node diego-bbs** instance configuration: 
+	Do not attempt install or upgrade to any PCF ER version between 1.8.0-1.8.8. If you have already upgraded, immediately scale down to one diego-bbs (see the section below for instructions) and then upgrade to PCF ER 1.8.9 or later. You can then scale back up to an HA configuration after the upgrade deployment.
+* **From 1.7.x to 1.8.9**
+	* For **Single node diego-bbs** instance configuration: No action required.
+	* For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs (see the section below for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. Scale back up to an HA configuration after the upgrade deployment.
+* **From 1.8.x to 1.8.x** 
+	* No action required.
 
-Do not attempt to upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded, scale down to one diego-bbs immediately and then upgrade to 1.8.9 or later.
+#### Scale Diego-BBS to One Instance
 
-For **Single node diego-bbs** instance configuration: Do not attempt to install or upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded, immediately upgrade to 1.8.9 or later.
+In some cases you will need to scale down your Diego BBS cluster to one instance (please see above for a specific details around your upgrade path). To scale down to one instance:
 
-For **Multi node diego-bbs** instance configuration: 
-Do not attempt install or upgrade to any PCF ER version between 1.8.0-1.8.8. If you have already upgraded, immediately scale down to one diego-bbs and then upgrade to PCF ER 1.8.9 or later. You can then scale back up to an HA configuration after the upgrade deployment.
-
-**From 1.7.x to 1.8.9**
-
-For **Single node diego-bbs** instance configuration: No action required.
-
-For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs before attempting an upgrade. You can do this before or during the upgrade deployment. Scale back up to an HA configuration after the upgrade deployment.
-
-**From 1.8.x to 1.8.x** 
-
-No action required.
+1. Go to the settings tab in the Pivotal Elastic Runtime Tile
+1. Select Resource Config
+1. Find the “Diego BBS” Job
+1. Set the Instances to “Automatic: 1”
 
 #### Observe The Problem
 
