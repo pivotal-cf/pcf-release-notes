@@ -35,28 +35,27 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 #### The Problem
 
+<p class="note"><strong>Note</strong>: Fresh installations of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
+
 Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what 
 is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
 
-See below for instructions on observing the problem.
+See below for instructions on observing and resolving the problem.
 
 #### The Impact
 
 Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
 
-<p class="note"><strong>Note</strong>: Fresh installations of PCF ER 1.8.9 or higher are <strong>not</strong> affected by this problem.</p>
+#### Already Downloaded PCF ER 1.8.0-1.8.8
 
-#### How to Resolve
+If you haven't attempted an upgrade, please download PCF ER 1.8.10 or higher and proceed with the instructions below
 
-How you resolve this issue depends on your upgrade path and instance configuration. 
+#### How to Upgrade Safely to PCF ER 1.8.10+ and/or Repair a Broken Cluster
 
-* **From 1.7.x to 1.8.0-1.8.8** 
-	* For **Single node diego-bbs** instance configuration: Do not attempt to install or upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded, immediately upgrade to 1.8.9 or later.
-	* For **Multi node diego-bbs** instance configuration: 
-	Do not attempt install or upgrade to any PCF ER version between 1.8.0-1.8.8. If you have already upgraded, immediately scale down to one diego-bbs (see the section below for instructions) and then upgrade to PCF ER 1.8.9 or later. You can then scale back up to an HA configuration after the upgrade deployment.
-* **From 1.7.x to 1.8.9**
+This is applicable to all upgrade paths, both 1.7.x to 1.8.10+ and 1.8.x to 1.8.10+. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
+
 	* For **Single node diego-bbs** instance configuration: No action required.
-	* For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs (see the section below for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. Scale back up to an HA configuration after the upgrade deployment.
+	* For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs (see the section below for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
 
 #### Scale Diego-BBS to One Instance
 
