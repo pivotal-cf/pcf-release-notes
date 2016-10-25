@@ -33,9 +33,9 @@ Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Fou
 
 ## <a id='update'></a>About Updating to Elastic Runtime v1.8.9 or Later
 
-If you are currently on Elastic Runtime v1.8.7 or earlier, you should update your Elastic Runtime. 
-Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
-Ubuntu no longer provides CVE patches for Linux kernel v3.19. 
+If you are currently on Elastic Runtime v1.8.7 or earlier, you should update your Elastic Runtime.
+Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
+Ubuntu no longer provides CVE patches for Linux kernel v3.19.
 
 Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.8.2 or later, and see the section below to avoid an issue with diego-bbs when updating.
 
@@ -43,38 +43,33 @@ After updating Elastic Runtime, update your PCF Service tiles to the latest poin
 
 ## <a id="upgrade-issue"></a> Resolve Diego-BBS Issue when Upgrading from 1.7 to 1.8
 
-See the following sections to understand and resolve an issue that occurs with the diego-bbs when upgrading Elastic Runtime. 
+#### The Problem
 
-### <a name="problem-bbs"></a>The Problem
+<p class="note"><strong>Note</strong>: Fresh installations of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
 
-Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what 
+Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what
 is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
 
 See below for how to [Observe the Problem](#observe-bbs).
 
 ### <a name="impact-bbs"></a>The Impact
 
-Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
+Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy. See [the instructions below](#observe-bbs) to determine if your diego-bbs cluster is unhealthy
 
-<p class="note"><strong>Note</strong>: Fresh installations of PCF ER 1.8.9 or higher are <strong>not</strong> affected by this problem.</p>
+#### Already Downloaded PCF ER 1.8.0-1.8.8
 
-### <a name="resolve-bbs"></a>How to Resolve
+If you haven't attempted an upgrade, please download PCF ER 1.8.10 or higher and proceed with the instructions below
 
-How you resolve this issue depends on your upgrade path and instance configuration. 
+#### How to Upgrade Safely to PCF ER 1.8.10+ and/or Repair a Broken Cluster
 
-* **From 1.7.x to 1.8.0-1.8.8** 
-	* For **Single node diego-bbs** instance configurations: Do not attempt to install or upgrade to any version between 1.8.0 and 1.8.8. If you have already upgraded, immediately upgrade to 1.8.9 or later.
-	* For **Multi node diego-bbs** instance configurations: 
-	Do not attempt to install or upgrade to any PCF Elastic Runtime version between 1.8.0-1.8.8. If you have already upgraded, immediately [scale down to one diego-bbs](#scale-bbs) and then upgrade to PCF ER 1.8.9 or later. You can then scale back up to an HA configuration after the upgrade deployment.
-* **From 1.7.x to 1.8.9**
-	* For **Single node diego-bbs** instance configurations: No action required.
-	* For **Multi node diego-bbs** instance configurations: Pivotal recommends [scaling down to one diego-bbs](#scale-bbs) before attempting an upgrade. You can do this before or during the upgrade deployment. Scale back up to an HA configuration after the upgrade deployment.
-* **From 1.8.x to 1.8.x** 
-	* No action required.
+This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 1.8.x to 1.8.10+ should not require these steps if your diego-bbs cluster is already healthy. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
+
+	* For **Single node diego-bbs** instance configuration: No action required.
+	* For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
 
 #### <a name="scale-bbs"></a>Scale Diego-BBS to One Instance
 
-In some cases, defined in the [How to Resolve](#resolve-bbs) section, you need to scale down your Diego BBS cluster to one instance. To scale down to one instance:
+In some cases you will need to scale down your Diego BBS cluster to one instance (please see above for a specific details around your upgrade path). To scale down to one instance:
 
 1. Navigate to the **Settings** tab in the Pivotal Elastic Runtime Tile.
 1. Select **Resource Config**.
@@ -115,7 +110,6 @@ In a multi-node diego-bbs deployment configuration:
 	</pre>
 
 	If you execute the `member list` and the `curl` commands against each node in your diego-bbs job, you will see that each node only contains itself in the member list and the leader query.
-
 
 ## Patches:
 
