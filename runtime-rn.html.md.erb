@@ -43,7 +43,7 @@ Also introduces a field in the Advanced Features section which allows you to add
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
-Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
+Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security.
 
 ## 1.8.2
 
@@ -64,10 +64,12 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 * Before upgrading to PCF v1.8, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
 
 * After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
- 
-* Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile. 
 
-## <a id='versions'></a> New Features in Elastic Runtime v1.8.0 
+* Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+
+* Apps Manager requires the NodeJS Buildpack 1.5.14 or higher.
+
+## <a id='versions'></a> New Features in Elastic Runtime v1.8.0
 
 ### <a id='routing'></a> Routing
 
@@ -79,7 +81,7 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 
 ### <a id='authen'></a> Authentication and Authorization
 
-- Apps Manager now supports inviting external users from LDAP & SAML user stores. See the [Adding Existing SAML or LDAP Users to a Pivotal Cloud Foundry Deployment](../../opsguide/external-user-management.html) topic for more information. 
+- Apps Manager now supports inviting external users from LDAP & SAML user stores. See the [Adding Existing SAML or LDAP Users to a Pivotal Cloud Foundry Deployment](../../opsguide/external-user-management.html) topic for more information.
 
 - PCF Admin role can now be derived from SAML group memberships. See the [Grant Admin Permissions to an External Group (SAML or LDAP)](../../adminguide/uaa-user-management.html#external-group) topic for more information.
 
@@ -97,7 +99,7 @@ See the [Set Proxies for Docker Trusted Registries](../../opsguide/docker-regist
 
 ### <a id='pivotalaccount'></a> Pivotal Account User Management Tool
 
-Pivotal Account is a user management tool that allows users to create and manage their accounts. With Pivotal Account users can access apps assigned to their accounts as well as manage their apps. See the [Enabling Pivotal Account](../../opsguide/pivotal-account.html) topic for more information. 
+Pivotal Account is a user management tool that allows users to create and manage their accounts. With Pivotal Account users can access apps assigned to their accounts as well as manage their apps. See the [Enabling Pivotal Account](../../opsguide/pivotal-account.html) topic for more information.
 
 ### <a id='appcontainers'></a> Unprivileged App Containers
 
@@ -115,7 +117,7 @@ For example, see the [Configure File Storage](../../customizing/config-er-vmware
 
 The internal file storage provisioned by Cloud Foundry for Cloud Controller files has been switched from an NFS server to the WebDAV protocol. There is no actual data migration as part of this switch. The protocol changes on the file server. When you upgrade to Elastic Runtime v1.8.0 or later, you are automatically switched over.
 
-See this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/217982188-How-to-use-Elastic-Runtime-blob-storage-data-) for more information about file storage. 
+See this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/217982188-How-to-use-Elastic-Runtime-blob-storage-data-) for more information about file storage.
 
 ### <a id='sshproxy'></a> Configurable SSH Proxy for Diego Containers
 
@@ -133,7 +135,7 @@ As of PCF v1.8.0, the Collector job on Elastic Runtime is deprecated and no long
 
 ### <a id='apivisible'></a> API Environment Variable Visibility
 
-Similar to `space_developer_env_var_visibility`, the new feature flag `env_var_visibility` can be disabled to deny access to `/v2/apps/:guid/env` for all users, including administrators. 
+Similar to `space_developer_env_var_visibility`, the new feature flag `env_var_visibility` can be disabled to deny access to `/v2/apps/:guid/env` for all users, including administrators.
 
 See the [Feature Flags](../../adminguide/listing-feature-flags.html#flags) topic for more information.
 
@@ -167,7 +169,9 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
 
-* If you choose to enable TCP routing, do not delete etcd data stores when performing failure recovery procedures. The routing API persists router group data to maintain associations with other databases. This data should not be removed. 
+* If you choose to enable TCP routing, do not delete etcd data stores when performing failure recovery procedures. The routing API persists router group data to maintain associations with other databases. This data should not be removed.
+
+* Customers using an additional nodeJS buildpack or who have replaced the system nodeJS buildpack may encounter deployment issues with Apps Manager. Please contact support if you encounter problems deploying Apps Manager.
 
 ### <a id='existingissues'></a> Existing Issues
 
@@ -175,7 +179,7 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * Consul server cluster can fail to recover from quorum loss. See the [Consul fails to start during upgrade in PCF](https://discuss.pivotal.io/hc/en-us/articles/218196687-Consul-fails-to-start-during-upgrade-in-PCF) knowledge base article for how to recover from this issue.
 
-* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain. 
+* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain.
 * Disaster recovery for etcd or Consul clusters still requires manual intervention.
 
 * The Cloud Foundry CLI command for viewing application files, `cf files`, does not work with apps on Diego.
