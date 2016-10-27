@@ -7,7 +7,7 @@ A repo that stores the release notes that publish to the PCF versioned release n
 
 Use the branch for the product version number you are updating. Release notes for versioned products publish from the branch of the same name, such as the PCF 1.7 release notes yield from the `1.7` branch of this repo.
 
-**To publish updates to your release notes (if the docs team is unavailable)**
+**To publish updates to your release notes (if the docs team is unavailable):**
 
 Requirement: If you cannot reach the Docs team to Publish your release notes, you need to have access permission to the CI/CD pipelines that publish `production` release notes. 
 
