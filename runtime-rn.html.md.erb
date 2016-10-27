@@ -41,7 +41,7 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
 
-## <a id="upgrade-issue"></a> Resolve Diego-BBS Issue when Upgrading from 1.7 to 1.8
+## <a id="upgrade-issue"></a> Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8
 
 #### The Problem
 
@@ -64,7 +64,7 @@ This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 
 * For **Single node Diego BBS** instance configuration: No action required.
 * For **Multi node Diego BBS** instance configuration: Pivotal recommends scaling down to one Diego BBS (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
 
-#### <a name="scale-bbs"></a>Scale Diego-BBS to One Instance
+#### <a name="scale-bbs"></a>Scale Diego BBS to One Instance
 
 In some cases you will need to scale down your Diego BBS cluster to one instance (please see above for a specific details around your upgrade path). To scale down to one instance:
 
@@ -90,7 +90,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## 1.8.9
 
-If upgrading to 1.8.9 from 1.7, see the [Resolve Diego-BBS Issue when Upgrading from 1.7 to 1.8](#upgrade-issue) section above. 
+If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8](#upgrade-issue) section above. 
 
 * Customers with f5 load balancers can configure `drain_wait` and `load_balancer_healthy_threshold` on the router.
 * UAA now allows for a custom regular expression to be set for Proxy IPs.
