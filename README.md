@@ -19,6 +19,6 @@ The procedure to bump production notes:
     * [PCF 1-8 Staging](http://docs-pcf-staging.cfapps.io/pivotalcf/1-8/pcf-release-notes/index.html)
     * NOTE: **If not, do you need to hard refresh your page? (CNTL-SHIFT-R)**
   3. For **1-8**: From the [PCF 1-8 concourse group](https://pubtools.ci.cf-app.com/teams/main/pipelines/cf-current?groups=pcf-1-8), click to the **pcf-1-8-production** job and then click the **+** button (top right) to start a production build.
-  4. For **1-7**: From the [PCF 1-7 concourse group](https://pubtools.ci.cf-app.com/teams/main/pipelines/cf-previous-versions?groups=pcf-1-6), click to the **pcf-1-6-production** job and then click the **+** button (top right) to start a production build.  
+  4. For **1-7**: From the [PCF 1-7 concourse group](https://pubtools.ci.cf-app.com/teams/main/pipelines/cf-previous-versions?groups=pcf-1-7), click to the **pcf-1-6-production** job and then click the **+** button (top right) to start a production build.  
   5. For **1-6**: From the [PCF 1-6 concourse group](https://pubtools.ci.cf-app.com/teams/main/pipelines/cf-previous-versions?groups=pcf-1-6), click to the **pcf-1-6-production** job and then click the **+** button (top right) to start a production build.
 
