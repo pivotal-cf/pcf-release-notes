@@ -37,7 +37,7 @@ If you are currently on Elastic Runtime v1.8.7 or earlier, you should update you
 Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
 Ubuntu no longer provides CVE patches for Linux kernel v3.19.
 
-Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.8.2 or later, and see the section below to avoid an issue with diego-bbs when updating.
+Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.8.2 or later, and see the section below to avoid an issue with Diego BBS when updating.
 
 After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
 
@@ -45,16 +45,13 @@ After updating Elastic Runtime, update your PCF Service tiles to the latest poin
 
 #### The Problem
 
-<p class="note"><strong>Note</strong>: Fresh installations of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
+<p class="note"><strong>Note</strong>: Fresh installations (not upgrades) of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
 
-Multiple diego-bbs nodes start their own clusters instead of electing a single leader and forming one cluster. This leads to what
-is commonly referred to as a “split brain” with each diego-bbs node having its own set of diego-bbs data.
-
-See below for how to [Observe the Problem](#observe-bbs).
+When upgrading from PCF ERT 1.7.X to 1.8.0-1.8.8, deployments that included multiple instances of the Diego BBS VM would fail to upgrade.
 
 ### <a name="impact-bbs"></a>The Impact
 
-Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy. See [the instructions below](#observe-bbs) to determine if your diego-bbs cluster is unhealthy
+Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
 
 #### Already Downloaded PCF ER 1.8.0-1.8.8
 
@@ -62,10 +59,10 @@ If you haven't attempted an upgrade, please download PCF ER 1.8.10 or higher and
 
 #### How to Upgrade Safely to PCF ER 1.8.10+ and/or Repair a Broken Cluster
 
-This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 1.8.x to 1.8.10+ should not require these steps if your diego-bbs cluster is already healthy. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
+This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 1.8.x to 1.8.10+ should not require these steps if your Diego BBS cluster is already healthy. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
 
-	* For **Single node diego-bbs** instance configuration: No action required.
-	* For **Multi node diego-bbs** instance configuration: Pivotal recommends scaling down to one diego-bbs (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
+* For **Single node Diego BBS** instance configuration: No action required.
+* For **Multi node Diego BBS** instance configuration: Pivotal recommends scaling down to one Diego BBS (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
 
 #### <a name="scale-bbs"></a>Scale Diego-BBS to One Instance
 
@@ -75,41 +72,15 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 1. Select **Resource Config**.
 1. Find the `Diego BBS` job.
 1. Set **Instances** to `Automatic: 1`.
-
-### <a name="observe-bbs"></a>Observe The Problem
-
-In a multi-node diego-bbs deployment configuration:
-
-1. `ssh` into your Ops Manager.
-1. `bosh ssh` onto your `diego-bbs` instance.
-1. `$ sudo su -`.
-1. Execute the following command, replacing `JOB_NAME` and `JOB_INDEX` with their appropriate values:
-
-	<pre class="terminal">
-	/var/vcap/packages/etcd/etcdctl -ca-file=/var/vcap/jobs/etcd/config/certs/server-ca.crt -cert-file=/var/vcap/jobs/etcd/config/certs/client.crt -key-file=/var/vcap/jobs/etcd/config/certs/client.key -C https://{JOB_NAME}-{JOB_INDEX}.etcd.service.cf.internal:4001 member list
-	</pre>
-
-	You  should only see one etcd instance in an output which looks similar to this:
-
-	<pre class="terminal">
-	1b8722e8a026db8e: name={JOB_NAME}-{JOB_INDEX} peerURLs=https://{JOB_NAME}-{JOB_INDEX}.etcd.service.cf.internal:7001 clientURLs=https://{JOB_NAME}-{JOB INDEX}.etcd.service.cf.internal:4001
-	</pre>
-
-	You can also run the following command to confirm that the current node is a leader with no followers:
-
-	<pre class="terminal">
-	curl --cacert /var/vcap/jobs/etcd/config/certs/server-ca.crt \
-	--cert /var/vcap/jobs/etcd/config/certs/client.crt \
-	--key /var/vcap/jobs/etcd/config/certs/client.key \ https://{JOB_NAME}-{JOB_INDEX}.etcd.service.cf.internal:4001/v2/stats/leader
-	</pre>
-
-	You should see similar output to this:
-
-	<pre class="terminal">
-	{"leader":”1b8722e8a026db8e","followers":{}}
-	</pre>
-
-	If you execute the `member list` and the `curl` commands against each node in your diego-bbs job, you will see that each node only contains itself in the member list and the leader query.
+1. Save the **Resource Config**
+1. Navigate to the **Installation Dashboard** and click **Apply Changes**
+1. Upgrade the PCF Elastic Runtime Tile to a version greater than or equal to 1.8.10.
+1. Navigate to the **Settings** tab in the Pivotal Elastic Runtime Tile.
+1. Select **Resource Config**.
+1. Find the `Diego BBS` job.
+1. Reset **Instances** back to your originally configured value.
+1. Save the **Resource Config**
+1. At this point, you can continue your normal procedure for upgrading to the new version of PCF ERT.
 
 ## Patches:
 
@@ -124,7 +95,7 @@ If upgrading to 1.8.9 from 1.7, see the [Resolve Diego-BBS Issue when Upgrading 
 * Customers with f5 load balancers can configure `drain_wait` and `load_balancer_healthy_threshold` on the router.
 * UAA now allows for a custom regular expression to be set for Proxy IPs.
 * A patch to the Cloud Controller resolves an issue that caused monit to hang when the NFS server becomes unavailable.
-* This release separates diego-bbs and general etcd into their own clusters. These components were previously part of the same cluster.
+* This release separates Diego BBS and general etcd into their own clusters. These components were previously part of the same cluster.
 
 ## 1.8.8
 
