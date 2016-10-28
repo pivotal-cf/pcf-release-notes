@@ -84,6 +84,12 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## Patches:
 
+## 1.8.11
+
+* Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials.
+* Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
+* Bumps garden-runc to v1.0.0.
+
 ## 1.8.10
 
 * Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
