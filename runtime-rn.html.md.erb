@@ -25,7 +25,16 @@ v4.4 instead of the v3.19. Ubuntu is no longer providing CVE patches for Linux k
 
 Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.6.23 or later. 
 
-# 1.6.48
+# Patches
+
+## 1.6.49
+
+* Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials.
+* Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
+* Bumps garden-runc to v1.0.0.
+* Addresses an issue where iptables performance was negatively impacted for applications running on DEA VMs.
+
+## 1.6.48
 
 * Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
 * Fixes previously broken migration that would not allow customers to upgrade from version 1.6.45.
