@@ -88,15 +88,153 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 * Patches several UAA clients to remove an open redirect vulnerability in response to CVE-2016-6657. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.8</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>22</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.11
 
 * Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials.
 * Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
 * Bumps garden-runc to v1.0.0.
 
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.8</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>22</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.10
 
 * Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.8</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>0.9.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 1.8.9
 
@@ -106,6 +244,52 @@ If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading 
 * UAA now allows for a custom regular expression to be set for Proxy IPs.
 * A patch to the Cloud Controller resolves an issue that caused monit to hang when the NFS server becomes unavailable.
 * This release separates Diego BBS and general etcd into their own clusters. These components were previously part of the same cluster.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.7</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>0.9.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 1.8.8
 
@@ -124,9 +308,101 @@ It enables container-to-container networking and the new "grootfs" OCI-compliant
 Lastly, Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month, and has been tested at lower load for some months before that. 
 However, as always, make sure to test in a staging environment before deploying to production.
 
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.7</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>0.9.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.7
 
 Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://pivotal.io/security for more information.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.19</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 1.8.6
 
@@ -139,6 +415,52 @@ Relaxes the minimum upgrade version back to 1.7.20. This was conservatively rais
 Includes a patch that fixes the default value for the WebDAV network. This value was previously misconfigured with an incorrect network range.
 The result of deploying with this misconfiguration could result in a failed deployment depending upon what network ranges your deployment uses.
 After redeploying with this corrected default, if you find that the smoke tests fail with an error message indicating missing buildpacks, manually rolling the `cloud_controller` VMs should resolve the issue.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.19</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 1.8.5
 
@@ -154,11 +476,103 @@ Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DO
 Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`.
 This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
 
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.19</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.135.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.4
 
 Bumps UAA to version 3.6.1 to make upgrades possible from Elastic Runtime versions 1.7.24 and greater.
 
 Also introduces a field in the Advanced Features section which allows you to add any networks that need access to the internal file storage of Elastic Runtime (WebDAV server). The default whitelist includes all RFC 1918 private IP ranges, so if your Elastic Runtime deployment is not using an RFC 1918 network for its private network, then you must add your network to this list. Otherwise, you do not need to do anything here.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.19</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.135.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 1.8.3
 
@@ -166,17 +580,155 @@ Note: Do not upgrade to this version if you are starting with 1.7.20, or any ver
 
 Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
 
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.16</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.6</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.135.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.2
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
 Fixes an issue where having SSL validation enabled while using the internal file storage in Elastic Runtime was preventing successful retrieval of files.
 
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.12</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.4</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.135.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.1
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
 Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.12</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.4</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.135.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## <a id="upgrade"></a>How to Upgrade
 
@@ -302,3 +854,49 @@ This section lists new and existing known issues for Elastic Runtime.
 * At this time, the container accounts on Windows cells must have permissions to log on locally, which may not be the default.
 
 * Application file names on Windows cells are limited to maximum length of 100 characters. As a workaround, make sure that all filenames in an application directory are shorter than 100 characters before pushing.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3262.12</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.4</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1482.0</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.135.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
