@@ -159,6 +159,8 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ### <a id='newissues'></a> New Issues
 
+* Diego Cells fail to start if there are spaces or other whitespace characters in Availability Zone names. Please make sure that Ops Manager is configured not to have such characters in its Availability Zones before deploying Elastic Runtime 1.8.0 or later. This limitation will be fixed in a forthcoming Elastic Runtime release.
+
 * Do not upgrade to versions 1.8.0 - 1.8.3 if you are starting with 1.7.20, or any 1.7.x version greater than 1.7.23.
 
 * In Elastic Runtime 1.8.0 - 1.8.2, if you are using a non-RFC 1918 network as your private network for the deployment and internal file storage for Cloud Controller, then you will not be able to push apps to the system. 1.8.3 will address this issue by allowing you to specify a non-RFC 1918 network that you want to use.
