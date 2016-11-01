@@ -3,600 +3,47 @@ title: Pivotal Elastic Runtime v1.8.0 Release Notes
 owner: Release Engineering
 ---
 
-## <a id='update'></a>About Updating to Elastic Runtime v1.8.10 or Later
+## <a id='versions'></a> Cloud Foundry Versions
 
-If you are currently on Elastic Runtime v1.8.7 or earlier, you should update your Elastic Runtime.
-Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
-Ubuntu no longer provides CVE patches for Linux kernel v3.19.
+Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
 
-Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.8.2 or later, and see the section below to avoid an issue with Diego BBS when updating.
-
-After updating Elastic Runtime, update your PCF Service tiles to the latest point versions.
-
-## <a id="upgrade-issue"></a> Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8
-
-#### The Problem
-
-<p class="note"><strong>Note</strong>: Fresh installations (not upgrades) of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
-
-When upgrading from PCF ERT 1.7.X to 1.8.0-1.8.8, deployments that included multiple instances of the Diego BBS VM would fail to upgrade.
-
-### <a name="impact-bbs"></a>The Impact
-
-Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
-
-#### Already Downloaded PCF ER 1.8.0-1.8.8
-
-If you haven't attempted an upgrade, please download PCF ER 1.8.10 or higher and proceed with the instructions below
-
-#### How to Upgrade Safely to PCF ER 1.8.10+ and/or Repair a Broken Cluster
-
-This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 1.8.x to 1.8.10+ should not require these steps if your Diego BBS cluster is already healthy. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
-
-* For **Single node Diego BBS** instance configuration: No action required.
-* For **Multi node Diego BBS** instance configuration: Pivotal recommends scaling down to one Diego BBS (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
-
-#### <a name="scale-bbs"></a>Scale Diego BBS to One Instance
-
-In some cases you will need to scale down your Diego BBS cluster to one instance (please see above for a specific details around your upgrade path). To scale down to one instance:
-
-1. Navigate to the **Settings** tab in the Pivotal Elastic Runtime Tile.
-1. Select **Resource Config**.
-1. Find the `Diego BBS` job.
-1. Set **Instances** to `Automatic: 1`.
-1. Save the **Resource Config**
-1. Navigate to the **Installation Dashboard** and click **Apply Changes**
-1. Upgrade the PCF Elastic Runtime Tile to a version greater than or equal to 1.8.10.
-1. Navigate to the **Settings** tab in the Pivotal Elastic Runtime Tile.
-1. Select **Resource Config**.
-1. Find the `Diego BBS` job.
-1. Reset **Instances** back to your originally configured value.
-1. Save the **Resource Config**
-1. At this point, you can continue your normal procedure for upgrading to the new version of PCF ERT.
+- CF Release version: 239
+- Diego version: 0.1482.0
+- Garden version: 0.342
+- CF MySQL version: 26
+- etcd version: 60
+- Apps Manager release version: 642
+- UAA version: 3.4.2 -> 3.6.1 as of v1.8.4
+- Consul version: 108
+- CF Routing release: 0.135
+- PCF Service Backup release: 14
+- PCF MySQL Backup release: 1.25
+- Pivotal Account app: 1
+- PCF Autoscale: 34
+- PCF Notifications: 24
+- cflinuxfs2-rootfs: 1.20 (the rootfs is updated frequently, so see the patch release notes below to view what version was used in each)
+- Binary Buildpack: 1.0.2
+- Go Buildpack: 1.7.10
+- Java Buildpack: 3.8.1
+- NodeJS Buildpack: 1.5.15
+- PHP Buildpack: 4.3.14
+- Python Buildpack: 1.5.7 (now includes Conda package manager)
+- Ruby Buildpack: 1.6.19
+- Staticfile Buildpack: 1.3.9
 
 ## Patches:
-
-## 1.8.12
-
-* Patches several UAA clients to remove an open redirect vulnerability in response to CVE-2016-6657. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3263.8</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.8</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.0.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>6</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>22</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.11
-
-* Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials.
-* Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
-* Bumps garden-runc to v1.0.0.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3263.8</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.8</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.0.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>6</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>22</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.10
-
-* Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3263.8</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-runc</td><td>0.9.2</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>6</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.9
-
-If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8](#upgrade-issue) section above. 
-
-* Customers with f5 load balancers can configure `drain_wait` and `load_balancer_healthy_threshold` on the router.
-* UAA now allows for a custom regular expression to be set for Proxy IPs.
-* A patch to the Cloud Controller resolves an issue that caused monit to hang when the NFS server becomes unavailable.
-* This release separates Diego BBS and general etcd into their own clusters. These components were previously part of the same cluster.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3263.7</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-runc</td><td>0.9.2</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>6</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.8
-
-Bumps the required stemcell version to 3263.7. This stemcell is based on the 4.4 Linux kernel.
-Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
-Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
-
-Advantages of Garden-runC over Garden-Linux are: 
-
-* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers. 
-* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface area for break-out exploits. This is set up out-of-the-box; you don't need to do anything. 
-* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management. 
-It enables container-to-container networking and the new "grootfs" OCI-compliant rootfs downloader.
-* Garden-runC uses the same low-level container execution code as docker/k8s for running containers, so that your container images run the same in PCF as elsewhere.
-
-Lastly, Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month, and has been tested at lower load for some months before that. 
-However, as always, make sure to test in a staging environment before deploying to production.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3263.7</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-runc</td><td>0.9.2</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>6</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.7
-
-Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://pivotal.io/security for more information.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.19</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>6</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.6
-
-Adds the ability to perform an HTTP health check against the router VMs. This health-check endpoint is located at port `8080` on the `/health` path.
-
-Fixes an issue with running Windows apps in Diego.
-
-Relaxes the minimum upgrade version back to 1.7.20. This was conservatively raised to 1.7.21, but it was found to be unnecessarily restrictive.
-
-Includes a patch that fixes the default value for the WebDAV network. This value was previously misconfigured with an incorrect network range.
-The result of deploying with this misconfiguration could result in a failed deployment depending upon what network ranges your deployment uses.
-After redeploying with this corrected default, if you find that the smoke tests fail with an error message indicating missing buildpacks, manually rolling the `cloud_controller` VMs should resolve the issue.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.19</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.138.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.8.5
-
-Adds the ability to use Google Cloud Storage for your File Storage configuration.
-
-Adds an HTTP frontend healthcheck to the HAProxy job, at the /health endpoint.
-
-Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed.
-This only affects deployments using internal mysql as a database.
-
-Additionally, this release changes the route for the switchboard UI for the internal mysql proxies.
-Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DOMAIN`.
-Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`.
-This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.19</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.135.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
 
 ## 1.8.4
 
 Bumps UAA to version 3.6.1 to make upgrades possible from Elastic Runtime versions 1.7.24 and greater.
 
-Also introduces a field in the Advanced Features section which allows you to add any networks that need access to the internal file storage of Elastic Runtime (WebDAV server). The default whitelist includes all RFC 1918 private IP ranges, so if your Elastic Runtime deployment is not using an RFC 1918 network for its private network, then you must add your network to this list. Otherwise, you do not need to do anything here.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.19</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.135.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
+Also introduces a field in the Advanced Features section which allows you to add any networks that need access to the internal file storage of Elastic Runtime (WebDAV server). The default whitelist includes all RFC 1919 private IP ranges, so if your Elastic Runtime deployment is not using an RFC 1918 network for its private network, then you must add your network to this list. Otherwise, you do not need to do anything here.
 
 ## 1.8.3
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
-Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.16</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.135.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
+Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security.
 
 ## 1.8.2
 
@@ -604,103 +51,11 @@ Note: Do not upgrade to this version if you are starting with 1.7.20, or any ver
 
 Fixes an issue where having SSL validation enabled while using the internal file storage in Elastic Runtime was preventing successful retrieval of files.
 
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.12</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.4</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.135.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
 ## 1.8.1
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
 Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.12</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.4</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1485.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.135.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
 
 ## <a id="upgrade"></a>How to Upgrade
 
@@ -709,10 +64,12 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 * Before upgrading to PCF v1.8, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
 
 * After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
- 
-* Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile. 
 
-## <a id='versions'></a> New Features in Elastic Runtime v1.8.0 
+* Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+
+* Apps Manager requires the NodeJS Buildpack 1.5.14 or higher.
+
+## <a id='versions'></a> New Features in Elastic Runtime v1.8.0
 
 ### <a id='routing'></a> Routing
 
@@ -724,7 +81,7 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 
 ### <a id='authen'></a> Authentication and Authorization
 
-- Apps Manager now supports inviting external users from LDAP & SAML user stores. See the [Adding Existing SAML or LDAP Users to a Pivotal Cloud Foundry Deployment](../../opsguide/external-user-management.html) topic for more information. 
+- Apps Manager now supports inviting external users from LDAP & SAML user stores. See the [Adding Existing SAML or LDAP Users to a Pivotal Cloud Foundry Deployment](../../opsguide/external-user-management.html) topic for more information.
 
 - PCF Admin role can now be derived from SAML group memberships. See the [Grant Admin Permissions to an External Group (SAML or LDAP)](../../adminguide/uaa-user-management.html#external-group) topic for more information.
 
@@ -742,7 +99,7 @@ See the [Set Proxies for Docker Trusted Registries](../../opsguide/docker-regist
 
 ### <a id='pivotalaccount'></a> Pivotal Account User Management Tool
 
-Pivotal Account is a user management tool that allows users to create and manage their accounts. With Pivotal Account users can access apps assigned to their accounts as well as manage their apps. See the [Enabling Pivotal Account](../../opsguide/pivotal-account.html) topic for more information. 
+Pivotal Account is a user management tool that allows users to create and manage their accounts. With Pivotal Account users can access apps assigned to their accounts as well as manage their apps. See the [Enabling Pivotal Account](../../opsguide/pivotal-account.html) topic for more information.
 
 ### <a id='appcontainers'></a> Unprivileged App Containers
 
@@ -754,13 +111,13 @@ See the [Understanding Container Security](../../concepts/container-security.htm
 
 External file storage existing as blobstores for Cloud Controller can now be encrypted at rest using SSE-S3 on any IAAS supported by PCF. Existing blobs are not encrypted.
 
-For example, see the [Configure File Storage](../../customizing/config-er-vmware.html#filestore-config) topic for more information on configuring SSE-S3 for VSphere.
+For example, see the [Configure File Storage](../../customizing/config-er-vmware.html#filestore-config) topic for more information about configuring SSE-S3 for VSphere.
 
 ### <a id='webdav'></a> NFS Migration to WebDAV
 
 The internal file storage provisioned by Cloud Foundry for Cloud Controller files has been switched from an NFS server to the WebDAV protocol. There is no actual data migration as part of this switch. The protocol changes on the file server. When you upgrade to Elastic Runtime v1.8.0 or later, you are automatically switched over.
 
-See this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/217982188-How-to-use-Elastic-Runtime-blob-storage-data-) for more information about file storage. 
+See this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/217982188-How-to-use-Elastic-Runtime-blob-storage-data-) for more information about file storage.
 
 ### <a id='sshproxy'></a> Configurable SSH Proxy for Diego Containers
 
@@ -774,11 +131,11 @@ With the introduction of a new Apps Manager app written in Javascript, there is 
 
 ### <a id='collectordeprecate'></a> Collector Deprecation
 
-As of PCF v1.8.0, the Collector job on Elastic Runtime is deprecated and no longer used by any PCF services. If you are upgrading to PCF v1.8.0 from PCF v1.6.x (via the PCF v1.7.x upgrade path) and previously used the Collector job to obtain log data from legacy DEA-based applications, you can safely scale the job down to zero instances after upgrading to both JMX Bridge (Ops Metrics v1.7.0) and PCF ERT v1.7.0 or higher.
+As of PCF v1.8.0, the Collector job on Elastic Runtime is deprecated and no longer used by any PCF services. If you are upgrading to PCF v1.8.0 from PCF v1.6.x (via the PCF v1.7.x upgrade path) and previously used the Collector job to obtain log data from legacy DEA-based applications, you can safely scale the job down to zero instances after upgrading to both JMX Bridge (Ops Metrics v1.7.0) and PCF ERT v1.7.0 or later.
 
 ### <a id='apivisible'></a> API Environment Variable Visibility
 
-Similar to `space_developer_env_var_visibility`, the new feature flag `env_var_visibility` can be disabled to deny access to `/v2/apps/:guid/env` for all users, including administrators. 
+Similar to `space_developer_env_var_visibility`, the new feature flag `env_var_visibility` can be disabled to deny access to `/v2/apps/:guid/env` for all users, including administrators.
 
 See the [Feature Flags](../../adminguide/listing-feature-flags.html#flags) topic for more information.
 
@@ -790,7 +147,11 @@ Service brokers will now receive `service_id`, `plan_id`, and `operation` when p
 
 ### <a id='cli_v3_support'></a> Cloud Foundry CLI v3 Plugin
 
-This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. The CLI v3 plugin is useful for experimenting with the Cloud Controller v3 API without having to curl an oauth token. The Cloud Controller v3 API is under active development and is currently experimental. For more information on how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
+This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. The CLI v3 plugin is useful for experimenting with the Cloud Controller v3 API without having to curl an oauth token. The Cloud Controller v3 API is under active development and is currently experimental. For more information about how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
+
+### <a id='cc_diego_droplet_checksum'></a> Droplet Checksum Validation
+
+Cloud Controller now sends a SHA1 droplet checksum to Diego for validation of buildpack-based app droplets.
 
 ## <a id='knownissues'></a> Known Issues
 
@@ -808,7 +169,9 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
 
-* If you choose to enable TCP routing, do not remove etcd data stores during failure recovery procedures since router group data added by the routing API is not ephemeral.
+* If you choose to enable TCP routing, do not delete etcd data stores when performing failure recovery procedures. The routing API persists router group data to maintain associations with other databases. This data should not be removed.
+
+* Customers using an additional nodeJS buildpack or who have replaced the system nodeJS buildpack may encounter deployment issues with Apps Manager. Please contact support if you encounter problems deploying Apps Manager.
 
 ### <a id='existingissues'></a> Existing Issues
 
@@ -816,7 +179,7 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * Consul server cluster can fail to recover from quorum loss. See the [Consul fails to start during upgrade in PCF](https://discuss.pivotal.io/hc/en-us/articles/218196687-Consul-fails-to-start-during-upgrade-in-PCF) knowledge base article for how to recover from this issue.
 
-* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain. 
+* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain.
 * Disaster recovery for etcd or Consul clusters still requires manual intervention.
 
 * The Cloud Foundry CLI command for viewing application files, `cf files`, does not work with apps on Diego.
@@ -826,49 +189,3 @@ This section lists new and existing known issues for Elastic Runtime.
 * At this time, the container accounts on Windows cells must have permissions to log on locally, which may not be the default.
 
 * Application file names on Windows cells are limited to maximum length of 100 characters. As a workaround, make sure that all filenames in an application directory are shorter than 100 characters before pushing.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3262.12</td>
-  </tr><tr>
-    <td>cf</td><td>239</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.4</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
-  </tr><tr>
-    <td>consul</td><td>108</td>
-  </tr><tr>
-    <td>diego</td><td>0.1482.0</td>
-  </tr><tr>
-    <td>etcd</td><td>60</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>652</td>
-  </tr><tr>
-    <td>routing</td><td>0.135.0</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
