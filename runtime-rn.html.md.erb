@@ -54,7 +54,66 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 1. Save the **Resource Config**
 1. At this point, you can continue your normal procedure for upgrading to the new version of PCF ERT.
 
-## Patches:
+# Patches:
+
+## 1.8.13
+
+* Bumps garden-runc to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
+* Exposes the "Request Max Buffer Size" property for HAProxy deployments on the "Networking" page. This property determines the maximum request header payload that HAProxy will accept.
+* The .Net Core buildpack is now available. For more information, see the [release notes](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.4).
+* Bumps the stack rootfs to patch the USN-3096-1 and USN-3088-1 vulnerabilities.
+* UAA has been patched to correctly return the Basic WWW-Authenticate header if client credentials are not provided in the request to /oauth/token endpoint.
+* Exposes the "Signature Algorithm" property on the "Authentication and Enterprise SSO" page. This will allow operators to specify what kind of signature they use for SAML signed requests.
+* The LDAP configuration on the "Authentication and Enterprise SSO" page now allows for multiple LDAP server entries.
+* Additionally, the LDAP configuration on the "Authentication and Enterprise SSO" page allows the operator to configure LDAP referrals.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.8</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.35.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.4</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>22</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
 
 ## 1.8.12
 
