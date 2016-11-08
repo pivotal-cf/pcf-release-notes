@@ -223,6 +223,11 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 ## 1.6.45
 
+<p class="note">
+<strong>Note</strong>: This release caused an inconsistency between the hostname and the contents of /etc/hosts that would cause some java apps to crash.
+It has been fixed in the next patch release.
+</p>
+
 * Bumps the required stemcell version to 3233.2. This stemcell is based on the 4.4 Linux kernel.
 * Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology.
 * Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
