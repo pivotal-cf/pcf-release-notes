@@ -58,7 +58,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## 1.8.14
 
-* Patches the Diego container runtime to improve the performance of the application of security group rules during application startup. Applications with large application security group rule sets could see very long startup times due to a performance regression in the 4.4 kernel.
+* Patches the Diego container runtime to improve the performance of the application of security group rules during application startup.
 * Resolves an issue with the tcp-emitter and routing-api jobs on the Diego Cell, CloudController, and Router VMs that would prevent them from being stopped and started with the `bosh` CLI without manual intervention.
 * Patches the Diego rep process to allow deployment of the Diego Cell VM into availability zones with names that contain spaces.
 
