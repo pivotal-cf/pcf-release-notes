@@ -56,6 +56,60 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 # Patches:
 
+## 1.8.14
+
+* Patches the Diego container runtime to improve the performance of the application of security group rules during application startup. Applications with large application security group rule sets could see very long startup times due to a performance regression in the 4.4 kernel.
+* Resolves an issue with the tcp-emitter and routing-api jobs on the Diego Cell, CloudController, and Router VMs that would prevent them from being stopped and started with the `bosh` CLI without manual intervention.
+* Patches the Diego rep process to allow deployment of the Diego Cell VM into availability zones with names that contain spaces.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.8</td>
+  </tr><tr>
+    <td>cf</td><td>239</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.35.0</td>
+  </tr><tr>
+    <td>consul</td><td>108</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.4</td>
+  </tr><tr>
+    <td>etcd</td><td>60</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>22</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652</td>
+  </tr><tr>
+    <td>routing</td><td>0.138.0</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.8.13
 
 * Bumps garden-runc to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
