@@ -51,7 +51,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## 1.7.33
 
-* Patches the Diego container runtime to improve the performance of the application of security group rules during application startup. Applications with large application security group rule sets could see very long startup times due to a performance regression in the 4.4 kernel.
+* Patches the Diego container runtime to improve the performance of the application of security group rules during application startup.
 * Patches the NFS mounter in the internal filestore to resolve an issue that prevented large blob uploads from succeeding. This only affected installations using the internal blobstore. External blobstores like S3 were not impacted.
 
   <table border="1" class="nice">
