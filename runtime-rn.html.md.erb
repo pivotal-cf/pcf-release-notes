@@ -7,6 +7,11 @@ owner: Release Engineering
 
 ### Secure Communication for the etcd Cluster
 
+The etcd cluster now uses TLS for all communication between servers and clients.
+To support the migration from unencrypted to encrypted communication, the existing etcd servers have been converted into proxies.
+These proxies will allow connections from clients that still communicate unencrypted.
+It is important to note that the etcd proxy will need to remain deployed until such time as all clients in your deployment have switched to encrypted communications.
+
 ### Containers Default to Running Unprivileged
 
 ### Diego Uses a Relational Datastore
