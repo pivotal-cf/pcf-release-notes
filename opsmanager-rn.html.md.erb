@@ -7,44 +7,67 @@ owner: Ops Manager
 
 The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
-## <a id='versions'></a>Component Versions
+### 1.9.0
 
 Versions 1.9.0 and higher versions of Ops Manager consist of the following component versions:
 
-* **BOSH Director**: v260
-* **`bosh-init`**: v0.0.99
-* **Stemcell**: v3312
-* **BOSH CPI versions**:
-
-	* **AWS**: 60
-	* **Azure**: 19
-	* **Google**: 25.6.1
-	* **Openstack**: 27
-	* **vSphere**: 32
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>BOSH Director: 260</td>
+	</tr>
+	<tr>
+	  <td>`bosh-init`: v.0.0.99</td>
+	</tr>
+	<tr>
+	  <td>Stemcell: 3312</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 60</td>
+	</tr>
+	<tr>
+	  <td>Azure CPI: 19</td>
+	</tr>
+	<tr>
+	  <td>Google Cloud Platform CPI: 25.6.1</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 27</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 32</td>
+	</tr>
+	</tbody>
+	</table>
 
 ## <a id='major-features'></a>New Features in Ops Manager v1.9.0
 
 ### <a id='bosh'></a>BOSH Updates
+
+#### <a id='stemcell'></a>Stemcell
 
 Ops Manager v1.9.0 includes the following changes to the stemcell:
 
 * **CIS improvements**: Various improvements have been made to the stemcell that address a portion of the CIS benchmarks.
 * **Floppy device removal**: The floppy device has been removed from the stemcell, which reduces a VM's exposure to security risks.
 
+#### <a id='director'></a>BOSH Director
+
 Ops Manager v1.9.0 includes the following changes to the BOSH Director:
 
 * **Add-on controls**: Operators can now control what deployments or instance groups a given add-on applies, allowing them to limit the VMs in which the add-on is used.
-* **BOSH Events**: Operators can now view a curated list of granular activity by the Director for auditing / troubleshooting purposes
+* **BOSH Events**: Events logging is now enabled by default, and operators can view a curated list of granular activity by the Director for auditing / troubleshooting purposes
 * **VMWare HA interoperability improvements**: The BOSH Director has improved its logic with regards to dealing with faulting vSphere hosts and now better coordinates its decisions with the VMWare HA capability in vSphere, resulting in lower chances of downtime for VMs.
 * **Resurrection logic improvements**: The BOSH Director has improved its logic and now continues to retry when resurrecting a VM even if its fails the first time.
 
 ### <a id='certs'></a>SHA 256 Certificates
 
 Ops Manager now generates SHA 256 certificates.
-
-### <a id='event-logging'></a> Event Logging
-
-Event logging is now enabled by default in the Ops Manager Director.
 
 ### <a id='max-in-flight'></a> Edit Job Configurations
 
