@@ -1,444 +1,58 @@
 ---
-title: Pivotal Cloud Foundry Ops Manager v1.8 Release Notes
+title: Pivotal Cloud Foundry Ops Manager v1.9 Release Notes
 owner: Ops Manager
 ---
 
-## <a id='how-to-upgrade'></a> How to Upgrade ##
-
-The procedure for upgrading to Pivotal Cloud Foundry Ops Manager v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
-
-Before you upgrade to Ops Manager v1.8, ensure that existing product tiles such as Elastic Runtime and RabbitMQ have been upgraded to a version that supports the upgrade. For specific version numbers and instructions, see [Review Product Compatibility Prerequisites](../../customizing/upgrading-pcf.html#review-lockstep).
-
-After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8, as well as other specific product versions if you are using them. For required version numbers and instructions, see [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products).
-
-### <a name='update'></a>About Updating to Ops Manager v1.8.2 or Later
-
-If you are currently on Ops Manager v1.8.0 or v1.8.1, you should update your Ops Manager. 
-Later versions include a major stemcell upgrade to 3263.x. 
-This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
-Ubuntu no longer provide CVE patches for Linux kernel v3.19. 
-
-
-### 1.8.10 Patch
-
-* Patches CVE-2016-6657. Additional information can be found at https://pivotal.io/security.
-* Fixed a bug that was preventing UAA clients from using the Ops Manager API.
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.8</td>
-	</tr>
-	<tr>
-	  <td>Bosh Director: 257.15</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>Google CPI: 25.5.0</td>
-	</tr>
-	<tr>
-	  <td>Azure CPI: 18</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.9 Patch
-
-* Ops Manager can now be deployed on Microsoft's Azure Cloud Platform. Please refer to docs.pivotal.io for detailed step-by-step instructions. 
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.8</td>
-	</tr>
-	<tr>
-	  <td>Bosh Director: 257.15</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>Google CPI: 25.5.0</td>
-	</tr>
-	<tr>
-	  <td>Azure CPI: 18</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-
-### 1.8.8 Patch
-
-* Patches USN-3106-2. Additional information can be found at https://pivotal.io/security.
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.8</td>
-	</tr>
-	<tr>
-	  <td>Bosh Director: 257.15</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>Google CPI: 25.4.1</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.7 Patch
-
-* Patches USN-3099-2. Additional information can be found at https://pivotal.io/security.
-* Ops Manager can now be deployed on AWS M4 machine types.
-* Added a flag to the Director manifest that flushes [ARP entries](https://github.com/cloudfoundry/bosh-notes/blob/master/finished/forceful-arp.md).
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.7</td>
-	</tr>
-	<tr>
-	  <td>Bosh Director: 257.15</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>Google CPI: 25.4.1</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.6 Patch
-
-* Patches CVE 2016-6655. Additional information can be found at https://pivotal.io/security.
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.4</td>
-	</tr>
-	<tr>
-	  <td>Bosh Director: 257.15</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>Google CPI: 25.4.1</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.5 Patch
-
-* Ops Manager can now be deployed on Google Cloud Platform. Please refer to docs.pivotal.io for detailed step-by-step instructions. 
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.4</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>Google CPI: 25.4.1</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-
-### 1.8.4 Patch
-
-* Fixed a bug that prevented users from having special characters and spaces while defining AZ names in OpsManager. 
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.4</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-
-### 1.8.3 Patch
-
-* Patches USN-3087-2. Additional information can be found at https://pivotal.io/security. 
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.3</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.2 Patch
-
-* Bumped Linux kernel to v4.4
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.2</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.1 Patch
-
-* Patches CVE-2016-6651. Additional information can be found at https://pivotal.io/security.  
-
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3262.12</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
-
-### 1.8.0
-## <a id='major-features'></a> New Features in Ops Manager v1.8.0
-
-### <a id='bosh'></a> BOSH Updates
-
-Ops Manager now generates BOSH 2.0 manifests and has enabled BOSH link support. For more information on using BOSH links see the [BOSH documentation](https://bosh.io/docs/links.html). 
-
-### <a id='service-networks'></a> Support for Service Networks
-
-Ops Manager allows Operators to create a Service Network. Service Networks are used to dynamically provision VMs for on-demand services. For an example of how to enable a Service Network in Ops Manager, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#network).
-
-### <a id='pivnet_token'></a> Pivotal Network Integration
-
-Operators can choose to enter their Pivotal Network token into Ops Manager and download product tile updates from within the Ops Manager UI. See the [Using Pivotal Network API to Upgrade Products](../../customizing/add-delete.html#pivnet-api) for more information.
-
-### <a id='new_endpoints'></a> New Ops Manager API Endpoints and Redesigned API Documentation
-
-This release also introduces many new API endpoints, including:
-
-   * Configuring product tiles
-   * Configuring Ops Manager authentication
-   * Downloading product updates from PivNet
-   * Viewing logs and credentials
-   * Errands 
-   * Resources Assigned to a Job
-
-For more information on API endpoints, see the Ops Manager API documentation, which has been updated to appear in a new format. 
-
-Visit http<span>s</span>://YOUR-OPSMAN/docs to view the Ops Manager API documentation included with your Ops Manager installation.
-
-### <a id='settings'></a> Ops Manager Settings Page
-
-Ops Manager has a consolidated Settings page which includes the following fields:
-
-   * Decryption Passphrase 
-   * Authentication Method 
-   * External API Access
-   * Proxy Settings
-   * Export Installation Settings
-   * Advanced
-
-See the [Understanding the Ops Manager Interface](../../customizing/pcf-interface.html) topic for more information.
-
-### <a id='resource_config'></a> Custom Instance Counts in Ops Manager Director Resource Config
-
-Operators can now enter custom values in the Instances column of the Resource Config page in Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#resource-config).
-
-### <a id='vsphere'></a> vSphere Admin Default Password Requirement
-
-Customers using vSphere are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at [Installing Pivotal Cloud Foundry on vSphere](../../customizing/vsphere.html).
-
-### <a id='dualhomebosh'></a> Dual-Home Ops Manager Director (BOSH Director)
-
-Customers can now dual-home their Ops Manager Director (BOSH Director) starting with new deployments of v1.8.0. This release includes a new BOSH networking release with the RPFilter necessary for dual-homing scenarios.
-
-Additionally, customers using the dual-homed feature in Ops Manager v1.6 can now import their installations into v1.8.0 and continue to use the dual-homed Ops Manager Director. 
-
-For more information on how to use the dual-homing feature, please refer to the [How to use a dual-homed Director with Ops Manager](https://discuss.zendesk.com/hc/en-us/articles/222027247) KB article.
-
-### <a id='hostnameforboshdirector'></a> Hostname for Ops Manager Director
-
-Operators can now specify a custom hostname for the Ops Manager Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config). This hostname can be set to a load balancer as described in [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588).
-
-### <a id='boshcompilerflag'></a> BOSH Manifest Flag to Remove Compilers
-
-This release adds a flag to the BOSH manifest that removes compilers.
-
-### <a id='boshretries'></a> BOSH Director Retries Disabled by Default
-
-In this release BOSH Director retries are turned off by default. You can enable BOSH Director retries in the Director Config page of Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
-
-### <a id='postdeployscripts'></a> Support for Post Deployment Scripts
-
-Ops Manager now supports configuring the appropriate settings in the Director to run post deploy scripts. This setting can be toggled on the Director Config form. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
-
-## <a id='tileauthorchanges'></a> Changes in Ops Manager v1.8.0 for Tile Authors
-
-* Tile authors can mark their tiles as a service broker by setting `service_broker: true`.
-* `instance_definition` and `resource_definition` no longer require that you specify the type as integer.
-* Tile authors no longer need to manage compilation jobs. Ops Manager now deploys the BOSH Director with a master compilation job. Older tiles that specify compilation jobs will not be affected.
-* Individual property blueprints can now be frozen after a deploy by using `freeze_on_deploy`. 
-* Ops Manager supports BOSH links and has introduced `provides` and `consumes` keys.
-* Tile Authors can now issue a lite version of their tiles that do not contain packaged releases. Tile authors can specify a `base_releases_url`, which will prompt BOSH to download the releases from the specified URL.
-* Tile authors can now specify a `dropdown_select` under `collections`.
-* New property blueprints:
-   * `vm_type_dropdown`
-   * `disk_type_dropdown`
-   * `service_network_az_single_select`
-   * `service_network_az_multi_select`
-* New accessors: 
-
-   * `(( $self.uaa_client_name ))` 
-   * `(( $self.uaa_client_secret ))`
-   * `(( $ops_manager.http_proxy ))`
-   * `(( $ops_manager.https_proxy ))`
-   * `(( $ops_manager.no_proxy ))`
-   * `(( $director.hostname ))` 
-   * `(( .deployment_name ))` or `(( ..cf.deployment_name ))`
-   * `(( $director.ca_public_key ))` 
-   * `(( $self.stemcell_version ))` 
-   * `(( $self.service_network ))` <br/><br/>  For more information on how to use accessors, refer to [About PCF Tiles](http://docs-pcf-staging.cfapps.io/partners/tiles.html) in the _Pivotal Cloud Foundry Partner Guide_.
-
-* Deprecated accessors:
-   * `(( availability_zone ))`
-   * `(( bosh_job_partition_stats ))`
+## <a id='how-to-upgrade'></a>How to Upgrade ##
+
+The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+
+## <a id='versions'></a>Component Versions
+
+Versions 1.9.0 and higher versions of Ops Manager consist of the following component versions:
+
+* **BOSH Director**: v260
+* **`bosh-init`**: v0.0.99
+* **Stemcell**: v3312
+* **BOSH CPI versions**:
+
+	* **AWS**: 60
+	* **Azure**: 19
+	* **Google**: 25.6.1
+	* **Openstack**: 27
+	* **vSphere**: 32
+
+## <a id='major-features'></a>New Features in Ops Manager v1.9.0
+
+### <a id='bosh'></a>BOSH Updates
+
+Ops Manager v1.9.0 includes the following changes to the stemcell:
+
+* **CIS improvements**: Various improvements have been made to the stemcell that address a portion of the CIS benchmarks.
+* **Floppy device removal**: The floppy device has been removed from the stemcell, which reduces a VM's exposure to security risks.
+
+Ops Manager v1.9.0 includes the following changes to the BOSH Director:
+
+* **Add-on controls**: Operators can now control what deployments or instance groups a given add-on applies, allowing them to limit the VMs in which the add-on is used.
+* **BOSH Events**: Operators can now view a curated list of granular activity by the Director for auditing / troubleshooting purposes
+* **VMWare HA interoperability improvements**: The BOSH Director has improved its logic with regards to dealing with faulting vSphere hosts and now better coordinates its decisions with the VMWare HA capability in vSphere, resulting in lower chances of downtime for VMs.
+* **Resurrection logic improvements**: The BOSH Director has improved its logic and now continues to retry when resurrecting a VM even if its fails the first time.
+
+### <a id='certs'></a>SHA 256 Certificates
+
+Ops Manager now generates SHA 256 certificates.
+
+### <a id='event-logging'></a> Event Logging
+
+Event logging is now enabled by default in the Ops Manager Director.
+
+### <a id='max-in-flight'></a> Edit Job Configurations
+
+Ops Manager now supports API endpoints to edit `max_in_flight` configurations per job. See the OpsManager API documentation for more information. To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
-* Fixed an issue with rollbacks in case of database import failures during upgrades
-* Fixed an issue where Metrics IP address was not getting propagated into the Bosh manifest
-* Fixed an issue where errands were failing to run on a deploy
-* Fixed an issue where Static IP assignments were not being cleared correctly
-* Fixed an issue where re-saving the Networks and AZs form on product tiles was throwing a misleading error
-* Fixed API endpoint to log out all active sessions
-* Fixed an issue that allowed for multiple AZs to have the same name 
+* Fixed a bug that was preventing a load balancer from being attached to the BOSH Director on Google Cloud Platform
 
 
 
