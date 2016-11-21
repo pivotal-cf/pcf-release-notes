@@ -5,20 +5,28 @@ owner: Release Engineering
 
 ## <a id='1.9.0'></a> New Features in Elastic Runtime v1.9.0
 
-### Secure Communication for the etcd Cluster
+### Security Improvements for Intercomponent Communication
 
 The etcd cluster now uses TLS for all communication between servers and clients.
 To support the migration from unencrypted to encrypted communication, the existing etcd servers have been converted into proxies.
 These proxies will allow connections from clients that still communicate unencrypted.
 It is important to note that the etcd proxy will need to remain deployed until such time as all clients in your deployment have switched to encrypted communications.
 
+Additionally, the Diego Cell VMs now provide a secured API endpoint to communicate with the Diego Brain VM.
+The Cells will provide both encrypted and unencrypted channels of communication in this release.
+A complete switch-over to TLS for this communication channel will follow on in a subsequent release.
+
 ### Containers Default to Running Unprivileged
 
-### Diego Uses a Relational Datastore
+All newly staged containers will run as unprivileged.
 
-### Routing API Uses a Relational Datastore
+### Diego and the Routing API Use a Relational Datastore
+
+Both Diego and the Routing API have switched over to using a relational database as their backing store.
 
 ### Support for Running One-Off Tasks
+
+In addition to managing long-running processes, the platform will now have first-class support for running one-off tasks.
 
 ### .Net Core Buildpack
 
@@ -48,9 +56,9 @@ With the new "Standard" plan, rules are evaluated every 5 seconds.
 The autoscaling service now also allows for multiple metrics to be combined for a single application.
 Finally, to make automation of the interactions with the autoscaling service much easier, the service now supports a REST-based API to manage your application scaling configuration.
 
-### Improvements to Intercomponent Communication Security
-
 ### Zipkin Tracing Headers
+
+With the Zipkin tracing option enabled, the router will now attach tracing headers to incoming requests.
 
   <table border="1" class="nice">
   <thead>
