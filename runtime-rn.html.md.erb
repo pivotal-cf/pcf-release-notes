@@ -29,6 +29,16 @@ This buildpack is for use with applications running .Net Core on Linux.
 
 ### New Autoscaling Features
 
+The autoscaling service provides new scaling metrics for application developers.
+In addition to CPU Utilization, the service now supports HTTP Throughput and HTTP Latency as metrics to decide application scaling events.
+HTTP Throughput measures the number of incoming HTTP requests per second per application instance.
+HTTP Latency measures application response latency at the 99th and 95th percentiles.
+For all metrics, application developers can set upper and lower thresholds to decide whether the service should scale the application.
+All metrics are computes as a 30 second rolling average.
+With the new "Standard" plan, rules are evaluated every 5 seconds.
+The autoscaling service now also allows for multiple metrics to be combined for a single application.
+Finally, to make automation of the interactions with the autoscaling service much easier, the service now supports a REST-based API to manage your application scaling configuration.
+
 ### Improvements to Intercomponent Communication Security
 
 ### Zipkin Tracing Headers
