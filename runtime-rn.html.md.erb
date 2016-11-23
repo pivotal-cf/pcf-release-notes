@@ -104,7 +104,10 @@ A complete switch-over to TLS for this communication channel will follow on in a
 
 ### <a id='containers'></a>Containers Default to Running Unprivileged
 
-All newly staged containers will run as unprivileged.
+All newly staged containers will run as unprivileged containers.
+Unprivileged containers are a security technique of mapping the root user inside the container to a regular user at the linux operating system level that has no privileges.
+This prevents an application from inheriting root access on the host if it breaks out of the container.
+By using the full set of user-namespacing features in Linux, PCF isolates containers sharing the same host.
 
 ### <a id='diego'></a>Diego and the Routing API Use a Relational Datastore
 
@@ -113,6 +116,9 @@ Both Diego and the Routing API have switched over to using a relational database
 ### <a id='one-off'></a>Support for Running One-Off Tasks
 
 In addition to managing long-running processes, the platform will now have first-class support for running one-off tasks.
+Tasks are useful to application developers looking to perform defined operations with finite lifetimes such as database migrations, batch jobs, or seeding blobstores.
+The task itself is guaranteed by the platform to run at most once and will result in either a success or failure status.
+When a task is executed, it inherits the environment of its associated application, including environment variables and filesystem.
 
 ### <a id='net-core'></a>.NET Core Buildpack
 
@@ -146,6 +152,7 @@ Finally, to make automation of the interactions with the autoscaling service muc
 ### <a id='zipkin'></a>Zipkin Tracing Headers
 
 With the Zipkin tracing option enabled, the router will now attach tracing headers to incoming requests.
+Enabling this option will allow application developers who have Zipkin-compatible instrumentation in their application to trace requests as they traverse the platform.
 
 ## <a id='knownissues'></a>Known Issues
 
