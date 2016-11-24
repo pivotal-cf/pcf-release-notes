@@ -12,6 +12,47 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 # Patches
 
+## 1.6.56
+
+* Reduces the allowed cipher suites used when communicating to components of Diego.
+  The accepted ciphers have been restricted to TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3233.3</td>
+  </tr><tr>
+    <td>cf</td><td>225</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>28.3</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>24.11</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.35.0</td>
+  </tr><tr>
+    <td>consul</td><td>101</td>
+  </tr><tr>
+    <td>diego</td><td>0.1446.0</td>
+  </tr><tr>
+    <td>etcd</td><td>48</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.2</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>22</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>397</td>
+  </tr>
+  </tbody>
+  </table>
+
 ## 1.6.55
 
 * Introduces a patch to prevent loss of application routes when the consul cluster becomes unreachable or loses quorum.
