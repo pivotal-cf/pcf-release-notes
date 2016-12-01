@@ -83,11 +83,13 @@ Versions 1.9.0 and higher versions of Elastic Runtime consist of the following c
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic. When upgrading to v1.9, be aware of the following upgrade considerations:
-
-* Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
-
-* Some partner service tiles may currently be incompatible with PCF v1.9. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+When upgrading to v1.9, be aware of the following upgrade considerations:
+* Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF.
+  See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
+* Some partner service tiles may currently be incompatible with PCF v1.9.
+  Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.
+  For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 ## <a id='1.9.0'></a> New Features in Elastic Runtime v1.9.0
 
@@ -112,6 +114,17 @@ By using the full set of user-namespacing features in Linux, PCF isolates contai
 ### <a id='diego'></a>Diego and the Routing API Use a Relational Datastore
 
 Both Diego and the Routing API have switched over to using a relational database as their backing store.
+
+### <a id='database-migrations'></a>CF API Availability During Upgrade
+
+The database backing the CF API will be performing a backwards-incompatible migration when upgrading from 1.8.x.
+During the migration, you should expect to see 500 status codes from the API as the Cloud Controller VMs are deployed.
+Here are a couple things to note before performing the upgrade:
+* Ensure there is adequate space available on the database server
+  This is dependent on the type of database you use and the amount of data you’re migrating.
+  For example, Postgres will create copy tables that could temporarily consume double the size of the apps table.
+* V3 service bindings will be removed without notifying the related broker.
+  We recommend deleting any V3 service bindings before upgrading.
 
 ### <a id='one-off'></a>Support for Running One-Off Tasks
 
