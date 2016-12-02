@@ -54,9 +54,9 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 1. Save the **Resource Config**
 1. At this point, you can continue your normal procedure for upgrading to the new version of PCF ERT.
 
-# Patches:
+# <id="releases"></a> Releases
 
-## 1.8.19
+### <id="1.8.19"></a> 1.8.19
 
 * Resolves an issue with the Diego Cell download cache that could result in unexpected behavior.
 
@@ -108,7 +108,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.18
+### <id="1.8.18"></a> 1.8.18
 
 * Reduces the allowed cipher suites used when communicating to components of Diego.
   The accepted ciphers have been restricted to `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` and `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`.
@@ -161,7 +161,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.17
+### <id="1.8.17"></a> 1.8.17
 
 * Introduces a patch to prevent loss of application routes when the consul cluster becomes unreachable or loses quorum.
   Previously, the loss of the consul cluster would result in applications becoming unavailable as their routes were pruned from the routing table.
@@ -216,7 +216,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.16
+### <id="1.8.16"></a> 1.8.16
 
 * Stability fixes.
 
@@ -268,7 +268,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.15
+### <id="1.8.15"></a> 1.8.15
 
 * Bumps the version of PCRE used in both haproxy and nginx to address multiple CVEs.
 * Bumps the version of routing-release to 0.141.0 to address the same PCRE CVEs.
@@ -322,7 +322,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.14
+### <id="1.8.14"></a> 1.8.14
 
 * Patches the Diego container runtime to improve the performance of the application of security group rules during application startup.
 * Resolves an issue with the tcp-emitter and routing-api jobs on the Diego Cell, CloudController, and Router VMs that would prevent them from being stopped and started with the `bosh` CLI without manual intervention.
@@ -376,7 +376,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.13
+### <id="1.8.13"></a> 1.8.13
 
 * Bumps garden-runc to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
 * Exposes the "Request Max Buffer Size" property for HAProxy deployments on the "Networking" page. This property determines the maximum request header payload that HAProxy will accept.
@@ -435,7 +435,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.12
+### <id="1.8.12"></a> 1.8.12
 
 * Patches several UAA clients to remove an open redirect vulnerability in response to CVE-2016-6657. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 * Prevents Diego Cells from hanging on start-up when attempting to detect their availability zone.
@@ -486,7 +486,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.11
+### <id="1.8.11"></a> 1.8.11
 
 * Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials in response to CVE-2016-6658. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 * Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
@@ -538,7 +538,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.10
+### <id="1.8.10"></a> 1.8.10
 
 * Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
 
@@ -588,7 +588,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.8.9
+### <id="1.8.9"></a> 1.8.9
 
 If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8](#upgrade-issue) section above. 
 
@@ -643,21 +643,21 @@ If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading 
   </tbody>
   </table>
 
-## 1.8.8
+### <id="1.8.8"></a> 1.8.8
 
 Bumps the required stemcell version to 3263.7. This stemcell is based on the 4.4 Linux kernel.
-Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
+Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology.
 Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
 
-Advantages of Garden-runC over Garden-Linux are: 
+Advantages of Garden-runC over Garden-Linux are:
 
-* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers. 
-* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface area for break-out exploits. This is set up out-of-the-box; you don't need to do anything. 
-* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management. 
+* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers.
+* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface area for break-out exploits. This is set up out-of-the-box; you don't need to do anything.
+* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management.
 It enables container-to-container networking and the new "grootfs" OCI-compliant rootfs downloader.
 * Garden-runC uses the same low-level container execution code as docker/k8s for running containers, so that your container images run the same in PCF as elsewhere.
 
-Lastly, Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month, and has been tested at lower load for some months before that. 
+Lastly, Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for around a month, and has been tested at lower load for some months before that.
 However, as always, make sure to test in a staging environment before deploying to production.
 
   <table border="1" class="nice">
@@ -706,7 +706,7 @@ However, as always, make sure to test in a staging environment before deploying 
   </tbody>
   </table>
 
-## 1.8.7
+### <id="1.8.7"></a> 1.8.7
 
 Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://pivotal.io/security for more information.
 
@@ -756,7 +756,7 @@ Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://p
   </tbody>
   </table>
 
-## 1.8.6
+### <id="1.8.6"></a> 1.8.6
 
 Adds the ability to perform an HTTP health check against the router VMs. This health-check endpoint is located at port `8080` on the `/health` path.
 
@@ -814,7 +814,7 @@ After redeploying with this corrected default, if you find that the smoke tests 
   </tbody>
   </table>
 
-## 1.8.5
+### <id="1.8.5"></a> 1.8.5
 
 Adds the ability to use Google Cloud Storage for your File Storage configuration.
 
@@ -874,7 +874,7 @@ This should remove the need to include an extra SAN entry in the TLS certificate
   </tbody>
   </table>
 
-## 1.8.4
+### <id="1.8.4"></a> 1.8.4
 
 Bumps UAA to version 3.6.1 to make upgrades possible from Elastic Runtime versions 1.7.24 and greater.
 
@@ -926,11 +926,11 @@ Also introduces a field in the Advanced Features section which allows you to add
   </tbody>
   </table>
 
-## 1.8.3
+### <id="1.8.3"></a> 1.8.3
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
-Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
+Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security.
 
   <table border="1" class="nice">
   <thead>
@@ -978,7 +978,7 @@ Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Addit
   </tbody>
   </table>
 
-## 1.8.2
+### <id="1.8.2"></a> 1.8.2
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
@@ -1030,7 +1030,7 @@ Fixes an issue where having SSL validation enabled while using the internal file
   </tbody>
   </table>
 
-## 1.8.1
+### <id="1.8.1"></a> 1.8.1
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
