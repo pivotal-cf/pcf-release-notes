@@ -127,7 +127,7 @@ Diego no longer uses etcd as a backend datastore.
 
 #### Routing API Relational Store
 
-In terms of upgrade, only users who have enabled the TCP routing feature in PCF v1.8 are impacted. When those operators upgrade from PCF v1.8 to PCF v1.9, existing routing API data is migrated automatically. 
+In terms of upgrade, only deployments with the TCP routing feature enabled in PCF v1.8 are impacted. When those deployments are upgraded from PCF v1.8 to PCF v1.9, the upgrade process migrates existing routing API data automatically. 
 
 ### <a id='database-migrations'></a>Cloud Foundry API Availability During Upgrade
 
@@ -153,9 +153,9 @@ When a task is executed, it inherits the environment of its associated applicati
 
 ### <a id='net-core'></a>.NET Core Buildpack
 
-The .NET Core Buildpack is now included as a core buildpack for application developers.
-This buildpack is for use with applications running .Net Core on Linux.
-This will be new for operators that have not already upgraded to a version of the Elastic Runtime >= 1.8.13.
+The .NET Core Buildpack is now included as a core buildpack for application developers. This buildpack is used by applications running .NET Core on Linux.
+
+The buildpack is only new for operators who have not already upgraded to Elastic Runtime v1.8.13 or higher.
 
 ### <a id='actuators'></a>Support for Spring Boot Actuators in Apps Manager
 
