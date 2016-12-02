@@ -54,9 +54,9 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 1. Save the **Resource Config**
 1. At this point, you can continue your normal procedure for upgrading to the new version of PCF ERT.
 
-# <id="releases"></a> Releases
+# <a id="releases"></a> Releases
 
-### <id="1.8.19"></a> 1.8.19
+### <a id="1.8.19"></a> 1.8.19
 
 * Resolves an issue with the Diego Cell download cache that could result in unexpected behavior.
 
@@ -108,7 +108,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.18"></a> 1.8.18
+### <a id="1.8.18"></a> 1.8.18
 
 * Reduces the allowed cipher suites used when communicating to components of Diego.
   The accepted ciphers have been restricted to `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` and `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`.
@@ -161,7 +161,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.17"></a> 1.8.17
+### <a id="1.8.17"></a> 1.8.17
 
 * Introduces a patch to prevent loss of application routes when the consul cluster becomes unreachable or loses quorum.
   Previously, the loss of the consul cluster would result in applications becoming unavailable as their routes were pruned from the routing table.
@@ -216,7 +216,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.16"></a> 1.8.16
+### <a id="1.8.16"></a> 1.8.16
 
 * Stability fixes.
 
@@ -268,7 +268,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.15"></a> 1.8.15
+### <a id="1.8.15"></a> 1.8.15
 
 * Bumps the version of PCRE used in both haproxy and nginx to address multiple CVEs.
 * Bumps the version of routing-release to 0.141.0 to address the same PCRE CVEs.
@@ -322,7 +322,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.14"></a> 1.8.14
+### <a id="1.8.14"></a> 1.8.14
 
 * Patches the Diego container runtime to improve the performance of the application of security group rules during application startup.
 * Resolves an issue with the tcp-emitter and routing-api jobs on the Diego Cell, CloudController, and Router VMs that would prevent them from being stopped and started with the `bosh` CLI without manual intervention.
@@ -376,7 +376,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.13"></a> 1.8.13
+### <a id="1.8.13"></a> 1.8.13
 
 * Bumps garden-runc to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
 * Exposes the "Request Max Buffer Size" property for HAProxy deployments on the "Networking" page. This property determines the maximum request header payload that HAProxy will accept.
@@ -435,7 +435,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.12"></a> 1.8.12
+### <a id="1.8.12"></a> 1.8.12
 
 * Patches several UAA clients to remove an open redirect vulnerability in response to CVE-2016-6657. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 * Prevents Diego Cells from hanging on start-up when attempting to detect their availability zone.
@@ -486,7 +486,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.11"></a> 1.8.11
+### <a id="1.8.11"></a> 1.8.11
 
 * Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials in response to CVE-2016-6658. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 * Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
@@ -538,7 +538,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.10"></a> 1.8.10
+### <a id="1.8.10"></a> 1.8.10
 
 * Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
 
@@ -588,7 +588,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-### <id="1.8.9"></a> 1.8.9
+### <a id="1.8.9"></a> 1.8.9
 
 If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8](#upgrade-issue) section above. 
 
@@ -643,7 +643,7 @@ If upgrading to 1.8.9 from 1.7, see the [Resolve Diego BBS Issue when Upgrading 
   </tbody>
   </table>
 
-### <id="1.8.8"></a> 1.8.8
+### <a id="1.8.8"></a> 1.8.8
 
 Bumps the required stemcell version to 3263.7. This stemcell is based on the 4.4 Linux kernel.
 Elastic Runtime v1.8.8 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology.
@@ -706,7 +706,7 @@ However, as always, make sure to test in a staging environment before deploying 
   </tbody>
   </table>
 
-### <id="1.8.7"></a> 1.8.7
+### <a id="1.8.7"></a> 1.8.7
 
 Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://pivotal.io/security for more information.
 
@@ -756,7 +756,7 @@ Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://p
   </tbody>
   </table>
 
-### <id="1.8.6"></a> 1.8.6
+### <a id="1.8.6"></a> 1.8.6
 
 Adds the ability to perform an HTTP health check against the router VMs. This health-check endpoint is located at port `8080` on the `/health` path.
 
@@ -814,7 +814,7 @@ After redeploying with this corrected default, if you find that the smoke tests 
   </tbody>
   </table>
 
-### <id="1.8.5"></a> 1.8.5
+### <a id="1.8.5"></a> 1.8.5
 
 Adds the ability to use Google Cloud Storage for your File Storage configuration.
 
@@ -874,7 +874,7 @@ This should remove the need to include an extra SAN entry in the TLS certificate
   </tbody>
   </table>
 
-### <id="1.8.4"></a> 1.8.4
+### <a id="1.8.4"></a> 1.8.4
 
 Bumps UAA to version 3.6.1 to make upgrades possible from Elastic Runtime versions 1.7.24 and greater.
 
@@ -926,7 +926,7 @@ Also introduces a field in the Advanced Features section which allows you to add
   </tbody>
   </table>
 
-### <id="1.8.3"></a> 1.8.3
+### <a id="1.8.3"></a> 1.8.3
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
@@ -978,7 +978,7 @@ Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Addit
   </tbody>
   </table>
 
-### <id="1.8.2"></a> 1.8.2
+### <a id="1.8.2"></a> 1.8.2
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
@@ -1030,7 +1030,7 @@ Fixes an issue where having SSL validation enabled while using the internal file
   </tbody>
   </table>
 
-### <id="1.8.1"></a> 1.8.1
+### <a id="1.8.1"></a> 1.8.1
 
 Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
 
@@ -1089,12 +1089,12 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is doc
 * Before upgrading to PCF v1.8, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
 
 * After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
- 
+
 * Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile. 
 
 * Apps Manager requires the NodeJS Buildpack 1.5.14 or higher.
 
-## <a id='versions'></a> New Features in Elastic Runtime v1.8.0 
+## <a id='versions'></a> New Features in Elastic Runtime v1.8.0
 
 ### <a id='routing'></a> Routing
 
