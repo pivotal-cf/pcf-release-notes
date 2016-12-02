@@ -84,53 +84,71 @@ Versions 1.9.0 and higher versions of Elastic Runtime consist of the following c
 ## <a id='upgrade'></a>How to Upgrade
 
 The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+
 When upgrading to v1.9, be aware of the following upgrade considerations:
-* Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF.
-  See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
-* Some partner service tiles may currently be incompatible with PCF v1.9.
-  Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.
-  For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+
+   * Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).<br><br/>
+    Some partner service tiles may currently be incompatible with PCF v1.9. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. <br/><br/>
+    For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+   * Before upgrading to PCF v1.9, ensure that you have adequate space available on your database server. See [Diego and Routing API Migrate to a Relational Datastore](#diego_and_routing) and [Cloud Foundry API Availability During Upgrade](database-migrations).
+   * Due to the Cloud Foundry API database migration, the CF API will return 500 status codes while the Cloud Controller VMs are being upgraded. In addition, V3 service bindings are removed without notifying the related broker. Pivotal recommends deleting any V3 service bindings before upgrading.
 
 ## <a id='1.9.0'></a> New Features in Elastic Runtime v1.9.0
+
+This section describes new features of the release.
 
 ### <a id='security'></a>Security Improvements for Intercomponent Communication
 
 The etcd cluster now uses TLS for all communication between servers and clients.
-To support the migration from unencrypted to encrypted communication, the existing etcd servers have been converted into proxies.
-These proxies will allow connections from clients that still communicate unencrypted.
-It is important to note that the etcd proxy will need to remain deployed until such time as all clients in your deployment have switched to encrypted communications.
 
-Additionally, the Diego Cell VMs now provide a secured API endpoint to communicate with the Diego Brain VM.
-The Cells will provide both encrypted and unencrypted channels of communication in this release.
-A complete switch-over to TLS for this communication channel will follow on in a subsequent release.
+To support the migration from unencrypted to encrypted communication, existing etcd servers are converted into proxies. These proxies allow connections from clients that still communicate unencrypted.
+
+<p class="note"><strong>Important</strong>: The etcd proxy needs to remain deployed until such time as all clients in your deployment have switched to encrypted communications.</p>
+
+Additionally, the Diego Cell VMs now provide a secured API endpoint to communicate with the Diego Brain VM. The Cells provide both encrypted and unencrypted channels of communication in this release.
+
+A complete switch-over to TLS for this communication channel will follow in a subsequent release.
 
 ### <a id='containers'></a>Containers Default to Running Unprivileged
 
-All newly staged containers will run as unprivileged containers.
-Unprivileged containers are a security technique of mapping the root user inside the container to a regular user at the linux operating system level that has no privileges.
-This prevents an application from inheriting root access on the host if it breaks out of the container.
+In PCF v1.9, all newly staged containers run as unprivileged containers.
+
+Unprivileged containers are a security technique of mapping the root user inside the container to a regular user who has no privileges at the linux operating system level. This prevents apps from inheriting root access on the host if an app breaks out of the container.
+
 By using the full set of user-namespacing features in Linux, PCF isolates containers sharing the same host.
 
-### <a id='diego'></a>Diego and the Routing API Use a Relational Datastore
+### <a id='diego_and_routing'></a>Diego and Routing API Migrate to a Relational Datastore
 
-Both Diego and the Routing API have switched over to using a relational database as their backing store.
+Both Diego and the Routing API datastores have switched over to using a relational database as their backing store. Both Diego and Routing API use the same  database, either internal MySQL or external database, that you configure during a new deployment of Elastic Runtime.
 
-### <a id='database-migrations'></a>CF API Availability During Upgrade
+#### Diego Relational Store
 
-The database backing the CF API will be performing a backwards-incompatible migration when upgrading from 1.8.x.
-During the migration, you should expect to see 500 status codes from the API as the Cloud Controller VMs are deployed.
+Diego no longer uses etcd as a backend datastore.
+
+#### Routing API Relational Store
+
+In terms of upgrade, only users who have enabled the TCP routing feature in PCF v1.8 are impacted. When those operators upgrade from PCF v1.8 to PCF v1.9, existing routing API data is migrated automatically. 
+
+### <a id='database-migrations'></a>Cloud Foundry API Availability During Upgrade
+
+The database backing the CF API performs a backwards-incompatible migration when upgrading from 1.8.x. The purpose of this large database migration is to prepare for the release of the Cloud Controller V3 API.
+
+During the migration, you should expect to see 500 status codes from the API while the Cloud Controller VMs are being deployed.
+
 Here are a couple things to note before performing the upgrade:
-* Ensure there is adequate space available on the database server
-  This is dependent on the type of database you use and the amount of data you’re migrating.
-  For example, Postgres will create copy tables that could temporarily consume double the size of the apps table.
-* V3 service bindings will be removed without notifying the related broker.
-  We recommend deleting any V3 service bindings before upgrading.
+
+  * Ensure there is adequate space available on the database server. This depends on the type of database you use and the amount of data you are migrating. For example, Postgres creates copy tables that can temporarily consume double the size of the apps table.
+
+  * V3 service bindings are removed without notifying the related broker. Pivotal recommends deleting any V3 service bindings before upgrading.
 
 ### <a id='one-off'></a>Support for Running One-Off Tasks
 
-In addition to managing long-running processes, the platform will now have first-class support for running one-off tasks.
+In addition to managing long-running processes, PCF now has first-class support for running one-off tasks.
+
 Tasks are useful to application developers looking to perform defined operations with finite lifetimes such as database migrations, batch jobs, or seeding blobstores.
-The task itself is guaranteed by the platform to run at most once and will result in either a success or failure status.
+
+The task itself is guaranteed by the platform to run at most once and results in either a success or failure status.
+
 When a task is executed, it inherits the environment of its associated application, including environment variables and filesystem.
 
 ### <a id='net-core'></a>.NET Core Buildpack
@@ -145,28 +163,36 @@ Apps Manage now securely integrates the `/health`, `/info`, and `/logger` Spring
 
 If an app is configured with these actuators, users will see the following in Apps Manager:
 
-* Info: git commit information will be available in the app page header, and on the app settings tab. Raw output of the `info` actuator is also available on the app settings tab.
-* Health: the output of the `health` actuator for each instance will be displayed in the instances table on the summary tab of an app. The instance rows can be expanded to show the full details of the `health` endpoint for any instance.
-* Logger: On the logs tab, the "Configure Logging" button will appear, allowing the user to temporarily configure log levels for the application's loggers without a push or restart.
+* **Info**: git commit information will be available in the app page header, and on the app settings tab. Raw output of the `info` actuator is also available on the app settings tab.
+* **Health**: the output of the `health` actuator for each instance will be displayed in the instances table on the summary tab of an app. The instance rows can be expanded to show the full details of the `health` endpoint for any instance.
+* **Logger**: On the logs tab, the **Configure Logging** button will appear, allowing the user to temporarily configure log levels for the application's loggers without a push or restart.
 
 For more information, see the documentation for [Spring Boot Actuators](../console/spring-boot-actuators.html) and [Using Actuators](../console/using-actuators.html).
 
 ### <a id='autoscaling'></a>New Autoscaling Features
 
 The autoscaling service provides new scaling metrics for application developers.
-In addition to CPU Utilization, the service now supports HTTP Throughput and HTTP Latency as metrics to decide application scaling events.
-HTTP Throughput measures the number of incoming HTTP requests per second per application instance.
-HTTP Latency measures application response latency at the 99th and 95th percentiles.
+
+In addition to `CPU Utilization`, the service now supports `HTTP Throughput` and `HTTP Latency` as metrics to decide application scaling events.
+
+* `HTTP Throughput` measures the number of incoming HTTP requests per second per application instance.
+* `HTTP Latency` measures application response latency at the 99th and 95th percentiles.
+
 For all metrics, application developers can set upper and lower thresholds to decide whether the service should scale the application.
-All metrics are computes as a 30 second rolling average.
-With the new "Standard" plan, rules are evaluated every 5 seconds.
+
+All metrics are computed as a 30-second rolling average. With the new **Standard** plan, rules are evaluated every 5 seconds.
+
 The autoscaling service now also allows for multiple metrics to be combined for a single application.
-Finally, to make automation of the interactions with the autoscaling service much easier, the service now supports a REST-based API to manage your application scaling configuration.
+
+Finally, to facilitate the automation of the interactions with the autoscaling service, the service now supports a REST-based API to manage your application scaling configuration.
 
 ### <a id='zipkin'></a>Zipkin Tracing Headers
 
-With the Zipkin tracing option enabled, the router will now attach tracing headers to incoming requests.
-Enabling this option will allow application developers who have Zipkin-compatible instrumentation in their application to trace requests as they traverse the platform.
+With the Zipkin tracing option enabled, the router attaches tracing headers to incoming requests.
+
+Enabling this option allows application developers who have Zipkin-compatible instrumentation in their application to trace requests as they traverse the platform.
+
+For more information, see [Enabling Zipkin Tracing](../adminguide/zipkin_tracing.html).
 
 ## <a id='knownissues'></a>Known Issues
 
