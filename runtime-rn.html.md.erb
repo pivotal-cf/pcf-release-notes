@@ -159,7 +159,7 @@ The buildpack is only new for operators who have not already upgraded to Elastic
 
 ### <a id='actuators'></a>Support for Spring Boot Actuators in Apps Manager
 
-Apps Manage now securely integrates the `/health`, `/info`, and `/logger` Spring Boot actuators.
+Apps Manager now securely integrates the `/info`, `/health`, and `/logger` Spring Boot actuators.
 
 If an app is configured with these actuators, users will see the following in Apps Manager:
 
@@ -173,10 +173,10 @@ For more information, see the documentation for [Spring Boot Actuators](../conso
 
 The autoscaling service provides new scaling metrics for application developers.
 
-In addition to `CPU Utilization`, the service now supports `HTTP Throughput` and `HTTP Latency` as metrics to decide application scaling events.
+In addition to **CPU Utilization**, the service now supports **HTTP Throughput** and **HTTP Latency** as metrics to decide application scaling events.
 
-* `HTTP Throughput` measures the number of incoming HTTP requests per second per application instance.
-* `HTTP Latency` measures application response latency at the 99th and 95th percentiles.
+* **HTTP Throughput** measures the number of incoming HTTP requests per second per application instance.
+* **HTTP Latency** measures application response latency at the 99th and 95th percentiles.
 
 For all metrics, application developers can set upper and lower thresholds to decide whether the service should scale the application.
 
