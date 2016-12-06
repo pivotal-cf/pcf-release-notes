@@ -113,7 +113,7 @@ A complete switch-over to TLS for this communication channel will follow in a su
 
 In PCF v1.9, all newly staged containers run as unprivileged containers.
 
-Unprivileged containers are a security technique of mapping the root user inside the container to a regular user who has no privileges at the linux operating system level. This prevents apps from inheriting root access on the host if an app breaks out of the container.
+Unprivileged containers are a security technique of mapping the root user inside the container to a regular user who has no privileges at the Linux operating system level. This prevents apps from inheriting root access on the host if an app breaks out of the container.
 
 By using the full set of user-namespacing features in Linux, PCF isolates containers sharing the same host.
 
@@ -131,7 +131,7 @@ In terms of upgrade, only deployments with the TCP routing feature enabled in PC
 
 ### <a id='database-migrations'></a>Cloud Foundry API Availability During Upgrade
 
-The database backing the CF API performs a backwards-incompatible migration when upgrading from 1.8.x. The purpose of this large database migration is to prepare for the release of the Cloud Controller V3 API.
+The database backing the CF API performs a backwards-incompatible migration when upgrading from v1.8.x. The purpose of this large database migration is to prepare for the release of the Cloud Controller V3 API.
 
 During the migration, you should expect to see 500 status codes from the API while the Cloud Controller VMs are being deployed.
 
@@ -163,8 +163,8 @@ Apps Manager now securely integrates the `/info`, `/health`, and `/logger` Sprin
 
 If an app is configured with these actuators, users will see the following in Apps Manager:
 
-* **Info**: git commit information will be available in the app page header, and on the app settings tab. Raw output of the `info` actuator is also available on the app settings tab.
-* **Health**: the output of the `health` actuator for each instance will be displayed in the instances table on the summary tab of an app. The instance rows can be expanded to show the full details of the `health` endpoint for any instance.
+* **Info**: Git commit information will be available in the app page header, and on the app settings tab. Raw output of the `info` actuator is also available on the app settings tab.
+* **Health**: The output of the `health` actuator for each instance will be displayed in the instances table on the summary tab of an app. The instance rows can be expanded to show the full details of the `health` endpoint for any instance.
 * **Logger**: On the logs tab, the **Configure Logging** button will appear, allowing the user to temporarily configure log levels for the application's loggers without a push or restart.
 
 For more information, see the documentation for [Spring Boot Actuators](../console/spring-boot-actuators.html) and [Using Actuators](../console/using-actuators.html).
