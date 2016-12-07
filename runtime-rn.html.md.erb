@@ -87,11 +87,13 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is doc
 
 When upgrading to v1.9, be aware of the following upgrade considerations:
 
+   * If you are upgrading from a PCF deployment that at one point included Elastic Runtime v1.7.15 or earlier, *make sure* that you have performed the remedial steps outlined in [App Usage Data and Events Data Become Corrupted After Upgrade or Install](https://discuss.pivotal.io/hc/en-us/articles/228639827-App-Usage-Data-and-Events-Data-Becomes-Corrupted-After-Upgrade-or-Install) in your v1.7 deployment before proceeding with the upgrade. If you have failed to perform the remedial steps, you may corrupt your existing usage data.  
    * Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).<br><br/>
     Some partner service tiles may currently be incompatible with PCF v1.9. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. <br/><br/>
     For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
    * Before upgrading to PCF v1.9, ensure that you have adequate space available on your database server. See [Diego and Routing API Migrate to a Relational Datastore](#diego_and_routing) and [Cloud Foundry API Availability During Upgrade](#database-migrations).
    * Due to the Cloud Foundry API database migration, the CF API will return 500 status codes while the Cloud Controller VMs are being upgraded. In addition, V3 service bindings are removed without notifying the related broker. Pivotal recommends deleting any V3 service bindings before upgrading.
+
 
 ## <a id='1.9.0'></a> New Features in Elastic Runtime v1.9.0
 
@@ -196,8 +198,12 @@ For more information, see [Enabling Zipkin Tracing](../adminguide/zipkin_tracing
 
 ## <a id='knownissues'></a>Known Issues
 
+This section lists new and existing known issues for Elastic Runtime.
+
 ###<a id='newissues'></a>New Issues
 
 ###<a id='existingissues'></a>Existing Issues
+
+
 
 
