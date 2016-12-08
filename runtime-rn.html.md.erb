@@ -87,6 +87,7 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is doc
 
 When upgrading to v1.9, be aware of the following upgrade considerations:
 
+   * You must upgrade to a version of Elastic Runtime v1.8.9 or higher in order to successfully upgrade to v1.9.
    * If you are upgrading from a PCF deployment that at one point included Elastic Runtime v1.7.16 or earlier, *make sure* that you have performed the remedial steps outlined in [App Usage Data and Events Data Become Corrupted After Upgrade or Install](https://discuss.pivotal.io/hc/en-us/articles/228639827-App-Usage-Data-and-Events-Data-Becomes-Corrupted-After-Upgrade-or-Install) before proceeding with the upgrade. If you fail to perform the remedial steps, the upgrade process may corrupt your existing usage data.  
    * Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).<br><br/>
     Some partner service tiles may currently be incompatible with PCF v1.9. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. <br/><br/>
