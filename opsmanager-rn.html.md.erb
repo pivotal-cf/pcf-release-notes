@@ -14,6 +14,39 @@ If you are currently on Ops Manager v1.7.14 or earlier, you should update your O
 Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
 Ubuntu is no longer providing CVE patches for Linux kernel v3.19. 
 
+### 1.7.19 Patch
+
+* Patches USN-3151-2. Additional information can be found at https://pivotal.io/security.
+* vSphere customers can now specify a custom hostname in the OVA template for the OpsManager VM
+* Ops Manager now exposes a Director flag called keep_unreachable_vms that prevents the Director from deleting VMs that are unreachable
+* Ops Manager now uses stronger cipher suites for SSL termination
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3233.6</td>
+	</tr>
+	<tr>
+	  <td>Bosh Director: 255.12</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 23</td>
+	</tr>
+	</tbody>
+	</table>
+
+
 ### 1.7.18 Patch
 
 * Patches CVE-2016-6657. Additional information can be found at https://pivotal.io/security.
