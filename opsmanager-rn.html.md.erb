@@ -434,7 +434,23 @@ Multiple improvements have been included in Ops Manager 1.7.0 for [Tile Authors]
 
 For forms, invalid user input can be rejected using regular expressions and form fields support placeholder text. Markdown can be used above a form.
 
-Several changes to how products and jobs are configured are included in Ops Manager 1.7.0. A job's instance count can be toggled to 0 based on a selector value. The [product template](http://docs.pivotal.io/partners/product-template-reference.html) must include <code>minimum\_version\_for\_upgrade</code>. Additionally, products with pre 1.7 metadata are limited to a single subnet. Users must specify whether their product gets persistent disk or not: the field is required. `First-network-deprecated` has been removed as a key / value pair. Tile authors can limit a product’s jobs to a single AZ. Additionally, Accessor information is available for trusted certificates.
+Ops Manager 1.7.0 includes several changes to how you configure products and jobs:
+
+* The `instance_definition` property for jobs replaces `instance_definitions`. `instance_definition` is required, and contains a hash specifying the number of default instances for a job, along with max, min, odd, and the ability to decrease sizing after deploy constraints.
+
+* A job's instance count can be toggled to 0 based on a selector value.
+
+* The [product template](http://docs.pivotal.io/partners/product-template-reference.html) must include <code>minimum\_version\_for\_upgrade</code>.
+
+* Products with pre 1.7 metadata are limited to a single subnet.
+
+* Users must specify whether their product gets persistent disk or not: the field is required.
+
+* `First-network-deprecated` has been removed as a key / value pair.
+
+* Tile authors can limit a product’s jobs to a single AZ.
+
+* Accessor information is available for trusted certificates.
 
 ## <a id='improvements'></a> Operational Improvements
 
