@@ -47,9 +47,9 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 1. Upgrade the PCF Elastic Runtime Tile to a version greater than or equal to 1.8.10.
 1. Navigate to the **Settings** tab in the Pivotal Elastic Runtime Tile.
 
-# Patches
+## <a id="releases"></a> Releases
 
-## 1.7.39
+### <a id="1.7.39"></a> 1.7.39
 
 * Bumps the stemcell to 3233.6 to address the Linux kernel vulnerability described in USN-3151-2.
 * Bumps the rootfs to version 1.91.0.
@@ -102,7 +102,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.38
+### <a id="1.7.38"></a> 1.7.38
 
 * Resolves an issue with the Diego Cell download cache that could result in unexpected behavior.
 
@@ -148,7 +148,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.37
+### <a id="1.7.37"></a> 1.7.37
 
 * Reduces the allowed cipher suites used when communicating to components of Diego.
   The accepted ciphers have been restricted to `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` and `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`.
@@ -195,7 +195,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.36
+### <a id="1.7.36"></a> 1.7.36
 
 * Introduces a patch to prevent loss of application routes when the consul cluster becomes unreachable or loses quorum.
   Previously, the loss of the consul cluster would result in applications becoming unavailable as their routes were pruned from the routing table.
@@ -244,7 +244,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.35
+### <a id="1.7.35"></a> 1.7.35
 
 * Bumps UAA to address a Tomcat server vulnerability that could allow for remote code execution.
 
@@ -290,7 +290,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.34
+### <a id="1.7.34"></a> 1.7.34
 
 * Bumps the version of PCRE used in both haproxy and nginx to address multiple CVEs. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 
@@ -336,7 +336,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.33
+### <a id="1.7.33"></a> 1.7.33
 
 * Patches the Diego container runtime to improve the performance of the application of security group rules during application startup.
 * Patches the NFS mounter in the internal filestore to resolve an issue that prevented large blob uploads from succeeding. This only affected installations using the internal blobstore. External blobstores like S3 were not impacted.
@@ -383,7 +383,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.32
+### <a id="1.7.32"></a> 1.7.32
 
 * Bumps garden-runc to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
 * Bumps the stack rootfs to patch the USN-3096-1 and USN-3088-1 vulnerabilities.
@@ -433,7 +433,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.31
+### <a id="1.7.31"></a> 1.7.31
 
 * Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials.
 * Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
@@ -481,7 +481,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.30
+### <a id="1.7.30"></a> 1.7.30
 
 * Fixes [CVE-2016-5195](http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-5195.html) for more information see [https://pivotal.io/security](https://pivotal.io/security).
 
@@ -527,7 +527,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
   </tbody>
   </table>
 
-## 1.7.29
+### <a id="1.7.29"></a> 1.7.29
 
 * Fixed an inconsistency between the hostname and the contents of /etc/hosts that would cause some java apps to crash.
 * Ability to configure `drain_wait` and `load_balancer_healthy_threshold` on the router. Should be helpful to customers with
@@ -577,29 +577,29 @@ F5s.
   </tbody>
   </table>
 
-## 1.7.28
+### <a id="1.7.28"></a> 1.7.28
 
 <p class="note">
 <strong>Note</strong>: This release caused an inconsistency between the hostname and the contents of /etc/hosts that would cause some java apps to crash.
 It has been fixed in the next patch release.
 </p>
 
-Bumps the required stemcell version to 3233.2. This stemcell is based on the 4.4 Linux kernel.
-Elastic Runtime v1.7.28 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology. 
-Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
+* Bumps the required stemcell version to 3233.2. This stemcell is based on the 4.4 Linux kernel.
+* Elastic Runtime v1.7.28 uses Garden-runC instead of Garden-Linux as the Garden backend for our container technology.
+  Documentation for the Garden-runC runtime can be found at https://github.com/cloudfoundry/garden-runc-release.
 
-Advantages of Garden-runC over Garden-Linux are: 
+Advantages of Garden-runC over Garden-Linux are:
 
-* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers. 
-* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface 
-area for break-out exploits. This is set up out-of-the-box; you don't need to do anything. 
-* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management. 
+* AppArmor is configured and enforced by default and out-of-the-box for all unprivileged containers.
+* Seccomp whitelisting restricts the set of system calls a container can access, greatly reducing the surface
+area for break-out exploits. This is set up out-of-the-box; you don't need to do anything.
+* The new Garden code base is simpler and more modular, allowing pluggable networking and pluggable rootfs management.
 It enables container-to-container networking and the new “grootfs” OCI-compliant rootfs downloader.
-* Garden-runC uses the same low-level container execution code as docker/k8s for running containers, 
+* Garden-runC uses the same low-level container execution code as docker/k8s for running containers,
 so that your container images run the same in PCF as elsewhere.
 
-Lastly Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for 
-around a month. And, it has been tested at lower load for some months before that. 
+Lastly Garden-runC has been successfully running 100% of the production traffic on Pivotal Web Services (PWS) for
+around a month. And, it has been tested at lower load for some months before that.
 However, as always, make sure to test in a staging environment before deploying to production.
 
   <table border="1" class="nice">
@@ -644,9 +644,9 @@ However, as always, make sure to test in a staging environment before deploying 
   </tbody>
   </table>
 
-## 1.7.27
+### <a id="1.7.27"></a> 1.7.27
 
-Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://pivotal.io/security for more information.
+* Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://pivotal.io/security for more information.
 
   <table border="1" class="nice">
   <thead>
@@ -690,11 +690,11 @@ Includes a fix for the Critical Vulnerability issue CVE-2016-6655. See https://p
   </tbody>
   </table>
 
-## 1.7.26
+### <a id="1.7.26"></a> 1.7.26
 
-Fixes an issue where you cannot successfully deploy Consul servers with public IP addresses, in case your network that you have deployed Elastic Runtime to is not an RFC 1918 private network.
-Allows the operator to define supported currencies for the service marketplace. This new property can be configured in the "Apps Manager" configuration form.
-Fixes an issue with running Windows apps in Diego.
+* Fixes an issue where you cannot successfully deploy Consul servers with public IP addresses, in case your network that you have deployed Elastic Runtime to is not an RFC 1918 private network.
+* Allows the operator to define supported currencies for the service marketplace. This new property can be configured in the "Apps Manager" configuration form.
+* Fixes an issue with running Windows apps in Diego.
 
   <table border="1" class="nice">
   <thead>
@@ -738,57 +738,14 @@ Fixes an issue with running Windows apps in Diego.
   </tbody>
   </table>
 
-## 1.7.25
+### <a id="1.7.25"></a> 1.7.25
 
-Fixes a bug where the apps-usage service could lose database connectivity while the internal mysql proxies were being deployed. This only affects deployments using internal mysql as a database.
-Changes the route for the switchboard UI for the internal mysql proxies. Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DOMAIN`.
-Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`. This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3232.21</td>
-  </tr><tr>
-    <td>cf</td><td>235</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>36</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>26.6</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
-  </tr><tr>
-    <td>consul</td><td>96</td>
-  </tr><tr>
-    <td>diego</td><td>0.1467.0</td>
-  </tr><tr>
-    <td>etcd</td><td>48</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.342.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.25.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>5</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>629.10</td>
-  </tr><tr>
-    <td>service-backup</td><td>14</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.7.24
-
-Fixes an issue with upgrades from Elastic Runtime 1.7.20, by updating UAA to version 3.6.1.
+* Fixes a bug where the apps-usage service could lose database connectivity while the internal MySQL proxies were being deployed.
+  This only affects deployments using internal mysql as a database.
+* Changes the route for the switchboard UI for the internal mysql proxies.
+  Previously, those dashboards were located at `proxy-X-p-mysql.internal.SYSTEM_DOMAIN`.
+  Now they can be found at `proxy-X-p-mysql-ert.SYSTEM_DOMAIN`.
+  This should remove the need to include an extra SAN entry in the TLS certificates for the platform.
 
   <table border="1" class="nice">
   <thead>
@@ -832,11 +789,9 @@ Fixes an issue with upgrades from Elastic Runtime 1.7.20, by updating UAA to ver
   </tbody>
   </table>
 
-## 1.7.23
+### <a id="1.7.24"></a> 1.7.24
 
-Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
-
-Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security. 
+* Fixes an issue with upgrades from Elastic Runtime 1.7.20, by updating UAA to version 3.6.1.
 
   <table border="1" class="nice">
   <thead>
@@ -880,11 +835,11 @@ Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Addit
   </tbody>
   </table>
 
-## 1.7.22
+### <a id="1.7.23"></a> 1.7.23
 
 Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
 
-Re-orders the MySQL Monitor job deployment to deploy after the UAA job, so that the required UAA client is ready before the monitor deploys.
+* Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security.
 
   <table border="1" class="nice">
   <thead>
@@ -895,15 +850,15 @@ Re-orders the MySQL Monitor job deployment to deploy after the UAA job, so that 
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3232.17</td>
+    <td>Stemcell</td><td>3232.21</td>
   </tr><tr>
     <td>cf</td><td>235</td>
   </tr><tr>
     <td>cf-autoscaling</td><td>36</td>
   </tr><tr>
-    <td>cf-mysql</td><td>26.4</td>
+    <td>cf-mysql</td><td>26.6</td>
   </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
+    <td>cflinuxfs2-rootfs</td><td>1.33.0</td>
   </tr><tr>
     <td>consul</td><td>96</td>
   </tr><tr>
@@ -928,11 +883,11 @@ Re-orders the MySQL Monitor job deployment to deploy after the UAA job, so that 
   </tbody>
   </table>
 
-## 1.7.21
+### <a id="1.7.22"></a> 1.7.22
 
 Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
 
-Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
+* Re-orders the MySQL Monitor job deployment to deploy after the UAA job, so that the required UAA client is ready before the monitor deploys.
 
   <table border="1" class="nice">
   <thead>
@@ -976,9 +931,11 @@ Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/securi
   </tbody>
   </table>
 
-## 1.7.20
+### <a id="1.7.21"></a> 1.7.21
 
-This version adds a manifest change for Diego that enables successful upgrades to a future 1.8.0 version of Elastic Runtime, once that is released.
+Note: Do not upgrade to this version if you are starting with 1.7.20. You must upgrade to 1.7.24 or greater instead.
+
+* Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
 
   <table border="1" class="nice">
   <thead>
@@ -1022,9 +979,57 @@ This version adds a manifest change for Diego that enables successful upgrades t
   </tbody>
   </table>
 
-## 1.7.19
+### <a id="1.7.20"></a> 1.7.20
 
-Bumps the PHP buildpack to v4.3.18. The buildpack was exposing the `.profile` file which could contain environment variables and credentials. The PHP buildpack prior to v4.3.18 did not actually allow for execution of the .profile file, so it is unlikely that many applications were using it.
+* Adds a manifest change for Diego that enables successful upgrades to a future 1.8.0 version of Elastic Runtime, once that is released.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3232.17</td>
+  </tr><tr>
+    <td>cf</td><td>235</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.4</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.26.0</td>
+  </tr><tr>
+    <td>consul</td><td>96</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0</td>
+  </tr><tr>
+    <td>etcd</td><td>48</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.342.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>5</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>629.10</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
+### <a id="1.7.19"></a> 1.7.19
+
+* Bumps the PHP buildpack to v4.3.18.
+  The buildpack was exposing the `.profile` file which could contain environment variables and credentials.
+  The PHP buildpack prior to v4.3.18 did not actually allow for execution of the .profile file, so it is unlikely that many applications were using it.
 
   <table border="1" class="nice">
   <thead>
@@ -1066,7 +1071,7 @@ Bumps the PHP buildpack to v4.3.18. The buildpack was exposing the `.profile` fi
   </tbody>
   </table>
 
-## 1.7.18
+### <a id="1.7.18"></a> 1.7.18
 
 We've discovered a rare condition where a PCF deployment running an internal MySQL cluster can experience a fault in replication that may result in some data loss. When this occurs, previous releases do not log the root cause of the bug. In order to best address this issue, version 1.7.18 contains significant additional telemetry and several defensive features which will account for the failure condition and prevent data loss.
 
@@ -1137,9 +1142,9 @@ We've discovered a rare condition where a PCF deployment running an internal MyS
   </tbody>
   </table>
 
-## 1.7.17
+### <a id="1.7.17"></a> 1.7.17
 
-Removes the maximum memory restriction for the NATS VM. This artificial limit prevented some IaaSes from provisioning VMs that could support the NATS job.
+* Removes the maximum memory restriction for the NATS VM. This artificial limit prevented some IaaSes from provisioning VMs that could support the NATS job.
 
   <table border="1" class="nice">
   <thead>
@@ -1179,11 +1184,10 @@ Removes the maximum memory restriction for the NATS VM. This artificial limit pr
   </tbody>
   </table>
 
-## 1.7.16
+### <a id="1.7.16"></a> 1.7.16
 
-Patches CVE-2016-5388 and USN-3024-1. Additional info can be found at https://pivotal.io/security.
-
-Also adds an endpoint for Apps Usage Service to help determine if this app has corrupted data. This update will extend the app event data kept from Cloud Controller to 160 days instead of 30 days.
+* Patches CVE-2016-5388 and USN-3024-1. Additional info can be found at https://pivotal.io/security.
+* Adds an endpoint for Apps Usage Service to help determine if this app has corrupted data. This update will extend the app event data kept from Cloud Controller to 160 days instead of 30 days.
 
   <table border="1" class="nice">
   <thead>
@@ -1223,15 +1227,12 @@ Also adds an endpoint for Apps Usage Service to help determine if this app has c
   </tbody>
   </table>
 
-## 1.7.15
+### <a id="1.7.15"></a> 1.7.15
 
-Patches USN-3064-1, USN-3048-1, USN-3060-1, USN-3061-1, and USN-3065-1. Additional info can be found at https://pivotal.io/security.
-
-Also introduces a patch which addresses application routing downtime during upgrades whenever IPSec has been applied to the PCF environment. Additional info can be found in this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/226130787-NATS-timeout-issue).
-
-Also fixes an issue where the legacy Apps Manager and Apps Usage system applications were not always completely deleted from the environment to make way for the latest versions of these apps.
-
-Also updates the size of the push-errand VM for Autoscale, to increase the chances of the errand's success.
+* Patches USN-3064-1, USN-3048-1, USN-3060-1, USN-3061-1, and USN-3065-1. Additional info can be found at https://pivotal.io/security.
+* Introduces a patch which addresses application routing downtime during upgrades whenever IPSec has been applied to the PCF environment. Additional info can be found in this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/226130787-NATS-timeout-issue).
+* Fixes an issue where the legacy Apps Manager and Apps Usage system applications were not always completely deleted from the environment to make way for the latest versions of these apps.
+* Updates the size of the push-errand VM for Autoscale, to increase the chances of the errand's success.
 
   <table border="1" class="nice">
   <thead>
@@ -1271,15 +1272,12 @@ Also updates the size of the push-errand VM for Autoscale, to increase the chanc
   </tbody>
   </table>
 
-## 1.7.14
+### <a id="1.7.14"></a> 1.7.14
 
-Introduces a feature which allows you to use AWS's Server-Side Encryption (SSE) feature for your S3 buckets if you use S3 buckets as Cloud Controller's file store.
-
-Also updates the version of Golang used by system apps in Elastic Runtime to a newer version, since Golang 1.5 will soon be end of life.
-
-Also patches Apps Manager to address an issue where app events were not appearing in the older version of Apps Manager (the Ruby version).
-
-Also patches Autoscale to address an issue where autoscaling was not properly scaling apps automatically and sending notifications.
+* Introduces a feature which allows you to use AWS's Server-Side Encryption (SSE) feature for your S3 buckets if you use S3 buckets as Cloud Controller's file store.
+* Updates the version of Golang used by system apps in Elastic Runtime to a newer version, since Golang 1.5 will soon be end of life.
+* Patches Apps Manager to address an issue where app events were not appearing in the older version of Apps Manager (the Ruby version).
+* Patches Autoscale to address an issue where autoscaling was not properly scaling apps automatically and sending notifications.
 
   <table border="1" class="nice">
   <thead>
@@ -1319,55 +1317,9 @@ Also patches Autoscale to address an issue where autoscaling was not properly sc
   </tbody>
   </table>
 
-## 1.7.13
+### <a id="1.7.13"></a> 1.7.13
 
-This release addresses an issue where metron sometimes panics from a concurrency fault while aggregating messages when the load is higher.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3232.12</td>
-  </tr><tr>
-    <td>cf</td><td>235</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>34</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>25.2</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.17.0</td>
-  </tr><tr>
-    <td>diego</td><td>0.1467.0</td>
-  </tr><tr>
-    <td>etcd</td><td>48</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.338.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1</td>
-  </tr><tr>
-    <td>notifications</td><td>24</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>17</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>629.4</td>
-  </tr><tr>
-    <td>service-backup</td><td>1</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.7.12
-
-This release adds all link-local addresses, in the range of 169.254.0.0/16, to be excluded from access in the default application security group of Elastic Runtime. This range includes the metadata endpoints of most IaaS providers, such as AWS. This security group does not take effect for upgrades, only new installs of Elastic Runtime. If you would like to update your pre-existing deployment, please refer to the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
-
-This also introduces a patch to Cloud Controller's API that will enable use of the upcoming [Spring Cloud Data Flow](http://cloud.spring.io/spring-cloud-dataflow/)’s Task support on Cloud Foundry. More about this release will be announced soon.
-
-This also updates Consul to v96 in preparation for future upgrades to Elastic Runtime 1.8 (the release of which is upcoming), which will require all components to adopt a new format for the bosh manifest.
+* Addresses an issue where metron sometimes panics from a concurrency fault while aggregating messages when the load is higher.
 
   <table border="1" class="nice">
   <thead>
@@ -1407,15 +1359,57 @@ This also updates Consul to v96 in preparation for future upgrades to Elastic Ru
   </tbody>
   </table>
 
-## 1.7.11
+### <a id="1.7.12"></a> 1.7.12
+
+* Adds all link-local addresses, in the range of 169.254.0.0/16, to be excluded from access in the default application security group of Elastic Runtime. This range includes the metadata endpoints of most IaaS providers, such as AWS. This security group does not take effect for upgrades, only new installs of Elastic Runtime. If you would like to update your pre-existing deployment, please refer to the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
+* Introduces a patch to Cloud Controller's API that will enable use of the upcoming [Spring Cloud Data Flow](http://cloud.spring.io/spring-cloud-dataflow/)’s Task support on Cloud Foundry. More about this release will be announced soon.
+* Updates Consul to v96 in preparation for future upgrades to Elastic Runtime 1.8 (the release of which is upcoming), which will require all components to adopt a new format for the bosh manifest.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3232.12</td>
+  </tr><tr>
+    <td>cf</td><td>235</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>34</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>25.2</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.17.0</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0</td>
+  </tr><tr>
+    <td>etcd</td><td>48</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.338.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1</td>
+  </tr><tr>
+    <td>notifications</td><td>24</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>629.4</td>
+  </tr><tr>
+    <td>service-backup</td><td>1</td>
+  </tr>
+  </tbody>
+  </table>
+
+### <a id="1.7.11"></a> 1.7.11
 
 Note: The Cloudformation script for PCF setup on AWS was updated at the same time as this release to switch over to using a NAT EC2 instance instead of a NAT gateway, as there is a known issue with AWS NAT gateways handling hairpin routing requests.
 
-Patches CVE-2016-5006, USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
-
-Also introduces a fix for GoRouter to address an issue where failover of requests to unresponsive app instances was not working properly whenever the request has a body. See [tracker story](https://www.pivotaltracker.com/n/projects/1358110/stories/118532589) for details.
-
-Also increases the default instance size of the UAA instance to handle larger logs.
+* Patches CVE-2016-5006, USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
+* Introduces a fix for GoRouter to address an issue where failover of requests to unresponsive app instances was not working properly whenever the request has a body. See [tracker story](https://www.pivotaltracker.com/n/projects/1358110/stories/118532589) for details.
+* Increases the default instance size of the UAA instance to handle larger logs.
 
   <table border="1" class="nice">
   <thead>
@@ -1455,11 +1449,10 @@ Also increases the default instance size of the UAA instance to handle larger lo
   </tbody>
   </table>
 
-## 1.7.10
+### <a id="1.7.10"></a> 1.7.10
 
-Updates the Cloud Foundry CLI used by the Pivotal Notifications and Autoscaling system applications, to address an issue where the errands that push these apps may sometimes fail on an environment with higher network latency.
-
-This also patches Diego to increase the log-streamer message size from 4 Kb to 60 Kb. See [tracker story](https://www.pivotaltracker.com/story/show/111866195) for details.
+* Updates the Cloud Foundry CLI used by the Pivotal Notifications and Autoscaling system applications, to address an issue where the errands that push these apps may sometimes fail on an environment with higher network latency.
+* Patches Diego to increase the log-streamer message size from 4 Kb to 60 Kb. See [tracker story](https://www.pivotaltracker.com/story/show/111866195) for details.
 
   <table border="1" class="nice">
   <thead>
@@ -1499,11 +1492,10 @@ This also patches Diego to increase the log-streamer message size from 4 Kb to 6
   </tbody>
   </table>
 
-## 1.7.9
+### <a id="1.7.9"></a> 1.7.9
 
-Patches USN-3020-1. Additional info can be found at https://pivotal.io/security.
-
-This also addresses an issue with Loggregator not properly setting timeouts on TCP connections to Cloud Controller and UAA.
+* Patches USN-3020-1. Additional info can be found at https://pivotal.io/security.
+* Addresses an issue with Loggregator not properly setting timeouts on TCP connections to Cloud Controller and UAA.
 
   <table border="1" class="nice">
   <thead>
@@ -1543,13 +1535,11 @@ This also addresses an issue with Loggregator not properly setting timeouts on T
   </tbody>
   </table>
 
-## 1.7.8
+### <a id="1.7.8"></a> 1.7.8
 
-Patches CVE-2016-0928 and CVE-2016-0926. Additional info can be found at https://pivotal.io/security.
-
-This also addresses an issue with the Apps Manager push errand sometimes failing.
-
-This also addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
+* Patches CVE-2016-0928 and CVE-2016-0926. Additional info can be found at https://pivotal.io/security.
+* Addresses an issue with the Apps Manager push errand sometimes failing.
+* Addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
 
   <table border="1" class="nice">
   <thead>
@@ -1589,51 +1579,9 @@ This also addresses an issue with rare occurrences of application containers bei
   </tbody>
   </table>
 
-## 1.7.7
+### <a id="1.7.7"></a> 1.7.7
 
-Patches CVE-2016-4468. Additional info can be found at https://pivotal.io/security.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3232.8</td>
-  </tr><tr>
-    <td>cf</td><td>235</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>28</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>25.2</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.15.0</td>
-  </tr><tr>
-    <td>diego</td><td>0.1467.0</td>
-  </tr><tr>
-    <td>etcd</td><td>48</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.338.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1</td>
-  </tr><tr>
-    <td>notifications</td><td>19</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>10</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>629</td>
-  </tr><tr>
-    <td>service-backup</td><td>1</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.7.6
-
-Patches USN-3001-1. Additional info can be found at https://pivotal.io/security.
+* Patches CVE-2016-4468. Additional info can be found at https://pivotal.io/security.
 
   <table border="1" class="nice">
   <thead>
@@ -1673,11 +1621,52 @@ Patches USN-3001-1. Additional info can be found at https://pivotal.io/security.
   </tbody>
   </table>
 
-## 1.7.5
+### <a id="1.7.6"></a> 1.7.6
 
-Patches USN-2985-1, USN-2985-2, USN-2981-1, USN-2970-1, USN-2966-1, USN-2994-1, USN-2987-1, USN-2990-1, USN-2983-1, and USN-2961-1. Additional info can be found at https://pivotal.io/security.
+* Patches USN-3001-1. Additional info can be found at https://pivotal.io/security.
 
-This also addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3232.8</td>
+  </tr><tr>
+    <td>cf</td><td>235</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>28</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>25.2</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.15.0</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0</td>
+  </tr><tr>
+    <td>etcd</td><td>48</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.338.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1</td>
+  </tr><tr>
+    <td>notifications</td><td>19</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>10</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>629</td>
+  </tr><tr>
+    <td>service-backup</td><td>1</td>
+  </tr>
+  </tbody>
+  </table>
+
+### <a id="1.7.5"></a> 1.7.5
+
+* Patches USN-2985-1, USN-2985-2, USN-2981-1, USN-2970-1, USN-2966-1, USN-2994-1, USN-2987-1, USN-2990-1, USN-2983-1, and USN-2961-1. Additional info can be found at https://pivotal.io/security.
+* This also addresses an issue with rare occurrences of application containers being assigned duplicate IP addresses.
 
   <table border="1" class="nice">
   <thead>
@@ -1717,9 +1706,9 @@ This also addresses an issue with rare occurrences of application containers bei
   </tbody>
   </table>
 
-## 1.7.4
+### <a id="1.7.4"></a> 1.7.4
 
-This only patches the CF CLI version used to push the Elastic Runtime system apps, like Apps Manager, to be more reliable. You do not need to upgrade to this version if you're already at Elastic Runtime 1.7.3.
+* This only patches the CF CLI version used to push the Elastic Runtime system apps, like Apps Manager, to be more reliable. You do not need to upgrade to this version if you're already at Elastic Runtime 1.7.3.
 
   <table border="1" class="nice">
   <thead>
@@ -1759,53 +1748,10 @@ This only patches the CF CLI version used to push the Elastic Runtime system app
   </tbody>
   </table>
 
-## 1.7.3
+### <a id="1.7.3"></a> 1.7.3
 
-As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
-
-This also introduces a few bug fixes, including a patch to Diego to prevent rare occurances of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3232.4</td>
-  </tr><tr>
-    <td>cf</td><td>235</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>28</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>25.2</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.3.0</td>
-  </tr><tr>
-    <td>diego</td><td>0.1467.0</td>
-  </tr><tr>
-    <td>etcd</td><td>48</td>
-  </tr><tr>
-    <td>garden-linux</td><td>0.337.0</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1</td>
-  </tr><tr>
-    <td>notifications</td><td>19</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>10</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>621</td>
-  </tr><tr>
-    <td>service-backup</td><td>1</td>
-  </tr>
-  </tbody>
-  </table>
-
-## 1.7.2
-
-Patches USN-2977-1 and CVE-2016-3084. Additional info can be found at https://pivotal.io/security. Also increases the maximum length you can have for CF task commands and ensures greater reliability for etcd.
+* As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
+* This also introduces a few bug fixes, including a patch to Diego to prevent rare occurances of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos.
 
   <table border="1" class="nice">
   <thead>
@@ -1845,13 +1791,53 @@ Patches USN-2977-1 and CVE-2016-3084. Additional info can be found at https://pi
   </tbody>
   </table>
 
-## 1.7.1
+### <a id="1.7.2"></a> 1.7.2
 
-Introduces an option to configure security event tracking in the Cloud Controller logs. Also adds statsd metrics from Cloud Controller.
+* Patches USN-2977-1 and CVE-2016-3084. Additional info can be found at https://pivotal.io/security. Also increases the maximum length you can have for CF task commands and ensures greater reliability for etcd.
 
-Also patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Additional info can be found at https://pivotal.io/security.
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3232.4</td>
+  </tr><tr>
+    <td>cf</td><td>235</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>28</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>25.2</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.3.0</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0</td>
+  </tr><tr>
+    <td>etcd</td><td>48</td>
+  </tr><tr>
+    <td>garden-linux</td><td>0.337.0</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1</td>
+  </tr><tr>
+    <td>notifications</td><td>19</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>10</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>621</td>
+  </tr><tr>
+    <td>service-backup</td><td>1</td>
+  </tr>
+  </tbody>
+  </table>
 
-If you are using Single Sign-On 1.1.0, it is recommended that you update to Single Sign-On 1.1.1. Additional info can be found at http://docs.pivotal.io/p-identity/release-notes.html.
+### <a id="1.7.1"></a> 1.7.1
+
+* Introduces an option to configure security event tracking in the Cloud Controller logs. Also adds statsd metrics from Cloud Controller.
+* Also patches USN-2959-1, USN-2957-1, USN-2949-1, USN-2943-1, and USN-2935-2. Additional info can be found at https://pivotal.io/security.
+* If you are using Single Sign-On 1.1.0, it is recommended that you update to Single Sign-On 1.1.1. Additional info can be found at http://docs.pivotal.io/p-identity/release-notes.html.
 
   <table border="1" class="nice">
   <thead>
