@@ -207,10 +207,12 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ###<a id='newissues'></a>New Issues
 
-
-
 ###<a id='existingissues'></a>Existing Issues
 
-
-
-
+* If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime.
+  The TCP routing domain is not configurable in the Elastic Runtime tile.
+* Consul server cluster can fail to recover from quorum loss.
+  See the [Consul fails to start during upgrade in PCF](https://discuss.pivotal.io/hc/en-us/articles/218196687-Consul-fails-to-start-during-upgrade-in-PCF) knowledge base article for how to recover from this issue.
+* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain.
+* Disaster recovery for etcd or Consul clusters still requires manual intervention.
+* The Cloud Foundry CLI command for viewing application files, `cf files`, does not work with apps on Diego.
