@@ -207,7 +207,7 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ###<a id='newissues'></a>New Issues
 
-* When BOSH is restarted, such as during the upgrade to PCF v1.9, LogSearch may fail to reconnect to BOSH when it restarts. The workaround for this issue is to restart the `nats_to_syslog` job.
+* When BOSH is restarted, LogSearch may fail to reconnect to BOSH when it restarts. As a result, after an upgrade to PCF v1.9, not all expected logs may appear in LogSearch. See [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) for the post-upgrade workaround step.
 
 ###<a id='existingissues'></a>Existing Issues
 
