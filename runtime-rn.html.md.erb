@@ -144,7 +144,7 @@ Here are a couple things to note before performing the upgrade:
 
   * V3 service bindings are removed without notifying the related broker. Pivotal recommends deleting any V3 service bindings before upgrading.
 
-### <a id='one-off'></a>Support for Running One-Off Tasks
+### <a id='one-off'></a>Support for Running Tasks
 
 In addition to managing long-running processes, PCF now has first-class support for running one-off tasks.
 
@@ -207,10 +207,11 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ###<a id='newissues'></a>New Issues
 
+* When BOSH is restarted, such as during the upgrade to PCF v1.9, LogSearch may fail to reconnect to BOSH when it restarts. The workaround for this issue is to restart the `nats_to_syslog` job.
+
 ###<a id='existingissues'></a>Existing Issues
 
-* If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime.
-  The TCP routing domain is not configurable in the Elastic Runtime tile.
+* If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
 * Consul server cluster can fail to recover from quorum loss.
   See the [Consul fails to start during upgrade in PCF](https://discuss.pivotal.io/hc/en-us/articles/218196687-Consul-fails-to-start-during-upgrade-in-PCF) knowledge base article for how to recover from this issue.
 * etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain.
