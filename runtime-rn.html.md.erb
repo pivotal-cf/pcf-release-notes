@@ -49,6 +49,55 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## <a id="releases"></a> Releases
 
+### <a id="1.7.40"></a> 1.7.40
+
+* Bumps the stemcell to 3263.12.
+* Patches Cloud Controller to redact logging of service broker provided credentials when binding application services.
+* Patches a vulnerability in the Autoscaling service that allowed unprivileged users to impersonate other users with unauthenticated tokens.
+* Patches an issue with the Diego Cell executor cache that could result in failure to stage applications.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.12</td>
+  </tr><tr>
+    <td>cf</td><td>235</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36.2</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.40.0</td>
+  </tr><tr>
+    <td>consul</td><td>101</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0</td>
+  </tr><tr>
+    <td>etcd</td><td>49</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>31</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>26</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>629.13</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ### <a id="1.7.39"></a> 1.7.39
 
 * Bumps the stemcell to 3233.6 to address the Linux kernel vulnerability described in USN-3151-2.
