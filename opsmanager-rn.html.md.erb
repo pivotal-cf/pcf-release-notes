@@ -73,8 +73,18 @@ Ops Manager now generates SHA 256 certificates.
 
 Ops Manager now supports API endpoints to edit `max_in_flight` configurations per job. See the OpsManager API documentation for more information. To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
 
+## <a id='known-issues'></a> Known Issues
+
+On PCF on Azure deployments, BOSH sometimes returns an error when provisioning persistent disks. The error resembles the following: 
+
+```
+Persistent disk with volume id 'SOME-ID' could not be found.
+``` 
+
+This error can occur when deploying the BOSH director itself or another product in Ops Manager. To workaround this issue, retry the deployment.
+
 ## <a id='bug-fixes'></a> Bug Fixes
 
-* Fixed a bug that was preventing a load balancer from being attached to the BOSH Director on Google Cloud Platform
+* Fixed a bug that was preventing a load balancer from being attached to the BOSH Director on Google Cloud Platform.
 
 
