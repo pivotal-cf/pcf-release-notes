@@ -56,6 +56,8 @@ Ops Manager v1.9.0 includes the following changes to the stemcell:
 * **CIS improvements**: Various improvements have been made to the stemcell that address a portion of the CIS benchmarks.
 * **Floppy device removal**: The floppy device has been removed from the stemcell, which reduces a VM's exposure to security risks.
 
+<p class="note"><strong>Note</strong>: See the <a href="#rsyslog_mem_leak">Known Issues</a> section of this document for a potential memory leak issue with the stemcell provided with the Ops Manager v1.9.0 release.</p> 
+
 #### <a id='director'></a>BOSH Director
 
 Ops Manager v1.9.0 includes the following changes to the BOSH Director:
@@ -75,13 +77,36 @@ Ops Manager now supports API endpoints to edit `max_in_flight` configurations pe
 
 ## <a id='known-issues'></a> Known Issues
 
+### Perisistent Disk Provisioning Error on Azure
+
 On PCF on Azure deployments, BOSH sometimes returns an error when provisioning persistent disks. The error resembles the following: 
 
 ```
 Persistent disk with volume id 'SOME-ID' could not be found.
 ``` 
-
 This error can occur when deploying the BOSH director itself or another product in Ops Manager. To workaround this issue, retry the deployment.
+
+### <a id='rsyslog_mem_leak'></a> Memory Leak in rsyslog v8.23
+
+rsyslog v8.23 is prone to memory leaks when TCP connections are reset.
+
+Deployments with stable syslog storer endpoints appear not to be affected by this syslog version.
+Stemcells that contain rsyslog` v8.23 are:
+
+* 3312.9
+* 3312.8
+* 3312.7
+* 3312.6
+* 3312.5
+* 3312.3
+
+Stemcell v3312, which has rsyslog v8.22, does not exhibit the memory leak issue, but is missing other kernel vulnerability fixes.
+
+Work is in progress to build a new stemcell that pins rsyslog to `8.22.0-0adiscon1trusty1`.
+
+Stemcells from other release series (3151.x, 3233.x, 3263.x) contain rsyslog 8.23. Stemcells from these series will be updated to pin to v8.22 as well.
+
+This issue is also being tracked here: [BOSH #1537: syslogd on all VMs has memory leak](https://github.com/cloudfoundry/bosh/issues/1537).
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
