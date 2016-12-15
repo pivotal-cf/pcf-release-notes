@@ -469,6 +469,19 @@ Ops Manager now supports configuring the appropriate settings in the Director to
    * `(( availability_zone ))`
    * `(( bosh_job_partition_stats ))`
 
+## <a id='known-issues'></a> Known Issues
+
+This section lists known issues with Ops Manager.
+
+### <a id='pers-disk'></a> Persistent Disk Provisioning Error on Azure
+
+On PCF on Azure deployments, BOSH sometimes returns an error when provisioning persistent disks. The error resembles the following: 
+
+```
+Persistent disk with volume id 'SOME-ID' could not be found.
+``` 
+This error can occur when deploying the BOSH director itself or another product in Ops Manager. To workaround this issue, retry the deployment.
+
 ## <a id='bug-fixes'></a> Bug Fixes
 
 * Fixed an issue with rollbacks in case of database import failures during upgrades
