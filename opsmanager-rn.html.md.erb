@@ -86,14 +86,14 @@ On PCF on Azure deployments, BOSH sometimes returns an error when provisioning p
 ```
 Persistent disk with volume id 'SOME-ID' could not be found.
 ``` 
-This error can occur when deploying the BOSH director itself or another product in Ops Manager. To workaround this issue, retry the deployment.
+This error can occur when deploying the BOSH Director itself or another product in Ops Manager. To workaround this issue, retry the deployment.
 
 ### <a id='rsyslog_mem_leak'></a> Memory Leak in rsyslog v8.23
 
 rsyslog v8.23 is prone to memory leaks when TCP connections are reset.
 
 Deployments with stable syslog storer endpoints appear not to be affected by this syslog version.
-Stemcells that contain rsyslog` v8.23 are:
+The following stemcells contain rsyslog v8.23:
 
 * 3312.9
 * 3312.8
@@ -102,17 +102,17 @@ Stemcells that contain rsyslog` v8.23 are:
 * 3312.5
 * 3312.3
 
-Stemcell v3312, which has rsyslog v8.22, does not exhibit the memory leak issue, but is missing other kernel vulnerability fixes.
+Stemcell v3312, which contains rsyslog v8.22, does not exhibit the memory leak issue, but is missing other kernel vulnerability fixes.
 
 Work is in progress to build a new stemcell that pins rsyslog to `8.22.0-0adiscon1trusty1`.
 
-Stemcells from other release series (3151.x, 3233.x, 3263.x) contain rsyslog 8.23. Stemcells from these series will be updated to pin to v8.22 as well.
+Stemcells from other release series (3151.x, 3233.x, 3263.x) contain rsyslog v8.23. Stemcells from these series will be updated to pin to v8.22 as well.
 
 This issue is also being tracked here: [BOSH #1537: syslogd on all VMs has memory leak](https://github.com/cloudfoundry/bosh/issues/1537).
 
 ### <a id='service_networks'></a> Firewall Rules and Service Networks in GCP
 
-On PCF for GCP deployments, Ops Manager service network VMs are not assigned the correct firewall rules. As a result, these VMs cannot communicate with the BOSH director and service tiles that use the [On-Demand Service Broker (ODB)](https://docs.pivotal.io/on-demand-service-broker/) fail to deploy.
+On PCF for GCP deployments, Ops Manager service network VMs are not assigned the correct firewall rules. As a result, these VMs cannot communicate with the BOSH Director and service tiles that use the [On-Demand Service Broker (ODB)](https://docs.pivotal.io/on-demand-service-broker/) fail to deploy.
 
 As a workaround, if you are deploying a service network in GCP, modify your firewall to use subnet CIDR-based rules.
 
