@@ -10,9 +10,43 @@ Upgrading Pivotal Cloud Foundry is documented [here](../../customizing/upgrading
 
 ### <a name="update"></a> About Updating to Ops Manager v1.7.15 or Later
 
-If you are currently on Ops Manager v1.7.14 or earlier, you should update your Ops Manager. 
-Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19. 
-Ubuntu is no longer providing CVE patches for Linux kernel v3.19. 
+If you are currently on Ops Manager v1.7.14 or earlier, you should update your Ops Manager.
+Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
+Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
+
+### 1.7.20 Patch
+
+* Patches CVE-2016-1252. Additional information can be found at https://pivotal.io/security.
+* Fixes an upgrade issue where jobs pre-1.7 products could be accidentally treated as non-singleton.  In a very specific circumstance, this could have caused data loss.
+* Discovered regression in SSL termination that allows SSLv3, this will be fixed in the next 1.7 release
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3233.8</td>
+	</tr>
+	<tr>
+	  <td>Bosh Director: 255.12</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 23</td>
+	</tr>
+	<tr>
+	  <td>UAA release: 13.9</td>
+	</tr>
+	</tbody>
+	</table>
 
 ### 1.7.19 Patch
 
@@ -110,7 +144,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 ### 1.7.16 Patch
 
 * Patches USN-3099-2. Additional information can be found at https://pivotal.io/security.
-* Ops Manager can now be deployed on AWS M4 machine types. 
+* Ops Manager can now be deployed on AWS M4 machine types.
 
 	<table border="1" class="nice">
 	<thead>
@@ -167,7 +201,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.14 Patch
 
-* Patches USN-3087-2. Additional information can be found at https://pivotal.io/security.  
+* Patches USN-3087-2. Additional information can be found at https://pivotal.io/security.
 
 	<table border="1" class="nice">
 	<thead>
@@ -193,7 +227,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.13 Patch
 
-* Patches CVE-2016-6651. Additional information can be found at https://pivotal.io/security.  
+* Patches CVE-2016-6651. Additional information can be found at https://pivotal.io/security.
 
 	<table border="1" class="nice">
 	<thead>
@@ -221,7 +255,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 ### 1.7.12 Patch
 
 * Customers can now opt in to provision a UAA admin client while configuring their Ops Manager with SAML. This client can be used to run scripts against the Bosh Director.
-* Fixed a bug with the logout workflow 
+* Fixed a bug with the logout workflow
 * Customers can now enter a custom value for instance count in the Resource Config Form
 
 	<table border="1" class="nice">
@@ -249,7 +283,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.11 Patch
 
-* Patches USN-3064-1. Additional information can be found at https://pivotal.io/security. 
+* Patches USN-3064-1. Additional information can be found at https://pivotal.io/security.
 * Bumped UAA to version 11.4
 
 	<table border="1" class="nice">
@@ -277,7 +311,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.10 Patch
 
-* Introduced a new feature that lets operators specify a custom host name for the Bosh Director.    
+* Introduced a new feature that lets operators specify a custom host name for the Bosh Director.
 * Introduced a new feature that lets operators add a Load Balancer to the Ops Manager Director Job
 * For more information on how to set up a load balancer in front of the Director, please refer to the [KB article](https://discuss.zendesk.com/hc/en-us/articles/225420588)
 * Includes new Bosh Networking release with the correct RPFilter necessary for dual homing scenarios
