@@ -49,6 +49,56 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## <a id="releases"></a> Releases
 
+### <a id="1.7.41"></a> 1.7.41
+
+* Bumps the stemcell to 3263.14 and the rootfs to 1.94.0 in order to address a vulnerability in API (USN-3156-1).
+* Bumps the Golang buildpack to 1.7.16 to bring in support for Golang 1.7.
+* Patches a vulnerability in the Notifications service that allowed unprivileged users to impersonate other users with unauthenticated tokens.
+* Patches Cloud Controller to remove logging of database credentials.
+* Patches Cloud Controller to remove old functionality that would delete resources at their previous droplet path.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.14</td>
+  </tr><tr>
+    <td>cf</td><td>235</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36.3</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.43.0</td>
+  </tr><tr>
+    <td>consul</td><td>101</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0</td>
+  </tr><tr>
+    <td>etcd</td><td>49</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.0.2</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>32</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>26</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>629.13</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  </table>
+
 ### <a id="1.7.40"></a> 1.7.40
 
 * Bumps the stemcell to 3263.12.
