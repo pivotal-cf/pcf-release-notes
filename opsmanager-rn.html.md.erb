@@ -112,7 +112,7 @@ This issue is also being tracked here: [BOSH #1537: syslogd on all VMs has memor
 
 ### <a id='service_networks'></a> Firewall Rules and Service Networks in GCP
 
-On PCF for GCP deployments, Ops Manager service network VMs are not assigned the correct firewall rules. As a result, these VMs cannot communicate with the BOSH Director and service tiles that use the [On-Demand Service Broker (ODB)](https://docs.pivotal.io/on-demand-service-broker/) fail to deploy.
+On PCF for GCP deployments, Ops Manager service network VMs are not assigned the correct firewall rules. As a result, these VMs cannot communicate with the BOSH Director and service tiles that use the [On-Demand Service Broker (ODB)](https://docs.pivotal.io/on-demand-service-broker/) fail to create services.
 
 As a workaround, if you are deploying a service network in GCP, modify your firewall to use subnet CIDR-based rules.
 
