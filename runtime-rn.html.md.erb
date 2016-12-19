@@ -210,7 +210,7 @@ This section lists new and existing known issues for Elastic Runtime.
 ###<a id='newissues'></a>New Issues
 
 * When BOSH is restarted, LogSearch may fail to reconnect to BOSH when it restarts. As a result, after an upgrade to PCF v1.9, not all expected logs may appear in LogSearch. See [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) for the post-upgrade workaround step.
-* If your deployment uses Single Sign-On service for PCF, you may not be able to authenticate into the Autoscaler UI after upgrading to PCF v1.9. Autoscaling functionality and existing autoscaler service bindings are not affected. You can still manage the Autoscaler using the Autoscaler API. The Autoscaler UI authentication issue will be fixed in a future patch release.
+* If your ERT authentication and Enterprise SSO employ authentication other than UAA, you may not be able to authenticate into the Autoscaler UI after upgrading to PCF v1.9. Autoscaling functionality and existing autoscaler service bindings are not affected. You can still manage the Autoscaler using the Autoscaler API. The Autoscaler UI authentication issue will be fixed in a future patch release.
 * To run tasks using the Cloud Foundry Command Line Interface (cf CLI), you must install the cf CLI v6.23.0 or higher. At time of release note publication, this version of the cf CLI has not yet been released. For more information, see the [Cloud Foundry CLI Github page](https://github.com/cloudfoundry/cli/releases).
 
 ###<a id='existingissues'></a>Existing Issues
