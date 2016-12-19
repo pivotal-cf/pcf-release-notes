@@ -18,7 +18,6 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 * Patches CVE-2016-1252. Additional information can be found at https://pivotal.io/security.
 * Fixes an upgrade issue where jobs pre-1.7 products could be accidentally treated as non-singleton.  In a very specific circumstance, this could have caused data loss.
-* Discovered regression in SSL termination that allows SSLv3, this will be fixed in the next 1.7 release
 
 	<table border="1" class="nice">
 	<thead>
@@ -53,7 +52,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 * Patches USN-3151-2. Additional information can be found at https://pivotal.io/security.
 * vSphere customers can now specify a custom hostname in the OVA template for the OpsManager VM
 * Ops Manager now exposes a Director flag called keep\_unreachable\_vms that prevents the Director from deleting VMs that are unreachable
-* Ops Manager now uses stronger cipher suites for SSL termination
+* Ops Manager now uses stronger cipher suites for SSL termination, which now requires TLS1.2 when communicating with it or the UAA attached to it.
 
 	<table border="1" class="nice">
 	<thead>
