@@ -20,7 +20,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 
 ### 1.8.12 Patch
 
-* Patches CVE-2016-1252. Additional information can be found at https://pivotal.io/security.
+* Patches USN-3156-1.
 * Fixes an upgrade issue where jobs in pre-1.7 products could be accidentally treated as non-singleton. In a very specific circumstance, this could have caused data loss.
 * Fixes an Azure image issue where sometimes OpsManager would be marked as Failing by Azure even though the VM appeared to be working.
 * Reverted the requirement to provide a password for running "sudo" on vSphere, as some customers are running sudo commands on the OpsManager VM via SSH in their scripts.
