@@ -9,7 +9,7 @@ The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.9 is d
 
 ### 1.9.1
 
-* Patches CVE-2016-1252. Additional information can be found at https://pivotal.io/security.
+* Patches USN-3156-1.
 * Fixes an upgrade issue where jobs in pre-1.7 products could be accidentally treated as non-singleton. In a very specific circumstance, this could have caused data loss.
 * Fixes an Azure image issue where sometimes OpsManager would be marked as Failing by Azure even though the VM appeared to be working.
 * Fixes Azure partitioning performance problem that sometimes causes BOSH to fail to attach persistent disks
