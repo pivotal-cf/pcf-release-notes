@@ -11,25 +11,25 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.7.15 or later.
 
-## <a id="upgrade-issue"></a> Resolve Diego BBS Issue when Upgrading from 1.7 to 1.8
+## <a id="upgrade-issue"></a> Resolve Diego BBS Issue when Upgrading from v1.7 to v1.8
 
 #### The Problem
 
-<p class="note"><strong>Note</strong>: Fresh installations (not upgrades) of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
+<p class="note"><strong>Note</strong>: Fresh installations (not upgrades) of PCF Elastic Runtime v1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
 
-When upgrading from PCF ERT 1.7.X to 1.8.0-1.8.8, deployments that included multiple instances of the Diego BBS VM would fail to upgrade.
+When upgrading from PCF ERT v1.7.X to v1.8.0-1.8.8, deployments that included multiple instances of the Diego BBS VM would fail to upgrade.
 
 ### <a name="impact-bbs"></a>The Impact
 
 Inconsistencies between diego datasets can result in app downtime or apps not successfully returning during a deploy.
 
-#### Already Downloaded PCF ER 1.8.0-1.8.8
+#### Already Downloaded PCF ERT v1.8.0-1.8.8
 
-If you haven't attempted an upgrade, please download PCF ER 1.8.10 or higher and proceed with the instructions below
+If you haven't attempted an upgrade, download PCF ERT v1.8.10 or higher and proceed with the instructions below
 
-#### How to Upgrade Safely to PCF ER 1.8.10+ and/or Repair a Broken Cluster
+#### How to Upgrade Safely to PCF ERT v1.8.10+ and/or Repair a Broken Cluster
 
-This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 1.8.x to 1.8.10+ should not require these steps if your Diego BBS cluster is already healthy. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
+This is applicable to all upgrade paths between v1.7.x to v1.8.10+. Upgrades from v1.8.x to v1.8.10+ should not require these steps if your Diego BBS cluster is already healthy. After you've successfully upgraded past v1.8.10, these steps are no longer necessary.
 
 * For **Single node Diego BBS** instance configuration: No action required.
 * For **Multi node Diego BBS** instance configuration: Pivotal recommends scaling down to one Diego BBS (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
@@ -49,10 +49,10 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## <a id="releases"></a> Releases
 
-### <a id="1.7.41"></a> 1.7.41
+### <a id="1.7.41"></a> v1.7.41
 
-* Bumps the stemcell to 3263.14 and the rootfs to 1.94.0 in order to address a vulnerability in API (USN-3156-1).
-* Bumps the Golang buildpack to 1.7.16 to bring in support for Golang 1.7.
+* Bumps the stemcell to v3263.14 and the rootfs to v1.94.0 to address a vulnerability in API (USN-3156-1).
+* Bumps the Golang buildpack to v1.7.16 to bring in support for Golang v1.7.
 * Patches a vulnerability in the Notifications service that allowed unprivileged users to impersonate other users with unauthenticated tokens.
 * Patches Cloud Controller to remove logging of database credentials.
 * Patches Cloud Controller to remove old functionality that would delete resources at their previous droplet path.
@@ -391,7 +391,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ### <a id="1.7.34"></a> 1.7.34
 
-* Bumps the version of PCRE used in both haproxy and nginx to address multiple CVEs. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
+* Bumps the version of PCRE used in both HAProxy and Nginx to address multiple CVEs. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 
   <table border="1" class="nice">
   <thead>

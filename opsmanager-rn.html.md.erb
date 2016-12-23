@@ -30,7 +30,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3233.8</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 255.12</td>
+	  <td>BOSH Director: 255.12</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -51,7 +51,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 * Patches USN-3151-2. Additional information can be found at https://pivotal.io/security.
 * vSphere customers can now specify a custom hostname in the OVA template for the OpsManager VM
-* Ops Manager now exposes a Director flag called keep\_unreachable\_vms that prevents the Director from deleting VMs that are unreachable
+* Ops Manager now exposes a Director flag, `keep_unreachable_vms`, that prevents the Director from deleting VMs that are unreachable
 * Ops Manager now uses stronger cipher suites for SSL termination, which now requires TLS1.2 when communicating with it or the UAA attached to it.
 
 	<table border="1" class="nice">
@@ -65,7 +65,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3233.6</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 255.12</td>
+	  <td>BOSH Director: 255.12</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -96,7 +96,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3233.3</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 255.12</td>
+	  <td>BOSH Director: 255.12</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -126,7 +126,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3233.3</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 255.12</td>
+	  <td>BOSH Director: 255.12</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -156,7 +156,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3233.2</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 255.12</td>
+	  <td>BOSH Director: 255.12</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -253,7 +253,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.12 Patch
 
-* Customers can now opt in to provision a UAA admin client while configuring their Ops Manager with SAML. This client can be used to run scripts against the Bosh Director.
+* Customers can now opt in to provision a UAA admin client while configuring their Ops Manager with SAML. This client can be used to run scripts against the BOSH Director.
 * Fixed a bug with the logout workflow
 * Customers can now enter a custom value for instance count in the Resource Config Form
 
@@ -310,10 +310,10 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.10 Patch
 
-* Introduced a new feature that lets operators specify a custom host name for the Bosh Director.
+* Introduced a new feature that lets operators specify a custom host name for the BOSH Director.
 * Introduced a new feature that lets operators add a Load Balancer to the Ops Manager Director Job
 * For more information on how to set up a load balancer in front of the Director, please refer to the [KB article](https://discuss.zendesk.com/hc/en-us/articles/225420588)
-* Includes new Bosh Networking release with the correct RPFilter necessary for dual homing scenarios
+* Includes new BOSH Networking release with the correct RPFilter necessary for dual homing scenarios
 * Fixed API endpoint to log out all active sessions
 
 	<table border="1" class="nice">
@@ -349,8 +349,8 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 * Patches CVEs including CVE-2016-0897 and CVE-2016-4468. Additional information can be found at https://pivotal.io/security.
 * Bumped UAA version to 3.3.0.2
 * Customers using vSphere or vCloud Air are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at http://docs.pivotal.io/pivotalcf/1-7/customizing/vsphere.html
-* Customers using the dual-homed feature in OpsManager v1.6 can now import their installations into v1.7.8 and continue to use the dual homed Bosh Director
-* Customers can now dual-home their Bosh Director starting with new deployments of v1.7.8
+* Customers using the dual-homed feature in OpsManager v1.6 can now import their installations into v1.7.8 and continue to use the dual homed BOSH Director
+* Customers can now dual-home their BOSH Director starting with new deployments of v1.7.8
 * For more information on how to use the dual homing feature, please refer to the [KB article](https://discuss.zendesk.com/hc/en-us/articles/222027247)
 
 
@@ -365,11 +365,11 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.5 Patch
 
-* Bumps Bosh-Init to v.0.92 to disable HTTP connection reuse to avoid issues observed only on OpenStack environments
+* Bumps BOSH-Init to v.0.92 to disable HTTP connection reuse to avoid issues observed only on OpenStack environments
 
 ### 1.7.4 Patch
 
-* Fixes an issue that caused Ops Manager deploys to fail due to a Bosh-init bug
+* Fixes an issue that caused Ops Manager deploys to fail due to a BOSH-init bug
 * Fixes an issue that caused JavaScript migrations to fail for large tiles
 * Bumps UAA to version 3.3.0
 
