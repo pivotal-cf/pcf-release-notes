@@ -489,7 +489,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ### <a id="1.8.15"></a> 1.8.15
 
-* Bumps the version of PCRE used in both haproxy and nginx to address multiple CVEs.
+* Bumps the version of PCRE used in both HAProxy and Nginx to address multiple CVEs.
 * Bumps the version of routing-release to 0.141.0 to address the same PCRE CVEs.
 * Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 
@@ -597,7 +597,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ### <a id="1.8.13"></a> 1.8.13
 
-* Bumps garden-runc to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
+* Bumps Garden-runC to v1.0.2. See the [release notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.0.2) for more information.
 * Exposes the "Request Max Buffer Size" property for HAProxy deployments on the "Networking" page. This property determines the maximum request header payload that HAProxy will accept.
 * The .Net Core buildpack is now available. For more information, see the [release notes](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.4).
 * Bumps the stack rootfs to patch the USN-3096-1 and USN-3088-1 vulnerabilities.
@@ -709,7 +709,7 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 * Patches Cloud Controller to obfuscate custom buildpack properties that may contain credentials in response to CVE-2016-6658. Please see [https://pivotal.io/security](https://pivotal.io/security) for more information.
 * Patches the internal MySQL logging mechanism to prevent accidental credential leaks.
-* Bumps garden-runc to v1.0.0.
+* Bumps Garden-runC to v1.0.0.
 
   <table border="1" class="nice">
   <thead>
@@ -1390,7 +1390,7 @@ Service brokers will now receive `service_id`, `plan_id`, and `operation` when p
 
 ### <a id='cli_v3_support'></a> Cloud Foundry CLI v3 Plugin
 
-This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. The CLI v3 plugin is useful for experimenting with the Cloud Controller v3 API without having to curl an oauth token. The Cloud Controller v3 API is under active development and is currently experimental. For more information on how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
+This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. The CLI v3 plugin is useful for experimenting with the Cloud Controller v3 API without having to curl an OAuth token. The Cloud Controller v3 API is under active development and is currently experimental. For more information on how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
 
 ## <a id='knownissues'></a> Known Issues
 
