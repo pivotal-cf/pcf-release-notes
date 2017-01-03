@@ -14,6 +14,45 @@ If you are currently on Ops Manager v1.7.14 or earlier, you should update your O
 Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
 Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
+### 1.7.21 Patch
+
+* Move ahead to the 3263.x stemcell line.
+* Patches rsyslog memory leak.
+* Fixed issue (introduced in 1.7.19) where sometimes multiple UAA processes would start and operators would be stuck at the "Waiting for authentication to start" screen.
+* When deploying the vSphere OVA, fixed an issue (introduced in 1.7.19) where multiple DNS servers can again have spaces between them.
+* Operators no longer have to unlock the appliance directly after import.
+* Fixed issue where the BOSH health monitor could not send emails if authentication was required for SMTP.
+* Add encryption for AWS ephemeral disks as well, when the operator has enabled EBS encryption.
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3263.15</td>
+	</tr>
+	<tr>
+	  <td>BOSH Director: 255.12</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 23</td>
+	</tr>
+	<tr>
+	  <td>UAA release: 13.9</td>
+	</tr>
+	</tbody>
+	</table>
+
+
 ### 1.7.20 Patch
 
 * Patches USN-3156-1.
