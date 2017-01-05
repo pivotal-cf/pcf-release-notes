@@ -7,6 +7,59 @@ owner: Ops Manager
 
 The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
+### 1.9.2
+
+* Bump stemcell to patch rsyslog memory leak.
+* Bump vSphere CPI to leverage more retry logic.
+* Fixed issue where sometimes multiple UAA processes would start and operators would be stuck at the "Waiting for authentication to start"
+* When deploying the vSphere OVA, fixed an issue where multiple DNS servers can again have spaces between them.
+* Operators no longer have to unlock the appliance directly after import.
+* Fixed issue where the BOSH health monitor could not send emails if authentication was required for SMTP.
+* Fixed bug where AWS persistent disks were not being encrypted when desired by the Operator.
+* Add encryption for AWS ephemeral disks as well, when the operator has enabled EBS encryption.
+* Increased AWS ephemeral disk sizes, allowing some VMs (like BOSH director) to use a smaller machine type by default.
+* Finished experimental API endpoints to get/set IaaS-related properties for configuring the director tile.
+* Finished experimental API endpoint to create/update/delete the collection of networks inside the director tile.
+* Allow windows stemcells to be used by products.
+
+<table border="1" class="nice">
+<thead>
+<tr>
+  <th>Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BOSH Director: 260</td>
+</tr>
+<tr>
+  <td><code>bosh-init</code>: v.0.0.99</td>
+</tr>
+<tr>
+  <td>Stemcell: 3312.12</td>
+</tr>
+<tr>
+  <td>AWS CPI: 60</td>
+</tr>
+<tr>
+  <td>Azure CPI: 19</td>
+</tr>
+<tr>
+  <td>Google Cloud Platform CPI: 25.6.1</td>
+</tr>
+<tr>
+  <td>OpenStack CPI: 27</td>
+</tr>
+<tr>
+  <td>vSphere CPI: 36</td>
+</tr>
+<tr>
+  <td>UAA: 24</td>
+</tr>
+</tbody>
+</table>
+
+
 ### 1.9.1
 
 * Patches USN-3156-1.
