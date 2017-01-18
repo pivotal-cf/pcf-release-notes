@@ -7,7 +7,86 @@ owner: Release Engineering
 
 Versions 1.10.0 and higher versions of Elastic Runtime consist of the following component versions:
 
-  [INSERT TABLE HERE]
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3312.12</td>
+  </tr><tr>
+    <td>binary-buildpack</td><td>1.0.5</td>
+  </tr><tr>
+    <td>capi</td><td>1.15.0</td>
+  </tr><tr>
+    <td>cf</td><td>250</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>81</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>32</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.44.0</td>
+  </tr><tr>
+    <td>consul</td><td>148</td>
+  </tr><tr>
+    <td>diego</td><td>1.5.1</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.8</td>
+  </tr><tr>
+    <td>etcd</td><td>87</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.1.0</td>
+  </tr><tr>
+    <td>go-buildpack</td><td>1.7.16</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.11</td>
+  </tr><tr>
+    <td>loggregator</td><td>73.0.1</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.30.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>7</td>
+  </tr><tr>
+    <td>nats</td><td>14</td>
+  </tr><tr>
+    <td>netman</td><td>0.12.0</td>
+  </tr><tr>
+    <td>nodejs-buildpack</td><td>1.5.25</td>
+  </tr><tr>
+    <td>notifications</td><td>33</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>26</td>
+  </tr><tr>
+    <td>php-buildpack</td><td>4.3.24</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.1.5</td>
+  </tr><tr>
+    <td>postgres</td><td>11</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.1</td>
+  </tr><tr>
+    <td>python-buildpack</td><td>1.5.13</td>
+  </tr><tr>
+    <td>routing</td><td>0.143.0</td>
+  </tr><tr>
+    <td>ruby-buildpack</td><td>1.6.30</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.0.3</td>
+  </tr><tr>
+    <td>staticfile-buildpack</td><td>1.3.14</td>
+  </tr><tr>
+    <td>uaa</td><td>24</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
 ## <a id='upgrade'></a>How to Upgrade
 
@@ -29,7 +108,7 @@ When upgrading to v1.10, be aware of the following upgrade considerations:
 
 This section describes new features of the release.
 
-### <a id='container-networking'></a>Container Networking is Experimental
+### <a id='container-networking'></a>Container Networking
 
 The Elastic Runtime now offers a Container Networking feature that puts applications onto their own overlay network.
 
