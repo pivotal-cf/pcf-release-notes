@@ -543,7 +543,7 @@ This section lists new and existing known issues for Elastic Runtime.
 ###<a id='newissues'></a>New Issues
 
 * When BOSH is restarted, LogSearch may fail to reconnect to BOSH when it restarts. As a result, after an upgrade to PCF v1.9, not all expected logs may appear in LogSearch. See [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) for the post-upgrade workaround step.
-* There is a naming discrepancy in the .Net Core buildpack between v1.8 and v1.9. The buildpack is referred to as "dotnet-core-buildpack" in v1.8 and "dotnet_core_buildpack" in v1.9.
+* There is a naming discrepancy in the .Net Core buildpack between v1.8 and v1.9. The buildpack is referred to as "dotnet-core-buildpack" in v1.8 and "dotnet\_core\_buildpack" in v1.9.
   This will result in 2 versions of the buildpack being created after an upgrade to v1.9.
   Operators should remove the older buildpack after completing the upgrade process, making sure to migrate all applications onto the newer buildpack.
 
