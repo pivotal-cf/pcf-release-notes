@@ -118,6 +118,16 @@ For more information, see [Container Networking](../adminguide/container-network
 
 There is now general support for volume services inside of application containers.
 
+### <a id='etcd-tls'></a>Secured etcd Cluster
+
+This release removes the etcd Proxy VM, ensuring all communication to the etcd cluster happens over a secured connection.
+
+### <a id='rate-limiting'></a>CF API Rate Limiting
+
+The CF API can enforce rate limits for users and clients. The limits can be enabled on the "Advanced Features" page within the ERT.
+
+Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
+
 ## <a id='knownissues'></a>Known Issues
 
 This section lists new and existing known issues for Elastic Runtime.
