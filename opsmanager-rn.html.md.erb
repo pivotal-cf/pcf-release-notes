@@ -13,7 +13,7 @@ The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.10 is 
 OpsManager is now fully automate-able. You can do things like configuring all your tiles, uploading tiles, fetching upgrades from PivNet and much more. Look through our API docs and let us know if you have any feedback on the APIs. 
 
 * Certificate Rotation: 
-OpsManager now allows you to regenerate all TLS/SSL non configurable certs using the API.  
+OpsManager now allows you to regenerate non-configurasble TLS/SSL certs via the API. Read more in [Rotating Non-Configurable TLS/SSL Certificates](../../security/pcf-infrastructure/api-cert-rotation.html)
 
 * Light Export/Import: 
 OpsManager has an improved upgrade flow which does not include releases and stemcells in installation.zip (makes upgrade faster by drastically shrinking the size of the zip file that needs to be exported/imported)
