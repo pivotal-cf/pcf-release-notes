@@ -20,25 +20,25 @@ Versions 1.10.0 and higher versions of Elastic Runtime consist of the following 
   </tr><tr>
     <td>binary-buildpack</td><td>1.0.7</td>
   </tr><tr>
-    <td>capi</td><td>1.18.0</td>
+    <td>capi</td><td>1.20.0</td>
   </tr><tr>
     <td>cf</td><td>251</td>
   </tr><tr>
     <td>cf-autoscaling</td><td>83</td>
   </tr><tr>
-    <td>cf-mysql</td><td>32</td>
+    <td>cf-mysql</td><td>34</td>
   </tr><tr>
-    <td>cf-networking</td><td>0.15.0</td>
+    <td>cf-networking</td><td>0.16.0</td>
   </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.47.0</td>
+    <td>cflinuxfs2-rootfs</td><td>1.48.0</td>
   </tr><tr>
     <td>consul</td><td>152</td>
   </tr><tr>
-    <td>diego</td><td>1.6.1</td>
+    <td>diego</td><td>1.6.2</td>
   </tr><tr>
     <td>dotnet-core-buildpack</td><td>1.0.9</td>
   </tr><tr>
-    <td>etcd</td><td>90</td>
+    <td>etcd</td><td>91</td>
   </tr><tr>
     <td>garden-runc</td><td>1.1.1</td>
   </tr><tr>
@@ -46,7 +46,7 @@ Versions 1.10.0 and higher versions of Elastic Runtime consist of the following 
   </tr><tr>
     <td>java-offline-buildpack</td><td>3.12</td>
   </tr><tr>
-    <td>loggregator</td><td>75</td>
+    <td>loggregator</td><td>76</td>
   </tr><tr>
     <td>mysql-backup</td><td>1.32.0</td>
   </tr><tr>
@@ -70,7 +70,7 @@ Versions 1.10.0 and higher versions of Elastic Runtime consist of the following 
   </tr><tr>
     <td>python-buildpack</td><td>1.5.14</td>
   </tr><tr>
-    <td>routing</td><td>0.143.0</td>
+    <td>routing</td><td>0.144.0</td>
   </tr><tr>
     <td>ruby-buildpack</td><td>1.6.32</td>
   </tr><tr>
@@ -78,7 +78,7 @@ Versions 1.10.0 and higher versions of Elastic Runtime consist of the following 
   </tr><tr>
     <td>staticfile-buildpack</td><td>1.3.16</td>
   </tr><tr>
-    <td>statsd-injector</td><td>1.0.5</td>
+    <td>statsd-injector</td><td>1.0.17</td>
   </tr><tr>
     <td>uaa</td><td>25</td>
   </tr>
@@ -90,7 +90,7 @@ Versions 1.10.0 and higher versions of Elastic Runtime consist of the following 
   </tfoot>
   </table>
 
-## <a id='upgrade'></a>How to Upgrade
+## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the
 [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
@@ -110,42 +110,60 @@ When upgrading to v1.10, be aware of the following upgrade considerations:
 
 This section describes new features of the release.
 
-### <a id='container-networking'></a>Container Networking
+### <a id='container-networking'></a> Container Networking
 
 The Elastic Runtime now offers a Container Networking feature that puts applications onto their own overlay network.
 
 For more information, see [Container Networking](../adminguide/container-networking.html).
 
-### <a id='volume-services'></a>Volume Services
+### <a id='volume-services'></a> Volume Services
 
 There is now general support for volume services inside of application containers.
 
-### <a id='etcd-tls'></a>Secured etcd Cluster
+### <a id='etcd-tls'></a> Secured etcd Cluster
 
 This release removes the etcd Proxy VM, ensuring all communication to the etcd cluster happens over a secured connection.
 
-### <a id='rate-limiting'></a>CF API Rate Limiting
+### <a id='rate-limiting'></a> CF API Rate Limiting
 
 The CF API can enforce rate limits for users and clients. The limits can be enabled on the "Advanced Features" page within the ERT.
 
 Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
 
-### <a id='cfdot'></a>`cfdot`
+### <a id='cfdot'></a> Cloud Foundry Diego Operator Toolkit
 
-All Diego VMs now include an operator toolkit for interacting with your Diego components.
+All Diego VMs now include an operator toolkit, known as `cfdot`, for interacting with your Diego components.
 
 More details about `cfdot` can be found in the [documentation](https://github.com/cloudfoundry/cfdot).
 
-### <a id='cc-clock'></a>Multi-node Cloud Controller Clock
+### <a id='cc-clock'></a> Multi-node Cloud Controller Clock
 
 The Cloud Controller Clock has been outfitted to allow multiple instances of the VM to run in parallel.
 
 Operators can scale the instance count for the VM to fit their needs.
 
-## <a id='knownissues'></a>Known Issues
+### <a id='router-perf-improvements'></a> Router Performance Improvements
+
+The Routers can now be configured to maintain a number of keep-alive connections.
+
+Reusing connections will allow for HTTP performance improvements as the underlying connection will not need to be reestablished on every request.
+
+### <a id='disabled-ssh-default'></a> SSH Access Can Be Disabled As A Default For New Applications
+
+Application SSH access was previously available as a global feature of Cloud Foundry.
+
+In addition to the global setting, operators can now choose to disable the feature for new applications.
+
+Choosing to disable the feature for new applications will require that developers enable SSH access on a per-application basis before using the feature.
+
+### <a id='azure-blobstore'></a> Azure Blobstore Support
+
+The Elastic Runtime now supports using Azure Storage as a backend for the platform file storage.
+
+## <a id='knownissues'></a> Known Issues
 
 This section lists new and existing known issues for Elastic Runtime.
 
-###<a id='newissues'></a>New Issues
+###<a id='newissues'></a> New Issues
 
-###<a id='existingissues'></a>Existing Issues
+###<a id='existingissues'></a> Existing Issues
