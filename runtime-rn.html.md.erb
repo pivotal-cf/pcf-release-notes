@@ -49,6 +49,58 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 
 ## <a id="releases"></a> Releases
 
+### <a id="1.7.49"></a> 1.7.49
+
+* Patches the route-registrar component to prevent logging credentials.
+* Adds configurable audit logging for the Internal MySQL database. Configuration options can be found on the Internal MySQL page.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.17</td>
+  </tr><tr>
+    <td>cf</td><td>235\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.8</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.46.0</td>
+  </tr><tr>
+    <td>consul</td><td>101\*</td>
+  </tr><tr>
+    <td>diego</td><td>0.1467.0\*</td>
+  </tr><tr>
+    <td>etcd</td><td>49\*</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.1.1</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.25.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>34</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>26</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>629.14</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id="1.7.48"></a> 1.7.48
 
 * Patches the autoscaling release to remove the git dependency that had unpatched vulnerabilities.
