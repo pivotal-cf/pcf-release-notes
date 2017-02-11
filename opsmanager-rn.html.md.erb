@@ -7,15 +7,91 @@ owner: Ops Manager
 
 The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.10 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
-### 1.10 Alpha 1
+### 1.10.0
 
-* APIs: 
-OpsManager is now fully automate-able. You can do things like configuring all your tiles, uploading tiles, fetching upgrades from PivNet and much more. Look through our API docs and let us know if you have any feedback on the APIs. 
+Version 1.10.0 of Ops Manager consists of the following component versions:
 
-* Certificate Rotation: 
-OpsManager now allows you to regenerate non-configurasble TLS/SSL certs via the API. Read more in [Rotating Non-Configurable TLS/SSL Certificates](../../security/pcf-infrastructure/api-cert-rotation.html)
+<table border="1" class="nice">
+<thead>
+<tr>
+  <th>Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BOSH Director: TK</td>
+</tr>
+<tr>
+  <td><code>bosh-init</code>: TK</td>
+</tr>
+<tr>
+  <td>Stemcell: TK</td>
+</tr>
+<tr>
+  <td>AWS CPI: TK</td>
+</tr>
+<tr>
+  <td>Azure CPI: TK</td>
+</tr>
+<tr>
+  <td>Google Cloud Platform CPI: TK</td>
+</tr>
+<tr>
+  <td>OpenStack CPI: TK</td>
+</tr>
+<tr>
+  <td>vSphere CPI: TK</td>
+</tr>
+</tbody>
+</table>
 
-* Light Export/Import: 
-OpsManager has an improved upgrade flow which does not include releases and stemcells in installation.zip (makes upgrade faster by drastically shrinking the size of the zip file that needs to be exported/imported)
+## <a id='major-features'></a>New Features in Ops Manager v1.10.0
 
+### <a id='bosh'></a>BOSH Updates
+
+### <a id='api'></a>Ops Manager API
+
+Operators can now use the API to automate more tasks, such as configuring tiles, uploading tiles, and fetching upgrades from Pivotal Network. 
+To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
+
+#### <a id='new-endpoints'></a>New Endpoints
+
+The Ops Manager API has added the following endpoints:
+
+* Operators can use an endpoint to assign a network and az to the director tile
+* Operators can use an endpoint to get a staged cloud config
+* Operator can use an endpoint to get a deployed cloud config 
+* Operators can use a series of endpoints to rotate all their non configurable certificates
+* Endpoint to list all certificate authorities
+* Endpoint to add an OpsManager generated certificate authority 
+* Endpoint to add a custom certificate authority 
+* Endpoint to mark a certificate authority as Active
+* Endpoint to regenerate all certificates using the Active certificate authority 
+* Endpoint to delete Inactive certificate authorities 
+* Lite Apply Changes Endpoint 
+
+**TK: Need more specific information about endpoints.**
+
+#### <a id='certs'></a>Certificate Rotation
+
+
+Ops Manager ships with a Certificate Authority (CA). This CA generates certificates that are used for communication across various PCF components. These certificates are non-configurable. 
+
+Ops Manager now allows you to regenerate non-configurable TLS/SSL certs using the API. See the [Rotating Non-Configurable TLS/SSL Certificates](../../security/pcf-infrastructure/api-cert-rotation.html) topic for more information.
+
+Ops Manager also allows operators to use an API endpoint to all their own custom CA authority. If added, this custom CA will be used to sign all non-configurable certificates and deployed across all relevant PCF components.
+
+### <a id='sha2'></a>SHA-2
+
+Previous versions of PCF used SHA-1, while PCF v1.10 uses SHA-2 by default. However, you cannot obtain SHA-2 by upgrading to PCF v1.10. Instead, you must perform a fresh install by following the steps in [Installing Pivotal Cloud Foundry](../installing/index.html).
+
+### <a id='azure-gov'></a>Azure Government Cloud
+
+Operators can now deploy Ops Manager in an Azure Government Cloud environment. See the Deploying PCF on Azure topic for more information.
+
+**TK: Need link to Deploying PCF on Azure topic.**
+
+### <a id='optimize-upgrade'></a>Optimized Upgrade Workflow
+
+A central component of every Ops Manager upgrade workflow is to export an `installation.zip` file from an older version of Ops Manager and import the same file into a newer version of OpsManager. This file was typically around 5 gigabytes. The size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
 
