@@ -110,11 +110,15 @@ When upgrading to v1.10, be aware of the following upgrade considerations:
 
 This section describes new features of the release.
 
+### <a id='adv-features'></a> Advanced Features
+
+The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints. Although these features are fully supported, Pivotal recommends caution when using them in production.
+
 ### <a id='container-networking'></a> Container Networking
 
-The Elastic Runtime now offers a Container Networking feature that puts applications onto their own overlay network.
+The Elastic Runtime tile offers a Container Networking feature in the Advanced Features section that puts applications onto their own overlay network.
 
-For more information, see [Container Networking](../adminguide/container-networking.html).
+For more information, see the [Container Networking](../adminguide/container-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services
 
@@ -126,7 +130,7 @@ This release removes the etcd Proxy VM, ensuring all communication to the etcd c
 
 ### <a id='rate-limiting'></a> CF API Rate Limiting
 
-The CF API can enforce rate limits for users and clients. The limits can be enabled on the "Advanced Features" page within the ERT.
+The CF API can enforce rate limits for users and clients. The limits can be enabled in the Advanced Features section of the Elastic Runtime tile.
 
 Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
 
@@ -134,7 +138,7 @@ Limits can be set for authenticated and unauthenticated clients and expire over 
 
 All Diego VMs now include an operator toolkit, known as `cfdot`, for interacting with your Diego components.
 
-More details about `cfdot` can be found in the [documentation](https://github.com/cloudfoundry/cfdot).
+For more details about `cfdot`, see the [documentation](https://github.com/cloudfoundry/cfdot).
 
 ### <a id='cc-clock'></a> Multi-node Cloud Controller Clock
 
