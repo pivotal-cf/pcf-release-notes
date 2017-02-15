@@ -95,5 +95,5 @@ Operators can now deploy Ops Manager in an Azure Government Cloud environment. S
 
 ### <a id='optimize-upgrade'></a>Optimized Upgrade Workflow
 
-A central component of every Ops Manager upgrade workflow is to export an `installation.zip` file from an older version of Ops Manager and import the same file into a newer version of OpsManager. This file was typically around 5 gigabytes. The size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
+A central component of every Ops Manager upgrade workflow is to export an `installation.zip` file from an older version of Ops Manager and import the same file into a newer version of Ops Manager. This file was typically about 5 gigabytes or more in size. The size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
 
