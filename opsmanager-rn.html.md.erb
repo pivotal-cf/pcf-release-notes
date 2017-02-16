@@ -19,13 +19,13 @@ Version 1.10.0 of Ops Manager consists of the following component versions:
 </thead>
 <tbody>
 <tr>
-  <td>BOSH Director: TK</td>
+  <td>BOSH Director: v261</td>
 </tr>
 <tr>
-  <td><code>bosh-init</code>: TK</td>
+  <td><code>bosh-init</code>: v0.0.100</td>
 </tr>
 <tr>
-  <td>Stemcell: TK</td>
+  <td>Stemcell: 3363.x</td>
 </tr>
 <tr>
   <td>AWS CPI: TK</td>
@@ -58,28 +58,25 @@ To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-F
 
 The Ops Manager API has added the following endpoints:
 
-* Operators can use an endpoint to assign a network and az to the director tile
-* Operators can use an endpoint to get a staged cloud config
-* Operator can use an endpoint to get a deployed cloud config 
-* Operators can use a series of endpoints to rotate all their non configurable certificates
-* Endpoint to list all certificate authorities
-* Endpoint to add an OpsManager generated certificate authority 
-* Endpoint to add a custom certificate authority 
-* Endpoint to mark a certificate authority as Active
-* Endpoint to regenerate all certificates using the Active certificate authority 
-* Endpoint to delete Inactive certificate authorities 
-* Lite Apply Changes Endpoint 
-
-**TK: Need more specific information about endpoints.**
+* `PUT /api/v0/staged/director/network_and_az`: Operators can assign a network and singleton availability zone for the BOSH Director.
+* `GET /api/v0/staged/cloud_config`: Operators can fetch a BOSH cloud config based on the staged state of Ops Manager.
+* `GET /api/v0/deployed/cloud_config`: Operators can fetch a BOSH cloud config based on the deployed state of Ops Manager.
+* `GET /api/v0/certificate_authorities`: Operators can list all root certificate authorities for Ops Manager.
+* `POST /api/v0/certificate_authorities`: Operators can create a root certificate authority.
+* `POST /api/v0/certificate_authorities/active/regenerate`: Operators can rotate non-configurable certificates by deleting all non-configuration certificates and then regenerating them.
+	<p class="note"><strong>Note</strong>: For more information about using the Ops Manager API for certificate rotation, see the <a href="#certs">Certificate Rotation</a> section below.</p>
+* `POST /api/v0/certificate_authorities/generate`: Operators can generate an additional root certificate authority.
+* `POST /api/v0/certificate_authorities/:certificate_authority_guid/activate`: Operators can activate a root certificate authority, and make all others inactive.
+* `DELETE /api/v0/certificate_authorities/:certificate_authority_guid`: Operators can delete a specific inactive certificate authority from Ops Manager.
+* `POST /api/v0/staged/installations/commit`: Operators can save the installation state as if the deployment was triggered by clicking **Apply Changes**, preparing the installation manifest. Operators can then fetch the manifest using the `/api/v0/deployed/product/[product_id]/manifest` endpoint.
 
 #### <a id='certs'></a>Certificate Rotation
-
 
 Ops Manager ships with a Certificate Authority (CA). This CA generates certificates that are used for communication across various PCF components. These certificates are non-configurable. 
 
 Ops Manager now allows you to regenerate non-configurable TLS/SSL certs using the API. See the [Rotating Non-Configurable TLS/SSL Certificates](../../security/pcf-infrastructure/api-cert-rotation.html) topic for more information.
 
-Ops Manager also allows operators to use an API endpoint to all their own custom CA authority. If added, this custom CA will be used to sign all non-configurable certificates and deployed across all relevant PCF components.
+Ops Manager also allows operators to use an API endpoint to add their own custom CA authority. If added, this custom CA will be used to sign all non-configurable certificates and deployed across all relevant PCF components.
 
 ### <a id='sha2'></a>SHA-2
 
@@ -89,11 +86,11 @@ You cannot obtain SHA-2 by upgrading existing environments to PCF v1.10. Instead
 
 ### <a id='azure-gov'></a>Azure Government Cloud
 
-Operators can now deploy Ops Manager in an Azure Government Cloud environment. See the Deploying PCF on Azure topic for more information.
-
-**TK: Need link to Deploying PCF on Azure topic.**
+Operators can now deploy Ops Manager in an Azure Government Cloud environment. For more information, see the [Deploying PCF on Azure Government Cloud](../customizing/azure-gov-cloud.html) topic.
 
 ### <a id='optimize-upgrade'></a>Optimized Upgrade Workflow
 
-A central component of every Ops Manager upgrade workflow is to export an `installation.zip` file from an older version of Ops Manager and import the same file into a newer version of Ops Manager. This file was typically about 5 gigabytes or more in size. The size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
+A central component of every Ops Manager upgrade workflow is to export an `installation.zip` file from an older version of Ops Manager and import the same file into a newer version of Ops Manager. This file was typically about 5 gigabytes or more in size. 
+
+In PCF 1.10, the size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
 
