@@ -17,7 +17,11 @@ After updating Elastic Runtime, update your PCF Service tiles to the latest poin
 
 #### The Problem
 
-<p class="note"><strong>Note</strong>: Fresh installations (not upgrades) of PCF ER 1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
+<p class="note">
+<strong>Note</strong>: Fresh installations (not upgrades) of PCF ER 1.8.10 or higher <strong>should not</strong> be affected by this problem.
+However, you can still follow these procedures on subsequent deployments to improve the likelihood of a successful upgrade.
+Future versions of the ERT will be moving off of etcd with the hopes of greatly increasing platform stability during an upgrade.
+</p>
 
 When upgrading from PCF ERT 1.7.X to 1.8.0-1.8.8, deployments that included multiple instances of the Diego BBS VM would fail to upgrade.
 
@@ -62,7 +66,8 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 * Bumps UAA to v3.6.6 to redact SAML & OAuth Keys from the ID Zone API.
 * Allows a "Max Inflight Container Starts" configuration to be set.
   This setting will limit the total number of containers that are allowed to be starting at any one time.
-* Bumps etcd-release to v92 to improve startup resilience on VM using IPSec.
+  The default setting is to limit the number of inflight starting containers to 200.
+* Bumps etcd-release to v92 to improve startup resilience on VMs using IPSec.
 
   <table border="1" class="nice">
   <thead>
