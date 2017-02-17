@@ -179,6 +179,7 @@ Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that
 ### <a id='container-max-in-flight'></a> Global Container Max Inflight Configuration
 
 Diego now provides a configuration option for limiting the number of containers allowed to be in a "starting" state at any one time.
+As a default, the setting will limit the number of containers in the "starting" state to 200.
 
 This setting will prevent Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
 
