@@ -15,7 +15,11 @@ Before updating Elastic Runtime, ensure that you have updated to Ops Manager v1.
 
 #### The Problem
 
-<p class="note"><strong>Note</strong>: Fresh installations (not upgrades) of PCF Elastic Runtime v1.8.10 or higher are <strong>not</strong> affected by this problem.</p>
+<p class="note">
+<strong>Note</strong>: Fresh installations (not upgrades) of PCF ER 1.8.10 or higher <strong>should not</strong> be affected by this problem.
+However, you can still follow these procedures on subsequent deployments to improve the likelihood of a successful upgrade.
+Future versions of the ERT will be moving off of etcd with the hopes of greatly increasing platform stability during an upgrade.
+</p>
 
 When upgrading from PCF ERT v1.7.X to v1.8.0-1.8.8, deployments that included multiple instances of the Diego BBS VM would fail to upgrade.
 
