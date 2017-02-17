@@ -35,7 +35,11 @@ If you haven't attempted an upgrade, please download PCF ER 1.8.10 or higher and
 
 #### How to Upgrade Safely to PCF ER 1.8.10+ and/or Repair a Broken Cluster
 
-This is applicable to all upgrade paths between 1.7.x to 1.8.10+. Upgrades from 1.8.x to 1.8.10+ should not require these steps if your Diego BBS cluster is already healthy. After you've successfully upgraded past 1.8.10, these steps are no longer necessary.
+This is applicable to all upgrade paths between v1.7.x to v1.8.10+.
+Upgrades from v1.8.x to v1.8.10+ should not require these steps if your Diego BBS cluster is already healthy.
+After you've successfully upgraded past v1.8.10, these steps should no longer be necessary.
+You can still follow these procedures on subsequent deployments to improve the likelihood of a successful upgrade.
+Future versions of the ERT will be moving off of etcd with the hopes of greatly increasing platform stability during an upgrade.
 
 * For **Single node Diego BBS** instance configuration: No action required.
 * For **Multi node Diego BBS** instance configuration: Pivotal recommends scaling down to one Diego BBS (see [the section below](#scale-bbs) for instructions) before attempting an upgrade. You can do this before or during the upgrade deployment. After the succesful upgrade deployment, scale back up to an HA configuration.
