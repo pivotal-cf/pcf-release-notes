@@ -47,8 +47,6 @@ Version 1.10.0 of Ops Manager consists of the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v1.10.0
 
-### <a id='bosh'></a>BOSH Updates
-
 ### <a id='api'></a>Ops Manager API
 
 Operators can now use the API to automate more tasks, such as configuring tiles, uploading tiles, and fetching upgrades from Pivotal Network. 
@@ -94,3 +92,8 @@ A central component of every Ops Manager upgrade workflow is to export an `insta
 
 In PCF 1.10, the size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
 
+### <a id='bosh'></a>Additional BOSH Updates
+
+Ops Manager now uses a version of BOSH that includes the following features:
+
+* **Context IDs for Tasks**: The [Tasks](https://bosh.io/docs/director-api-v1.html#tasks) endpoint for the BOSH Director API includes a `context_id` property. This feature is particularly useful in helping automate the operation of On-Demand services, which requires triggering lifecycle errands for dedicated instances. Service developers can use this feature to  validate the health of service instances pre/post deployment through smoke-tests and to perform cleanup operations before deletion. 
