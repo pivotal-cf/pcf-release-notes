@@ -94,6 +94,4 @@ In PCF 1.10, the size of this file has been reduced to about 15 megabytes, causi
 
 ### <a id='bosh'></a>Additional BOSH Updates
 
-Ops Manager now uses a version of BOSH that includes the following features:
-
-* **Context IDs for Tasks**: The [Tasks](https://bosh.io/docs/director-api-v1.html#tasks) endpoint for the BOSH Director API includes a `context_id` property. This feature is particularly useful in helping automate the operation of On-Demand services, which requires triggering lifecycle errands for dedicated instances. Service developers can use this feature to  validate the health of service instances pre/post deployment through smoke-tests and to perform cleanup operations before deletion. 
+For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v261](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=261). 
