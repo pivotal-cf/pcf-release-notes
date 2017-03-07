@@ -92,6 +92,10 @@ A central component of every Ops Manager upgrade workflow is to export an `insta
 
 In PCF 1.10, the size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
 
-### <a id='bosh'></a>Additional BOSH Updates
+### <a id='bosh'></a> BOSH Updates
 
-For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v261](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=261). 
+The following list describes updates in the new BOSH version that are not exposed by Ops Manager. These features may be helpful for operators and tile developers for improving their workflows.  
+
+* **Context IDs for Tasks**: The [Tasks](https://bosh.io/docs/director-api-v1.html#taskss) endpoint for the BOSH Director API includes a `context_id` property. This feature is particularly useful in tracking multiple BOSH tasks that are related. For example, PCF On-Demand Services use it to track the multiple BOSH tasks involved in the `cf create-service` process.
+
+For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v261](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=261).
