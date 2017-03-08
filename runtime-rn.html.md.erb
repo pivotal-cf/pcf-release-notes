@@ -97,45 +97,54 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is do
 
 When upgrading to v1.10, be aware of the following upgrade considerations:
 
-   * You must upgrade to a version of Elastic Runtime v1.9.0 or higher in order to successfully upgrade to v1.10.
-   * Before upgrading to PCF v1.10, remove any product tiles that are no longer supported in PCF.
-     See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).<br><br/>
-     Some partner service tiles may currently be incompatible with PCF v1.10. Pivotal is working with partners to
-     ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
+   * You must upgrade first to a version of Elastic Runtime v1.9.x in order to successfully upgrade to v1.10.
+   * Before upgrading to PCF v1.10, you must upgrade the following product tiles:
+     * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later. For more information, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
+     * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later. For more information, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
+   * Some partner service tiles may be incompatible with PCF v1.10. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
      For information about which partner service releases are currently compatible with PCF v1.10, review the
      appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
      contact the partner organization that produces the tile.
+     
+## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
+
+Although these features are fully supported, Pivotal recommends caution when using them in production.
 
 ## <a id='1.10.0'></a> New Features in Elastic Runtime v1.10.0
 
 This section describes new features of the release.
 
-### <a id='adv-features'></a> Advanced Features
-
-The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
-Although these features are fully supported, Pivotal recommends caution when using them in production.
-
 ### <a id='container-networking'></a> Container Networking
 
-The Elastic Runtime tile offers a Container Networking feature in the Advanced Features section that puts applications onto their own overlay network.
+The Elastic Runtime tile offers a Container Networking feature that puts applications in their own overlay network.
+
+Container Networking is available as an advanced feature in Elastic Runtime.
 
 For more information, see the [Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services
 
-There is now general support for volume services inside of application containers.
+This release provides general support for volume services inside of application containers.
 
 Additionally, the Elastic Runtime ships with an NFS Volume Service Broker as an advanced feature.
 
-### <a id='etcd-tls'></a> Secured etcd Cluster
+For more information, see [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
 
-This release removes the etcd Proxy VM, ensuring all communication to the etcd cluster happens over a secured connection.
+### <a id='etcd-tls'></a> Secure etcd Cluster
 
-### <a id='rate-limiting'></a> CF API Rate Limiting
+This release removes the etcd Proxy VM, ensuring all communication to the etcd cluster happens over a secure connection.
 
-The CF API can enforce rate limits for users and clients. The limits can be enabled in the Advanced Features section of the Elastic Runtime tile.
+### <a id='rate-limiting'></a> Cloud Foundry API Rate Limiting
+
+The CF API can enforce rate limits for users and clients. 
 
 Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
+
+You can enable these API rate limits in the **Advanced Features** section of the Elastic Runtime tile. 
+
+For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on GCP, see [Deploying Elastic Runtime on GCP](/customizing/gcp-er-config.html#advanced-features).
 
 ### <a id='cfdot'></a> Cloud Foundry Diego Operator Toolkit
 
@@ -153,9 +162,9 @@ Operators can scale the instance count for the VM to fit their needs.
 
 The Routers can now be configured to maintain a number of keep-alive connections.
 
-Reusing connections will allow for HTTP performance improvements as the underlying connection will not need to be reestablished on every request.
+Reusing connections allows for HTTP performance improvements as the underlying connection does not need to be re-established on every request.
 
-### <a id='disabled-ssh-default'></a> SSH Access Can Be Disabled As A Default For New Applications
+### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
 
 Application SSH access was previously available as a global feature of Cloud Foundry.
 
@@ -167,23 +176,35 @@ Choosing to disable the feature for new applications will require that developer
 
 The Elastic Runtime now supports using Azure Storage as a backend for the platform file storage.
 
-### <a id='mysql-improvements'></a> Internal MySQL Diagnostic and Availability Improvements
+For more information, see the [Deploying Elastic Runtime on Azure](../customizing/azure-er-config.html#external_azure) topic.
+
+### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability 
 
 The internal MySQL database cluster now includes healthcheck thresholds.
+
 These thresholds can be configured to match your MySQL load balancer thresholds so that failover is seamless.
 
 Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that provides some diagnostic information about your MySQL cluster.
 
-### <a id='container-max-in-flight'></a> Global Container Max Inflight Configuration
+For more information on the `mysql-diag` tool, see [Diagnosing problems with Elastic Runtime MySQL or the Pivotal MySQL Tile](https://discuss.pivotal.io/hc/en-us/articles/115001980967-Diagnosing-problems-with-Elastic-Runtime-MySQL-or-the-Pivotal-MySQL-Tile).
+
+### <a id='container-max-in-flight'></a> Global Container Max In-Flight Configuration
 
 Diego now provides a configuration option for limiting the number of containers allowed to be in a "starting" state at any one time.
-As a default, the setting will limit the number of containers in the "starting" state to 200.
 
-This setting will prevent Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
+By default, the setting limits the number of containers in the "starting" state to 200. 
+
+This setting prevents Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
+
+This configuration is available as the **Max Inflight Container Starts** on the **Application Containers** screen in Elastic Runtime.
+
+For more information, see the [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
 
 ### <a id='loggregator'></a> gRPC in Loggregator
 
-The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. This improves the stability and the performance of the Loggregator system, but it may require operators to scale their Dopplers.
+The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. 
+
+This improves the stability and the performance of the Loggregator system, but it may require operators to scale their Dopplers.
 
 ## <a id='knownissues'></a> Known Issues
 
