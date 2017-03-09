@@ -98,9 +98,9 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is do
 When upgrading to v1.10, be aware of the following upgrade considerations:
 
    * You must upgrade first to a version of Elastic Runtime v1.9.x in order to successfully upgrade to v1.10.
-   * Before upgrading to PCF v1.10, you must upgrade the following product tiles:
-     * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later. For more information, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
-     * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later. For more information, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
+   * If you are currently using any of the following services in your PCF deployment, then you must upgrade and configure the tiles before upgrading to PCF v1.10: 
+     * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about RabbitMQ for PCF, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
+     * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about Redis for PCF, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
    * Some partner service tiles may be incompatible with PCF v1.10. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
      For information about which partner service releases are currently compatible with PCF v1.10, review the
      appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
@@ -156,7 +156,9 @@ For more details about `cfdot`, see the [documentation](https://github.com/cloud
 
 The Cloud Controller Clock has been outfitted to allow multiple instances of the VM to run in parallel.
 
-Operators can scale the instance count for the VM to fit their needs.
+Operators can scale the instance count for the VM to fit their needs. For example, operators might want to change the instance count to 2 or 3 so they have a clock in each availability zone.
+
+For more information, see [High Availability in Cloud Foundry](../concepts/high-availability.html).
 
 ### <a id='router-perf-improvements'></a> Router Performance Improvements
 
@@ -166,11 +168,13 @@ Reusing connections allows for HTTP performance improvements as the underlying c
 
 ### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
 
-Application SSH access was previously available as a global feature of Cloud Foundry.
+Previously, application SSH access was previously enabled globally as a feature in Cloud Foundry.
 
-In addition to the global setting, operators can now choose to disable the feature for new applications.
+In addition to the global setting, operators can now choose to disable SSH access for new applications.
 
-Choosing to disable the feature for new applications will require that developers enable SSH access on a per-application basis before using the feature.
+Choosing to disable SSH access for new applications requires that developers enable SSH access on a per-application basis.
+
+For more information, see [Configuring SSH Access for PCF](../opsguide/config-ssh.html#diego-configuration).
 
 ### <a id='azure-blobstore'></a> Azure Blobstore Support
 
