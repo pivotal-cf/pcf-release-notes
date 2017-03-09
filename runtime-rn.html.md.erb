@@ -88,10 +88,7 @@ In order to make this migration possible, this release contains a <strong>breaki
 an <strong>external database</strong>. If you use an external database, such as RDS on Amazon or CloudSQL on Google Cloud Platform, you
 will need to make sure to create the "routing" database and user credentials before performing this upgrade.
 <br><br>
-Creating the database can be done by performing the following MySQL command:
-<pre class="terminal">CREATE database uaa;
-CREATE database routing;
-</pre>
+Creating the database can be done by performing the following MySQL command: <code>CREATE database routing;</code>.
 <br><br>
 Once this operation has been completed, you can upgrade your Elastic Runtime installation as normal.
 </p>
