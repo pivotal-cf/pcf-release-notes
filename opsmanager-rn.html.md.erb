@@ -86,12 +86,6 @@ You cannot obtain SHA-2 by upgrading existing environments to PCF v1.10. However
 
 Operators can now deploy Ops Manager in an Azure Government Cloud environment. For more information, see the [Deploying PCF on Azure Government Cloud](../customizing/azure-gov-cloud.html) topic.
 
-### <a id='optimize-upgrade'></a>Optimized Upgrade Workflow
-
-A central component of every Ops Manager upgrade workflow is to export an `installation.zip` file from an older version of Ops Manager and import the same file into a newer version of Ops Manager. This file was typically about 5 gigabytes or more in size. 
-
-In PCF 1.10, the size of this file has been reduced to about 15 megabytes, causing this portion of the upgrade workflow to become more efficient. This reduction in size was achieved by not exporting releases and stemcells since they already exist in the Ops Manager Director blobstore.
-
 ### <a id='bosh'></a> BOSH Updates
 
 The following list describes updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.  
