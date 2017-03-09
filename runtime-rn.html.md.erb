@@ -3,7 +3,15 @@ title: Pivotal Elastic Runtime v1.8 Release Notes
 owner: Release Engineering
 ---
 
-## <a id='update'></a>About Updating to Elastic Runtime v1.8.10 or Later
+## <a id='update-1.9'></a>About Updating to Elastic Runtime v1.9
+
+If you are currently on Elastic Runtime v1.8.32 or earlier, it is recommended that you upgrade to v1.8.32 before upgrading to Elastic Runtime v1.9.
+
+Upgrading directly to v1.9 without first upgrading to v1.8.32 will result in the loss of TCP routes if your deployment makes use of them.
+
+Elastic Runtime v1.8.33 contains a migration to move your TCP routing data to MySQL. Please view the [release notes](#1.8.33) for more details.
+
+## <a id='update-1.8'></a>About Updating to Elastic Runtime v1.8.10 or Later
 
 If you are currently on Elastic Runtime v1.8.7 or earlier, you should update your Elastic Runtime.
 Later versions include a major stemcell upgrade to 3263.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
@@ -63,6 +71,90 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 1. At this point, you can continue your normal procedure for upgrading to the new version of PCF ERT.
 
 ## <a id="releases"></a> Releases
+
+### <a id="1.8.33"></a> 1.8.33
+
+<p class="note">
+<strong>
+It is recommended that all operators upgrade to this version before performing the upgrade to Elastic Runtime 1.9.
+</strong>
+</p>
+<p class="tip">
+Previous releases used etcd to store TCP route data. This datastore is not treated as persistent when performing
+an upgrade between Elastic Runtime versions 1.8 and 1.9. Deployments that used the TCP router would lose their TCP routes
+during the upgrade. To prevent this dataloss, Elastic Runtime v1.8.33 will migrate the data to the MySQL database.
+<br><br>
+In order to make this migration possible, this release contains a <strong>breaking change</strong> for deployments that have specified
+an <strong>external database</strong>. If you use an external database, such as RDS on Amazon or CloudSQL on Google Cloud Platform, you
+will need to make sure to create the "routing" database and user credentials before performing this upgrade.
+<br><br>
+Creating the database can be done by performing the following MySQL command:
+<pre class="terminal">CREATE database uaa;
+CREATE database routing;
+</pre>
+<br><br>
+Once this operation has been completed, you can upgrade your Elastic Runtime installation as normal.
+</p>
+
+* The routing-api will migrate its data to a relational datastore.
+* Allows operators to specify HTTP headers that will be recorded in the GoRouter access logs.
+* Bumps cf-mysql-release to v26.11 to ensure Golang components compile against Golang version 1.7.
+* Bumps mysql-backup-release to v1.32.0 to ensure Golang components compile against Golang version 1.7.
+* Patches the Cloud Controller to correct ordering of API results when using pagination.
+* Patches the Cloud Controller workers to ensure CA certificates are validated when communicating with the internal WebDAV blobstore.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3263.20</td>
+  </tr><tr>
+    <td>cf</td><td>239\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>36.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>26.11</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.46.0</td>
+  </tr><tr>
+    <td>consul</td><td>135</td>
+  </tr><tr>
+    <td>diego</td><td>0.1485.0\*</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.4</td>
+  </tr><tr>
+    <td>etcd</td><td>92</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.1.1</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.32.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>notifications</td><td>34</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>26</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.1.10</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>652.3</td>
+  </tr><tr>
+    <td>routing</td><td>0.141.0\*</td>
+  </tr><tr>
+    <td>service-backup</td><td>14</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
 ### <a id="1.8.32"></a> 1.8.32
 
