@@ -1,213 +1,125 @@
 ---
-title: Pivotal Cloud Foundry Ops Manager v1.8 Release Notes
+title: Pivotal Cloud Foundry Ops Manager v1.10 Release Notes
 owner: Ops Manager
 ---
 
-## <a id='how-to-upgrade'></a> How to Upgrade ##
+## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The procedure for upgrading to Pivotal Cloud Foundry Ops Manager v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.10 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
-Before you upgrade to Ops Manager v1.8, ensure that existing product tiles such as Elastic Runtime and RabbitMQ have been upgraded to a version that supports the upgrade. For specific version numbers and instructions, see [Review Product Compatibility Prerequisites](../../customizing/upgrading-pcf.html#review-lockstep).
+### 1.10.0
 
-After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8, as well as other specific product versions if you are using them. For required version numbers and instructions, see [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products).
+Version 1.10.0 of Ops Manager consists of the following component versions:
 
+<table border="1" class="nice">
+<thead>
+<tr>
+  <th>Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BOSH Director: v261</td>
+</tr>
+<tr>
+  <td><code>bosh-init</code>: v0.0.100</td>
+</tr>
+<tr>
+  <td>Stemcell: 3363.x</td>
+</tr>
+<tr>
+  <td>AWS CPI: TK</td>
+</tr>
+<tr>
+  <td>Azure CPI: TK</td>
+</tr>
+<tr>
+  <td>Google Cloud Platform CPI: TK</td>
+</tr>
+<tr>
+  <td>OpenStack CPI: TK</td>
+</tr>
+<tr>
+  <td>vSphere CPI: TK</td>
+</tr>
+</tbody>
+</table>
 
-### 1.8.3 Patch
+## <a id='major-features'></a>New Features in Ops Manager v1.10.0
 
-* Patches USN-3087-2. Additional information can be found at https://pivotal.io/security. 
+### <a id='api'></a>Ops Manager API
 
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.3</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
+Operators can now use the API to automate more tasks, such as configuring tiles, uploading tiles, and fetching upgrades from Pivotal Network. 
+To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
 
-### 1.8.2 Patch
+#### <a id='new-endpoints'></a>New Endpoints
 
-* Bumped Linux kernel to v4.4
+The Ops Manager API adds the following endpoints:
 
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3263.2</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
+* `PUT /api/v0/staged/director/network_and_az`: Operators can assign a network and singleton availability zone for the Ops Manager Director tile.
+* `GET /api/v0/staged/cloud_config`: Operators can fetch a BOSH cloud config based on the staged state of Ops Manager.
+* `GET /api/v0/deployed/cloud_config`: Operators can fetch a BOSH cloud config based on the deployed state of Ops Manager.
+* `GET /api/v0/certificate_authorities`: Operators can list all root certificate authorities for Ops Manager.
+* `POST /api/v0/certificate_authorities`: Operators can create a root certificate authority.
+* `POST /api/v0/certificate_authorities/active/regenerate`: Operators can rotate non-configurable certificates by deleting all non-configuration certificates and then regenerating them.
+	<p class="note"><strong>Note</strong>: For more information about using the Ops Manager API for certificate rotation, see the <a href="#certs">Certificate Rotation</a> section below.</p>
+* `POST /api/v0/certificate_authorities/generate`: Operators can generate an additional root certificate authority.
+* `POST /api/v0/certificate_authorities/:certificate_authority_guid/activate`: Operators can activate a root certificate authority, and make all others inactive.
+* `DELETE /api/v0/certificate_authorities/:certificate_authority_guid`: Operators can delete a specific inactive certificate authority from Ops Manager.
+* `POST /api/v0/staged/installations/commit`: Operators can save the installation state as if the deployment was triggered by clicking **Apply Changes**, preparing the installation manifest. Operators can then fetch the manifest using the `/api/v0/deployed/product/[product_id]/manifest` endpoint.
 
-### 1.8.1 Patch
+#### <a id='certs'></a>Certificate Rotation
 
-* Patches CVE-2016-6651. Additional information can be found at https://pivotal.io/security.  
+Ops Manager ships with a Certificate Authority (CA). This CA generates certificates that are used for communication across various PCF components. These certificates are non-configurable. 
 
-	<table border="1" class="nice">
-	<thead>
-	<tr>
-	  <th>Versions</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	  <td>Stemcell: 3262.12</td>
-	</tr>
-	<tr>
-	  <td>vSphere CPI: 26</td>
-	</tr>
-	<tr>
-	  <td>AWS CPI: 57</td>
-	</tr>
-	<tr>
-	  <td>OpenStack CPI: 26</td>
-	</tr>
-	</tbody>
-	</table>
+Ops Manager now allows you to regenerate non-configurable TLS/SSL certs using the API. See the [Rotating Non-Configurable TLS/SSL Certificates](../../security/pcf-infrastructure/api-cert-rotation.html) topic for more information.
 
-### 1.8.0
-## <a id='major-features'></a> New Features in Ops Manager v1.8.0
+Ops Manager also allows operators to use an API endpoint to add their own custom CA authority. If added, this custom CA will be used to sign all non-configurable certificates and deployed across all relevant PCF components.
+
+### <a id='sha2'></a>SHA-2
+
+Previous versions of PCF used SHA-1 hashes, while PCF v1.10 uses SHA-2 by default. Both Operations Manager installations and certificates provided by PCF use SHA-2 hashes.
+
+You cannot obtain SHA-2 by upgrading existing environments to PCF v1.10. However, you can convert existing SHA-1 hashes into SHA-2 hashes by rotating your Ops Manager certificates by following the procedure in [Regenerating and Rotating Non-Configurable TLS/SSL Certificates](../security/pcf-infrastructure/api-cert-rotation.html). 
+
+### <a id='azure-gov'></a>Azure Government Cloud
+
+Operators can now deploy Ops Manager in an Azure Government Cloud environment. For more information, see the [Deploying PCF on Azure Government Cloud](../customizing/azure-gov-cloud.html) topic.
+
+### <a id='errands'></a>Smart Errands
+
+Errands are scripts that Ops Manager runs to automate tasks. In PCF 1.10, Ops Manager provides three configurations for errands:
+
+* **On**: The errand always runs.
+* **Off**: The errand never runs.
+* **When Changed**: The errand runs only if the associated product manifest has changed since the last successful errand run.
+
+If a tile developer does not specify a default configuration for an errand, then Ops Manager applies the **When Changed** configuration.
+
+Operators should set errand configurations to **On** for any tile that pushes apps. For example, if your deployment includes the [Single Sign-On](http://docs.pivotal.io/p-identity/1-9/index.html), [Push Notification Service](https://docs.pivotal.io/push/1-8/index.html), or [PCF Metrics](https://docs.pivotal.io/pcf-metrics/1-3/index.html) tiles, the errands for these tiles must run automatically to keep up with buildpack patches.
+
+See the [Managing Errands in Ops Manager](../customizing/managing_errands.html) topic for more information.
 
 ### <a id='bosh'></a> BOSH Updates
 
-Ops Manager now generates BOSH 2.0 manifests and has enabled BOSH link support. For more information about using BOSH links see the [BOSH documentation](https://bosh.io/docs/links.html). 
+The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows. 
 
-### <a id='service-networks'></a> Support for Service Networks
+#### Bosh Director
 
-Ops Manager allows Operators to create a Service Network. Service Networks are used to dynamically provision VMs for on-demand services. For an example of how to enable a Service Network in Ops Manager, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#network).
+Ops Manager v1.10.0 uses BOSH v261, which includes the following changes to the BOSH Director:
 
-### <a id='pivnet_token'></a> Pivotal Network Integration
+* **Context IDs for Tasks**: The [Tasks](https://bosh.io/docs/director-api-v1.html#taskss) endpoint for the BOSH Director API includes a `context_id` property. This feature is particularly useful in tracking multiple BOSH tasks that are related. For example, PCF On-Demand Services use it to track the multiple BOSH tasks involved in the `cf create-service` process.
+* **HM Alerts as BOSH Events**: You can now view BOSH Health Monitor alerts, such as process restarts and monit alerts, with the `BOSH events` command. The `bosh events` command provides a historic view of your system, including events such as the creation of VMs. For more information, see the [BOSH Events documentation](https://bosh.io/docs/events). 
+* **Event filtering query parameters**: If you use v2 of the BOSH CLI, you can now use filtering flags for detailed BOSH event recording and querying. For more information, see the [BOSH Events documentation](https://bosh.io/docs/events). 
 
-Operators can choose to enter their Pivotal Network token into Ops Manager and download product tile updates from within the Ops Manager UI. See the [Using Pivotal Network API to Upgrade Products](../../customizing/add-delete.html#pivnet-api) for more information.
+For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v261](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=261).
 
-### <a id='new_endpoints'></a> New Ops Manager API Endpoints and Redesigned API Documentation
+#### Stemcell
 
-This release also introduces many new API endpoints, including:
+Ops Manager v1.10.0 uses Stemcell 3363.x, which includes the following changes:
 
-   * Configuring product tiles
-   * Configuring Ops Manager authentication
-   * Downloading product updates from PivNet
-   * Viewing logs and credentials
-   * Errands 
-   * Resources Assigned to a Job
+* Additional auditd rules
+* A new group, `bosh_sshers`, assigned to the `vcap` user. Users must belong to this group to use SSH. 
+* Log Agent API access events are sent in CEF format to syslog via the `vcap.agent` topic.
 
-For more information about API endpoints, see the Ops Manager API documentation, which has been updated to appear in a new format. 
-
-Visit http<span>s</span>://YOUR-OPSMAN/docs to view the Ops Manager API documentation included with your Ops Manager installation.
-
-### <a id='settings'></a> Ops Manager Settings Page
-
-Ops Manager has a consolidated Settings page which includes the following fields:
-
-   * Decryption Passphrase 
-   * Authentication Method 
-   * External API Access
-   * Proxy Settings
-   * Export Installation Settings
-   * Advanced
-
-See the [Understanding the Ops Manager Interface](../../customizing/pcf-interface.html) topic for more information.
-
-### <a id='resource_config'></a> Custom Instance Counts in Ops Manager Director Resource Config
-
-Operators can now enter custom values in the Instances column of the Resource Config page in Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#resource-config).
-
-### <a id='vsphere'></a> vSphere Admin Default Password Requirement
-
-Customers using vSphere are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at [Installing Pivotal Cloud Foundry on vSphere](../../customizing/vsphere.html).
-
-### <a id='dualhomebosh'></a> Dual-Home Ops Manager Director (BOSH Director)
-
-Customers can now dual-home their Ops Manager Director (BOSH Director) starting with new deployments of v1.8.0. This release includes a new BOSH networking release with the RPFilter necessary for dual-homing scenarios.
-
-Additionally, customers using the dual-homed feature in Ops Manager v1.6 can now import their installations into v1.8.0 and continue to use the dual-homed Ops Manager Director. 
-
-For more information about how to use the dual-homing feature, refer to the [How to use a dual-homed Director with Ops Manager](https://discuss.zendesk.com/hc/en-us/articles/222027247) KB article.
-
-### <a id='hostnameforboshdirector'></a> Hostname for Ops Manager Director
-
-Operators can now specify a custom hostname for the Ops Manager Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config). This hostname can be set to a load balancer as described in [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588).
-
-### <a id='boshcompilerflag'></a> BOSH Manifest Flag to Remove Compilers
-
-This release adds a flag to the BOSH manifest that removes compilers.
-
-### <a id='boshretries'></a> BOSH Director Retries Disabled by Default
-
-In this release BOSH Director retries are turned off by default. You can enable BOSH Director retries in the Director Config page of Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
-
-### <a id='postdeployscripts'></a> Support for Post Deployment Scripts
-
-Ops Manager now supports configuring the appropriate settings in the Director to run post deploy scripts. This setting can be toggled on the Director Config form. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
-
-## <a id='tileauthorchanges'></a> Changes in Ops Manager v1.8.0 for Tile Authors
-
-* Tile authors can mark their tiles as a service broker by setting `service_broker: true`.
-* `instance_definition` and `resource_definition` no longer require that you specify the type as integer.
-* Tile authors no longer need to manage compilation jobs. Ops Manager now deploys the BOSH Director with a master compilation job. Older tiles that specify compilation jobs will not be affected.
-* Individual property blueprints can now be frozen after a deploy by using `freeze_on_deploy`. 
-* Ops Manager supports BOSH links and has introduced `provides` and `consumes` keys.
-* Tile Authors can now issue a lite version of their tiles that do not contain packaged releases. Tile authors can specify a `base_releases_url`, which will prompt BOSH to download the releases from the specified URL.
-* Tile authors can now specify a `dropdown_select` under `collections`.
-* New property blueprints:
-   * `vm_type_dropdown`
-   * `disk_type_dropdown`
-   * `service_network_az_single_select`
-   * `service_network_az_multi_select`
-* New accessors: 
-
-   * `(( $self.uaa_client_name ))` 
-   * `(( $self.uaa_client_secret ))`
-   * `(( $ops_manager.http_proxy ))`
-   * `(( $ops_manager.https_proxy ))`
-   * `(( $ops_manager.no_proxy ))`
-   * `(( $director.hostname ))` 
-   * `(( .deployment_name ))` or `(( ..cf.deployment_name ))`
-   * `(( $director.ca_public_key ))` 
-   * `(( $self.stemcell_version ))` 
-   * `(( $self.service_network ))` <br/><br/>  For more information about how to use accessors, refer to [About PCF Tiles](http://docs-pcf-staging.cfapps.io/partners/tiles.html) in the _Pivotal Cloud Foundry Partner Guide_.
-
-* Deprecated accessors:
-   * `(( availability_zone ))`
-   * `(( bosh_job_partition_stats ))`
-
-## <a id='bug-fixes'></a> Bug Fixes
-
-* Fixed an issue with rollbacks in case of database import failures during upgrades
-* Fixed an issue where Metrics IP address was not getting propagated into the Bosh manifest
-* Fixed an issue where errands were failing to run on a deploy
-* Fixed an issue where Static IP assignments were not being cleared correctly
-* Fixed an issue where re-saving the Networks and AZs form on product tiles was throwing a misleading error
-* Fixed API endpoint to log out all active sessions
-* Fixed an issue that allowed for multiple AZs to have the same name 
-
-
-
-
-
-
+For a full list of updates and fixes in the new stemcell that Ops Manager uses, see the [stemcell 3363 release notes](https://github.com/cloudfoundry/bosh/releases/tag/stable-3363).
