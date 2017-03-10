@@ -1,201 +1,219 @@
 ---
-title: Pivotal Elastic Runtime v1.8.0 Release Notes
+title: Pivotal Elastic Runtime v1.10 Release Notes
 owner: Release Engineering
 ---
 
-## <a id='versions'></a> Cloud Foundry Versions
+## <a id='versions'></a> Component Versions
+
+Versions 1.10.0 and higher versions of Elastic Runtime consist of the following component versions:
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.9</td>
+  </tr><tr>
+    <td>binary-buildpack</td><td>1.0.9</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>34</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.16.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.50.0</td>
+  </tr><tr>
+    <td>consul</td><td>152</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.11</td>
+  </tr><tr>
+    <td>etcd</td><td>93</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.1.1</td>
+  </tr><tr>
+    <td>go-buildpack</td><td>1.7.18</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.13</td>
+  </tr><tr>
+    <td>loggregator</td><td>77</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.32.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>7.2.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>0.1.5</td>
+  </tr><tr>
+    <td>nodejs-buildpack</td><td>1.5.29</td>
+  </tr><tr>
+    <td>notifications</td><td>35</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>27</td>
+  </tr><tr>
+    <td>php-buildpack</td><td>4.3.26</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.4.1</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.2</td>
+  </tr><tr>
+    <td>python-buildpack</td><td>1.5.15</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-buildpack</td><td>1.6.34</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.0.3</td>
+  </tr><tr>
+    <td>staticfile-buildpack</td><td>1.3.17</td>
+  </tr><tr>
+    <td>uaa</td><td>27</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
-Versions 1.8.0 and higher versions of Elastic Runtime consist of these Cloud Foundry versions:
+## <a id='upgrade'></a> How to Upgrade
 
-- CF Release version: 239
-- Diego version: 0.1482.0
-- Garden version: 0.342
-- CF MySQL version: 26
-- etcd version: 60
-- Apps Manager release version: 642
-- UAA version: 3.4.2 -> 3.6.1 as of v1.8.4
-- Consul version: 108
-- CF Routing release: 0.135
-- PCF Service Backup release: 14
-- PCF MySQL Backup release: 1.25
-- Pivotal Account app: 1
-- PCF Autoscale: 34
-- PCF Notifications: 24
-- cflinuxfs2-rootfs: 1.20 (the rootfs is updated frequently, so see the patch release notes below to view what version was used in each)
-- Binary Buildpack: 1.0.2
-- Go Buildpack: 1.7.10
-- Java Buildpack: 3.8.1
-- NodeJS Buildpack: 1.5.15
-- PHP Buildpack: 4.3.14
-- Python Buildpack: 1.5.7 (now includes Conda package manager)
-- Ruby Buildpack: 1.6.19
-- Staticfile Buildpack: 1.3.9
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the
+[Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
-## Patches:
+When upgrading to v1.10, be aware of the following upgrade considerations:
 
-## 1.8.4
+   * You must upgrade first to a version of Elastic Runtime v1.9.x in order to successfully upgrade to v1.10.
+   * If you are currently using any of the following services in your PCF deployment, then you must upgrade and configure the tiles before upgrading to PCF v1.10: 
+     * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about RabbitMQ for PCF, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
+     * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about Redis for PCF, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
+   * Some partner service tiles may be incompatible with PCF v1.10. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
+     For information about which partner service releases are currently compatible with PCF v1.10, review the
+     appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
+     contact the partner organization that produces the tile.
+     
+## <a id='adv-features'></a> About Advanced Features
 
-Bumps UAA to version 3.6.1 to make upgrades possible from Elastic Runtime versions 1.7.24 and greater.
+The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
 
-Also introduces a field in the Advanced Features section which allows you to add any networks that need access to the internal file storage of Elastic Runtime (WebDAV server). The default whitelist includes all RFC 1919 private IP ranges, so if your Elastic Runtime deployment is not using an RFC 1918 network for its private network, then you must add your network to this list. Otherwise, you do not need to do anything here.
+Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-## 1.8.3
+## <a id='1.10.0'></a> New Features in Elastic Runtime v1.10.0
 
-Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
+This section describes new features of the release.
 
-Patches USN-3087-1, USN-3087-2, CVE-2016-6662, USN-3040-1, and USN-2953-1. Additional info can be found at https://pivotal.io/security.
+### <a id='container-networking'></a> Container Networking
 
-## 1.8.2
+The Elastic Runtime tile offers a Container Networking feature that puts applications in their own overlay network.
 
-Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
+Container Networking is available as an advanced feature in Elastic Runtime.
 
-Fixes an issue where having SSL validation enabled while using the internal file storage in Elastic Runtime was preventing successful retrieval of files.
+For more information, see the [Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
 
-## 1.8.1
+### <a id='volume-services'></a> Volume Services
 
-Note: Do not upgrade to this version if you are starting with 1.7.20, or any version between 1.7.23 and 1.8.0 (non-inclusive).
+This release provides general support for volume services inside of application containers.
 
-Patches CVE-2016-6651. Additional info can be found at https://pivotal.io/security.
+Additionally, the Elastic Runtime ships with an NFS Volume Service Broker as an advanced feature.
 
-## <a id="upgrade"></a>How to Upgrade
+For more information, see [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic. When upgrading to v1.8, be aware of the following upgrade considerations:
+### <a id='etcd-tls'></a> Secure etcd Cluster
 
-* Before upgrading to PCF v1.8, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).
+This release removes the etcd Proxy VM, ensuring all communication to the etcd cluster happens over a secure connection.
 
-* After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8. In addition some product tiles must be upgraded in lockstep with the Elastic Runtime tile. If you are a customer upgrading from PCF 1.7 to PCF 1.8 and are using any of products listed in [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products), you must upgrade to the specified tile version when you upgrade the Elastic Runtime tile to v1.8.
+### <a id='rate-limiting'></a> Cloud Foundry API Rate Limiting
 
-* Some partner service tiles may currently be incompatible with PCF v1.8. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. For information about which partner service releases are currently compatible with PCF v1.8, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+The CF API can enforce rate limits for users and clients. 
 
-* Apps Manager requires the NodeJS Buildpack 1.5.14 or higher.
+Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
 
-## <a id='versions'></a> New Features in Elastic Runtime v1.8.0
+You can enable these API rate limits in the **Advanced Features** section of the Elastic Runtime tile. 
 
-### <a id='routing'></a> Routing
+For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#advanced-features) topic.
 
-- TCP Routing enables developers to run apps on PCF that support non-HTTP TCP protocols. See the [HTTP vs TCP Routes](../../devguide/deploy-apps/routes-domains.html#http-vs-tcp-routes) topic for more information.
-   - To support this, routing components fetch tokens from UAA by calling that component directly over TLS. The cert hosted by UAA is generated by Operations Manager.
-- Some processes on the Gorouter job no longer run as root.
-- Route services whose domain names are resolved using EDNS0 are now supported.
+### <a id='cfdot'></a> Cloud Foundry Diego Operator Toolkit
 
+All Diego VMs now include an operator toolkit, known as `cfdot`, for interacting with your Diego components.
 
-### <a id='authen'></a> Authentication and Authorization
+For more details about `cfdot`, see the [documentation](https://github.com/cloudfoundry/cfdot).
 
-- Apps Manager now supports inviting external users from LDAP & SAML user stores. See the [Adding Existing SAML or LDAP Users to a Pivotal Cloud Foundry Deployment](../../opsguide/external-user-management.html) topic for more information.
+### <a id='cc-clock'></a> Multi-node Cloud Controller Clock
 
-- PCF Admin role can now be derived from SAML group memberships. See the [Grant Admin Permissions to an External Group (SAML or LDAP)](../../adminguide/uaa-user-management.html#external-group) topic for more information.
+The Cloud Controller Clock has been outfitted to allow multiple instances of the VM to run in parallel.
 
-- Basic User Attributes including Email, First Name, and Last Name can now be derived from the the SAML or LDAP enabled external user store. See the [Retrieve User Email Addresses](../../adminguide/uaa-user-management.html#retrieving-email-addresses) topic for more information.
+Operators can scale the instance count for the VM to fit their needs. For example, operators might want to change the instance count to 2 or 3 so they have a clock in each availability zone.
 
-- The Login prompts displayed on the Login Page and in the CF CLI can now be configured. See the [Configuring Authentication and Enterprise SSO for Elastic Runtime](../../opsguide/auth-sso.html) topic for more information.
+For more information, see [High Availability in Cloud Foundry](../concepts/high-availability.html).
 
-- New API Docs for UAA are now available at [http://docs.cloudfoundry.org/api/uaa/](http://docs.cloudfoundry.org/api/uaa/).
+### <a id='router-perf-improvements'></a> Router Performance Improvements
 
-### <a id='docker'></a> Docker Proxy Server
+The Routers can now be configured to maintain a number of keep-alive connections.
 
-This feature allows you to put a proxy server between your PCF deployment and Docker Hub for access to image files.
+Reusing connections allows for HTTP performance improvements as the underlying connection does not need to be re-established on every request.
 
-See the [Set Proxies for Docker Trusted Registries](../../opsguide/docker-registry.html#proxy) topic for more information.
+### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
 
-### <a id='pivotalaccount'></a> Pivotal Account User Management Tool
+Previously, application SSH access was previously enabled globally as a feature in Cloud Foundry.
 
-Pivotal Account is a user management tool that allows users to create and manage their accounts. With Pivotal Account users can access apps assigned to their accounts as well as manage their apps. See the [Enabling Pivotal Account](../../opsguide/pivotal-account.html) topic for more information.
+In addition to the global setting, operators can now choose to disable SSH access for new applications.
 
-### <a id='appcontainers'></a> Unprivileged App Containers
+Choosing to disable SSH access for new applications requires that developers enable SSH access on a per-application basis.
 
-You can now switch off privileged containers for your apps.
+For more information, see [Configuring SSH Access for PCF](../opsguide/config-ssh.html#diego-configuration).
 
-See the [Understanding Container Security](../../concepts/container-security.html) topic for more information.
+### <a id='azure-blobstore'></a> Azure Blobstore Support
 
-### <a id='sses3'></a> AWS SSE-S3
+The Elastic Runtime now supports using Azure Storage as a backend for the platform file storage.
 
-External file storage existing as blobstores for Cloud Controller can now be encrypted at rest using SSE-S3 on any IAAS supported by PCF. Existing blobs are not encrypted.
+For more information, see the [Deploying Elastic Runtime on Azure](../customizing/azure-er-config.html#external_azure) topic.
 
-For example, see the [Configure File Storage](../../customizing/config-er-vmware.html#filestore-config) topic for more information about configuring SSE-S3 for VSphere.
+### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability 
 
-### <a id='webdav'></a> NFS Migration to WebDAV
+The internal MySQL database cluster now includes healthcheck thresholds.
 
-The internal file storage provisioned by Cloud Foundry for Cloud Controller files has been switched from an NFS server to the WebDAV protocol. There is no actual data migration as part of this switch. The protocol changes on the file server. When you upgrade to Elastic Runtime v1.8.0 or later, you are automatically switched over.
+These thresholds can be configured to match your MySQL load balancer thresholds so that failover is seamless.
 
-See this [Knowledge Base article](https://discuss.zendesk.com/hc/en-us/articles/217982188-How-to-use-Elastic-Runtime-blob-storage-data-) for more information about file storage.
+Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that provides some diagnostic information about your MySQL cluster.
 
-### <a id='sshproxy'></a> Configurable SSH Proxy for Diego Containers
+For more information on the `mysql-diag` tool, see [Diagnosing problems with Elastic Runtime MySQL or the Pivotal MySQL Tile](https://discuss.pivotal.io/hc/en-us/articles/115001980967-Diagnosing-problems-with-Elastic-Runtime-MySQL-or-the-Pivotal-MySQL-Tile).
 
-As of PCF v1.8.0, you can specify static IP addresses for the Diego Brain job, which allows you to configure a load balancer to forward SSH traffic over port 2222 to these SSH proxy IPs. Configuring a load balancer for Diego Brain IP addresses allows SSH access to app containers.
+### <a id='container-max-in-flight'></a> Global Container Max In-Flight Configuration
 
-For example, see the [Configure Networking](../../customizing/cloudform-er-config.html#networking) topic for more information.
+Diego now provides a configuration option for limiting the number of containers allowed to be in a "starting" state at any one time.
 
-### <a id='consoledeprecation'></a> Console Database Removed
+By default, the setting limits the number of containers in the "starting" state to 200. 
 
-With the introduction of a new Apps Manager app written in Javascript, there is no longer a need for a backend to this app. Therefore, the Apps Manager database (`console`) is no longer required by the Elastic Runtime tile. After a successful upgrade to PCF v1.8. you can safely scale the Apps Manager database (postgres) job to `0` in the **Resource Config** page of the Elastic Runtime tile. However, if you selected MySQL as the backend database for `console` during initial Elastic Runtime deployment, you can drop this database from the MySQL server yourself. If you keep the database, you no longer need to backup and restore it.
+This setting prevents Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
 
-### <a id='collectordeprecate'></a> Collector Deprecation
+This configuration is available as the **Max Inflight Container Starts** on the **Application Containers** screen in Elastic Runtime.
 
-As of PCF v1.8.0, the Collector job on Elastic Runtime is deprecated and no longer used by any PCF services. If you are upgrading to PCF v1.8.0 from PCF v1.6.x (via the PCF v1.7.x upgrade path) and previously used the Collector job to obtain log data from legacy DEA-based applications, you can safely scale the job down to zero instances after upgrading to both JMX Bridge (Ops Metrics v1.7.0) and PCF ERT v1.7.0 or later.
+For more information, see the [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
 
-### <a id='apivisible'></a> API Environment Variable Visibility
+### <a id='loggregator'></a> gRPC in Loggregator
 
-Similar to `space_developer_env_var_visibility`, the new feature flag `env_var_visibility` can be disabled to deny access to `/v2/apps/:guid/env` for all users, including administrators.
+The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. 
 
-See the [Feature Flags](../../adminguide/listing-feature-flags.html#flags) topic for more information.
-
-### <a id='servicebrokerenhance'></a> Service Broker Improvements
-
-Service brokers can respond with an `operation` string in the body of responses for asynchronous operations. This string will be returned to the broker when the Cloud Controller polls for the state of asynchronous operations (see below). For more information, see the response body for [Provisioning](../../services/api-v2.9.html#provisioning), [Deprovisioning](../../services/api-v2.9.html#deprovisioning), and [Updating](../../services/api-v2.9.html#updating_service_instance).
-
-Service brokers will now receive `service_id`, `plan_id`, and `operation` when polled for last operation state by the Cloud Controller. These extra query parameters can be used by brokers to help determine the state of the last operation. See [Polling Last Operation](../../services/api-v2.9.html#polling) for more information.
-
-### <a id='cli_v3_support'></a> Cloud Foundry CLI v3 Plugin
-
-This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which works with the Cloud Controller API v3. The CLI v3 plugin is useful for experimenting with the Cloud Controller v3 API without having to curl an oauth token. The Cloud Controller v3 API is under active development and is currently experimental. For more information about how to install and use the plugin, see the [CLI Plugin v3 README](https://github.com/cloudfoundry/v3-cli-plugin).
-
-### <a id='cc_diego_droplet_checksum'></a> Droplet Checksum Validation
-
-Cloud Controller now sends a SHA1 droplet checksum to Diego for validation of buildpack-based app droplets.
-
-### <a id='max-starts'></a> Configurable Maximum Started Containers
-
-You can now set a maximum number of started containers. This prevents Diego from scheduling too much work for your platform to handle. 
-
-The Max Inflight Container Starts field is in the *Settings* tab, under *Application Containers.*
-
-For more information, read [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
+This improves the stability and the performance of the Loggregator system, but it may require operators to scale their Dopplers.
 
 ## <a id='knownissues'></a> Known Issues
 
 This section lists new and existing known issues for Elastic Runtime.
 
-### <a id='newissues'></a> New Issues
+###<a id='newissues'></a> New Issues
 
-* Diego Cells fail to start if there are spaces or other whitespace characters in Availability Zone names. Please make sure that Ops Manager is configured not to have such characters in its Availability Zones before deploying Elastic Runtime 1.8.0 or later. This limitation will be fixed in a forthcoming Elastic Runtime release.
-
-* Do not upgrade to versions 1.8.0 - 1.8.3 if you are starting with 1.7.20, or any 1.7.x version greater than 1.7.23.
-
-* In Elastic Runtime 1.8.0 - 1.8.2, if you are using a non-RFC 1918 network as your private network for the deployment and internal file storage for Cloud Controller, then you will not be able to push apps to the system. 1.8.3 will address this issue by allowing you to specify a non-RFC 1918 network that you want to use.
-
-* In Elastic Runtime 1.8.0 and 1.8.1, if you are using the internal file storage for Cloud Controller and you have the "Disable SSL certificate verification for this environment" checkbox unchecked, you will not be able to push apps to the system. 1.8.2 addresses this issue.
-
-* If you choose to enable TCP routing, the reservable port range cannot be modified after deployment. This will be made possible in the next patch release.
-
-* If you choose to enable TCP routing, you must also add the TCP routing domain via the cf CLI after deploying Elastic Runtime. The TCP routing domain is not configurable in the Elastic Runtime tile.
-
-* If you choose to enable TCP routing, do not delete etcd data stores when performing failure recovery procedures. The routing API persists router group data to maintain associations with other databases. This data should not be removed.
-
-* Customers using an additional nodeJS buildpack or who have replaced the system nodeJS buildpack may encounter deployment issues with Apps Manager. Please contact support if you encounter problems deploying Apps Manager.
-
-### <a id='existingissues'></a> Existing Issues
-
-* The version of the PHP Buildpack included with 1.8.0 is vulnerable to multiple CVEs [[1](https://pivotal.io/security/cve-2016-6639)] [[2](https://pivotal.io/security/usn-3045-1)]. To mitigate these issues, update the PHP buildpack to the newest version as part of the 1.8.0 upgrade or new installation.
-
-* Consul server cluster can fail to recover from quorum loss. See the [Consul fails to start during upgrade in PCF](https://discuss.pivotal.io/hc/en-us/articles/218196687-Consul-fails-to-start-during-upgrade-in-PCF) knowledge base article for how to recover from this issue.
-
-* etcd and Consul clusters do not self-heal in cases where they happen to enter split-brain.
-* Disaster recovery for etcd or Consul clusters still requires manual intervention.
-
-* The Cloud Foundry CLI command for viewing application files, `cf files`, does not work with apps on Diego.
-
-* .NET support on Windows cells does not support the same level of security and isolation as seen on Linux cells. At this time, it is only recommended for running "trusted" apps.
-
-* At this time, the container accounts on Windows cells must have permissions to log on locally, which may not be the default.
-
-* Application file names on Windows cells are limited to maximum length of 100 characters. As a workaround, make sure that all filenames in an application directory are shorter than 100 characters before pushing.
+###<a id='existingissues'></a> Existing Issues
