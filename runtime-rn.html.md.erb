@@ -192,7 +192,7 @@ Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that
 
 For more information on the `mysql-diag` tool, see [Diagnosing problems with Elastic Runtime MySQL or the Pivotal MySQL Tile](https://discuss.pivotal.io/hc/en-us/articles/115001980967-Diagnosing-problems-with-Elastic-Runtime-MySQL-or-the-Pivotal-MySQL-Tile).
 
-### <a id='container-max-in-flight'></a> Global Container Max In-Flight Configuration
+### <a id='container-max-in-flight'></a> Global Container Max Inflight Configuration
 
 Diego now provides a configuration option for limiting the number of containers allowed to be in a "starting" state at any one time.
 
@@ -201,6 +201,8 @@ By default, the setting limits the number of containers in the "starting" state 
 This setting prevents Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
 
 This configuration is available as the **Max Inflight Container Starts** on the **Application Containers** screen in Elastic Runtime.
+
+To read the documentation on this feature, see [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
 
 For more information, see the [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
 
