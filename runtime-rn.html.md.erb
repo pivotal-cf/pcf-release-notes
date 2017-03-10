@@ -153,6 +153,14 @@ This release of Elastic Runtime includes the Cloud Foundry CLI v3 plugin, which 
 
 Cloud Controller now sends a SHA1 droplet checksum to Diego for validation of buildpack-based app droplets.
 
+### <a id='max-starts'></a> 
+
+You can now set a maximum number of started containers. This prevents Diego from scheduling too much work for your platform to handle. 
+
+The Max Inflight Container Starts field is in the *Settings* tab, under *Application Containers.*
+
+For more information, read [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
+
 ## <a id='knownissues'></a> Known Issues
 
 This section lists new and existing known issues for Elastic Runtime.
