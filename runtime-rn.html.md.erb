@@ -93,7 +93,7 @@ Versions 1.10.0 and higher versions of Elastic Runtime consist of the following 
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the
-[Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.10, be aware of the following upgrade considerations:
 
@@ -166,6 +166,8 @@ The Routers can now be configured to maintain a number of keep-alive connections
 
 Reusing connections allows for HTTP performance improvements as the underlying connection does not need to be re-established on every request.
 
+For more information, see the [Router Idle Keepalive Connections](../adminguide/routing-keepalive.html) and the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#networking) topic.
+
 ### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
 
 Previously, application SSH access was previously enabled globally as a feature in Cloud Foundry.
@@ -188,6 +190,8 @@ The internal MySQL database cluster now includes healthcheck thresholds.
 
 These thresholds can be configured to match your MySQL load balancer thresholds so that failover is seamless.
 
+For information on internal MySQL load balancer configuration, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#internal-mysql) topic.
+
 Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that provides some diagnostic information about your MySQL cluster.
 
 For more information on the `mysql-diag` tool, see [Diagnosing problems with Elastic Runtime MySQL or the Pivotal MySQL Tile](https://discuss.pivotal.io/hc/en-us/articles/115001980967-Diagnosing-problems-with-Elastic-Runtime-MySQL-or-the-Pivotal-MySQL-Tile).
@@ -202,15 +206,18 @@ This setting prevents Diego from scheduling too much work for your platform to h
 
 This configuration is available as the **Max Inflight Container Starts** on the **Application Containers** screen in Elastic Runtime.
 
-To read the documentation on this feature, see [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
+To configure this feature, see [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
 
-For more information, see the [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
+For more information, see also [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
 
 ### <a id='loggregator'></a> gRPC in Loggregator
 
 The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. 
 
 This improves the stability and the performance of the Loggregator system, but it may require operators to scale their Dopplers.
+
+For more information on scaling Dopplers, see the
+[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [](../loggregator/log-ops-guide.html) topics.
 
 ## <a id='knownissues'></a> Known Issues
 
