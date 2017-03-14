@@ -60,15 +60,15 @@ This topic includes release notes for stemcells used with Pivotal Cloud Foundry 
 * Add more auditd rules
 * Fix CentOS initramfs to load necessary kernel modules
 * Disable boot loader login
-* Increasing tcp_max_sync_backlog
+* Increasing tcp\_max\_sync_backlog
 * Disabling any DSA host keys
 * Add bosh_sshers group and assign it to vcap user
-	* Only allow users in bosh_sshers group to SSH
+	* Only allow users in bosh\_sshers group to SSH
 
 ### Agent
 
 * Log Agent API access events in CEF format to syslog (vcap.agent topic)
-* Allow configuring swap size through env.bosh.swap_size (example: env.bosh.swap_size: 0)
+* Allow configuring swap size through env.bosh.swap\_size (example: env.bosh.swap\_size: 0)
 * Prepare for SHA2 releases
 * Allow setting fetching to work with base64 encoded user data
 * Do not delaycompress in logrotate
