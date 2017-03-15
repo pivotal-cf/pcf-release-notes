@@ -221,10 +221,32 @@ For more information on scaling Dopplers, see the
 
 ## <a id='knownissues'></a> Known Issues
 
-This section lists known issues for Elastic Runtime.
+This section lists known issues for PCF Elastic Runtime.
 
-###<a id='newissues'></a> New Issues
+### <a id="cfcli"></a> cf logs Connection Issue
+  
+When tailing logs using the `cf logs` or `cf logs --recent` command, the cf CLI reports a connection issue. Users may encounter errors similar to the following:
+  
+```
+Warning: error tailing logs
+Error dialing loggregator server: websocket: bad handshake.
+Please ask your Cloud Foundry Operator to check the platform configuration 
+(loggregator endpoint is wss://loggregator.example.com:443).
+```
 
-* For users of the JMX Bridge, tagged metrics (such as the throughput metric) are not output by the new Loggregator.
+or
+
+```
+FAILED
+Error dialing loggregator server: unexpected EOF
+Please ask your Cloud Foundry Operator to check the platform configuration 
+(loggregator endpoint is wss://loggregator.example.com:443).
+```
+
+**Solution**: Upgrade to cf CLI version 6.23 or later.
+
+### <a id="jmxbridgemetrics"></a> Missing JMX Bridge Metrics
+
+For users of the JMX Bridge, tagged metrics (such as the throughput metric) are not output by the new Loggregator.
 
 
