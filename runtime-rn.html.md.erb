@@ -212,12 +212,12 @@ For more information on preventing platform overload during upgrade, see also [U
 
 ### <a id='loggregator'></a> gRPC in Loggregator
 
-The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. 
+The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. This improves the stability and the performance of the Loggregator system.
 
-This improves the stability and the performance of the Loggregator system, but it may require operators to scale their Dopplers.
+Since Loggregator now uses the gRPC protocol, your deployment may see an increase in Loggregator message throughput. 
 
 For more information on scaling Dopplers, see the
-[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [](../loggregator/log-ops-guide.html) topics.
+[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](../loggregator/log-ops-guide.html) topics.
 
 ## <a id='knownissues'></a> Known Issues
 
@@ -243,7 +243,7 @@ Please ask your Cloud Foundry Operator to check the platform configuration
 (loggregator endpoint is wss://loggregator.example.com:443).
 ```
 
-**Solution**: Upgrade to cf CLI version 6.23 or later.
+**Solution**: Upgrade to cf CLI version 6.23 or later. After you upgrade the cf CLI, relog into the cf CLI using `cf logout` and `cf login`.
 
 ### <a id="jmxbridgemetrics"></a> Missing JMX Bridge Metrics
 
