@@ -252,8 +252,3 @@ In PCF v1.10, the recommended metric for monitoring firehose message throughput 
 * As of ERT 1.10.0 `DopplerServer.listeners.receivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched. JMX Bridge will require this patch version.
 * As of ERT 1.10.1, users of JMX Bridge can reliably monitor throughput using `DopplerServer.listeners.receivedMessageCount`.
 
-### <a id="jmxbridgemetrics"></a> Missing JMX Bridge Metrics
-
-For users of the JMX Bridge, tagged metrics (such as the throughput metric) are not output by the new Loggregator.
-
-
