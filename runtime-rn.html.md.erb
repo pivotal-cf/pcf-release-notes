@@ -245,7 +245,7 @@ Please ask your Cloud Foundry Operator to check the platform configuration
 
 **Solution**: Upgrade to cf CLI version 6.23 or later. After you upgrade, if you still encounter the connection issue, make sure you log out and log in again using `cf logout` and `cf login`.
 
-### Messages Received Firehose Metric Invalid in JMX Bridge
+### <a id="invalid-metric"></a> Messages Received Firehose Metric Invalid in JMX Bridge
 
 In PCF v1.10, the recommended metric for monitoring firehose message throughput is changing from `DopplerServer.listeners.receivedMessageCount` to `DopplerServer.listeners.receivedEnvelopes`. However, the latter metric utilizes a new tagged metric structure that the JMX Bridge does not handle. If you consume metrics with JMX Bridge, you should continue to use `DopplerServer.listeners.receivedMessageCount` for monitoring firehose message throughput.   
 
