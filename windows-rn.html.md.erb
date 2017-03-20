@@ -1,0 +1,69 @@
+---
+title: PCF Runtime for Windows v1.9 Release Notes
+owner: Release Engineering
+---
+
+## <a id='releases'></a> Releases
+
+### <a id='1.9.0'></a> 1.9.0
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1015.0</td>
+  </tr><tr>
+    <td>consul</td><td>137</td>
+  </tr><tr>
+    <td>diego</td><td>0.1491.0\*</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.1.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>65\*</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+## <a id='upgrade'></a>How to Upgrade
+
+The PCF Runtime for Windows tile is a new Pivotal product offering as of version 1.9.0.
+There are two possible scenarios in which you could be “upgrading,” if you have a deployment
+of Windows VMs by using the DiegoWindows MSI installer or by using the BOSH Release for Windows BETA.
+
+To upgrade to the Runtime for Windows tile, you need OpsManager 1.9.2 or later and Elastic Runtime 1.9.0 or later.
+See the documentation section on migrating for more information.
+
+## <a id='new-features'></a> New Features in PCF Runtime for Windows
+
+* Enables pushing full .NET applications onto Pivotal Cloud Foundry with “cf push” and specifying the “windows2012R2” stack.
+* Based on Cloud Foundry open source, Garden-Windows bosh release.
+* Fully automated deployment of Windows Diego cells through Pivotal Operations Manager.
+* Web console for managing machine resources.
+* Use BOSH Add-Ons to deploy additions to Windows VMs.
+* Designed to run with stemcells containing Windows Server 2012R2.
+
+## <a id='knownissues'></a>Known Issues
+
+This section lists new and existing known issues for Elastic Runtime.
+
+###<a id='newissues'></a>New Issues
+
+* On Windows cells, localhost communication is insecure between the Diego Rep and the Consul agent.
+* Due to a bug in libgit2, you [cannot push apps with using a URL to a git repo when specifying -b](https://www.pivotaltracker.com/story/show/138380867).
+* Staging .NET applications fails when using external Amazon S3 blobstore when deployed on GCP.
+
+## <a id='notes'></a>Notes
+
+* Restarting the OS will result in BOSH resurrecting the VM.
+* `cf ssh` is not supported.
+* RDP into the Diego Cells to inspect workloads.
