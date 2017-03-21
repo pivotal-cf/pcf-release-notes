@@ -36,21 +36,28 @@ owner: Release Engineering
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The PCF Runtime for Windows tile is a new Pivotal product offering as of version 1.9.0.
-There are two possible scenarios in which you could be “upgrading,” if you have a deployment
-of Windows VMs by using the DiegoWindows MSI installer or by using the BOSH Release for Windows BETA.
+The PCF Runtime for Windows tile is a new Pivotal product offering as of Pivotal Cloud Foundry (PCF) 1.9.0.
 
-To upgrade to the Runtime for Windows tile, you need OpsManager 1.9.2 or later and Elastic Runtime 1.9.0 or later.
-See the documentation section on migrating for more information.
+There are two possible "upgrade" scenarios: 
+<ul>
+<li>You have a deployment of Windows VMs from using the Diego Windows MSI installer.<li>
+<li>You have a deployment of Windows VMs from using the BOSH Release for Windows (Beta).</li>
+</ul>
+
+For customers who are using the BOSH Release for Windows, there is no migration path. To upgrade, you must destroy your deployment of Windows cells (VMs) with the BOSH CLI and then perform a fresh install of the PCF Runtime for Windows tile.
+
+For customers who are using Diego Windows, follow the procedures in the [Migrating from Diego Windows](../windows/msi-crossgrade.html) topic to migrate your applications to Windows cells deployed by the tile. 
+
+To use the PCF Runtime for Windows tile, you need OpsManager 1.9.2 or later and Elastic Runtime 1.9.0 or later.
 
 ## <a id='new-features'></a> New Features in PCF Runtime for Windows
 
-* Enables pushing full .NET applications onto Pivotal Cloud Foundry with “cf push” and specifying the “windows2012R2” stack.
-* Based on Cloud Foundry open source, Garden-Windows bosh release.
-* Fully automated deployment of Windows Diego cells through Pivotal Operations Manager.
-* Web console for managing machine resources.
-* Use BOSH Add-Ons to deploy additions to Windows VMs.
-* Designed to run with stemcells containing Windows Server 2012R2.
+* Enables pushing full .NET applications onto Pivotal Cloud Foundry with `cf push` and specifying the `windows2012R2` stack
+* Based on Cloud Foundry open-source, Garden-Windows BOSH release
+* Fully automated deployment of Windows Diego cells through Pivotal Operations Manager
+* Web console for managing machine resources
+* Use BOSH Add-Ons to deploy additions to Windows VMs
+* Designed to run with stemcells containing Windows Server 2012R2
 
 ## <a id='knownissues'></a>Known Issues
 
@@ -66,4 +73,4 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * Restarting the OS will result in BOSH resurrecting the VM.
 * `cf ssh` is not supported.
-* RDP into the Diego Cells to inspect workloads.
+* You can RDP into the Diego Cells to inspect workloads.
