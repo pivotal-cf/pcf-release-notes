@@ -36,19 +36,17 @@ owner: Release Engineering
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The PCF Runtime for Windows tile is a new Pivotal product offering as of Pivotal Cloud Foundry (PCF) 1.9.0.
+The PCF Runtime for Windows tile is a new Pivotal product offering as of Pivotal Cloud Foundry (PCF) 1.9. To use the PCF Runtime for Windows tile, you need OpsManager 1.9.2 or later and Elastic Runtime 1.9.0 or later.
 
 There are two possible "upgrade" scenarios: 
 <ul>
-<li>You have a deployment of Windows VMs from using the Diego Windows MSI installer.<li>
+<li>You have a deployment of Windows VMs from using the Diego Windows MSI installer.</li>
 <li>You have a deployment of Windows VMs from using the BOSH Release for Windows (Beta).</li>
 </ul>
 
-For customers who are using the BOSH Release for Windows, there is no migration path. To upgrade, you must destroy your deployment of Windows cells (VMs) with the BOSH CLI and then perform a fresh install of the PCF Runtime for Windows tile.
-
 For customers who are using Diego Windows, follow the procedures in the [Migrating from Diego Windows](../windows/msi-crossgrade.html) topic to migrate your applications to Windows cells deployed by the tile. 
 
-To use the PCF Runtime for Windows tile, you need OpsManager 1.9.2 or later and Elastic Runtime 1.9.0 or later.
+For customers who are using the BOSH Release for Windows, there is no migration path. To upgrade, you must destroy your deployment of Windows cells (VMs) with the BOSH CLI and then perform a fresh install of the PCF Runtime for Windows tile.
 
 ## <a id='new-features'></a> New Features in PCF Runtime for Windows
 
