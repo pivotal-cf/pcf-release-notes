@@ -246,6 +246,7 @@ Please ask your Cloud Foundry Operator to check the platform configuration
 ### <a id="invalid-metric"></a> Recommended Messages Received Firehose Metric Not Accurate in ERT 1.10.0
 
 In PCF v1.10, the recommended metric for monitoring firehose message throughput is changing to `DopplerServer.listeners.totalReceivedMessageCount`. 
-* As of ERT 1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched. 
-* As of ERT 1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.  
+
+  * As of ERT 1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched. 
+  * As of ERT 1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.  
 
