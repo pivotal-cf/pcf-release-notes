@@ -16,6 +16,56 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 
 ### <a id='1.9.13'></a> 1.9.13
 
+<p class="note warning">
+  <strong>Important</strong>:
+  This release introduced an upgrade incompatibility to the 1.10.x ERT series.
+  Please see the note below for more details.
+</p>
+
+<p class="tip">
+  This upgrade advisory only applies to customers who have installed Pivotal
+  Cloud Foundry Elastic Runtime v1.9.13 and are planning to upgrade to Pivotal
+  Cloud Foundry Elastic Runtime v1.10.0.
+
+  <br> <br>
+
+  We have uncovered an unfortunate issue when upgrading from Elastic Runtime
+  v1.9.13 to v1.10.0 and are working towards resolving this issue. Brand new
+  deployments of PCF 1.10 are not affected by this issue.
+
+  <br> <br>
+
+  Please refer to the FAQ below for more details
+
+  <br> <br>
+
+  <strong>Q</strong>: I have Elastic Runtime v1.9.13, should I not upgrade to
+  ER 1.10.0?  <br> <strong>A</strong>: Yes, please wait to upgrade to Elastic
+  Runtime v1.10.x until the upgrade fix is in place, which is estimated to be
+  ready in several days.
+
+  <br> <br>
+
+  <strong>Q</strong>: I have Elastic Runtime v1.9.x, should I not upgrade to
+  v1.9.13?  <br> <strong>A</strong>: Please do upgrade to Elastic Runtime
+  v1.9.13+ as this contains critical fixes.  However, please do not upgrade to
+  Elastic Runtime v1.10.0 until the upgrade fix is in place, which is estimated
+  to be ready in several days.
+
+  <br> <br>
+
+  <strong>Q</strong>: I have Elastic Runtime v1.9.12(or below), can I upgrade
+  to v1.10.0?  <br> <strong>A</strong>: Yes, you can upgrade to Elastic Runtime
+  v1.10.0 without any issues.
+
+  <br> <br>
+
+  <strong>Q</strong>: Can I perform a brand new deployment of Elastic Runtime
+  v1.10.0?  <br> <strong>A</strong>: Yes, you can proceed with a brand new
+  deployment of Elastic Runtime v1.10.0 and will be able to consume any future
+  Elastic Runtime v1.10.x patches
+</p>
+
 * Bumps the rootfs to v1.56 which contains stack version 1.107.0.
 * Bumps uaa-release to v24.6.
 * Bumps etcd-release to v97.
