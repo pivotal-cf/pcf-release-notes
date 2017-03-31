@@ -1,74 +1,113 @@
 ---
 title: Stemcell Release Notes
-owner: BOSH
+Owner: BOSH
 ---
-
+ 
 This topic includes release notes for stemcells used with Pivotal Cloud Foundry (PCF) versions 1.10.x.
+
+## <a id="3363-14"></a>3363.14
+
+**Release Date**: March 31, 2017
+
+- Bump Ubuntu stemcells for USN-3249-2: Linux kernel (Xenial HWE) vulnerability
 
 ## <a id="3363-10"></a>3363.10
 
-**Release Date**: March 8, 2017
+**Release Date**: March 9, 2017
 
-* Bumps Ubuntu stemcells for USN-3220-2: Linux kernel (Xenial HWE) vulnerability
+- Bumps Ubuntu stemcells for USN-3220-2: Linux kernel (Xenial HWE) vulnerability
 
 ## <a id="3363-9"></a>3363.9
 
-**Release Date**: February 22, 2017
+**Release Date**: February 23, 2017
 
-### Changes
+Changes:
 
-* Bumps Ubuntu stemcells for USN-3208-2: Linux kernel (Xenial HWE) vulnerabilities
-* Fixes excessive "out of memory" errors in kernel
-	* https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1655842
-* Fixes regression to rsyslog by locking it down again to rsyslog 8.22.0
+- Bumps Ubuntu stemcells for USN-3208-2: Linux kernel (Xenial HWE) vulnerabilities
 
-### Agent:
+- Fixes excessive "out of memory" errors in kernel
 
-* Fixes Azure stemcell persistent disk formatting
-* Fixes Warden stemcells SSH access
+  - https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1655842
+
+- Fixes regression to rsyslog by locking it down again to rsyslog 8.22.0
+
+
+
+Agent:
+
+- Fixes Azure stemcell persistent disk formatting
+
+- Fixes Warden stemcells SSH access
+
 
 ## <a id="3363-1"></a>3363.1
 
-**Release Date**: February 15, 2017
+**Release Date**: February 18, 2017
 
-### Reported Problems:
+Reported Problems:
 
-* DO NOT USE azure stemcell as it may cause data loss.
-* rsyslog version updated to 8.24.0, regressing on issue #1537
-* Out of memory errors still exists in Kernel 4.4.0.62
-	* will be fixed around Feb 20.
+- DO NOT USE _azure_ stemcell as it may cause data loss.
 
-### Changes:
+- rsyslog version updated to 8.24.0, regressing on issue #1537 
 
-* Fixes double -hvm- suffix problem for AWS Light stemcells
+- [Out of memory errors still exists in Kernel 4.4.0.62](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1655842)
+
+  - will be fixed around Feb 20.
+
+
+
+Changes:
+
+- Fixes double -hvm- suffix problem for AWS Light stemcells
+
 
 ## <a id="3363"></a>3363
 
-**Release Date**: February 15, 2017
+**Release Date**: February 16, 2017
 
-### Reported Problems
+Reported Problems:
 
-* DO NOT USE azure stemcell as it may cause data loss.
-* Out of memory errors still exists in Kernel 4.4.0.62
-	* will be fixed around Feb 20.
-* rsyslog version updated to 8.24.0, regressing on issue #1537
-* AWS Light stemcell has incorrect name once imported
-* BOSH SSH does not work on BOSH Lite
+- DO NOT USE _azure_ stemcell as it may cause data loss.
 
-### Changes
+- [Out of memory errors still exists in Kernel 4.4.0.62](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1655842)
 
-* Add more auditd rules
-* Fix CentOS initramfs to load necessary kernel modules
-* Disable boot loader login
-* Increasing tcp\_max\_sync_backlog
-* Disabling any DSA host keys
-* Add bosh_sshers group and assign it to vcap user
-	* Only allow users in bosh\_sshers group to SSH
+  - will be fixed around Feb 20.
 
-### Agent
+- rsyslog version updated to 8.24.0, regressing on issue #1537
 
-* Log Agent API access events in CEF format to syslog (vcap.agent topic)
-* Allow configuring swap size through env.bosh.swap\_size (example: env.bosh.swap\_size: 0)
-* Prepare for SHA2 releases
-* Allow setting fetching to work with base64 encoded user data
-* Do not delaycompress in logrotate
+- AWS Light stemcell has incorrect name once imported
+
+- BOSH SSH does not work on BOSH Lite
+
+
+
+Changes:
+
+- Add more auditd rules
+
+- Fix CentOS initramfs to load necessary kernel modules
+
+- Disable boot loader login
+
+- Increasing tcp_max_sync_backlog
+
+- Disabling any DSA host keys
+
+- Add `bosh_sshers` group and assign it to vcap user
+
+  - Only allow users in `bosh_sshers` group to SSH
+
+
+
+Agent:
+
+- Log Agent API access events in CEF format to syslog (vcap.agent topic)
+
+- Allow configuring swap size through `env.bosh.swap_size` (example: `env.bosh.swap_size: 0`)
+
+- Prepare for SHA2 releases
+
+- Allow setting fetching to work with base64 encoded user data
+
+- Do not delaycompress in logrotate
+
