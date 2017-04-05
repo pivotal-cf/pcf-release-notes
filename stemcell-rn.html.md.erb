@@ -17,50 +17,6 @@ This topic includes release notes for stemcells used with Pivotal Cloud Foundry 
 
 - Bumps Ubuntu stemcells for USN-3220-2: Linux kernel (Xenial HWE) vulnerability
 
-## <a id="3363-9"></a>3363.9
-
-**Release Date**: February 23, 2017
-
-Changes:
-
-- Bumps Ubuntu stemcells for USN-3208-2: Linux kernel (Xenial HWE) vulnerabilities
-
-- Fixes excessive "out of memory" errors in kernel
-
-  - https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1655842
-
-- Fixes regression to rsyslog by locking it down again to rsyslog 8.22.0
-
-
-
-Agent:
-
-- Fixes Azure stemcell persistent disk formatting
-
-- Fixes Warden stemcells SSH access
-
-
-## <a id="3363-1"></a>3363.1
-
-**Release Date**: February 18, 2017
-
-Reported Problems:
-
-- DO NOT USE _azure_ stemcell as it may cause data loss.
-
-- rsyslog version updated to 8.24.0, regressing on issue #1537 
-
-- [Out of memory errors still exists in Kernel 4.4.0.62](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1655842)
-
-  - will be fixed around Feb 20.
-
-
-
-Changes:
-
-- Fixes double -hvm- suffix problem for AWS Light stemcells
-
-
 ## <a id="3363"></a>3363
 
 **Release Date**: February 16, 2017
