@@ -412,7 +412,7 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 
 * Allows operators to specify HTTP headers that will be recorded in the GoRouter access logs.
 * Patches the Cloud Controller to correct ordering of API results when using pagination.
-* Patches the Cloud Controller workers to ensure CA certificates are validated when communicating with the internal WebDAV blobstore.
+* Patches the Cloud Controller workers to ensure CA certificates are validated when communicating with the internal WebDAV blobstore. This resolves an issue causing WebDAV blobstores to grow unbounded due to failed SSL cert validation.
 
 	<table border="1" class="nice">
 	<thead>
