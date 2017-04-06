@@ -1,0 +1,58 @@
+---
+title: PCF Runtime for Windows v1.10 Release Notes
+owner: Release Engineering
+---
+
+## <a id='releases'></a> Releases
+
+### <a id='1.10.0'></a> 1.10.0
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1015.0</td>
+  </tr><tr>
+    <td>consul</td><td>TK</td>
+  </tr><tr>
+    <td>diego</td><td>TK</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.2.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>TK</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+## <a id='upgrade'></a>How to Upgrade
+
+The PCF Runtime for Windows tile is a new Pivotal product offering as of Pivotal Cloud Foundry (PCF) 1.10. To use the PCF Runtime for Windows tile, you need OpsManager 1.10.0 or later and Elastic Runtime 1.10.0 or later.
+
+## <a id='new-features'></a> New Features in PCF Runtime for Windows 1.10
+
+* Cell local communication between rep and consul is secured
+* Buildpack support
+  * HWC buildpack and binary buildpack
+  * Warning for apps using the old start command
+  * Backwards compatible with old apps
+* Isolation segments?
+* CF healthcheck (configurable)
+* IPSec support
+
+## <a id='knownissues'></a>Known Issues
+
+This section lists new and existing known issues.
+
+###<a id='newissues'></a>New Issues
+
+* S3 blobstore doesn’t work
