@@ -1,0 +1,66 @@
+---
+title: PCF Runtime for Windows v1.10 Release Notes
+owner: Release Engineering
+---
+
+## <a id='releases'></a> Releases
+
+### <a id='1.10.0'></a> 1.10.0
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1056.0</td>
+  </tr><tr>
+    <td>consul</td><td>153</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.6</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.4.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>77</td>
+  </tr><tr>
+    <td>HWC Buildpack</td><td>2.3.2</td>
+  </tr>
+  </tbody>
+  </table>
+
+Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services (AWS), Google Cloud Platform (GCP), or Azure.
+
+## <a id='upgrade'></a>How to Upgrade
+
+The PCF Runtime for Windows tile is available with the release of Pivotal Cloud Foundry (PCF) version 1.10. To use the PCF Runtime for Windows tile, you need OpsManager 1.10.3 or later and Elastic Runtime 1.10.0 or later.
+
+For information about upgrading to PCF Runtime for Windows v1.10.0, see the [Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/1-10/windows/upgrade-windows.html) topic in the PCF Runtime for Windows documentation.
+
+## <a id='new-features'></a> New Features in PCF Runtime for Windows 1.10
+
+* Cell local communication between Diego rep and Consul agent is secured.
+* Windows Buildpack support:
+  * The tile installs the HWC buildpack for enabling IIS applications without running the full IIS process.
+  * Supports the binary buildpack included with ERT 1.10.0, used to run Windows `.exe` and `.bat` executables.
+  * For apps that use the older start command, the tile provides a warning after upgrade.
+  * Backwards compatible with old apps.
+* The 1.10 Runtime for Windows tile can be deployed as an [isolation segment](https://docs.pivotal.io/pivotalcf/1-10/opsguide/installing-pcf-is.html).
+* The CF healthcheck is configurable for Windows apps.
+* The IPSec add-on is supported to secure communications between Windows and Linux virtual machines.
+
+## <a id='knownissues'></a>Known Issues
+
+* Due to a bug in libgit2, you [cannot push apps using a git repo URL when specifying -b.](https://www.pivotaltracker.com/story/show/138380867).
+
+###<a id='newissues'></a>New Issues
+
+* Pushing `.exe` and `.bat` files with the binary buildpack requires ERT 1.10.3 or later (binary buildpack 1.0.11 or later).
+* AWS S3 blobstores are known not to work with GCP deployments.
+
+###<a id='notes'></a>Notes
+
+* Note that any behavior that restarts the Windows OS will result in BOSH resurrecting the cell. Pivotal-provided stemcells are configured to disable any auto-restart behaviors.
+* `cf ssh` is not supported.
