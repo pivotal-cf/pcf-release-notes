@@ -5,6 +5,101 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.5'></a> 1.10.5
+
+* Bumps garden-runc to v1.2.0 to fix compatibility with some anti-virus scanning software.
+* Bumps staticfile-buildpack-release to v1.4.4 to address CVE-2017-4970.
+  More details can be found at [pivotal.io/security](https://pivotal.io/security/cve-2017-4970).
+* Bumps consul-release to v159 to ensure TLS communication happens over TLS 1.2.
+* Patches bug in Gorouter that caused the router to crash when invalid `X-CF-APP-INSTANCE` headers were sent in a request.
+* Patches bug in Gorouter that prevented operators from specifying additional TLS cipher suites.
+* Updates the notifications-ui errand to allow operators to provide large custom branding logos.
+* Fixes the configuration for backup of Internal MySQL instances.
+* Bumps uaa-release to v30.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.15</td>
+  </tr><tr>
+    <td>binary-buildpack</td><td>1.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84.1</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>34.2.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.16.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.60.0</td>
+  </tr><tr>
+    <td>consul</td><td>159</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.2.0</td>
+  </tr><tr>
+    <td>go-buildpack</td><td>1.7.19</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.14</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.32.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>7.2.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>0.1.5</td>
+  </tr><tr>
+    <td>nodejs-buildpack</td><td>1.5.30</td>
+  </tr><tr>
+    <td>notifications</td><td>35</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-buildpack</td><td>4.3.29</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.4.1</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.6</td>
+  </tr><tr>
+    <td>python-buildpack</td><td>1.5.16</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-buildpack</td><td>1.6.35</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.0.3</td>
+  </tr><tr>
+    <td>staticfile-buildpack</td><td>1.4.4</td>
+  </tr><tr>
+    <td>uaa</td><td>30</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.4'></a> 1.10.4
 
 * Bumps the stemcell to version 3363.15.
@@ -462,14 +557,14 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is do
 When upgrading to v1.10, be aware of the following upgrade considerations:
 
    * You must upgrade first to a version of Elastic Runtime v1.9.x in order to successfully upgrade to v1.10.
-   * If you are currently using any of the following services in your PCF deployment, then you must upgrade and configure the tiles before upgrading to PCF v1.10: 
+   * If you are currently using any of the following services in your PCF deployment, then you must upgrade and configure the tiles before upgrading to PCF v1.10:
      * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about RabbitMQ for PCF, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
      * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about Redis for PCF, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
    * Some partner service tiles may be incompatible with PCF v1.10. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
      For information about which partner service releases are currently compatible with PCF v1.10, review the
      appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
      contact the partner organization that produces the tile.
-     
+
 ## <a id='adv-features'></a> About Advanced Features
 
 The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
@@ -500,11 +595,11 @@ This release removes the etcd Proxy VM, ensuring all communication to the etcd c
 
 ### <a id='rate-limiting'></a> Cloud Foundry API Rate Limiting (Beta)
 
-The CF API can enforce rate limits for users and clients. 
+The CF API can enforce rate limits for users and clients.
 
 Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
 
-You can enable these API rate limits as a beta feature in the **Advanced Features** section of the Elastic Runtime tile. 
+You can enable these API rate limits as a beta feature in the **Advanced Features** section of the Elastic Runtime tile.
 
 For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#advanced-features) topic.
 
@@ -546,7 +641,7 @@ The Elastic Runtime now supports using Azure Storage as a backend for the platfo
 
 For more information, see the [Deploying Elastic Runtime on Azure](../customizing/azure-er-config.html#external_azure) topic.
 
-### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability 
+### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability
 
 The internal MySQL database cluster now includes healthcheck thresholds.
 
@@ -562,7 +657,7 @@ For more information on the `mysql-diag` tool, see [Diagnosing problems with Ela
 
 Diego now provides a configuration option for limiting the number of containers allowed to be in a "starting" state at any one time.
 
-By default, the setting limits the number of containers in the "starting" state to 200. 
+By default, the setting limits the number of containers in the "starting" state to 200.
 
 This setting prevents Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
 
@@ -576,7 +671,7 @@ For more information on preventing platform overload during upgrade, see also [U
 
 The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. This improves the stability and the performance of the Loggregator system.
 
-Since Loggregator now uses the gRPC protocol, your deployment may see an increase in Loggregator message throughput. 
+Since Loggregator now uses the gRPC protocol, your deployment may see an increase in Loggregator message throughput.
 
 For more information on scaling Dopplers, see the
 [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](../loggregator/log-ops-guide.html) topics.
@@ -585,14 +680,25 @@ For more information on scaling Dopplers, see the
 
 This section lists known issues for PCF Elastic Runtime.
 
+### <a id="cipher-suites"></a> Router & Loggregator Cipher Suites Issue
+
+In an effort to enforce more secure cipher suites for the common platform ingress / egress points at the Router and Loggregator, the default cipher suites for these components were limited to the following suites:
+
+```
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+```
+
+Normally, operators would have the option to override these defaults with their chosen cipher suites. However, in the process of setting these new default, the option to override the suites was removed. Patches to restore the override behavior will be forthcoming. See release notes above for more details about which releases provide these fixes.
+
 ### <a id="cfcli"></a> cf logs Connection Issue
-  
+
 When tailing logs using the `cf logs` or `cf logs --recent` command, the cf CLI reports a connection issue. Users may encounter errors similar to the following:
-  
+
 ```
 Warning: error tailing logs
 Error dialing loggregator server: websocket: bad handshake.
-Please ask your Cloud Foundry Operator to check the platform configuration 
+Please ask your Cloud Foundry Operator to check the platform configuration
 (loggregator endpoint is wss://loggregator.example.com:443).
 ```
 
@@ -601,7 +707,7 @@ or
 ```
 FAILED
 Error dialing loggregator server: unexpected EOF
-Please ask your Cloud Foundry Operator to check the platform configuration 
+Please ask your Cloud Foundry Operator to check the platform configuration
 (loggregator endpoint is wss://loggregator.example.com:443).
 ```
 
@@ -609,8 +715,8 @@ Please ask your Cloud Foundry Operator to check the platform configuration
 
 ### <a id="invalid-metric"></a> Recommended Messages Received Firehose Metric Not Accurate in ERT 1.10.0
 
-In PCF v1.10, the recommended metric for monitoring firehose message throughput is changing to `DopplerServer.listeners.totalReceivedMessageCount`. 
+In PCF v1.10, the recommended metric for monitoring firehose message throughput is changing to `DopplerServer.listeners.totalReceivedMessageCount`.
 
-  * As of ERT 1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched. 
-  * As of ERT 1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.  
+  * As of ERT 1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched.
+  * As of ERT 1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.
 
