@@ -5,6 +5,38 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.9.1'></a> 1.9.1
+
+- Enables public IaaS support on PCF 1.9. For Azure deployments, install with OpsManager 1.9.9 or later.
+- Bumps the stemcell to version 1056.0.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1056.0</td>
+  </tr><tr>
+    <td>consul</td><td>137</td>
+  </tr><tr>
+    <td>diego</td><td>0.1491.0\*</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.1.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>65\*</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.9.0'></a> 1.9.0
 
   <table border="1" class="nice">
@@ -38,13 +70,13 @@ owner: Release Engineering
 
 The PCF Runtime for Windows tile is a new Pivotal product offering as of Pivotal Cloud Foundry (PCF) 1.9. To use the PCF Runtime for Windows tile, you need OpsManager 1.9.2 or later and Elastic Runtime 1.9.0 or later.
 
-There are two possible "upgrade" scenarios: 
+There are two possible "upgrade" scenarios:
 <ul>
 <li>You have a deployment of Windows VMs from using the Diego Windows MSI installer.</li>
 <li>You have a deployment of Windows VMs from using the BOSH Release for Windows (Beta).</li>
 </ul>
 
-For customers who are using Diego Windows, follow the procedures in the [Migrating from Diego Windows](../windows/msi-crossgrade.html) topic to migrate your applications to Windows cells deployed by the tile. 
+For customers who are using Diego Windows, follow the procedures in the [Migrating from Diego Windows](../windows/msi-crossgrade.html) topic to migrate your applications to Windows cells deployed by the tile.
 
 For customers who are using the BOSH Release for Windows, there is no migration path. To upgrade, you must destroy your deployment of Windows cells (VMs) with the BOSH CLI and then perform a fresh install of the PCF Runtime for Windows tile.
 
