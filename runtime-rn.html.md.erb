@@ -5,6 +5,101 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.8'></a> 1.10.8
+
+* Resolves API version issue that prevented use of the CLI for isolation segments.
+* Bumps all buildpack releases to their latest versions.
+* Allows operators to specify DNS servers that differ from those provided in their BOSH configuration.
+* Patches a bug with event pagination in the Cloud Controller API.
+* Allows UAA SAML certificates to be configured.
+* Removes the Password Expiry field from the Authenication and Enterprise SSO form.
+* Adds the `network.write` scope to the `cf` UAA client to allow SpaceDevelopers to manage their Container Networking policy.
+* Exposes etcd timeout configurations on the Advanced Features form.
+* Container Networking will now properly support deployments with valid certificates.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.20</td>
+  </tr><tr>
+    <td>binary-buildpack</td><td>1.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84.1</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>34.2.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.18.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.60.0</td>
+  </tr><tr>
+    <td>consul</td><td>164</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>dotnet-core-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.2.0</td>
+  </tr><tr>
+    <td>go-buildpack</td><td>1.8.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.16</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.32.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>7.2.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>0.1.5</td>
+  </tr><tr>
+    <td>nodejs-buildpack</td><td>1.5.32</td>
+  </tr><tr>
+    <td>notifications</td><td>35</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-buildpack</td><td>4.3.31</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.4.1</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.6</td>
+  </tr><tr>
+    <td>python-buildpack</td><td>1.5.18</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-buildpack</td><td>1.6.37</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.0.3</td>
+  </tr><tr>
+    <td>staticfile-buildpack</td><td>1.4.5</td>
+  </tr><tr>
+    <td>uaa</td><td>30.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.7'></a> 1.10.7
 
 * Bumps stemcell to v3363.20.
