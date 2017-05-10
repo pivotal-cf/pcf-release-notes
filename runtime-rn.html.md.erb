@@ -5,194 +5,7 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
-### <a id='1.10.2'></a> 1.10.2
-
-* Bumps the stemcell version to 3363.14.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3363.14\*</td>
-  </tr><tr>
-    <td>binary-buildpack</td><td>1.0.10</td>
-  </tr><tr>
-    <td>capi</td><td>1.21.0</td>
-  </tr><tr>
-    <td>cf</td><td>252</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>84.1</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>34.2</td>
-  </tr><tr>
-    <td>cf-networking</td><td>0.16.0</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.59.0</td>
-  </tr><tr>
-    <td>consul</td><td>152</td>
-  </tr><tr>
-    <td>diego</td><td>1.7.1</td>
-  </tr><tr>
-    <td>dotnet-core-buildpack</td><td>1.0.13</td>
-  </tr><tr>
-    <td>etcd</td><td>97</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.1.1</td>
-  </tr><tr>
-    <td>go-buildpack</td><td>1.7.19</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.14</td>
-  </tr><tr>
-    <td>loggregator</td><td>77</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.32.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>7.2.0</td>
-  </tr><tr>
-    <td>nats</td><td>15</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>0.1.5</td>
-  </tr><tr>
-    <td>nodejs-buildpack</td><td>1.5.30</td>
-  </tr><tr>
-    <td>notifications</td><td>35</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>27</td>
-  </tr><tr>
-    <td>php-buildpack</td><td>4.3.29</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.4.1</td>
-  </tr><tr>
-    <td>postgres</td><td>13</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>660.7.6</td>
-  </tr><tr>
-    <td>python-buildpack</td><td>1.5.16</td>
-  </tr><tr>
-    <td>routing</td><td>0.146.0</td>
-  </tr><tr>
-    <td>ruby-buildpack</td><td>1.6.35</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.0.3</td>
-  </tr><tr>
-    <td>staticfile-buildpack</td><td>1.3.18</td>
-  </tr><tr>
-    <td>uaa</td><td>29</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.10.1'></a> 1.10.1
-
-* Bumps etcd-release to v97.
-* Bumps the rootfs to v1.59.0 with stack version 1.110.0.
-* Allows operators to toggle the invitations feature set for AppsManager.
-* Reduces the notifications polling interval in the autoscaling service to 5 seconds.
-* Resolves an issue that prevented MySQL VMs restarted outside of BOSH from rejoining the cluster.
-* Bumps the buildpack releases to their latest versions to patch any lingering security vulnerabilities or issues.
-* Operators can associate users with a Global Auditor Scope, allowing that user to have global read-only
-  privileges across all orgs and spaces, with environment variables and service credentials redacted.
-* Patches loggregator to include metric for `listeners.totalReceivedMessageCount`.
-* Allows operators to specify HTTP headers that will be recorded in the GoRouter access logs.
-* Fixes a bug in the internal MySQL configuration that prevented notifications
-  from being sent when the cluster went into a dataloss-prevention state.
-* Includes the cfdot Command Line Interface (CLI) tool on all Diego Cell VMs.
-* Bumps uaa-release to v29.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3363.10</td>
-  </tr><tr>
-    <td>binary-buildpack</td><td>1.0.10</td>
-  </tr><tr>
-    <td>capi</td><td>1.21.0\*</td>
-  </tr><tr>
-    <td>cf</td><td>252\*</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>84.1</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>34.2</td>
-  </tr><tr>
-    <td>cf-networking</td><td>0.16.0\*</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.59.0</td>
-  </tr><tr>
-    <td>consul</td><td>152\*</td>
-  </tr><tr>
-    <td>diego</td><td>1.7.1\*</td>
-  </tr><tr>
-    <td>dotnet-core-buildpack</td><td>1.0.13</td>
-  </tr><tr>
-    <td>etcd</td><td>97</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.1.1</td>
-  </tr><tr>
-    <td>go-buildpack</td><td>1.7.19</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.14</td>
-  </tr><tr>
-    <td>loggregator</td><td>77\*</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.32.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>7.2.0</td>
-  </tr><tr>
-    <td>nats</td><td>15</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>0.1.5</td>
-  </tr><tr>
-    <td>nodejs-buildpack</td><td>1.5.30</td>
-  </tr><tr>
-    <td>notifications</td><td>35</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>27</td>
-  </tr><tr>
-    <td>php-buildpack</td><td>4.3.29</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.4.1</td>
-  </tr><tr>
-    <td>postgres</td><td>13</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>660.7.6</td>
-  </tr><tr>
-    <td>python-buildpack</td><td>1.5.16</td>
-  </tr><tr>
-    <td>routing</td><td>0.146.0\*</td>
-  </tr><tr>
-    <td>ruby-buildpack</td><td>1.6.35</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.0.3</td>
-  </tr><tr>
-    <td>staticfile-buildpack</td><td>1.3.18</td>
-  </tr><tr>
-    <td>uaa</td><td>29</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.10.0'></a> 1.10.0
+### <a id='1.11.0'></a> 1.11.0
 
   <table border="1" class="nice">
   <thead>
@@ -279,17 +92,14 @@ owner: Release Engineering
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is documented in the
 [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
 
-When upgrading to v1.10, be aware of the following upgrade considerations:
+When upgrading to v1.11, be aware of the following upgrade considerations:
 
-   * You must upgrade first to a version of Elastic Runtime v1.9.x in order to successfully upgrade to v1.10.
-   * If you are currently using any of the following services in your PCF deployment, then you must upgrade and configure the tiles before upgrading to PCF v1.10: 
-     * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about RabbitMQ for PCF, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
-     * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about Redis for PCF, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
-   * Some partner service tiles may be incompatible with PCF v1.10. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
-     For information about which partner service releases are currently compatible with PCF v1.10, review the
+   * You must upgrade first to a version of Elastic Runtime v1.10.x in order to successfully upgrade to v1.11.
+   * Some partner service tiles may be incompatible with PCF v1.11. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
+     For information about which partner service releases are currently compatible with PCF v1.11, review the
      appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
      contact the partner organization that produces the tile.
      
@@ -299,141 +109,24 @@ The Advanced Features section of the Elastic Runtime tile includes new functiona
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-## <a id='1.10.0'></a> New Features in Elastic Runtime v1.10.0
+## <a id='1.11.0'></a> New Features in Elastic Runtime v1.11.0
 
 This section describes new features of the release.
 
-### <a id='container-networking'></a> Container-to-Container Networking (Beta)
+### <a id='apps-manager-508'></a> Apps Manager 508 Compliance
 
-The Elastic Runtime tile offers a Container-to-Container Networking feature that puts applications in their own overlay network. This feature is currently in beta.
+Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/) of the Rehabilitation Act. Customers can now receive an approved Voluntary Product Accessibility Template (VPAT) for Apps Manager.
 
-For more information, see the [Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
+### <a id='container-networking'></a> Container-to-Container Networking
 
-### <a id='volume-services'></a> Volume Services (Beta)
+The Container-to-Container Networking feature in Elastic Runtime is now generally available. For more information, see the [Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
 
-This release provides general support for volume services inside of application containers.
+### <a id='volume-services'></a> Volume Services
 
-Additionally, the Elastic Runtime ships with an NFS Volume Service Broker as a beta feature.
+General support for volume services inside of application containers is now generally available. Additionally, the Elastic Runtime ships with an NFS Volume Service Broker.
 
 For more information, see [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
-
-### <a id='etcd-tls'></a> Secure etcd Cluster
-
-This release removes the etcd Proxy VM, ensuring all communication to the etcd cluster happens over a secure connection.
-
-### <a id='rate-limiting'></a> Cloud Foundry API Rate Limiting (Beta)
-
-The CF API can enforce rate limits for users and clients. 
-
-Limits can be set for authenticated and unauthenticated clients and expire over a rolling hour-long window.
-
-You can enable these API rate limits as a beta feature in the **Advanced Features** section of the Elastic Runtime tile. 
-
-For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#advanced-features) topic.
-
-### <a id='cfdot'></a> Cloud Foundry Diego Operator Toolkit
-
-All Diego VMs now include an operator toolkit, known as `cfdot`, for interacting with your Diego components.
-
-For more details about `cfdot`, see the [cfdot documentation](https://github.com/cloudfoundry/cfdot).
-
-### <a id='cc-clock'></a> Multi-node Cloud Controller Clock
-
-The Cloud Controller Clock has been outfitted to allow multiple instances of the VM to run in parallel.
-
-Operators can scale the instance count for the VM to fit their needs. For example, operators might want to change the instance count to 2 or 3 so they have a clock in each availability zone.
-
-For more information, see [High Availability in Cloud Foundry](../concepts/high-availability.html).
-
-### <a id='router-perf-improvements'></a> Router Performance Improvements
-
-The Routers can now be configured to maintain a number of keep-alive connections.
-
-Reusing connections allows for HTTP performance improvements as the underlying connection does not need to be re-established on every request.
-
-For more information, see the [Router Idle Keepalive Connections](../adminguide/routing-keepalive.html) and the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#networking) topic.
-
-### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
-
-Previously, application SSH access was previously enabled globally as a feature in Cloud Foundry.
-
-In addition to the global setting, operators can now choose to disable SSH access for new applications.
-
-Choosing to disable SSH access for new applications requires that developers enable SSH access on a per-application basis.
-
-For more information, see [Configuring SSH Access for PCF](../opsguide/config-ssh.html#diego-configuration).
-
-### <a id='azure-blobstore'></a> Azure Blobstore Support
-
-The Elastic Runtime now supports using Azure Storage as a backend for the platform file storage.
-
-For more information, see the [Deploying Elastic Runtime on Azure](../customizing/azure-er-config.html#external_azure) topic.
-
-### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability 
-
-The internal MySQL database cluster now includes healthcheck thresholds.
-
-These thresholds can be configured to match your MySQL load balancer thresholds so that failover is seamless.
-
-For information on internal MySQL load balancer configuration, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#internal-mysql) topic.
-
-Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that provides some diagnostic information about your MySQL cluster.
-
-For more information on the `mysql-diag` tool, see [Diagnosing problems with Elastic Runtime MySQL or the Pivotal MySQL Tile](https://discuss.pivotal.io/hc/en-us/articles/115001980967-Diagnosing-problems-with-Elastic-Runtime-MySQL-or-the-Pivotal-MySQL-Tile) or [Running mysql-diag](http://docs.pivotal.io/p-mysql/mysql-diag.html).
-
-### <a id='container-max-in-flight'></a> Global Container Max Inflight Configuration
-
-Diego now provides a configuration option for limiting the number of containers allowed to be in a "starting" state at any one time.
-
-By default, the setting limits the number of containers in the "starting" state to 200. 
-
-This setting prevents Diego from scheduling too much work for your platform to handle, preventing a possible cascading failure.
-
-This configuration is available as the **Max Inflight Container Starts** on the **Application Containers** screen in Elastic Runtime.
-
-To configure this feature, see [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
-
-For more information on preventing platform overload during upgrade, see also [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
-
-### <a id='loggregator'></a> gRPC in Loggregator
-
-The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. This improves the stability and the performance of the Loggregator system.
-
-Since Loggregator now uses the gRPC protocol, your deployment may see an increase in Loggregator message throughput. 
-
-For more information on scaling Dopplers, see the
-[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](../loggregator/log-ops-guide.html) topics.
 
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for PCF Elastic Runtime.
-
-### <a id="cfcli"></a> cf logs Connection Issue
-  
-When tailing logs using the `cf logs` or `cf logs --recent` command, the cf CLI reports a connection issue. Users may encounter errors similar to the following:
-  
-```
-Warning: error tailing logs
-Error dialing loggregator server: websocket: bad handshake.
-Please ask your Cloud Foundry Operator to check the platform configuration 
-(loggregator endpoint is wss://loggregator.example.com:443).
-```
-
-or
-
-```
-FAILED
-Error dialing loggregator server: unexpected EOF
-Please ask your Cloud Foundry Operator to check the platform configuration 
-(loggregator endpoint is wss://loggregator.example.com:443).
-```
-
-**Solution**: Upgrade to cf CLI version 6.23 or later. After you upgrade, if you still encounter the connection issue, make sure you log out and log in again using `cf logout` and `cf login`.
-
-### <a id="invalid-metric"></a> Recommended Messages Received Firehose Metric Not Accurate in ERT 1.10.0
-
-In PCF v1.10, the recommended metric for monitoring firehose message throughput is changing to `DopplerServer.listeners.totalReceivedMessageCount`. 
-
-  * As of ERT 1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched. 
-  * As of ERT 1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.  
-
