@@ -133,6 +133,12 @@ General support for volume services inside of application containers is now gene
 
 For more information, see [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
 
+### <a id='internal-uaa-expire'></a> UAA User Passwords Never Expire
+
+As of v1.11, Elastic Runtime no longer provides the **Number of Months Before Password Expires** field in the **Authentication and Enterprise SSO** section. Instead, it sets the value to zero, which means that UAA user passwords for deployments using internal UAA never expire.
+
+If you have set a non-zero password expiry, Elastic Runtime will set it to zero when you upgrade from v1.10 to v1.11.
+
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for PCF Elastic Runtime.
