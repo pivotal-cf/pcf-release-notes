@@ -5,7 +5,8 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.
 
-Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the
+[requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
@@ -22,71 +23,79 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3363.10</td>
+    <td>Stemcell</td><td>3363.20</td>
   </tr><tr>
-    <td>binary-buildpack</td><td>1.0.9</td>
+    <td>binary-buildpack</td><td>1.0.11</td>
   </tr><tr>
-    <td>capi</td><td>1.21.0\*</td>
+    <td>capi</td><td>1.28.0</td>
   </tr><tr>
-    <td>cf</td><td>252\*</td>
+    <td>cf</td><td>259</td>
   </tr><tr>
-    <td>cf-autoscaling</td><td>84</td>
+    <td>cf-autoscaling</td><td>90</td>
   </tr><tr>
-    <td>cf-mysql</td><td>34</td>
+    <td>cf-backup-and-restore</td><td>0.0.1</td>
   </tr><tr>
-    <td>cf-networking</td><td>0.16.0\*</td>
+    <td>cf-mysql</td><td>35</td>
   </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.50.0</td>
+    <td>cf-networking</td><td>0.23.0</td>
   </tr><tr>
-    <td>consul</td><td>152</td>
+    <td>cf-smoke-tests</td><td>21</td>
   </tr><tr>
-    <td>diego</td><td>1.7.1\*</td>
+    <td>cflinuxfs2-rootfs</td><td>1.119.0</td>
   </tr><tr>
-    <td>dotnet-core-buildpack</td><td>1.0.11</td>
+    <td>consul</td><td>165</td>
   </tr><tr>
-    <td>etcd</td><td>93</td>
+    <td>diego</td><td>1.15.2</td>
   </tr><tr>
-    <td>garden-runc</td><td>1.1.1</td>
+    <td>dotnet-core-buildpack</td><td>1.0.15</td>
   </tr><tr>
-    <td>go-buildpack</td><td>1.7.18</td>
+    <td>etcd</td><td>104</td>
   </tr><tr>
-    <td>java-offline-buildpack</td><td>3.13</td>
+    <td>garden-runc</td><td>1.6.0</td>
   </tr><tr>
-    <td>loggregator</td><td>77</td>
+    <td>go-buildpack</td><td>1.8.1</td>
   </tr><tr>
-    <td>mysql-backup</td><td>1.32.0</td>
+    <td>java-offline-buildpack</td><td>3.16</td>
   </tr><tr>
-    <td>mysql-monitoring</td><td>7.2.0</td>
+    <td>loggregator</td><td>87</td>
   </tr><tr>
-    <td>nats</td><td>15</td>
+    <td>mysql-backup</td><td>1.33.0</td>
   </tr><tr>
-    <td>nfs-volume</td><td>0.1.5</td>
+    <td>mysql-monitoring</td><td>8.1.0</td>
   </tr><tr>
-    <td>nodejs-buildpack</td><td>1.5.29</td>
+    <td>nats</td><td>16</td>
   </tr><tr>
-    <td>notifications</td><td>35</td>
+    <td>nfs-volume</td><td>1.0.3</td>
   </tr><tr>
-    <td>notifications-ui</td><td>27</td>
+    <td>nodejs-buildpack</td><td>1.5.32</td>
   </tr><tr>
-    <td>php-buildpack</td><td>4.3.26</td>
+    <td>notifications</td><td>36</td>
   </tr><tr>
-    <td>pivotal-account</td><td>1.4.1</td>
+    <td>notifications-ui</td><td>28</td>
   </tr><tr>
-    <td>postgres</td><td>13</td>
+    <td>php-buildpack</td><td>4.3.31</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>660.7.2</td>
+    <td>pivotal-account</td><td>1.5.2</td>
   </tr><tr>
-    <td>python-buildpack</td><td>1.5.15</td>
+    <td>postgres</td><td>16</td>
   </tr><tr>
-    <td>routing</td><td>0.146.0\*</td>
+    <td>push-apps-manager-release</td><td>661.1.23</td>
   </tr><tr>
-    <td>ruby-buildpack</td><td>1.6.34</td>
+    <td>python-buildpack</td><td>1.5.18</td>
   </tr><tr>
-    <td>service-backup</td><td>18.0.3</td>
+    <td>routing</td><td>0.154.0</td>
   </tr><tr>
-    <td>staticfile-buildpack</td><td>1.3.17</td>
+    <td>ruby-buildpack</td><td>1.6.37</td>
   </tr><tr>
-    <td>uaa</td><td>27</td>
+    <td>service-backup</td><td>18.0.2</td>
+  </tr><tr>
+    <td>staticfile-buildpack</td><td>1.4.5</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.25</td>
+  </tr><tr>
+    <td>syslog</td><td>11</td>
+  </tr><tr>
+    <td>uaa</td><td>34</td>
   </tr>
   </tbody>
   <tfoot>
@@ -103,17 +112,23 @@ The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is do
 
 When upgrading to v1.11, be aware of the following upgrade considerations:
 
-   * You must upgrade first to a version of Elastic Runtime v1.10.x in order to successfully upgrade to v1.11.
-   * Some partner service tiles may be incompatible with PCF v1.11. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
-     For information about which partner service releases are currently compatible with PCF v1.11, review the
-     appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
-     contact the partner organization that produces the tile.
-     
+* You must upgrade first to a version of Elastic Runtime v1.10.x in order to
+  successfully upgrade to v1.11.
+* Some partner service tiles may be incompatible with PCF v1.11. Pivotal is
+  working with partners to ensure their tiles are being updated to work with the
+  latest versions of PCF.<br/><br/> For information about which partner service
+  releases are currently compatible with PCF v1.11, review the appropriate
+  partners services release documentation at
+  [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner
+  organization that produces the tile.
+
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
+The Advanced Features section of the Elastic Runtime tile includes new
+functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when using them in production.
+Although these features are fully supported, Pivotal recommends caution when
+using them in production.
 
 ## <a id='1.11.0'></a> New Features in Elastic Runtime v1.11.0
 
@@ -121,21 +136,83 @@ This section describes new features of the release.
 
 ### <a id='apps-manager-508'></a> Apps Manager 508 Compliance
 
-Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/) of the Rehabilitation Act. Customers can now receive an approved Voluntary Product Accessibility Template (VPAT) for Apps Manager.
+Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/)
+of the Rehabilitation Act. Customers can now receive an approved Voluntary Product
+Accessibility Template (VPAT) for Apps Manager.
 
 ### <a id='container-networking'></a> Container-to-Container Networking
 
-The Container-to-Container Networking feature in Elastic Runtime is now generally available. For more information, see the [Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
+The Container-to-Container Networking feature in Elastic Runtime is now
+generally available. For more information, see the
+[Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services
 
-General support for volume services inside of application containers is now generally available. Additionally, the Elastic Runtime ships with an NFS Volume Service Broker.
+General support for volume services inside of application containers is now
+generally available. Additionally, the Elastic Runtime ships with an NFS Volume
+Service Broker.
 
-For more information, see [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
+For more information, see
+[Using an External File System (Volume Services)](../devguide/services/using-vol-services.html)
+and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
+
+### <a id='disk-quotas'></a> Increased Application Maximum Disk Quotas
+
+For applications that require large amounts of disk, the maximum disk quota has been raised
+to 20GB. This will allow application developers to specify a disk size up to 20GB for their
+applications.
+
+Operators should take note that applications with large disk settings can be difficult for
+Diego to find a placement for. If there is not enough disk on any of the Diego Cells,
+developers will see an "insufficient resources" error message. Ensuring your Diego Cells
+provide enough disk to accomodate these much larger application instances will be an
+important part of your resource planning.
+
+### <a id='ha-defaults'></a> Highly-Available Default Configuration
+
+The Resource Configuration defaults have been changed to streamline the path to a
+production-ready deployment. The default instance count for each VM type in the
+deployment has been set to ensure an operator can deploy a highly-available Cloud
+Foundry out of the box.
+
+This change will result in larger resource requirements for a default Elastic Runtime
+deployment. Operators should take this into account when deploying environments on
+constrained resources.
+
+### <a id='sha2-checksums'></a> Component BOSH releases are SHA2-checksummed
+
+BOSH now supports releases that include a SHA2-checksum of their contents. All the
+releases included in the Elastic Runtime have been checksummed with SHA2 for improved
+data integrity in the face of hash collisions.
+
+### <a id='bbr'></a> BOSH Backup and Restore
+
+The Elastic Runtime now includes support for the new BOSH Backup and Restore tool (`bbr`).
+Using `bbr` allow an operator to take a snapshot of their internal blobstore and databases.
+
+### <a id='priv-docker-reg'></a> Private Docker Registries
+
+Application developers can now push Docker-based applications with images that are hosted
+on a private registry.
+
+### <a id='uaa-sql-server'></a> UAA supports SQL Server database
+
+Operators can now independently configure their UAA service to store its data in an external
+SQL Server database.
+
+### <a id='locket'></a> Improved Distributed Lock Management
+
+In older versions of the Elastic Runtime, components that needed to maintain a distributed
+lock could leverage Consul to handle the locking mechanism. In 1.11, that locking mechanism
+has been replaced with a new service called `locket`. By switching to `locket`, the Elastic
+Runtime will be moving onto a more stable footing for its distributed locking needs.
 
 ### <a id='internal-uaa-expire'></a> UAA User Passwords Never Expire
 
-As of v1.11, Elastic Runtime no longer provides the **Number of Months Before Password Expires** field in the **Authentication and Enterprise SSO** section. Instead, it sets the value to zero, which means that UAA user passwords for deployments using internal UAA never expire.
+As of v1.11, Elastic Runtime no longer provides the **Number of Months Before
+Password Expires** field in the **Authentication and Enterprise SSO** section.
+Instead, it sets the value to zero, which means that UAA user passwords for
+deployments using internal UAA never expire.
 
 If you have set a non-zero password expiry, Elastic Runtime will set it to zero when you upgrade from v1.10 to v1.11.
 
