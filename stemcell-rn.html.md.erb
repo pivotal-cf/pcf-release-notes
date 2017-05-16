@@ -10,6 +10,11 @@ This topic includes release notes for stemcells used with Pivotal Cloud Foundry 
 **Release Date**: April 25, 2017
 
 - Bump Ubuntu stemcells for USN-3265-2: Linux kernel (Xenial HWE) vulnerabilities
+- Disables IPv6 at the kernel level. If you use this stemcell (for example, within a service tile)
+then you need to verify that communications between service VMs 
+and resources outside PCF still work. Apps may be impacted. For more information, see the 
+[IPv6 disabled at kernel level on Stemcell 3363.20](https://discuss.pivotal.io/hc/en-us/articles/115006965027)
+ knowledge base article.
 
 ## <a id="3363-15"></a>3363.15
 
@@ -18,10 +23,7 @@ This topic includes release notes for stemcells used with Pivotal Cloud Foundry 
 - Bump Ubuntu stemcells for USN-3256-2: Linux kernel (HWE) vulnerability
 
 
-
 Misc:
-
-
 
 - Made AWS AMI backing snapshot public to support encryption of boot disks
 
