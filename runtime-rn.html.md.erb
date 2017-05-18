@@ -11,6 +11,102 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.9'></a> 1.10.9
+
+* Bumps Apps Manager to v660.7.9 to support large custom-branding images.
+* Bumps Pivotal Account to v1.5.2 to support large custom-branding images.
+* Bumps Autoscaling to v84.2.
+* Bumps uaa-release to v30.3.
+* Replaces all buildpack releases with versions that provide cached buildpack assets.
+* Allows the UAA password expiry field to be configured via the Ops Manager API.
+* Allows the Apps Manager access token validity duration to be configured.
+* Allows S3 buckets located in regions other than us-east-1 can be used to store Internal MySQL backups.
+* Patches Cloud Controller to fix task completion callbacks.
+* Patches Loggregator to resolve issue with operator-provided cipher suites.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.20</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.12</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84.2</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>34.2.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.18.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2-rootfs</td><td>1.60.0</td>
+  </tr><tr>
+    <td>consul</td><td>165</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.2.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.2</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.16.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.32.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>7.2.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>0.1.5</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.5.34</td>
+  </tr><tr>
+    <td>notifications</td><td>35</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.33</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.5.2</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.9</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.18</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.39</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.0.4</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
+  </tr><tr>
+    <td>uaa</td><td>30.3</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.8'></a> 1.10.8
 
 * Resolves API version issue that prevented use of the CLI for isolation segments.
