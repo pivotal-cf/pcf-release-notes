@@ -82,7 +82,10 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 * Patches Loggregator to resolve CLOSE_WAIT issue.
 
 <p class="note">
-<strong>Warning:</strong> This release includes a misleading error message being returned when running <code>cf logs --recent</code>.
+<strong>Warning:</strong><br>
+This release includes a misleading error message being returned when running <code>cf logs --recent</code>.
+<br>
+<br>
 The response incorrectly includes the line <code>ERR WebsocketListener.Start: Error connecting to a doppler</code> but the command is working as expected.
 </p>
 
