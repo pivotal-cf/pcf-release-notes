@@ -1,79 +1,11 @@
 ---
-title: PCF Isolation Segment v1.10 Release Notes
+title: PCF Isolation Segment v1.11 Release Notes
 owner: Release Engineering
 ---
 
 ## <a id='releases'></a> Releases
 
-### <a id='1.10.1'></a> 1.10.1
-
-* Patches an issue with the naming of the router VM. See the note below for more details.
-* Bumps the rootfs to v1.59.0 which provides stack version 1.110.0.
-
-<p class='tip'>
-The routers use consul for service discovery and necessarily require that their
-local consul agent join the larger Elastic Runtime consul cluster to send and
-receive service discovery updates. Membership in the cluster is managed by name
-and IP address.
-<br><br>
-The Elastic Runtime routers will register with a name like "router-1" or
-"router-4", indicating their job name and VM index. Unfortunately, the
-Isolation Segment Tile routers use the same name to register themselves with
-the cluster and thus result in a naming collision.
-<br><br>
-This naming collision causes the routers in the Isolation Segment and the
-routers in the Elastic Runtime to fight for membership in the cluster. This
-instability can eventually cause the routers to become unavailable.
-<br><br>
-To resolve this, we have released a new version of the Isolation Segment tile
-that ensures that the consul members are properly namespaced.
-<br><br>
-Upgrading from 1.10.0 to 1.10.1 is still supported, although you will
-experience router downtime while this upgrade occurs. The routers with the
-conflicting names will be removed, and a new set of routers will be created
-with a dedicated namespace for the Isolation Segment tile. In the time between
-the removal of the old routers, and the addition of the new routers, you will
-not be able to route traffic to the Isolation Segment applications through the
-dedicated Isolation Segment routers.
-<br><br>
-If you are only using compute isolation and not deploying the dedicated routing
-VMs, this issue does not apply to your deployment. The primary, "shared" ERT
-routing tier will experience no loss of application routing during this
-upgrade.
-</p>
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3363.10</td>
-  </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.59.0</td>
-  </tr><tr>
-    <td>consul</td><td>152</td>
-  </tr><tr>
-    <td>diego</td><td>1.7.1</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.1.1</td>
-  </tr><tr>
-    <td>loggregator</td><td>77\*</td>
-  </tr><tr>
-    <td>routing</td><td>0.146.0\*</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.10.0'></a> 1.10.0
+### <a id='1.11.0'></a> 1.11.0
 
   <table border="1" class="nice">
   <thead>
@@ -108,7 +40,7 @@ upgrade.
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-PCF Isolation Segment is a new tile available for installation with PCF v.1.10.
+The PCF Isolation Segment v1.11 tile is available for installation with PCF v1.11.
 
 [Isolation segments](../concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and  isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
@@ -116,12 +48,21 @@ For more information on using isolation segments in your deployment, see the [Ma
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v1.10 is documented in the
+The procedure for installing PCF Isolation Segment v1.11 is documented in the
 [Installing PCF Isolation Segment](../opsguide/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v1.10.
+To install a PCF Isolation Segment, you must first install PCF v1.11.
 
 ## <a id='adv-features'></a> About Advanced Features
 
 The Advanced Features section of the PCF Isolation Segment tile includes new functionality that may have certain constraints.
 Although these features are fully supported, Pivotal recommends caution when using them in production.
+
+## <a id='1.11.0'></a> New Features in PCF Isolation Segment v1.11.0
+
+This section describes new features of the release.
+
+### <a id='sha2'></a>SHA2 Checksum
+
+Operators can verify the data integrity of the PCF Isolation Segment tile using the file's SHA2 checksum, rather than the MD5 checksum that was used in previous releases.
+
