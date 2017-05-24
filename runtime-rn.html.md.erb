@@ -25,6 +25,16 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 * Allows S3 buckets located in regions other than us-east-1 can be used to store Internal MySQL backups.
 * Patches Loggregator to resolve CLOSE_WAIT issue.
 
+<p class="note">
+<strong>Warning:</strong><br>
+This release includes a misleading error message being returned when running <code>cf logs --recent</code>.
+<br>
+<br>
+The response incorrectly includes the line <code>ERR WebsocketListener.Start: Error connecting to a doppler</code> but the command is working as expected.
+<br><br>
+This message will occur once for each doppler instance in your deployment.
+</p>
+
   <table border="1" class="nice">
   <thead>
   <tr>
