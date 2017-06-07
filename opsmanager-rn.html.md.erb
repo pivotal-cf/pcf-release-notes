@@ -86,7 +86,6 @@ Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can u
 ### <a id='bosh'></a> BOSH Updates
 
 The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows. 
-
 ####<a id='operator-bosh'></a> Operators
 + OpsManager no longer reserves 2 IPs for every requested Static IP. 
 + Updating default catalog on AWS to include m4, c4, and r4 instances
@@ -95,16 +94,16 @@ The following list sections updates in the new BOSH version that are not exposed
  
 ####<a id='tile-dev-bosh'></a> Tile Developers
  
-+ Integration with CredHub for secure configuration management
-+ OpsManager deploys a CredHub co-located with the Director VM. Tile Authors can define a variables section in their 1.11 tiles and have all new credentials reside in CredHub
-+ Added variables CLI command to list which variables are in use by a deployment
++ Integration with CredHub for secure configuration management.
+	+ OpsManager deploys a CredHub co-located with the Director VM. Tile Authors can define a variables section in their 1.11 tiles and have all new credentials reside in CredHub.
++ Added variables CLI command to list which variables are in use by a deployment.
 
-OpsManager supports a new top level key called variables in the product template. Tile Authors can use this variables section to move all new credentials into CredHub
-OpsManager supports a new triple parens syntax such that Tile Authors can define accessors in their manifest snippets that must be evaluated by Bosh
++ OpsManager supports a new top level key called `variables` in the product template. Tile Authors can use this variables section to move all new credentials into CredHub.
++ OpsManager supports a new triple parens syntax such that Tile Authors can define accessors in their manifest snippets that must be evaluated by Bosh
 LDAP URL validator now allows a space separated list of URLs to be entered (https://github.com/pivotal-cf/installation/blob/releases/1.8/web/app/validators/ldap_url_validator.rb)
-OpsManager supports a double parens accessor: (( .job_name.any_instances )) for determining if a job has any instances
-OpsManager triple parens supports string concatenation such that If a Tile Author Provides the following in the manifest snippet or in the link section: `key: "prefix-((( basic_pwd )))-suffix"` then it should show up in the manifest as `prefix-((basic_pwd))-suffix`
-OpsManager exposes the property type in the JavaScript migrations properties hash in addition to the properties
++ OpsManager supports a double parens accessor: (( .job\_name.any\_instances )) for determining if a job has any instances
++ OpsManager triple parens supports string concatenation such that If a Tile Author Provides the following in the manifest snippet or in the link section: `key: "prefix-((( basic_pwd )))-suffix"` then it should show up in the manifest as `prefix-((basic_pwd))-suffix`
++ OpsManager exposes the property type in the JavaScript migrations properties hash in addition to the properties
 
 ### <a id='bosh'></a> All Director logs go to SysLog
 
@@ -139,11 +138,11 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
  </tr>
 </table>
 
-#### BOSH Director]
+#### BOSH Director
 Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
 + Operators can now configure the number of workers that are available on the Bosh Director
 + The Director Configuration form in OpsManager now includes a new field called “JMX Provider IP Address” that configures the JMX JSON plugin for secure transportation of metrics. 
-
+Operators can use OpsManager API endpoints to view credentials that are stored in CredHub. For more information on how to do this please visit <Link>
 
 #### Stemcell
 Ops Manager v1.11.1 uses Stemcell x. Here are some of the major changes in Stemcell x:
