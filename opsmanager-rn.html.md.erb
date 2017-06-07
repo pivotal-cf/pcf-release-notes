@@ -31,7 +31,7 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
   <td><code>bosh-init</code>: v0.0.100</td>
 </tr>
 <tr>
-  <td>Stemcell: 3363.x</td>
+  <td>Stemcell: 3421.x</td>
 </tr>
 <tr>
   <td>AWS CPI: 62</td>
@@ -56,17 +56,21 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v1.11.0
 
+### <a id='director-only'></a>Director Only Deploy
+
+Operators can now use the OpsManager API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. For more information about using this Ops Manager API feature, see Applying Changes to Ops Manager Director.
+
 ### <a id='ops-man-api'></a>Ops Manager API
 
 Operators can now use the API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. For more information about using this Ops Manager API feature, see [Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html).
 
 ### <a id='logging'></a>Improved Logging for the Ops Manager VM
 
-Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM.
+Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Audit D. 
 
 ### <a id='vm-hardening'></a>Ops Manager VM Hardening
 
-For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
+The OpsManager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
 
 ### <a id='errands'></a>BOSH CLI v2 Support
 
