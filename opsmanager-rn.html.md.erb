@@ -56,10 +56,6 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v1.11.0
 
-### <a id='director-only'></a>Director Only Deploy
-
-Operators can now use the OpsManager API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. For more information about using this Ops Manager API feature, see Applying Changes to Ops Manager Director.
-
 ### <a id='ops-man-api'></a>Ops Manager API
 
 Operators can now use the API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. For more information about using this Ops Manager API feature, see [Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html).
@@ -72,6 +68,17 @@ Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Au
 
 The OpsManager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
 
+### <a id='nsx-integration'></a>NSX Integration
+
+Operators can use OpsManager 1.11 to configure their Bosh Director to talk to NSX.
+OpsManager has API endpoints to configure NSX security groups and load balancers on vSphere appliances. For more information on this feature go to [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config).
+
+### <a id='azure-managed'></a>Azure Managed Disk
+OpsManager now allows operators to deploy using Azure's new fully managed storage service. 
+This new service alleviates users from having to manage storage capacity manually and is a huge new feature on the Azure platform
+For more information on how to use the managed disk feature, please go to [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html)
+
+
 ### <a id='errands'></a>BOSH CLI v2 Support
 
 Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can use either version of the CLI to manage your deployment. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html).
@@ -79,6 +86,25 @@ Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can u
 ### <a id='bosh'></a> BOSH Updates
 
 The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows. 
+
+####<a id='operator-bosh'></a> Operators
++ OpsManager no longer reserves 2 IPs for every requested Static IP. 
++ Updating default catalog on AWS to include m4, c4, and r4 instances
++ Integration with upcoming bbr binary for backups/restore
+	+ Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
+ 
+####<a id='tile-dev-bosh'></a> Tile Developers
+ 
++ Integration with CredHub for secure configuration management
++ OpsManager deploys a CredHub co-located with the Director VM. Tile Authors can define a variables section in their 1.11 tiles and have all new credentials reside in CredHub
++ Added variables CLI command to list which variables are in use by a deployment
+
+OpsManager supports a new top level key called variables in the product template. Tile Authors can use this variables section to move all new credentials into CredHub
+OpsManager supports a new triple parens syntax such that Tile Authors can define accessors in their manifest snippets that must be evaluated by Bosh
+LDAP URL validator now allows a space separated list of URLs to be entered (https://github.com/pivotal-cf/installation/blob/releases/1.8/web/app/validators/ldap_url_validator.rb)
+OpsManager supports a double parens accessor: (( .job_name.any_instances )) for determining if a job has any instances
+OpsManager triple parens supports string concatenation such that If a Tile Author Provides the following in the manifest snippet or in the link section: `key: "prefix-((( basic_pwd )))-suffix"` then it should show up in the manifest as `prefix-((basic_pwd))-suffix`
+OpsManager exposes the property type in the JavaScript migrations properties hash in addition to the properties
 
 ### <a id='bosh'></a> All Director logs go to SysLog
 
@@ -113,6 +139,18 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
  </tr>
 </table>
 
-#### BOSH Director
+#### BOSH Director]
+Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
++ Operators can now configure the number of workers that are available on the Bosh Director
++ The Director Configuration form in OpsManager now includes a new field called “JMX Provider IP Address” that configures the JMX JSON plugin for secure transportation of metrics. 
+
 
 #### Stemcell
+Ops Manager v1.11.1 uses Stemcell x. Here are some of the major changes in Stemcell x:
+
+
+
+### <a id='fixes'></a> Bug Fixes
++ Fixed a bug where OpsManager was incorrectly setting the signature algorithm when configured with SAML. + The signature algorithm is now defaulted to SHA256.
+Fixed a bug where OpsManager was incorrectly setting the redirect uri for the Bosh UAA
+
