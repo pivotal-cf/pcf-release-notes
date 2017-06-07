@@ -140,9 +140,11 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
 
 #### BOSH Director
 Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
-+ Operators can now configure the number of workers that are available on the Bosh Director
+
++ Operators can now configure the number of workers that are available on the Bosh Director.
 + The Director Configuration form in OpsManager now includes a new field called “JMX Provider IP Address” that configures the JMX JSON plugin for secure transportation of metrics. 
-Operators can use OpsManager API endpoints to view credentials that are stored in CredHub. For more information on how to do this please visit <Link>
++ Operators can use OpsManager API endpoints to view credentials that are stored in CredHub. For more information on how to do this visit [Fetching Variable Names and Values
+](../credhub/credhub-api-variables.html).
 
 #### Stemcell
 Ops Manager v1.11.1 uses Stemcell x. Here are some of the major changes in Stemcell x:
@@ -150,6 +152,7 @@ Ops Manager v1.11.1 uses Stemcell x. Here are some of the major changes in Stemc
 
 
 ### <a id='fixes'></a> Bug Fixes
-+ Fixed a bug where OpsManager was incorrectly setting the signature algorithm when configured with SAML. + The signature algorithm is now defaulted to SHA256.
-Fixed a bug where OpsManager was incorrectly setting the redirect uri for the Bosh UAA
++ Fixed a bug where OpsManager was incorrectly setting the signature algorithm when configured with SAML. 
++ The signature algorithm is now defaulted to SHA256.
++ Fixed a bug where OpsManager was incorrectly setting the redirect uri for the Bosh UAA
 
