@@ -2,6 +2,49 @@
 title: Stemcell Release Notes
 Owner: BOSH
 ---
- 
-This topic includes release notes for stemcells used with Pivotal Cloud Foundry (PCF) versions 1.11.x.
 
+This topic includes release notes for stemcells used with Pivotal Cloud Foundry (PCF) versions 1.10.x.
+
+## <a id="3421"></a>3421
+
+**Release Date**: May 23, 2017
+
+New:
+
+
+
+- Added `env.bosh.remove_static_libraries` (bool) to remove static libraries
+
+  - Useful to enable this option when exporting compiled releases
+
+- Added `env.bosh.ipv6.enable` (bool) to remove ipv6.disable kernel functionality at bootup time
+
+
+
+Fixes:
+
+
+
+- Fixed sysstat logging
+
+- Fixed anacron's RANDOM_DELAY configuration
+
+
+
+Bumps:
+
+
+
+- Bumped s3cli v0.0.60
+
+  - Updated aws-sdk-go to solve network timeout edge case
+
+- Bumped davcli v0.0.19
+
+  - Use TCP keep alive to solve network timeout edge case
+
+- Bumped bosh-agent v0.0.35
+
+  - Add `-v` to the Agent binary
+
+  - Prepared `sync_dns` action to work with future Director's DNS integration
