@@ -233,6 +233,15 @@ For more information about Scalabe Syslog in PCF, see [Overview of the Loggregat
 
 This section lists known issues for PCF Elastic Runtime.
 
+###<a id='metrics'></a>Loggregator Metrics
+
+Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a hard-coded deployment name. Because the components do not allow the deployment name to be configured, Metron cannot properly tag the metrics. This affects the following metrics:
+
+* `loggregator.rlp.ingress`
+* `loggregator.rlp.dropped`
+* `loggregator.rlp.egress`
+* `loggregator.trafficcontroller.ingress`
+
 ###<a id='mount-location'></a>Mount Location Bug
 
 If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure your `"mount"` section in your bind JSON matches what is in the Dockerfile, such as `"mount":"/some/data/dir"`. 
