@@ -290,3 +290,9 @@ This only works if the path in question is in an already existing root level
 folder.  In other words, `"/var/some/random/path"` should work, but
 `"/some/random/path"` will cause your app to crash at startup. This limitation
 is due to an aufs bug.
+
+### <a id='ecr-gcr-issue'></a> Private Docker Registry Support for ECR and GCR
+
+The private Docker registry support referenced above does not currently support
+Amazon EC2 Container Registry or Google Cloud Platform Container Registry.
+Future patches will bring support for these registries.
