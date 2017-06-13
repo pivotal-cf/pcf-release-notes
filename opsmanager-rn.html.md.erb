@@ -92,13 +92,19 @@ Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the 
 + <b>API Endpoints:</b> Operators can use OpsManager API endpoints to view credentials that are stored in CredHub. For more information on how to do this visit the [Fetching Variable Names and Values
 ](../credhub/credhub-api-variables.html) topic.
 
+#### <a id='other'></a> Other Notable BOSH Updates
+The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
+
++ OpsManager 1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. 
++ OpsManager no longer reserves 2 IPs for every requested Static IP.
+
 For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
 
 
 #### Stemcell
-Ops Manager v1.11.0 uses Stemcell 3421.3. Here are some of the major changes in Stemcell 3421.3:
+Ops Manager v1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
 
-For a full list of updates and fixes in the new stemcell that Ops Manager uses, see the stemcell 3421.3 release notes.
++ Bump Ubuntu stemcells for USN-3304-1: Sudo vulnerability
 
 ### <a id='bosh'></a> All Director Logs Go to SysLog
 
@@ -133,7 +139,7 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
  </tr>
 </table>
 
-### <a id='fixes'></a> Bug Fixes
+## <a id='fixes'></a> Bug Fixes
 + Ops Manager 1.11.0 fixes a bug where OpsManager was incorrectly setting the signature algorithm when configured with SAML. 
 + The signature algorithm is now defaulted to SHA256.
 + Ops Manager 1.11.0 fixes a bug where OpsManager was incorrectly setting the redirect URI for the BOSH UAA.
@@ -143,7 +149,6 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
 This section lists known issues for Ops Manager v1.11.
 
 ###<a id='log'></a>Changelog Does Not Display
-
 When your deployment includes more than one tile, viewing the logs for your deploy by clicking **Changelog** on the Ops Manager Installation Dashboard fails.
 
 To view the logs, add `.txt` to the URL for the log to download it as a raw text file.  
