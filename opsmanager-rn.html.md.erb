@@ -91,12 +91,16 @@ Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the 
 + <b>JMX Provider IP Address:</b> The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for secure transportation of metrics. 
 + <b>API Endpoints:</b> Operators can use Ops Manager API endpoints to view credentials that are stored in CredHub. For more information on how to do this visit the [Fetching Variable Names and Values
 ](../credhub/credhub-api-variables.html) topic.
++ <b>Updated VM Catalog:</b> Ops Manager 1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types.
 
 #### <a id='other'></a> Other Notable BOSH Updates
 The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
 
-+ Ops Manager 1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. 
-+ Ops Manager no longer reserves 2 IPs for every requested Static IP.
++ Integration with upcoming `bbr` binary for backups/restore
+  + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
++ Integration with CredHub for secure configuration management
+  + Added `variables` CLI command to list which variables are in use by a deployment
++ Added `bosh.releases.upload` and `bosh.stemcells.upload` UAA scopes to allow release and stemcell uploads
 
 For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
 
@@ -143,6 +147,7 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
 + Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
 + The signature algorithm is now defaulted to SHA256.
 + Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
++ Ops Manager no longer reserves 2 IPs for every requested Static IP.
 
 ## <a id='knownissues'></a> Known Issues
 
