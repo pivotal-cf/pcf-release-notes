@@ -66,16 +66,16 @@ Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Au
 
 ### <a id='vm-hardening'></a>Ops Manager VM Hardening
 
-The OpsManager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
+The Ops Manager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
 
 ### <a id='nsx-integration'></a>NSX Integration
 
-Operators can use OpsManager 1.11 to configure their Bosh Director to talk to NSX. Ops Manager 1.11 supports NSX-V 6.2+.
+Operators can use Ops Manager 1.11 to configure their Bosh Director to talk to NSX. Ops Manager 1.11 supports NSX-V 6.2+.
 
-OpsManager has API endpoints to configure NSX security groups and load balancers on vSphere appliances. For more information on this feature, see the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
+Ops Manager has API endpoints to configure NSX security groups and load balancers on vSphere appliances. For more information on this feature, see the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
 
 ### <a id='azure-managed'></a>Azure Managed Disk
-OpsManager now allows operators to deploy using Azure's new fully managed storage service. With this new service, users no longer have to manually manage their storage capacity. For more information on how to use the managed disk feature, see the [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html) topic.
+Ops Manager now allows operators to deploy using Azure's new fully managed storage service. With this new service, users no longer have to manually manage their storage capacity. For more information on how to use the managed disk feature, see the [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html) topic.
 
 
 ### <a id='errands'></a>BOSH CLI v2 Support
@@ -88,8 +88,8 @@ Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can u
 Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
 
 + <b>Worker Configuration:</b> Operators can now configure the number of workers that are available on the BOSH Director.
-+ <b>JMX Provider IP Address:</b> The Director Configuration form in OpsManager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for secure transportation of metrics. 
-+ <b>API Endpoints:</b> Operators can use OpsManager API endpoints to view credentials that are stored in CredHub. For more information on how to do this visit the [Fetching Variable Names and Values
++ <b>JMX Provider IP Address:</b> The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for secure transportation of metrics. 
++ <b>API Endpoints:</b> Operators can use Ops Manager API endpoints to view credentials that are stored in CredHub. For more information on how to do this visit the [Fetching Variable Names and Values
 ](../credhub/credhub-api-variables.html) topic.
 
 For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
@@ -134,9 +134,9 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
 </table>
 
 ### <a id='fixes'></a> Bug Fixes
-+ Ops Manager 1.11.0 fixes a bug where OpsManager was incorrectly setting the signature algorithm when configured with SAML. 
++ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
 + The signature algorithm is now defaulted to SHA256.
-+ Ops Manager 1.11.0 fixes a bug where OpsManager was incorrectly setting the redirect URI for the BOSH UAA.
++ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
 
 ## <a id='knownissues'></a> Known Issues
 
