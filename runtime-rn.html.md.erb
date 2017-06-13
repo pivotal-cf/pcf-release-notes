@@ -116,6 +116,7 @@ When upgrading to v1.11, be aware of the following upgrade considerations:
 
 * You must upgrade first to a version of Elastic Runtime v1.10.x in order to
   successfully upgrade to v1.11.
+* You must scale the app autoscaler to 1 application instance prior to starting the upgrade.
 * Some partner service tiles may be incompatible with PCF v1.11. Pivotal is
   working with partners to ensure their tiles are being updated to work with the
   latest versions of PCF.<br/><br/> For information about which partner service
@@ -232,6 +233,8 @@ For more information about Scalabe Syslog in PCF, see [Overview of the Loggregat
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for PCF Elastic Runtime.
+
+* The application autoscaler can panic due to an issue with leader election.  To avoid this panic operators must manually scale the app autoscaler to 1 application instance prior to starting the upgrade.  Use the cf cli to scale the `autoscale` app.  Target the `system` org and `autoscaling` space with the following command: `cf target -s system -o autoscaling`.   Scale the autoscale app to 1 instance with the following command: `cf scale autoscale -i 1`.  If this is not done the autoscaler may panic and fail due to leader elections conflicts.  If this occurs follow the instrcutions in the KB to restore autoscaler functinality:--link needed--.
 
 ###<a id='metrics'></a>Loggregator Metrics
 
