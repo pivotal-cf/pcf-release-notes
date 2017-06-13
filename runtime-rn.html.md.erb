@@ -257,7 +257,11 @@ Loggregator System](../loggregator/architecture.html).
 
 This section lists known issues for PCF Elastic Runtime.
 
-* The application autoscaler can panic due to an issue with leader election.  To avoid this panic operators must manually scale the app autoscaler to 1 application instance prior to starting the upgrade.  Use the cf cli to scale the `autoscale` app.  Target the `system` org and `autoscaling` space with the following command: `cf target -s system -o autoscaling`.   Scale the autoscale app to 1 instance with the following command: `cf scale autoscale -i 1`.  If this is not done the autoscaler may panic and fail due to leader elections conflicts.  If this occurs follow the instrcutions in the KB to restore autoscaler functinality:--link needed--.
+###<a id='autoscaler'></a>App Autoscaler Panic
+
+The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Prep 9: Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
+
+If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the Knowledge Base to restore the service.
 
 ###<a id='metrics'></a>Loggregator Metrics
 
