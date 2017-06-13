@@ -20,8 +20,8 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 
 ### 1.8.22 Patch
 
-* Fixed a bug where OpsManager was incorrectly setting the signature algorithm when configured with SAML. The signature algorithm is now defaulted to SHA256.
-* Fixed a bug where OpsManager was incorrectly setting the redirect uri for the Bosh UAA. 
+* Fixed a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. The signature algorithm is now defaulted to SHA256.
+* Fixed a bug where Ops Manager was incorrectly setting the redirect uri for the Bosh UAA. 
 * Bumped stemcell to 3363.24.
 
 	<table border="1" class="nice">
@@ -179,7 +179,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 
 * Patches CVE-2017-4972 and CVE-2017-4973. Additional information can be found at https://pivotal.io/security.
 * Fixed a bug where public IPs were incorrectly being assigned to service networks on GCP
-* Operators can now use the OpsManager interface to configure the number of Director Worker threads. 
+* Operators can now use the Ops Manager interface to configure the number of Director Worker threads. 
 
 	<table border="1" class="nice">
 	<thead>
@@ -296,7 +296,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 ### 1.8.15 Patch
 
 * Patches USN-3208-2. Additional information can be found at https://pivotal.io/security.
-* Introduced an API endpoint that customers can use to rotate all OpsManager generated non-configurable certificates
+* Introduced an API endpoint that customers can use to rotate all Ops Manager generated non-configurable certificates
 
 	<table border="1" class="nice">
 	<thead>
@@ -430,8 +430,8 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 
 * Patches USN-3156-1.
 * Fixes an upgrade issue where jobs in pre-1.7 products could be accidentally treated as non-singleton. In a very specific circumstance, this could have caused data loss.
-* Fixes an Azure image issue where sometimes OpsManager would be marked as Failing by Azure even though the VM appeared to be working.
-* Reverted the requirement to provide a password for running "sudo" on vSphere, as some customers are running sudo commands on the OpsManager VM via SSH in their scripts.
+* Fixes an Azure image issue where sometimes Ops Manager would be marked as Failing by Azure even though the VM appeared to be working.
+* Reverted the requirement to provide a password for running "sudo" on vSphere, as some customers are running sudo commands on the Ops Manager VM via SSH in their scripts.
 
 	<table border="1" class="nice">
 	<thead>
@@ -470,7 +470,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 ### 1.8.11 Patch
 
 * Patches USN-3151-2. Additional information can be found at https://pivotal.io/security.
-* vSphere customers can now specify a custom hostname in the OVA template for the OpsManager VM
+* vSphere customers can now specify a custom hostname in the OVA template for the Ops Manager VM
 * Ops Manager now exposes a Director flag called keep\_unreachable\_vms that prevents the Director from deleting VMs that are unreachable
 * Ops Manager now uses stronger cipher suites for SSL termination, which requires TLS1.2 when communicating with it or the UAA attached to it.
 * Customers running Ops Manager on Azure can now enter a resource group name in the network definition. The allows customers to separate networks by resource group
@@ -708,7 +708,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 
 ### 1.8.4 Patch
 
-* Fixed a bug that prevented users from having special characters and spaces while defining AZ names in OpsManager.
+* Fixed a bug that prevented users from having special characters and spaces while defining AZ names in Ops Manager.
 
 	<table border="1" class="nice">
 	<thead>
