@@ -319,7 +319,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 ### 1.7.19 Patch
 
 * Patches USN-3151-2. Additional information can be found at https://pivotal.io/security.
-* vSphere customers can now specify a custom hostname in the OVA template for the OpsManager VM
+* vSphere customers can now specify a custom hostname in the OVA template for the Ops Manager VM
 * Ops Manager now exposes a Director flag, `keep_unreachable_vms`, that prevents the Director from deleting VMs that are unreachable
 * Ops Manager now uses stronger cipher suites for SSL termination, which now requires TLS1.2 when communicating with it or the UAA attached to it.
 
@@ -618,7 +618,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 * Patches CVEs including CVE-2016-0897 and CVE-2016-4468. Additional information can be found at https://pivotal.io/security.
 * Bumped UAA version to 3.3.0.2
 * Customers using vSphere or vCloud Air are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at http://docs.pivotal.io/pivotalcf/1-7/customizing/vsphere.html
-* Customers using the dual-homed feature in OpsManager v1.6 can now import their installations into v1.7.8 and continue to use the dual homed BOSH Director
+* Customers using the dual-homed feature in Ops Manager v1.6 can now import their installations into v1.7.8 and continue to use the dual homed BOSH Director
 * Customers can now dual-home their BOSH Director starting with new deployments of v1.7.8
 * For more information on how to use the dual homing feature, please refer to the [KB article](https://discuss.zendesk.com/hc/en-us/articles/222027247)
 
@@ -663,7 +663,7 @@ Additional info can be found at https://pivotal.io/security.
 
 ### <a id='security'></a> Security
 
-All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](../../concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](../../customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](../../opsguide/auth-sso.html) identity management. In order to avoid consistency issues, OpsManager restricts the number of concurrent users in the system by allowing only one user to log in at a time.
+All Ops Manager assets are now being protected by UAA [User Authorization and Authentication](../../concepts/architecture/uaa.html). Customers upgrading from 1.6 will have their Admin user migrated into PCF UAA while retaining their existing password as the [passphrase](../../customizing/upgrading-pcf.html#keep). Ops Manager 1.7 has support for multiple user accounts when using internal as well as remote [SAML](../../opsguide/auth-sso.html) identity management. In order to avoid consistency issues, Ops Manager restricts the number of concurrent users in the system by allowing only one user to log in at a time.
 
 Users now have the capability to add custom certificates to all the VMs managed in a BOSH deployment. Please see below for more information about custom certificates:
 
