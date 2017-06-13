@@ -242,6 +242,8 @@ Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a hard-c
 * `loggregator.rlp.egress`
 * `loggregator.trafficcontroller.ingress`
 
+A patch is planned to fix this issue and apply the deployment name consistently.
+
 ###<a id='mount-location'></a>Mount Location Bug
 
 If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure your `"mount"` section in your bind JSON matches what is in the Dockerfile, such as `"mount":"/some/data/dir"`. 
