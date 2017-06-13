@@ -172,13 +172,12 @@ developers will see an "insufficient resources" error message. Ensuring your Die
 provide enough disk to accomodate these much larger application instances will be an
 important part of your resource planning.
 
-### <a id='container-dns'></a> Application Container DNS
+### <a id='override-dns'></a> Override DNS Servers
 
-By default, application containers will inherit the DNS nameservers specified
-for the Diego Cell BOSH VM.  For most cases, having your application containers
-inherit their DNS nameservers from the BOSH VM will work just fine, but if
-alternative nameservers are required, operators can now specify those
-nameservers sepearately from their BOSH DNS configuration.
+By default, containers use the same DNS servers as the host. If you want to
+override the DNS servers to be used in the containers in the isolation segment,
+enter a comma-separated list of servers in the **DNS Servers** in the
+**Application Containers** section of the tile.
 
 ### <a id='ha-defaults'></a> Highly-Available Default Configuration
 

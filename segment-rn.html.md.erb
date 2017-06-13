@@ -16,19 +16,25 @@ owner: Release Engineering
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3363.10</td>
+    <td>Stemcell</td><td>3421.3</td>
   </tr><tr>
-    <td>cflinuxfs2-rootfs</td><td>1.50.0</td>
+    <td>cf-networking</td><td>0.25.0</td>
   </tr><tr>
-    <td>consul</td><td>152</td>
+    <td>cflinuxfs2</td><td>1.123.0</td>
   </tr><tr>
-    <td>diego</td><td>1.7.1\*</td>
+    <td>consul</td><td>167</td>
   </tr><tr>
-    <td>garden-runc</td><td>1.1.1</td>
+    <td>diego</td><td>1.16.1</td>
   </tr><tr>
-    <td>loggregator</td><td>77</td>
+    <td>garden-runc</td><td>1.6.0</td>
   </tr><tr>
-    <td>routing</td><td>0.146.0\*</td>
+    <td>loggregator</td><td>89</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.3</td>
+  </tr><tr>
+    <td>routing</td><td>0.157.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
   </tr>
   </tbody>
   <tfoot>
@@ -40,11 +46,17 @@ owner: Release Engineering
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v1.11 tile is available for installation with PCF v1.11.
+The PCF Isolation Segment v1.11 tile is available for installation with PCF
+v1.11.
 
-[Isolation segments](../concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and  isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+[Isolation segments](../concepts/security.html#isolation-segments) provide
+dedicated pools of resources where you can deploy apps and  isolate workloads.
+Using isolation segments separates app resources as completely as if they were
+in different CF deployments but avoids redundant management and network
+complexity.
 
-For more information on using isolation segments in your deployment, see the [Managing Isolation Segments](../adminguide/isolation-segments.html) topic.
+For more information on using isolation segments in your deployment, see the
+[Managing Isolation Segments](../adminguide/isolation-segments.html) topic.
 
 ## <a id='install'></a> How to Install
 
@@ -55,8 +67,9 @@ To install a PCF Isolation Segment, you must first install PCF v1.11.
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment tile includes new functionality that may have certain constraints.
-Although these features are fully supported, Pivotal recommends caution when using them in production.
+The Advanced Features section of the PCF Isolation Segment tile includes new
+functionality that may have certain constraints.  Although these features are
+fully supported, Pivotal recommends caution when using them in production.
 
 ## <a id='1.11.0'></a> New Features in PCF Isolation Segment v1.11.0
 
@@ -64,25 +77,58 @@ This section describes new features of the release.
 
 ### <a id='override-dns'></a> Override DNS Servers
 
-By default, containers use the same DNS servers as the host. If you want to override the DNS servers to be used in the containers in the isolation segment, enter a comma-separated list of servers in the **DNS Servers** in the **Application Containers** section of the tile.
+By default, containers use the same DNS servers as the host. If you want to
+override the DNS servers to be used in the containers in the isolation segment,
+enter a comma-separated list of servers in the **DNS Servers** in the
+**Application Containers** section of the tile.
 
 ### <a id='nfs3-vol-services'></a> NFSv3 Volume Services
 
-The tile supports NFSv3 volume services. NFS volume services allow application developers to bind existing NFS volumes to their applications for shared file access. For more information, see the [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-11/opsguide/enable-vol-services.html) topic.
+The tile supports NFSv3 volume services. NFS volume services allow application
+developers to bind existing NFS volumes to their applications for shared file
+access. For more information, see the [Enabling NFS Volume
+Services](https://docs.pivotal.io/pivotalcf/1-11/opsguide/enable-vol-services.html)
+topic.
 
-To enable it, select **Enable** under **Enabling NFSv3 volume services** in the **Application Containers** section of the tile.  
+To enable it, select **Enable** under **Enabling NFSv3 volume services** in the
+**Application Containers** section of the tile.
 
-In a clean install of the tile, NFSv3 volume services will be enabled by default. In an upgrade, NFSv3 volume services will be set to the same setting as it was in the previous tile.
+In a clean install of the tile, NFSv3 volume services will be enabled by
+default. In an upgrade, NFSv3 volume services will be set to the same setting
+as it was in the previous tile.
 
 ### <a id='container-to-container'></a> Container-to-Container Networking
 
-The tile supports container-to-container-networking. To enable container-to-container networking, select **Enable** under **Enabling the Container-to-Container network** in the **Networking** section of the tile and complete the corresponding fields. For more information about container-to-container networking, see the [Understanding Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-11/concepts/understand-cf-networking.html) topic.
+The tile supports container-to-container-networking. To enable
+container-to-container networking, select **Enable** under **Enabling the
+Container-to-Container network** in the **Networking** section of the tile and
+complete the corresponding fields. For more information about
+container-to-container networking, see the [Understanding
+Container-to-Container
+Networking](https://docs.pivotal.io/pivotalcf/1-11/concepts/understand-cf-networking.html)
+topic.
 
 ### <a id='syslog'></a> System Logging
 
-The tile has a **System Logging** section that enables operators to configure syslog for the Cells deployed within the tile.
+The Isolation Segment now emits BOSH component logs in a common syslog format
+following RFC5424.  Additionally, syslog over TLS is now supported to allow
+operators to deliver their platform logs securely to their syslog aggregator.
+
+The tile has a **System Logging** section that enables operators to configure
+syslog for the VMs deployed within the tile.
 
 ### <a id='sha2'></a>SHA2 Checksum
 
-Operators can verify the data integrity of the PCF Isolation Segment tile using the file's SHA2 checksum, rather than the MD5 checksum that was used in previous releases.
+Operators can verify the data integrity of the PCF Isolation Segment tile using
+the file's SHA2 checksum, rather than the MD5 checksum that was used in
+previous releases.
 
+### <a id='local-route-emitter'></a> Cell-local Route Emitters
+
+In previous versions of the Isolation Segment tile, the Diego Cells relied upon
+the Route Emitter component on the Diego Brain in the Elastic Runtime Tile to
+notify the Router of application routes.  When the Route Emitter becomes
+unavailable, routes can be lost in the Router route table. In order to improve
+the availability of the Route Emitter and reduce the impact of downtime from
+this component, the Route Emitter is now colocated on the Diego Cell for which
+it emits application routes.
