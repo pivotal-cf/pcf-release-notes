@@ -16,36 +16,75 @@ owner: Release Engineering
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>1056.0</td>
+    <td>Stemcell</td><td>1079.0</td>
   </tr><tr>
-    <td>consul</td><td>153</td>
+    <td>consul</td><td>167</td>
   </tr><tr>
-    <td>diego</td><td>1.7.6</td>
+    <td>diego</td><td>1.16.1</td>
   </tr><tr>
     <td>garden-windows</td><td>0.4.0</td>
   </tr><tr>
-    <td>loggregator</td><td>77</td>
+    <td>hwc-offline-buildpack</td><td>2.3.4</td>
   </tr><tr>
-    <td>HWC Buildpack</td><td>2.3.2</td>
+    <td>loggregator</td><td>89</td>
   </tr>
   </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
   </table>
 
-Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services (AWS), Google Cloud Platform (GCP), or Azure. For more information, see the [Deploying PCF Runtime for Windows](http://docs.pivotal.io/pivotalcf/1-11/windows/deploy-windows.html) topic.
+Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
+(AWS), Google Cloud Platform (GCP), or Azure. For more information, see the
+[Deploying PCF Runtime for
+Windows](http://docs.pivotal.io/pivotalcf/1-11/windows/deploy-windows.html)
+topic.
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The PCF Runtime for Windows v1.11 tile is available with the release of Pivotal Cloud Foundry (PCF) version 1.11. To use the PCF Runtime for Windows tile, you need Ops Manager v1.11.0 or later and Elastic Runtime v1.11.0 or later.
+The PCF Runtime for Windows v1.11 tile is available with the release of Pivotal
+Cloud Foundry (PCF) version 1.11. To use the PCF Runtime for Windows tile, you
+need Ops Manager v1.11.0 or later and Elastic Runtime v1.11.0 or later.
 
-For information about upgrading to PCF Runtime for Windows v1.11.0, see the [Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/1-11/windows/upgrade-windows.html) topic in the PCF Runtime for Windows documentation.
+For information about upgrading to PCF Runtime for Windows v1.11.0, see the
+[Upgrading Windows
+Cells](https://docs.pivotal.io/pivotalcf/1-11/windows/upgrade-windows.html)
+topic in the PCF Runtime for Windows documentation.
+
+## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the PCF Runtime for Windows tile includes new
+functionality that may have certain constraints.  Although these features are
+fully supported, Pivotal recommends caution when using them in production.
 
 ## <a id='new-features'></a> New Features in PCF Runtime for Windows 1.11
 
-* Operators can verify the data integrity of the PCF Runtime for Windows tile using the file's SHA2 checksum, rather than the MD5 checksum that was used in previous releases.
-* Operators can deploy their PCF Runtime for Windows application workloads to an isolation segment by entering a **Segment Name** in the **Application Containers** section and performing the steps in the [Create an Isolation Segment](http://docs.pivotal.io/pivotalcf/1-11/adminguide/isolation-segments.html#create-an-is
-) section of the <em>Managing Isolation Segments</em> topic to create the isolation segment in the Cloud Controller Database (CCDB).
-* PCF Runtime for Windows 1.11 includes an **Advanced Features** section. This section includes new functionality that may have certain constraints. Although these features are fully supported, Pivotal recommends caution when using them in production.
-* PCF Runtime for Windows 1.11 includes an **Errands** section that allows operators to configure the **Install HWC Buildpack Errand**. Pivotal recommends that the errand be set to **On**.
+### <a id='sha2'></a>SHA2 Checksum
+
+Operators can verify the data integrity of the PCF Runtime for Windows tile
+using the file's SHA2 checksum, rather than the MD5 checksum that was used in
+previous releases.
+
+### <a id='iso-seg'></a> Isolation Segment
+
+Operators can deploy their PCF Runtime for Windows application workloads to an
+isolation segment by entering a **Segment Name** in the **Application
+Containers** section and performing the steps in the [Create an Isolation
+Segment](http://docs.pivotal.io/pivotalcf/1-11/adminguide/isolation-segments.html#create-an-is)
+section of the <em>Managing Isolation Segments</em> topic to create the
+isolation segment in the Cloud Controller Database (CCDB).
+
+### <a id='local-route-emitter'></a> Cell-local Route Emitters
+
+In previous versions of the PCF Runtime for Windows tile, the Diego Cells relied upon
+the Route Emitter component on the Diego Brain in the Elastic Runtime Tile to
+notify the Router of application routes.  When the Route Emitter becomes
+unavailable, routes can be lost in the Router route table. In order to improve
+the availability of the Route Emitter and reduce the impact of downtime from
+this component, the Route Emitter is now colocated on the Diego Cell for which
+it emits application routes.
 
 ## <a id='knownissues'></a>Known Issues
 
