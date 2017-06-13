@@ -31,7 +31,7 @@ owner: Release Engineering
   </tbody>
   </table>
 
-Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services (AWS), Google Cloud Platform (GCP), or Azure.
+Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services (AWS), Google Cloud Platform (GCP), or Azure. For more information, see the [Deploying PCF Runtime for Windows](http://docs.pivotal.io/pivotalcf/1-11/windows/deploy-windows.html) topic.
 
 ## <a id='upgrade'></a>How to Upgrade
 
@@ -42,6 +42,10 @@ For information about upgrading to PCF Runtime for Windows v1.11.0, see the [Upg
 ## <a id='new-features'></a> New Features in PCF Runtime for Windows 1.11
 
 * Operators can verify the data integrity of the PCF Runtime for Windows tile using the file's SHA2 checksum, rather than the MD5 checksum that was used in previous releases.
+* Operators can deploy their PCF Runtime for Windows application workloads to an isolation segment by entering a **Segment Name** in the **Application Containers** section and performing the steps in the [Create an Isolation Segment](http://docs.pivotal.io/pivotalcf/1-11/adminguide/isolation-segments.html#create-an-is
+) section of the <em>Managing Isolation Segments</em> topic to create the isolation segment in the Cloud Controller Database (CCDB).
+* PCF Runtime for Windows 1.11 includes an **Advanced Features** section. This section includes new functionality that may have certain constraints. Although these features are fully supported, Pivotal recommends caution when using them in production.
+* PCF Runtime for Windows 1.11 includes an **Errands** section that allows operators to configure the Install HWC Buildpack Errand. Pivotal recommends that the errand remains set to **On**.
 
 ## <a id='knownissues'></a>Known Issues
 
