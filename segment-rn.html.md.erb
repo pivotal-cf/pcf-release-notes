@@ -62,6 +62,30 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 This section describes new features of the release.
 
+### <a id='override-dns'></a> Override DNS Servers
+
+By default, containers use the same DNS servers as the host. If you want to override the DNS servers to be used in the containers in the isolation segment, enter a comma-separated list of servers in the **DNS Servers** in the **Application Containers** section of the tile.
+
+### <a id='nfs3-vol-services'></a> NFSv3 Volume Services
+
+The tile supports NFSv3 volume services. NFS volume services allow application developers to bind existing NFS volumes to their applications for shared file access. For more information, see the [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-11/opsguide/enable-vol-services.html) topic.
+
+To enable it, select **Enable** under **Enabling NFSv3 volume services** in the **Application Containers** section of the tile.  
+
+In a clean install of the tile, NFSv3 volume services will be enabled by default. In an upgrade, NFSv3 volume services will be set to the same setting as it was in the previous tile.
+
+### <a id='container-to-container'></a> Container-to-Container Networking
+
+The tile supports container-to-container-networking. To enable container-to-container networking, select **Enable** under **Enabling the Container-to-Container network** in the **Networking** section of the tile and complete the corresponding fields. For more information about container-to-container networking, see the [Understanding Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-11/concepts/understand-cf-networking.html) topic.
+
+### <a id='router-sharding-mode'></a> Router Sharding Mode
+
+The tile supports router sharding. Operators can choose to have the tile's routers only acknowledge requests from applications deployed within the tile's Cells, or reject requests for any isolation segment. See **Router Sharding Mode** in the **Networking** section.
+
+### <a id='syslog'></a> System Logging
+
+The tile has a **System Logging** section that enables operators to configure syslog for the Cells deployed within the tile.
+
 ### <a id='sha2'></a>SHA2 Checksum
 
 Operators can verify the data integrity of the PCF Isolation Segment tile using the file's SHA2 checksum, rather than the MD5 checksum that was used in previous releases.
