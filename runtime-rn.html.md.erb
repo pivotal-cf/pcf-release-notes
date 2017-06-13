@@ -5,8 +5,9 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.
 
-Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the
-[requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the [certified provider
+program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
+providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
@@ -23,21 +24,21 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3363.20</td>
+    <td>Stemcell</td><td>3421.3</td>
   </tr><tr>
-    <td>binary-buildpack</td><td>1.0.11</td>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
   </tr><tr>
     <td>capi</td><td>1.28.0\*</td>
   </tr><tr>
     <td>cf</td><td>259\*</td>
   </tr><tr>
-    <td>cf-autoscaling</td><td>91</td>
+    <td>cf-autoscaling</td><td>93</td>
   </tr><tr>
     <td>cf-backup-and-restore</td><td>0.0.3</td>
   </tr><tr>
-    <td>cf-mysql</td><td>35</td>
+    <td>cf-mysql</td><td>35.0.1</td>
   </tr><tr>
-    <td>cf-networking</td><td>0.24.0</td>
+    <td>cf-networking</td><td>0.25.0</td>
   </tr><tr>
     <td>cf-smoke-tests</td><td>21</td>
   </tr><tr>
@@ -47,57 +48,57 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tr><tr>
     <td>diego</td><td>1.16.1</td>
   </tr><tr>
-    <td>dotnet-core-buildpack</td><td>1.0.15</td>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.19</td>
   </tr><tr>
     <td>etcd</td><td>104</td>
   </tr><tr>
     <td>garden-runc</td><td>1.6.0</td>
   </tr><tr>
-    <td>go-buildpack</td><td>1.8.1</td>
+    <td>go-offline-buildpack</td><td>1.8.4</td>
   </tr><tr>
-    <td>java-offline-buildpack</td><td>3.16</td>
+    <td>java-offline-buildpack</td><td>3.16.1</td>
   </tr><tr>
-    <td>loggregator</td><td>87</td>
+    <td>loggregator</td><td>89</td>
   </tr><tr>
     <td>mysql-backup</td><td>1.33.0</td>
   </tr><tr>
-    <td>mysql-monitoring</td><td>8.1.0</td>
+    <td>mysql-monitoring</td><td>8.1.3</td>
   </tr><tr>
     <td>nats</td><td>16</td>
   </tr><tr>
     <td>nfs-volume</td><td>1.0.3</td>
   </tr><tr>
-    <td>nodejs-buildpack</td><td>1.5.32</td>
+    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
   </tr><tr>
     <td>notifications</td><td>36</td>
   </tr><tr>
     <td>notifications-ui</td><td>28</td>
   </tr><tr>
-    <td>php-buildpack</td><td>4.3.31</td>
+    <td>php-offline-buildpack</td><td>4.3.34</td>
   </tr><tr>
-    <td>pivotal-account</td><td>1.5.3</td>
+    <td>pivotal-account</td><td>1.6.0</td>
   </tr><tr>
     <td>postgres</td><td>17</td>
   </tr><tr>
     <td>push-apps-manager-release</td><td>661.1.24</td>
   </tr><tr>
-    <td>python-buildpack</td><td>1.5.18</td>
+    <td>python-offline-buildpack</td><td>1.5.19</td>
   </tr><tr>
-    <td>routing</td><td>0.154.0</td>
+    <td>routing</td><td>0.157.0</td>
   </tr><tr>
-    <td>ruby-buildpack</td><td>1.6.37</td>
+    <td>ruby-offline-buildpack</td><td>1.6.40</td>
   </tr><tr>
     <td>scalablesyslog</td><td>4</td>
   </tr><tr>
     <td>service-backup</td><td>18.0.4</td>
   </tr><tr>
-    <td>staticfile-buildpack</td><td>1.4.5</td>
+    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
   </tr><tr>
-    <td>statsd-injector</td><td>1.0.25</td>
+    <td>statsd-injector</td><td>1.0.28</td>
   </tr><tr>
-    <td>syslog-migration</td><td>2</td>
+    <td>syslog-migration</td><td>4</td>
   </tr><tr>
-    <td>uaa</td><td>37</td>
+    <td>uaa</td><td>40</td>
   </tr>
   </tbody>
   <tfoot>
@@ -109,8 +110,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is documented in the
-[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is
+documented in the [Upgrading Pivotal Cloud
+Foundry](../customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.11, be aware of the following upgrade considerations:
 
@@ -144,15 +146,15 @@ Accessibility Template (VPAT) for Apps Manager.
 
 ### <a id='container-networking'></a> Container-to-Container Networking
 
-The Container-to-Container Networking feature in Elastic Runtime is now
-generally available. For more information, see the
-[Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
+The Container-to-Container Networking feature in Elastic Runtime is out of
+beta. For more information, see the [Container-to-Container
+Networking](../devguide/deploy-apps/cf-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services
 
-General support for volume services inside of application containers is now
-generally available. Additionally, the Elastic Runtime ships with an NFS Volume
-Service Broker.
+General support for volume services inside of application containers is out of
+beta. Additionally, the Elastic Runtime ships with an NFS Volume Service
+Broker.
 
 For more information, see
 [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html)
@@ -169,6 +171,14 @@ Diego to find a placement for. If there is not enough disk on any of the Diego C
 developers will see an "insufficient resources" error message. Ensuring your Diego Cells
 provide enough disk to accomodate these much larger application instances will be an
 important part of your resource planning.
+
+### <a id='container-dns'></a> Application Container DNS
+
+By default, application containers will inherit the DNS nameservers specified
+for the Diego Cell BOSH VM.  For most cases, having your application containers
+inherit their DNS nameservers from the BOSH VM will work just fine, but if
+alternative nameservers are required, operators can now specify those
+nameservers sepearately from their BOSH DNS configuration.
 
 ### <a id='ha-defaults'></a> Highly-Available Default Configuration
 
@@ -197,10 +207,17 @@ Using `bbr` allow an operator to take a snapshot of their internal blobstore and
 Application developers can now push Docker-based applications with images that are hosted
 on a private registry.
 
+### <a id='syslog'></a> Common Syslog Formatting and Syslog over TLS
+
+The Elastic Runtime now emits BOSH component logs in a common syslog format
+following RFC5424.  Additionally, syslog over TLS is now supported to allow
+operators to deliver their platform logs securely to their syslog aggregator.
+
 ### <a id='uaa-sql-server'></a> UAA supports SQL Server database
 
 Operators can now independently configure their UAA service to store its data in an external
-SQL Server database.
+SQL Server database. The database configuration can now be found on the `UAA`
+tab in the Elastic Runtime Tile.
 
 ### <a id='locket'></a> Improved Distributed Lock Management
 
@@ -216,18 +233,25 @@ Password Expires** field in the **Authentication and Enterprise SSO** section.
 Instead, it sets the value to zero, which means that UAA user passwords for
 deployments using internal UAA never expire.
 
-If you have set a non-zero password expiry, Elastic Runtime will set it to zero when you upgrade from v1.10 to v1.11.
+If you have set a non-zero password expiry, Elastic Runtime will set it to zero
+when you upgrade from v1.10 to v1.11.
 
-### <a id='syslog'></a> Scalable Syslog
+### <a id='scalable-syslog'></a> Scalable Syslog
 
-Loggregator now uses the [Scalable Syslog](https://github.com/cloudfoundry/scalable-syslog-release) BOSH release to support streaming app logs to syslog-compatible aggregation or analytics services. This new delivery method has the following benefits: 
+Loggregator now uses the [Scalable
+Syslog](https://github.com/cloudfoundry/scalable-syslog-release) BOSH release
+to support streaming app logs to syslog-compatible aggregation or analytics
+services. This new delivery method has the following benefits:
 
 * Decouples syslog drains from the Firehose
-* Prevents log loss in the Firehose that previously resulted from syslog drains competing for the resources used to deliver logs  
+* Prevents log loss in the Firehose that previously resulted from syslog drains
+  competing for the resources used to deliver logs
 * Provides high message reliability for syslog drains
-* Maintains the UX of binding an app to a syslog drain service through Cloud Foundry user-provided services (CUPS)
+* Maintains the UX of binding an app to a syslog drain service through Cloud
+  Foundry user-provided services (CUPS)
 
-For more information about Scalabe Syslog in PCF, see [Overview of the Loggregator System](../loggregator/architecture.html).
+For more information about Scalabe Syslog in PCF, see [Overview of the
+Loggregator System](../loggregator/architecture.html).
 
 ## <a id='knownissues'></a> Known Issues
 
@@ -237,7 +261,10 @@ This section lists known issues for PCF Elastic Runtime.
 
 ###<a id='metrics'></a>Loggregator Metrics
 
-Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a hard-coded deployment name. Because the components do not allow the deployment name to be configured, Metron cannot properly tag the metrics. This affects the following metrics:
+Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a
+hard-coded deployment name. Because the components do not allow the deployment
+name to be configured, Metron cannot properly tag the metrics. This affects the
+following metrics:
 
 * `loggregator.rlp.ingress`
 * `loggregator.rlp.dropped`
@@ -248,8 +275,15 @@ A patch is planned to fix this issue and apply the deployment name consistently.
 
 ###<a id='mount-location'></a>Mount Location Bug
 
-If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure your `"mount"` section in your bind JSON matches what is in the Dockerfile, such as `"mount":"/some/data/dir"`. 
+If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure
+your `"mount"` section in your bind JSON matches what is in the Dockerfile,
+such as `"mount":"/some/data/dir"`.
 
-See [this example Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfile#L5) on GitHub for reference.
+See [this example
+Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfile#L5)
+on GitHub for reference.
 
-This only works if the path in question is in an already existing root level folder.  In other words, `"/var/some/random/path"` should work, but `"/some/random/path"` will cause your app to crash at startup. This limitation is due to an aufs bug.
+This only works if the path in question is in an already existing root level
+folder.  In other words, `"/var/some/random/path"` should work, but
+`"/some/random/path"` will cause your app to crash at startup. This limitation
+is due to an aufs bug.
