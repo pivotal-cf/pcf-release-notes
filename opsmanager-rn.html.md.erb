@@ -82,29 +82,6 @@ Ops Manager now allows operators to deploy using Azure's new fully managed stora
 
 Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can use either version of the CLI to manage your deployment. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html) topic.
 
-### <a id='bosh'></a> BOSH Updates
-The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
-
-#### BOSH Director
-
-Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
-
-+ Integration with upcoming `bbr` binary for backups/restore
-  + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
-+ Integration with CredHub for secure configuration management
-  + Added `variables` CLI command to list which variables are in use by a deployment
-+ Added `bosh.releases.upload` and `bosh.stemcells.upload` UAA scopes to allow release and stemcell uploads
-
-For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
-
-
-#### Stemcell
-Ops Manager v1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
-
-+ Bump Ubuntu stemcells for USN-3304-1: Sudo vulnerability
-
-To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
-
 ### <a id='CredHub'></a> Introducing CredHub
 
 CredHub is a centralized credential management component for your PCF deployment. CredHub secures credential generation, storage, lifecycle management, and access.
@@ -145,6 +122,39 @@ Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic speci
   <td><a href="../customizing/vsphere-config.html">Configuring Ops Manager Director on vSphere</a></td>
  </tr>
 </table>
+
+### <a id='worker'></a> Worker Configuration
+Operators can now configure the number of workers that are available on the BOSH Director. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
+
+### <a id='jmx-provider'></a> JMX Provider IP Address 
+The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for the secure transportation of metrics. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
+
+### <a id='vm-catalog'></a> Updated VM Catalog 
+Ops Manager 1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. For more information, see the _Resource Config Page_ [section](../customizing/cloudform-om-config.html#resource-config) of the  _Configuring Ops Manager Director_ topic for AWS.
+
+### <a id='bosh'></a> BOSH Updates
+The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
+
+#### BOSH Director
+
+Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
+
++ Integration with upcoming `bbr` binary for backups/restore
+  + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
++ Integration with CredHub for secure configuration management
+  + Added `variables` CLI command to list which variables are in use by a deployment
++ Added `bosh.releases.upload` and `bosh.stemcells.upload` UAA scopes to allow release and stemcell uploads
+
+For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
+
+
+#### Stemcell
+Ops Manager v1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
+
++ Bump Ubuntu stemcells for USN-3304-1: Sudo vulnerability
+
+To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
+
 
 ### <a id='fixes'></a> Bug Fixes
 + Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
