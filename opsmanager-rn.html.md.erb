@@ -83,18 +83,11 @@ Ops Manager now allows operators to deploy using Azure's new fully managed stora
 Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can use either version of the CLI to manage your deployment. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html) topic.
 
 ### <a id='bosh'></a> BOSH Updates
+The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
 
 #### BOSH Director
+
 Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
-
-+ <b>Worker Configuration:</b> Operators can now configure the number of workers that are available on the BOSH Director.
-+ <b>JMX Provider IP Address:</b> The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for secure transportation of metrics. 
-+ <b>API Endpoints:</b> Operators can use Ops Manager API endpoints to view credentials that are stored in CredHub. For more information on how to do this visit the [Fetching Variable Names and Values
-](../credhub/credhub-api-variables.html) topic.
-+ <b>Updated VM Catalog:</b> Ops Manager 1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types.
-
-#### <a id='other'></a> Other Notable BOSH Updates
-The following section lists updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
 
 + Integration with upcoming `bbr` binary for backups/restore
   + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
