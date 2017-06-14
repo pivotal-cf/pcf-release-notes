@@ -262,9 +262,9 @@ This section lists known issues for PCF Elastic Runtime.
 
 ###<a id='autoscaler'></a>App Autoscaler Panic
 
-The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Prep 9: Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
+The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
 
-If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the ["Autoscalar failing on SQL query"](https://discuss.pivotal.io/hc/en-us/articles/115008780768) Knowledge Base article to restore the service.
+If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the [Autoscalar failing on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768) Knowledge Base article to restore the service.
 
 ###<a id='metrics'></a>Loggregator Metrics
 
@@ -291,9 +291,9 @@ Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfi
 on GitHub for reference.
 
 This only works if the path in question is in an already existing root level
-folder.  In other words, `"/var/some/random/path"` should work, but
-`"/some/random/path"` will cause your app to crash at startup. This limitation
-is due to an aufs bug.
+folder. For example, `"/var/some/random/path"` works, but
+`"/some/random/path"` causes your app to crash at startup. This limitation
+is caused by an aufs bug.
 
 ### <a id='ecr-gcr-issue'></a> Private Docker Registry Support for ECR and GCR
 
