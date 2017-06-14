@@ -306,9 +306,9 @@ Future patches will bring support for these registries.
 A redirect URI is now a mandatory authorization parameter for the `authorization_code` and `implicit` grant types. When using the UAA API or UAAC and declaring clients in the manifest, make sure that at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
 
 <pre class='terminal'>
-{ 
-"error": "invalid_client", 
-"error_description": "authorization_code grant type requires at least one redirect URL." 
+{
+"error": "invalid_client",
+"error_description": "authorization_code grant type requires at least one redirect URL."
 }
 </pre>
 
