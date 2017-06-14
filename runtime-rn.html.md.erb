@@ -264,7 +264,7 @@ This section lists known issues for PCF Elastic Runtime.
 
 The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Prep 9: Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
 
-If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the Knowledge Base to restore the service.
+If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the ["Autoscalar failing on SQL query"](https://discuss.pivotal.io/hc/en-us/articles/115008780768) Knowledge Base article to restore the service.
 
 ###<a id='metrics'></a>Loggregator Metrics
 
