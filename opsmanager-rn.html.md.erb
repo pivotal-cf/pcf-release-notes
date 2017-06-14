@@ -25,31 +25,31 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
 </thead>
 <tbody>
 <tr>
-  <td>BOSH Director: v262</td>
+  <td>BOSH Director: v262.1</td>
 </tr>
 <tr>
-  <td><code>bosh-init</code>: v0.0.100</td>
+  <td><code>bosh-init</code>: v0.0.101</td>
 </tr>
 <tr>
   <td>Stemcell: 3421.3</td>
 </tr>
 <tr>
-  <td>AWS CPI: 62</td>
+  <td>AWS CPI: 65</td>
 </tr>
 <tr>
-  <td>Azure CPI: 22</td>
+  <td>Azure CPI: 24</td>
 </tr>
 <tr>
-  <td>Google Cloud Platform CPI: 25.6.2</td>
+  <td>Google Cloud Platform CPI: 25.9.0</td>
 </tr>
 <tr>
   <td>OpenStack CPI: 27</td>
 </tr>
 <tr>
-  <td>vSphere CPI: 38</td>
+  <td>vSphere CPI: 41</td>
 </tr>
 <tr>
-  <td>UAA: 27</td>
+  <td>UAA: 40</td>
 </tr>
 </tbody>
 </table>
@@ -58,7 +58,7 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
 
 ### <a id='ops-man-api'></a>Ops Manager API
 
-Operators can now use the API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. For more information about using this Ops Manager API feature, see the[Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html)topic.
+Operators can now use the API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. The Ops Manager Director tile must be configured to be deployed. For more information about using this Ops Manager API feature, see the [Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html) topic.
 
 ### <a id='logging'></a>Improved Logging for the Ops Manager VM
 
@@ -72,29 +72,30 @@ The Ops Manager VM is now built on the stemcell. For enhanced security to mainta
 
 Operators can use Ops Manager 1.11 to configure their Bosh Director to talk to NSX. Ops Manager 1.11 supports NSX-V 6.2+.
 
-Ops Manager has API endpoints to configure NSX security groups and load balancers on vSphere appliances. For more information on this feature, see the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
+Ops Manager has API endpoints to configure NSX security groups and load balancers per job on vSphere appliances. For more information on this feature, see the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
 
 ### <a id='azure-managed'></a>Azure Managed Disk
 Ops Manager now allows operators to deploy using Azure's new fully managed storage service. With this new service, users no longer have to manually manage their storage capacity. For more information on how to use the managed disk feature, see the [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html) topic.
 
+### <a id='bosh-cli-2'></a>BOSH CLI v2
 
-### <a id='errands'></a>BOSH CLI v2 Support
-
-Ops Manager v1.11.0 supports both the BOSH CLI v1 and the BOSH CLI v2. You can use either version of the CLI to manage your deployment. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html) topic.
+The Ops Manager VM includes the BOSH CLI v2. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html) topic.
 
 ### <a id='CredHub'></a> Introducing CredHub
 
 CredHub is a centralized credential management component for your PCF deployment. CredHub secures credential generation, storage, lifecycle management, and access.
 
+Ops Manager v1.11 deploys CredHub co-located on the BOSH Director VM.
+
 Learn more about CredHub in the [CredHub documentation](../credhub/index.html).
 
-### <a id='bosh'></a> All Director Logs Go to SysLog
+### <a id='bosh'></a> All Director Logs Go to Syslog
 
-The BOSH Director now sends all logs to SysLog, an external storage tool intended to preserve logs in case of catastrophic deployment loss. 
+The BOSH Director now sends all logs to syslog, to preserve logs in case of catastrophic deployment loss. 
 
-Learn more about SysLog in the [SysLog documentation](http://docs.pcf.io/tiledev/nozzle.html#syslog-format-pcf).
+Learn more about Pivotal's log format in the [Logs, Metrics, and Nozzles](http://docs.pcf.io/tiledev/nozzle.html#syslog-format-pcf) topic.
 
-Learn how to set up SysLog in the _Configuring Ops Manager Director_ topic specific to your IaaS. 
+Learn how to set up syslog in the _Configuring Ops Manager Director_ topic specific to your IaaS. 
 
 <table>
  <tr>
@@ -130,14 +131,14 @@ Operators can now configure the number of workers that are available on the BOSH
 The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for the secure transportation of metrics. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
 
 ### <a id='vm-catalog'></a> Updated VM Catalog 
-Ops Manager 1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. For more information, see the _Resource Config Page_ [section](../customizing/cloudform-om-config.html#resource-config) of the  _Configuring Ops Manager Director_ topic for AWS.
+Ops Manager v1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. For more information, see the _Resource Config Page_ [section](../customizing/cloudform-om-config.html#resource-config) of the  _Configuring Ops Manager Director_ topic for AWS.
 
 ### <a id='bosh'></a> BOSH Updates
 The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
 
 #### BOSH Director
 
-Ops Manager v1.11.0 uses BOSH v262, which includes the following changes to the BOSH Director:
+Ops Manager v1.11.0 uses BOSH v262.1, which includes the following changes to the BOSH Director:
 
 + Integration with upcoming `bbr` binary for backups/restore
   + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
@@ -155,12 +156,10 @@ Ops Manager v1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 
 
 To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
 
-
 ### <a id='fixes'></a> Bug Fixes
 + Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
 + The signature algorithm is now defaulted to SHA256.
 + Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
-+ Ops Manager no longer reserves 2 IPs for every requested Static IP.
 
 ## <a id='knownissues'></a> Known Issues
 
