@@ -235,6 +235,10 @@ deployments using internal UAA never expire.
 If you have set a non-zero password expiry, Elastic Runtime will set it to zero
 when you upgrade from v1.10 to v1.11.
 
+### <a id='uaa-redirect-uris'></a>UAA Validates Redirect URIs
+
+Starting from v1.11, UAA validates the redirect URIs of OAuth clients to prevent open redirect attacks. A redirect URI is now a mandatory parameter for OAuth clients that use the `authorization_code` and `implicit` grant types to acquire an access token. For more information, see [Known Issues](runtime-rn.html#uaa-redirect).
+
 ### <a id='scalable-syslog'></a> Scalable Syslog
 
 Loggregator now uses the [Scalable
@@ -296,3 +300,20 @@ is due to an aufs bug.
 The private Docker registry support referenced above does not currently support
 Amazon EC2 Container Registry or Google Cloud Platform Container Registry.
 Future patches will bring support for these registries.
+
+###<a id='uaa-redirect'></a>UAA Redirect URI Validation
+
+A redirect URI is now a mandatory authorization parameter for the `authorization_code` and `implicit` grant types. When using the UAA API or UAAC and declaring clients in the manifest, make sure that at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
+
+<pre class='terminal'>
+{ 
+"error": "invalid_client", 
+"error_description": "authorization_code grant type requires at least one redirect URL." 
+}
+</pre>
+
+Redirect URIs should start with `http` or `https`. A subdomain regex is supported only in the first part of the base domain:
+
+  * `https://*.apps.com` is supported.
+  * `https://*.apps.com*` is not supported.
+  * `https://*.apps*.com*` is not supported.
