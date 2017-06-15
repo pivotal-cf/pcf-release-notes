@@ -55,7 +55,7 @@ topic in the PCF Runtime for Windows documentation.
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Runtime for Windows tile includes new
+The **Advanced Features** pane of the PCF Runtime for Windows tile includes new
 functionality that may have certain constraints.  Although these features are
 fully supported, Pivotal recommends caution when using them in production.
 
@@ -64,30 +64,29 @@ fully supported, Pivotal recommends caution when using them in production.
 ### <a id='sha2'></a>SHA2 Checksum
 
 Operators can verify the data integrity of the PCF Runtime for Windows tile
-using the file's SHA2 checksum, rather than the MD5 checksum that was used in
+using the SHA2 checksum of the file, rather than the MD5 checksum used in
 previous releases.
 
 ### <a id='iso-seg'></a> Isolation Segment
 
-Operators can deploy their PCF Runtime for Windows application workloads to an
-isolation segment by entering a **Segment Name** in the **Application
-Containers** section and performing the steps in the [Create an Isolation
+Operators can follow these steps to deploy their PCF Runtime for Windows app workloads to an
+isolation segment:
+
+1. Enter a **Segment Name** in the **Application
+Containers** pane of the Windows Runtime tile.
+2. Complete the procedure in the [Create an Isolation
 Segment](http://docs.pivotal.io/pivotalcf/1-11/adminguide/isolation-segments.html#create-an-is)
 section of the <em>Managing Isolation Segments</em> topic to create the
 isolation segment in the Cloud Controller Database (CCDB).
 
 ### <a id='local-route-emitter'></a> Cell-local Route Emitters
 
-In previous versions of the PCF Runtime for Windows tile, the Diego Cells relied upon
-the Route Emitter component on the Diego Brain in the Elastic Runtime Tile to
-notify the Router of application routes.  When the Route Emitter becomes
-unavailable, routes can be lost in the Router route table. In order to improve
-the availability of the Route Emitter and reduce the impact of downtime from
-this component, the Route Emitter is now colocated on the Diego Cell for which
-it emits application routes.
+The Route Emitter is now colocated on the Diego Cell for which
+it emits app routes. This improves
+the availability of the Route Emitter and reduces the impact of downtime from
+this component. 
 
-## <a id='knownissues'></a>Known Issues
-
-###<a id='newissues'></a>New Issues
-
-###<a id='notes'></a>Notes
+In previous versions of the PCF Runtime for Windows tile, Diego Cells relied on
+the Route Emitter component on the Diego Brain in the Elastic Runtime tile to
+notify the Router of application routes. If the Route Emitter became
+unavailable, routes could be lost from the Router route table. 

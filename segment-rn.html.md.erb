@@ -77,9 +77,9 @@ This section describes new features of the release.
 
 ### <a id='override-dns'></a> Override DNS Servers
 
-By default, containers use the same DNS servers as the host. If you want to
-override the DNS servers to be used in the containers in the isolation segment,
-enter a comma-separated list of servers in the **DNS Servers** in the
+By default, containers use the same DNS servers as the host. To
+override the DNS servers used by the containers of an isolation segment,
+enter a comma-separated list of servers in the **DNS Servers** field of the
 **Application Containers** section of the tile.
 
 ### <a id='nfs3-vol-services'></a> NFSv3 Volume Services
@@ -119,16 +119,18 @@ syslog for the VMs deployed within the tile.
 
 ### <a id='sha2'></a>SHA2 Checksum
 
-Operators can verify the data integrity of the PCF Isolation Segment tile using
-the file's SHA2 checksum, rather than the MD5 checksum that was used in
+Operators can verify the data integrity of the Isolation Segment tile
+using the SHA2 checksum of the file, rather than the MD5 checksum used in
 previous releases.
 
 ### <a id='local-route-emitter'></a> Cell-local Route Emitters
 
-In previous versions of the Isolation Segment tile, the Diego Cells relied upon
-the Route Emitter component on the Diego Brain in the Elastic Runtime Tile to
-notify the Router of application routes.  When the Route Emitter becomes
-unavailable, routes can be lost in the Router route table. In order to improve
-the availability of the Route Emitter and reduce the impact of downtime from
-this component, the Route Emitter is now colocated on the Diego Cell for which
-it emits application routes.
+The Route Emitter is now colocated on the Diego Cell for which
+it emits app routes. This improves
+the availability of the Route Emitter and reduces the impact of downtime from
+this component. 
+
+In previous versions of the Isolation Segment tile, Diego Cells relied on
+the Route Emitter component on the Diego Brain in the Elastic Runtime tile to
+notify the Router of application routes. If the Route Emitter became
+unavailable, routes could be lost from the Router route table. 
