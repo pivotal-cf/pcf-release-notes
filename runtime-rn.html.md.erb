@@ -169,7 +169,7 @@ applications.
 Operators should take note that applications with large disk settings can be difficult for
 Diego to find a placement for. If there is not enough disk on any of the Diego Cells,
 developers will see an "insufficient resources" error message. Ensuring your Diego Cells
-provide enough disk to accomodate these much larger application instances will be an
+provide enough disk to accommodate these much larger application instances will be an
 important part of your resource planning.
 
 ### <a id='override-dns'></a> Override DNS Servers
@@ -317,3 +317,7 @@ Redirect URIs should start with `http` or `https`. A subdomain regex is supporte
   * `https://*.apps.com` is supported.
   * `https://*.apps.com*` is not supported.
   * `https://*.apps*.com*` is not supported.
+
+###<a id='fail-postgres'></a>Failed Upgrade In Large Deployments
+
+Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a timeout while updating PostgreSQL. If the upgrade fails, redeploy.
