@@ -68,6 +68,8 @@ Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Au
 
 The Ops Manager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
 
+As of v1.11.0, `sudo` without a password is disabled by default on the Ops Manager VM. Customers that have scripts that SSH into the Ops Manager VM and perform tasks as `sudo` should update their scripts.
+
 ### <a id='nsx-integration'></a>NSX Integration
 
 Operators can use Ops Manager 1.11 to configure their Bosh Director to talk to NSX. Ops Manager 1.11 supports NSX-V 6.2+.
