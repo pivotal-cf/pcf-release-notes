@@ -303,7 +303,7 @@ Future patches will bring support for these registries.
 
 ###<a id='uaa-redirect'></a>UAA Redirect URIs
 
-A redirect URI is now a mandatory parameter for the `authorization_code` and `implicit` grant types, which is required to submit an access request. When using the UAA API or UAAC and declaring OAuth clients in the manifest, make sure that at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
+A redirect URI is now a mandatory parameter for the `authorization_code` and `implicit` grant types, which is required to submit an access request. When using the UAA API or UAAC and declaring OAuth clients in the manifest, make sure at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
 
 <pre class='terminal'>
 {
