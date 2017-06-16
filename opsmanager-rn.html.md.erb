@@ -11,7 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.11 is documented in the [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
+The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.11.
 
 ### 1.11.0
 
@@ -54,13 +54,15 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
 </tbody>
 </table>
 
+<hr>
+
 ## <a id='major-features'></a>New Features in Ops Manager v1.11.0
 
 ### <a id='ops-man-api'></a>Ops Manager API
 
-Operators can now use the API to trigger an installation process only for Ops Manager Director, skipping the deployment of all other products that have pending changes in Ops Manager. The Ops Manager Director tile must be configured to be deployed. For more information about using this Ops Manager API feature, see the [Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html) topic.
+Operators can now use the Ops Manager API to trigger an installation process for Ops Manager Director only, skipping the deployment of all other products that have pending changes in Ops Manager. The Ops Manager Director tile must be configured to be deployed. For more information about using this Ops Manager API feature, see the [Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html) topic.
 
-### <a id='logging'></a>Improved Logging for the Ops Manager VM
+### <a id='logging'></a>Ops Manager VM Improved Logging
 
 Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Audit D. 
 
@@ -72,11 +74,12 @@ As of v1.11.0, `sudo` without a password is disabled by default on the Ops Manag
 
 ### <a id='nsx-integration'></a>NSX Integration
 
-Operators can use Ops Manager 1.11 to configure their Bosh Director to talk to NSX. Ops Manager 1.11 supports NSX-V 6.2+.
+Operators can use Ops Manager v1.11 to configure their BOSH Director to talk to NSX. Ops Manager v1.11 supports NSX-V 6.2+.
 
 Ops Manager has API endpoints to configure NSX security groups and load balancers per job on vSphere appliances. For more information about this feature, see the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
 
 ### <a id='azure-managed'></a>Azure Managed Disk
+
 Ops Manager now allows operators to deploy using Azure's new fully managed storage service. With this new service, users no longer have to manually manage their storage capacity. For more information about how to use the managed disk feature, see the [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html) topic.
 
 ### <a id='bosh-cli-2'></a>BOSH CLI v2
@@ -159,9 +162,9 @@ Ops Manager v1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 
 To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
 
 ### <a id='fixes'></a> Bug Fixes
-+ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
++ Ops Manager v1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
 + The signature algorithm is now defaulted to SHA256.
-+ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
++ Ops Manager v1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
 
 ## <a id='knownissues'></a> Known Issues
 
