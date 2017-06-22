@@ -229,3 +229,19 @@ For more information, see the corresponding [Knowledge Base](https://discuss.piv
 ###<a id='incorrect-help'></a>Incorrect Help Text
 
 For operators using vSphere, the **vCenter Config** section in Ops Manager v1.11.0 provides incorrect help text under **NSX Networking**. Enter your username and password for the NSX manager, not vCenter.
+
+###<a id='timeout'></a>Deployment Hangs or Times Out on vSphere
+
+When deploying with Ops Manager on vSphere, after clicking **Apply Changes** the deployment either hangs indefinitely or returns `Task NUMBER timeout`, where `NUMBER` is the deployment task number.
+
+To work around this issue, select a director VM that has at least 8 GB of memory and retry the deployment.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009450768) article.
+
+###<a id='resource-config'></a>Resource Config Page Returns a 500 Error
+
+When importing previous versions of an installation with non-default VM sizes that Ops Manager 1.11 no longer supports, the **Resource Config** page returns a 500 error.
+
+To work around this issue, use the API to export the list of supported VM types from the old Ops Manager installation and import the list to the new Ops Manager installation.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009289407) article.
