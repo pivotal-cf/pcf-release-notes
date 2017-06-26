@@ -74,11 +74,11 @@ In some cases you will need to scale down your Diego BBS cluster to one instance
 #
 ### <a id="1.8.50"></a> 1.8.50
 
-* Bumps stemcell to v3363.26.
-* Bumps Pivotal Account to v1.1.14
-* Bumps notifications-release to v36
-* Bumps the following buildpacks to their latest version: binary, php, python, go, java, nodejs, ruby, and dotnet-core.
-* Remove unnecessary persistent disk from Cloud Controller VM
+* Bumps stemcell to v3363.26. [**Fix**]
+* Bumps Pivotal Account to v1.1.14 to support large custom-branding images, provide security fixes, and refactor Pivotal Account deployment errand to avoid database issues during migrations on certain version of MySQL. [**Fix**]
+* Bumps notifications-release to v36 ([Release Notes](https://github.com/cloudfoundry-incubator/notifications-release/releases/tag/v36))
+* Bumps the following buildpacks to their latest version: [binary](https://github.com/cloudfoundry/binary-buildpack/releases/tag/v1.0.13), [php](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.34), [python](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.19), [go](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.4), [java](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17), [nodejs](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.5.36), [ruby](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.40), and [dotnet-core](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.19).
+* Remove unnecessary persistent disk from Cloud Controller VM [**Optimization**]
 
   <table border="1" class="nice">
   <thead>
