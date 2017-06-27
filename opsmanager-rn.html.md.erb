@@ -325,6 +325,20 @@ To view the release page for this stemcell, see the [stemcell 3421.3 release not
 
 This section lists known issues for Ops Manager v1.11.
 
+###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
+Ops Manager v1.11.1 publishes AMIs to the following newly supported AWS regions:
+
+* ap-south-1
+* ca-central-1
+* eu-west-2
+* us-east-2
+
+If you deploy Ops Manager using one of the new regions above and select **Use AWS Instance Profile** in the **AWS Config** tab, Ops Manager displays a network connectivity issue.
+
+To work around this issue, go to the **AWS Config** tab and select the **Use AWS Keys** option.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009684148) article.
+
 ###<a id='log'></a>Changelog Does Not Display
 When your deployment includes more than one tile, viewing the logs for your deploy by clicking **Changelog** on the Ops Manager Installation Dashboard fails.
 
