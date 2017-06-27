@@ -17,7 +17,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * Bumps the following buildpacks to their latest version: [binary](https://github.com/cloudfoundry/binary-buildpack/releases/tag/v1.0.13), [php](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.34), [python](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.19), [go](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.4), [java](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17), [nodejs](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.5.36), [ruby](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.40), and [dotnet-core](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.19).
 * HttpStartStop metrics for gorouter include 'instanceIndex'. [**Feature**]
 * Bump notifications-release to v36. [[Release Notes](https://github.com/cloudfoundry-incubator/notifications-release/releases/tag/v36)]
-* Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables.
+* Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables. [**Fix**]
 * All errands except smoke tests will default to run "when-changed". Smoke tests will default to run every time.
 * Removes unnecessary persistent disk from Cloud Controller VM.
 
