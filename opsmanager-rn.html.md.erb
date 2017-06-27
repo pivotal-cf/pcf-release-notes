@@ -772,4 +772,23 @@ As a workaround, if you are deploying a service network in GCP, modify your fire
 
 * Fixed a bug that was preventing a load balancer from being attached to the BOSH Director on Google Cloud Platform.
 
+For a full list of updates and fixes in the new stemcell that Ops Manager uses, see the [stemcell 3363 release notes](./stemcell-rn.html).
+
+## <a id='knownissues'></a> Known Issues
+
+This section lists known issues for Ops Manager v1.9.
+
+###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
+Ops Manager v1.9.16 publishes AMIs to the following newly supported AWS regions:
+
+* ap-south-1
+* ca-central-1
+* eu-west-2
+* us-east-2
+
+If you deploy Ops Manager using one of the new regions above and select **Use AWS Instance Profile** in the **AWS Config** tab, Ops Manager displays a network connectivity issue.
+
+To work around this issue, go to the **AWS Config** tab and select the **Use AWS Keys** option.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009684148) article.
 
