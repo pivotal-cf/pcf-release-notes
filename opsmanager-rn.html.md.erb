@@ -597,3 +597,21 @@ Ops Manager v1.10.0 uses Stemcell 3363.10. Here are some of the major changes in
 * Log Agent API access events are sent in CEF format to syslog via the `vcap.agent` topic.
 
 For a full list of updates and fixes in the new stemcell that Ops Manager uses, see the [stemcell 3363 release notes](./stemcell-rn.html).
+
+## <a id='knownissues'></a> Known Issues
+
+This section lists known issues for Ops Manager v1.10.
+
+###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
+Ops Manager v1.10.1 publishes AMIs to the following newly supported AWS regions:
+
+* ap-south-1
+* ca-central-1
+* eu-west-2
+* us-east-2
+
+If you deploy Ops Manager using one of the new regions above and select **Use AWS Instance Profile** in the **AWS Config** tab, Ops Manager displays a network connectivity issue.
+
+To work around this issue, go to the **AWS Config** tab and select the **Use AWS Keys** option.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009684148) article.
