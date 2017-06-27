@@ -320,8 +320,10 @@ operators to deliver their platform logs securely to their syslog aggregator.
 ### <a id='uaa-sql-server'></a> UAA supports SQL Server database
 
 Operators can now independently configure their UAA service to store its data in an external
-SQL Server database. You can configure the database in the **UAA**
+SQL Server database. You can configure the UAA database in the **UAA**
 pane of the Elastic Runtime tile.
+
+**Important Note**: UAA database configuration has been fully separated into the UAA tab to allow its independent configuration. Upon upgrade, settings will be migrated from the existing installation. Going forward, you must change both the UAA and System Database forms to keep their configuration in sync.
 
 ### <a id='locket'></a> Improved Distributed Lock Management
 
