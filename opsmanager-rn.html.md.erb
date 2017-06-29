@@ -15,8 +15,12 @@ The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic c
 
 ### 1.11.4
 
-* Fixes a bug where the **Resource Config** page [returned a 500 error](#resource-config) when importing an installation with non-default VM sizes
-* Adds support for [Google Shared Virtual Private Cloud (VPC)](https://cloud.google.com/compute/docs/shared-vpc/) networks on GCP
+* Adds support for [Google Shared Virtual Private Cloud (VPC)](https://cloud.google.com/compute/docs/shared-vpc/) networks on GCP. For more information, see the following topics:
+  * [Launching an Ops Manager Director Instance on GCP](../customizing/gcp-om-deploy.html)
+  * [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#network)
+* Fixes a bug where the **Resource Config** page [returns a 500 error](#resource-config) when importing an installation with non-default VM sizes
+* Fixes a bug where Ops Manager downsizes memory for [AWS default VM types ](#aws-diego) when upgrading
+* Fixes a bug where cleaning up unused products could remove a currently-configured stemcell
 
 <table border="1" class="nice">
 <thead>
