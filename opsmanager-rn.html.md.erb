@@ -377,11 +377,13 @@ This section lists known issues for Ops Manager 1.11.
 ###<a id='aws-diego'></a>Diego VM Type Defaults to m4 After Upgrading on AWS
 
 If you deployed Diego cells with Ops Manager 1.10, by default AWS deployed them as type `r3` with 32&nbsp;GB RAM.
-When you upgrade to Ops Manager 1.11, the `r3` type VMs become `m4` VMs by default, with only 16&nbsp;GB RAM.
+When you upgrade to Ops Manager 1.11, by default the `r3` VMs become `m4` VMs with only 16&nbsp;GB RAM.
 The reduced Diego cell memory can cause insufficient memory issues.
 
 To work around this issue, go to the **Resource Config** tab and manually select a VM type with at least 32&nbsp;GB RAM.
 You can also increase the number of Diego cells to give apps greater memory capacity.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009737188) article.
 
 ###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
 Ops Manager 1.11.1 publishes AMIs to the following newly supported AWS regions:
