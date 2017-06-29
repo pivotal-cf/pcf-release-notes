@@ -309,23 +309,32 @@ For a full list of updates and fixes in the new BOSH version that Ops Manager us
 
 
 #### Stemcell
-Ops Manager v1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
+Ops Manager 1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
 
 + Bump Ubuntu stemcells for USN-3304-1: Sudo vulnerability
 
 To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
 
 ### <a id='fixes'></a> Bug Fixes
-+ Ops Manager v1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. 
++ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML.
 + The signature algorithm is now defaulted to SHA256.
-+ Ops Manager v1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
++ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
 
 ## <a id='knownissues'></a> Known Issues
 
-This section lists known issues for Ops Manager v1.11.
+This section lists known issues for Ops Manager 1.11.
+
+###<a id='aws-diego'></a>Diego VM Type Defaults to m4 After Upgrading on AWS
+
+If you deployed Diego cells with Ops Manager 1.10, by default AWS deployed them as type `r3` with 32&nbsp;GB RAM.
+When you upgrade to Ops Manager 1.11, the `r3` type VMs become `m4` VMs by default, with only 16&nbsp;GB RAM.
+The reduced Diego cell memory can cause insufficient memory issues.
+
+To work around this issue, go to the **Resource Config** tab and manually select a VM type with at least 32&nbsp;GB RAM.
+You can also increase the number of Diego cells to give apps greater memory capacity.
 
 ###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
-Ops Manager v1.11.1 publishes AMIs to the following newly supported AWS regions:
+Ops Manager 1.11.1 publishes AMIs to the following newly supported AWS regions:
 
 * ap-south-1
 * ca-central-1
@@ -347,7 +356,7 @@ For more information, see the corresponding [Knowledge Base](https://discuss.piv
 
 ###<a id='incorrect-help'></a>Incorrect Help Text
 
-For operators using vSphere, the **vCenter Config** section in Ops Manager v1.11.0 provides incorrect help text under **NSX Networking**. Enter your username and password for the NSX manager, not vCenter.
+For operators using vSphere, the **vCenter Config** section in Ops Manager 1.11.0 provides incorrect help text under **NSX Networking**. Enter your username and password for the NSX manager, not vCenter.
 
 ###<a id='timeout'></a>Deployment Hangs or Times Out on vSphere
 
