@@ -16,7 +16,7 @@ The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic c
 ### 1.11.4
 
 * Adds support for [Google Shared Virtual Private Cloud (VPC)](https://cloud.google.com/compute/docs/shared-vpc/) networks on GCP. For more information, see [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html)
-* Fixes a bug where the **Resource Config** page [returns a 500 error](#resource-config) when importing an installation with non-default VM sizes
+* Fixes a bug where the **Resource Config** page [returns a 500 error](#resource-config) when importing an installation with non-default VM sizes.
 * Fixes a bug where Ops Manager downsizes memory for [AWS default VM types ](#aws-diego) when upgrading
 * Fixes a bug where cleaning up unused products could remove a currently configured stemcell
 
@@ -416,7 +416,8 @@ For operators using vSphere, the **vCenter Config** section in Ops Manager 1.11.
 
 When deploying with Ops Manager on vSphere, after clicking **Apply Changes** the deployment either hangs indefinitely or returns `Task NUMBER timeout`, where `NUMBER` is the deployment task number.
 
-To work around this issue, select a director VM that has at least 8&nbsp;GB of memory and retry the deployment.
+To work around this issue, navigate to the **Resource Config** tab in the Ops Manager tile.
+For the **Ops Manager Director** job, select a VM type that has at least 8&nbsp;GB of memory and retry the deployment.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009450768) article.
 
