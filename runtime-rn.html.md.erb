@@ -128,6 +128,7 @@ This allows a mixed database configuration where the system database is external
 * Container-to-container networking will log iptables rules in the kernel log on each Diego Cell. [**Feature**]
 * All errands except smoke tests will default to run "when-changed". Smoke tests will default to run every time.
 * Removes unnecessary persistent disk from Cloud Controller VM.
+* Fixes <a href="#rep-crashes">known issue with infrequent Diego cell rep crashes.</a>
 
   <table border="1" class="nice">
   <thead>
@@ -539,3 +540,7 @@ Redirect URIs should start with `http` or `https`. A subdomain regex is supporte
 Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a timeout while updating PostgreSQL. If the upgrade fails, redeploy.
 
 For more information, see the ["Deploying ERT 1.11 fails to due to a timeout while updating PostGreSQL"](https://discuss.pivotal.io/hc/en-us/articles/115008875387) Knowledge Base article.
+
+###<a id='rep-crashes'></a>Diego Cell Rep Crashes
+
+Fixed in ERT 1.11.1. In ERT 1.11.0, the Diego cell rep process will infrequently crash as a result of a race condition when buffering health-check logs for application instances. The application instances on that cell will be rescheduled when the rep process is restarted or when the Diego system notices that its presence has expired, typically within 15 seconds of the rep process crashing.
