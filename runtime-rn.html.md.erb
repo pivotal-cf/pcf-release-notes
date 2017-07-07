@@ -471,6 +471,11 @@ Loggregator System](../loggregator/architecture.html).
 
 This section lists known issues for PCF Elastic Runtime.
 
+###<a id='unavailability-internal-mysql-update'></a>Brief Unavailability of Application Management during Internal MySQL Database Updates
+
+This issue applies only to Elastic Runtime deployments using an internal MySQL database with more than one MySQL instance. When updating this MySQL database deployment, some application management operations such as `cf push` may become unavailable for up to 15 seconds, as may the Routing API. Application instances will continue to run, however, and their routes will remain registered. This period of unavailability results from certain Elastic Runtime components losing their leader-election locks and being able to reclaim the lock only after the 15-second lock expiration time. This availability issue will be fixed in a forthcoming patch release.
+
+
 ###<a id='autoscaler'></a>App Autoscaler Panic
 
 The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
