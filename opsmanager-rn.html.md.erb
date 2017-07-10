@@ -566,7 +566,7 @@ Errands are scripts that Ops Manager runs to automate tasks. In PCF 1.10, Ops Ma
 
 * **On**: The errand always runs.
 * **Off**: The errand never runs.
-* **When Changed**: The errand runs only if the associated product manifest has changed since the last successful errand run.
+* **When Changed**: The errand runs only if the errand configuration in the associated product deployment configuration has changed since the last successful errand run.
 
 If a tile developer does not specify a default configuration for an errand, then Ops Manager applies the **When Changed** configuration.
 
