@@ -1,5 +1,5 @@
 ---
-title: Pivotal Cloud Foundry Ops Manager v1.11 Release Notes
+title: Pivotal Cloud Foundry Ops Manager v1.12 Release Notes
 owner: Ops Manager
 ---
 
@@ -11,14 +11,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.11.
+The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
 
-### 1.11.4
+### 1.12.0
 
-* Adds support for [Google Shared Virtual Private Cloud (VPC)](https://cloud.google.com/compute/docs/shared-vpc/) networks on GCP. For more information, see [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html)
-* Fixes a bug where the **Resource Config** page [returns a 500 error](#resource-config) when importing an installation with non-default VM sizes.
-* Fixes a bug where Ops Manager downsizes memory for [AWS default VM types ](#aws-diego) when upgrading
-* Fixes a bug where cleaning up unused products could remove a currently configured stemcell
+Version 1.12.0 of Ops Manager consists of the following component versions:
 
 <table border="1" class="nice">
 <thead>
@@ -28,403 +25,39 @@ The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic c
 </thead>
 <tbody>
 <tr>
-  <td>BOSH Director: v262.1</td>
+  <td>BOSH Director: </td>
 </tr>
 <tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
+  <td><code>bosh-init</code>: </td>
 </tr>
 <tr>
-  <td>Stemcell: 3421.9</td>
+  <td>Stemcell: </td>
 </tr>
 <tr>
-  <td>AWS CPI: 65</td>
+  <td>AWS CPI: </td>
 </tr>
 <tr>
-  <td>Azure CPI: 24</td>
+  <td>Azure CPI: </td>
 </tr>
 <tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
+  <td>Google Cloud Platform CPI: </td>
 </tr>
 <tr>
-  <td>OpenStack CPI: 27</td>
+  <td>OpenStack CPI: </td>
 </tr>
 <tr>
-  <td>vSphere CPI: 41</td>
+  <td>vSphere CPI: </td>
 </tr>
 <tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
+  <td>UAA: </td>
 </tr>
 </tbody>
 </table>
 
 <hr>
 
-### 1.11.3
+## <a id='major-features'></a>New Features in Ops Manager v1.12.0
 
-* Bumps JMX to v3
-* Configures BOSH Director memory to a minimum of 6&nbsp;GB to mitigate the [deployment hanging issue](#timeout)
-
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-### 1.11.2
-
-* This release patches Ubuntu Security Notice USN-3334-1. Additional information can be found at https://pivotal.io/security.
-* Bumps stemcell to 3421.9
-* Bumps `bosh-init` to v0.0.103
-* Bumps CredHub to v1.0.1
-
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 2</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-### 1.11.1
-
-* Fixes a bug where NSX password help text was incorrect
-* Fixes a bug where for deployments that include more than one tile, clicking **Changelog** results in a 500 error
-* Adds a feature where <code>api/v0/installations/commit</code> errors when there are staged credentials to migrate to CredHub
-* Adds a feature where tile authors can migrate an existing non-configurable secret into CredHub and delete the secret from the installation
-* Bumps UAA to v41
-* Bumps JMX release to v2
-
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.101</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.3</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 2</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-
-### 1.11.0
-
-Version 1.11.0 of Ops Manager consists of the following component versions:
-
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.101</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.3</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>UAA: 40</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-## <a id='major-features'></a>New Features in Ops Manager v1.11.0
-
-### <a id='ops-man-api'></a>Ops Manager API
-
-Operators can now use the Ops Manager API to trigger an installation process for Ops Manager Director only, skipping the deployment of all other products that have pending changes in Ops Manager. The Ops Manager Director tile must be configured to be deployed. For more information about using this Ops Manager API feature, see the [Applying Changes to Ops Manager Director](../customizing/deploy-ops-man-director.html) topic.
-
-### <a id='logging'></a>Ops Manager VM Improved Logging
-
-Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Audit D. 
-
-### <a id='vm-hardening'></a>Ops Manager VM Hardening
-
-The Ops Manager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
-
-As of v1.11.0, `sudo` without a password is disabled by default on the Ops Manager VM. Customers that have scripts that SSH into the Ops Manager VM and perform tasks as `sudo` should update their scripts.
-
-### <a id='nsx-integration'></a>NSX Integration
-
-Operators can use Ops Manager v1.11 to configure their BOSH Director to talk to NSX. Ops Manager v1.11 supports NSX-V 6.2+.
-
-Ops Manager has API endpoints to configure NSX security groups and load balancers per job on vSphere appliances. For more information about this feature, see the [Configuring Ops Manager Director for VMware vSphere](../customizing/vsphere-config.html#vcenter-config) topic.
-
-### <a id='azure-managed'></a>Azure Managed Disk
-
-Ops Manager now allows operators to deploy using Azure's new fully managed storage service. With this new service, users no longer have to manually manage their storage capacity. For more information about how to use the managed disk feature, see the [Configuring Ops Manager Director on Azure](../customizing/azure-om-config.html) topic.
-
-### <a id='bosh-cli-2'></a>BOSH CLI v2
-
-The Ops Manager VM includes the BOSH CLI v2. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html) topic.
-
-### <a id='CredHub'></a> Introducing CredHub
-
-CredHub is a centralized credential management component for your PCF deployment. CredHub secures credential generation, storage, lifecycle management, and access.
-
-Ops Manager v1.11 deploys CredHub co-located on the BOSH Director VM.
-
-Learn more about CredHub in the PCF Tile Developers Guide [CredHub topic](https://docs.pivotal.io/tiledev/credhub.html).
-
-### <a id='bosh'></a> All Director Logs Go to Syslog
-
-The BOSH Director now sends all logs to syslog, to preserve logs in case of catastrophic deployment loss. 
-
-Learn more about Pivotal's log format in the [Logs, Metrics, and Nozzles](https://docs.pivotal.io/tiledev/nozzle.html#syslog-format-pcf) topic.
-
-Learn how to set up syslog in the _Configuring Ops Manager Director_ topic specific to your IaaS. 
-
-<table>
- <tr>
-  <th>Your IaaS provider</th>
-  <th>Configuration topic</th>
- </tr>
- <tr>
-  <td>AWS</td>
-  <td><a href="../customizing/pcf-aws-manual-om-config.html">Configuring Ops Manager Director on AWS</a></td>
- </tr>
- <tr>
-  <td>Azure</td>
-  <td><a href="../customizing/azure-om-config.html">Configuring Ops Manager Director on Azure</a></td>
- </tr>
- <tr>
-  <td>GCP</td>
-  <td><a href="../customizing/gcp-om-config.html">Configuring Ops Manager Director on GCP</a></td>
- </tr>
- <tr>
-  <td>OpenStack</td>
-  <td><a href="../customizing/openstack-om-config.html">Configuring Ops Manager Director on OpenStack</a></td>
- </tr>
- <tr>
-  <td>vSphere</td>
-  <td><a href="../customizing/vsphere-config.html">Configuring Ops Manager Director on vSphere</a></td>
- </tr>
-</table>
-
-### <a id='worker'></a> Worker Configuration
-Operators can now configure the number of workers that are available on the BOSH Director. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
-
-### <a id='jmx-provider'></a> JMX Provider IP Address 
-The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for the secure transportation of metrics. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
-
-### <a id='vm-catalog'></a> Updated VM Catalog 
-Ops Manager v1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. For more information, see the _Resource Config Page_ [section](../customizing/pcf-aws-manual-om-config.html#resource-config) of the  _Configuring Ops Manager Director_ topic for AWS.
-
-### <a id='bosh'></a> BOSH Updates
-The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
-
-#### BOSH Director
-
-Ops Manager v1.11.0 uses BOSH v262.1, which includes the following changes to the BOSH Director:
-
-+ Integration with upcoming `bbr` binary for backups/restore
-  + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
-+ Integration with CredHub for secure configuration management
-  + Added `variables` CLI command to list which variables are in use by a deployment
-+ Added `bosh.releases.upload` and `bosh.stemcells.upload` UAA scopes to allow release and stemcell uploads
-
-For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
-
-
-#### Stemcell
-Ops Manager 1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
-
-+ Bump Ubuntu stemcells for USN-3304-1: Sudo vulnerability
-
-To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
-
-### <a id='fixes'></a> Bug Fixes
-+ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML.
-+ The signature algorithm is now defaulted to SHA256.
-+ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
+## <a id='fixes'></a> Bug Fixes
 
 ## <a id='knownissues'></a> Known Issues
-
-This section lists known issues for Ops Manager 1.11.
-
-###<a id='aws-diego'></a>Diego VM Type Defaults to m4 After Upgrading on AWS
-
-If you deployed Diego cells with Ops Manager 1.10, by default AWS deployed them as type `r3` with 32&nbsp;GB RAM.
-When you upgrade to Ops Manager 1.11, by default the `r3` VMs become `m4` VMs with only 16&nbsp;GB RAM.
-The reduced Diego cell memory can cause insufficient memory issues.
-
-To work around this issue, go to the **Resource Config** tab and manually select a VM type with at least 32&nbsp;GB RAM.
-You can also increase the number of Diego cells to give apps greater memory capacity.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009737188) article.
-
-###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
-Ops Manager 1.11.1 publishes AMIs to the following newly supported AWS regions:
-
-* ap-south-1
-* ca-central-1
-* eu-west-2
-* us-east-2
-
-If you deploy Ops Manager using one of the new regions above and select **Use AWS Instance Profile** in the **AWS Config** tab, Ops Manager displays a network connectivity issue.
-
-To work around this issue, go to the **AWS Config** tab and select the **Use AWS Keys** option.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009684148) article.
-
-###<a id='log'></a>Changelog Does Not Display
-When your deployment includes more than one tile, viewing the logs for your deploy by clicking **Changelog** on the Ops Manager Installation Dashboard fails.
-
-To view the logs, add `.txt` to the URL for the log to download it as a raw text file.  
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115008775808) article.
-
-###<a id='incorrect-help'></a>Incorrect Help Text
-
-For operators using vSphere, the **vCenter Config** section in Ops Manager 1.11.0 provides incorrect help text under **NSX Networking**. Enter your username and password for the NSX manager, not vCenter.
-
-###<a id='timeout'></a>Deployment Hangs or Times Out on vSphere
-
-When deploying with Ops Manager on vSphere, after clicking **Apply Changes** the deployment either hangs indefinitely or returns `Task NUMBER timeout`, where `NUMBER` is the deployment task number.
-
-To work around this issue, navigate to the **Resource Config** tab in the Ops Manager tile.
-For the **Ops Manager Director** job, select a VM type that has at least 8&nbsp;GB of memory and retry the deployment.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009450768) article.
-
-###<a id='resource-config'></a>Resource Config Page Returns a 500 Error
-
-When importing previous versions of an installation with non-default VM sizes that Ops Manager 1.11 no longer supports, the **Resource Config** page returns a 500 error.
-
-To work around this issue, use the API to export the list of supported VM types from the old Ops Manager installation and import the list to the new Ops Manager installation.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009289407) article.
