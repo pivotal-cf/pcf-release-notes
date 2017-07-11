@@ -1,5 +1,5 @@
 ---
-title: Pivotal Elastic Runtime v1.11 Release Notes
+title: Pivotal Elastic Runtime v1.12 Release Notes
 owner: Release Engineering
 ---
 
@@ -12,18 +12,8 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 <hr>
 
 ## <a id='releases'></a> Releases
-#
-### <a id='1.11.2'></a> 1.11.2
 
-* Bumps cflinuxfs2-rootfs to 1.33.0. [**Security Fix**] [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.133.0)]
-* Configuring external system database will no longer scale down the internal mysql components. 
-
-This allows a mixed database configuration where the system database is external but the UAA database may use internal MySQL. Starting in ERT 1.11.0, the UAA database is configured independently on the UAA form. MySQL instance counts for existing installations will not be affected by this change. Going forward, you will need to manually set the instance count to 0 for all MySQL VMs (MySQL Server, MySQL Proxy, and MySQL Monitor) if they are not in use.
-
-* Bumps nfs-volume-release to v1.0.5. [**Bug Fix**] [[Release Notes](https://github.com/cloudfoundry/nfs-volume-release/releases/tag/v1.0.5)]
-* Bumps cf-mysql-release to v35.1.
-* Bumps mysql-monitoring-release to v8.3.0. [[Release Notes](https://github.com/pivotal-cf-experimental/mysql-monitoring-release/releases/tag/v8.3.0)]
-
+### <a id='1.12.0'></a> 1.12.0
 
   <table border="1" class="nice">
   <thead>
@@ -34,281 +24,81 @@ This allows a mixed database configuration where the system database is external
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3421.9</td>
+    <td>Stemcell</td><td></td>
   </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.13</td>
+    <td>binary-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>capi</td><td>1.28.0\*</td>
+    <td>capi</td><td></td>
   </tr><tr>
-    <td>cf</td><td>259\*</td>
+    <td>cf</td><td></td>
   </tr><tr>
-    <td>cf-autoscaling</td><td>93</td>
+    <td>cf-autoscaling</td><td></td>
   </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.3</td>
+    <td>cf-backup-and-restore</td><td></td>
   </tr><tr>
-    <td>cf-mysql</td><td>35.1</td>
+    <td>cf-mysql</td><td></td>
   </tr><tr>
-    <td>cf-networking</td><td>0.25.0</td>
+    <td>cf-networking</td><td></td>
   </tr><tr>
-    <td>cf-smoke-tests</td><td>21</td>
+    <td>cf-smoke-tests</td><td></td>
   </tr><tr>
-    <td>cflinuxfs2</td><td>1.133.0</td>
+    <td>cflinuxfs2</td><td></td>
   </tr><tr>
-    <td>consul</td><td>167</td>
+    <td>consul</td><td></td>
   </tr><tr>
-    <td>diego</td><td>1.18.1</td>
+    <td>diego</td><td></td>
   </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.19</td>
+    <td>dotnet-core-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>etcd</td><td>104</td>
+    <td>etcd</td><td></td>
   </tr><tr>
-    <td>garden-runc</td><td>1.7.0</td>
+    <td>garden-runc</td><td></td>
   </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.4</td>
+    <td>go-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>java-offline-buildpack</td><td>3.17</td>
+    <td>java-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>loggregator</td><td>89</td>
+    <td>loggregator</td><td></td>
   </tr><tr>
-    <td>mysql-backup</td><td>1.33.0</td>
+    <td>mysql-backup</td><td></td>
   </tr><tr>
-    <td>mysql-monitoring</td><td>8.3.0</td>
+    <td>mysql-monitoring</td><td></td>
   </tr><tr>
-    <td>nats</td><td>16</td>
+    <td>nats</td><td></td>
   </tr><tr>
-    <td>nfs-volume</td><td>1.0.5</td>
+    <td>nfs-volume</td><td></td>
   </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
+    <td>nodejs-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>notifications</td><td>36</td>
+    <td>notifications</td><td></td>
   </tr><tr>
-    <td>notifications-ui</td><td>28</td>
+    <td>notifications-ui</td><td></td>
   </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.34</td>
+    <td>php-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>pivotal-account</td><td>1.6.0</td>
+    <td>pivotal-account</td><td></td>
   </tr><tr>
-    <td>postgres</td><td>17</td>
+    <td>postgres</td><td></td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>661.1.24</td>
+    <td>push-apps-manager-release</td><td>6</td>
   </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.19</td>
+    <td>python-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>routing</td><td>0.157.0</td>
+    <td>routing</td><td>0</td>
   </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.40</td>
+    <td>ruby-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>scalablesyslog</td><td>4</td>
+    <td>scalablesyslog</td><td></td>
   </tr><tr>
-    <td>service-backup</td><td>18.0.4</td>
+    <td>service-backup</td><td></td>
   </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
+    <td>staticfile-offline-buildpack</td><td></td>
   </tr><tr>
-    <td>statsd-injector</td><td>1.0.28</td>
+    <td>statsd-injector</td><td></td>
   </tr><tr>
-    <td>syslog-migration</td><td>4</td>
+    <td>syslog-migration</td><td></td>
   </tr><tr>
-    <td>uaa</td><td>41</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-### <a id='1.11.1'></a> 1.11.1
-
-* Bumps stemcell to 3421.9. [**Security Fix**]
-* Bumps the java buildpack to 3.17. [[Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17)]
-* Bumps uaa-release to v41.
-* Bumps diego-release to v1.18.1. [[Release Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.18.1)]
-* Bumps cflinuxfs2 to v1.126.0. [**Security Fix**] [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.126.0)]
-* Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables. [**Fix**]
-* Container-to-container networking will log iptables rules in the kernel log on each Diego Cell. [**Feature**]
-* All errands except smoke tests will default to run "when-changed". Smoke tests will default to run every time.
-* Removes unnecessary persistent disk from Cloud Controller VM.
-* Fixes <a href="#rep-crashes">known issue with infrequent Diego cell rep crashes.</a>
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3421.9</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.13</td>
-  </tr><tr>
-    <td>capi</td><td>1.28.0\*</td>
-  </tr><tr>
-    <td>cf</td><td>259\*</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>93</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.3</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>35.0.1</td>
-  </tr><tr>
-    <td>cf-networking</td><td>0.25.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>21</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.126.0</td>
-  </tr><tr>
-    <td>consul</td><td>167</td>
-  </tr><tr>
-    <td>diego</td><td>1.18.1</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.19</td>
-  </tr><tr>
-    <td>etcd</td><td>104</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.7.0</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.4</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.17</td>
-  </tr><tr>
-    <td>loggregator</td><td>89</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.33.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.1.3</td>
-  </tr><tr>
-    <td>nats</td><td>16</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.3</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
-  </tr><tr>
-    <td>notifications</td><td>36</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>28</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.34</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.6.0</td>
-  </tr><tr>
-    <td>postgres</td><td>17</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>661.1.24</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.19</td>
-  </tr><tr>
-    <td>routing</td><td>0.157.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.40</td>
-  </tr><tr>
-    <td>scalablesyslog</td><td>4</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.0.4</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.0.28</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>4</td>
-  </tr><tr>
-    <td>uaa</td><td>41</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.11.0'></a> 1.11.0
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3421.3</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.13</td>
-  </tr><tr>
-    <td>capi</td><td>1.28.0\*</td>
-  </tr><tr>
-    <td>cf</td><td>259\*</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>93</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.3</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>35.0.1</td>
-  </tr><tr>
-    <td>cf-networking</td><td>0.25.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>21</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.123.0</td>
-  </tr><tr>
-    <td>consul</td><td>167</td>
-  </tr><tr>
-    <td>diego</td><td>1.16.1</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.19</td>
-  </tr><tr>
-    <td>etcd</td><td>104</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.6.0</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.4</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.16.1</td>
-  </tr><tr>
-    <td>loggregator</td><td>89</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.33.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.1.3</td>
-  </tr><tr>
-    <td>nats</td><td>16</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.3</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
-  </tr><tr>
-    <td>notifications</td><td>36</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>28</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.34</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.6.0</td>
-  </tr><tr>
-    <td>postgres</td><td>17</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>661.1.24</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.19</td>
-  </tr><tr>
-    <td>routing</td><td>0.157.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.40</td>
-  </tr><tr>
-    <td>scalablesyslog</td><td>4</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.0.4</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.0.28</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>4</td>
-  </tr><tr>
-    <td>uaa</td><td>40</td>
+    <td>uaa</td><td></td>
   </tr>
   </tbody>
   <tfoot>
@@ -320,18 +110,18 @@ This allows a mixed database configuration where the system database is external
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.12 is
 documented in the [Upgrading Pivotal Cloud
 Foundry](../customizing/upgrading-pcf.html) topic.
 
-When upgrading to v1.11, be aware of the following upgrade considerations:
+When upgrading to v1.12, be aware of the following upgrade considerations:
 
-* You must upgrade first to a version of Elastic Runtime v1.10.x in order to
-  successfully upgrade to v1.11.
-* Some partner service tiles may be incompatible with PCF v1.11. Pivotal is
+* You must upgrade first to a version of Elastic Runtime v1.11.x in order to
+  successfully upgrade to v1.12.
+* Some partner service tiles may be incompatible with PCF v1.12. Pivotal is
   working with partners to ensure their tiles are being updated to work with the
   latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v1.11, review the appropriate
+  releases are currently compatible with PCF v1.12, review the appropriate
   partners services release documentation at
   [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
   organization that produces the tile.
@@ -344,203 +134,8 @@ functionality that may have certain constraints.
 Although these features are fully supported, Pivotal recommends caution when
 using them in production.
 
-## <a id='1.11.0'></a> New Features in Elastic Runtime v1.11.0
+## <a id='1.12.0'></a> New Features in Elastic Runtime v1.12.0
 
 This section describes new features of the release.
 
-### <a id='apps-manager-508'></a> Apps Manager 508 Compliance
-
-Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/)
-of the Rehabilitation Act. Customers can now receive an approved Voluntary Product
-Accessibility Template (VPAT) for Apps Manager.
-
-### <a id='container-networking'></a> Container-to-Container Networking
-
-The Container-to-Container Networking feature in Elastic Runtime is out of
-beta. For more information, see the [Container-to-Container
-Networking](../devguide/deploy-apps/cf-networking.html) topic.
-
-### <a id='volume-services'></a> Volume Services
-
-General support for volume services inside of application containers is out of
-beta. Additionally, the Elastic Runtime ships with an NFS Volume Service
-Broker.
-
-For more information, see
-[Using an External File System (Volume Services)](../devguide/services/using-vol-services.html)
-and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
-
-### <a id='disk-quotas'></a> Increased Application Maximum Disk Quotas
-
-For applications that require large amounts of disk, the maximum disk quota has been raised
-to 20GB. This will allow application developers to specify a disk size up to 20GB for their
-applications.
-
-Operators should take note that applications with large disk settings can be difficult for
-Diego to find a placement for. If there is not enough disk on any of the Diego Cells,
-developers will see an "insufficient resources" error message. Ensuring your Diego Cells
-provide enough disk to accommodate these much larger application instances will be an
-important part of your resource planning.
-
-### <a id='override-dns'></a> Override DNS Servers
-
-By default, containers use the same DNS servers as the host. To
-override the DNS servers used by the containers of an isolation segment,
-enter a comma-separated list of servers in the **DNS Servers** field of the
-**Application Containers** section of the tile.
-
-### <a id='ha-defaults'></a> Highly-Available Default Configuration
-
-The Resource Configuration defaults have been changed to streamline the path to a
-production-ready deployment. The default instance count for each VM type in the
-deployment has been set to ensure an operator can deploy a highly-available Cloud
-Foundry out of the box.
-
-This change will result in larger resource requirements for a default Elastic Runtime
-deployment. Operators should take this into account when deploying environments on
-constrained resources.
-
-### <a id='sha2-checksums'></a> Component BOSH releases are SHA2-checksummed
-
-BOSH now supports releases that include a SHA2-checksum of their contents. All the
-releases included in the Elastic Runtime have been checksummed with SHA2 for improved
-data integrity in the face of hash collisions.
-
-### <a id='bbr'></a> BOSH Backup and Restore
-
-The Elastic Runtime now includes support for the new BOSH Backup and Restore tool (`bbr`).
-Using `bbr` allow an operator to take a snapshot of their internal blobstore and databases.
-
-### <a id='priv-docker-reg'></a> Private Docker Registries
-
-Application developers can now push Docker-based applications with images that are hosted
-on a private registry.
-
-### <a id='syslog'></a> Common Syslog Formatting and Syslog over TLS
-
-The Elastic Runtime now emits BOSH component logs in a common syslog format
-following RFC5424.  Additionally, syslog over TLS is now supported to allow
-operators to deliver their platform logs securely to their syslog aggregator.
-
-### <a id='uaa-sql-server'></a> UAA supports SQL Server database
-
-Operators can now independently configure their UAA service to store its data in an external
-SQL Server database. You can configure the UAA database in the **UAA**
-pane of the Elastic Runtime tile.
-
-**Important Note**: UAA database configuration has been fully separated into the UAA tab to allow its independent configuration. Upon upgrade, settings will be migrated from the existing installation. Going forward, you must change both the UAA and System Database forms to keep their configuration in sync.
-
-### <a id='locket'></a> Improved Distributed Lock Management
-
-In older versions of the Elastic Runtime, components that needed to maintain a distributed
-lock could leverage Consul to handle the locking mechanism. In 1.11, that locking mechanism
-has been replaced with a new service called `locket`. By switching to `locket`, the Elastic
-Runtime will be moving onto a more stable footing for its distributed locking needs.
-
-### <a id='internal-uaa-expire'></a> UAA User Passwords Never Expire
-
-As of v1.11, Elastic Runtime no longer provides the **Number of Months Before
-Password Expires** field in the **Authentication and Enterprise SSO** section.
-Instead, it sets the value to zero, which means that UAA user passwords for
-deployments using internal UAA never expire.
-
-If you have set a non-zero password expiry, Elastic Runtime will set it to zero
-when you upgrade from v1.10 to v1.11.
-
-### <a id='uaa-redirect-uris'></a>Redirect URI Validation for OAuth Clients
-
-Starting from v1.11, UAA validates the redirect URIs of OAuth clients to prevent open redirect attacks. A redirect URI is now a mandatory parameter for OAuth clients that use the `authorization_code` and `implicit` grant types to acquire an access token. For more information, see [Known Issues](runtime-rn.html#uaa-redirect).
-
-### <a id='scalable-syslog'></a> Scalable Syslog
-
-Loggregator now uses the [Scalable
-Syslog](https://github.com/cloudfoundry/scalable-syslog-release) BOSH release
-to support streaming app logs to syslog-compatible aggregation or analytics
-services. This new delivery method has the following benefits:
-
-* Decouples syslog drains from the Firehose
-* Prevents log loss in the Firehose that previously resulted from syslog drains
-  competing for the resources used to deliver logs
-* Provides high message reliability for syslog drains
-* Maintains the UX of binding an app to a syslog drain service through Cloud
-  Foundry user-provided services (CUPS)
-
-For more information about Scalabe Syslog in PCF, see [Overview of the
-Loggregator System](../loggregator/architecture.html).
-
 ## <a id='knownissues'></a> Known Issues
-
-This section lists known issues for PCF Elastic Runtime.
-
-###<a id='unavailability-internal-mysql-update'></a>Brief Unavailability of Application Management during Internal MySQL Database Updates
-
-This issue applies only to Elastic Runtime deployments using an internal MySQL database with more than one MySQL instance. When updating this MySQL database deployment, some application management operations such as `cf push` may become unavailable for up to 15 seconds, as may the Routing API. Application instances will continue to run, however, and their routes will remain registered. This period of unavailability results from certain Elastic Runtime components losing their leader-election locks and being able to reclaim the lock only after the 15-second lock expiration time. This availability issue will be fixed in a forthcoming patch release.
-
-
-###<a id='autoscaler'></a>App Autoscaler Panic
-
-The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
-
-If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the [Autoscalar failing on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768) Knowledge Base article to restore the service.
-
-###<a id='metrics'></a>Loggregator Metrics
-
-Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a
-hard-coded deployment name. Because the components do not allow the deployment
-name to be configured, Metron cannot properly tag the metrics. This affects the
-following metrics:
-
-* `loggregator.rlp.ingress`
-* `loggregator.rlp.dropped`
-* `loggregator.rlp.egress`
-* `loggregator.trafficcontroller.ingress`
-
-A patch is planned to fix this issue and apply the deployment name consistently.
-
-###<a id='mount-location'></a>Mount Location Bug
-
-If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure
-your `"mount"` section in your bind JSON matches what is in the Dockerfile,
-such as `"mount":"/some/data/dir"`.
-
-See [this example
-Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfile#L5)
-on GitHub for reference.
-
-This only works if the path in question is in an already existing root level
-folder. For example, `"/var/some/random/path"` works, but
-`"/some/random/path"` causes your app to crash at startup. This limitation
-is caused by an aufs bug.
-
-### <a id='ecr-gcr-issue'></a> Private Docker Registry Support for ECR, GCR and JFrog Artifactory
-
-The private Docker registry support referenced above does not currently support
-Amazon EC2 Container Registry, Google Cloud Platform Container Registry, or JFrog Artifactory.
-Future patches will bring support for these registries.
-
-###<a id='uaa-redirect'></a>UAA Redirect URIs
-
-A redirect URI is now a mandatory parameter for the `authorization_code` and `implicit` grant types, which is required to submit an access request. When using the UAA API or UAAC and declaring OAuth clients in the manifest, make sure at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
-
-<pre class='terminal'>
-{
-"error": "invalid_client",
-"error_description": "authorization_code grant type requires at least one redirect URL."
-}
-</pre>
-
-Redirect URIs should start with `http` or `https`. A subdomain regex is supported only in the first part of the base domain:
-
-  * `https://*.apps.com` is supported.
-  * `https://*.apps.com*` is not supported.
-  * `https://*.apps*.com*` is not supported.
-
-###<a id='fail-postgres'></a>Failed Upgrade In Large Deployments
-
-Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a timeout while updating PostgreSQL. If the upgrade fails, redeploy.
-
-For more information, see the ["Deploying ERT 1.11 fails to due to a timeout while updating PostGreSQL"](https://discuss.pivotal.io/hc/en-us/articles/115008875387) Knowledge Base article.
-
-###<a id='rep-crashes'></a>Diego Cell Rep Crashes
-
-Fixed in ERT 1.11.1. In ERT 1.11.0, the Diego cell rep process will infrequently crash as a result of a race condition when buffering health-check logs for application instances. The application instances on that cell will be rescheduled when the rep process is restarted or when the Diego system notices that its presence has expired, typically within 15 seconds of the rep process crashing.
