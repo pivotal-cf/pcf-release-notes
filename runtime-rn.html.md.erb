@@ -5,13 +5,126 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.
 
-Read more about the [certified provider
-program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
-providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the
+[certified provider program](https://www.cloudfoundry.org/provider-faq/)
+and the
+[requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
 ## <a id='releases'></a> Releases
+
+### <a id='1.11.3'></a> 1.11.3
+
+* **[Bug Fix]** Bumps cf-backup-and-restore-release to v0.0.5. [[Release Notes](https://github.com/pivotal-cf/cf-backup-and-restore-release/releases/tag/v0.0.5)]
+* **[Bug Fix]** Bumps apps-manager-release to v661.1.27.
+  Allows admins and users with the SpaceDeveloper role to delete apps.
+* **[Security Improvement]** Bumps cf-mysql-release to v36. [[Release Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36)]
+* Bumps service-backup-release to v18.1.2. [[Release Notes](https://docs.pivotal.io/svc-sdk/service-backup/18-1/release-notes.html)]
+* **[Bug Fix]** Bumps garden-runc-release to v1.9.0. [[Release Notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.9.0)]
+  Resolves <a href="#ecr-gcr-issue">known issue with private docker image registries.</a>
+* **[Bug Fix]** Adds the `network.write` group to UAA.
+  This new UAA group will allow operators to give users with the SpaceDeveloper role the ability to manage Container Networking access policy.
+* **[Improvement]** Allows operators to scale their `etcd` instance count to 0.
+  <p class="note warning">
+    **Do not** scale the number of <code>etcd</code> instances to 0 until you have completed your upgrade to PCF Elastic Runtime 1.11.
+    <br>
+    <br>
+    Scaling the <code>etcd</code> instances to 0 before performing the upgrade will result in significant downtime on both the management and application tiers.
+  </p>
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.133.0</td>
+  </tr><tr>
+    <td>consul</td><td>167</td>
+  </tr><tr>
+    <td>diego</td><td>1.18.1</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.19</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.4</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.17</td>
+  </tr><tr>
+    <td>loggregator</td><td>89</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.3.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.5</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.34</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.27</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.19</td>
+  </tr><tr>
+    <td>routing</td><td>0.157.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.40</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>4</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr><tr>
+    <td>uaa</td><td>41</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
 ### <a id='1.11.2'></a> 1.11.2
 
@@ -473,18 +586,33 @@ Loggregator System](../loggregator/architecture.html).
 
 This section lists known issues for PCF Elastic Runtime.
 
-###<a id='unavailability-internal-mysql-update'></a>Brief Unavailability of Application Management during Internal MySQL Database Updates
+### <a id='unavailability-internal-mysql-update'></a>Brief Unavailability of Application Management during Internal MySQL Database Updates
 
-This issue applies only to Elastic Runtime deployments using an internal MySQL database with more than one MySQL instance. When updating this MySQL database deployment, some application management operations such as `cf push` may become unavailable for up to 15 seconds, as may the Routing API. Application instances will continue to run, however, and their routes will remain registered. This period of unavailability results from certain Elastic Runtime components losing their leader-election locks and being able to reclaim the lock only after the 15-second lock expiration time. This availability issue will be fixed in a forthcoming patch release.
+This issue applies only to Elastic Runtime deployments using an internal MySQL
+database with more than one MySQL instance. When updating this MySQL database
+deployment, some application management operations such as `cf push` may become
+unavailable for up to 15 seconds, as may the Routing API. Application instances
+will continue to run, however, and their routes will remain registered. This
+period of unavailability results from certain Elastic Runtime components losing
+their leader-election locks and being able to reclaim the lock only after the
+15-second lock expiration time. This availability issue will be fixed in a
+forthcoming patch release.
 
+### <a id='autoscaler'></a>App Autoscaler Panic
 
-###<a id='autoscaler'></a>App Autoscaler Panic
+The App Autoscaler service can panic due to an issue with leader election. To
+avoid this issue, operators must manually scale the App Autoscaler service down
+to one instance before starting the upgrade to PCF v1.11. For more information,
+see the [Scale Down App
+Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the
+<em>Upgrading Pivotal Cloud Foundry</em> topic.
 
-The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Scale Down App Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the <em>Upgrading Pivotal Cloud Foundry</em> topic.
+If you fail to complete this procedure prior to the upgrade and the App
+Autoscaler service panics, follow the instructions in the [Autoscalar failing
+on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768)
+Knowledge Base article to restore the service.
 
-If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the [Autoscalar failing on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768) Knowledge Base article to restore the service.
-
-###<a id='metrics'></a>Loggregator Metrics
+### <a id='metrics'></a>Loggregator Metrics
 
 Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a
 hard-coded deployment name. Because the components do not allow the deployment
@@ -498,7 +626,7 @@ following metrics:
 
 A patch is planned to fix this issue and apply the deployment name consistently.
 
-###<a id='mount-location'></a>Mount Location Bug
+### <a id='mount-location'></a>Mount Location Bug
 
 If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure
 your `"mount"` section in your bind JSON matches what is in the Dockerfile,
@@ -515,13 +643,20 @@ is caused by an aufs bug.
 
 ### <a id='ecr-gcr-issue'></a> Private Docker Registry Support for ECR, GCR and JFrog Artifactory
 
+**Fixed in ERT 1.11.3.**
+
 The private Docker registry support referenced above does not currently support
 Amazon EC2 Container Registry, Google Cloud Platform Container Registry, or JFrog Artifactory.
 Future patches will bring support for these registries.
 
-###<a id='uaa-redirect'></a>UAA Redirect URIs
+### <a id='uaa-redirect'></a>UAA Redirect URIs
 
-A redirect URI is now a mandatory parameter for the `authorization_code` and `implicit` grant types, which is required to submit an access request. When using the UAA API or UAAC and declaring OAuth clients in the manifest, make sure at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
+A redirect URI is now a mandatory parameter for the `authorization_code` and
+`implicit` grant types, which is required to submit an access request. When
+using the UAA API or UAAC and declaring OAuth clients in the manifest, make
+sure at least one redirect URI is specified. Existing OAuth clients that do not
+provide this information will get an error when accessing the
+`/oauth/authorize` endpoint. See the example below:
 
 <pre class='terminal'>
 {
@@ -530,18 +665,30 @@ A redirect URI is now a mandatory parameter for the `authorization_code` and `im
 }
 </pre>
 
-Redirect URIs should start with `http` or `https`. A subdomain regex is supported only in the first part of the base domain:
+Redirect URIs should start with `http` or `https`. A subdomain regex is
+supported only in the first part of the base domain:
 
   * `https://*.apps.com` is supported.
   * `https://*.apps.com*` is not supported.
   * `https://*.apps*.com*` is not supported.
 
-###<a id='fail-postgres'></a>Failed Upgrade In Large Deployments
+### <a id='fail-postgres'></a>Failed Upgrade In Large Deployments
 
-Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a timeout while updating PostgreSQL. If the upgrade fails, redeploy.
+Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a
+timeout while updating PostgreSQL. If the upgrade fails, redeploy.
 
-For more information, see the ["Deploying ERT 1.11 fails to due to a timeout while updating PostGreSQL"](https://discuss.pivotal.io/hc/en-us/articles/115008875387) Knowledge Base article.
+For more information, see the ["Deploying ERT 1.11 fails to due to a timeout
+while updating
+PostGreSQL"](https://discuss.pivotal.io/hc/en-us/articles/115008875387)
+Knowledge Base article.
 
-###<a id='rep-crashes'></a>Diego Cell Rep Crashes
+### <a id='rep-crashes'></a>Diego Cell Rep Crashes
 
-Fixed in ERT 1.11.1. In ERT 1.11.0, the Diego cell rep process will infrequently crash as a result of a race condition when buffering health-check logs for application instances. The application instances on that cell will be rescheduled when the rep process is restarted or when the Diego system notices that its presence has expired, typically within 15 seconds of the rep process crashing.
+**Fixed in ERT 1.11.1.**
+
+In ERT 1.11.0, the Diego cell rep process will
+infrequently crash as a result of a race condition when buffering health-check
+logs for application instances. The application instances on that cell will be
+rescheduled when the rep process is restarted or when the Diego system notices
+that its presence has expired, typically within 15 seconds of the rep process
+crashing.
