@@ -12,18 +12,18 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 <hr>
 
 ## <a id='releases'></a> Releases
-#
+
 ### <a id='1.11.2'></a> 1.11.2
 
-* Bumps cflinuxfs2-rootfs to 1.33.0. [**Security Fix**] [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.133.0)]
-* Configuring external system database will no longer scale down the internal mysql components. 
-
-This allows a mixed database configuration where the system database is external but the UAA database may use internal MySQL. Starting in ERT 1.11.0, the UAA database is configured independently on the UAA form. MySQL instance counts for existing installations will not be affected by this change. Going forward, you will need to manually set the instance count to 0 for all MySQL VMs (MySQL Server, MySQL Proxy, and MySQL Monitor) if they are not in use.
-
-* Bumps nfs-volume-release to v1.0.5. [**Bug Fix**] [[Release Notes](https://github.com/cloudfoundry/nfs-volume-release/releases/tag/v1.0.5)]
-* Bumps cf-mysql-release to v35.1.
+* **[Security Fix]** Bumps cflinuxfs2-rootfs to 1.33.0. [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.133.0)]
+* **[Bug Fix]** Bumps nfs-volume-release to v1.0.5. [[Release Notes](https://github.com/cloudfoundry/nfs-volume-release/releases/tag/v1.0.5)]
 * Bumps mysql-monitoring-release to v8.3.0. [[Release Notes](https://github.com/pivotal-cf-experimental/mysql-monitoring-release/releases/tag/v8.3.0)]
-
+* Bumps cf-mysql-release to v35.1.
+* Configuring external system database will no longer scale down the internal mysql components.
+  This allows a mixed database configuration where the system database is external but the UAA database may use internal MySQL.
+  Starting in ERT 1.11.0, the UAA database is configured independently on the UAA form.
+  MySQL instance counts for existing installations will not be affected by this change.
+  Going forward, you will need to manually set the instance count to 0 for all MySQL VMs (MySQL Server, MySQL Proxy, and MySQL Monitor) if they are not in use.
 
   <table border="1" class="nice">
   <thead>
@@ -117,18 +117,19 @@ This allows a mixed database configuration where the system database is external
   </tr>
   </tfoot>
   </table>
+
 ### <a id='1.11.1'></a> 1.11.1
 
-* Bumps stemcell to 3421.9. [**Security Fix**]
-* Bumps the java buildpack to 3.17. [[Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17)]
-* Bumps uaa-release to v41.
+* **[Security Fix]** Bumps stemcell to 3421.9.
+* **[Security Fix]** Bumps uaa-release to v41. [[Release Notes](https://github.com/cloudfoundry/uaa-release/releases/tag/v41)]
+* **[Security Fix]** Bumps cflinuxfs2 to v1.126.0. [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.126.0)]
+* Bumps the java buildpack to v3.17. [[Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17)]
 * Bumps diego-release to v1.18.1. [[Release Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.18.1)]
-* Bumps cflinuxfs2 to v1.126.0. [**Security Fix**] [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.126.0)]
-* Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables. [**Fix**]
-* Container-to-container networking will log iptables rules in the kernel log on each Diego Cell. [**Feature**]
-* All errands except smoke tests will default to run "when-changed". Smoke tests will default to run every time.
+* **[Bug Fix]** Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables.
+* **[Feature]** Container-to-container networking will log iptables rules in the kernel log on each Diego Cell.
+* **[Feature]** All errands except smoke tests will default to run "when-changed". Smoke tests will default to run every time.
 * Removes unnecessary persistent disk from Cloud Controller VM.
-* Fixes <a href="#rep-crashes">known issue with infrequent Diego cell rep crashes.</a>
+* **[Bug Fix]** Resolves <a href="#rep-crashes">known issue with infrequent Diego cell rep crashes.</a>
 
   <table border="1" class="nice">
   <thead>
