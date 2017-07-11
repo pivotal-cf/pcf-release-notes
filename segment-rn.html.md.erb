@@ -1,56 +1,11 @@
 ---
-title: PCF Isolation Segment v1.11 Release Notes
+title: PCF Isolation Segment v1.12 Release Notes
 owner: Release Engineering
 ---
 
 ## <a id='releases'></a> Releases
-### <a id='1.11.2'></a> 1.11.2
 
-* Bumps cflinuxfs2-rootfs to 1.33.0. [**Security Fix**] [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.133.0)]
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3421.9</td>
-  </tr><tr>
-    <td>cf-networking</td><td>0.25.0</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.133.0</td>
-  </tr><tr>
-    <td>consul</td><td>167</td>
-  </tr><tr>
-    <td>diego</td><td>1.18.1</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.7.0</td>
-  </tr><tr>
-    <td>loggregator</td><td>89</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.3</td>
-  </tr><tr>
-    <td>routing</td><td>0.157.0</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>4</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-### <a id='1.11.1'></a> 1.11.1
-
-* Bump stemcell to 3421.9.
-* Bump garden-runc to v1.7.0.
-* Bump diego-release to v1.18.1.
-* Bump cflinuxfs2-release to v1.126.0
-* Container-to-container networking will log iptables rules in the kernel log on each Isolated Diego Cell.
+### <a id='1.12.0'></a> 1.12.0
 
   <table border="1" class="nice">
   <thead>
@@ -61,64 +16,25 @@ owner: Release Engineering
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3421.9</td>
+    <td>Stemcell</td><td></td>
   </tr><tr>
-    <td>cf-networking</td><td>0.25.0</td>
+    <td>cf-networking</td><td></td>
   </tr><tr>
-    <td>cflinuxfs2</td><td>1.126.0</td>
+    <td>cflinuxfs2</td><td></td>
   </tr><tr>
-    <td>consul</td><td>167</td>
+    <td>consul</td><td></td>
   </tr><tr>
-    <td>diego</td><td>1.18.1</td>
+    <td>diego</td><td></td>
   </tr><tr>
-    <td>garden-runc</td><td>1.7.0</td>
+    <td>garden-runc</td><td></td>
   </tr><tr>
-    <td>loggregator</td><td>89</td>
+    <td>loggregator</td><td></td>
   </tr><tr>
-    <td>nfs-volume</td><td>1.0.3</td>
+    <td>nfs-volume</td><td></td>
   </tr><tr>
-    <td>routing</td><td>0.157.0</td>
+    <td>routing</td><td></td>
   </tr><tr>
-    <td>syslog-migration</td><td>4</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.11.0'></a> 1.11.0
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3421.3</td>
-  </tr><tr>
-    <td>cf-networking</td><td>0.25.0</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.123.0</td>
-  </tr><tr>
-    <td>consul</td><td>167</td>
-  </tr><tr>
-    <td>diego</td><td>1.16.1</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.6.0</td>
-  </tr><tr>
-    <td>loggregator</td><td>89</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.3</td>
-  </tr><tr>
-    <td>routing</td><td>0.157.0</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>4</td>
+    <td>syslog-migration</td><td></td>
   </tr>
   </tbody>
   <tfoot>
@@ -130,8 +46,8 @@ owner: Release Engineering
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v1.11 tile is available for installation with PCF
-v1.11.
+The PCF Isolation Segment v1.12 tile is available for installation with PCF
+v1.12.
 
 [Isolation segments](../concepts/security.html#isolation-segments) provide
 dedicated pools of resources where you can deploy apps and  isolate workloads.
@@ -144,10 +60,10 @@ For more information about using isolation segments in your deployment, see the
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v1.11 is documented in the
+The procedure for installing PCF Isolation Segment v1.12 is documented in the
 [Installing PCF Isolation Segment](../opsguide/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v1.11.
+To install a PCF Isolation Segment, you must first install PCF v1.12.
 
 ## <a id='adv-features'></a> About Advanced Features
 
@@ -155,63 +71,6 @@ The Advanced Features section of the PCF Isolation Segment tile includes new
 functionality that may have certain constraints.  Although these features are
 fully supported, Pivotal recommends caution when using them in production.
 
-## <a id='1.11.0'></a> New Features in PCF Isolation Segment v1.11.0
+## <a id='1.12.0'></a> New Features in PCF Isolation Segment v1.12.0
 
 This section describes new features of the release.
-
-### <a id='override-dns'></a> Override DNS Servers
-
-By default, containers use the same DNS servers as the host. To override the 
-DNS servers used by the containers of an isolation segment, enter a 
-comma-separated list of servers in the **DNS Servers** field of the 
-**Application Containers** section of the tile.
-
-### <a id='nfs3-vol-services'></a> NFSv3 Volume Services
-
-The tile supports NFSv3 volume services. NFS volume services allow application
-developers to bind existing NFS volumes to their applications for shared file
-access. For more information, see the [Enabling NFS Volume
-Services](../opsguide/enable-vol-services.html) topic.
-
-To enable NFSv3 volume services, select **Enable** under **Enabling NFSv3 volume services** in the **Application Containers** section of the tile.
-
-In a clean install of the tile, NFSv3 volume services will be enabled by
-default. In an upgrade, NFSv3 volume services will be set to the same setting
-as it was in the previous tile.
-
-### <a id='container-to-container'></a> Container-to-Container Networking
-
-The tile supports container-to-container-networking. To enable
-container-to-container networking, select **Enable** under **Enabling the
-Container-to-Container network** in the **Networking** section of the tile and
-complete the corresponding fields. For more information about
-container-to-container networking, see the [Understanding
-Container-to-Container
-Networking](../concepts/understand-cf-networking.html)
-topic.
-
-### <a id='syslog'></a> System Logging
-
-The Isolation Segment now emits BOSH component logs in a common syslog format
-following RFC5424. Additionally, syslog over TLS is now supported to allow
-operators to deliver their platform logs securely to their syslog aggregator.
-
-The tile has a **System Logging** section that enables operators to configure
-syslog for the VMs deployed within the tile.
-
-### <a id='sha2'></a>SHA2 Checksum
-
-Operators can verify the data integrity of the Isolation Segment tile
-using the SHA2 checksum of the file, rather than the MD5 checksum used in
-previous releases.
-
-### <a id='local-route-emitter'></a> Cell-local Route Emitters
-
-The Route Emitter is now co-located on the Diego Cell for which it emits app 
-routes. This improves the availability of the Route Emitter and reduces the 
-impact of downtime from this component. 
-
-In previous versions of the Isolation Segment tile, Diego Cells relied on the 
-Route Emitter component on the Diego Brain in the Elastic Runtime tile to 
-notify the Router of application routes. If the Route Emitter became 
-unavailable, routes could be lost from the Router route table. 
