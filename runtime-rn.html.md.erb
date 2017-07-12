@@ -14,9 +14,96 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.9.30'></a> 1.9.30
+
+* **[Bug Fix]** Bumps apps-manager-release to v659.12.11.
+  Allows admins and users with the SpaceDeveloper role to delete apps.
+* **[Bug Fix]** Bumps uaa-release to v24.13.
+  Resolves an issue where SAML assertions could not be validated.
+* Bumps service-backup-release to v18.1.2. [Release Notes](https://docs.pivotal.io/svc-sdk/service-backup/18-1/release-notes.html#release-notes)
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.26</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.11.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>246\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>75.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>32.9.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.133.0</td>
+  </tr><tr>
+    <td>consul</td><td>165</td>
+  </tr><tr>
+    <td>diego</td><td>0.1491.0\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.19</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.7.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.4</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.17</td>
+  </tr><tr>
+    <td>loggregator</td><td>65\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.28.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>nats</td><td>14</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.34</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.1.14</td>
+  </tr><tr>
+    <td>postgres</td><td>8</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>659.12.11</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.19</td>
+  </tr><tr>
+    <td>routing</td><td>0.143.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.40</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.6</td>
+  </tr><tr>
+    <td>uaa</td><td>24.13</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.9.29'></a> 1.9.29
 
-* Bumps cflinuxfs2-rootfs to 1.33.0. [**Security Fix**] [[Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.133.0)]
+* **[Security Fix]** Bumps cflinuxfs2-rootfs to 1.33.0. [Release Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.133.0)
 
   <table border="1" class="nice">
   <thead>
@@ -99,13 +186,24 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 
 ### <a id='1.9.28'></a> 1.9.28
 
-* Bumps stemcell to 3363.26 [**Security Fix**]
-* Bumps the following buildpacks to their latest version: [binary](https://github.com/cloudfoundry/binary-buildpack/releases/tag/v1.0.13), [php](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.34), [python](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.19), [go](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.4), [java](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17), [nodejs](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.5.36), [ruby](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.40), and [dotnet-core](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.19).
-* Bumps Pivotal Account to v1.1.14 to support large custom-branding images, provide security fixes, and refactor Pivotal Account deployment errand to avoid database issues during migrations on certain version of MySQL. [**Fix**]
-* Bumps notifications-release to v36 [Release Notes](https://github.com/cloudfoundry-incubator/notifications-release/releases/tag/v36)]
-* HttpStartStop metric for gorouter includes 'instanceIndex' [**Feature**]
-* Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables. [**Fix**]
-* Removes unnecessary persistent disk from Cloud Controller VM
+* **[Security Fix]** Bumps stemcell to 3363.26.
+* Bumps the following buildpacks to their latest version:
+  * [binary-buildpack Release Notes](https://github.com/cloudfoundry/binary-buildpack/releases/tag/v1.0.13)
+  * [dotnet-core-buildpack Release Notes](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.19)
+  * [go-buildpack Release Notes](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.4)
+  * [java-buildpack Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.17)
+  * [nodejs-buildpack Release Notes](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.5.36)
+  * [php-buildpack Release Notes](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.34)
+  * [python-buildpack Release Notes](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.19)
+  * [ruby-buildpack Release Notes](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.40)
+* **[Bug Fix]** Bumps Pivotal Account to v1.1.14.
+  This release supports large custom-branding images, provides security fixes,
+  and refactors Pivotal Account deployment errand to avoid database issues
+  during migrations on certain versions of MySQL.
+* Bumps notifications-release to v36. [Release Notes](https://github.com/cloudfoundry-incubator/notifications-release/releases/tag/v36)
+* **[Feature]** HttpStartStop metric for gorouter includes 'instanceIndex'.
+* **[Bug Fix]** Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables.
+* Removes unnecessary persistent disk from Cloud Controller VM.
 
   <table border="1" class="nice">
   <thead>
