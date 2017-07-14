@@ -78,4 +78,16 @@ topic in the PCF Tile Developers Guide.
 
 <!-- Bug Fixes -->
 
-<!-- Known Issues -->
+## <a id='known-issues'></a> Known Issues
+
+### <a id='services-network'></a>On-Demand Services Require Dedicated Service Networks
+
+If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
+define a dedicated service network for the tile.
+
+To work around this issue, use one of the following methods:
+
+* Create a services network on your IaaS for each affected service tile
+* Create a dummy network in Ops Manager, reserve a block of IP ranges, and disable smoke tests for the on-demand service
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
