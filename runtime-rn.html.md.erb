@@ -24,81 +24,77 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td></td>
+    <td>Stemcell</td><td>3421.11</td>
   </tr><tr>
-    <td>binary-offline-buildpack</td><td></td>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
   </tr><tr>
-    <td>capi</td><td></td>
+    <td>capi</td><td>1.32.0</td>
   </tr><tr>
-    <td>cf</td><td></td>
+    <td>cf</td><td>267</td>
   </tr><tr>
-    <td>cf-autoscaling</td><td></td>
+    <td>cf-autoscaling</td><td>94</td>
   </tr><tr>
-    <td>cf-backup-and-restore</td><td></td>
+    <td>cf-backup-and-restore</td><td>0.0.3</td>
   </tr><tr>
-    <td>cf-mysql</td><td></td>
+    <td>cf-mysql</td><td>35.1.0</td>
   </tr><tr>
-    <td>cf-networking</td><td></td>
+    <td>cf-networking</td><td>1.2.0</td>
   </tr><tr>
-    <td>cf-smoke-tests</td><td></td>
+    <td>cf-smoke-tests</td><td>36</td>
   </tr><tr>
-    <td>cflinuxfs2</td><td></td>
+    <td>cflinuxfs2</td><td>1.137.0</td>
   </tr><tr>
-    <td>consul</td><td></td>
+    <td>consul</td><td>171</td>
   </tr><tr>
-    <td>diego</td><td></td>
+    <td>diego</td><td>1.21.0</td>
   </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td></td>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.20</td>
   </tr><tr>
-    <td>etcd</td><td></td>
+    <td>garden-runc</td><td>1.9.0</td>
   </tr><tr>
-    <td>garden-runc</td><td></td>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
   </tr><tr>
-    <td>go-offline-buildpack</td><td></td>
+    <td>java-offline-buildpack</td><td>3.18</td>
   </tr><tr>
-    <td>java-offline-buildpack</td><td></td>
+    <td>loggregator</td><td>90.1</td>
   </tr><tr>
-    <td>loggregator</td><td></td>
+    <td>mysql-backup</td><td>1.35.0</td>
   </tr><tr>
-    <td>mysql-backup</td><td></td>
+    <td>mysql-monitoring</td><td>8.4.0</td>
   </tr><tr>
-    <td>mysql-monitoring</td><td></td>
+    <td>nats</td><td>20</td>
   </tr><tr>
-    <td>nats</td><td></td>
+    <td>nfs-volume</td><td>1.0.6</td>
   </tr><tr>
-    <td>nfs-volume</td><td></td>
+    <td>nodejs-offline-buildpack</td><td>1.5.36</td>
   </tr><tr>
-    <td>nodejs-offline-buildpack</td><td></td>
+    <td>notifications</td><td>36</td>
   </tr><tr>
-    <td>notifications</td><td></td>
+    <td>notifications-ui</td><td>28</td>
   </tr><tr>
-    <td>notifications-ui</td><td></td>
+    <td>php-offline-buildpack</td><td>4.3.35</td>
   </tr><tr>
-    <td>php-offline-buildpack</td><td></td>
+    <td>pivotal-account</td><td>1.6.0</td>
   </tr><tr>
-    <td>pivotal-account</td><td></td>
+    <td>push-apps-manager-release</td><td>662.0.3</td>
   </tr><tr>
-    <td>postgres</td><td></td>
+    <td>python-offline-buildpack</td><td>1.5.19</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>6</td>
+    <td>routing</td><td>0.159.0</td>
   </tr><tr>
-    <td>python-offline-buildpack</td><td></td>
+    <td>ruby-offline-buildpack</td><td>1.6.41</td>
   </tr><tr>
-    <td>routing</td><td>0</td>
+    <td>scalablesyslog</td><td>7</td>
   </tr><tr>
-    <td>ruby-offline-buildpack</td><td></td>
+    <td>service-backup</td><td>18.1.2</td>
   </tr><tr>
-    <td>scalablesyslog</td><td></td>
+    <td>staticfile-offline-buildpack</td><td>1.4.9</td>
   </tr><tr>
-    <td>service-backup</td><td></td>
+    <td>statsd-injector</td><td>1.0.28</td>
   </tr><tr>
-    <td>staticfile-offline-buildpack</td><td></td>
+    <td>syslog-migration</td><td>6</td>
   </tr><tr>
-    <td>statsd-injector</td><td></td>
-  </tr><tr>
-    <td>syslog-migration</td><td></td>
-  </tr><tr>
-    <td>uaa</td><td></td>
+    <td>uaa</td><td>41</td>
   </tr>
   </tbody>
   <tfoot>
@@ -137,5 +133,16 @@ using them in production.
 ## <a id='1.12.0'></a> New Features in Elastic Runtime v1.12.0
 
 This section describes new features of the release.
+
+### Removing etcd
+
+This release removes the `etcd` server VMs from the PCF deployment.
+Operators should ensure they are deploying service tiles that are known to be compatible with PCF Elastic Runtime 1.12.
+
+### Removing Postgres
+
+This release removes the legacy Postgres databases CCDB and UAADB.
+Operators will need to ensure that they have finished the migration to a MySQL database before upgrading to PCF Elastic Runtime 1.12.
+Failure to migrate will result in an error when upgrading.
 
 ## <a id='knownissues'></a> Known Issues
