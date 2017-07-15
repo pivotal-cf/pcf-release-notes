@@ -16,3 +16,15 @@ Some of these issues may be fixed in subsequent patch releases to v1.7. Consult 
 
 * If EBS encryption is initially disabled, and then later enabled, the change will not apply to the Director's persistent disk.
 * If you are using OpenStack Juno, make sure you have applied this patch: https://bugs.launchpad.net/horizon/+bug/1394051
+
+### On-Demand Services Require Dedicated Service Networks
+
+If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
+define a dedicated service network for the tile.
+
+To work around this issue, use one of the following methods:
+
+* Create a services network on your IaaS for each affected service tile
+* Create a dummy network in Ops Manager, reserve a block of IP ranges, and disable smoke tests for the on-demand service
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
