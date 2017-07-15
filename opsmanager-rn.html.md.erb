@@ -1007,6 +1007,18 @@ Ops Manager now supports configuring the appropriate settings in the Director to
 
 This section lists known issues with Ops Manager.
 
+###<a id='services-network'></a>On-Demand Services Require Dedicated Service Networks
+
+If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
+define a dedicated service network for the tile.
+
+To work around this issue, use one of the following methods:
+
+* Create a services network on your IaaS for each affected service tile
+* Create a dummy network in Ops Manager, reserve a block of IP ranges, and disable smoke tests for the on-demand service
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
+
 ###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
 
 Ops Manager v1.8.24 publishes AMIs to the following newly supported AWS regions:
@@ -1046,5 +1058,4 @@ As a workaround, if you are deploying a service network in GCP, modify your fire
 * Fixed an issue where re-saving the Networks and AZs form on product tiles was throwing a misleading error
 * Fixed API endpoint to log out all active sessions
 * Fixed an issue that allowed for multiple AZs to have the same name
-
 
