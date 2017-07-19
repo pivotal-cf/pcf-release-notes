@@ -14,6 +14,38 @@ If you are currently on Ops Manager v1.7.14 or earlier, you should update your O
 Later versions include a major stemcell upgrade to 3233.x. This stemcell uses the Linux kernel v4.4 instead of the v3.19.
 Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
+### 1.7.32 Patch
+
+* Bumps UAA to 13.17
+
+	<table border="1" class="nice">
+  <tr>
+    <th>Versions</th>
+  </tr>
+  <tr>
+    <td>Stemcell: 3363.26</td>
+  </tr>
+  <tr>
+    <td>BOSH-init: v0.0.103</td>
+  </tr>
+  <tr>
+    <td>BOSH Director: 255.14</td>
+  </tr>
+  <tr>
+    <td>vSphere CPI: 37</td>
+  </tr>
+  <tr>
+    <td>AWS CPI: 57</td>
+  </tr>
+  <tr>
+    <td>OpenStack CPI: 23</td>
+  </tr>
+  <tr>
+    <td>UAA release: 13.17</td>
+  </tr>
+</table>
+
+
 ### 1.7.31 Patch
 
 * Patches Ubuntu Security Notice USN-3334-1. Additional information can be found at https://pivotal.io/security.
@@ -115,7 +147,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 ### 1.7.27 Patch
 
-* Bumps UAA to v13.13
+* Bumps UAA to 13.13
 
 	<table border="1" class="nice">
 	<thead>
@@ -181,7 +213,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 ### 1.7.25 Patch
 
 * Patches USN-3249-2. Additional information can be found at https://pivotal.io/security.
-* Fixed a bug where Ops Manager was not setting the correct SAML Service Provider certificate in the Bosh Director UAA. 
+* Fixed a bug where Ops Manager was not setting the correct SAML Service Provider certificate in the BOSH Director UAA.
 
 	<table border="1" class="nice">
 	<thead>
@@ -707,7 +739,7 @@ Ubuntu is no longer providing CVE patches for Linux kernel v3.19.
 
 * Fixes an issue that caused Ops Manager deploys to fail due to a BOSH-init bug
 * Fixes an issue that caused JavaScript migrations to fail for large tiles
-* Bumps UAA to version 3.3.0
+* Bumps UAA to 3.3.0
 
 ### 1.7.3 Patch
 
