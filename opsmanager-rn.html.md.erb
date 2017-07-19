@@ -16,7 +16,52 @@ After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic R
 If you are currently on Ops Manager v1.8.0 or v1.8.1, you should update your Ops Manager.
 Later versions include a major stemcell upgrade to 3263.x.
 This stemcell uses the Linux kernel v4.4 instead of the v3.19.
-Ubuntu no longer provide CVE patches for Linux kernel v3.19.
+Ubuntu no longer provides CVE patches for Linux kernel v3.19.
+
+### 1.8.25 Patch
+
+* Fixes a bug where cleaning up unused products could remove a currently-configured stemcell.
+* Fixes a bug where configuring a thin-provisioned ephemeral disk in Ops Manager created a thick-provisioned disk in vSphere. In the **vSphere Config** section of the Director tile, if you set the **Virtual Disk Type** to **Thin** for any ephemeral disks, Ops Manager redeploys the disks after applying this patch.
+* Updates the `cache-control` header value in Ops Manager HTTP responses to include `no-store`.
+* Bumps UAA to 13.17.
+
+	<table border="1" class="nice">
+	<thead>
+	<tr>
+	  <th>Versions</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td>Stemcell: 3363.26</td>
+	</tr>
+	<tr>
+	  <td>BOSH Director: 257.24</td>
+	</tr>
+	<tr>
+	  <td><code>bosh-init</code>: v0.0.103</td>
+	</tr>
+	<tr>
+	  <td>AWS CPI: 57</td>
+	</tr>
+	<tr>
+	  <td>Azure CPI: 20</td>
+	</tr>
+	<tr>
+	  <td>Google CPI: 25.9.0</td>
+	</tr>
+	<tr>
+	  <td>OpenStack CPI: 26</td>
+	</tr>
+	<tr>
+	  <td>vSphere CPI: 37</td>
+	</tr>
+	<tr>
+	  <td>UAA: 13.17</td>
+	</tr>
+	</tbody>
+	</table>
+
 
 ### 1.8.24 Patch
 
@@ -34,7 +79,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3363.26</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td><code>bosh-init</code>: v0.0.103</td>
@@ -77,7 +122,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3363.25</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td><code>bosh-init</code>: v0.0.103</td>
@@ -107,7 +152,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 ### 1.8.22 Patch
 
 * Fixed a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML. The signature algorithm is now defaulted to SHA256.
-* Fixed a bug where Ops Manager was incorrectly setting the redirect uri for the Bosh UAA. 
+* Fixed a bug where Ops Manager was incorrectly setting the redirect uri for the BOSH UAA.
 * Bumped stemcell to 3363.24.
 
 	<table border="1" class="nice">
@@ -121,7 +166,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3363.24</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -160,7 +205,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.24</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -199,7 +244,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.24</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -238,7 +283,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.23</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -278,7 +323,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.23</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -304,7 +349,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 ### 1.8.17 Patch
 
 * Patches USN-3249-2. Additional information can be found at https://pivotal.io/security.
-* Fixed a bug where Ops Manager was not setting the correct SAML Service Provider certificate in the Bosh Director UAA. 
+* Fixed a bug where Ops Manager was not setting the correct SAML Service Provider certificate in the BOSH Director UAA.
 
 	<table border="1" class="nice">
 	<thead>
@@ -317,7 +362,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.22</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -355,7 +400,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.21</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.24</td>
+	  <td>BOSH Director: 257.24</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -395,7 +440,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.20</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.23</td>
+	  <td>BOSH Director: 257.23</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -439,7 +484,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.17</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.23</td>
+	  <td>BOSH Director: 257.23</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -488,7 +533,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.15</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.23</td>
+	  <td>BOSH Director: 257.23</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -530,7 +575,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.14</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.23</td>
+	  <td>BOSH Director: 257.23</td>
 	</tr>
 	<tr>
 	  <td>AWS CPI: 57</td>
@@ -572,7 +617,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.12</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.23</td>
+	  <td>BOSH Director: 257.23</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -608,7 +653,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.8</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.15</td>
+	  <td>BOSH Director: 257.15</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -643,7 +688,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.8</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.15</td>
+	  <td>BOSH Director: 257.15</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -679,7 +724,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.8</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.15</td>
+	  <td>BOSH Director: 257.15</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -713,7 +758,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.7</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.15</td>
+	  <td>BOSH Director: 257.15</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -745,7 +790,7 @@ Ubuntu no longer provide CVE patches for Linux kernel v3.19.
 	  <td>Stemcell: 3263.4</td>
 	</tr>
 	<tr>
-	  <td>Bosh Director: 257.15</td>
+	  <td>BOSH Director: 257.15</td>
 	</tr>
 	<tr>
 	  <td>vSphere CPI: 26</td>
@@ -1052,7 +1097,7 @@ As a workaround, if you are deploying a service network in GCP, modify your fire
 ## <a id='bug-fixes'></a> Bug Fixes
 
 * Fixed an issue with rollbacks in case of database import failures during upgrades
-* Fixed an issue where Metrics IP address was not getting propagated into the Bosh manifest
+* Fixed an issue where Metrics IP address was not getting propagated into the BOSH manifest
 * Fixed an issue where errands were failing to run on a deploy
 * Fixed an issue where Static IP assignments were not being cleared correctly
 * Fixed an issue where re-saving the Networks and AZs form on product tiles was throwing a misleading error
