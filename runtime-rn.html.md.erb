@@ -20,7 +20,6 @@ and the
   field. This will prevent users with valid tokens belonging to an Identity Zone
   other than the default zone from escalating their privileges when making
   requests against system components.
-
 * **[Security Fix]** Provides a fix for CVE-2017-8035. This security
   vulnerability would have allowed arbitrary files on the Cloud Controller VM to
   be downloaded by external API users.
@@ -632,6 +631,44 @@ Using `bbr` allow an operator to take a snapshot of their internal blobstore and
 Application developers can now push Docker-based applications with images that are hosted
 on a private registry.
 
+PCF can use private Docker repositories from various different Docker registries:
+
+<table border="1" class="nice" >
+  <tr>
+    <th>Registry</th>
+    <th>Version</th>
+  </tr>
+  <tr>
+    <td>DockerHub and Docker Trusted Registry</td>
+    <td>1.11.0</td>
+  </tr>
+  <tr>
+    <td>Sonatype Nexus</td>
+    <td>1.11.0</td>
+  </tr>
+  <tr>
+    <td>VMWare Harbour</td>
+    <td>1.11.0</td>
+  </tr>
+  <tr>
+    <td>JFrog Artifactor</td>
+    <td>1.11.3</td>
+  </tr>
+  <tr>
+    <td>Google Container Registry (GCR)</td>
+    <td>1.11.3 (*)</td>
+  </tr>
+  <tr>
+    <td>EC2 Container Registry (ECR)</td>
+    <td>Not Supported</td>
+  </tr>
+</table>
+
+\* GCR can be used to host private Docker images for PCF. However, the passwords
+GCR issues are essentially access tokens which expire within an hour. This
+means that the initial application push will be successful but the application
+may later crash as PCF will not be able to contact GCR.
+
 ### <a id='syslog'></a> Common Syslog Formatting and Syslog over TLS
 
 The Elastic Runtime now emits BOSH component logs in a common syslog format
@@ -644,7 +681,10 @@ Operators can now independently configure their UAA service to store its data in
 SQL Server database. You can configure the UAA database in the **UAA**
 pane of the Elastic Runtime tile.
 
-**Important Note**: UAA database configuration has been fully separated into the UAA tab to allow its independent configuration. Upon upgrade, settings will be migrated from the existing installation. Going forward, you must change both the UAA and System Database forms to keep their configuration in sync.
+**Important Note**: UAA database configuration has been fully separated into
+the UAA tab to allow its independent configuration. Upon upgrade, settings will
+be migrated from the existing installation. Going forward, you must change both
+the UAA and System Database forms to keep their configuration in sync.
 
 ### <a id='locket'></a> Improved Distributed Lock Management
 
@@ -665,7 +705,11 @@ when you upgrade from v1.10 to v1.11.
 
 ### <a id='uaa-redirect-uris'></a>Redirect URI Validation for OAuth Clients
 
-Starting from v1.11, UAA validates the redirect URIs of OAuth clients to prevent open redirect attacks. A redirect URI is now a mandatory parameter for OAuth clients that use the `authorization_code` and `implicit` grant types to acquire an access token. For more information, see [Known Issues](runtime-rn.html#uaa-redirect).
+Starting from v1.11, UAA validates the redirect URIs of OAuth clients to
+prevent open redirect attacks. A redirect URI is now a mandatory parameter for
+OAuth clients that use the `authorization_code` and `implicit` grant types to
+acquire an access token. For more information, see [Known
+Issues](runtime-rn.html#uaa-redirect).
 
 ### <a id='scalable-syslog'></a> Scalable Syslog
 
