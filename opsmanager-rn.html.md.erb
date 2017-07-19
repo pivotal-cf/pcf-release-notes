@@ -999,7 +999,10 @@ Customers can now dual-home their Ops Manager Director (BOSH Director) starting 
 
 Additionally, customers using the dual-homed feature in Ops Manager v1.6 can now import their installations into v1.8.0 and continue to use the dual-homed Ops Manager Director.
 
-For more information on how to use the dual-homing feature, please refer to the [How to use a dual-homed Director with Ops Manager](https://discuss.zendesk.com/hc/en-us/articles/222027247) KB article.
+<p class="note"><strong>Note</strong>: When using the dual-home feature, the Ops Manager Director and all compilation VMs run on the infrastructure network.
+Verify that you have sufficient IP space on the infrastructure network before deploying a dual-home Director configuration.</p>
+
+For more information on how to use the dual-homing feature, see the corresponding [Knowledge Base](https://discuss.zendesk.com/hc/en-us/articles/222027247) article.
 
 ### <a id='hostnameforboshdirector'></a> Hostname for Ops Manager Director
 
