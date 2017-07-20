@@ -13,6 +13,101 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.0-alpha.3'></a> 1.12.0-alpha.3
+
+* Changes the stemcell to v3421.9.
+* Resolves an issue with UAA SAML Service Provider Key Password quoting.
+* Replaces cf-release HAProxy job with the OSS HAProxy release.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.35.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>94</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.2.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>36</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.138.0</td>
+  </tr><tr>
+    <td>consul</td><td>171</td>
+  </tr><tr>
+    <td>diego</td><td>1.22.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.3.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.18</td>
+  </tr><tr>
+    <td>loggregator</td><td>91</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.5.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.3</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.38</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.3</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.20</td>
+  </tr><tr>
+    <td>routing</td><td>0.159.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.44</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>8</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.11</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>7</td>
+  </tr><tr>
+    <td>uaa</td><td>41</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.0-alpha.2'></a> 1.12.0-alpha.2
 
 * Makes the `cf-mysql` cluster identifier consistent with the rest of the ERT metrics namespace. It is now set to `cf`.
@@ -262,5 +357,12 @@ successfully.
 For these reasons, we have lowered the default max-in-flight percentage on the
 Diego Cells to 4%. Operators can still use the Ops Manager API to configure
 this setting to fit their needs.
+
+### HAProxy Release
+
+The old HAProxy job, which was the last remaining component from `cf-release`,
+has been removed. Replacing it will be the newly incubated
+`haproxy-boshrelease`.  The release repository can be found at
+[https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
 
 ##<a id='knownissues'></a> Known Issues
