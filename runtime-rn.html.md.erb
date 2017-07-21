@@ -326,18 +326,17 @@ using them in production.
 
 This section describes new features of the release.
 
-### Removing etcd
+### Removal of etcd
 
 This release removes the `etcd` server VMs from the PCF deployment.  Operators
 should ensure they are deploying service tiles that are known to be compatible
 with PCF Elastic Runtime 1.12.
 
-### Removing Postgres
+### Removal of Postgres
 
-This release removes the legacy Postgres databases CCDB and UAADB.  Operators
-will need to ensure that they have finished the migration to a MySQL database
-before upgrading to PCF Elastic Runtime 1.12.  Failure to migrate will result
-in an error when upgrading.
+This release removes the legacy Postgres databases for the Cloud Controller and UAA.  If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance migrating your Cloud Controller and UAA databases to MySQL. They will have access to the [PostgreSQL-to-MySQL Migrator](https://network.pivotal.io/products/pg2mysql) tool and instructions on Pivotal Network. 
+
+If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade will fail. 
 
 ### Diego Cell Max-in-Flight Default
 
