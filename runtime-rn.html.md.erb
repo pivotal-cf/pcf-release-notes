@@ -37,7 +37,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   * [python-buildpack Release Notes](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.20)
   * [ruby-buildpack Release Notes](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.44)
   * [staticfile-buildpack Release Notes](https://github.com/cloudfoundry/staticfile-buildpack/releases/tag/v1.4.11)
-* Sets the default max-in-flight value for the Diego Cells to 4%. The
+* Sets the default max-in-flight value for the Diego Cells to 4%. Operators can
+  still use the Ops Manager API to configure this setting to fit their needs. The
   max-in-flight percentage for the Diego Cell job in the Elastic Runtime has been
   set to 10% since 1.9, but we’ve seen especially in larger environments that
   having the percentage this high can cause some problems:
@@ -49,9 +50,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   deployment. This can cause deployments to no longer have sufficient total
   capacity to run all the work, or to have insufficient headroom to place
   larger workloads successfully.
-  For these reasons, we have lowered the default max-in-flight percentage on
-  the Diego Cells to 4%. Operators can still use the Ops Manager API to
-  configure this setting to fit their needs.
 
   <table border="1" class="nice">
   <thead>
