@@ -5,6 +5,53 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.13'></a> 1.10.13
+
+* **[Security Fix]** The Router will now validate the UAA token issuer
+  field. This will prevent users with valid tokens belonging to an Identity Zone
+  other than the default zone from escalating their privileges when making
+  requests against system components.
+* Bumps the following buildpacks to their latest version:
+  * [dotnet-core-buildpack Release Notes](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.22)
+  * [go-buildpack Release Notes](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.5)
+  * [java-buildpack Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.18)
+  * [nodejs-buildpack Release Notes](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.6.3)
+  * [php-buildpack Release Notes](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.38)
+  * [python-buildpack Release Notes](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.20)
+  * [ruby-buildpack Release Notes](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.44)
+  * [staticfile-buildpack Release Notes](https://github.com/cloudfoundry/staticfile-buildpack/releases/tag/v1.4.11)
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.26</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.133.0</td>
+  </tr><tr>
+    <td>consul</td><td>165\*</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.12'></a> 1.10.12
 
 * Bumps garden-runc-release to v1.9.0. [Release Notes](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.9.0)
