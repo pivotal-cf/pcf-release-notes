@@ -14,6 +14,126 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.9.32'></a> 1.9.32
+
+* **[Security Fix]** Provides a fix for
+  [CVE-2017-8033](https://www.cloudfoundry.org/cve-2017-8033/). This security
+  vulnerability would have allowed attackers to escalate their privileges by
+  pushing an application that could modify the files on the Cloud Controller VM.
+* **[Security Fix]** The Router will now validate the UAA token issuer
+  field. This will prevent users with valid tokens belonging to an Identity Zone
+  other than the default zone from escalating their privileges when making
+  requests against system components.
+* **[Bug Fix]** Resolves an issue with UAA SAML Service Provider Key Password quoting.
+* **[Stability Improvement]** Operators can now configure the `Cluster Probe
+  Timeout` for their Internal MySQL cluster.  This property controls the maximum
+  time a new MySQL node will search for an existing cluster before starting its
+  own.  Higher values for this property will help to maintain cluster quorum on
+  slower or more loaded infrastructures.
+* Bumps the following buildpacks to their latest version:
+  * [dotnet-core-buildpack Release Notes](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.22)
+  * [go-buildpack Release Notes](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.5)
+  * [java-buildpack Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.18)
+  * [nodejs-buildpack Release Notes](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.6.3)
+  * [php-buildpack Release Notes](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.38)
+  * [python-buildpack Release Notes](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.20)
+  * [ruby-buildpack Release Notes](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.44)
+  * [staticfile-buildpack Release Notes](https://github.com/cloudfoundry/staticfile-buildpack/releases/tag/v1.4.11)
+* Sets the default max-in-flight value for the Diego Cells to 4%. The
+  max-in-flight percentage for the Diego Cell job in the Elastic Runtime has been
+  set to 10% since 1.9.0, but we’ve seen especially in larger environments that
+  having the percentage this high can cause some problems:
+  * Many simultaneous VM creates/deletes and BOSH blob updates can place
+  significant stress on the underlying infrastructure, especially on vSphere
+  which has a greater probability of being underprovisioned.
+  * The cells that are draining are no longer available for allocation,
+  resulting in a 10% decrease in total memory and disk capacity during the
+  deployment. This can cause deployments to no longer have sufficient total
+  capacity to run all the work, or to have insufficient headroom to place
+  larger workloads successfully.
+  For these reasons, we have lowered the default max-in-flight percentage on
+  the Diego Cells to 4%. Operators can still use the Ops Manager API to
+  configure this setting to fit their needs.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.26</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.11.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>246\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>75.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>32.9.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.133.0</td>
+  </tr><tr>
+    <td>consul</td><td>165</td>
+  </tr><tr>
+    <td>diego</td><td>0.1491.0\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.7.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.18</td>
+  </tr><tr>
+    <td>loggregator</td><td>65\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.28.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>6</td>
+  </tr><tr>
+    <td>nats</td><td>14</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.3</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.38</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.1.14</td>
+  </tr><tr>
+    <td>postgres</td><td>8</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>659.12.9</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.20</td>
+  </tr><tr>
+    <td>routing</td><td>0.143.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.44</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.11</td>
+  </tr><tr>
+    <td>uaa</td><td>24.13</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.9.31'></a> 1.9.31
 
 * **[Security Fix]** Cloud Controller will now validate the UAA token issuer
