@@ -11,15 +11,21 @@ owner: Release Engineering
   field. This will prevent users with valid tokens belonging to an Identity Zone
   other than the default zone from escalating their privileges when making
   requests against system components.
-* Bumps the following buildpacks to their latest version:
-  * [dotnet-core-buildpack Release Notes](https://github.com/cloudfoundry/dotnet-core-buildpack/releases/tag/v1.0.22)
-  * [go-buildpack Release Notes](https://github.com/cloudfoundry/go-buildpack/releases/tag/v1.8.5)
-  * [java-buildpack Release Notes](https://github.com/cloudfoundry/java-buildpack/releases/tag/v3.18)
-  * [nodejs-buildpack Release Notes](https://github.com/cloudfoundry/nodejs-buildpack/releases/tag/v1.6.3)
-  * [php-buildpack Release Notes](https://github.com/cloudfoundry/php-buildpack/releases/tag/v4.3.38)
-  * [python-buildpack Release Notes](https://github.com/cloudfoundry/python-buildpack/releases/tag/v1.5.20)
-  * [ruby-buildpack Release Notes](https://github.com/cloudfoundry/ruby-buildpack/releases/tag/v1.6.44)
-  * [staticfile-buildpack Release Notes](https://github.com/cloudfoundry/staticfile-buildpack/releases/tag/v1.4.11)
+* Sets the default max-in-flight value for the Diego Cells to 4%. The
+  max-in-flight percentage for the Diego Cell job in the Elastic Runtime has been
+  set to 10% since 1.10.0, but we’ve seen especially in larger environments that
+  having the percentage this high can cause some problems:
+  * Many simultaneous VM creates/deletes and BOSH blob updates can place
+  significant stress on the underlying infrastructure, especially on vSphere
+  which has a greater probability of being underprovisioned.
+  * The cells that are draining are no longer available for allocation,
+  resulting in a 10% decrease in total memory and disk capacity during the
+  deployment. This can cause deployments to no longer have sufficient total
+  capacity to run all the work, or to have insufficient headroom to place
+  larger workloads successfully.
+  For these reasons, we have lowered the default max-in-flight percentage on
+  the Diego Cells to 4%. Operators can still use the Ops Manager API to
+  configure this setting to fit their needs.
 
   <table border="1" class="nice">
   <thead>

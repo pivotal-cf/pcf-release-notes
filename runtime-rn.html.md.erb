@@ -39,7 +39,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   * [staticfile-buildpack Release Notes](https://github.com/cloudfoundry/staticfile-buildpack/releases/tag/v1.4.11)
 * Sets the default max-in-flight value for the Diego Cells to 4%. The
   max-in-flight percentage for the Diego Cell job in the Elastic Runtime has been
-  set to 10% since 1.9.0, but we’ve seen especially in larger environments that
+  set to 10% since 1.9, but we’ve seen especially in larger environments that
   having the percentage this high can cause some problems:
   * Many simultaneous VM creates/deletes and BOSH blob updates can place
   significant stress on the underlying infrastructure, especially on vSphere
