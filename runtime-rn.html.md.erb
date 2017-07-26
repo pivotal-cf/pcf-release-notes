@@ -13,6 +13,103 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.0-alpha.4'></a> 1.12.0-alpha.4
+
+* Adds GrootFS to run applications in OCI-compliant containers.
+* Secures the CC-Bridge components.
+* Introduces Route Sharding.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.36.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>94</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.2.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>36</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.141.0</td>
+  </tr><tr>
+    <td>consul</td><td>171</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.1</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.21.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.3.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.19</td>
+  </tr><tr>
+    <td>loggregator</td><td>91</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.6.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.3</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.38</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.3</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.20</td>
+  </tr><tr>
+    <td>routing</td><td>0.159.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.44</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>9</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.11</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>7</td>
+  </tr><tr>
+    <td>uaa</td><td>43</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.0-alpha.3'></a> 1.12.0-alpha.3
 
 * Changes the stemcell to v3421.9.
@@ -334,9 +431,15 @@ with PCF Elastic Runtime 1.12.
 
 ### Removal of Postgres
 
-This release removes the legacy Postgres databases for the Cloud Controller and UAA.  If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance migrating your Cloud Controller and UAA databases to MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network. 
+This release removes the legacy Postgres databases for the Cloud Controller and
+UAA.  If your deployment was originally installed before PCF 1.6 and still uses
+Postgres, you must contact your dedicated Support Engineer or Platform
+Architect for assistance migrating your Cloud Controller and UAA databases to
+MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and
+instructions on Pivotal Network.
 
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade will fail. 
+If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the
+upgrade will fail.
 
 ### Diego Cell Max-in-Flight Default
 
@@ -363,5 +466,25 @@ The old HAProxy job, which was the last remaining component from `cf-release`,
 has been removed. Replacing it will be the newly incubated
 `haproxy-boshrelease`.  The release repository can be found at
 [https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
+
+### Introducting GrootFS
+
+GrootFS is the new daemon-less container image plugin for Garden, the Elastic
+Runtime container engine.  It can be run as an unprivileged user, improving the
+security of the Elastic Runtime.
+
+### Secured Communication between Cloud Controller and Diego
+
+The Cloud Controller has taken on the responsibilities of the Cloud Controller
+Bridge components that ran on the Diego Brain VM.  These components were
+responsible for translating Cloud Controller requests into commands understood
+by the Diego API.  Cloud Controller is now capable of communicating directly
+with Diego, and does so in a substantially more secure manner.
+
+### Router Sharding Mode
+
+The tile supports router sharding. Operators can choose to have the tile's
+routers only acknowledge requests from applications deployed within the tile's
+Cells, or reject requests for any isolation segment.
 
 ##<a id='knownissues'></a> Known Issues
