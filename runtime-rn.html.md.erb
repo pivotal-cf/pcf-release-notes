@@ -364,4 +364,13 @@ has been removed. Replacing it will be the newly incubated
 `haproxy-boshrelease`.  The release repository can be found at
 [https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
 
+### Improved App Health Check Performance
+
+This release changes how Elastic Runtime performs app health checks to improve system performance. This change does not impact the developer workflow for [configuring app healthchecks](../devguide/deploy-apps/healthchecks.html). 
+
+Health checks during app startup previously increased system load because they ran as a Garden process every two seconds. Also, apps that started succesfully could wrongly fail if slow system performance caused the app health check to time out. In some cases, such app failures caused other system components to fail.   
+
+This release resolves these issues by shifting responsibility for running health checks from the Cloud Controller to Diego through new endpoints in the internal Diego API. The Cloud Controller no longer downloads and runs the health check binaries itself. Instead, it calls the Diego API, and Diego uses two LRPs on the app container to run health checks. Developers may see these LRPs if they access an app container through `cf ssh` and list the processes.  
+
+
 ##<a id='knownissues'></a> Known Issues
