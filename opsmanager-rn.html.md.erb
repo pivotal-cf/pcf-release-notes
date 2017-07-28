@@ -15,7 +15,7 @@ The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic c
 
 ### 1.11.6
 
-* Adds a feature to allow AWS operators to use IAM instance profiles in the `ap-south-1`, `ca-central-1`, `eu-west-2`, and `us-east-2` regions
+* Adds a feature that allows AWS operators to use IAM instance profiles in the `ap-south-1`, `ca-central-1`, `eu-west-2`, and `us-east-2` regions
 * Fixes a bug where configuring a thin-provisioned ephemeral disk in Ops Manager created a thick-provisioned disk in vSphere. In the **vSphere Config** section of the Director tile, if you set the **Virtual Disk Type** to **Thin** for any ephemeral disks, Ops Manager redeploys the disks after applying this patch.
 * Fixes a bug where Ops Manager hard-coded the `entity_ID` when configuring UAA with SAML
 * Fixes a bug where `POST /api/v0/setup` did not expose the `http`, `https`, and `no_proxy` settings
