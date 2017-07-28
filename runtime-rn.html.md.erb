@@ -487,4 +487,15 @@ The tile supports router sharding. Operators can choose to have the tile's
 routers only acknowledge requests from applications deployed within the tile's
 Cells, or reject requests for any isolation segment.
 
+### Improved System Performance for App Health Checks
+
+<p class="note"><strong>Note</strong>: This feature requires that you <a href="../customizing/upgrading-pcf.html#cc">enable secure communication between the Cloud Controller and Diego</a>.</p>
+
+This release changes how Elastic Runtime runs app health checks to improve system performance in resource-constrained environments, such as on-premise installations of PCF. This change does not impact the developer workflow for [configuring app healthchecks](../devguide/deploy-apps/healthchecks.html). 
+
+Health checks during app startup previously increased system load because they ran as a Garden process every two seconds. Also, apps that started successfully could wrongly fail if slow system performance caused the app health check to time out. In some severe cases, such app failures caused additional resource consumption and a chain-reaction of app failures.   
+
+This release resolves these issues through a new implementation that does not invoke a new process on every health check. Rather, the health check now runs as a long-lived process in the app container. Developers may see these processes if they access an app container through `cf ssh` and list the processes.  
+>>>>>>> healthchecks-#149048761
+
 ##<a id='knownissues'></a> Known Issues
