@@ -364,13 +364,14 @@ has been removed. Replacing it will be the newly incubated
 `haproxy-boshrelease`.  The release repository can be found at
 [https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
 
-### Improved App Health Check Performance
+### Improved System Performance for App Health Checks
 
-This release changes how Elastic Runtime runs app health checks to improve system performance. This change does not impact the developer workflow for [configuring app healthchecks](../devguide/deploy-apps/healthchecks.html). 
+<p class="note"><strong>Note</strong>: This feature requires that you <a href="../customizing/upgrading-pcf.html#cc">enable secure communication between the Cloud Controller and Diego</a>.</p>
 
-Health checks during app startup previously increased system load because they ran as a Garden process every two seconds. Also, apps that started succesfully could wrongly fail if slow system performance caused the app health check to time out. In some cases, such app failures caused other system components to fail.   
+This release changes how Elastic Runtime runs app health checks to improve system performance in resource-constrained environments, such as on-premise installations of PCF. This change does not impact the developer workflow for [configuring app healthchecks](../devguide/deploy-apps/healthchecks.html). 
 
-This release resolves these issues by shifting responsibility for running health checks from the Cloud Controller to Diego through new endpoints in the internal Diego API. The Cloud Controller no longer downloads and runs the health check binaries itself. Instead, it calls the Diego API, and Diego uses two LRPs on the app container to run health checks. Developers may see these LRPs if they access an app container through `cf ssh` and list the processes.  
+Health checks during app startup previously increased system load because they ran as a Garden process every two seconds. Also, apps that started successfully could wrongly fail if slow system performance caused the app health check to time out. In some severe cases, such app failures caused additional resource consumption and a chain-reaction of app failures.   
 
+This release resolves these issues through a new implementation that does not invoke a new process on every health check. Rather, the health check now runs as a long-lived process in the app container. Developers may see these processes if they access an app container through `cf ssh` and list the processes.  
 
 ##<a id='knownissues'></a> Known Issues
