@@ -5,10 +5,7 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.
 
-Read more about the
-[certified provider program](https://www.cloudfoundry.org/provider-faq/)
-and the
-[requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
@@ -19,15 +16,15 @@ and the
 * **[Security Fix]** Bumps apps-manager-release to v661.1.29. This release has the following updates:
   * Bumps nodejs to v6.11.1 to provide security fixes.
   * Includes `org_id` and `org_name` in usage report zip file.
-  * Ensures Spring Acuator requests happen over HTTPS.
+  * Ensures Spring Actuator requests happen over HTTPS.
 * **[Bug Fix]** Includes AWS US East (Ohio) region in the region selector for Internal MySQL backups.
 * **[Bug Fix]** Specifies a more consistent cluster identifier, `cf`, for the Internal MySQL cluster when emitting metrics.
 * **[Stability Improvement]** Reduces the default for
   `cc.droplets.max_staged_droplets_stored` from 5 to 2. This will result in
-  reduced blobstore utilization as the Cloud Controller will only keep 2 historic
-  staged application droplets, in addition to the currently running application
-  droplet.  Garbage collection of expired droplets will occur the next time an
-  application is staged.
+  reduced blobstore utilization as the Cloud Controller will only keep 2   
+  historic staged application droplets, in addition to the currently running 
+  application droplet. Garbage collection of expired droplets will occur the  
+  next time an application is staged.
 
   <table border="1" class="nice">
   <thead>
@@ -155,7 +152,7 @@ and the
   having the percentage this high can cause some problems:
   * Many simultaneous VM creates/deletes and BOSH blob updates can place
   significant stress on the underlying infrastructure, especially on vSphere
-  which has a greater probability of being underprovisioned.
+  which has a greater probability of being under-provisioned.
   * The cells that are draining are no longer available for allocation,
   resulting in a 10% decrease in total memory and disk capacity during the
   deployment. This can cause deployments to no longer have sufficient total
@@ -966,7 +963,7 @@ services. This new delivery method has the following benefits:
 * Maintains the UX of binding an app to a syslog drain service through Cloud
   Foundry user-provided services (CUPS)
 
-For more information about Scalabe Syslog in PCF, see [Overview of the
+For more information about Scalable Syslog in PCF, see [Overview of the
 Loggregator System](../loggregator/architecture.html).
 
 ## <a id='knownissues'></a> Known Issues
@@ -995,7 +992,7 @@ Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the
 <em>Upgrading Pivotal Cloud Foundry</em> topic.
 
 If you fail to complete this procedure prior to the upgrade and the App
-Autoscaler service panics, follow the instructions in the [Autoscalar failing
+Autoscaler service panics, follow the instructions in the [Autoscaler failing
 on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768)
 Knowledge Base article to restore the service.
 
