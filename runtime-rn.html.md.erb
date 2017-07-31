@@ -3008,7 +3008,7 @@ We've discovered a rare condition where a PCF deployment running an internal MyS
 
 ### <a id="1.7.11"></a> 1.7.11
 
-Note: The Cloudformation script for PCF setup on AWS was updated at the same time as this release to switch over to using a NAT EC2 instance instead of a NAT gateway, as there is a known issue with AWS NAT gateways handling hairpin routing requests.
+Note: The CloudFormation script for PCF setup on AWS was updated at the same time as this release to switch over to using a NAT EC2 instance instead of a NAT gateway, as there is a known issue with AWS NAT gateways handling hairpin routing requests.
 
 * Patches CVE-2016-5006, USN-3012-1, USN-3010-1, and CVE-2016-4450. Additional info can be found at https://pivotal.io/security.
 * Introduces a fix for GoRouter to address an issue where failover of requests to unresponsive app instances was not working properly whenever the request has a body. See [tracker story](https://www.pivotaltracker.com/n/projects/1358110/stories/118532589) for details.
@@ -3354,7 +3354,7 @@ Note: The Cloudformation script for PCF setup on AWS was updated at the same tim
 ### <a id="1.7.3"></a> 1.7.3
 
 * As part of this release, there is a checkbox in the Elastic Runtime tile configuration that asks for every operator/administrator of the deployment to acknowledge that they understand how to implement application security groups successfully to secure their deployments. More info about this topic can be found here, in the [Application Security Groups](http://docs.pivotal.io/pivotalcf/1-7/adminguide/app-sec-groups.html) topic of our documentation.
-* This also introduces a few bug fixes, including a patch to Diego to prevent rare occurances of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos.
+* This also introduces a few bug fixes, including a patch to Diego to prevent rare occurrences of the route-emitter locking up, another patch to Diego to prevent Diego BBS contention issues, added AWS regions to the Region field dropdown in the S3 option for file storage to enable selection of other regions using a V4 S3 endpoint, a patch for UAA to fix a bug introduced by Elastic Runtime 1.7.2 that broke using external LDAP over SSL, and a patch to the Elastic Runtime tile user-interface for custom branding to perform better when entering base-64 encoded images for your company logos.
 
   <table border="1" class="nice">
   <thead>
@@ -3536,7 +3536,7 @@ the right to change this API or truncate the data about past task runs. For more
 information about running one-off tasks in Cloud Foundry, see the
 [Cloud Foundry V3 API Docs](http://v3-apidocs.cloudfoundry.org/version/release-candidate/index.html#tasks).
 
-### AWS Cloudformation Script Update
+### AWS CloudFormation Script Update
 
 You can now specify whether you would like to enable HTTP traffic to port 80 of your ELB if you are setting up an environment in AWS to deploy PCF.
 
