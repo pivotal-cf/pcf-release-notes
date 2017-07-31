@@ -16,7 +16,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Bumps apps-manager-release to v660.7.13. This release has the following updates:
   * Bumps nodejs to v6.11.1 to provide security fixes.
   * Includes `org_id` and `org_name` in usage report zip file.
-  * Ensures Spring Acuator requests happen over HTTPS.
+  * Ensures Spring Actuator requests happen over HTTPS.
 * **[Security Improvement]** Bumps cf-mysql-release to v36. [Release Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36)
 * Bumps mysql-backup-release to v1.33.0. Provides compatibility with v36 of cf-mysql-release.
 * **[Bug Fix]** Specifies a more consistent cluster identifier, `cf`, for the Internal MySQL cluster when emitting metrics.
@@ -143,7 +143,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   having the percentage this high can cause some problems:
   * Many simultaneous VM creates/deletes and BOSH blob updates can place
   significant stress on the underlying infrastructure, especially on vSphere
-  which has a greater probability of being underprovisioned.
+  which has a greater probability of being under-provisioned.
   * The cells that are draining are no longer available for allocation,
   resulting in a 10% decrease in total memory and disk capacity during the
   deployment. This can cause deployments to no longer have sufficient total
@@ -1160,7 +1160,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * Allows operators to specify DNS servers that differ from those provided in their BOSH configuration.
 * Patches a bug with event pagination in the Cloud Controller API.
 * Allows UAA SAML certificates to be configured.
-* Removes the Password Expiry field from the Authenication and Enterprise SSO form.
+* Removes the Password Expiry field from the Authentication and Enterprise SSO form.
 * Adds the `network.write` scope to the `cf` UAA client to allow SpaceDevelopers to manage their Container Networking policy.
 * Exposes etcd timeout configurations on the Advanced Features form.
 * Container Networking will now properly support deployments with valid certificates.
