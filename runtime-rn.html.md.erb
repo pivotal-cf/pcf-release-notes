@@ -140,7 +140,7 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
   having the percentage this high can cause some problems:
   * Many simultaneous VM creates/deletes and BOSH blob updates can place
   significant stress on the underlying infrastructure, especially on vSphere
-  which has a greater probability of being underprovisioned.
+  which has a greater probability of being under-provisioned.
   * The cells that are draining are no longer available for allocation,
   resulting in a 10% decrease in total memory and disk capacity during the
   deployment. This can cause deployments to no longer have sufficient total
@@ -1113,7 +1113,7 @@ This message will occur once for each doppler instance in your deployment.
 * Patches a bug with event pagination in the Cloud Controller API.
 * Patches the cachedownloader to improve executor cache resilience and efficiency.
 * Bumps all buildpack releases to their latest versions.
-* Removes the Password Expiry field from the Authenication and Enterprise SSO form.
+* Removes the Password Expiry field from the Authentication and Enterprise SSO form.
 * Allows UAA SAML certificates to be configured.
 * Allows operators to specify DNS servers that differ from those provided in their BOSH configuration.
 * Exposes etcd timeout configurations on the Advanced Features form.
