@@ -449,7 +449,7 @@ that having the percentage this high can cause some problems:
 
 * Many simultaneous VM creates/deletes and BOSH blob updates can place
 significant stress on the underlying infrastructure, especially on vSphere
-which has a greater probability of being underprovisioned.
+which has a greater probability of being under-provisioned.
 * The cells that are draining are no longer available for allocation, resulting
 in a 10% decrease in total memory and disk capacity during the deployment. This
 can cause deployments to no longer have sufficient total capacity to run all
@@ -467,7 +467,7 @@ has been removed. Replacing it will be the newly incubated
 `haproxy-boshrelease`.  The release repository can be found at
 [https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
 
-### Introducting GrootFS
+### Introducing GrootFS
 
 GrootFS is the new daemon-less container image plugin for Garden, the Elastic
 Runtime container engine.  It can be run as an unprivileged user, improving the
