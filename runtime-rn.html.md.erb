@@ -3187,3 +3187,6 @@ See [this example Dockerfile](https://github.com/azwickey-pivotal/volume-demo/bl
 
 This only works if the path in question is in an already existing root level folder.  In other words, `"/var/some/random/path"` should work, but `"/some/random/path"` will cause your app to crash at startup. This limitation is due to an aufs bug.
 
+###<a id='self-signed-certs-cc'></a>Using Self-Signed Certs could cause Cloud Controller Downtime
+
+If you have installed Elastic Runtime versions 1.9.31 or higher, and are using self-signed certificates for your system domain, then you will experience downtime. Elastic Runtime v1.9.34 resolves this issue.
