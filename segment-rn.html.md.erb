@@ -5,6 +5,48 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.5'></a> 1.11.5
+
+* The components included in routing-release (gorouter, route_registrar,
+  routing-api, tcp_emitter, and tcp_router) have been updated to run on Go v1.8.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.133.0</td>
+  </tr><tr>
+    <td>consul</td><td>167</td>
+  </tr><tr>
+    <td>diego</td><td>1.18.1</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>89</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>routing</td><td>0.157.0\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.4'></a> 1.11.4
 
 * **[Security Fix]** The Router will now validate the UAA token issuer
