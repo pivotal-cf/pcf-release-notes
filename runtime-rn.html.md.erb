@@ -3722,6 +3722,10 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * Application file names on Windows cells are limited to maximum length of 100 characters. As a workaround, make sure that all filenames in an application directory are shorter than 100 characters before pushing.
 
+###<a id='self-signed-certs-cc'></a>Using Self-Signed Certs could cause Cloud Controller Downtime
+
+If you have installed Elastic Runtime versions 1.8.53 or higher, and are using self-signed certificates for your system domain, then you will experience downtime. Elastic Runtime v1.8.56 resolves this issue.
+
   <table border="1" class="nice">
   <thead>
   <tr>
