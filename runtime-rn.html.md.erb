@@ -11,6 +11,116 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.7'></a> 1.11.7
+
+* **[Security Improvement]** Operators can now choose to disable the recording
+  of command history when running the `mysql` command on their Internal MySQL
+  VMs.  Unchecking the "Allow Command History" checkbox on the "Internal MySQL"
+  tab will disable recording of that history into the `.mysql_history` file.
+* **[Bug Fix]** Bumps apps-manager-release to v661.1.30. In this version, the
+  dependencies for Apps Manager are now properly vendored to support deployments
+  on internetless environments.
+* **[Bug Fix]** Bumps uaa-release to v45. This version includes a patch to
+  ensure that systems deployed on non-RFC 1918 networks will have their Router
+  IPs automatically added to the whitelist of proxies for the UAA.
+* **[Bug Fix]** The smoke test errand will now correctly use the `system`
+  organization to deploy its canary applications.
+* The components included in routing-release (gorouter, route_registrar,
+  routing-api, tcp_emitter, and tcp_router) have been updated to run on Go v1.8.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.133.0</td>
+  </tr><tr>
+    <td>consul</td><td>167</td>
+  </tr><tr>
+    <td>diego</td><td>1.18.1</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.18</td>
+  </tr><tr>
+    <td>loggregator</td><td>89</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.3.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.3</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.38</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.30</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.20</td>
+  </tr><tr>
+    <td>routing</td><td>0.157.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.44</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>4</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.11</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr><tr>
+    <td>uaa</td><td>45</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.6'></a> 1.11.6
 
 * **[Security Fix]** Bumps apps-manager-release to v661.1.29. This release has the following updates:
@@ -21,9 +131,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Specifies a more consistent cluster identifier, `cf`, for the Internal MySQL cluster when emitting metrics.
 * **[Stability Improvement]** Reduces the default for
   `cc.droplets.max_staged_droplets_stored` from 5 to 2. This will result in
-  reduced blobstore utilization as the Cloud Controller will only keep 2   
-  historic staged application droplets, in addition to the currently running 
-  application droplet. Garbage collection of expired droplets will occur the  
+  reduced blobstore utilization as the Cloud Controller will only keep 2
+  historic staged application droplets, in addition to the currently running
+  application droplet. Garbage collection of expired droplets will occur the
   next time an application is staged.
 
   <table border="1" class="nice">
