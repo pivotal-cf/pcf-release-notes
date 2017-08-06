@@ -13,6 +13,118 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.0-alpha.5'></a> 1.12.0-alpha.5
+
+* The Usage Service is now deployed independently of Apps Manager.
+* Operators can configure the `Cluster Probe Timeout` for the internal MySQL
+  deployment.
+* The S3 region `us-east-2` is now supported for MySQL automated backup.
+* **[Stability Improvement]** Reduces the default for
+  `cc.droplets.max_staged_droplets_stored` from 5 to 2. This will result in
+  reduced blobstore utilization as the Cloud Controller will only keep 2
+  historic staged application droplets, in addition to the currently running
+  application droplet. Garbage collection of expired droplets will occur the
+  next time an application is staged.
+* The HTTP healthcheck is now always enabled for HAProxy. This is to match the
+  existing CF HAProxy behavior.
+* The `silk-controller` on the Diego Brain now provides a cross-deployment link
+  called `cf_network`.
+* The Backup Prepare VM can now be deployed with automated backup disabled.
+  This will allow for a more understandable `bbr` deployment and workflow.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.36.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.3.4</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>36</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.145.0</td>
+  </tr><tr>
+    <td>consul</td><td>171</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.21.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.3.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.19</td>
+  </tr><tr>
+    <td>loggregator</td><td>91</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.6.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.39</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.4</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.22</td>
+  </tr><tr>
+    <td>routing</td><td>0.159.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.46</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>10</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.0-alpha.4'></a> 1.12.0-alpha.4
 
 * Adds GrootFS to run applications in OCI-compliant containers.
