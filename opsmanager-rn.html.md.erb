@@ -539,13 +539,3 @@ When importing previous versions of an installation with non-default VM sizes th
 To work around this issue, use the API to export the list of supported VM types from the old Ops Manager installation and import the list to the new Ops Manager installation.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009289407) article.
-
-###<a id='commit'></a>Commit Endpoint Fails when CredHub Variables are Staged
-
-If you use Ops Manager to generate manifests that you deploy manually with BOSH,
-the `/commit` API endpoint fails to save the manifest if it contains CredHub variables.
-
-To work around this issue, migrate the variables to CredHub using the CLI and delete the
-credentials from the tile manifest.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115011257327) article.
