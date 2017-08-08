@@ -105,21 +105,6 @@ either Nova or Neutron as the **Network Type**.
 
 For more information about the two network types, see the [OpenStack documentation](https://docs.openstack.org/ocata/networking-guide/migration-nova-network-to-neutron.html).
 
-### <a id='commit'></a>Commit GET and DELETE Endpoints
-
-Ops Manager v1.12.0 adds two API endpoints for operators who deploy PCF manually.
-If you use Ops Manager to generate manifests that you deploy on your own with BOSH,
-the `/commit` endpoint fails when a tile upgrade contains credential variables.
-
-Use the `GET api/v0/staged/products/credhub_credentials` endpoint to retrieve a file
-that contains the credentials that you must migrate to CredHub before upgrading a particular tile.
-
-After you migrate the credentials, use `DELETE api/v0/staged/products/credhub_credentials`
-to delete the credentials staged in installation.yml.
-
-For more information about this feature, see [Manually Upgrading a Tile that Contains Variable Migrations](https://docs.pivotal.io/tiledev/manual-tile-upgrade.html)
-in the Tile Developers Guide.
-
 ### <a id='fixes'></a>Bug Fixes
 
 * Ops Manager v1.12.0 fixes a bug where operators were unable to use an IAM instance profile on newly added AWS regions.
@@ -138,12 +123,16 @@ To work around this issue, use one of the following methods:
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
 
-###<a id='commit'></a>Commit Endpoint Fails when CredHub Variables are Staged
+### <a id='commit'></a>Commit Endpoint Fails when CredHub Variables are Staged
 
-If you use Ops Manager to generate manifests that you deploy manually with BOSH,
-the `/commit` API endpoint fails to save the manifest if it contains CredHub variables.
+Ops Manager v1.12.0 adds two API endpoints for operators who deploy PCF manually.
+If you use Ops Manager to generate manifests that you deploy on your own with BOSH,
+the `/commit` endpoint fails when a tile upgrade contains credential variables.
 
-To work around this issue, migrate the variables to CredHub using the CLI and delete the
-credentials from the tile manifest.
+Use the `GET api/v0/staged/products/credhub_credentials` endpoint to retrieve a file
+that contains the credentials that you must migrate to CredHub before upgrading a particular tile.
+
+After you migrate the credentials, use `DELETE api/v0/staged/products/credhub_credentials`
+to delete the credentials staged in installation.yml.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115011257327) article.
