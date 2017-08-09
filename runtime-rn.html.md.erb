@@ -2186,6 +2186,10 @@ Since Loggregator now uses the gRPC protocol, your deployment may see an increas
 For more information on scaling Dopplers, see the
 [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](../loggregator/log-ops-guide.html) topics.
 
+### <a id='syslog-drain'></a> Org, Space and Application Name in Syslog Drains
+
+The Loggregator system now includes the org, space and application name in the host information for syslog drains. Application GUID's continue to be incldued for precise filtering, but this allows for more easily readible logs delviered via a drain and matches functionality included in most syslog nozzles. 
+
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for PCF Elastic Runtime.
