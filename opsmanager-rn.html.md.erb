@@ -101,7 +101,11 @@ For more information about the differences between the old and new versions of t
 ### <a id='openstack-networks'></a>OpenStack Network Type
 
 Ops Manager v1.12.0 uses OpenStack CPI v32. In this version, you must select
-either Nova or Neutron as the **Network Type**.
+either **Nova** or **Neutron** as the **Network Type** in the **OpenStack Config** page of the
+Director tile.
+
+Pivotal recommends that you use **Neutron** for compatibility with future versions
+of the OpenStack CPI.
 
 For more information about the two network types, see the [OpenStack documentation](https://docs.openstack.org/ocata/networking-guide/migration-nova-network-to-neutron.html).
 
