@@ -70,13 +70,6 @@ Google Shared Virtual Private Cloud (VPC), formerly known as Google Cross-Projec
 to individual projects within an organization but allows communication and shared services between projects.
 For more information about this feature, see the [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html) topic.
 
-### <a id='credhub-migration'></a>Migrate Non-Configurable Secrets to CredHub
-
-Tile Authors can write a JavaScript migration to move their existing non-configurable secrets into CredHub.
-Ops Manager v1.12 supports migrating `secret`, `simple_credential`, and `rsa_pkey_credential` types.
-For more information about this feature, see the [Migrating Existing Credentials to CredHub](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html)
-topic in the PCF Tile Developers Guide.
-
 ### <a id='aws-gov'></a>AWS GovCloud (US)
 
 Operators can deploy Ops Manager v1.12 to [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us). For more information about deploying AWS GovCloud (US), see the following AWS installation topics:
@@ -84,26 +77,40 @@ Operators can deploy Ops Manager v1.12 to [AWS GovCloud (US)](https://aws.amazon
 * [Deploying the CloudFormation Template for Pivotal Cloud Foundry on AWS](http://localhost:4567/pivotalcf/1-12/customizing/cloudform-template.html)
 * [Manually Configuring AWS for PCF](http://localhost:4567/pivotalcf/1-12/customizing/pcf-aws-manual-config.html)
 
+### <a id='credhub-migration'></a>Migrate Non-Configurable Secrets to CredHub
+
+Tile Authors can write a JavaScript migration to move their existing non-configurable secrets into CredHub.
+Ops Manager v1.12 supports migrating `secret`, `simple_credential`, `rsa_pkey_credential`, and `salted_credential` types.
+
+For more information about this feature, see the [Migrating Existing Credentials to CredHub](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html)
+topic in the PCF Tile Developers Guide.
+
+### <a id='commit'></a>Commit GET and DELETE Endpoints
+
+Ops Manager v1.12.0 adds two API endpoints for operators who deploy PCF manually.
+If you use Ops Manager to generate manifests that you deploy on your own with BOSH,
+the `/commit` endpoint fails when a tile upgrade contains CredHub credential variables.
+
+Before upgrading a tile, use the `GET` endpoint to retrieve a file that contains the credentials.
+Migrate the credentials to CredHub using the [CredHub CLI](https://github.com/cloudfoundry-incubator/credhub-cli/releases), then use the `DELETE` endpoint to delete the credentials staged in installation.yml.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115011257327) article.
+
 ### <a id='bosh2'></a>BOSH CLI v2
 
 Ops Manager v1.12.0 uses the new version of the [BOSH CLI](https://bosh.io/docs/cli-v2.html).
-Both versions of the BOSH CLI are installed on the Ops Manager Director VM,
-located in `/usr/local/bin/bosh-init` and `/usr/local/bin/bosh2`.
-You can use either version of the BOSH CLI to interact with your deployment,
-but Pivotal recommends using `bosh2` since the older CLI will be deprecated in
-future PCF versions.
 
-In the **Credentials** tab in Ops Manager, click the link to **Bosh2 Commandline Credentials** for a command
-that you can copy and paste to log in to the `bosh2` CLI.
+There are two major releases of the BOSH CLI, and the Ops Manager Director VM includes both versions. You can use either version of the BOSH CLI to interact with your deployment, using `bosh` commands for the old CLI and `bosh2` commands for the new CLI, but Pivotal recommends using `bosh2` for compatibility with future PCF versions.
+
+In the **Credentials** tab in Ops Manager, click the link to **Bosh2 Commandline Credentials** for a command that you can copy and paste to log in to the `bosh2` CLI.
 
 For more information about the differences between the old and new versions of the BOSH CLI, see the [BOSH documentation](https://bosh.io/docs/cli-v2-diff.html).
 
-### <a id='openstack-networks'></a>OpenStack Network Type
+### <a id='openstack-networks'></a>OpenStack Network Changes
 
 Ops Manager v1.12.0 uses OpenStack CPI v32. In this version, you must select
-either **Nova** or **Neutron** as the **Network Type** in the **OpenStack Config** page of the
+either **Nova** or **Neutron** as the **Network Type** on the **OpenStack Config** page of the
 Director tile.
-
 Pivotal recommends that you use **Neutron** for compatibility with future versions
 of the OpenStack CPI.
 
@@ -111,7 +118,9 @@ For more information about the two network types, see the [OpenStack documentati
 
 ### <a id='fixes'></a>Bug Fixes
 
-* Ops Manager v1.12.0 fixes a bug where operators were unable to use an IAM instance profile on newly added AWS regions.
+* Ops Manager v1.12.0 fixes a bug where configuring a thin-provisioned ephemeral disk in Ops Manager created a thick-provisioned disk in vSphere.
+* Ops Manager v1.12.0 fixes a bug where the entity ID was not unique if UAA was configured with SAML.
+* Ops Manager v1.12.0 fixes a bug where `POST /api/v0/setup` did not expose the `http`, `https`, and `no_proxy` fields.
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -126,17 +135,3 @@ To work around this issue, use one of the following methods:
 * Create a dummy network in Ops Manager, reserve a block of IP ranges, and disable smoke tests for the on-demand service
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
-
-### <a id='commit'></a>Commit Endpoint Fails when CredHub Variables are Staged
-
-Ops Manager v1.12.0 adds two API endpoints for operators who deploy PCF manually.
-If you use Ops Manager to generate manifests that you deploy on your own with BOSH,
-the `/commit` endpoint fails when a tile upgrade contains credential variables.
-
-Use the `GET api/v0/staged/products/credhub_credentials` endpoint to retrieve a file
-that contains the credentials that you must migrate to CredHub before upgrading a particular tile.
-
-After you migrate the credentials, use `DELETE api/v0/staged/products/credhub_credentials`
-to delete the credentials staged in installation.yml.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115011257327) article.
