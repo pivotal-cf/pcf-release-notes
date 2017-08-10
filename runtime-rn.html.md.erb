@@ -581,9 +581,15 @@ has been removed. Replacing it will be the newly incubated
 
 ### Introducing GrootFS
 
-GrootFS is the new daemon-less container image plugin for Garden, the Elastic
-Runtime container engine.  It can be run as an unprivileged user, improving the
-security of the Elastic Runtime.
+GrootFS is the new container image management plugin for Garden-runC.
+It helps with the filesystem isolation of Garden-runC containers,
+image caching,
+and disk quota enforcement.
+GrootFS replaces the previous, built-in, functionality,
+because it was using an obsolete layer file system (AUFS)
+which is not very well supported by the Linux Kernel community.
+Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards
+for [container images](http://github.com/opencontainers/image-spec).
 
 ### Secured Communication between Cloud Controller and Diego
 
