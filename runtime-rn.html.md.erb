@@ -18,7 +18,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   deployments on internetless environments.
 * **[Bug Fix]** The smoke test errand will now correctly use the `system`
   organization to deploy its canary applications.
-* The components included in routing-release (gorouter, route_registrar,
+* The components included in routing-release (Gorouter, route_registrar,
   routing-api, tcp_emitter, and tcp_router) have been updated to run on Go v1.8.
 
   <table border="1" class="nice">
@@ -232,7 +232,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * Sets the default max-in-flight value for the Diego Cells to 4%. Operators can
   still use the Ops Manager API to configure this setting to fit their needs. The
   max-in-flight percentage for the Diego Cell job in the Elastic Runtime has been
-  set to 10% since 1.9, but we’ve seen especially in larger environments that
+  set to 10% since 1.9, but we have seen especially in larger environments that
   having the percentage this high can cause some problems:
   * Many simultaneous VM creates/deletes and BOSH blob updates can place
   significant stress on the underlying infrastructure, especially on vSphere
@@ -968,8 +968,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id='1.10.11'></a> 1.10.11
 
 * Bumps uaa-release to v30.4.
-* Allows loggregator cipher suites to be configured via Router Cipher Suites configuration.
-* Allows loggregator cipher suites to be configured via Router Cipher Suites
+* Allows Loggregator cipher suites to be configured via Router Cipher Suites configuration.
+* Allows Loggregator cipher suites to be configured via Router Cipher Suites
   configuration.  Only the following ciphers are valid DHE-RSA-AES128-GCM-SHA256,
   ECDHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-GCM-SHA384,
   ECDHE-RSA-AES256-GCM-SHA384
@@ -1884,7 +1884,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * Bumps the buildpack releases to their latest versions to patch any lingering security vulnerabilities or issues.
 * Operators can associate users with a Global Auditor Scope, allowing that user to have global read-only
   privileges across all orgs and spaces, with environment variables and service credentials redacted.
-* Patches loggregator to include metric for `listeners.totalReceivedMessageCount`.
+* Patches Loggregator to include metric for `listeners.totalReceivedMessageCount`.
 * Allows operators to specify HTTP headers that will be recorded in the GoRouter access logs.
 * Fixes a bug in the internal MySQL configuration that prevented notifications
   from being sent when the cluster went into a dataloss-prevention state.
@@ -2186,9 +2186,9 @@ Since Loggregator now uses the gRPC protocol, your deployment may see an increas
 For more information on scaling Dopplers, see the
 [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](../loggregator/log-ops-guide.html) topics.
 
-### <a id='syslog-drain'></a> Org, Space and Application Name in Syslog Drains
+### <a id='syslog-drain'></a> Org, Space, and Application Name in Syslog Drains
 
-The Loggregator system now includes the org, space and application name in the host information for syslog drains. Application GUID's continue to be incldued for precise filtering, but this allows for more easily readible logs delviered via a drain and matches functionality included in most syslog nozzles. 
+The Loggregator system now includes the org, space, and application name in the host information for syslog drains. Application GUID's continue to be included for precise filtering, but this allows for more easily readable logs delivered via a drain and matches functionality included in most syslog nozzles. 
 
 ## <a id='knownissues'></a> Known Issues
 
