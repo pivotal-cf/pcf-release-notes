@@ -13,6 +13,115 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.0-alpha.7'></a> 1.12.0-alpha.7
+
+* Diego Cells can now generate instance identity credentials for application
+  instances.
+* Cloud Controller will now perform periodic cleanup of orphaned blobs.
+* Healthwatch now has UAA clients.
+* Apps Manager is now feature complete for this release.
+* Operators can opt-out of using GrootFS.
+* Certificate and Key for the Networking Point of Entry are now required. The
+  same certificate and key will be used to configure both Router and HAProxy.
+* Operators can opt-out of having their MySQL history recorded on the internal
+  MySQL VMs.
+* HAProxy can be configured to reject requests to protected domains unless the
+  source IPs are from a trusted CIDR.
+* Applications now have access to mTLS client certificates on request headers.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.9</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.39.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>36</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.146.0</td>
+  </tr><tr>
+    <td>consul</td><td>171</td>
+  </tr><tr>
+    <td>diego</td><td>1.24.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.23</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.24.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.3.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.19</td>
+  </tr><tr>
+    <td>loggregator</td><td>92</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.7.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.39</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.8</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.22</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.46</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>10</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.0-alpha.6'></a> 1.12.0-alpha.6
 
 * The Diego Rep now communicates with the Metron Agent via the Loggregator V2
@@ -737,5 +846,31 @@ user or application.
 Once LDAP support is enabled and regular UID and GID parameters are disabled,
 application developers will need to provide credentials for any user they wish
 to bind as.
+
+### Application Instance Identity Credentials
+
+The instance identity system in Diego provides each application instance with a
+PEM-encoded X.509 certificate and PKCS#1 RSA private key. The values of the
+environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the
+absolute paths to the certificate and private key files, respectively.
+
+### Orphaned Blob Cleanup
+
+Cloud Controller will now scan the blobstore on a regular interval to identify and remove orphaned blobs.
+
+### Restructuring of the Networking Point of Entry
+
+The Point of Entry options on the Networking tab have been restructured to be
+more understandable and flexible.  Operators will no longer need to configure
+their Router or HAProxy separately as both components will be configured using
+the same options.
+
+### Mutual TLS Headers on Inbound Application Traffic
+
+Gorouter can now forward the `X-Forwarded-Client-Cert` header onto application
+instances when provided. Alternatively, operators can configure Gorouter to
+forward the header only when the mutual TLS connection from the client can be
+validated. Additionally, operators may now configure Gorouter to overwrite the
+XFCC header with the client certificate received in mTLS handshakes.
 
 ##<a id='knownissues'></a> Known Issues
