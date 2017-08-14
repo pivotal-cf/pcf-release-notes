@@ -5,6 +5,45 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.0-alpha.4'></a> 1.12.0-alpha.4
+
+* The Diego Rep now communicates with the Metron Agent via the Loggregator V2
+  API. This change further secures that API interaction as it is performed via
+  mutual TLS.
+* Adds Diego configuration for declarative healthchecks.
+* Allows operators to set the Administrator password for VMs in the deployment.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.0</td>
+  </tr><tr>
+    <td>consul</td><td>171</td>
+  </tr><tr>
+    <td>diego</td><td>1.24.0</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.7.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>92</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.2.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.0-alpha.3'></a> 1.12.0-alpha.3
 
 * The stemcell version has been bumped to v1200.0.
@@ -144,3 +183,30 @@ successfully.
 For these reasons, we have lowered the default max-in-flight percentage on the
 Diego Cells to 4%. Operators can still use the Ops Manager API to configure
 this setting to fit their needs.
+
+### Improved System Performance for App Health Checks
+
+<p class="note"><strong>Note</strong>: This feature requires that you <a
+href="../customizing/upgrading-pcf.html#cc">enable secure communication between
+the Cloud Controller and Diego</a>.</p>
+
+This release changes how Runtime for Windows runs app health checks to improve
+system performance in resource-constrained environments, such as on-premise
+installations of PCF. This change does not impact the developer workflow for
+[configuring app health checks](../devguide/deploy-apps/healthchecks.html).
+
+Health checks during app startup previously increased system load because they
+ran as a Garden-Windows process every two seconds. Also, apps that started
+successfully could wrongly fail if slow system performance caused the app
+health check to time out. In some severe cases, such app failures caused
+additional resource consumption and a chain-reaction of app failures.
+
+This release resolves these issues through a new implementation that does not
+invoke a new process on every health check. Rather, the health check now runs
+as a long-lived process in the app container.
+
+### VM Administrator Password Configuration
+
+VMs can now be accessed with a configurable VM Administator Password.
+Operators will have the choice of using the default password, setting their
+own, or having each VM use a randomly generated password.
