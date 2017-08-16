@@ -805,13 +805,9 @@ which is not very well supported by the Linux Kernel community.
 Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards
 for [container images](http://github.com/opencontainers/image-spec).
 
-### Secured Communication between Cloud Controller and Diego
+### Secure Communication between Cloud Controller and Diego
 
-The Cloud Controller has taken on the responsibilities of the Cloud Controller
-Bridge components that ran on the Diego Brain VM.  These components were
-responsible for translating Cloud Controller requests into commands understood
-by the Diego API.  Cloud Controller is now capable of communicating directly
-with Diego, and does so in a substantially more secure manner.
+In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands and responses via plaintext HTTP. In PCF v1.12, the Cloud Controller and Diago communicate directly via secure TLS protocol. This change streamlines and secures internal communications, and removes the Cloud Controller Bridge.
 
 ### Router Sharding Mode
 
