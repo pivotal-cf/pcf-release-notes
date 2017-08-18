@@ -5,6 +5,61 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.7'></a> 1.11.7
+
+* **[Security Fix]** Bumps stemcell to version 3421.19.
+* **[Bug Fix]** Bumps diego-release to v1.23.2 to resolve a number of issues
+  including:
+  * improving locket stability during MySQL updates
+  * reporting the correct result of running tasks on Windows cells
+  * resolution of a race condition in the process launching code that could
+    cause process failures
+  * improvements to the healthcheck error messaging
+  * removing the extraneous "cancelled" message in logs when applications crash
+  * prefixing process errors with their log source
+  * removing exit codes from healthcheck output when an application fails its
+    healthcheck
+* Applications now have access to the certificate provided by the requester via
+  the `X-Forwarded-Client-Cert` header. Configuration for this feature can be
+  found on the Networking tab.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.19</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.145.0</td>
+  </tr><tr>
+    <td>consul</td><td>167</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>89</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.6'></a> 1.11.6
 
 * **[Security Fix]** Bumps stemcell to v3421.18 to resolve
