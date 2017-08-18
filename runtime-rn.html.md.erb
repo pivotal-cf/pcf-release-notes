@@ -11,6 +11,124 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.9'></a> 1.11.9
+
+* **[Security Fix]** Bumps stemcell to version 3421.19.
+* **[Bug Fix]** Bumps diego-release to v1.23.2 to resolve a number of issues
+  including:
+  * improving locket stability during MySQL updates
+  * reporting the correct result of running tasks on Windows cells
+  * resolution of a race condition in the process launching code that could
+    cause process failures
+  * improvements to the healthcheck error messaging
+  * removing the extraneous "cancelled" message in logs when applications crash
+  * prefixing process errors with their log source
+  * removing exit codes from healthcheck output when an application fails its
+    healthcheck
+* **[Bug Fix]** Cloud Controller will no longer maintain keepalive connections
+  to the Router as it could cause errant 502 responses when making API calls.
+* Applications now have access to the certificate provided by the requester via
+  the `X-Forwarded-Client-Cert` header. Configuration for this feature can be
+  found on the Networking tab.
+* The regions listed on the File Storage form and the selector for Internal
+  MySQL backups for S3-compatible blobstores now includes all available S3
+  regions.
+* Automated backup for the internal MySQL instances now includes support for
+  GCP and Azure.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.19</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.145.0</td>
+  </tr><tr>
+    <td>consul</td><td>167</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.18</td>
+  </tr><tr>
+    <td>loggregator</td><td>89</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.3.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.3</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.38</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.31</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.20</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.44</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>4</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.11</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr><tr>
+    <td>uaa</td><td>45</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.8'></a> 1.11.8
 
 * **[Security Fix]** Bumps stemcell to v3421.18 to resolve
