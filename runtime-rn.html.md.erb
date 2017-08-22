@@ -3933,6 +3933,8 @@ This section lists new and existing known issues for Elastic Runtime.
 
 * Customers using an additional NodeJS buildpack or who have replaced the system NodeJS buildpack may encounter deployment issues with Apps Manager. Please contact support if you encounter problems deploying Apps Manager.
 
+* In Elastic Runtime 1.8.0 - 1.8.37, the Diego cell rep process can occasionally hang indefinitely when VMs are being updated or shut down during a deploy, preventing the deploy from proceeding. If your cell VM update lasts longer than 20 minutes, manual intervention may be required to stop the rep process. This issue is resolved in Elastic Runtime 1.8.38.
+
 ### <a id='existingissues'></a> Existing Issues
 
 * The version of the PHP Buildpack included with 1.8.0 is vulnerable to multiple CVEs [[1](https://pivotal.io/security/cve-2016-6639)] [[2](https://pivotal.io/security/usn-3045-1)]. To mitigate these issues, update the PHP buildpack to the newest version as part of the 1.8.0 upgrade or new installation.
