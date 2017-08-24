@@ -1015,7 +1015,16 @@ for [container images](http://github.com/opencontainers/image-spec).
 
 ### Secure Communication between Cloud Controller and Diego
 
-In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands. The Cloud Controller Bridge conveyed communications between the Cloud Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller and Diego communicate directly via secure TLS protocol. This change streamlines and secures internal communications, and removes the Cloud Controller Bridge.
+In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
+component, which translated Cloud Controller requests into Diego API commands.
+The Cloud Controller Bridge conveyed communications between the Cloud
+Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller
+and Diego communicate directly via secure TLS protocol. This change streamlines
+and secures internal communications, and removes the Cloud Controller Bridge.
+
+Securing this communication path will require a second deployment after
+completing your upgrade to PCF v1.12. Follow the steps in our [upgrade guide](../customizing/upgrading-pcf.html#cc) to
+secure your PCF installation.
 
 ### Router Sharding Mode
 
