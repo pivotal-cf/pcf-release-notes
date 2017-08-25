@@ -312,6 +312,10 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](../concepts/container-security.html#mechanics)
 * [Component: Garden](../concepts/architecture/garden.html#garden-rootfs)
 
+### Authenticating with Google Container Registry (GCR) to Push Docker Images
+
+For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push` or rescheduling operations fail once the access token expires.
+
 ### Secure Communication between Cloud Controller and Diego
 
 In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
