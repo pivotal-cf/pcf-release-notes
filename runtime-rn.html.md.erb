@@ -499,10 +499,9 @@ to bind as.
 
 ### Application Instance Identity Credentials
 
-The instance identity system in Diego provides each application instance with a
-PEM-encoded X.509 certificate and PKCS#1 RSA private key. The values of the
-environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the
-absolute paths to the certificate and private key files, respectively.
+The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files, respectively.
+
+See the [App Instance Container Identity Credentials](../security/tls-info.html#container-creds) section for more information.
 
 ### Orphaned Blob Cleanup
 
