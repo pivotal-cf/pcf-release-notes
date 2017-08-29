@@ -117,7 +117,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Bumps stemcell to version 3421.19.
 * **[Bug Fix]** Bumps diego-release to v1.23.2 to resolve a number of issues
   including:
-  * improving locket stability during MySQL updates
+  * improving locket stability during MySQL updates which resolves the known
+    issue <a href='#unavailability-internal-mysql-update'>Brief Unavailability of
+    Application Management during Internal MySQL Database Updates</a>
   * reporting the correct result of running tasks on Windows cells
   * resolution of a race condition in the process launching code that could
     cause process failures
@@ -1401,6 +1403,8 @@ Loggregator System](../loggregator/architecture.html).
 This section lists known issues for PCF Elastic Runtime.
 
 ### <a id='unavailability-internal-mysql-update'></a>Brief Unavailability of Application Management during Internal MySQL Database Updates
+
+**Fixed in ERT 1.11.9.**
 
 This issue applies only to Elastic Runtime deployments using an internal MySQL
 database with more than one MySQL instance. When updating this MySQL database
