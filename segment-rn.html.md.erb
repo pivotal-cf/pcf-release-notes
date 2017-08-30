@@ -5,6 +5,70 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.0-beta.2'></a> 1.12.0-beta.2
+
+* Bumps stemcell to v3445.2
+* Bumps diego-release to v1.25.1 [Release Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.25.1)
+* Bumps grootfs-release to v0.25.0 [Release Notes](https://github.com/cloudfoundry/grootfs-release/releases/tag/v0.25.0)
+* Bumps routing-release to v0.162.0 [Release Notes](https://github.com/cloudfoundry-incubator/routing-release/releases/tag/0.162.0)
+* Bumps haproxy-release to v8.4.0 [Release Notes](https://github.com/cloudfoundry-incubator/haproxy-boshrelease/releases/tag/v8.4.0)
+* Bumps nfs-volume-release to v1.0.8 [Release Notes](https://github.com/cloudfoundry/nfs-volume-release/releases/tag/v1.0.8)
+* Instance groups were reordered to deploy HAProxy before everything.
+* The Networking tab now comes before the Application Container tab, like we see in Elastic Runtime.
+* Allows operators to disable HTTP on the Router.
+* The Router can now configure a number of max idle connections.
+* The Router can log extra headers.
+* The Router can disable insecure cookies.
+* The Router supports Zipkin tracing.
+* The Router timeout to backends can be configured.
+* Operators can specify a healthy and unhealthy threshold for load balancer healthiness monitoring of the Router.
+* The HAProxy can have statically assigned IPs.
+* The HAProxy request max buffer size can be configured.
+* SSL verification can be disabled.
+* Operators can specify multiple certificates for HAProxy and Router.
+* The Garden disk cleanup method can be configured independently of the Elastic Runtime setting.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.2</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.146.0</td>
+  </tr><tr>
+    <td>consul</td><td>171</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.1</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.25.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>92</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.8</td>
+  </tr><tr>
+    <td>routing</td><td>0.162.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.0-beta.1'></a> 1.12.0-beta.1
 
 * HAProxy can now be deployed in front of the Router VMs.
