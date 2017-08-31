@@ -5,6 +5,44 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.18'></a> 1.10.18
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.150.0 to resolve
+  [USN-3398-1](http://www.ubuntu.com/usn/usn-3398-1/).
+* **[Feature Improvement]** Operators can now configure a maximum number of
+  idle connections for their Router VMs.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.31</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.150.0</td>
+  </tr><tr>
+    <td>consul</td><td>165\*</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.17'></a> 1.10.17
 
 * **[Security Fix]** Bumps stemcell to v3363.31 to resolve
