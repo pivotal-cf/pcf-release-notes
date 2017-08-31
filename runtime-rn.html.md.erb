@@ -14,6 +14,107 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.9.38'></a> 1.9.38
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.150.0 to resolve
+  [USN-3398-1](http://www.ubuntu.com/usn/usn-3398-1/).
+* **[Bug Fix]** Bumps apps-manager-release to v659.12.16, including the
+  following fixes:
+  * The square logo will now display correctly in the header.
+  * Allows the invitations application to install in offline environments.
+  * Users can now see shared private domains on the org domains tab.
+  * Resolves an erroneous mapping of hidden shared private domains.
+* **[Bug Fix]** Bumps cf-autoscaling-release to v75.12. [Release
+  Notes](https://github.com/pivotal-cf/cf-autoscaling-release/releases/tag/v75.12).
+* **[Bug Fix]** Fixes a data migration in Cloud Controller to prune duplicate routes when
+  upgrading to this version from a 1.8.x version of the Elastic Runtime.
+* **[Bug Fix]** Resolves an issues with loggregator websocket control frame timeouts.
+* **[Feature Improvement]** Operators can now configure a "Staging Timeout" to
+  force Cloud Controller to wait for staging of applications that may take a very
+  long time.
+* **[Feature Improvement]** The internal MySQL cluster will now emit metrics
+  via the firehose. You can use `cf nozzle` to view those metrics as they are
+  emitted.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3363.31</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.13</td>
+  </tr><tr>
+    <td>capi</td><td>1.11.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>246\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>75.12</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.150.0</td>
+  </tr><tr>
+    <td>consul</td><td>165</td>
+  </tr><tr>
+    <td>diego</td><td>0.1491.0\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.7.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.5</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>3.18</td>
+  </tr><tr>
+    <td>loggregator</td><td>65\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>14</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.3</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.38</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.1.14</td>
+  </tr><tr>
+    <td>postgres</td><td>8</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>659.12.16</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.20</td>
+  </tr><tr>
+    <td>routing</td><td>0.143.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.44</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.11</td>
+  </tr><tr>
+    <td>uaa</td><td>24.13</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.9.37'></a> 1.9.37
 
 * **[Security Fix]** Bumps stemcell to v3363.31 to resolve
