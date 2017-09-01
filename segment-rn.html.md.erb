@@ -176,6 +176,22 @@ The Isolation Segment tile supports router sharding. Operators can choose to hav
 
 ### Introducing GrootFS
 
-GrootFS is the new daemon-less container image plugin for Garden, the Elastic
-Runtime container engine.  It can be run as an unprivileged user, improving the
-security of the Elastic Runtime.
+GrootFS is the new container image management plugin for Garden-runC.
+It helps with the filesystem isolation of Garden-runC containers,
+image caching,
+and disk quota enforcement.
+GrootFS replaces the previous built-in functionality,
+which used an obsolete layer filesystem (AUFS)
+that lacks support from the Linux Kernel community.
+Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards
+for [container images](http://github.com/opencontainers/image-spec).
+
+For more information about GrootFS in PCF, see the following topics:
+
+* [Understanding Container Security](../concepts/container-security.html#mechanics)
+* [Component: Garden](../concepts/architecture/garden.html#garden-rootfs)
+
+### HAProxy
+
+You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. The Isolation Segment tile includes its own HAProxy VM, which uses the 
+[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For information on the configuration options for HAProxy, see the [Networking](../customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_. 
