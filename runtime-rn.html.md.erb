@@ -444,7 +444,7 @@ For more information about GrootFS in PCF, see the following topics:
 
 For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push` or rescheduling operations fail once the access token expires.
 
-### Secure Communication between Cloud Controller and Diego
+### Secure Communication Between Cloud Controller and Diego
 
 In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
 component, which translated Cloud Controller requests into Diego API commands.
@@ -456,6 +456,10 @@ and secures internal communications, and removes the Cloud Controller Bridge.
 Securing this communication path will require a second deployment after
 completing your upgrade to PCF v1.12. Follow the steps in our [upgrade guide](../customizing/upgrading-pcf.html#cc) to
 secure your PCF installation.
+
+###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
+
+Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
 
 ### Router Sharding Mode
 

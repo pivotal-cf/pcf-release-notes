@@ -145,6 +145,10 @@ This release resolves these issues through a new implementation that does not
 invoke a new process on every health check. Rather, the health check now runs
 as a long-lived process in the app container.
 
+###<a id='metron-api'></a>Improved Security
+
+Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and ensures that Metrons in PCF Runtime for Windows are protected from spoofing attacks.
+
 ### VM Administrator Password Configuration
 
 VMs can now be accessed with a configurable VM Administator Password.
