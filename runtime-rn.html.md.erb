@@ -499,6 +499,12 @@ using them in production.
 
 This section describes new features of the release.
 
+### Multiple Buildpack App Support
+
+This release includes support for pushing apps that take advantage of multiple buildpacks simultaneously using the Cloud Controller v3 API. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](../buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
+
+Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Separately, you can specify [custom buildpacks](../buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
+
 ### Removal of etcd
 
 This release removes the `etcd` server VMs from the PCF deployment.  Operators
