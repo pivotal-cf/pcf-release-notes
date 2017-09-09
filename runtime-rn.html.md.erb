@@ -13,12 +13,11 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
-### <a id='1.12.0-rc.2'></a> 1.12.0-rc.2
+### <a id='1.12.0'></a> 1.12.0
 
-* Reverts the declarative healthcheck feature.
-* Patches CAPI to ensure stop events are created for tasks.
+#### <a id='component-versions'></a> Component Versions
 
-  <table border="1" class="nice">
+<table border="1" class="nice">
   <thead>
   <tr>
     <th>Component</th>
@@ -88,462 +87,6 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
     <td>python-offline-buildpack</td><td>1.5.22</td>
   </tr><tr>
     <td>routing</td><td>0.162.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.46</td>
-  </tr><tr>
-    <td>scalablesyslog</td><td>10</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.1.2</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.0.29</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>8</td>
-  </tr><tr>
-    <td>uaa</td><td>45</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-rc.1'></a> 1.12.0-rc.1
-
-* Patches Cloud Controller to emit stop events for failed tasks.
-* The internal MySQL cluster can now emit metrics over the firehose.
-* Bumps apps-manager-release to v662.0.11.
-* Bumps java-buildpack-release to v4.5.
-* Converts the Router and HAProxy into required fields.
-* The Loggregator cipher suites are no longer configurable.
-* Reorganizes the fields on the Networking tab.
-* Removes the SNI feature.
-* Migrates several more credentials to CredHub:
-  * `.cloud_controller.bulk_api_credentials`
-  * `.cloud_controller.internal_api_user_credentials`
-  * `.cloud_controller.staging_upload_credentials`
-  * `.mysql.app_usage_credentials`
-  * `.mysql.cluster_health_user`
-  * `.mysql.galera_sidecar_user`
-  * `.mysql.mysql_admin_credentials`
-  * `.mysql_proxy.dashboard_credentials`
-  * `.nfs_server.blobstore_credentials`
-  * `.router.status_credentials`
-* Bumps pivotal-account-release to v1.6.1.
-* Bumps nfs-volume-release to v1.0.9.
-* Ensures the `metron_agent` does not manage any Syslog configuration.
-* Ensure the Container Networking iptables logging feature is disabled when operators disable it.
-* Ensures the CC-bridge consumption configuration is set correctly.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3445.2</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.14</td>
-  </tr><tr>
-    <td>capi</td><td>1.40.0</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>95</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.9</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36</td>
-  </tr><tr>
-    <td>cf-networking</td><td>1.4.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>38</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.146.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.25.1</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.23</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.9.0</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.6</td>
-  </tr><tr>
-    <td>grootfs</td><td>0.25.0</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.4.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>4.5</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.35.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.8.0</td>
-  </tr><tr>
-    <td>nats</td><td>22</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.9</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
-  </tr><tr>
-    <td>notifications</td><td>37</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>29</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.39</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.6.1</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>662.0.11</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>663.0.2</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.22</td>
-  </tr><tr>
-    <td>routing</td><td>0.162.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.46</td>
-  </tr><tr>
-    <td>scalablesyslog</td><td>10</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.1.2</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.0.29</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>8</td>
-  </tr><tr>
-    <td>uaa</td><td>45</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.3'></a> 1.12.0-beta.3
-
-* Bumps stemcell to v3445.2
-* Bumps diego-release to v1.25.1 [Release Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.25.1)
-* Bumps grootfs-release to v0.25.0 [Release Notes](https://github.com/cloudfoundry/grootfs-release/releases/tag/v0.25.0)
-* Bumps cf-smoke-tests to v38 to bring in Golang 1.8 support.
-* Bumps capi-release to v1.40.0 [Release Notes](https://github.com/cloudfoundry/capi-release/releases/tag/1.40.0)
-* Bumps haproxy-release to v8.4.0 [Release Notes](https://github.com/cloudfoundry-incubator/haproxy-boshrelease/releases/tag/v8.4.0)
-* Bumps routing-release to v0.162.0 [Release Notes](https://github.com/cloudfoundry-incubator/routing-release/releases/tag/0.162.0)
-* Allows operators to disable HTTP on the Router.
-* Extends the validity period of the Instance Identity root and intermediate CA certificates to 3 and 2 years, respectively.
-* Corrects the MySQL CLI History property name to align with the already released 1.11 version.
-* Corrects the `minimum_version_for_upgrade` property to exclude build numbers.
-* Allows operators to specify multiple certificates for HAProxy and Router.
-* Configures BBS to ignore Consul cell registrations.
-* Removes the unused `.loggregator_trafficcontroller.status_credentials` credential property.
-* Updates some UI on the Smoke Tests tab to specify the org and space details more clearly.
-* Migrated the following credentials to CredHub:
-  * `.mysql.autoscale_credentials`
-  * `.mysql.ccdb_credentials`
-  * `.mysql.diag_agent_credentials`
-  * `.mysql.diegodb_credentials`
-  * `.mysql.locketdb_credentials`
-  * `.mysql.monitordb_credentials`
-  * `.mysql.mysql_backup_server_credentials`
-  * `.mysql.mysql_bootstrap_credentials`
-  * `.mysql.networkpolicyserverdb_credentials`
-  * `.mysql.nfsvolume_credentials`
-  * `.mysql.notifications_credentials`
-  * `.mysql.pivotal_account_credentials`
-  * `.mysql.routingdb_credentials`
-  * `.mysql.silkdb_credentials`
-  * `.mysql.uaadb_credentials`
-  * `.nfsbrokerpush.nfs_broker_push_credentials`
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3445.2</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.14</td>
-  </tr><tr>
-    <td>capi</td><td>1.40.0</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>95</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.9</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36</td>
-  </tr><tr>
-    <td>cf-networking</td><td>1.4.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>38</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.146.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.25.1</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.23</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.9.0</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.6</td>
-  </tr><tr>
-    <td>grootfs</td><td>0.25.0</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.4.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.19</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.35.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.6.0</td>
-  </tr><tr>
-    <td>nats</td><td>22</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.6</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
-  </tr><tr>
-    <td>notifications</td><td>37</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>29</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.39</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.6.0</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>662.0.8</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>663.0.2</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.22</td>
-  </tr><tr>
-    <td>routing</td><td>0.162.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.46</td>
-  </tr><tr>
-    <td>scalablesyslog</td><td>10</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.1.2</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.0.29</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>8</td>
-  </tr><tr>
-    <td>uaa</td><td>45</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.2'></a> 1.12.0-beta.2
-
-* Resolves an issue with migrating the autoscaling encryption key during upgrades.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3445</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.14</td>
-  </tr><tr>
-    <td>capi</td><td>1.39.0</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>95</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.9</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36</td>
-  </tr><tr>
-    <td>cf-networking</td><td>1.4.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>36</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.146.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.24.0</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.23</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.9.0</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.6</td>
-  </tr><tr>
-    <td>grootfs</td><td>0.24.0</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.3.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.19</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.35.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.6.0</td>
-  </tr><tr>
-    <td>nats</td><td>22</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.6</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
-  </tr><tr>
-    <td>notifications</td><td>37</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>29</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.39</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.6.0</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>662.0.8</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>663.0.2</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.22</td>
-  </tr><tr>
-    <td>routing</td><td>0.160.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.6.46</td>
-  </tr><tr>
-    <td>scalablesyslog</td><td>10</td>
-  </tr><tr>
-    <td>service-backup</td><td>18.1.2</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.0.29</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>8</td>
-  </tr><tr>
-    <td>uaa</td><td>45</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.1'></a> 1.12.0-beta.1
-
-* The stemcell has been bumped to v3445.
-* The `tcp_emitter` has been removed from the Diego Brain VM.
-* Container Networking is now always enabled.
-* Container Networking can now log application packets.
-* The TLS cipher suites for HAProxy, Router, Doppler, and Metron can now be set independently.
-* The "Networking Point of Entry" selector has been removed in favor of a simplified Networking UI.
-* HAProxy can now forward requests to the Router over TLS.
-* Both HAProxy and Router can enforce a minimum TLS version.
-* Operators can now set a limit on the number of concurrent connections between the Router and a backend.
-* The MySQL backup S3 region dropdown is replaced with a simple text field.
-* The S3 blobstore region dropdown is replaced with a simple text field.
-* There is now support for performing automated backup of the internal MySQL database to Azure and GCP.
-* TCP keepalive connections to the CloudController API have been disabled.
-* The Cloud Controller knows about a future Windows 2016 stack.
-* Operators can now set a global staging timeout for their applications.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3445</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.14</td>
-  </tr><tr>
-    <td>capi</td><td>1.39.0</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>95</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.9</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36</td>
-  </tr><tr>
-    <td>cf-networking</td><td>1.4.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>36</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.146.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.24.0</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>1.0.23</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.9.0</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.6</td>
-  </tr><tr>
-    <td>grootfs</td><td>0.24.0</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.3.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>3.19</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>mysql-backup</td><td>1.35.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.6.0</td>
-  </tr><tr>
-    <td>nats</td><td>22</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.6</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
-  </tr><tr>
-    <td>notifications</td><td>37</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>29</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.39</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.6.0</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>662.0.8</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>663.0.2</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.5.22</td>
-  </tr><tr>
-    <td>routing</td><td>0.160.0</td>
   </tr><tr>
     <td>ruby-offline-buildpack</td><td>1.6.46</td>
   </tr><tr>
@@ -585,31 +128,80 @@ When upgrading to v1.12, be aware of the following upgrade considerations:
   [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
   organization that produces the tile.
 
-## <a id='adv-features'></a> About Advanced Features
-
-The Advanced Features section of the Elastic Runtime tile includes new
-functionality that may have certain constraints.
-
-Although these features are fully supported, Pivotal recommends caution when
-using them in production.
-
 ## <a id='1.12.0'></a> New Features in Elastic Runtime v1.12.0
 
 This section describes new features of the release.
 
-### Multiple Buildpack App Support
+###<a id='v3-push'></a> Granular cf push Commands and Procfile Support
+
+This release includes experimental commands that provide developers with the ability to better orchestrate app deployment workflows. Additionally, developers can supply a Procfile with their app in order to run multiple long-lived processes using a single codebase. For more information, see [Using Experimental cf CLI Commands](../devguide/v3-commands.html). 
+
+###<a id='max-conn'></a> Gorouter Max Connection Configuration
+
+Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of Elastic Runtime. This field can help prevent malicious apps from using up all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+
+###<a id='request-filtering'></a> HAProxy Request Filtering
+
+If your PCF deployment uses HAProxy and you want it to receive traffic only from specific sources, you can use the **Protected Domains** and **Trusted CIDRs** fields in the **Networking Pane** of the Elastic Runtime tile. A key use case for this feature is when a deployment must only allow requests to the system domain from a private network or VPN. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+
+
+###<a id='c2c'></a> Container-to-Container Networking Updates
+
+Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html#create-policies)
+
+###<a id='app-traffic'></a> Support for Logging All App Traffic
+
+Operators can enable logging of all accepted and denied packets due to ASG or container-to-container networking policy. This provides more visibility into app traffic, including denied traffic. Operators can configure this global logging in the **Networking** pane of Elastic Runtime under the **Log traffic for all accepted/denied application packets** field. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+
+###<a id='credhub'></a> Credentials Have Begun to Move to CredHub
+
+The internal credentials (`secret` and `simple_credentials`) that Elastic Runtime uses for intra-component communication are generated and stored in CredHub instead of Ops Manager.
+
+* Migrated the following credentials to CredHub:
+  * `.mysql.autoscale_credentials`
+  * `.mysql.ccdb_credentials`
+  * `.mysql.diag_agent_credentials`
+  * `.mysql.diegodb_credentials`
+  * `.mysql.locketdb_credentials`
+  * `.mysql.monitordb_credentials`
+  * `.mysql.mysql_backup_server_credentials`
+  * `.mysql.mysql_bootstrap_credentials`
+  * `.mysql.networkpolicyserverdb_credentials`
+  * `.mysql.nfsvolume_credentials`
+  * `.mysql.notifications_credentials`
+  * `.mysql.pivotal_account_credentials`
+  * `.mysql.routingdb_credentials`
+  * `.mysql.silkdb_credentials`
+  * `.mysql.uaadb_credentials`
+  * `.nfsbrokerpush.nfs_broker_push_credentials`
+  * `.cloud_controller.bulk_api_credentials`
+  * `.cloud_controller.internal_api_user_credentials`
+  * `.cloud_controller.staging_upload_credentials`
+  * `.mysql.app_usage_credentials`
+  * `.mysql.cluster_health_user`
+  * `.mysql.galera_sidecar_user`
+  * `.mysql.mysql_admin_credentials`
+  * `.mysql_proxy.dashboard_credentials`
+  * `.nfs_server.blobstore_credentials`
+  * `.router.status_credentials`
+
+###<a id='mysql-metrics'></a> MySQL Metrics
+
+* The internal MySQL cluster can now emit metrics over the firehose.
+
+###<a id='multi-buildpack'></a> Multiple Buildpack App Support
 
 This release includes support for pushing apps that take advantage of multiple buildpacks simultaneously using the Cloud Controller v3 API. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](../buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
 
 Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Separately, you can specify [custom buildpacks](../buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
 
-### Removal of etcd
+###<a id='etcd-gone'></a> Removal of etcd
 
 This release removes the `etcd` server VMs from the PCF deployment.  Operators
 should ensure they are deploying service tiles that are known to be compatible
 with PCF Elastic Runtime 1.12.
 
-### Removal of Postgres
+###<a id='postgres-gone'></a> Removal of Postgres
 
 This release removes the legacy Postgres databases for the Cloud Controller and
 UAA.  If your deployment was originally installed before PCF 1.6 and still uses
@@ -621,7 +213,7 @@ instructions on Pivotal Network.
 If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the
 upgrade will fail.
 
-### Diego Cell Max-in-Flight Default
+###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
 
 The max-in-flight percentage for the Diego Cell job in the Elastic Runtime has
 been set to 10% since 1.9, but we've seen especially in larger environments
@@ -640,14 +232,14 @@ For these reasons, we have lowered the default max-in-flight percentage on the
 Diego Cells to 4%. Operators can still use the Ops Manager API to configure
 this setting to fit their needs.
 
-### HAProxy Release
+###<a id='haproxy-release'></a> HAProxy Release
 
 The old HAProxy job, which was the last remaining component from `cf-release`,
 has been removed. Replacing it will be the newly incubated
 `haproxy-boshrelease`.  The release repository can be found at
 [https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
 
-### Introducing GrootFS
+###<a id='groot'></a> Introducing GrootFS
 
 GrootFS is the new container image management plugin for Garden-runC.
 It helps with the filesystem isolation of Garden-runC containers,
@@ -664,11 +256,11 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](../concepts/container-security.html#mechanics)
 * [Component: Garden](../concepts/architecture/garden.html#garden-rootfs)
 
-### Authenticating with Google Container Registry (GCR) to Push Docker Images
+###<a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images
 
 For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push` or rescheduling operations fail once the access token expires.
 
-### Secure Communication Between Cloud Controller and Diego
+###<a id='cc-diego'></a> Secure Communication Between Cloud Controller and Diego
 
 In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
 component, which translated Cloud Controller requests into Diego API commands.
@@ -685,13 +277,13 @@ secure your PCF installation.
 
 Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
 
-### Router Sharding Mode
+###<a id='sharding'></a> Router Sharding Mode
 
 The tile supports router sharding. Operators can choose to have the tile's
 routers only acknowledge requests from applications deployed within the tile's
 Cells, or reject requests for any isolation segment.
 
-### NFSV3 Volume Services with LDAP
+###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
 q
 Using LDAP will secure the NFSV3 Volume Service as it would no longer be
 possible for an application developer to bind to an NFS share using an
@@ -702,24 +294,33 @@ Once LDAP support is enabled and regular UID and GID parameters are disabled,
 application developers will need to provide credentials for any user they wish
 to bind as.
 
-### Application Instance Identity Credentials
+###<a id='app-id-creds'></a> Application Instance Identity Credentials
 
-The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files, respectively.
+The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files, respectively. The validity period of the Instance Identity root and intermediate CA certificates is 3 and 2 years, respectively.
 
 See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
 
-### Orphaned Blob Cleanup
+###<a id='orpha-blobs'></a> Orphaned Blob Cleanup
 
 Cloud Controller will now scan the blobstore on a regular interval to identify and remove orphaned blobs.
 
-### Restructuring of the Networking Point of Entry
+###<a id='networking-poe'></a> Simplified TLS Configuration
 
-The Point of Entry options on the Networking tab have been restructured to be
-more understandable and flexible.  Operators will no longer need to configure
-their Router or HAProxy separately as both components will be configured using
-the same options.
+The point of entry options on the Elastic Runtime **Networking** pane have been restructured to be
+more understandable and flexible.  Operators no longer need to configure
+the Router or HAProxy separately as both components are configured using
+the same options. This includes the following changes:
 
-### Mutual TLS Headers on Inbound Application Traffic
+* Gorouter and HAproxy always listen for TLS requests
+* HAproxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
+* You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
+* You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. 
+* You can specify TLS cipher suites for HAProxy and Gorouter independently.
+* You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. 
+
+See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
+
+###<a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
 
 Gorouter can now forward the `X-Forwarded-Client-Cert` header onto application
 instances when provided. Alternatively, operators can configure Gorouter to
@@ -727,8 +328,24 @@ forward the header only when the mutual TLS connection from the client can be
 validated. Additionally, operators may now configure Gorouter to overwrite the
 XFCC header with the client certificate received in mTLS handshakes.
 
+### <a id='in-context-service'></a>Apps Manager: In-context Service Creation
+
+Developers can create services without leaving the application or space view for an accelerated workflow.
+
+### <a id='service-config-discovery'></a>Apps Manager: Service Configuration Parameter Discovery
+
+When creating a new service in Apps Manager, developers can discover additional parameter options as fields, or a JSON editor that enables them to define the parameters.
+
 ##<a id='knownissues'></a> Known Issues
 
 ###<a id='autoscaler'></a> Lack of Autoscaler Scaling
 
 You cannot scale the Autoscaler job to greater than one instance. 
+
+## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the Elastic Runtime tile includes new
+functionality that may have certain constraints.
+
+Although these features are fully supported, Pivotal recommends caution when
+using them in production.
