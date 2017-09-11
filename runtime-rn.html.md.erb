@@ -132,26 +132,15 @@ When upgrading to v1.12, be aware of the following upgrade considerations:
 
 This section describes new features of the release.
 
+###<a id='multi-buildpack'></a> Multiple Buildpack App Support
+
+This release includes support for pushing apps that take advantage of multiple buildpacks simultaneously using the Cloud Controller v3 API. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](../buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
+
+Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Additionally, you can specify [custom buildpacks](../buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
+
 ###<a id='v3-push'></a> Granular cf push Commands and Procfile Support
 
 This release includes experimental commands that provide developers with the ability to better orchestrate app deployment workflows. Additionally, developers can supply a Procfile with their app in order to run multiple long-lived processes using a single codebase. For more information, see [Using Experimental cf CLI Commands](../devguide/v3-commands.html). 
-
-###<a id='max-conn'></a> Gorouter Max Connection Configuration
-
-Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from using up all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
-
-###<a id='request-filtering'></a> HAProxy Request Filtering
-
-If your PCF deployment uses HAProxy and you want it to receive traffic only from specific sources, you can use the **Protected Domains** and **Trusted CIDRs** fields in the **Networking Pane** of the Elastic Runtime tile. A key use case for this feature is when a deployment must only allow requests to the system domain from a private network or VPN. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
-
-
-###<a id='c2c'></a> Container-to-Container Networking Updates
-
-Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html#create-policies)
-
-###<a id='app-traffic'></a> Support for Logging All App Traffic
-
-Operators can enable logging of all accepted and denied packets due to ASG or container-to-container networking policy. This provides more visibility into app traffic, including denied traffic. Operators can configure this global logging in the **Networking** pane of the Elastic Runtime tile under the **Log traffic for all accepted/denied application packets** field. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
 
 ###<a id='credhub'></a> Credentials Have Begun to Move to CredHub
 
@@ -186,53 +175,6 @@ If you want to access the following credentials, you must use the Credhub CLI or
 * `.nfs_server.blobstore_credentials`
 * `.router.status_credentials`
 
-###<a id='multi-buildpack'></a> Multiple Buildpack App Support
-
-This release includes support for pushing apps that take advantage of multiple buildpacks simultaneously using the Cloud Controller v3 API. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](../buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
-
-Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Additionally, you can specify [custom buildpacks](../buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
-
-###<a id='etcd-gone'></a> Removal of etcd
-
-This release removes the `etcd` server VMs from the PCF deployment.  Operators
-must ensure they are deploying service tiles that are known to be compatible
-with PCF Elastic Runtime 1.12.
-
-###<a id='postgres-gone'></a> Removal of Postgres
-
-This release removes the legacy Postgres databases for the Cloud Controller and
-UAA.  If your deployment was originally installed before PCF 1.6 and still uses
-Postgres, you must contact your dedicated Support Engineer or Platform
-Architect for assistance migrating your Cloud Controller and UAA databases to
-MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and
-instructions on Pivotal Network.
-
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the
-upgrade will fail.
-
-###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
-
-This release lowers the default max-in-flight percentage on 
-Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
-
-* Many simultaneous VM creates/deletes and BOSH blob updates placing
-significant stress on the underlying infrastructure, especially on vSphere
-which has a greater probability of being under-provisioned.
-* Cells that are draining are no longer available for allocation, resulting
-in a 10% decrease in total memory and disk capacity during deployment. This
-can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
-successfully.
-
-Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
-
-###<a id='haproxy-release'></a> HAProxy Release
-
-
-This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated
-`haproxy-boshrelease`. You can view release repository here:
-[https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
-
-
 ###<a id='groot'></a> Introducing GrootFS
 
 GrootFS is the new container image management plugin for Garden-runC.
@@ -250,56 +192,11 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](../concepts/container-security.html#mechanics)
 * [Component: Garden](../concepts/architecture/garden.html#garden-rootfs)
 
-###<a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images
-
-For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push` or rescheduling operations fail once the access token expires.
-
-###<a id='cc-diego'></a> Secure Communication Between Cloud Controller and Diego
-
-In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
-component, which translated Cloud Controller requests into Diego API commands.
-The Cloud Controller Bridge conveyed communications between the Cloud
-Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller
-and Diego communicate directly via secure TLS protocol. This change streamlines
-and secures internal communications, and removes the Cloud Controller Bridge.
-
-Securing this communication path will require a second deployment after
-completing your upgrade to PCF v1.12. Follow the steps in our [upgrade guide](../customizing/upgrading-pcf.html#cc) to
-secure your PCF installation.
-
-###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
-
-Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
-
-###<a id='sharding'></a> Router Sharding Mode
-
-This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. Operators can choose to have the Elastic Runtime tile
-routers only acknowledge requests from apps deployed within the its
-Cells, or reject requests for any isolation segment. 
-
-You can configure this feature using the following fields:
-
-* Elastic Runtime tile: **Routers reject requests for Isolation Segments** checkbox
-* Isolation Segment tile: **Router Sharding Mode** selector
-
-See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
-
-###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
-
-Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
-arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
- developers must provide credentials for any user they wish
-to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html). 
-
 ###<a id='app-id-creds'></a> Application Instance Identity Credentials
 
 The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files, respectively. The validity period of the Instance Identity root and intermediate CA certificates is 3 and 2 years, respectively.
 
 See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
-
-###<a id='orpha-blobs'></a> Orphaned Blob Cleanup
-
-The Cloud Controller now scans the blobstore on a regular interval to identify and remove orphaned blobs.
 
 ###<a id='networking-poe'></a> Simplified TLS Configuration
 
@@ -319,15 +216,118 @@ See the Elastic Runtime [installation instructions](../customizing/gcp-er-config
 
 ###<a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
 
-Gorouter can now forward the `X-Forwarded-Client-Cert` header onto application
+Gorouter can now forward the `X-Forwarded-Client-Cert` header to app
 instances when provided. Alternatively, operators can configure Gorouter to
 forward the header only when the mutual TLS connection from the client can be
 validated. Additionally, operators may now configure Gorouter to overwrite the
 XFCC header with the client certificate received in mTLS handshakes.
 
+This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
+
+###<a id='cc-diego'></a> Secure Communication Between Cloud Controller and Diego
+
+In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
+component, which translated Cloud Controller requests into Diego API commands.
+The Cloud Controller Bridge conveyed communications between the Cloud
+Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller
+and Diego communicate directly via secure TLS protocol. This change streamlines
+and secures internal communications, and removes the Cloud Controller Bridge.
+
+Securing this communication path will require a second deployment after
+completing your upgrade to PCF v1.12. Follow the steps in our [upgrade guide](../customizing/upgrading-pcf.html#cc) to
+secure your PCF installation.
+
+###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
+
+Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
+
+###<a id='haproxy-release'></a> HAProxy Release
+
+
+This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated
+`haproxy-boshrelease`. You can view release repository here:
+[https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
+
+###<a id='request-filtering'></a> HAProxy Request Filtering
+
+If your PCF deployment uses HAProxy and you want it to receive traffic only from specific sources, you can use the **Protected Domains** and **Trusted CIDRs** fields in the **Networking Pane** of the Elastic Runtime tile. A key use case for this feature is when a deployment must only allow requests to the system domain from a private network or VPN. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+
+###<a id='c2c'></a> Container-to-Container Networking Updates
+
+Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html#create-policies). 
+
+###<a id='app-traffic'></a> Support for Logging All App Traffic
+
+Operators can enable logging of all accepted and denied packets due to ASG or container-to-container networking policy. This provides more visibility into app traffic, including denied traffic. Operators can configure this global logging in the **Networking** pane of the Elastic Runtime tile under the **Log traffic for all accepted/denied application packets** field. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+
+###<a id='orpha-blobs'></a> Orphaned Blob Cleanup
+
+The Cloud Controller now scans the blobstore on a regular interval to identify and remove orphaned blobs. For more information, see the [Blobstore](../concepts/architecture/cloud-controller.html#blob-store) section of the _Cloud Controller_ topic. 
+
+###<a id='sharding'></a> Router Sharding Mode
+
+This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. Operators can choose to have the Elastic Runtime tile
+routers only acknowledge requests from apps deployed within the its
+Cells, or reject requests for any isolation segment. 
+
+You can configure this feature using the following fields:
+
+* Elastic Runtime tile: **Routers reject requests for Isolation Segments** checkbox
+* Isolation Segment tile: **Router Sharding Mode** selector
+
+See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
+
+###<a id='max-conn'></a> Gorouter Max Connection Configuration
+
+Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from using up all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+
+###<a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images
+
+For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push` or rescheduling operations fail once the access token expires.
+
+###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
+
+Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
+arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
+ developers must provide credentials for any user they wish
+to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).  
+
+###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
+
+This release lowers the default max-in-flight percentage on 
+Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
+
+* Many simultaneous VM creates/deletes and BOSH blob updates placing
+significant stress on the underlying infrastructure, especially on vSphere
+which has a greater probability of being under-provisioned.
+* Cells that are draining are no longer available for allocation, resulting
+in a 10% decrease in total memory and disk capacity during deployment. This
+can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
+successfully.
+
+Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
+
+###<a id='etcd-gone'></a> Removal of etcd
+
+This release removes the `etcd` server VMs from the PCF deployment.  Operators
+must ensure they are deploying service tiles that are known to be compatible
+with PCF Elastic Runtime 1.12.
+
+###<a id='postgres-gone'></a> Removal of Postgres
+
+This release removes the legacy Postgres databases for the Cloud Controller and
+UAA.  If your deployment was originally installed before PCF 1.6 and still uses
+Postgres, you must contact your dedicated Support Engineer or Platform
+Architect for assistance migrating your Cloud Controller and UAA databases to
+MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and
+instructions on Pivotal Network.
+
+If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the
+upgrade will fail.
+
 ### <a id='in-context-service'></a>Apps Manager: In-context Service Creation
 
-Developers can create services without leaving the application or space view for an accelerated workflow.
+Developers can create services without leaving the app or space view for an accelerated workflow.
 
 ### <a id='service-config-discovery'></a>Apps Manager: Service Configuration Parameter Discovery
 
