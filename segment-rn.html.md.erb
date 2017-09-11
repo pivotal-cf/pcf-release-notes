@@ -5,127 +5,7 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
-### <a id='1.12.0-rc.1'></a> 1.12.0-rc.1
-
-* Changes the HAProxy and Router Cipher Suite to required fields.
-* Reorganizes the Networking form fields.
-* Removes the Router SNI feature.
-* Reverts the declarative healthcheck feature.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3445.2</td>
-  </tr><tr>
-    <td>cf-networking</td><td>1.4.0</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.146.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.25.1</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.9.0</td>
-  </tr><tr>
-    <td>grootfs</td><td>0.25.0</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.4.0</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.9</td>
-  </tr><tr>
-    <td>routing</td><td>0.162.0</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>8</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.2'></a> 1.12.0-beta.2
-
-* Bumps stemcell to v3445.2
-* Bumps diego-release to v1.25.1 [Release Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.25.1)
-* Bumps grootfs-release to v0.25.0 [Release Notes](https://github.com/cloudfoundry/grootfs-release/releases/tag/v0.25.0)
-* Bumps routing-release to v0.162.0 [Release Notes](https://github.com/cloudfoundry-incubator/routing-release/releases/tag/0.162.0)
-* Bumps haproxy-release to v8.4.0 [Release Notes](https://github.com/cloudfoundry-incubator/haproxy-boshrelease/releases/tag/v8.4.0)
-* Bumps nfs-volume-release to v1.0.8 [Release Notes](https://github.com/cloudfoundry/nfs-volume-release/releases/tag/v1.0.8)
-* Instance groups were reordered to deploy HAProxy before everything.
-* The Networking tab now comes before the Application Container tab, like we see in Elastic Runtime.
-* Allows operators to disable HTTP on the Router.
-* The Router can now configure a number of max idle connections.
-* The Router can log extra headers.
-* The Router can disable insecure cookies.
-* The Router supports Zipkin tracing.
-* The Router timeout to backends can be configured.
-* Operators can specify a healthy and unhealthy threshold for load balancer healthiness monitoring of the Router.
-* The HAProxy can have statically assigned IPs.
-* The HAProxy request max buffer size can be configured.
-* SSL verification can be disabled.
-* Operators can specify multiple certificates for HAProxy and Router.
-* The Garden disk cleanup method can be configured independently of the Elastic Runtime setting.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>3445.2</td>
-  </tr><tr>
-    <td>cf-networking</td><td>1.4.0</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.146.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.25.1</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.9.0</td>
-  </tr><tr>
-    <td>grootfs</td><td>0.25.0</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.4.0</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.0.8</td>
-  </tr><tr>
-    <td>routing</td><td>0.162.0</td>
-  </tr><tr>
-    <td>syslog-migration</td><td>8</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.1'></a> 1.12.0-beta.1
-
-* HAProxy can now be deployed in front of the Router VMs.
-* The default instance count for the Router has been bumped to 3.
-* A minimum TLS version can be set for the Router and HAProxy.
-* Operators can disable HTTP on the HAProxy VM.
-* Operators can specify cipher suites for the HAProxy VM.
-* HAProxy can be configured to reject inbound requests to a domain that do not originate from a known CIDR.
-* HAProxy can forward requests over TLS to the Router.
+### <a id='1-12-0'></a> 1.12.0
 
   <table border="1" class="nice">
   <thead>
@@ -189,40 +69,76 @@ The procedure for installing PCF Isolation Segment v1.12 is documented in the
 
 To install a PCF Isolation Segment, you must first install PCF v1.12.
 
-## <a id='adv-features'></a> About Advanced Features
-
-The Advanced Features section of the PCF Isolation Segment tile includes new
-functionality that may have certain constraints.  Although these features are
-fully supported, Pivotal recommends caution when using them in production.
-
 ## <a id='1.12.0'></a> New Features in PCF Isolation Segment v1.12.0
 
 This section describes new features of the release.
 
-### Diego Cell Max-in-Flight Default
+###<a id='haproxy'></a> HAProxy
 
-The max-in-flight percentage for the Diego Cell job in the Isolation Segment
-has been set to 10% since 1.10, but we've seen especially in larger
-environments that having the percentage this high can cause some problems:
+You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. The Isolation Segment tile includes its own HAProxy VM, which uses the 
+[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For information on the configuration options for HAProxy, see the [Networking](../customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_. 
 
-* Many simultaneous VM creates/deletes and BOSH blob updates can place
-significant stress on the underlying infrastructure, especially on vSphere
-which has a greater probability of being under-provisioned.
-* The cells that are draining are no longer available for allocation, resulting
-in a 10% decrease in total memory and disk capacity during the deployment. This
-can cause deployments to no longer have sufficient total capacity to run all
-the work, or to have insufficient headroom to place larger workloads
-successfully.
+See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information.
 
-For these reasons, we have lowered the default max-in-flight percentage on the
-Diego Cells to 4%. Operators can still use the Ops Manager API to configure
-this setting to fit their needs.
+###<a id='sharding'></a> Router Sharding Mode
 
-### Router Sharding Mode
+This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. In addition to compute isolation , operators can now configure networking isolation for their isolation segments. Alternatively, operators can deploy the Isolation Segment tile for the purpose of using its routers for the Elastic Runtime tile. 
 
-The Isolation Segment tile supports router sharding. Operators can choose to have the routers for the tile only acknowledge requests from apps deployed within its cells, or reject requests for any isolation segment. See **Router Sharding Mode** in the **Networking** section.
+You can configure this feature using the following fields:
 
-### Introducing GrootFS
+* Elastic Runtime tile: **Routers reject requests for Isolation Segments** checkbox
+* Isolation Segment tile: **Router Sharding Mode** selector
+
+See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information.
+
+###<a id='router-config'></a> Router Configuration Options
+
+The **Networking** pane of the Isolation Segment tile now includes the following fields for the router.  Additionally, the default instance count for the **Router** VM is now set to `3` in the **Resource Config** pane. 
+
+* **Router Max Idle Keepalive Connections** 
+* **Disable SSL certificate verification for this environment**
+* **HTTP Headers to Log**
+* **Disable insecure cookies on the Router**
+* **Enable Zipkin tracking headers on the router**
+* **Router Timeout to Backends**
+* **Load Balancer Unhealthy Threshold**
+* **Load Balancer Healthy Threshold**
+* **Max Connections Per Backend**
+
+See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information about each field.
+
+
+###<a id='networking-poe'></a> Simplified TLS Configuration
+
+The point of entry options on the Isolation Segment tile **Networking** pane have been restructured to be
+more understandable and flexible.  Operators no longer need to configure
+the Router or HAProxy separately as both components are configured using
+the same options. This includes the following changes:
+
+* Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both Gorouter and HAProxy using a single field. 
+* HAProxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
+* You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. 
+* You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. 
+* You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
+* You can specify TLS cipher suites for HAProxy and Gorouter independently.
+
+###<a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
+
+Gorouter can now forward the `X-Forwarded-Client-Cert` header to app
+instances when provided. Alternatively, operators can configure Gorouter to
+forward the header only when the mutual TLS connection from the client can be
+validated. Additionally, operators may now configure Gorouter to overwrite the
+XFCC header with the client certificate received in mTLS handshakes.
+
+This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information.
+
+###<a id='app-traffic'></a> Support for Logging All App Traffic
+
+Operators can enable logging of all accepted and denied packets due to ASGs or container-to-container networking policies. This provides more visibility into app traffic, including denied traffic.
+
+Operators configure this global logging in the **Networking** pane of the Isolation Segment tile under the **Log traffic for all accepted/denied application packets** field. See the [App Traffic Logging](../opsguide/logging-config-opsman.html#app-traffic-log) section for more information.
+
+###<a id='groot'></a> Introducing GrootFS
 
 GrootFS is the new container image management plugin for Garden-runC.
 It helps with the filesystem isolation of Garden-runC containers,
@@ -239,7 +155,48 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](../concepts/container-security.html#mechanics)
 * [Component: Garden](../concepts/architecture/garden.html#garden-rootfs)
 
-### HAProxy
+###<a id='garden-cleanup'></a> Garden Disk-Cleanup 
 
-You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. The Isolation Segment tile includes its own HAProxy VM, which uses the 
-[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For information on the configuration options for HAProxy, see the [Networking](../customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_. 
+Operators using PCF Isolation Segment can now configure the Garden and GrootFS cleanup thresholds independently of the Elastic Runtime tile. The **Application Containers** pane of the Isolation Segment tile now includes the following selector: **Docker Images Disk-Cleanup Scheduling on Cell VMs**. 
+
+###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
+
+This release lowers the default max-in-flight percentage on 
+Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
+
+* Many simultaneous VM creates/deletes and BOSH blob updates placing
+significant stress on the underlying infrastructure, especially on vSphere
+which has a greater probability of being under-provisioned.
+* Cells that are draining are no longer available for allocation, resulting
+in a 10% decrease in total memory and disk capacity during deployment. This
+can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
+successfully.
+
+Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
+
+###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
+
+Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
+
+###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
+
+Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
+arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
+ developers must provide credentials for any user they wish
+to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).  
+
+###<a id='app-id-creds'></a> Application Instance Identity Credentials
+
+The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
+
+See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
+
+###<a id='c2c'></a> Container-to-Container Networking Updates
+
+Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html#create-policies). 
+
+## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the PCF Isolation Segment tile includes new
+functionality that may have certain constraints.  Although these features are
+fully supported, Pivotal recommends caution when using them in production.
