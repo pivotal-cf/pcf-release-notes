@@ -205,12 +205,13 @@ more understandable and flexible.  Operators no longer need to configure
 the Router or HAProxy separately as both components are configured using
 the same options. This includes the following changes:
 
-* Gorouter and HAproxy always listen for TLS requests
+* Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both Gorouter and HAProxy using a single field. 
 * HAproxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
-* You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
 * You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. 
-* You can specify TLS cipher suites for HAProxy and Gorouter independently.
 * You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. 
+* You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
+* You can specify TLS cipher suites for HAProxy and Gorouter independently.
+
 
 See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
 
