@@ -3,11 +3,14 @@ title: PCF Runtime for Windows v1.12 Release Notes
 owner: Release Engineering
 ---
 
+Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
+(AWS), Google Cloud Platform (GCP), or Azure. See the
+[Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic for more information.
+
+
 ## <a id='releases'></a> Releases
 
-### <a id='1.12.0-rc.2'></a> 1.12.0-rc.2
-
-* Bumps windows-utilities-release to v0.3.0.
+### <a id='1.12.0'></a> 1.12.0
 
   <table border="1" class="nice">
   <thead>
@@ -42,124 +45,6 @@ owner: Release Engineering
   </tfoot>
   </table>
 
-### <a id='1.12.0-rc.1'></a> 1.12.0-rc.1
-
-* Removes the declarative healthcheck feature.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>1200.3</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.25.1</td>
-  </tr><tr>
-    <td>event_log</td><td>0.2</td>
-  </tr><tr>
-    <td>garden-windows</td><td>0.7.0</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.8</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.2.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.2'></a> 1.12.0-beta.2
-
-* Adds support for `bosh ssh`.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>1200.3</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.25.1</td>
-  </tr><tr>
-    <td>event_log</td><td>0.2</td>
-  </tr><tr>
-    <td>garden-windows</td><td>0.7.0</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.8</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.2.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='1.12.0-beta.1'></a> 1.12.0-beta.1
-
-* Diego Cells can now generate instance identity credentials for application
-  instances.
-* Operators can now configure their Diego Cells to emit logs to a syslog
-  endpoint.
-
-  <table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>1200.0</td>
-  </tr><tr>
-    <td>consul</td><td>171</td>
-  </tr><tr>
-    <td>diego</td><td>1.24.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.2</td>
-  </tr><tr>
-    <td>garden-windows</td><td>0.7.0</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.8</td>
-  </tr><tr>
-    <td>loggregator</td><td>92</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.2.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
-(AWS), Google Cloud Platform (GCP), or Azure. See the
-[Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic for more information.
-
 ## <a id='upgrade'></a>How to Upgrade
 
 The PCF Runtime for Windows v1.12 tile is available with the release of Pivotal
@@ -169,62 +54,49 @@ need Ops Manager v1.12.0 or later and Elastic Runtime v1.12.0 or later.
 For information about upgrading to PCF Runtime for Windows v1.12.0, see the
 [Upgrading Windows Cells](../windows/upgrade-windows.html) topic in the PCF Runtime for Windows documentation.
 
-## <a id='adv-features'></a> About Advanced Features
-
-The **Advanced Features** pane of the PCF Runtime for Windows tile includes new
-functionality that may have certain constraints. Although these features are
-fully supported, Pivotal recommends caution when using them in production.
-
 ## <a id='new-features'></a> New Features in PCF Runtime for Windows v1.12
 
 This section describes new features of the release.
 
-### Diego Cell Max-in-Flight Default
+### <a id='bosh-windows-ssh'></a>BOSH SSH Support
 
-The max-in-flight percentage for the Diego Cell job in the Isolation Segment
-has been set to 10% since 1.10, but we've seen especially in larger
-environments that having the percentage this high can cause some problems:
+If operators select a checkbox when configuring the PCF Runtime for Windows 1.12 tile, users can SSH onto Windows VMs with the `bosh ssh` command. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
 
-* Many simultaneous VM creates/deletes and BOSH blob updates can place
-significant stress on the underlying infrastructure, especially on vSphere
-which has a greater probability of being under-provisioned.
-* The cells that are draining are no longer available for allocation, resulting
-in a 10% decrease in total memory and disk capacity during the deployment. This
-can cause deployments to no longer have sufficient total capacity to run all
-the work, or to have insufficient headroom to place larger workloads
-successfully.
+### <a id='manage-windows-admin'></a>Operators Can Manage the Windows Admin Password
 
-For these reasons, we have lowered the default max-in-flight percentage on the
-Diego Cells to 4%. Operators can still use the Ops Manager API to configure
-this setting to fit their needs.
+Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
 
-### Improved System Performance for App Health Checks
+### <a id='windows-logs'></a>Windows Event Logs Consumable via Syslog
 
-<p class="note"><strong>Note</strong>: This feature requires that you <a
-href="../customizing/upgrading-pcf.html#cc">enable secure communication between
-the Cloud Controller and Diego</a>.</p>
-
-This release changes how Runtime for Windows runs app health checks to improve
-system performance in resource-constrained environments, such as on-premise
-installations of PCF. This change does not impact the developer workflow for
-[configuring app health checks](../devguide/deploy-apps/healthchecks.html).
-
-Health checks during app startup previously increased system load because they
-ran as a Garden-Windows process every two seconds. Also, apps that started
-successfully could wrongly fail if slow system performance caused the app
-health check to time out. In some severe cases, such app failures caused
-additional resource consumption and a chain-reaction of app failures.
-
-This release resolves these issues through a new implementation that does not
-invoke a new process on every health check. Rather, the health check now runs
-as a long-lived process in the app container.
+Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
 
 ###<a id='metron-api'></a>Improved Security
 
 Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and ensures that Metrons in PCF Runtime for Windows are protected from spoofing attacks.
 
-### VM Administrator Password Configuration
+###<a id='app-id-creds'></a> Application Instance Identity Credentials
 
-VMs can now be accessed with a configurable VM Administator Password.
-Operators will have the choice of using the default password, setting their
-own, or having each VM use a randomly generated password.
+The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
+
+See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
+
+###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
+
+This release lowers the default max-in-flight percentage on 
+Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
+
+* Many simultaneous VM creates/deletes and BOSH blob updates placing
+significant stress on the underlying infrastructure, especially on vSphere
+which has a greater probability of being under-provisioned.
+* Cells that are draining are no longer available for allocation, resulting
+in a 10% decrease in total memory and disk capacity during deployment. This
+can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
+successfully.
+
+Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
+
+## <a id='adv-features'></a> About Advanced Features
+
+The **Advanced Features** pane of the PCF Runtime for Windows tile includes new
+functionality that may have certain constraints. Although these features are
+fully supported, Pivotal recommends caution when using them in production.
