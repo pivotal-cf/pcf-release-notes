@@ -112,13 +112,13 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.12 is
+The procedure for upgrading to Pivotal Cloud Foundry (PCF) Elastic Runtime v1.12 is
 documented in the [Upgrading Pivotal Cloud
 Foundry](../customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.12, be aware of the following upgrade considerations:
 
-* You must upgrade first to a version of Elastic Runtime v1.11.x in order to
+* You must upgrade first to a version of Elastic Runtime v1.11.x to
   successfully upgrade to v1.12.
 * Some partner service tiles may be incompatible with PCF v1.12. Pivotal is
   working with partners to ensure their tiles are being updated to work with the
@@ -134,13 +134,13 @@ This section describes new features of the release.
 
 ###<a id='multi-buildpack'></a> Multiple Buildpack App Support
 
-This release includes support for pushing apps that take advantage of multiple buildpacks simultaneously using the Cloud Controller v3 API. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](../buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
+Developers can now push apps that take advantage of multiple buildpacks simultaneously. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](../buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
 
 Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Additionally, you can specify [custom buildpacks](../buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
 
 ###<a id='v3-push'></a> Granular cf push Commands and Procfile Support
 
-This release includes experimental commands that provide developers with the ability to better orchestrate app deployment workflows. Additionally, developers can supply a Procfile with their app in order to run multiple long-lived processes using a single codebase. For more information, see [Using Experimental cf CLI Commands](../devguide/v3-commands.html). 
+This release includes experimental commands that provide developers with the ability to better orchestrate app deployment workflows. Additionally, developers can supply a Procfile with their app to run multiple long-lived processes using a single codebase. For more information, see [Using Experimental cf CLI Commands](../devguide/v3-commands.html). 
 
 ###<a id='credhub'></a> Credentials Have Begun to Move to CredHub
 
@@ -194,7 +194,7 @@ For more information about GrootFS in PCF, see the following topics:
 
 ###<a id='app-id-creds'></a> Application Instance Identity Credentials
 
-The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files, respectively. The validity period of the Instance Identity root and intermediate CA certificates is 3 and 2 years, respectively.
+The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
 
 See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
 
@@ -206,7 +206,7 @@ the Router or HAProxy separately as both components are configured using
 the same options. This includes the following changes:
 
 * Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both Gorouter and HAProxy using a single field. 
-* HAproxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
+* HAProxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
 * You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. 
 * You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. 
 * You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
@@ -246,8 +246,7 @@ Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS a
 
 
 This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated
-`haproxy-boshrelease`. You can view the release repository here:
-[https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
+[haproxy-boshrelease]((https://github.com/cloudfoundry-incubator/haproxy-boshrelease)). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
 
 ###<a id='request-filtering'></a> HAProxy Request Filtering
 
@@ -282,11 +281,11 @@ See the Elastic Runtime [installation instructions](../customizing/gcp-er-config
 
 ###<a id='max-conn'></a> Gorouter Max Connection Configuration
 
-Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from using up all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from consuming all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
 
 ###<a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images
 
-For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push` or rescheduling operations fail once the access token expires.
+For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](../devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push`, or rescheduling operations fail once the access token expires.
 
 ###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
 
