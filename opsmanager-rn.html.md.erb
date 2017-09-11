@@ -7,6 +7,47 @@ owner: Ops Manager
 
 The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
 
+### 1.9.21
+
+* Fixes a bug where the `resource_config` API endpoint could return an inaccurate instance count. As a result of this patch, if a job is configured to use the default number of instances, a `GET /api/v0/staged/products/:product_id/jobs/:job_id/resource_config` request returns `"instances": "automatic"`.
+
+<table border="1" class="nice">
+<thead>
+<tr>
+  <th>Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BOSH Director: 260.8</td>
+</tr>
+<tr>
+  <td><code>bosh-init</code>: v.0.0.103</td>
+</tr>
+<tr>
+  <td>Stemcell: 3363.31</td>
+</tr>
+<tr>
+  <td>AWS CPI: 62</td>
+</tr>
+<tr>
+  <td>Azure CPI: 23</td>
+</tr>
+<tr>
+  <td>Google Cloud Platform CPI: 25.9.0</td>
+</tr>
+<tr>
+  <td>OpenStack CPI: 27</td>
+</tr>
+<tr>
+  <td>vSphere CPI: 38</td>
+</tr>
+<tr>
+  <td>UAA: 24.12</td>
+</tr>
+</tbody>
+</table>
+
 ### 1.9.20
 
 * Bumps stemcell to 3363.31
