@@ -138,7 +138,7 @@ This release includes experimental commands that provide developers with the abi
 
 ###<a id='max-conn'></a> Gorouter Max Connection Configuration
 
-Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of Elastic Runtime. This field can help prevent malicious apps from using up all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from using up all available Gorouter resources. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
 
 ###<a id='request-filtering'></a> HAProxy Request Filtering
 
@@ -151,43 +151,40 @@ Container-to-container networking is now always enabled. The commands are integr
 
 ###<a id='app-traffic'></a> Support for Logging All App Traffic
 
-Operators can enable logging of all accepted and denied packets due to ASG or container-to-container networking policy. This provides more visibility into app traffic, including denied traffic. Operators can configure this global logging in the **Networking** pane of Elastic Runtime under the **Log traffic for all accepted/denied application packets** field. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+Operators can enable logging of all accepted and denied packets due to ASG or container-to-container networking policy. This provides more visibility into app traffic, including denied traffic. Operators can configure this global logging in the **Networking** pane of the Elastic Runtime tile under the **Log traffic for all accepted/denied application packets** field. See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information. 
 
 ###<a id='credhub'></a> Credentials Have Begun to Move to CredHub
 
-The internal credentials (`secret` and `simple_credentials`) that Elastic Runtime uses for intra-component communication are generated and stored in CredHub instead of Ops Manager.
+The internal credentials (`secret` and `simple_credentials`) that Elastic Runtime uses for intra-component communication are generated and stored in CredHub instead of Ops Manager. This is part of an ongoing effort to migrate all credentials to CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
 
-* Migrated the following credentials to CredHub:
-  * `.mysql.autoscale_credentials`
-  * `.mysql.ccdb_credentials`
-  * `.mysql.diag_agent_credentials`
-  * `.mysql.diegodb_credentials`
-  * `.mysql.locketdb_credentials`
-  * `.mysql.monitordb_credentials`
-  * `.mysql.mysql_backup_server_credentials`
-  * `.mysql.mysql_bootstrap_credentials`
-  * `.mysql.networkpolicyserverdb_credentials`
-  * `.mysql.nfsvolume_credentials`
-  * `.mysql.notifications_credentials`
-  * `.mysql.pivotal_account_credentials`
-  * `.mysql.routingdb_credentials`
-  * `.mysql.silkdb_credentials`
-  * `.mysql.uaadb_credentials`
-  * `.nfsbrokerpush.nfs_broker_push_credentials`
-  * `.cloud_controller.bulk_api_credentials`
-  * `.cloud_controller.internal_api_user_credentials`
-  * `.cloud_controller.staging_upload_credentials`
-  * `.mysql.app_usage_credentials`
-  * `.mysql.cluster_health_user`
-  * `.mysql.galera_sidecar_user`
-  * `.mysql.mysql_admin_credentials`
-  * `.mysql_proxy.dashboard_credentials`
-  * `.nfs_server.blobstore_credentials`
-  * `.router.status_credentials`
+If you want to access the following credentials, you must use the Credhub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile. For an example of how to retrieve Elastic Runtime credentials using the Ops Manager API, see [Scaling Down Your MySQL Cluster](../opsguide/scaling-down-mysql.html#check-health). 
 
-###<a id='mysql-metrics'></a> MySQL Metrics
-
-* The internal MySQL cluster can now emit metrics over the firehose.
+* `.mysql.autoscale_credentials`
+* `.mysql.ccdb_credentials`
+* `.mysql.diag_agent_credentials`
+* `.mysql.diegodb_credentials`
+* `.mysql.locketdb_credentials`
+* `.mysql.monitordb_credentials`
+* `.mysql.mysql_backup_server_credentials`
+* `.mysql.mysql_bootstrap_credentials`
+* `.mysql.networkpolicyserverdb_credentials`
+* `.mysql.nfsvolume_credentials`
+* `.mysql.notifications_credentials`
+* `.mysql.pivotal_account_credentials`
+* `.mysql.routingdb_credentials`
+* `.mysql.silkdb_credentials`
+* `.mysql.uaadb_credentials`
+* `.nfsbrokerpush.nfs_broker_push_credentials`
+* `.cloud_controller.bulk_api_credentials`
+* `.cloud_controller.internal_api_user_credentials`
+* `.cloud_controller.staging_upload_credentials`
+* `.mysql.app_usage_credentials`
+* `.mysql.cluster_health_user`
+* `.mysql.galera_sidecar_user`
+* `.mysql.mysql_admin_credentials`
+* `.mysql_proxy.dashboard_credentials`
+* `.nfs_server.blobstore_credentials`
+* `.router.status_credentials`
 
 ###<a id='multi-buildpack'></a> Multiple Buildpack App Support
 
@@ -198,7 +195,7 @@ Multiple buildpack support adds flexibility to the Cloud Foundry app development
 ###<a id='etcd-gone'></a> Removal of etcd
 
 This release removes the `etcd` server VMs from the PCF deployment.  Operators
-should ensure they are deploying service tiles that are known to be compatible
+must ensure they are deploying service tiles that are known to be compatible
 with PCF Elastic Runtime 1.12.
 
 ###<a id='postgres-gone'></a> Removal of Postgres
@@ -215,29 +212,26 @@ upgrade will fail.
 
 ###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
 
-The max-in-flight percentage for the Diego Cell job in the Elastic Runtime has
-been set to 10% since 1.9, but we've seen especially in larger environments
-that having the percentage this high can cause some problems:
+This release lowers the default max-in-flight percentage on 
+Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
 
-* Many simultaneous VM creates/deletes and BOSH blob updates can place
+* Many simultaneous VM creates/deletes and BOSH blob updates placing
 significant stress on the underlying infrastructure, especially on vSphere
 which has a greater probability of being under-provisioned.
-* The cells that are draining are no longer available for allocation, resulting
-in a 10% decrease in total memory and disk capacity during the deployment. This
-can cause deployments to no longer have sufficient total capacity to run all
-the work, or to have insufficient headroom to place larger workloads
+* Cells that are draining are no longer available for allocation, resulting
+in a 10% decrease in total memory and disk capacity during deployment. This
+can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
 successfully.
 
-For these reasons, we have lowered the default max-in-flight percentage on the
-Diego Cells to 4%. Operators can still use the Ops Manager API to configure
-this setting to fit their needs.
+Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
 
 ###<a id='haproxy-release'></a> HAProxy Release
 
-The old HAProxy job, which was the last remaining component from `cf-release`,
-has been removed. Replacing it will be the newly incubated
-`haproxy-boshrelease`.  The release repository can be found at
-[https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
+
+This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated
+`haproxy-boshrelease`. You can view release repository here:
+[https://github.com/cloudfoundry-incubator/haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
+
 
 ###<a id='groot'></a> Introducing GrootFS
 
@@ -279,20 +273,23 @@ Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS a
 
 ###<a id='sharding'></a> Router Sharding Mode
 
-The tile supports router sharding. Operators can choose to have the tile's
-routers only acknowledge requests from applications deployed within the tile's
-Cells, or reject requests for any isolation segment.
+This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. Operators can choose to have the Elastic Runtime tile
+routers only acknowledge requests from apps deployed within the its
+Cells, or reject requests for any isolation segment. 
+
+You can configure this feature using the following fields:
+
+* Elastic Runtime tile: **Routers reject requests for Isolation Segments** checkbox
+* Isolation Segment tile: **Router Sharding Mode** selector
+
+See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
 
 ###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
-q
-Using LDAP will secure the NFSV3 Volume Service as it would no longer be
-possible for an application developer to bind to an NFS share using an
-arbitrary UID, potentially gaining access to sensitive data stored by another
-user or application.
 
-Once LDAP support is enabled and regular UID and GID parameters are disabled,
-application developers will need to provide credentials for any user they wish
-to bind as.
+Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
+arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
+ developers must provide credentials for any user they wish
+to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html). 
 
 ###<a id='app-id-creds'></a> Application Instance Identity Credentials
 
@@ -302,7 +299,7 @@ See the [App Instance Container Identity Credentials](../security/networking/tls
 
 ###<a id='orpha-blobs'></a> Orphaned Blob Cleanup
 
-Cloud Controller will now scan the blobstore on a regular interval to identify and remove orphaned blobs.
+The Cloud Controller now scans the blobstore on a regular interval to identify and remove orphaned blobs.
 
 ###<a id='networking-poe'></a> Simplified TLS Configuration
 
