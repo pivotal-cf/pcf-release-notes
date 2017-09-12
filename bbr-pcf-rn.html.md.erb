@@ -17,6 +17,8 @@ For more information about using BBR with PCF, see the [Backing Up Pivotal Cloud
 
 Compatible with PCF v1.12
 
+In PCF 1.12, Ops Manager export/import no longer includes releases. Customers must back up and restore their BOSH Director using BBR to ensure releases are backed up and restored. Manual backup and restore steps are deprecated in PCF 1.12
+
 #### Features
 
 BBR v1.0 enables backup and restore of BOSH Deployments and BOSH Directors. BBR uses backup and restore functionality that is packaged in the BOSH Deployment or Director. This functionality is present in PCF v1.11 and later. 
@@ -28,3 +30,4 @@ None
 #### Known Issues
 
 None
+
