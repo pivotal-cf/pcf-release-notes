@@ -9,7 +9,7 @@ This topic includes release notes for Windows stemcells used with Pivotal Cloud 
 
 **Release Date**: August 22, 2017
 
-* Agent backs off exponentially when unable to reach the director, moving from 5 seconds to 160 seconds over 6 connection attempts to reduce the impact on small-footprint BOSH VMs. This resolves BOSH Agent [Open Issue #137](https://github.com/cloudfoundry/bosh-agent/issues/137).
+* Agent backs off exponentially when unable to reach the director, moving from 5 seconds to 160 seconds over 6 connection attempts, to reduce the impact on small-footprint BOSH VMs. This resolves BOSH Agent [Open Issue #137](https://github.com/cloudfoundry/bosh-agent/issues/137).
 * BOSH SSH is now supported as a beta feature. Users can enable connecting to a cmd session using the `bosh ssh` command by running the relevant job from windows-utilities-release.
 * Fixed an issue where jobs were being stopped synchronously rather than concurrently, preventing stop scripts that waited on other stop scripts from ever finishing.
 * Fixed an issue where jobs that failed to start on the first attempt weren't being retried.
