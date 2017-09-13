@@ -4,3 +4,57 @@ owner: Greenhouse
 ---
 
 This topic includes release notes for Windows stemcells used with Pivotal Cloud Foundry (PCF) Runtime for Windows.
+
+## <a id="1200.3"></a>1200.3
+
+**Release Date**: August 22, 2017
+
+* Agent backs off exponentially when unable to reach the director, moving from 5 seconds to 160 seconds over 6 connection attempts to reduce the impact on small-footprint BOSH VMs (resolves cloudfoundry/bosh-agent#137).
+* BOSH SSH is now supported as a beta feature. Users can enable connecting to a cmd session using the bosh ssh command by running the relevant job from windows-utilities-release.
+* Fixed an issue where jobs were being stopped synchronously rather than concurrently, preventing stop scripts that waited on other stop scripts from ever finishing.
+* Fixed an issue where jobs that failed to start on the first attempt weren't being retried.
+* Other minor bug fixes and performance improvements.
+
+## <a id="1200.0"></a>1200.0
+
+**Release Date**: July 14, 2017
+
+* Includes July 2017 Windows Security Updates
+* Fixes an error where Windows stemcells were incompatible with bosh director setting 'enable\_nats\_delivered\_templates' set to true.
+* Fixed startup issue on GCP.
+* Fixed issue where the Windows Agent would reset DNS settings whenever the HTTPMetadataService was invoked on AWS.
+* Upgrades included .NET version to 4.7
+
+## <a id="1079.0"></a>1079.0
+
+**Release Date**: June 5, 2017
+
+* Based on Windows Server 2012R2
+* Includes .NET Framework 4.6.1
+* Available for AWS, GCP, and Azure
+* Includes all Windows Updates and security patches up through April 2017
+* To be used with Pivotal Cloud Foundry (PCF) Runtime for Windows v1.9.3+, v1.10.2+, and v1.11.0
+
+## <a id="1056.1"></a>1056.1
+
+**Release Date**: June 1, 2017
+
+* Based on Windows Server 2012R2
+* Includes .NET Framework 4.6.1
+* Available for AWS, GCP, and Azure
+* Includes all Windows Updates and security patches up through March 2017
+* To be used with Pivotal Cloud Foundry (PCF) Runtime for Windows v1.9.0, v1.9.1, v1.9.2, v1.10.0, v1.10.1
+
+## <a id="1056.0"></a>1056.0
+
+**Release Date**: April 5, 2017
+
+* Based on Windows Server 2012R2
+* Includes .NET Framework 4.6.1
+* Available for AWS, GCP, and Azure
+* Includes all Windows Updates and security patches up through March 2017
+* To be used with Pivotal Cloud Foundry (PCF) Runtime for Windows v1.9.0, v1.9.1, v1.9.2, v1.10.0, v1.10.1
+
+# Known Limitations
+
+* Does not support BOSH SSH or persistent disks.
