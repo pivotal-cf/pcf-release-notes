@@ -242,8 +242,11 @@ secure your PCF installation.
 
 Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
 
-###<a id='haproxy-release'></a> HAProxy Release
+###<a id='scaling-loggregator'></a> Scaling Loggregator
 
+As part of this release, the Loggregator team has provided guidelines for scaling the Loggregator system. For more information, see [Scaling Loggregator](../loggregator/log-ops-guide.html#scaling) and [Scaling Nozzles](../loggregator/log-ops-guide.html#scaling-nozzles).
+
+###<a id='haproxy-release'></a> HAProxy Release
 
 This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated
 [haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
