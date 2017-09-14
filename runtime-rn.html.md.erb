@@ -336,9 +336,17 @@ When creating a new service in Apps Manager, developers can discover additional 
 
 ##<a id='knownissues'></a> Known Issues
 
+### <a id='credhub-restart'></a> Manual CredHub Restart Required During an Elastic Runtime Redeploy
+
+In Elastic Runtime v1.12.0, the BOSH Backup and Restore (BBR) script does not restart the CredHub process. When following the [Restoring Pivotal Cloud Foundry from Backup with BBR](../customizing/backup-restore/restore-pcf-bbr.html#redeploy-ert) procedure, the Elastic Runtime redeploy fails after clicking **Apply Changes** since CredHub requires a restart.
+
+To work around this issue, manually restart the CredHub process on the BOSH Director by running `monit restart credhub`, then click **Apply Changes**.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012475527) article.
+
 ###<a id='autoscaler'></a> Lack of Autoscaler Scaling
 
-You cannot scale the Autoscaler job to greater than one instance. 
+You cannot scale the Autoscaler job to greater than one instance.
 
 ## <a id='adv-features'></a> About Advanced Features
 
