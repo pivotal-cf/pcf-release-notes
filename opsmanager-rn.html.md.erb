@@ -126,6 +126,14 @@ For more information about the two network types, see the [OpenStack documentati
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id='credhub-certs'></a>CredHub Requires Director Certificate Rotation
+
+If your original Elastic Runtime deploy was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN) during a deploy. Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format CredHub does not understand.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012474187) article.
+
+For more information about certificate rotation, see [Regenerating and Rotating Non-Configurable TLS/SSL Certificates](../security/pcf-infrastructure/api-cert-rotation.html#regenerate).
+
 ### <a id='log-search-unsupported'></a>PCF Log Search Unsupported
 
 If your deployment contains PCF Log Search, you must remove the product tile before upgrading. Failure to remove this product prior to upgrade may cause issues with your deployment.
