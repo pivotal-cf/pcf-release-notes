@@ -291,7 +291,11 @@ For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the pr
 Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
 arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
  developers must provide credentials for any user they wish
-to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).  
+to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html). 
+
+###<a id='mysql-metrics'></a> Metrics for MySQL
+
+The internal MySQL job included in Elastic Runtime now emits metrics. See the [Elastic Runtime MySQL KPIs](../monitoring/kpi.html#kpi4MySQL).
 
 ###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
 
