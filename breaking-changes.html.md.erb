@@ -24,7 +24,3 @@ If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upg
 ### <a id='bosh-2'></a>BOSH CLI v2
 
 Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In this version, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information, see [BOSH CLI v2](opsmanager-rn.html#bosh2).
-
-### <a id='bbr'></a>  BOSH Backup and Restore
-
-The export and import installation settings feature of Ops Manager no longer includes releases. Customers must back up and restore their BOSH Director using BBR to ensure releases are backed up and restored. Manual backup and restore steps are deprecated in PCF 1.12. For more information, see [Backup and Restore with BBR](../customizing/backup-restore/index.html#bbr).
