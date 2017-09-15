@@ -138,7 +138,7 @@ Developers can now push apps that take advantage of multiple buildpacks simultan
 
 Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Additionally, you can specify [custom buildpacks](../buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
 
-###<a id='credhub'></a> Credentials Have Begun to Move to CredHub
+###<a id='credhub'></a> Migration of internal credentials to Credhub
 
 The internal credentials (`secret` and `simple_credentials`) that Elastic Runtime uses for intra-component communication are generated and stored in CredHub instead of Ops Manager. This is part of an ongoing effort to migrate all credentials to CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
 
