@@ -142,7 +142,7 @@ Multiple buildpack support adds flexibility to the Cloud Foundry app development
 
 The internal credentials (`secret` and `simple_credentials`) that Elastic Runtime uses for intra-component communication are generated and stored in CredHub instead of Ops Manager. This is part of an ongoing effort to migrate all credentials to CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
 
-If you want to access the following credentials, you must use the Credhub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile. For an example of how to retrieve Elastic Runtime credentials using the Ops Manager API, see [Scaling Down Your MySQL Cluster](../opsguide/scaling-down-mysql.html#check-health). 
+If you want to access the following credentials, you must use the Credhub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile. For an instructions on how to to retrieve Elastic Runtime credentials using the Ops Manager API, see the [Ops Manager API documentation](http://opsman-dev-api-docs.cfapps.io/#fetching-variables).
 
 * `.mysql.autoscale_credentials`
 * `.mysql.ccdb_credentials`
