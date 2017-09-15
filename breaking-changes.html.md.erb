@@ -3,24 +3,24 @@ title: PCF v1.12 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12.
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
 
 ## <a id='elastic-runtime'></a> Elastic Runtime
 
 ### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
 
-The internal credentials that Elastic Runtime uses for inter-component communication are now generated and stored in CredHub instead of Ops Manager. For a list of the credentials migrated to CredHub, see [Credentials Have Begun to Move to CredHub](runtime-rn.html#credhub).
+The internal credentials that Elastic Runtime uses for inter-component communication are now generated and stored in CredHub instead of Ops Manager. For a list of the credentials migrated to CredHub, see [Pivotal Elastic Runtime Release Notes](runtime-rn.html#credhub).
 
 If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile.
 
 ### <a id='postgres'></a> Removal of Postgres
 
-This release removes the legacy Postgres databases for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance with migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
+This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
 
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade will fail.
+If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade will fail. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](../customizing/upgrading-pcf.html#postgres).
 
 ## <a id='ops-man'></a> Ops Manager
 
 ### <a id='bosh-2'></a>BOSH CLI v2
 
-Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In this version, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information, see [BOSH CLI v2](opsmanager-rn.html#bosh2).
+Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In this version, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see [Pivotal Operations Manager Release Notes](opsmanager-rn.html#bosh2).
