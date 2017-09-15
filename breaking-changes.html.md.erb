@@ -7,17 +7,25 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='elastic-runtime'></a> Elastic Runtime
 
+### <a id='cc-bridge'></a> Cloud Controller Bridge
+
+In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands. The Cloud Controller Bridge conveyed communications between the Cloud Controller and Diego over plain-text HTTP.
+
+In PCF v.1.12, the **Enable secure communication between Diego and Cloud Controller** option in the **Cloud Controller** pane of the Elastic Runtime tile allows you to enable direct communications between the Cloud Controller and Diego over secure TLS and deactivate the Cloud Controller Bridge. If you deploy a fresh installation of PCF v1.12, the Enable checkbox is selected by default.
+
+For [upgrades](../customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the Enable checkbox after the upgrade is complete and then redeploy the tile. Selecting the checkbox before the upgrade results in API downtime.
+
 ### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
 
 The internal credentials that Elastic Runtime uses for inter-component communication are now generated and stored in CredHub instead of Ops Manager. For a list of the credentials migrated to CredHub, see [Pivotal Elastic Runtime Release Notes](runtime-rn.html#credhub).
 
 If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile.
 
-### <a id='postgres'></a> Removal of Postgres
+### <a id='postgres'></a> Postgres
 
 This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
 
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade will fail. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](../customizing/upgrading-pcf.html#postgres).
+If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](../customizing/upgrading-pcf.html#postgres).
 
 ## <a id='ops-man'></a> Ops Manager
 
