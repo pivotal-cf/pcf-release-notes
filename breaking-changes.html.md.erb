@@ -11,9 +11,9 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands. The Cloud Controller Bridge conveyed communications between the Cloud Controller and Diego over plain-text HTTP.
 
-In PCF v.1.12, the **Enable secure communication between Diego and Cloud Controller** option in the **Cloud Controller** pane of the Elastic Runtime tile allows you to enable direct communications between the Cloud Controller and Diego over secure TLS and deactivate the Cloud Controller Bridge. If you deploy a fresh installation of PCF v1.12, the Enable checkbox is selected by default.
+In PCF v.1.12, the **Enable secure communication between Diego and Cloud Controller** option in the **Cloud Controller** pane of the Elastic Runtime tile allows you to enable direct communications between the Cloud Controller and Diego over secure TLS and deactivate the Cloud Controller Bridge. If you deploy a fresh installation of PCF v1.12, the **Enable** checkbox is selected by default.
 
-For [upgrades](../customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the Enable checkbox after the upgrade is complete and then redeploy the tile. Selecting the checkbox before the upgrade results in API downtime.
+For [upgrades](../customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the **Enable** checkbox after the upgrade is complete and then click **Apply Changes**. Selecting the checkbox before the upgrade results in API downtime.
 
 ### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
 
