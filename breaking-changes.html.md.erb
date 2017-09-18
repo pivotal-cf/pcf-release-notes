@@ -32,3 +32,9 @@ If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upg
 ### <a id='bosh-2'></a>BOSH CLI v2
 
 Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In this version, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see [Pivotal Operations Manager Release Notes](opsmanager-rn.html#bosh2).
+
+### <a id='director-certificates'></a>CredHub and Director Certificate Rotation
+
+If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see [CredHub Requires Director Certificate Rotation](opsmanager-rn.html#credhub-certs).
+
+
