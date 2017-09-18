@@ -27,6 +27,12 @@ This release removes the legacy Postgres database VMs for the Cloud Controller a
 
 If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](../customizing/upgrading-pcf.html#postgres).
 
+### <a id='mysql-windows'></a> MySQL for PCF and PCF Runtime for Windows 
+
+If your existing PCF v1.11.x installation includes both <a href="../windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
+
+If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](../customizing/upgrading-pcf.html#upgrade-mysql).
+
 ## <a id='ops-man'></a> Ops Manager
 
 ### <a id='bosh-2'></a>BOSH CLI v2
