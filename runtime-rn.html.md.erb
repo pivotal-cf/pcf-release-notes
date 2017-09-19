@@ -139,9 +139,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Operators can now configure a "Staging Timeout" to
   force Cloud Controller to wait for staging of applications that may take a very
   long time.
-* **[Feature Improvement]** The internal MySQL cluster will now emit metrics
-  via the firehose. You can use `cf nozzle` to view those metrics as they are
-  emitted.
+* **[Feature Improvement]** The internal MySQL cluster now emits metrics
+  via the Firehose. You can use `cf nozzle` to view those metrics as they are
+  emitted. See [Elastic Runtime MySQL KPIs](../monitoring/kpi.html#kpi4MySQL) for KPIs based on the metrics.
+
 
   <table border="1" class="nice">
   <thead>
