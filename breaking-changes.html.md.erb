@@ -43,3 +43,8 @@ Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In v2, the fo
 
 If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see [CredHub Requires Director Certificate Rotation](opsmanager-rn.html#credhub-certs).
 
+### <a id='log-search-unsupported'></a>PCF Log Search
+
+PCF Log Search is not compatible with PCF v1.12. If your deployment contains PCF Log Search, you must remove the product tile before upgrading to PCF v1.12. Failure to remove this product prior to the upgrade may cause issues with your deployment.
+
+For more information, see the [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
