@@ -1,5 +1,5 @@
 ---
-title: Pivotal Cloud Foundry Ops Manager v1.12 Release Notes
+title: Pivotal Cloud Foundry Ops Manager v2.0 Release Notes
 owner: Ops Manager
 ---
 
@@ -11,11 +11,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
+The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.0.
 
-### 1.12.0
+### 2.0 (Alpha)
 
-Version 1.12.0 of Ops Manager consists of the following component versions:
+Version 2.0 Alpha of Ops Manager consists of the following component versions:
 
 <table border="1" class="nice">
 <thead>
@@ -25,7 +25,7 @@ Version 1.12.0 of Ops Manager consists of the following component versions:
 </thead>
 <tbody>
 <tr>
-  <td>BOSH Director: 263</td>
+  <td>BOSH Director: 263.1</td>
 </tr>
 <tr>
   <td>BOSH CLI: 1.3262.26.0</td>
@@ -62,92 +62,12 @@ Version 1.12.0 of Ops Manager consists of the following component versions:
 
 <hr>
 
-## <a id='major-features'></a>New Features in Ops Manager v1.12.0
+## <a id='major-features'></a>New Features in Ops Manager v2.0
 
-### <a id='google-xpn'></a>Google Shared Virtual Private Cloud
+### <a id="runtime-config"></a>Configure Tiles with Runtime Configs
 
-Google Shared Virtual Private Cloud (VPC), formerly known as Google Cross-Project Networking (XPN), enables you to assign GCP resources
-to individual projects within an organization but allows communication and shared services between projects.
-For more information about this feature, see the [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html) topic.
+Tile authors can include `runtime_configs` as a top-level key in tile metadata to define global deployment configurations. Named runtime config settings apply to all VMs in a deployment.
 
-### <a id='aws-gov'></a>AWS GovCloud (US)
+Version 2.0 Alpha of Ops Manager supports defining any number of `runtime_configs` in an existing tile. Tile authors can also create a tile that includes a runtime config only and does not define any job types or errands. 
 
-Operators can deploy Ops Manager v1.12 to [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us). For more information about deploying AWS GovCloud (US), see the following AWS installation topics:
-
-* [Deploying the CloudFormation Template for Pivotal Cloud Foundry on AWS](http://localhost:4567/pivotalcf/1-12/customizing/cloudform-template.html)
-* [Manually Configuring AWS for PCF](http://localhost:4567/pivotalcf/1-12/customizing/pcf-aws-manual-config.html)
-
-### <a id='credhub-migration'></a>Migrate Non-Configurable Secrets to CredHub
-
-Tile Authors can write a JavaScript migration to move their existing non-configurable secrets into CredHub.
-Ops Manager v1.12 supports migrating `secret`, `simple_credential`, `rsa_pkey_credential`, and `salted_credential` types.
-
-For more information about this feature, see the [Migrating Existing Credentials to CredHub](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html)
-topic in the PCF Tile Developers Guide.
-
-### <a id='commit'></a>Commit GET and DELETE Endpoints
-
-Ops Manager v1.12.0 adds two API endpoints for operators who deploy PCF manually.
-If you use Ops Manager to generate manifests that you deploy on your own with BOSH,
-the `/commit` endpoint fails when a tile upgrade contains CredHub credential variables.
-
-Before upgrading a tile, use the `GET` endpoint to retrieve a file that contains the credentials.
-Migrate the credentials to CredHub using the [CredHub CLI](https://github.com/cloudfoundry-incubator/credhub-cli/releases), then use the `DELETE` endpoint to delete the credentials staged in installation.yml.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115011257327) article.
-
-### <a id='bosh2'></a>BOSH CLI v2
-
-Ops Manager v1.12.0 uses the new version of the [BOSH CLI](https://bosh.io/docs/cli-v2.html).
-
-<p class="note breaking"><strong>Breaking Change</strong>: BOSH CLI output formatting has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret BOSH CLI v2 command output.</p>
-
-The Ops Manager VM includes both versions of the BOSH CLI. You can run BOSH CLI v1 commands using `bosh` and BOSH CLI v2 commands using `bosh2`, but many BOSH CLI v1 commands are incompatible with the BOSH Director. See the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012374148-Permissions-error-when-running-BOSH-commands-on-the-Director) article for more information.
-
-In the **Credentials** tab in Ops Manager, click the link to **Bosh2 Commandline Credentials** for a command that you can copy and paste to log in to the `bosh2` CLI.
-
-For more information about the differences between the old and new versions of the BOSH CLI, see the [BOSH documentation](https://bosh.io/docs/cli-v2-diff.html).
-
-### <a id='openstack-networks'></a>OpenStack Network Changes
-
-Ops Manager v1.12.0 uses OpenStack CPI v32. In this version, you must select
-either **Nova** or **Neutron** as the **Network Type** on the **OpenStack Config** page of the
-Director tile.
-Pivotal recommends that you use **Neutron** for compatibility with future versions
-of the OpenStack CPI.
-
-For more information about the two network types, see the [OpenStack documentation](https://docs.openstack.org/ocata/networking-guide/migration-nova-network-to-neutron.html).
-
-### <a id='fixes'></a>Bug Fixes
-
-* Ops Manager v1.12.0 fixes a bug where configuring a thin-provisioned ephemeral disk in Ops Manager created a thick-provisioned disk in vSphere.
-* Ops Manager v1.12.0 fixes a bug where the entity ID was not unique if UAA was configured with SAML.
-* Ops Manager v1.12.0 fixes a bug where `POST /api/v0/setup` did not expose the `http`, `https`, and `no_proxy` fields.
-
-## <a id='known-issues'></a> Known Issues
-
-### <a id='credhub-certs'></a>CredHub Requires Director Certificate Rotation
-
-If your original Elastic Runtime deploy was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN) during a deploy. Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format CredHub does not understand.
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012474187) article.
-
-For more information about certificate rotation, see [Regenerating and Rotating Non-Configurable TLS/SSL Certificates](../security/pcf-infrastructure/api-cert-rotation.html#regenerate).
-
-### <a id='log-search-unsupported'></a>PCF Log Search Unsupported
-
-If your deployment contains PCF Log Search, you must remove the product tile before upgrading. Failure to remove this product prior to upgrade may cause issues with your deployment.
-
-For more information, see the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic.
-
-### <a id='services-network'></a>On-Demand Services Require Dedicated Service Networks
-
-If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
-define a dedicated service network for the tile.
-
-To work around this issue, use one of the following methods:
-
-* Create a services network on your IaaS for each affected service tile
-* Create a dummy network in Ops Manager, reserve a block of IP ranges, and disable smoke tests for the on-demand service
-
-For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
+For more information, see the [Managing Runtime Configs](./runtime-config.html) topic.
