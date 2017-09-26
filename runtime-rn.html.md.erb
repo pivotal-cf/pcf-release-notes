@@ -124,8 +124,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   is enabled.
 * **[Bug Fix]** Bumps cf-mysql-release to v36.5 to resolve an issue with Syslog
   configuration.
-* **[Bug Fix]** Completely disables syslog configuration management by the
-  metron agent.
+* **[Bug Fix]** Prevents a race condition during upgrade by not allowing syslog
+  configuration to be set in metron.
 
   <table border="1" class="nice">
   <thead>
