@@ -7,44 +7,6 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='elastic-runtime'></a> Elastic Runtime
 
-### <a id='cc-bridge'></a> Cloud Controller Bridge
-
-In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands. The Cloud Controller Bridge conveyed communications between the Cloud Controller and Diego over plain-text HTTP.
-
-In PCF v.1.12, the **Enable secure communication between Diego and Cloud Controller** option in the **Cloud Controller** pane of the Elastic Runtime tile allows you to enable direct communications between the Cloud Controller and Diego over secure TLS and deactivate the Cloud Controller Bridge. If you deploy a fresh installation of PCF v1.12, the **Enable** checkbox is selected by default.
-
-For [upgrades](../customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the **Enable** checkbox after the upgrade is complete and then click **Apply Changes**. Selecting the checkbox before the upgrade results in API downtime.
-
-### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
-
-The internal credentials that Elastic Runtime uses for inter-component communication are now generated and stored in CredHub instead of Ops Manager. For a list of the credentials migrated to CredHub, see [Pivotal Elastic Runtime Release Notes](runtime-rn.html#credhub).
-
-If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile.
-
-### <a id='postgres'></a> Postgres
-
-This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
-
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](../customizing/upgrading-pcf.html#postgres).
-
-### <a id='mysql-windows'></a> MySQL for PCF and PCF Runtime for Windows 
-
-If your existing PCF v1.11.x installation includes both <a href="../windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
-
-If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](../customizing/upgrading-pcf.html#upgrade-mysql).
 
 ## <a id='ops-man'></a> Ops Manager
 
-### <a id='bosh-2'></a>BOSH CLI v2
-
-Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In v2, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see [Pivotal Operations Manager Release Notes](opsmanager-rn.html#bosh2).
-
-### <a id='director-certificates'></a>Director Certificate Rotation
-
-If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see [CredHub Requires Director Certificate Rotation](opsmanager-rn.html#credhub-certs).
-
-### <a id='log-search-unsupported'></a>PCF Log Search
-
-PCF Log Search is not compatible with PCF v1.12. If your deployment contains PCF Log Search, you must remove the product tile before upgrading to PCF v1.12. Failure to remove this product prior to the upgrade may cause issues with your deployment.
-
-For more information, see the [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
