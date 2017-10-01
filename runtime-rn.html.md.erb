@@ -13,6 +13,147 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.2'></a> 1.12.2
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.156.0 to resolve multiple
+  security issues. [Release
+  Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.156.0)
+* **[Security Fix]** Resolves an issue with an incorrect `Host` header being
+  set on incoming requests through the Router [CVE
+  Notice](https://www.cloudfoundry.org/cve-2017-8047/).
+* **[Security Fix]** Bumps cf-mysql-release to v36.6 to patch vulnerabilities
+  in Bundler and RubyGems
+  [CVE-2016-7954](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7954)
+  [CVE-2017-0902](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0902)
+* **[Security Fix]** Resolves a remote code execution security vulnerability
+  when the zip program is executed by the Cloud Controller.
+* **[Bug Fix]** Bumps haproxy-boshrelease to v8.4.1 to resolve an issue with
+  certificate/key concatenation [Release
+  Notes](https://github.com/cloudfoundry-incubator/haproxy-boshrelease/releases/tag/v8.4.1).
+* **[Bug Fix]** Bumps apps-manager-release to v662.0.12 to patch the following:
+  * AppsManager will now show all Application Security Group rules.
+  * Fixes a bug that prevented arbitrary schema parameters from working when
+    provisioning a new service from the flyout component.
+  * When a space has zero members, a message is displayed indicating that the
+    space has no members.
+  * When creating a new org, the current user is added to that org as a user
+    and an org manager.
+* **[Bug Fix]** Resolves a bug caused by a missing "selector" option on the
+  "Networking" tab. Operators who had previous chosen their Networking Point of
+  Entry as a non-TLS external Load Balancer would experience this as a tile that
+  looked fully configured, but could not be deployed due to an OpsMan
+  configuration issue.
+* Changes the default "Router Max Connections Per Backend" from unlimited to 500.
+* **[Feature]** Operators can now configure a "Frontend Idle Timeout" for the Router and HAProxy.
+* **[Feature]** Bumps diego-release to v1.25.3 to include support for Azure
+  MySQL [Release
+  Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.25.3).
+* **[Feature]** Patches cf-networking-release to include support for Azure MySQL
+* Bumps buildpacks to the following versions:
+  * [dotnet-core-buildpack](https://github.com/pivotal-cf/dotnet-core-offline-buildpack-release/releases/tag/1.0.24)
+  * [nodejs-buildpack](https://github.com/pivotal-cf/nodejs-offline-buildpack-release/releases/tag/1.6.6)
+  * [php-buildpack](https://github.com/pivotal-cf/php-offline-buildpack-release/releases/tag/4.3.40)
+  * [python-buildpack](https://github.com/pivotal-cf/python-offline-buildpack-release/releases/tag/1.5.24)
+  * [ruby-buildpack](https://github.com/pivotal-cf/ruby-offline-buildpack-release/releases/tag/1.6.47)
+  * [staticfile-buildpack](https://github.com/pivotal-cf/staticfile-offline-buildpack-release/releases/tag/1.4.14)
+* **[Stability Improvement]** Changes the default for Galera MySQL state
+  snapshot transfers (SST). Automatic SST is now enabled by default. Operators
+  can disable this feature by visiting the "Internal MySQL" tab and checking the
+  "Prevent node auto re-join" checkbox.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.11</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.0\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.6.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.1</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.156.0</td>
+  </tr><tr>
+    <td>consul</td><td>173</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.24</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.3</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.25.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.5</td>
+  </tr><tr>
+    <td>loggregator</td><td>96</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.6</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.40</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.12</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.24</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.47</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>10</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.14</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.1'></a> 1.12.1
 
 * **[Security Fix]** Bumps stemcell to v3445.11 to address [USN-3420-2](https://usn.ubuntu.com/usn/usn-3420-2/).
