@@ -3584,7 +3584,7 @@ When upgrading to v1.9, be aware of the following upgrade considerations:
    * Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).<br><br/>
     Some partner service tiles may currently be incompatible with PCF v1.9. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. <br/><br/>
     For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
-   * Before upgrading to PCF v1.9, ensure that you have adequate space available on your database server. See [Diego and Routing API Migrate to a Relational Datastore](#diego_and_routing) and [Cloud Foundry API Availability During Upgrade](#database-migrations).
+   * Before upgrading to PCF v1.9, ensure that you have adequate space available on your database server. See [Cloud Foundry API Availability During Upgrade](#database-migrations).
    * Due to the Cloud Foundry API database migration, the CF API will return 500 status codes while the Cloud Controller VMs are being upgraded. In addition, V3 service bindings are removed without notifying the related broker. Pivotal recommends deleting any V3 service bindings before upgrading. Although existing v2 applications still run normally during the upgrade, some developer interactions with PCF such as pushing apps to PCF may fail. You may want to warn users about potential availability issues during the upgrade window. 
    * Blobstore usage will increase as part of this release. This change is in preparation for upcoming features, such as application rollbacks, which require multiple versions to be available. Cloud Foundry now stores up to six versions of the latest droplet and package per application. Prior to installing this release, consider current blobstore usage and the implications of storing extra droplets and packages, it is likely necessary to increase the available storage, especially when using the WebDAV blobstore.
 
@@ -3616,18 +3616,6 @@ In PCF v1.9, all newly staged containers run as unprivileged containers.
 Unprivileged containers are a security technique of mapping the root user inside the container to a regular user who has no privileges at the Linux operating system level. This prevents apps from inheriting root access on the host if an app breaks out of the container.
 
 By using the full set of user-namespacing features in Linux, PCF isolates containers sharing the same host.
-
-### <a id='diego_and_routing'></a>Diego and Routing API Migrate to a Relational Datastore
-
-Both Diego and the Routing API datastores have switched over to using a relational database as their backing store. Both Diego and Routing API use the same  database, either internal MySQL or external database, that you configure during a new deployment of Elastic Runtime.
-
-#### Diego Relational Store
-
-Diego no longer uses etcd as a backend datastore. It will now use the database specified in the "Databases" form in the Elastic Runtime Tile configuration. During the initial upgrade deployment, existing data in the etcd cluster will be migrated to its new location in the relational database.
-
-#### Routing API Relational Store
-
-In terms of upgrade, only deployments with the TCP routing feature enabled in PCF v1.8 are impacted. When those deployments are upgraded from PCF v1.8 to PCF v1.9, the upgrade process migrates existing routing API data automatically.
 
 ### <a id='database-migrations'></a>Cloud Foundry API Availability During Upgrade
 
