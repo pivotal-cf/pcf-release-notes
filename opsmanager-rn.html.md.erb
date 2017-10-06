@@ -15,645 +15,559 @@ The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic c
 
 ### 1.11.12
 
-* This release patches Ubuntu Security Notice USN-3420-2. Additional information can be found at https://pivotal.io/security.
-* Bumps stemcell to 3421.26
-* Bumps CredHub to 1.0.6
+* **[Security Fix]** Bumps stemcell to 3421.26 to address [USN-3420-2](https://usn.ubuntu.com/usn/usn-3420-2).
+* Bumps CredHub to 1.0.6.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.4</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.26</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.6</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.26*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.4</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.6*</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.11
 
-* Fixes a bug where the `resource_config` API endpoint could return an inaccurate instance count. As a result of this patch, if a job is configured to use the default number of instances, a `GET /api/v0/staged/products/:product_id/jobs/:job_id/resource_config` request returns `"instances": "automatic"`.
+* **[Bug Fix]** If a job is configured to use the default number of instances, a request to the `resource_config` API endpoint now returns `"instances": "automatic"`.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.4</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.20</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.4</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.20</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.4</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.4</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.10
 
-* Bumps stemcell to 3421.20.
+* **[Security Fix]** Bumps stemcell to 3421.20 to address [USN-3392-2](https://usn.ubuntu.com/usn/usn-3392-2).
 * Bumps BOSH Director to 262.4.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.4</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.20</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.4</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.20*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.4*</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.4</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.9
 
 * Bumps CredHub to 1.0.4.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.3</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.19</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.4</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.19</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.3</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.4*</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.8
 
-* Bumps stemcell to 3421.19.
+* **[Security Fix]** Bumps stemcell to 3421.19 to address [USN-3385-2](https://usn.ubuntu.com/usn/usn-3385-2).
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.3</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.19</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.2.0</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.19*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.3</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.2.0</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.7
 
-* Adds the `GET api/v0/staged/products/credhub_credentials` Ops Manager API endpoint.
+* **[Security Fix]** Bumps stemcell to 3421.18 to address [USN-3378-2](https://usn.ubuntu.com/usn/usn-3378-2).
+* Bumps CredHub to 1.2.0.
+* **[Feature]** Adds the `GET api/v0/staged/products/credhub_credentials` Ops Manager API endpoint.
 Operators who deploy PCF manually can use this endpoint when upgrading a tile that contains CredHub variable migrations.
-* Adds the `DELETE api/v0/staged/products/credhub_credentials` Ops Manager API endpoint.
+* **[Feature]** Adds the `DELETE api/v0/staged/products/credhub_credentials` Ops Manager API endpoint.
 Operators who deploy PCF manually can use this endpoint to delete credentials staged in installation.yml after migrating them to CredHub.
-* Bumps CredHub to v1.2.0.
-* Bumps stemcell to 3421.18.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.3</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.18</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.2.0</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.18*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.3</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.2.0*</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.6
 
-* Adds a feature that allows AWS operators to use IAM instance profiles in the `ap-south-1`, `ca-central-1`, `eu-west-2`, and `us-east-2` regions.
-* Fixes a bug where configuring a thin-provisioned ephemeral disk in Ops Manager created a thick-provisioned disk in vSphere. In the **vSphere Config** section of the Director tile, if you set the **Virtual Disk Type** to **Thin** for any ephemeral disks, Ops Manager redeploys the disks after applying this patch.
-* Fixes a bug where Ops Manager hard-coded the `entity_ID` when configuring UAA with SAML.
-* Fixes a bug where `POST /api/v0/setup` did not expose the `http`, `https`, and `no_proxy` fields.
-* Updates the `cache-control` header value in Ops Manager HTTP responses to include `no-store`.
+* **[Feature]** AWS operators can use IAM instance profiles in the `ap-south-1`, `ca-central-1`, `eu-west-2`, and `us-east-2` regions.
+* **[Bug Fix]** Configuring a thin-provisioned ephemeral disk in Ops Manager now creates a thin-provisioned disk in vSphere. In the **vSphere Config** section of the Director tile, if you set the **Virtual Disk Type** to **Thin** for any ephemeral disks, Ops Manager redeploys the disks after applying this patch.
+* **[Bug Fix]** Ops Manager no longer hard-codes the `entity_ID` when configuring UAA with SAML.
+* **[Bug Fix]** `POST /api/v0/setup` now exposes the `http`, `https`, and `no_proxy` fields.
+* **[Feature Improvement]** The `cache-control` header value in Ops Manager HTTP responses now includes `no-store`.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.3</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
-
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.9</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.3</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.1</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.5
 
-* Bumps BOSH Director to v262.3
+* Bumps BOSH Director to 262.3.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.3</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.9</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.3*</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.1</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.4
 
-* Adds support for [Google Shared Virtual Private Cloud (VPC)](https://cloud.google.com/compute/docs/shared-vpc/) networks on GCP. For more information, see [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html).
-* Fixes a bug where the **Resource Config** page [returns a 500 error](#resource-config) when importing an installation with non-default VM sizes
-* Fixes a bug where Ops Manager downsizes memory for [AWS default VM types ](#aws-diego) when upgrading
-* Fixes a bug where cleaning up unused products could remove a currently-configured stemcell
+* **[Feature]** Adds support for [Google Shared Virtual Private Cloud (VPC)](https://cloud.google.com/compute/docs/shared-vpc/) networks on GCP. For more information, see [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html).
+* **[Bug Fix]** The **Resource Config** page no longer [returns a 500 error](#resource-config) when importing an installation with non-default VM sizes.
+* **[Bug Fix]** Ops Manager deploys Diego cells using the correct [AWS VM types](#aws-diego) when upgrading.
+* **[Bug Fix]** Cleaning up unused products should no longer remove a currently-configured stemcell.
+* Bumps BOSH Director to 262.2.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.9</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.2*</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.1</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
-<hr>
 
 ### 1.11.3
 
-* Bumps JMX to v3
-* Configures BOSH Director memory to a minimum of 6&nbsp;GB to mitigate the [deployment hanging issue](#timeout)
+* **[Bug Fix]** Configures BOSH Director memory to a minimum of 6&nbsp;GB to mitigate the [deployment hanging issue](#timeout).
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 3</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.9</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.1</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.1</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.2
 
-* This release patches Ubuntu Security Notice USN-3334-1. Additional information can be found at https://pivotal.io/security.
-* Bumps stemcell to 3421.9
-* Bumps `bosh-init` to v0.0.103
-* Bumps CredHub to v1.0.1
+* **[Security Fix]** Bumps stemcell to 3421.9 to address [USN-3334-1](https://usn.ubuntu.com/usn/usn-3334-1).
+* Bumps `bosh-init` to 0.0.103.
+* Bumps CredHub to 1.0.1.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.103</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.9</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 2</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.9*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.1</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103*</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.1*</td>
+    </tr><tr>
+      <td>UAA</td><td>41</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.1
 
-* Fixes a bug where NSX password help text was incorrect
-* Fixes a bug where for deployments that include more than one tile, clicking **Changelog** results in a 500 error
-* Adds a feature where <code>api/v0/installations/commit</code> errors when there are staged credentials to migrate to CredHub
-* Adds a feature where tile authors can [migrate an existing non-configurable secret](https://docs.pivotal.io/tiledev/migrating-credhub-credentials.html) to CredHub and delete the secret from the installation
-* Bumps UAA to v41
-* Bumps JMX release to v2
+* **[Feature]** Tile Authors can [migrate an existing non-configurable secret](https://docs.pivotal.io/tiledev/
+migrating-credhub-credentials.html) to CredHub and delete the secret from installation.yml.
+* **[Feature]** The <code>api/v0/installations/commit</code> API endpoint returns an error if credentials are staged.
+* **[Bug Fix]** Corrects NSX password help text.
+* **[Bug Fix]** For deployments that include more than one tile, clicking **Changelog** no longer results in a 500 error.
+* Bumps UAA to 41.
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.101</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.3</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 41</td>
-</tr>
-<tr>
-  <td>JMX: 2</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.3</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.1</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.101</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.0</td>
+    </tr><tr>
+      <td>UAA</td><td>41*</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>65</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>24</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>41</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
 
 ### 1.11.0
 
 Version 1.11.0 of Ops Manager consists of the following component versions:
 
-<table border="1" class="nice">
-<thead>
-<tr>
-  <th>Versions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BOSH Director: v262.1</td>
-</tr>
-<tr>
-  <td><code>bosh-init</code>: v0.0.101</td>
-</tr>
-<tr>
-  <td>Stemcell: 3421.3</td>
-</tr>
-<tr>
-  <td>AWS CPI: 65</td>
-</tr>
-<tr>
-  <td>Azure CPI: 24</td>
-</tr>
-<tr>
-  <td>Google Cloud Platform CPI: 25.9.0</td>
-</tr>
-<tr>
-  <td>OpenStack CPI: 27</td>
-</tr>
-<tr>
-  <td>vSphere CPI: 41</td>
-</tr>
-<tr>
-  <td>CredHub: 1.0.1</td>
-</tr>
-<tr>
-  <td>UAA: 40</td>
-</tr>
-</tbody>
-</table>
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3421.3</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>262.1</td>
+  </tr><tr>
+    <td><code>bosh-init</code></td><td>0.0.101</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.0.0</td>
+  </tr><tr>
+    <td>UAA</td><td>40</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>65</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>24</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.9.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>27</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>41</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
 <hr>
 
