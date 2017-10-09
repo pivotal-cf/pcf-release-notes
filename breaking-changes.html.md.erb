@@ -21,9 +21,9 @@ In previous versions of PCF, you had the option of selecting **Forward unencrypt
 
 In PCF v1.12, Gorouter and HAProxy now always listen for TLS requests. Therefore, you must configure an SSL certificate for Gorouter and HAProxy in Elastic Runtime. You configure Gorouter and HAProxy using the same field and with the same certificate. 
 
-In addition, you must specify TLS cipher suites for both HAProxy and Gorouter. These cipher suites are specified independently in different fields. If you configured a previous installation with TLS cipher suites, then those configurations persist through the upgrade. Make sure that you have configured the correct set of TLS cipher suites and minimum TLS version to support your client and load balancer needs.
+In addition, you must specify TLS cipher suites for both HAProxy and Gorouter. These cipher suites are specified independently in different fields. If you configured a previous installation with TLS cipher suites, these configurations persist through the upgrade. Make sure that you have configured the correct set of TLS cipher suites and minimum TLS version to support your client and load balancer needs.
 
-In both cases, the HAProxy configuration is simply ignored if you are not using HAProxy. 
+In both cases, the HAProxy configuration is ignored if you are not using HAProxy. 
 
 See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
 
