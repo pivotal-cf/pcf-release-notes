@@ -24,7 +24,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3445.11</td>
+    <td>Stemcell</td><td>3468</td>
   </tr><tr>
     <td>binary-offline-buildpack</td><td>1.0.14</td>
   </tr><tr>
@@ -44,9 +44,11 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>cflinuxfs2</td><td>1.158.0</td>
   </tr><tr>
-    <td>consul</td><td>179</td>
+    <td>consul</td><td>180</td>
   </tr><tr>
-    <td>diego</td><td>1.26.2</td>
+    <td>credhub</td><td>1.5.0</td>
+  </tr><tr>
+    <td>diego</td><td>1.27.0</td>
   </tr><tr>
     <td>dotnet-core-offline-buildpack</td><td>1.0.27</td>
   </tr><tr>
@@ -60,7 +62,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>java-offline-buildpack</td><td>4.5.1</td>
   </tr><tr>
-    <td>loggregator</td><td>99</td>
+    <td>loggregator</td><td>100</td>
   </tr><tr>
     <td>mysql-backup</td><td>1.35.0</td>
   </tr><tr>
@@ -98,9 +100,9 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>statsd-injector</td><td>1.0.30</td>
   </tr><tr>
-    <td>syslog-migration</td><td>9</td>
+    <td>syslog-migration</td><td>10</td>
   </tr><tr>
-    <td>uaa</td><td>51</td>
+    <td>uaa</td><td>52</td>
   </tr>
   </tbody>
   <tfoot>
@@ -121,7 +123,7 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 
 * You must upgrade first to a version of Elastic Runtime v1.12.x to
   successfully upgrade to v2.0.
- 
+
 * Some partner service tiles may be incompatible with PCF v2.0. Pivotal is
   working with partners to ensure their tiles are being updated to work with the
   latest versions of PCF.<br/><br/> For information about which partner service
