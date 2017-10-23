@@ -11,6 +11,97 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.31'></a> 1.10.31
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.161.0 to resolve multiple
+  security issues. [Release
+  Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.161.0)
+* **[Bug Fix]** Patches consul-release to ensure encrypt key rotation only
+  occurs when the key changes.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.11</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.6.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.18.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.161.0</td>
+  </tr><tr>
+    <td>consul</td><td>165\*</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.24</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.5</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.6</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.40</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.18</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.24</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.47</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.14</td>
+  </tr><tr>
+    <td>uaa</td><td>30.5</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.30'></a> 1.10.30
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.158.0 to resolve multiple
