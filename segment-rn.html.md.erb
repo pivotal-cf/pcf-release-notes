@@ -5,6 +5,45 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.23'></a> 1.10.23
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.161.0 to resolve multiple
+  security issues. [Release
+  Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.161.0)
+* **[Bug Fix]** Patches consul-release to ensure encrypt key rotation only
+  occurs when the key changes.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.11</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.161.0</td>
+  </tr><tr>
+    <td>consul</td><td>165\*</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.22'></a> 1.10.22
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.158.0 to resolve multiple
