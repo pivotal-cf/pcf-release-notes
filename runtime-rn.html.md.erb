@@ -13,6 +13,110 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.5'></a> 1.12.5
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.161.0 to resolve multiple
+  security issues. [Release
+  Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.161.0)
+* **[Bug Fix]** Bumps consul-release to v181 to ensure encrypt key rotation
+  only occurs when the key changes.
+* **[Bug Fix]** Resolves an issue with the CloudController drain script that
+  caused failures when running `bosh stop`. The drain script will now ensure that
+  it prints the exit status of the script to indicate success.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.11</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.0\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.6.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.161.0</td>
+  </tr><tr>
+    <td>consul</td><td>181</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.24</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.25.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.5</td>
+  </tr><tr>
+    <td>loggregator</td><td>96</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.6</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.40</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.14</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.4</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.24</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.47</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.14</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45.3</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.4'></a> 1.12.4
 
 <p class="tip">
@@ -20,7 +124,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   product reorganizes the components in the Elastic Runtime into a much
   smaller deployment. Operators can use the Small Footprint
   Elastic Runtime to deploy a working Cloud Foundry installation in as few as 4
-  VMs. See <a href="../../customizing/small-footprint.html">Getting Started  
+  VMs. See <a href="../../customizing/small-footprint.html">Getting Started
   with Small Footprint Runtime</a> for more details.
 </p>
 
