@@ -5,6 +5,55 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.5'></a> 1.12.5
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.161.0 to resolve multiple
+  security issues. [Release
+  Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.161.0)
+* **[Bug Fix]** Bumps consul-release to v181 to ensure encrypt key rotation
+  only occurs when the key changes.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.11</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.161.0</td>
+  </tr><tr>
+    <td>consul</td><td>181</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.25.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>96</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.4'></a> 1.12.4
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.158.0 to resolve multiple
