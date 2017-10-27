@@ -1,13 +1,29 @@
 ---
-title: PCF v1.12 Breaking Changes
+title: PCF v2.0 Breaking Changes
 owner: Release Engineering
 ---
 
 <!----
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).---->
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.0. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).---->
 
 ## <a id='elastic-runtime'></a> Pivotal Application Service
 
 
 ## <a id='ops-man'></a> Ops Manager
 
+### <a id='bosh-cli'></a>BOSH CLI Renamed
+
+Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
+In Ops Manager v2.0.0, both versions of the BOSH CLI have been renamed.
+
+If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
+In Ops Manager v2.0.0, run the same commands using `bosh`.
+For example, see the following table to compare the changes to the `bosh vms` command:
+
+| **BOSH CLI Version** | **PCF v1.12** | **PCF v2.0** |
+|------------------|---------------|--------------|
+| **BOSH CLI v1** | `bosh vms` | `bosh-old vms` |
+| **BOSH CLI v2** | `bosh2 -e MY-ENV vms` | `bosh -e MY-ENV vms`
+
+Many BOSH CLI v1 commands are incompatible with the BOSH Director.
+Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
