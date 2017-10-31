@@ -839,6 +839,7 @@ Please view the [Elastic Runtime v1.8 release notes](http://docs.pivotal.io/pivo
   * Bumps nodejs to v6.11.1 to provide security fixes.
   * Includes `org_id` and `org_name` in usage report zip file.
 * **[Security Improvement]** Bumps cf-mysql-release to v36. [Release Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36)
+  <p class="note"><strong>Note</strong>: This version of cf-mysql-release disables <code>mysql</code> client access as administrator from remote hosts. Administrators must <code>bosh ssh</code> into each MySQL VM to connect as the MySQL super user to execute commands like <code>mysql</code>, <code>mysqldump</code> and <code>mysqlimport</code>. This restriction affects the admin and roadmin accounts. </p>
 * Bumps mysql-backup-release to v1.33.0. Provides compatibility with v36 of cf-mysql-release.
 * Bumps mysql-monitoring-release to v8.3.0. [Release Notes](https://github.com/pivotal-cf-experimental/mysql-monitoring-release/releases/tag/v8.3.0).
 * **[Stability Improvement]** Reduces the default for
