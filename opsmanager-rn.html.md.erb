@@ -64,6 +64,14 @@ You can assign the **Ops Manager Administrator**, **Full Control**, or **Restric
 
 See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/config-rbac.html) for more information.
 
+### <a id='ssh-banner'></a>Custom Director Login Banner
+
+In Ops Manager 2.0, operators can set a custom banner that every user sees when they log in to the Ops Manager BOSH Director.
+To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
+
+See the Director configuration topic for your IaaS for more information.
+For example, see [Configuring Ops Manager on vSphere](./customizing/vsphere-config.html#dir-config).
+
 ### <a id='azure-stack'></a>Azure Stack Support
 
 Operators can deploy Ops Manager 2.0 to Microsoft Azure in their own local datacenter using Azure Stack.
@@ -73,7 +81,7 @@ See [Launching an Ops Manager Director Instance on Azure without an ARM Template
 ### <a id='bosh-cli'></a>BOSH CLI Renamed
 
 Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
-In Ops Manager v2.0.0, both versions of the BOSH CLI have been renamed.
+In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
 
 If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
 In Ops Manager v2.0.0, run the same commands using `bosh`.
