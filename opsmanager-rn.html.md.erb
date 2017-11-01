@@ -70,14 +70,6 @@ Operators can deploy Ops Manager 2.0 to Microsoft Azure in their own local datac
 
 See [Launching an Ops Manager Director Instance on Azure without an ARM Template](../customizing/azure-om-deploy.html) for more information.
 
-### <a id='runtime-config'></a>Configure Tiles with Runtime Configs
-
-Tile authors can include `runtime_configs` as a top-level key in tile metadata to define global deployment configurations. Named runtime config settings apply to all VMs in a deployment.
-
-Version 2.0 Alpha of Ops Manager supports defining any number of `runtime_configs` in an existing tile. Tile authors can also create a tile that includes a runtime config only and does not define any job types or errands. 
-
-For more information, see the [Managing Runtime Configs](https://docs.pivotal.io/tiledev/runtime-config.html) topic in the PCF Tile Developers Guide.
-
 ### <a id='bosh-cli'></a>BOSH CLI Renamed
 
 Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
@@ -94,3 +86,18 @@ For example, see the following table to compare the changes to the `bosh vms` co
 
 Many BOSH CLI v1 commands are incompatible with the BOSH Director.
 Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
+
+### <a id='colocated-errands'></a>Configure Co-Located Errands
+
+Tile authors can configure the errands defined in their product tile to run on existing VMs in a deployment.
+Co-located errands run faster than traditional errands and use fewer resources, including disk and IP space.
+
+See [Tile Errands](https://docs.pivotal.io/tiledev/tile-errands.html#colocated) in the PCF Tile Developers Guide for more information.
+
+### <a id='runtime-config'></a>Configure Tiles with Runtime Configs
+
+Tile authors can include `runtime_configs` as a top-level key in tile metadata to define global deployment configurations. Named runtime config settings apply to all VMs in a deployment.
+
+Version 2.0.0 of Ops Manager supports defining any number of `runtime_configs` in an existing tile. Tile authors can also create a tile that includes a runtime config only and does not define any job types or errands.
+
+See [Managing Runtime Configs](https://docs.pivotal.io/tiledev/runtime-config.html) in the PCF Tile Developers Guide for more information.
