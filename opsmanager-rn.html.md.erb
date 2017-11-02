@@ -95,6 +95,13 @@ For example, see the following table to compare the changes to the `bosh vms` co
 Many BOSH CLI v1 commands are incompatible with the BOSH Director.
 Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
 
+### <a id='nats-over-tls'></a>BOSH NATS Traffic Uses TLS
+
+The BOSH Director communicates with the agents in your deployment over NATS.
+For added security, Ops Manager 2.0 sends all NATS traffic using Transport Layer Security (TLS) encryption.
+
+See [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html) for more information about NATS.
+
 ### <a id='colocated-errands'></a>Configure Co-Located Errands
 
 Tile authors can configure the errands defined in their product tile to run on existing VMs in a deployment.
