@@ -5,6 +5,64 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.16'></a> 1.11.16
+
+* **[Security Fix]** Bumps the stemcell to v3445.16 to resolve several security
+  vulnerabilities:
+  * [USN-3424-1](https://usn.ubuntu.com/usn/usn-3424-1/)
+  * [USN-3432-1](https://usn.ubuntu.com/usn/usn-3432-1/)
+  * [USN-3434-1](https://usn.ubuntu.com/usn/usn-3434-1/)
+  * [USN-3441-1](https://usn.ubuntu.com/usn/usn-3441-1/)
+  * [USN-3444-2](https://usn.ubuntu.com/usn/usn-3444-2/)
+* **[Security Fix]** Bumps the cflinuxfs2-release to v1.165.0 to resolve
+  several security vulnerabilities:
+  * [USN-3457-1](https://usn.ubuntu.com/usn/usn-3457-1/)
+  * [USN-3458-1](https://usn.ubuntu.com/usn/usn-3458-1/)
+  * [USN-3464-1](https://usn.ubuntu.com/usn/usn-3464-1/)
+* **[Bug Fix]** Patches loggregator-release to remove the
+  `totalReceivedMessageCount` metric from the v2 API.
+* **[Bug Fix]** Garden is now configured to destroy containers on start. This
+  setting will cause the `garden` process to remove any containers that are
+  already running when it starts. That action will prevent issues where
+  containers that should no longer be running are left up to run.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.16</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.165.0</td>
+  </tr><tr>
+    <td>consul</td><td>181</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>loggregator</td><td>89\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.15'></a> 1.11.15
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.161.0 to resolve multiple
