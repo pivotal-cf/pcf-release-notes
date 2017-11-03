@@ -10,6 +10,52 @@ Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.3'></a> 1.12.3
+
+* **[Bug Fix]** Bumps the stemcell to v1200.7 to resolve a bug in the BOSH
+  agent restart logic that causes 127.0.0.1 to be dropped from the list of DNS
+  nameservers when redeploying Diego Cell VMs.
+* **[Improvement]** Bumps windows-utilities-release to v0.4.0 to improve the
+  drain script for the SSH feature.
+* **[Bug Fix]** Patches loggregator-release to remove the
+  `totalReceivedMessageCount` metric from the v2 API.
+* The password options have been updated to reflect the current available
+  settings for VM password configuration. The default password option will now
+  randomly generate an Administrator password.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.7</td>
+  </tr><tr>
+    <td>consul</td><td>181</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>event_log</td><td>0.2</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.7.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.4.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.2'></a> 1.12.2
 
 * Bumps stemcell to v1200.4.
