@@ -11,6 +11,133 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.32'></a> 1.10.32
+
+* **[Security Fix]** Bumps the stemcell to v3445.16 to resolve several security
+  vulnerabilities:
+  * [USN-3424-1](https://usn.ubuntu.com/usn/usn-3424-1/)
+  * [USN-3432-1](https://usn.ubuntu.com/usn/usn-3432-1/)
+  * [USN-3434-1](https://usn.ubuntu.com/usn/usn-3434-1/)
+  * [USN-3441-1](https://usn.ubuntu.com/usn/usn-3441-1/)
+  * [USN-3444-2](https://usn.ubuntu.com/usn/usn-3444-2/)
+* **[Security Fix]** Bumps the cflinuxfs2-release to v1.165.0 to resolve
+  several security vulnerabilities:
+  * [USN-3457-1](https://usn.ubuntu.com/usn/usn-3457-1/)
+  * [USN-3458-1](https://usn.ubuntu.com/usn/usn-3458-1/)
+  * [USN-3464-1](https://usn.ubuntu.com/usn/usn-3464-1/)
+* **[Bug Fix]** Bumps garden-runc-release to v1.9.4 to resolve several bugs.
+  Please see the release notes for more details:
+  * [v1.9.2](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.9.2)
+  * [v1.9.3](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.9.3)
+  * [v1.9.4](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.9.4)
+* **[Bug Fix]** Bumps uaa-release to v30.6 to prevent a denial of service
+  attack against the token revocation endpoint.
+* **[Bug Fix]** Patches loggregator-release to remove the
+  `totalReceivedMessageCount` metric from the v2 API.
+* **[Bug Fix]** Patches consul-release to include a fix for parsing the
+  resolvers list on Windows.
+* The logging level for the Cloud Controller, Cloud Controller Worker, and
+  Cloud Controller Clock has been lowered from `debug` to `info`. This should
+  help reduce log volume while still logging detailed Cloud Controller
+  information.
+* **[Bug Fix]** Garden is now configured to destroy containers on start. This
+  setting will cause the `garden` process to remove any containers that are
+  already running when it starts. That action will prevent issues where
+  containers that should no longer be running are left up to run.
+* The SAML Signature Algorithm field is now configurable outside of the
+  Identity Provider option for SAML. This means that deployments using a non-SAML
+  identity provider can still configure their SAML settings for SSO.
+* Operators can now opt-in to allowing remote administrator access to the
+  internal MySQL database. This was previously enabled by default in releases
+  prior to 1.10.20. In that release, cf-mysql was bumped to v36. That release
+  brought a number of security improvments, including the ability to prevent
+  remote administrator access to the database. Unfortunately, this was a
+  feature that some operators had come to rely upon. The Elastic Runtime will
+  now allow those operators to enable the feature on a selective basis.
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.16</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.6.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.18.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.165.0</td>
+  </tr><tr>
+    <td>consul</td><td>165\*</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.24</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.5</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.6</td>
+  </tr><tr>
+    <td>notifications</td><td>36</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.40</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.18</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.24</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.47</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.14</td>
+  </tr><tr>
+    <td>uaa</td><td>30.6</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.31'></a> 1.10.31
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.161.0 to resolve multiple
