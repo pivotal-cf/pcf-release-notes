@@ -66,7 +66,7 @@ See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/co
 
 ### <a id='ssh-banner'></a>Custom Director Login Banner
 
-In Ops Manager 2.0, operators can set a custom banner that every user sees when they log in to the Ops Manager BOSH Director.
+In Ops Manager 2.0, operators can set a custom banner that every user sees when they log in to the BOSH Director.
 To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
 
 See the Director configuration topic for your IaaS for more information.
@@ -101,6 +101,17 @@ The BOSH Director communicates with the agents in your deployment over NATS.
 For added security, Ops Manager 2.0 sends all NATS traffic using Transport Layer Security (TLS) encryption.
 
 See [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html) for more information about NATS.
+
+### <a id='nsx'></a>VMware NSX-T Networking Support
+
+Ops Manager 2.0.0 adds support for VMware NSX-T networking.
+Previous versions of Ops Manager supported NSX-V networking.
+
+When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V networking.
+
+To enable NSX-T networking, select **NSX-T** from the new **NSX Mode** dropdown menu in the **vCenter Config** pane of the Ops Manager Director tile.
+
+See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) for more information.
 
 ### <a id='colocated-errands'></a>Configure Colocated Errands
 
