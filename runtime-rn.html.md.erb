@@ -141,6 +141,10 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 
 When validating client requests using mutual TLS, the Gorouter trusts multiple Certificate Authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and the BOSH trusted certificates collection. For more information about configuring this feature, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
 
+### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
+
+Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
+
 ##<a id='knownissues'></a> Known Issues
 
 
