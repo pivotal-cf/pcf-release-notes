@@ -137,9 +137,9 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.0.0
 
-### <a id='custom-ca'></a> Custom Certificate Authorities for Gorouter and HAProxy
+### <a id='custom-ca'></a> Additional CAs Trusted by Gorouter and HAProxy
 
-When a client provides a certificate to Gorouter, the router has to know about the Certificate Authority (CA) that signed it. In addition to well-known, public CAs and the BOSH trusted certificates collection, operators can now configure Gorouter and HAProxy to trust custom CAs. These new CAs can be used to validate the certificates from incoming client requests.
+When validating client requests, the Gorouter and HAProxy trust multiple Certificate Authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and the BOSH trusted certificates collection. For more information about configuring this feature, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
 
 ##<a id='knownissues'></a> Known Issues
 
