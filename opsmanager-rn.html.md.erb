@@ -14,9 +14,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 <!----
 The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.0.---->
 
-### 2.0 (Alpha 7)
+### 2.0.0 (Alpha 7)
 
-Ops Manager v2.0 uses the following component versions:
+Ops Manager v2.0.0 uses the following component versions:
 
   <table border="1" class="nice">
   <thead>
@@ -59,7 +59,7 @@ Ops Manager v2.0 uses the following component versions:
 
 ### <a id='rbac'></a>Role-Based Access Control
 
-Ops Manager 2.0 introduces support for role-based access control (RBAC).
+Ops Manager 2.0.0 introduces support for role-based access control (RBAC).
 You can assign the following roles to determine which operators in your organization make deployment changes, view credentials, and manage user roles in Ops Manager:
 
 * **Ops Manager Administrator**
@@ -72,7 +72,7 @@ See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/co
 
 ### <a id='ssh-banner'></a>Custom Director Login Banner
 
-In Ops Manager 2.0, operators can set a custom banner that every user sees when they log in to the BOSH Director.
+In Ops Manager 2.0.0, operators can set a custom banner that every user sees when they log in to the BOSH Director.
 To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
 
 See the Director configuration topic for your IaaS for more information.
@@ -80,17 +80,17 @@ For example, see [Configuring Ops Manager on vSphere](../customizing/vsphere-con
 
 ### <a id='azure-stack'></a>Azure Stack Support (Beta)
 
-Operators can deploy Ops Manager 2.0 to Microsoft Azure in their own local datacenter using Azure Stack.
+Operators can deploy Ops Manager 2.0.0 to Microsoft Azure in their own local datacenter using Azure Stack.
 
 See [Launching an Ops Manager Director Instance on Azure without an ARM Template](../customizing/azure-om-deploy.html) for more information.
 
 ### <a id='bosh-cli'></a>BOSH CLI Renamed
 
 Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
-In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
+In Ops Manager 2.0.0, both versions of the BOSH CLI have been renamed.
 
 If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
-In Ops Manager v2.0.0, run the same commands using `bosh`.
+In Ops Manager 2.0.0, run the same commands using `bosh`.
 For example, see the following table to compare the changes to the `bosh vms` command:
 
 | **BOSH CLI Version** | **PCF v1.12** | **PCF v2.0** |
@@ -104,7 +104,7 @@ Pivotal recommends using BOSH CLI v2 commands for compatibility with future vers
 ### <a id='nats-over-tls'></a>BOSH NATS Traffic Uses TLS
 
 The BOSH Director communicates with the agents in your deployment over NATS.
-For added security, Ops Manager 2.0 sends all NATS traffic using Transport Layer Security (TLS) encryption.
+For added security, Ops Manager 2.0.0 sends all NATS traffic using Transport Layer Security (TLS) encryption.
 
 See [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html) for more information about NATS.
 
@@ -118,6 +118,19 @@ When you upgrade from a previous version of Ops Manager with NSX networking enab
 To enable NSX-T networking, select **NSX-T** from the new **NSX Mode** dropdown menu in the **vCenter Config** pane of the Ops Manager Director tile.
 
 See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) for more information.
+
+### <a id='disk-warning'></a>Ops Manager Minimum Disk Size Warning
+
+In Ops Manager 2.0.0, the web interface displays a warning banner if the Ops Manager appliance VM disk is less than 50&nbsp;GB in size.
+If this warning appears, resize your Ops Manager VM disk to 50&nbsp;GB or larger.
+
+See the Ops Manager installation topic for your IaaS for more information:
+
+* [Configuring Ops Manager on AWS Deployed Manually](../customizing/pcf-aws-manual-config.html#pcfaws-om-ami)
+* [Deploying BOSH and Ops Manager to Azure Manually](../customizing/azure-om-deploy.html#boot)
+* [Deploying BOSH and Ops Manager to GCP](../customizing/gcp-om-deploy.html#start-vm)
+* [Provisioning the OpenStack Infrastructure](../customizing/openstack-setup.html#create-om-image)
+* [Deploying BOSH and Ops Manager to vSphere](../customizing/deploying-vm.html)
 
 ### <a id='colocated-errands'></a>Configure Colocated Errands
 
