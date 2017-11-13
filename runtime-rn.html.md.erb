@@ -498,7 +498,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   Entry as a non-TLS external Load Balancer would experience this as a tile that
   looked fully configured, but could not be deployed due to an OpsMan
   configuration issue.
-* Changes the default "Router Max Connections Per Backend" from unlimited to 500.
+* **[Stability Improvement]** Changes the default **Router Max Connections Per Backend** from `0`, or unlimited, to `500`. This change prevents an unresponsive app from consuming all the router file descriptors. In some cases, this may impact the performance of existing apps and you may need to raise the setting. For guidance, see the documentation about the **Max Connections Per Backend** field. For example, if your PAS deployment is on GCP, see [Step 6: Configure Networking](../customizing/gcp-er-config.html#networking) in _Deploying PAS on GCP_. 
 * **[Feature]** Operators can now configure a "Frontend Idle Timeout" for the
   Router and HAProxy. The default timeout is 900 seconds.
 * **[Feature]** Bumps diego-release to v1.25.3 to include support for Azure
