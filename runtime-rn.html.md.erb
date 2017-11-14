@@ -11,6 +11,122 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.19'></a> 1.11.19
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.166.0 to resolve
+  [USN-3475-1](http://www.ubuntu.com/usn/usn-3475-1/). [Release
+  Notes](https://github.com/cloudfoundry/cflinuxfs2/releases/tag/1.166.0)
+* **[Bug Fix]** Bumps cf-mysql-release to v36.9.0 to resolve an issue where
+  IPsec causes mariadb_ctrl to be left in an `Execution Failed` state. [Release
+  Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36.9.0)
+* **[Bug Fix]** Bumps consul-release to v187 to include a fix for
+  Internationalized Domain Name encoding when specifying an
+  availability-zone-specific service.
+* **[Bug Fix]** Bumps notifications-release to v37 to resolve a race condition
+  in the `cf` CLI used during the deployment of the notifications service
+  errand. [Release
+  Notes](https://github.com/cloudfoundry-incubator/notifications-release/releases/tag/v37)
+* **[Security Fix]** Patches Golang components in capi-release to pull in
+  Golang v1.8.3.
+* **[Bug Fix]** Patches loggregator-release to introduce a circuit breaker when
+  the Traffic Controller connects to the Doppler VMs.
+* **[Bug Fix]** Patches loggregator-release to ensure metron agents maintain
+  availability-zone affinity when connecting to Doppler VMs.
+* **[Bug Fix]** Changes the scheme for the SAML Entity ID from `http` to
+  `https`.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.16</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93.1</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.9.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.166.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.24</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.5</td>
+  </tr><tr>
+    <td>loggregator</td><td>89\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.6</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.40</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.0</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.33</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.24</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.47</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.14</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr><tr>
+    <td>uaa</td><td>45.4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.18'></a> 1.11.18
 
 * **[Security Fix]** Bumps the stemcell to v3445.16 to resolve several security
