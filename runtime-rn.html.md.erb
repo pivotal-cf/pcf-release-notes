@@ -141,10 +141,10 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 
 PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html).
 
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you currently use the PCF JMX Bridge tile or the BOSH HM Forwarder to consume them, you may receive duplicate data. To prevent this, you can do the following:
+The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume them, you may receive duplicate data. To prevent this, you can do the following:
 
-* If you use the PCF JMX Bridge tile, stop consuming BOSH system metrics outside of the Firehose with PCF JMX Bridge or uninstall the tile.
-* If you use the BOSH HM Forwarder, uninstall it.
+* Stop consuming BOSH system metrics outside of the Firehose with PCF JMX Bridge or uninstall this tile.
+* Uninstall the BOSH HM Forwarder.
 
 For guidance on configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
 
