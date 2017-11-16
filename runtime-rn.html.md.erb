@@ -136,7 +136,7 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.0.0
 
-### <a id='bosh-dns'> BOSH DNS Service Discovery for Application Containers
+### <a id='bosh-dns'></a> BOSH DNS Service Discovery for Application Containers
 
 In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism. As a result, the **DNS Servers** field of the **Application Containers** configuration screen in PAS has been removed.
 
@@ -167,11 +167,11 @@ Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This 
 
 ###<a id='credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
-Internal credentials, the `secret` and `simple_credentials` that Elastic Runtime uses for inter-component communication, are generated and stored in BOSH CredHub instead of Ops Manager.
+Internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are generated and stored in BOSH CredHub instead of Ops Manager.
 This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
 
-If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile. 
-For instructions on how to retrieve Elastic Runtime credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
+If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the PAS tile. 
+For instructions on how to retrieve PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
 
 + `.autoscaling.broker_credentials`
 + `.autoscaling.encryption_key`
@@ -182,6 +182,8 @@ For instructions on how to retrieve Elastic Runtime credentials, see [Retrieving
 + `.push-pivotal-account.encryption_key`
 + `.push-usage-service.secret_token`
 + `.router.route_services_secret`
++ `.properties.consul_encrypt_key`
++ `.nats.credentials`
 
 ### <a id='scheduler'></a> Release-level Backup and Restore
 
