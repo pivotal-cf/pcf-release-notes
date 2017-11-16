@@ -136,6 +136,16 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.0.0
 
+### <a id='bosh-dns'> BOSH DNS Service Discovery for Application Containers
+
+In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism. As a result, the **DNS Servers** field of the **Application Containers** configuration screen in PAS has been removed.
+
+To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
+This colocation is a prerequisite for migrating completely to BOSH DNS in a future release
+of PCF. However, this colocation does not impact the current behaviour of DNS for Cloud
+Foundry components in PCF v2.0. System components still use Consul to discover and locate
+other Cloud Foundry components.
+
 ### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
 
 PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html).
