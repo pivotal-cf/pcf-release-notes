@@ -152,7 +152,7 @@ PCF now forwards BOSH health metrics generated for all VMs in a deployment to th
 
 The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume them, you may receive duplicate data. To prevent this, you can do the following:
 
-* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose or uninstall this tile.
+* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose or uninstall this tile. See [Turning BOSH Metrics Off in PCF JMX Bridge](#jmx-bridge) for additional instructions.
 * Uninstall the BOSH HM Forwarder.
 
 For guidance on configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
@@ -190,7 +190,14 @@ This is the minimum amount of instances necessary to make the syslog drain highl
 
 ##<a id='knownissues'></a> Known Issues
 
+### <a id='jmx-bridge'></a> Turning BOSH Metrics Off in PCF JMX Bridge
 
+PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. See [BOSH System Metrics Available in Loggregator Firehose](#bosh-metrics) for more information.
+
+The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, you can do one of the following:
+
+* Stop using PCF JMX Bridge to consume BOSH system metrics. To turn this feature off, delete **JMX Provider IP Address** in the [Director Config](../customizing/gcp-om-config.html#director-config) of your Ops Manager Director tile. Deleting the IP address means that existing JMX Bridge consumers will no longer be able to read BOSH system metrics from the JMX endpoint provided by the tile. However, they will still be able to read Firehose data in JMX format.
+* Uninstall the PCF JMX Bridge tile.
 
 ## <a id='adv-features'></a> About Advanced Features
 
