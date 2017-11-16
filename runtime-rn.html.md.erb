@@ -171,12 +171,12 @@ Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This 
 
 ###<a id='credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
-Internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are generated and stored in BOSH CredHub instead of Ops Manager.
+Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of Ops Manager.
 
 This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security. 
 For information on the internal credentials that were migrated to BOSH CredHub in 1.12, see the [ Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
 
-If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the PAS tile. 
+If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile. 
 For instructions on how to retrieve PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
 
 + `.autoscaling.broker_credentials`

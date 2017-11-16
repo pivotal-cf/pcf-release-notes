@@ -8,11 +8,12 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service
 
-### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
+### <a id='internal-creds'></a> Internal Pivotal Application Service Credentials
 
-The internal credentials that Elastic Runtime uses for inter-component communication are now generated and stored in CredHub instead of Ops Manager. For a list of the credentials migrated to CredHub, see [Pivotal Elastic Runtime Release Notes](runtime-rn.html#credhub).
+Several internal credentials that PAS uses for inter-component communication are now generated and stored in BOSH CredHub instead of Ops Manager. 
+For a list of the credentials migrated to BOSH CredHub, see the _Migration of Internal Credentials to BOSH CredHub_ section of the [Pivotal Application Service v2.0 Release Notes](runtime-rn.html#credhub) topic.
 
-If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile.
+If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the Elastic Runtime tile.
 
 ## <a id='ops-man'></a> Ops Manager
 
