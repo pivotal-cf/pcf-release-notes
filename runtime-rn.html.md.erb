@@ -165,10 +165,10 @@ When validating client requests using mutual TLS, the Gorouter trusts multiple c
 
 Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
-###<a id='credhub'></a> Migration of Internal Credentials to CredHub
+###<a id='credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
-Internal credentials, the `secret` and `simple_credentials` that Elastic Runtime uses for inter-component communication, are generated and stored in CredHub instead of Ops Manager.
-This is part of an ongoing effort to migrate all credentials to CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
+Internal credentials, the `secret` and `simple_credentials` that Elastic Runtime uses for inter-component communication, are generated and stored in BOSH CredHub instead of Ops Manager.
+This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
 
 If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile. 
 For instructions on how to retrieve Elastic Runtime credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
