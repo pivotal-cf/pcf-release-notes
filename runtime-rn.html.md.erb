@@ -1,0 +1,162 @@
+---
+title: Pivotal Application Service v2.0 Release Notes
+owner: Release Engineering
+---
+
+Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.
+
+Read more about the [certified provider
+program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
+providers](https://www.cloudfoundry.org/provider-requirements/).
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+### <a id='2.0.0'></a> 2.0.0
+
+  <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.1</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.2.1</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.44.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>102</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.8.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.8.1</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>39</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>2</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.161.0</td>
+  </tr><tr>
+    <td>consul</td><td>183</td>
+  </tr><tr>
+    <td>credhub</td><td>1.6.1</td>
+  </tr><tr>
+    <td>diego</td><td>1.29.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.27</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.11</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.25.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.2</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.6</td>
+  </tr><tr>
+    <td>loggregator</td><td>99\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.11.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.1.3</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.8</td>
+  </tr><tr>
+    <td>notifications</td><td>42</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>30</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.42</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.7.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>663.0.1</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>664.0.6</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.26</td>
+  </tr><tr>
+    <td>routing</td><td>0.166.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.3</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.5</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.16</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.30</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>10</td>
+  </tr><tr>
+    <td>uaa</td><td>52.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+## <a id='upgrade'></a> How to Upgrade
+
+The procedure for upgrading to Pivotal Application Service (PAS) v2.0 is
+documented in the [Upgrading Pivotal Cloud
+Foundry](../customizing/upgrading-pcf.html) topic.
+
+When upgrading to v2.0, be aware of the following upgrade considerations:
+
+* You must upgrade first to a version of Elastic Runtime v1.12.x to
+  successfully upgrade to PAS v2.0.
+
+* Some partner service tiles may be incompatible with PCF v2.0. Pivotal is
+  working with partners to ensure their tiles are being updated to work with the
+  latest versions of PCF.<br/><br/> For information about which partner service
+  releases are currently compatible with PCF v2.0, review the appropriate
+  partners services release documentation at
+  [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
+  organization that produces the tile.
+
+## <a id='new-features'></a> New Features in PAS v2.0.0
+
+### <a id='custom-ca'></a> Gorouter and HAProxy Trust Additional CAs
+
+When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and the [Ops Manager Director Trusted Certificates](../customizing/gcp-om-config.html#security) collection. For more information about configuring this feature, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
+
+### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
+
+Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
+
+### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
+
+Instead of deploying a new VM for each errand, colocated errands now run on an existing VM. Errands can run alongside other jobs on a VM, and multiple errands can be colocated on the same VM. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space.
+
+##<a id='knownissues'></a> Known Issues
+
+
+
+## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the PAS tile includes new
+functionality that may have certain constraints.
+
+Although these features are fully supported, Pivotal recommends caution when
+using them in production.
