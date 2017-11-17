@@ -169,6 +169,10 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
+### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
+
+Tile authors can configure the errands defined in their product tile to run on existing VMs in a deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space.
+
 ###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
 Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of the Ops Manager database.
