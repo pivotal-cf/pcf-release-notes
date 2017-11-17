@@ -169,9 +169,9 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
-###<a id='credhub'></a> Migration of Internal Credentials to BOSH CredHub
+###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
-Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of Ops Manager.
+Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of the Ops Manager database.
 
 This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security. 
 For information on the internal credentials that were migrated to BOSH CredHub in 1.12, see the [ Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
@@ -190,6 +190,17 @@ For instructions on how to retrieve PAS credentials, see [Retrieving Credentials
 + `.router.route_services_secret`
 + `.properties.consul_encrypt_key`
 + `.nats.credentials`
+
+###<a id='pas-credhub'></a> Introducing PAS CredHub
+
+The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials. 
+
+Enabling this feature requires the following:
+
+* PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
+* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS 2.0 release, the [Spring Cloud Services](../spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
+
+For more information about CredHub in PCF, see the [CredHub Documentation](../credhub.html).
 
 ### <a id='scheduler'></a> Release-level Backup and Restore
 
