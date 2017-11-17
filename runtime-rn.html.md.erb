@@ -171,7 +171,7 @@ Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This 
 
 ### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
 
-Tile authors can configure the errands defined in their product tile to run on existing VMs in a deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space.
+The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
 
 ###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
@@ -206,7 +206,7 @@ Enabling this feature requires the following:
 
 For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
 
-### <a id='scheduler'></a> Release-level Backup and Restore
+### <a id='scheduler'></a> Release-Level Backup and Restore
 
 PAS 2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
 
