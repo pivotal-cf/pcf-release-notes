@@ -5,8 +5,103 @@ owner: Windows
 
 This topic includes release notes for Windows stemcells used with Pivotal Application Service (PAS) for Windows.
 
-## <a id="NNNN.N"></a>NNNN.N
+## <a id="1200.8"></a>1200.8
+
+**Release Date**: November 10, 2017
+
+* BOSH Agent: Disables port 5985 for WinRM by default.
+* Fixes an issue where an empty cloud config would remove all DNS resolvers from a Windows host.
+* Fix for IPsec add-on.
+
+### Known Issues
+* File `updates.txt` is not generated for 2016/1709 stemcells.
+
+### Public IaaS Stemcells
+* Azure 1709 stemcells have 30 GB root disk.
+
+## <a id="1200.7"></a>1200.7
+
+* BOSH Agent timeout fix for high ESX workload scenarios.
+* Intended for 2017 Oct Windows Updates roll-up (KB4041685).
+
+## <a id="1200.6"></a>1200.6
+
+* Includes [CIS MS-L1 v2.2.1](https://www.cisecurity.org/cis-benchmarks/) security hardening.
+* The security policies disable RDP by default. If you would like to enable RDP, use the `enable_rdp` job in the [windows-utilities-release](https://github.com/cloudfoundry-incubator/windows-utilities-release) (version 0.4.0 or greater).
+* Fixes an issue in the BOSH Agent regarding DNS resolvers that can cause application downtime when a BOSH Director is unavailable (e.g. during upgrades) when deployed on Cloud Foundry.
+
+### Known Issues
+* In the case of an empty cloud config, the Windows host DNS list will be cleared on BOSH Agent restarts.
+* CIS policies break the IPsec add-on.
+
+## <a id="1200.5"></a>1200.5
+
+* Install-CFFeatures is now Install-CFFeatures2012.
+* BOSH Agent randomizes password for Administrator user on bootup. If you need to set the password, use the set_password job in the [windows-utilities-release](https://github.com/cloudfoundry-incubator/windows-utilities-release).
+* Removes Windows Defender for all IaaSes in Windows Server 2016/1709.
+* No longer installs Docker on Windows 2016/1709.
+
+## <a id="1200.4"></a>1200.4
+
+**Release Date**: September 27, 2017
+
+* The BOSH-Agent now disables automatic updates during its bootstrap process.
+* Do not remove Powershell-ISE when building stemcell.
+* Added better error checking when applying group policies.
+* Intended for 2017 Sep Windows Updates roll-up.
+* Sets smaller MTU of network interfaces created by Docker on GCP for Windows 2016.
+* Skip sysprep until official Windows 1709 build is available due to bug in insider build.
+
+## <a id="1200.3"></a>1200.3
 
 **Release Date**: December 15, 2017
 
-* List notes here
+* Agent backs off exponentially when unable to reach the director, moving from 5 seconds to 160 seconds over 6 connection attempts, to reduce the impact on small-footprint BOSH VMs. This resolves BOSH Agent [Open Issue #137](https://github.com/cloudfoundry/bosh-agent/issues/137).
+* BOSH SSH is now supported as a beta feature. Users can enable connecting to a cmd session using the `bosh ssh` command by running the relevant job from windows-utilities-release.
+* Fixed an issue where jobs were being stopped synchronously rather than concurrently, preventing stop scripts that waited on other stop scripts from ever finishing.
+* Fixed an issue where jobs that failed to start on the first attempt weren't being retried.
+* Other minor bug fixes and performance improvements.
+
+## <a id="1200.0"></a>1200.0
+
+**Release Date**: July 14, 2017
+
+* Includes July 2017 Windows Security Updates.
+* Fixes an error where Windows stemcells were incompatible with bosh director setting 'enable\_nats\_delivered\_templates' set to true.
+* Fixed startup issue on GCP.
+* Fixed issue where the Windows Agent would reset DNS settings whenever the HTTPMetadataService was invoked on AWS.
+* Upgrades included .NET version to 4.7.
+
+## <a id="1079.0"></a>1079.0
+
+**Release Date**: June 5, 2017
+
+* Based on Windows Server 2012R2.
+* Includes .NET Framework 4.6.1.
+* Available for AWS, GCP, and Azure.
+* Includes all Windows Updates and security patches up through April 2017.
+* To be used with Pivotal Cloud Foundry (PCF) Runtime for Windows v1.9.3+, v1.10.2+, and v1.11.0.
+
+## <a id="1056.1"></a>1056.1
+
+**Release Date**: June 1, 2017
+
+* Based on Windows Server 2012R2.
+* Includes .NET Framework 4.6.1.
+* Available for AWS, GCP, and Azure.
+* Includes all Windows Updates and security patches up through March 2017.
+* To be used with Pivotal Cloud Foundry (PCF) Runtime for Windows v1.9.0, v1.9.1, v1.9.2, v1.10.0, v1.10.1.
+
+## <a id="1056.0"></a>1056.0
+
+**Release Date**: April 5, 2017
+
+* Based on Windows Server 2012R2.
+* Includes .NET Framework 4.6.1.
+* Available for AWS, GCP, and Azure.
+* Includes all Windows Updates and security patches up through March 2017.
+* To be used with Pivotal Cloud Foundry (PCF) Runtime for Windows v1.9.0, v1.9.1, v1.9.2, v1.10.0, v1.10.1.
+
+### Known Limitations
+
+* Does not support BOSH SSH or persistent disks.
