@@ -146,3 +146,11 @@ Tile authors can include `runtime_configs` as a top-level key in tile metadata t
 Version 2.0.0 of Ops Manager supports defining any number of `runtime_configs` in an existing tile. Tile authors can also create a tile that includes a runtime config only and does not define any job types or errands.
 
 See [Managing Runtime Configs](https://docs.pivotal.io/tiledev/runtime-config.html) in the PCF Tile Developers Guide for more information.
+
+### <a id='bug-fixes'></a>Bug Fixes ###
+
+* Ops Manager v2.0 fixes a bug where the UI showed a confusing name for a collection record starting with a certificate.
+* Ops Manager v2.0 fixes a bug where the stemcell hardening work unexpectedly blocked non-root access to ping ops manager, resulting in a verification error.
+* Ops Manager v2.0 fixes a bug where changes could not be applied until BOSH Director was deployed.
+* Ops Manager v2.0 fixes a bug where the dashboard took a long time to load.
+* Ops Manager v2.0 fixes a bug where BOSH Director failed to create certifications because the BOSH agent certification was created for the wrong network.
