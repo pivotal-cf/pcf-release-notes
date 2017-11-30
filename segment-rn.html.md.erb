@@ -5,6 +5,59 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.8'></a> 1.12.8
+
+* **[Security Fix]** Bumps the stemcell to v3445.17 to resolve the following security issues:
+  * [USN-3457-1: curl vulnerability](https://usn.ubuntu.com/usn/usn-3457-1/)
+  * [USN-3458-1: ICU vulnerability](https://usn.ubuntu.com/usn/usn-3458-1/)
+  * [USN-3464-1: Wget vulnerabilities](https://usn.ubuntu.com/usn/usn-3464-1/)
+  * [USN-3469-2: Linux kernel (Xenial HWE) vulnerabilities](https://usn.ubuntu.com/usn/usn-3469-2/)
+  * [USN-3475-1: OpenSSL vulnerabilities](https://usn.ubuntu.com/usn/usn-3475-1/)
+  * [USN-3478-1: Perl vulnerabilities](https://usn.ubuntu.com/usn/usn-3478-1/)
+  * [USN-3485-2: Linux kernel (Xenial HWE) vulnerabilities](https://usn.ubuntu.com/usn/usn-3485-2/)
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.168.0 to resolve
+  [USN-3478-1: Perl vulnerabilities](https://usn.ubuntu.com/usn/usn-3478-1/).
+
+	<table border="1" class="nice">
+	<thead> <tr>
+		<th>Component</th>
+		<th>Version</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Stemcell</td><td>3445.17</td>
+	</tr><tr>
+		<td>cf-networking</td><td>1.4.0\*</td>
+	</tr><tr>
+		<td>cflinuxfs2</td><td>1.168.0</td>
+	</tr><tr>
+		<td>consul</td><td>187</td>
+	</tr><tr>
+		<td>diego</td><td>1.25.3</td>
+	</tr><tr>
+		<td>garden-runc</td><td>1.9.4</td>
+	</tr><tr>
+		<td>grootfs</td><td>0.30.0</td>
+	</tr><tr>
+		<td>haproxy</td><td>8.4.1</td>
+	</tr><tr>
+		<td>loggregator</td><td>96\*</td>
+	</tr><tr>
+		<td>nfs-volume</td><td>1.0.9</td>
+	</tr><tr>
+		<td>routing</td><td>0.163.0</td>
+	</tr><tr>
+		<td>syslog-migration</td><td>8</td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+	</tr>
+	</tfoot>
+	</table>
+
 ### <a id='1.12.7'></a> 1.12.7
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.166.0 to resolve
