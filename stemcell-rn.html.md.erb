@@ -5,9 +5,23 @@ Owner: BOSH
 
 This topic includes release notes for stemcells used with Pivotal Cloud Foundry (PCF) versions 1.12.x.
 
-## <a id="3445-16"></a>3445.16
+## <a id="3445-7"></a>3445.7
 
-**Release Date**: October 26, 2017
+**Release Date**: September 1, 2017
+
+- Logrotate /var/log/wtmp and utmp more aggressively
+
+- Updated BOSH agent to include aggressive 5 minute timeout on NATS connection failure
+
+- Set auditd rules to be mutable by default
+
+  - Please use `auditd` job from os-conf-release to make rules immutable
+
+## <a id="3445-17"></a>3445.17
+
+**Release Date**: December 1, 2017
+
+- Periodic Ubuntu stemcells update
 
 ## <a id="3445-11"></a>3445.11
 
