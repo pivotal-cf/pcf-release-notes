@@ -169,6 +169,9 @@ When validating client requests using mutual TLS, the Gorouter trusts multiple c
 
 You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_
 
+### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
+
+PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
 
 ### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
 
