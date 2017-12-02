@@ -108,7 +108,17 @@ For added security, Ops Manager 2.0.0 sends all NATS traffic using Transport Lay
 
 See [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html) for more information about NATS.
 
-### <a id='nsx'></a>VMware NSX-T Networking Support
+### <a id='bosh-dns'></a> BOSH DNS Service Discovery (Beta) and Opt-Out Option
+
+In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism. To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
+
+Since the BOSH DNS feature is beta in PCF v2.0, Pivotal recommends that you deploy or upgrade your PCF v2.0 deployment first on a non-production environment.
+
+You can opt out of deploying BOSH DNS servers on every VM by selecting the <b>Disable BOSH DNS server for troubleshooting purposes</b> option in Operations Manager. For more information on this configuration option, see the _Configuring Ops Manager Director_ instructions for your IaaS. For example, if you are deploying PCF on GCP, see [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#director-config) topic. 
+
+For more information on opting out of BOSH DNS, see [this KB article](https://discuss.pivotal.io/hc/en-us/categories/200072648-Pivotal-CF-Knowledge-Base).
+
+### <a id='nsx'></a>VMware NSX-T Networking Support (Beta)
 
 Ops Manager 2.0.0 adds support for VMware NSX-T networking.
 Previous versions of Ops Manager supported NSX-V networking.
@@ -120,6 +130,8 @@ To [enable NSX-T networking](../customizing/vsphere-config.html#vcenter-config),
 See [NSX-T Container Plug-in for Kubernetes and Cloud Foundry - Installation and
 Administration Guide](../customizing/resources/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
+
+<p class="note warning"><strong>Warning</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS</a> feature in your PCF deployment, then you cannot use the <b>VMware NSX-T Network Support</b> feature.</p>
 
 ### <a id='disk-warning'></a>Ops Manager Minimum Disk Size Warning
 
