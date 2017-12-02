@@ -223,10 +223,14 @@ PAS 2.0 includes support for release-level backup and restore. [BBR](../customiz
 PAS 2.0 adds support for VMware NSX-T networking.
 Previous versions of PAS supported NSX-V networking.
 
-To enable NSX-T networking, see [NSX-T Container Plug-in
+To configure NSX-T networking support, go to the PAS tile **Networking** pane and select **External** under **Container Network Plugin Interface**.
+
+See [NSX-T Container Plug-in
 for Kubernetes and Cloud
 Foundry - Installation and
-Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf).
+Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
+
+<pre class='note'><strong>Note:</strong> If you want to use the NSX-T tile, you must install it after installing or upgrading Ops Manager and before installing or upgrading Pivotal Application Service.</pre>
 
 ### <a id='scheduler'></a> Syslog Scheduler Highly Available During Zone Outage
 
