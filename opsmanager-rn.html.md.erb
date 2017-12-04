@@ -120,20 +120,23 @@ For more information on opting out of BOSH DNS, see [this KB article](https://di
 
 ### <a id='nsx'></a>VMware NSX-T Networking Support (Beta)
 
-Ops Manager 2.0.0 adds support for VMware NSX-T networking.
+Ops Manager 2.0 adds support for VMware NSX-T networking.
 Previous versions of Ops Manager supported NSX-V networking.
 
 When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V networking.
 
-To [enable NSX-T networking](../customizing/vsphere-config.html#vcenter-config), select **NSX-T** from the new **NSX Mode** dropdown menu in the **vCenter Config** pane of the Ops Manager Director tile.
+To enable NSX-T networking for your PCF installation, you must:
 
-See [NSX-T Container Plug-in for Kubernetes and Cloud Foundry - Installation and
+1. In the Ops Manager Director tile > **vCenter Config** [pane](../customizing/vsphere-config.html#vcenter-config), select **NSX-T** from the **NSX Mode** dropdown menu.
+
+1. Install the NSX-T tile. You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile and before you install or upgrade the PAS tile.
+
+1. In the PAS tile > **Networking** pane, select **External** under **Container Network Plugin Interface**.
+
+See the [NSX-T Container Plug-in for Kubernetes and Cloud Foundry - Installation and
 Administration Guide](../customizing/resources/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-
-<p class="note warning"><strong>Warning</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS</a> feature in your PCF deployment, then you cannot use the <b>VMware NSX-T Network Support</b> feature.</p>
-
-<pre class='note'><strong>Note:</strong> If you want to use the NSX-T tile, you must install it after installing or upgrading Ops Manager and before installing or upgrading Pivotal Application Service.</pre>
+<p class="note"><strong>Note</strong>: Your PCF deployment cannot support NSX-T networking if you opt out of the <a href="#bosh-dns">BOSH DNS</a> feature.</p>
 
 ### <a id='disk-warning'></a>Ops Manager Minimum Disk Size Warning
 
