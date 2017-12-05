@@ -225,17 +225,18 @@ PAS 2.0 includes support for release-level backup and restore. [BBR](../customiz
 PAS 2.0 adds support for VMware NSX-T networking.
 Previous versions of PAS supported NSX-V networking.
 
-To enable NSX-T networking for your PCF installation, you must:
+To enable NSX-T networking for your PCF installation, you must perform the following steps:
 
-1. In the Ops Manager Director tile > **vCenter Config** [pane](../customizing/vsphere-config.html#vcenter-config), select **NSX-T** from the **NSX Mode** dropdown menu.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
 
-1. Install the NSX-T tile. You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile and before you install or upgrade the PAS tile.
+1. Install the NSX-T tile. 
+  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
+  - You must install the NSX-T tile before you install or upgrade the PAS tile.
 
-1. In the PAS tile > **Networking** pane, select **External** under **Container Network Plugin Interface**.
+1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
 
 See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
-
 
 ### <a id='scheduler'></a> Syslog Scheduler Highly Available During Zone Outage
 
