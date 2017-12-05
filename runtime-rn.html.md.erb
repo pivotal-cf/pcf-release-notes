@@ -11,6 +11,8 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
+<pre class='note'><strong>Note:</strong> Elastic Runtime has been renamed Pivotal Application Service.</pre>
+
 ## <a id='releases'></a> Releases
 
 ### <a id='2.0.0'></a> 2.0.0
@@ -169,7 +171,7 @@ When validating client requests using mutual TLS, the Gorouter trusts multiple c
 
 ### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
 
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_
+You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
 
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
