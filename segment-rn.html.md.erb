@@ -79,9 +79,31 @@ The trust between the Gorouter and HAProxy enables mutual authentication between
 
 When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and [Ops Manager Director Trusted Certificates](../customizing/gcp-om-config.html#security). For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
 
+### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
+
+You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
+
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
 PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
+
+### <a id='nsx'></a>VMware NSX-T Networking Support
+
+PCF v2.0 adds support for VMware NSX-T networking.
+Previous versions of PCF supported NSX-V networking.
+
+To enable NSX-T networking for your PCF installation, you must perform the following steps:
+
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+
+1. Install the NSX-T tile. 
+  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
+  - You must install the NSX-T tile before you install or upgrade the PAS tile.
+
+1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
+
+See the [NSX-T Container Plug-in for Kubernetes and Cloud
+Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
 ## <a id='adv-features'></a> About Advanced Features
 
