@@ -264,7 +264,7 @@ PCF now forwards BOSH health metrics generated for all VMs in a deployment to th
 
 The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, you can do one of the following:
 
-* Stop using PCF JMX Bridge to consume BOSH system metrics. To turn this feature off, delete **JMX Provider IP Address** in the [Director Config](../customizing/gcp-om-config.html#director-config) of your Ops Manager Director tile. Deleting the IP address means that existing JMX Bridge consumers will no longer be able to read BOSH system metrics from the JMX endpoint provided by the tile. However, they will still be able to read Firehose data in JMX format.
+* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose. To turn this feature off, delete **JMX Provider IP Address** in the [Director Config](../customizing/gcp-om-config.html#director-config) of your Ops Manager Director tile. Deleting the IP address means that existing JMX Bridge consumers will no longer be able to read BOSH system metrics from the JMX endpoint provided by the tile. They will still be able to read data from the Firehose using PCF JMX Bridge.
 * Uninstall the PCF JMX Bridge tile.
 
 ## <a id='adv-features'></a> About Advanced Features
