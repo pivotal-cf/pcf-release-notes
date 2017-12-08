@@ -118,6 +118,12 @@ You can opt out of deploying BOSH DNS servers on every VM by selecting the <b>Di
 
 For more information on opting out of BOSH DNS, see [this KB article](https://discuss.pivotal.io/hc/en-us/categories/200072648-Pivotal-CF-Knowledge-Base).
 
+### <a id='bosh-metrics'></a>BOSH System Metrics Server Colocated on BOSH Director
+
+Ops Manager 2.0 colocates the new BOSH Metrics Server on the BOSH Director and includes a UAA client with the correct authorities and scopes. This colocation allows BOSH system metrics to flow into the Loggregator system by default. 
+
+For more information on this feature, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components) topic and [BOSH System Metrics Available in Loggregator Firehose](./runtime-rn.html#bosh-metrics) in the PAS Release Notes.
+
 ### <a id='nsx'></a>VMware NSX-T Networking Support (Beta)
 
 Ops Manager 2.0 adds support for VMware NSX-T networking.
