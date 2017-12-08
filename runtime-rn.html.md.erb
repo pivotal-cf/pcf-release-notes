@@ -177,10 +177,6 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
 
-### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
-
-Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
-
 ### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
 
 The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
@@ -253,16 +249,23 @@ This is the minimum number of instances necessary to make the syslog drain highl
 
 ### <a id="metrics-forwarding"></a> Option to Enable Metrics Forwarder on Apps Manager
 
-The Apps Manager includes a new option to bind the Metrics Forwarder service to an app. To do so, go to **Services** and click *Add a Service*.
+Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click *Add a Service*.
 
 ### <a id="metrics-forwarding"></a> Option to Enable PCF Scheduler on Apps Manager
 
-The Apps Manager includes a new option to bind the PCF Scheduler service to an app. To do so, go to **Services** and click *Add a Service*.
+Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click *Add a Service*.
+
+### <a id='one-click'></a> Option to Enable App Autoscaler
+
+Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
+
+### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
+
+Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
 ### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF on GCP
 
 The PAS 2.0 release on Pivotal Network includes a zip folder containing [Terraform](https://www.terraform.io/) files. If you are installing PCF, you can use these Terraform templates to automatically create the necessary infrastructure resources in GCP. For more information, see [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
-
 
 
 ##<a id='knownissues'></a> Known Issues
