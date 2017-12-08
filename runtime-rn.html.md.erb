@@ -218,6 +218,12 @@ Enabling this feature requires the following:
 
 For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
 
+### <a id='context-objects'></a> Context Objects for Service Bindings
+
+A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS 2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
+
+For more information, see [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md).
+
 ### <a id='scheduler'></a> Release-Level Backup and Restore
 
 PAS 2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
@@ -244,7 +250,6 @@ Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.t
 
 The Syslog Scheduler is now scalable. The number of Syslog Scheduler instances defaults to `2`. 
 This is the minimum number of instances necessary to make the syslog drain highly available.
-
 
 ### <a id="metrics-forwarding"></a> Option to Enable Metrics Forwarder on Apps Manager
 
