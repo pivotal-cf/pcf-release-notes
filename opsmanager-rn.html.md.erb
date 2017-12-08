@@ -116,7 +116,7 @@ Since the BOSH DNS feature is beta in PCF v2.0, Pivotal recommends that you depl
 
 You can opt out of deploying BOSH DNS servers on every VM by selecting the <b>Disable BOSH DNS server for troubleshooting purposes</b> option in Operations Manager. For more information on this configuration option, see the _Configuring Ops Manager Director_ instructions for your IaaS. For example, if you are deploying PCF on GCP, see [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#director-config) topic. 
 
-For more information on opting out of BOSH DNS, see [this KB article](https://discuss.pivotal.io/hc/en-us/categories/200072648-Pivotal-CF-Knowledge-Base).
+For more information on opting out of BOSH DNS, see [this KB article](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF).
 
 ### <a id='bosh-metrics'></a>BOSH System Metrics Server Colocated on BOSH Director
 
@@ -144,7 +144,7 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 See the [NSX-T Container Plug-in for Kubernetes and Cloud Foundry - Installation and
 Administration Guide](../customizing/resources/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-<p class="note"><strong>Note</strong>: Your PCF deployment cannot support NSX-T networking if you opt out of the <a href="#bosh-dns">BOSH DNS</a> feature.</p>
+<p class="note breaking"><strong>Breaking Change</strong>: Your PCF deployment cannot support NSX-T networking if you opt out of the <a href="#bosh-dns">BOSH DNS</a> feature.</p>
 
 ### <a id='disk-warning'></a>Ops Manager Minimum Disk Size Warning
 
