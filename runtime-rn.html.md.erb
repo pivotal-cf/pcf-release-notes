@@ -177,10 +177,6 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
 
-### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
-
-The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
-
 ###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
 Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of the Ops Manager database.
@@ -203,27 +199,6 @@ For instructions on how to retrieve PAS credentials, see [Retrieving Credentials
 + `.properties.consul_encrypt_key`
 + `.nats.credentials`
 
-###<a id='pas-credhub'></a> Secure Service Instance Credentials
-
-The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials. 
-
-Enabling this feature requires the following:
-
-* PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
-* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS 2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
-
-For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
-
-### <a id='context-objects'></a> Context Objects for Service Bindings
-
-A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS 2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
-
-For more information, see [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md).
-
-### <a id='scheduler'></a> Release-Level Backup and Restore
-
-PAS 2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
-
 ### <a id='nsx'></a>VMware NSX-T Networking Support
 
 PAS 2.0 adds support for VMware NSX-T networking.
@@ -242,7 +217,32 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-### <a id='scheduler'></a> Syslog Scheduler Highly Available During Zone Outage
+###<a id='pas-credhub'></a> Secure Service Instance Credentials
+
+The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials. 
+
+Enabling this feature requires the following:
+
+* PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
+* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS 2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
+
+For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
+
+### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
+
+PAS 2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
+
+### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
+
+The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
+
+### <a id='context-objects'></a> Context Objects for Service Bindings
+
+A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS 2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
+
+For more information, see [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md).
+
+### <a id='syslog-scheduler'></a> Syslog Scheduler Highly Available During Zone Outage
 
 The Syslog Scheduler is now scalable. The number of Syslog Scheduler instances defaults to `2`. 
 This is the minimum number of instances necessary to make the syslog drain highly available.
@@ -251,11 +251,11 @@ This is the minimum number of instances necessary to make the syslog drain highl
 
 Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click *Add a Service*.
 
-### <a id="metrics-forwarding"></a> Option to Enable PCF Scheduler on Apps Manager
+### <a id="pcf-scheduler"></a> Option to Enable PCF Scheduler on Apps Manager
 
 Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click *Add a Service*.
 
-### <a id='one-click'></a> Option to Enable App Autoscaler
+### <a id='app-autoscaler'></a> Option to Enable App Autoscaler
 
 Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
 
