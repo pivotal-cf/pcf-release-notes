@@ -202,22 +202,29 @@ For instructions on how to retrieve PAS credentials, see [Retrieving Credentials
 ### <a id='nsx'></a>VMware NSX-T Networking Support
 
 PAS 2.0 adds support for VMware NSX-T networking.
+NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
 Previous versions of PAS supported NSX-V networking.
+
+The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.
 
 To enable NSX-T networking for your PCF installation, you must perform the following steps:
 
 1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
 
 1. Install the NSX-T tile. 
-  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
-  - You must install the NSX-T tile before you install or upgrade the PAS tile.
+  - You must install the NSX-T tile after you install the Ops Manager Director tile.
+  - You must install the NSX-T tile before you install the PAS tile.
 
 1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
 
-See the [NSX-T Container Plug-in for Kubernetes and Cloud
+Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-   <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+<p class='note'><strong>Note:</strong> You must have an NSX-T installation to use this integration.</p>
+
+<p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
+
+<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
 ###<a id='pas-credhub'></a> Secure Service Instance Credentials (Beta)
 
