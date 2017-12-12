@@ -217,6 +217,8 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
+   <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+
 ###<a id='pas-credhub'></a> Secure Service Instance Credentials (Beta)
 
 The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials. 
@@ -227,6 +229,8 @@ Enabling this feature requires the following:
 * PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS 2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
 
 For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
+
+   <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support Secure Service Instance Credentials feature.</p>
 
 ### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
 
