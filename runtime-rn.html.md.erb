@@ -148,7 +148,9 @@ of PCF. However, this colocation does not impact the current behaviour of DNS fo
 Foundry components in PCF v2.0. System components still use Consul to discover and locate
 other Cloud Foundry components.
 
-You can also opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and [this KB article](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF).
+You can also opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
+[Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
+
 
 ### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
 
@@ -182,7 +184,7 @@ PCF now supports XFCC header configuration for deployments that terminate TLS fo
 Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of the Ops Manager database.
 
 This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security. 
-For information on the internal credentials that were migrated to BOSH CredHub in 1.12, see the [ Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
+For information about the internal credentials that were migrated to BOSH CredHub in 1.12, see the [ Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
 
 If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile. 
 For instructions on how to retrieve PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
