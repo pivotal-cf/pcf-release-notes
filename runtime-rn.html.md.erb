@@ -159,7 +159,7 @@ The new flow of BOSH system metrics cannot be disabled. Therefore, if you are cu
 * Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose or uninstall this tile. See [Turning BOSH Metrics Off in PCF JMX Bridge](#jmx-bridge) for additional instructions.
 * Uninstall the BOSH HM Forwarder.
 
-For guidance on configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
+For guidance about configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
@@ -276,13 +276,19 @@ Apps Manager includes a new option to bind the App Autoscaler service to an appl
 
 Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
-### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF on GCP
+### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF 
 
-The PAS v2.0 release on Pivotal Network includes a zip folder containing [Terraform](https://www.terraform.io/) files. If you are installing PCF, you can use these Terraform templates to automatically create the necessary infrastructure resources in GCP. For more information, see [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
+The PAS v2.0 release on Pivotal Network includes [Terraform](https://www.terraform.io/) template downloads. Terraform is a tool for creating and updating infrastructure resources that helps provide a better and more consistent PCF install experience on multiple IaaS providers. PCF internal development teams maintain and test Terraform templates in many scenarios. 
+
+This release includes templates for GCP and AWS. If you are installing PCF on either of these IaaS providers, you can use the Terraform templates to automatically create the necessary infrastructure resources. For instructions, see the following topics:
+
+* [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
+* [Installing PCF on AWS using Terraform](../customizing/aws-terraform.html).
+  <p class="note"><strong>Note</strong>: The AWS Terraform template replaces the PCF Cloudformation for AWS Setup file on Pivotal Network.</p>
 
 ### <a id="self-service"></a> Option to Enable Self-Service Network Policies
 
-Operators can now enable self-service network policies for space developers. Prior to this release, enabling access occurred on either a per-developer or per-group basis. For more information on how to enable this feature, see the [Installing Pivotal Cloud Foundry](../installing/index.html) page for your IaaS.
+Operators can now enable self-service network policies for Space Developers. Prior to this release, enabling access occurred on either a per-developer or per-group basis. For more information about enabling this feature, see the [Installing Pivotal Cloud Foundry](../installing/index.html) topic for your IaaS.
 
 ##<a id='knownissues'></a> Known Issues
 
