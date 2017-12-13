@@ -136,7 +136,7 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
   [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
   organization that produces the tile.
 
-## <a id='new-features'></a> New Features in PAS v2.0.0
+## <a id='new-features'></a> New Features in PAS v2.0
 
 ### <a id='bosh-dns'></a> BOSH DNS Service Discovery for Application Containers (Beta)
 
@@ -199,13 +199,15 @@ For instructions on how to retrieve PAS credentials, see [Retrieving Credentials
 + `.properties.consul_encrypt_key`
 + `.nats.credentials`
 
-### <a id='nsx'></a>VMware NSX-T Networking Support
+### <a id='nsx'></a> VMware NSX-T Networking Support
 
-PAS 2.0 adds support for VMware NSX-T networking.
+PAS v2.0 adds support for VMware NSX-T networking.
 NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
 Previous versions of PAS supported NSX-V networking.
 
-The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.
+To use NSX-T networking, you must install the NSX-T tile.
+
+<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
 
 To enable NSX-T networking for your PCF installation, you must perform the following steps:
 
@@ -215,12 +217,12 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
   - You must install the NSX-T tile after you install the Ops Manager Director tile.
   - You must install the NSX-T tile before you install the PAS tile.
 
-1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
+1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
 
 Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-<p class='note'><strong>Note:</strong> You must have an NSX-T installation to use this integration.</p>
+<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
@@ -233,7 +235,7 @@ The PAS tile now includes its own CredHub VM to support the secure storage of se
 Enabling this feature requires the following:
 
 * PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
-* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS 2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
+* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS v2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
 
 For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
 
@@ -241,7 +243,7 @@ For more information about CredHub in PCF, see the [CredHub Documentation](../cr
 
 ### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
 
-PAS 2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
+PAS v2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
 
 ### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
 
@@ -249,7 +251,7 @@ The PAS tile no longer includes individual errand VMs. Instead, the errand jobs 
 
 ### <a id='context-objects'></a> Context Objects for Service Bindings
 
-A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS 2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
+A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS v2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
 
 For more information, see [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md).
 
@@ -260,15 +262,15 @@ This is the minimum number of instances necessary to make the syslog drain highl
 
 ### <a id="metrics-forwarding"></a> Option to Enable Metrics Forwarder on Apps Manager
 
-Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click *Add a Service*.
+Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click **Add a Service**.
 
 ### <a id="pcf-scheduler"></a> Option to Enable PCF Scheduler on Apps Manager
 
-Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click *Add a Service*.
+Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click **Add a Service**.
 
 ### <a id='app-autoscaler'></a> Option to Enable App Autoscaler on Apps Manager
 
-Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click *Add a Service*. To access the configuration panel for App Autoscaler, click **Manage**.
+Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click **Add a Service**. To access the configuration panel for App Autoscaler, click **Manage**.
 
 ### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
 
@@ -276,7 +278,7 @@ Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This 
 
 ### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF on GCP
 
-The PAS 2.0 release on Pivotal Network includes a zip folder containing [Terraform](https://www.terraform.io/) files. If you are installing PCF, you can use these Terraform templates to automatically create the necessary infrastructure resources in GCP. For more information, see [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
+The PAS v2.0 release on Pivotal Network includes a zip folder containing [Terraform](https://www.terraform.io/) files. If you are installing PCF, you can use these Terraform templates to automatically create the necessary infrastructure resources in GCP. For more information, see [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
 
 ### <a id="self-service"></a> Option to Enable Self-Service Network Policies
 

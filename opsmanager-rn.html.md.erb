@@ -59,7 +59,7 @@ Ops Manager v2.0.0 uses the following component versions:
 
 ### <a id='rbac'></a>Role-Based Access Control
 
-Ops Manager 2.0.0 introduces support for role-based access control (RBAC).
+Ops Manager v2.0 introduces support for role-based access control (RBAC).
 You can assign the following roles to determine which operators in your organization make deployment changes, view credentials, and manage user roles in Ops Manager:
 
 * **Ops Manager Administrator**
@@ -72,7 +72,7 @@ See [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/co
 
 ### <a id='ssh-banner'></a>Custom Director Login Banner
 
-In Ops Manager 2.0.0, operators can set a custom banner that every user sees when they log in to the BOSH Director.
+In Ops Manager v2.0, operators can set a custom banner that every user sees when they log in to the BOSH Director.
 To set the banner, edit the **Custom SSH Banner** field in the **Director Config** page of the Ops Manager tile.
 
 See the Director configuration topic for your IaaS for more information.
@@ -80,17 +80,17 @@ For example, see [Configuring Ops Manager on vSphere](../customizing/vsphere-con
 
 ### <a id='azure-stack'></a>Azure Stack Support (Beta)
 
-Operators can deploy Ops Manager 2.0.0 to Microsoft Azure in their own local datacenter using Azure Stack.
+Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack.
 
 See [Launching an Ops Manager Director Instance on Azure without an ARM Template](../customizing/azure-om-deploy.html) for more information.
 
 ### <a id='bosh-cli'></a>BOSH CLI Renamed
 
 Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
-In Ops Manager 2.0.0, both versions of the BOSH CLI have been renamed.
+In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
 
 If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
-In Ops Manager 2.0.0, run the same commands using `bosh`.
+In Ops Manager v2.0, run the same commands using `bosh`.
 For example, see the following table to compare the changes to the `bosh vms` command:
 
 | **BOSH CLI Version** | **PCF v1.12** | **PCF v2.0** |
@@ -104,7 +104,7 @@ Pivotal recommends using BOSH CLI v2 commands for compatibility with future vers
 ### <a id='nats-over-tls'></a>BOSH NATS Traffic Uses TLS
 
 The BOSH Director communicates with the agents in your deployment over NATS.
-For added security, Ops Manager 2.0.0 sends all NATS traffic using Transport Layer Security (TLS) encryption.
+For added security, Ops Manager v2.0 sends all NATS traffic using Transport Layer Security (TLS) encryption.
 
 See [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html) for more information about NATS.
 
@@ -118,37 +118,35 @@ You can opt out of deploying BOSH DNS servers on every VM by selecting the <b>Di
 
 For more information on opting out of BOSH DNS, see [this KB article](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF).
 
-### <a id='bosh-metrics'></a>BOSH System Metrics Server Colocated on BOSH Director
+### <a id='bosh-metrics'></a> BOSH System Metrics Server Colocated on BOSH Director
 
-Ops Manager 2.0 colocates the new BOSH Metrics Server on the BOSH Director and includes a UAA client with the correct authorities and scopes. This colocation allows BOSH system metrics to flow into the Loggregator system by default. 
+Ops Manager v2.0 colocates the new BOSH Metrics Server on the BOSH Director and includes a UAA client with the correct authorities and scopes. This colocation allows BOSH system metrics to flow into the Loggregator system by default. 
 
 For more information on this feature, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components) topic and [BOSH System Metrics Available in Loggregator Firehose](./runtime-rn.html#bosh-metrics) in the PAS Release Notes.
 
-### <a id='nsx'></a>VMware NSX-T Networking Support (Beta)
+### <a id='nsx'></a> VMware NSX-T Networking Support
 
-Ops Manager 2.0.0 adds support for VMware NSX-T networking.
+Ops Manager v2.0 adds support for VMware NSX-T networking.
 NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
 Previous versions of Ops Manager supported NSX-V.
 
-When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V. The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.
+When you upgrade from a previous version of Ops Manager with NSX networking enabled, Ops Manager defaults to NSX-V. The NSX-T integration is only for fresh installs of PCF.
 You can enable NSX-T networking by selecting **NSX-T** in the new **NSX Mode** dropdown menu of the **vCenter Config** pane.
 
-See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) and [vSphere Reference Architecture](../refarch/vsphere/vsphere_ref_arch.html#base-arch) for more information.
+See [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#vcenter-config) for more information.
 
 Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-<p class='note'><strong>Note:</strong> You must have an NSX-T installation to use this integration.</p>
+<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
 <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
-<p class="note breaking"><strong>Breaking Change</strong>: Your PCF deployment cannot support NSX-T networking if you opt out of the <a href="#bosh-dns">BOSH DNS</a> feature.</p>
-
 ### <a id='disk-warning'></a>Ops Manager Minimum Disk Size Warning
 
-In Ops Manager 2.0.0, the web interface displays a warning banner if the Ops Manager appliance VM disk is less than 50&nbsp;GB in size.
+In Ops Manager v2.0, the web interface displays a warning banner if the Ops Manager appliance VM disk is less than 50&nbsp;GB in size.
 If this warning appears, resize your Ops Manager VM disk to 50&nbsp;GB or larger.
 
 See the Ops Manager installation topic for your IaaS for more information:
@@ -170,13 +168,13 @@ See [Tile Errands](https://docs.pivotal.io/tiledev/tile-errands.html#colocated) 
 
 Tile authors can include `runtime_configs` as a top-level key in tile metadata to define global deployment configurations. Named runtime config settings apply to all VMs in a deployment.
 
-Version 2.0.0 of Ops Manager supports defining any number of `runtime_configs` in an existing tile. Tile authors can also create a tile that includes a runtime config only and does not define any job types or errands.
+Version v2.0 of Ops Manager supports defining any number of `runtime_configs` in an existing tile. Tile authors can also create a tile that includes a runtime config only and does not define any job types or errands.
 
 See [Managing Runtime Configs](https://docs.pivotal.io/tiledev/runtime-config.html) in the PCF Tile Developers Guide for more information.
 
 ### <a id='named-manifest'></a>Named Manifests
 
-Ops Manager 2.0.0 supports specifying and rendering named manifests in a collection property. For more information, see the [named_manifest](https://docs.pivotal.io/tiledev/product-template-reference.html#named-manifest) section of the Product Template Reference topic.
+Ops Manager v2.0 supports specifying and rendering named manifests in a collection property. For more information, see the [named_manifest](https://docs.pivotal.io/tiledev/product-template-reference.html#named-manifest) section of the Product Template Reference topic.
 
 ### <a id='bug-fixes'></a>Bug Fixes ###
 

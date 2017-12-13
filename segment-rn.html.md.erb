@@ -69,7 +69,7 @@ The procedure for installing PCF Isolation Segment v2.0 is documented in the
 
 To install a PCF Isolation Segment, you must first install PCF v2.0.
 
-## <a id='2.0.0'></a> New Features in PCF Isolation Segment v2.0.0
+## <a id='2.0.0'></a> New Features in PCF Isolation Segment v2.0
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
@@ -87,13 +87,15 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
 
-### <a id='nsx'></a>VMware NSX-T Networking Support
+### <a id='nsx'></a> VMware NSX-T Networking Support
 
-PCF Isolation Segment 2.0 adds support for VMware NSX-T networking.
+PCF Isolation Segment v2.0 adds support for VMware NSX-T networking.
 NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
 Previous versions of PCF Isolation Segment supported NSX-V networking.
 
-The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.
+To use NSX-T networking, you must install the NSX-T tile.
+
+<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
 
 To enable NSX-T networking for your PCF installation, you must perform the following steps:
 
@@ -103,12 +105,12 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
   - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
   - You must install the NSX-T tile before you install or upgrade the PAS tile.
 
-1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**. select **External**.
+1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
 
 Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://s3.amazonaws.com/prod.tracker2/resource/85792716/nsxt_21_ncp_kubernetes-1127.pdf) for more information.
 
-<p class='note'><strong>Note:</strong> You must have an NSX-T installation to use this integration.</p>
+<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
 <p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
 
