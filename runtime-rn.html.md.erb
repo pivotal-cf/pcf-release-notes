@@ -11,6 +11,130 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.21'></a> 1.11.21
+
+* **[Security Fix]** Bumps stemcell version to 3445.19 for [USN-3509-2](https://www.cloudfoundry.org/usn-3509-2/).
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.171.0 to resolve several
+  security vulnerabilities:
+  * [USN-3489-1: Berkeley DB vulnerability](https://usn.ubuntu.com/usn/usn-3489-1/)
+  * [USN-3496-1: Python vulnerability](https://usn.ubuntu.com/usn/usn-3496-1/)
+  * [USN-3496-3: Python vulnerability](https://usn.ubuntu.com/usn/usn-3496-3/)
+  * [USN-3498-1: curl vulnerabilities](https://usn.ubuntu.com/usn/usn-3498-1/)
+  * [USN-3501-1: libxcursor vulnerability](https://usn.ubuntu.com/usn/usn-3501-1/)
+* **[Bug Fix]** Bumps apps-manager-release to v661.1.35 to resolve some bugs:
+  * When an app fails to identify itself as a spring app, do not check again.
+  * Prevent Apps Manager from being used in an iframe.
+  * Long org names in the navbar org dropdown are ellipsified.
+  * Fix the look of the select component in Firefox.
+  * Improved the resiliency of the Apps Manager server when a proxy error occurs.
+* **[Bug Fix]** Bumps cf-mysql-release to v36.10.0 to finalize a fix for
+  configuration and management of syslog. [Release
+  Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36.10.0)
+* **[Bug Fix]** Bumps mysql-monitoring-release to v8.12.0 to finalize a fix for
+  configuration and management of syslog.
+* **[Bug Fix]** Operators can now optionally disable Router Access logs. This
+  will prevent the Router local disk from becoming filled when the Routers are
+  experiencing increased incoming traffic.
+* **[Feature Improvement]** Operators can now specify the mutual TLS
+  certificate validation behavior for the Router. The Router will request
+  certificates by default, and validate them if provided. Additionally, operators
+  can configure the Router to ignore certificates, or to require them with every
+  request.
+* **[Feature Improvement]** Operators can now override their SAML Entity ID
+  when configuration SAML as an Identity Provider.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.19</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93.1</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.171.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.30</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.13</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.6</td>
+  </tr><tr>
+    <td>loggregator</td><td>89\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.33.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.12.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.10</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.43</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.1</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.35</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.5</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.18</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr><tr>
+    <td>uaa</td><td>45.4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.20'></a> 1.11.20
 
 * **[Security Fix]** Bumps apps-manager-release to v660.7.19 to resolve a
