@@ -274,9 +274,15 @@ Apps Manager includes a new option to bind the App Autoscaler service to an appl
 
 Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
 
-### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF on GCP
+### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF 
 
-The PAS 2.0 release on Pivotal Network includes a zip folder containing [Terraform](https://www.terraform.io/) files. If you are installing PCF, you can use these Terraform templates to automatically create the necessary infrastructure resources in GCP. For more information, see [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
+The PAS 2.0 release on Pivotal Network includes [Terraform](https://www.terraform.io/) template downloads. Terraform is a tool for creating and updating infrastructure resources that helps provide a better and more consistent PCF install experience on multiple IaaS providers. PCF internal development teams maintain and test Terraform templates in many scenarios. 
+
+This release includes templates for GCP and AWS. If you are installing PCF on either of these IaaS providers, you can use the Terraform templates to automatically create the necessary infrastructure resources. For instructions, see the following topics:
+
+* [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
+* [Installing PCF on AWS using Terraform](../customizing/aws-terraform.html).
+  <p class="note"><strong>Note</strong>: The AWS Terraform template replaces the PCF Cloudformation for AWS Setup file on Pivotal Network.</p>
 
 ### <a id="self-service"></a> Option to Enable Self-Service Network Policies
 
