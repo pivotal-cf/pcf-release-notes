@@ -6,11 +6,11 @@ owner: Release Engineering
 <!----
 This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.0. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).---->
 
-## <a id='pas'></a> Pivotal Application Service
+## <a id='pas'></a> Pivotal Application Service (PAS)
 
 ### <a id="sso-upgrade"></a> SSO Tile Requires Upgrade
 
-If you have the Single Sign-On (SSO) tile installed and you are upgrading to PCF 2.0, you must upgrade the SSO tile to 1.5.3 before installing PCF 2.0. For more information about upgrading the SSO tile, see the [SSO knowledge article](https://discuss.pivotal.io/hc/en-us/articles/115015727408).
+If you have the Single Sign-On (SSO) tile installed and you are upgrading to PCF v2.0, you must upgrade the SSO tile to v1.5.3 before installing PCF v2.0. For more information about upgrading the SSO tile, see the [SSO knowledge article](https://discuss.pivotal.io/hc/en-us/articles/115015727408).
 
 ### <a id='internal-creds'></a> Internal Pivotal Application Service Credentials
 
@@ -23,28 +23,22 @@ If you opt out of the [BOSH DNS feature](./runtime-rn.html#bosh-dns), your PCF d
 
 ### <a id='remedial-steps'></a> Upgrading from Earlier Versions of Elastic Runtime
 
-You must upgrade first to a version of Elastic Runtime v1.12.x to successfully upgrade to PAS v2.0.
+You must upgrade first to a version of Elastic Runtime v1.12 to successfully upgrade to PAS v2.0.
 
 If you are upgrading from a PCF deployment that at one point included Elastic Runtime v1.7.16 or earlier, you must perform the remedial steps outlined in [App Usage Data and Events Data Become Corrupted After Upgrade or Install](https://discuss.pivotal.io/hc/en-us/articles/228639827-App-Usage-Data-and-Events-Data-Becomes-Corrupted-After-Upgrade-or-Install) before proceeding with this upgrade.
 If you fail to perform the remedial steps for this issue, this upgrade process may corrupt your existing usage data.
 
 ### <a id='configure-client-certs-pas'></a> Configuring Router Behavior for Client Certificates while Deploying PAS
 
-For some deployment configurations, you will need to configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.
-
-### <a id='nsx-t-pas'></a> Installing the NSX-T Tile
-
-Do not disable BOSH DNS without consulting Pivotal Support. If you opt out of the BOSH DNS feature, your PCF deployment cannot support [NSX-T networking](./runtime-rn.html#nsx). For more information about disabling BOSH DNS, see [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
-
-You must install the NSX-T tile before you install the PAS tile.
+For some deployment configurations, you must configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.
 
 
 ## <a id='ops-man'></a> Ops Manager
 
 ### <a id='bosh-cli'></a> BOSH CLI Renamed
 
-Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
-In Ops Manager v2.0.0, both versions of the BOSH CLI have been renamed.
+Similar to previous Ops Manager versions, the Ops Manager Virtual Machine (VM) includes both versions of the BOSH CLI.
+In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
 
 If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
 In Ops Manager v2.0.0, run the same commands using `bosh`.
@@ -60,21 +54,13 @@ Pivotal recommends using BOSH CLI v2 commands for compatibility with future vers
 
 ### <a id='bosh-dns-om'></a> Disabling BOSH DNS for Ops Manager Director
 
-Do not disable BOSH DNS without consulting Pivotal Support. F
+Do not disable BOSH DNS without consulting Pivotal Support.
 
 For more information about disabling BOSH DNS, see [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
-
-### <a id='nsx-t-om'></a> Installing the NSX-T Tile
-
-Do not disable BOSH DNS without consulting Pivotal Support. If you opt out of the BOSH DNS feature, your PCF deployment cannot support [NSX-T networking](./opsmanager-rn.html#nsx). 
-
-For more information about disabling BOSH DNS, see [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
-
-You must install the NSX-T tile after you install the Ops Manager Director tile.
 
 
 ## <a id='ist'></a> PCF Isolation Segment
 
 ### <a id='configure-client-certs-ist'></a> Configuring Router Behavior for Client Certificates While Installing PCF Isolation Segment
 
-For some deployment configurations, you will need to configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.
+For some deployment configurations, you must configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.
