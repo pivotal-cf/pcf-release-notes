@@ -154,14 +154,45 @@ You can also opt out of deploying BOSH DNS in PCF v2.0. For more information, se
 
 ### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
 
-PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components).
+PCF now forwards BOSH health metrics generated for all VMs in a deployment to
+the Loggregator Firehose by default. For more information about this feature
+and its implementation, see the *BOSH System Metrics Forwarder* section in the
+[Overview of the Loggregator
+System](../loggregator/architecture.html#other-components).
 
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume them, you may receive duplicate data. To prevent this, you can do the following:
+The new flow of BOSH system metrics cannot be disabled. Therefore, if you are
+currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume
+them, you may receive duplicate data. To prevent this, you can do the
+following:
 
-* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX Bridge](#jmx-bridge) for additional instructions.
+* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the
+Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX
+Bridge](#jmx-bridge) for additional instructions.
 * Uninstall the BOSH HM Forwarder.
 
 For guidance on configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
+
+Since the metrics come from the Firehose, their namespacing will now appear
+differently within PCF JMX Bridge. For example, the PCF v1.12
+metric `system.healthy` [[Figure 1]](#figure-1) will now appear as
+`bosh-system-metrics-forwarder.system.healthy` [[Figure 2]](#figure-2) in PCF v2.0.
+
+<a id="figure-1"></a>
+![This shows the BOSH metrics for a VM as they are delivered in PCF v1.12.](./images/pcf-1.12-p-metrics.png)
+
+The metric `system.healthy` above shows the metric name delivered from the BOSH
+Director. These metrics are nested in the tree structure by deployment name, VM
+name, VM instance number, and then attributes for that VM instance. The
+sub-node of VM instance number is always named `null`.
+
+<a id="figure-2"></a>
+![This shows the BOSH metrics for a VM as they are delivered in PCF v2.0.](./images/pcf-2.0-p-metrics.png)
+
+The metric `system.healthy` has been renamed to
+`bosh-system-metrics-forwarder.system.healthy`. This namespacing will affect
+all previous BOSH health metrics. The tree shows the VM GUID instead of the VM
+instance number and the sub-node will always be empty.
+
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
