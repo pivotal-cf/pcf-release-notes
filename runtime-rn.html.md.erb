@@ -172,27 +172,38 @@ Bridge](#jmx-bridge) for additional instructions.
 
 For guidance on configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
 
-Since the metrics come from the Firehose, their namespacing will now appear
-differently within PCF JMX Bridge. For example, the PCF v1.12
-metric `system.healthy` [[Figure 1]](#figure-1) will now appear as
-`bosh-system-metrics-forwarder.system.healthy` [[Figure 2]](#figure-2) in PCF v2.0.
+#### <a id='namespace'></a> Metric Namespace Difference in JMX Bridge
 
-<a id="figure-1"></a>
-![This shows the BOSH metrics for a VM as they are delivered in PCF v1.12.](./images/pcf-1.12-p-metrics.png)
-
-The metric `system.healthy` above shows the metric name delivered from the BOSH
-Director. These metrics are nested in the tree structure by deployment name, VM
-name, VM instance number, and then attributes for that VM instance. The
-sub-node of VM instance number is always named `null`.
-
-<a id="figure-2"></a>
-![This shows the BOSH metrics for a VM as they are delivered in PCF v2.0.](./images/pcf-2.0-p-metrics.png)
-
-The metric `system.healthy` has been renamed to
-`bosh-system-metrics-forwarder.system.healthy`. This namespacing will affect
-all previous BOSH health metrics. The tree shows the VM GUID instead of the VM
-instance number and the sub-node will always be empty.
-
+Because BOSH health metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of the different metric names in PCF versions, see the table below:
+<table>
+<tr>
+<th>PCF Version</th>
+<th>Explanation</th>
+</tr>
+<tr>
+<td style="vertical-align: top;"><b>1.12 and earlier</b></td>
+<td>
+<b>Example Metric</b>:<br>
+<code>system.healthy</code><br>
+<b>Description</b>:<br>
+The BOSH Director delivers the metric name. The metric is nested in the tree structure by deployment name, VM name, VM instance number, and attributes for that VM instance. The sub-node of VM instance number is always named null.<br>
+<b>Reference Image</b>:<br>
+<img src="./images/pcf-1.12-p-metrics.png">
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;"><b>2.0</b></td>
+<td>
+<b>Example Metric</b>:<br>
+<code>bosh-system-metrics-forwarder.system.healthy</code><br>
+<b>Description:</b><br>
+The Firehose delivers the metric name. The tree shows the VM GUID instead of the VM instance number and the sub-node is always empty. This namespacing affects
+all previous BOSH health metrics.<br>
+<b>Reference Image</b>:<br>
+<img src="./images/pcf-2.0-p-metrics.png">
+</td>
+</tr>
+</table>
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
