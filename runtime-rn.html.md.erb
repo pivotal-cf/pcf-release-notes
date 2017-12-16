@@ -119,17 +119,15 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.0 is
-documented in the [Upgrading Pivotal Cloud
+The procedure for upgrading to Pivotal Application Service (PAS) v2.0 is documented in the [Upgrading Pivotal Cloud
 Foundry](../customizing/upgrading-pcf.html) topic.
 
 When upgrading to v2.0, be aware of the following upgrade considerations:
 
-* You must upgrade first to a version of Elastic Runtime v1.12.x to
-  successfully upgrade to PAS v2.0.
+* To successfully upgrade to PAS v2.0, you must first upgrade to a version of Elastic Runtime v1.12.
 
 * Some partner service tiles may be incompatible with PCF v2.0. Pivotal is
-  working with partners to ensure their tiles are being updated to work with the
+  working with partners to ensure their tiles are updated to work with the
   latest versions of PCF.<br/><br/> For information about which partner service
   releases are currently compatible with PCF v2.0, review the appropriate
   partners services release documentation at
@@ -143,14 +141,14 @@ When upgrading to v2.0, be aware of the following upgrade considerations:
 In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism.
 
 To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
-This colocation is a prerequisite for migrating completely to BOSH DNS in a future release
-of PCF. However, this colocation does not impact the current behaviour of DNS for Cloud
-Foundry components in PCF v2.0. System components still use Consul to discover and locate
-other Cloud Foundry components.
+This colocation is a prerequisite for migrating completely to BOSH DNS in a 
+future release of PCF. However, this colocation does not impact the current 
+behavior of DNS for Cloud Foundry components in PCF v2.0. 
+System components still use consul to discover and locate other Cloud Foundry 
+components.
 
-You can also opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
+You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
 [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
-
 
 ### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
 
@@ -161,15 +159,31 @@ The new flow of BOSH system metrics cannot be disabled. Therefore, if you are cu
 * Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX Bridge](#jmx-bridge) for additional instructions.
 * Uninstall the BOSH HM Forwarder.
 
-For guidance on configuring the Ops Manager Director, see [Director Config](../customizing/gcp-om-config.html#director-config) for your IaaS.
+For guidance information about configuring the Ops Manager Director, see the Ops Manager configuration topic for your IaaS:
+
+* [Configuring Ops Manager Director on AWS (Terraform)](../customizing/aws-om-config-terraform.html#director-config)
+* [Manually Configuring Ops Manager Director for AWS](../customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
+* [Configuring Ops Manager on Azure](..customizing/azure-om-config.html#director-config)
+* [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#director-config)
+* [Configuring Ops Manager Director for OpenStack](../customizing/openstack-om-config.html#director-config)
+* [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#dir-config)
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
-The trust between the Gorouter and HAProxy enables mutual authentication between applications that are running on PCF. The Gorouter and HAProxy are configured with the root certificate authority. This occurs automatically within PCF.
+The trust between the Gorouter and HAProxy enables mutual authentication between applications that run on PCF. The Gorouter and HAProxy are configured with the root certificate authority. This occurs automatically within PCF.
 
 ### <a id='custom-ca'></a> Gorouter and HAProxy Trust Additional CAs
 
-When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and [Ops Manager Director Trusted Certificates](../customizing/gcp-om-config.html#security). For more information about configuring this feature, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
+When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and Ops Manager Director Trusted Certificates. 
+
+For more information about configuring this feature, see the PAS installation instructions for your IaaS:
+
+* [Deploying PAS on AWS (Terraform)](../customizing/aws-er-config-terraform.html#networking)
+* [Manually Configuring PAS for AWS](../customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](../customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP (Terraform)](../customizing/gcp-er-config-terraform.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](../customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](../customizing/config-er-vmware.html#networking)
 
 ### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
 
@@ -177,17 +191,25 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
-PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the [PAS installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS.
+PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the PAS installation instructions for your IaaS:
+
+* [Deploying PAS on AWS (Terraform)](../customizing/aws-er-config-terraform.html#networking)
+* [Manually Configuring PAS for AWS](../customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](../customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP (Terraform)](../customizing/gcp-er-config-terraform.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](../customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](../customizing/config-er-vmware.html#networking)
+
 
 ###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
 
 Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of the Ops Manager database.
 
 This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security. 
-For information about the internal credentials that were migrated to BOSH CredHub in 1.12, see the [ Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
+For information about the internal credentials that were migrated to BOSH CredHub in 1.12, see the [Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
 
-If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile. 
-For instructions on how to retrieve PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
+To access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile. 
+For instructions about retrieving PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
 
 + `.autoscaling.broker_credentials`
 + `.autoscaling.encryption_key`
@@ -204,7 +226,10 @@ For instructions on how to retrieve PAS credentials, see [Retrieving Credentials
 ### <a id='nsx'></a> VMware NSX-T Networking Support
 
 PAS v2.0 adds support for VMware NSX-T networking.
-NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
+NSX is a networking solution for VMware that provides a firewall, load 
+balancing, and NAT/SNAT services for PCF. 
+NSX-T is intended to work across multiple clouds and provide networking for 
+container platforms.
 Previous versions of PAS supported NSX-V networking.
 
 To use NSX-T networking, you must install the NSX-T tile.
@@ -245,7 +270,7 @@ For more information about CredHub in PCF, see the [CredHub Documentation](../cr
 
 ### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
 
-PAS v2.0 includes support for release-level backup and restore. [BBR](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component.  This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
+PAS v2.0 includes support for release-level backup and restore. [BOSH Backup and Restore (BBR)](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component. This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
 
 ### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
 
@@ -253,7 +278,7 @@ The PAS tile no longer includes individual errand VMs. Instead, the errand jobs 
 
 ### <a id='context-objects'></a> Context Objects for Service Bindings
 
-A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS v2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
+A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS v2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
 
 For more information, see [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md).
 
@@ -298,14 +323,14 @@ Operators can now enable self-service network policies for Space Developers. Pri
 
 PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. See [BOSH System Metrics Available in Loggregator Firehose](#bosh-metrics) for more information.
 
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in the [Director Config](../customizing/gcp-om-config.html#director-config) of your Ops Manager Director tile.
+The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in **Director Config** of your Ops Manager Director tile.
 
 Deleting the IP address means that BOSH system metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH system metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PAS tile includes new
-functionality that may have certain constraints.
+The Advanced Features section of the PAS tile includes new functionality that 
+may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when
 using them in production.
