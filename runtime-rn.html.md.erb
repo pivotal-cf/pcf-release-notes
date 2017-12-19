@@ -174,7 +174,8 @@ For guidance on configuring the Ops Manager Director, see [Director Config](../c
 
 #### <a id='namespace'></a> Metric Namespace Difference in JMX Bridge
 
-Because BOSH health metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of the different metric names in PCF versions, see the table below:
+Because BOSH System metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of how metric names differ between PCF 2.0 and earlier versions, see the following table. 
+
 <table>
 <tr>
 <th>PCF Version</th>
@@ -343,6 +344,7 @@ PCF now forwards BOSH health metrics generated for all VMs in a deployment to th
 The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in the [Director Config](../customizing/gcp-om-config.html#director-config) of your Ops Manager Director tile.
 
 Deleting the IP address means that BOSH system metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH system metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
