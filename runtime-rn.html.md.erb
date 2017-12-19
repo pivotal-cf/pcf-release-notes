@@ -152,11 +152,20 @@ You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the
 
 ### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
 
-PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. For more information about this feature and its implementation, see the *BOSH System Metrics Forwarder* section in the [Overview of the Loggregator System](../loggregator/architecture.html#other-components).
+PCF now forwards BOSH health metrics generated for all VMs in a deployment to
+the Loggregator Firehose by default. For more information about this feature
+and its implementation, see the *BOSH System Metrics Forwarder* section in the
+[Overview of the Loggregator
+System](../loggregator/architecture.html#other-components).
 
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume them, you may receive duplicate data. To prevent this, you can do the following:
+The new flow of BOSH system metrics cannot be disabled. Therefore, if you are
+currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume
+them, you may receive duplicate data. To prevent this, you can do the
+following:
 
-* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX Bridge](#jmx-bridge) for additional instructions.
+* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the
+Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX
+Bridge](#jmx-bridge) for additional instructions.
 * Uninstall the BOSH HM Forwarder.
 
 For guidance information about configuring the Ops Manager Director, see the Ops Manager configuration topic for your IaaS:
@@ -167,6 +176,40 @@ For guidance information about configuring the Ops Manager Director, see the Ops
 * [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#director-config)
 * [Configuring Ops Manager Director for OpenStack](../customizing/openstack-om-config.html#director-config)
 * [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#dir-config)
+
+#### <a id='namespace'></a> Metric Namespace Difference in JMX Bridge
+
+Because BOSH System metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of how metric names differ between PCF 2.0 and earlier versions, see the following table. 
+
+<table>
+<tr>
+<th>PCF Version</th>
+<th>Explanation</th>
+</tr>
+<tr>
+<td style="vertical-align: top;"><b>1.12 and earlier</b></td>
+<td>
+<b>Example Metric</b>:<br>
+<code>system.healthy</code><br>
+<b>Description</b>:<br>
+The BOSH Director delivers the metric name. The metric is nested in the tree structure by deployment name, VM name, VM instance number, and attributes for that VM instance. The sub-node of VM instance number is always named null.<br>
+<b>Reference Image</b>:<br>
+<img src="./images/pcf-1.12-p-metrics.png">
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;"><b>2.0</b></td>
+<td>
+<b>Example Metric</b>:<br>
+<code>bosh-system-metrics-forwarder.system.healthy</code><br>
+<b>Description:</b><br>
+The Firehose delivers the metric name. The tree shows the VM GUID instead of the VM instance number and the sub-node is always empty. This namespacing affects
+all previous BOSH health metrics.<br>
+<b>Reference Image</b>:<br>
+<img src="./images/pcf-2.0-p-metrics.png">
+</td>
+</tr>
+</table>
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
@@ -330,6 +373,7 @@ PCF now forwards BOSH health metrics generated for all VMs in a deployment to th
 The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in **Director Config** of your Ops Manager Director tile.
 
 Deleting the IP address means that BOSH system metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH system metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
