@@ -5,6 +5,17 @@ owner: Greenhouse
 
 This topic includes release notes for Windows stemcells used with Pivotal Cloud Foundry (PCF) Runtime for Windows.
 
+## <a id="1200.10"></a>1200.10
+
+**Release Date**: December 19, 2017
+
+* You must use <a href="https://github.com/pivotal-cf-experimental/stembuild/releases/tag/0.13">stembuild version 0.13</a> when creating a 1200.10 stemcell by hand.
+* AWS stemcells repartition to use entire root disk size as specified in BOSH cloud config.
+* Stemcell adds support for multiple CPIs ( Set stemcell_formats in stemcell.MF )
+* Intended for use with November Microsoft security updates
+* Updated OpenSSH to 0.0.22
+* The BOSH Agent uses a lock file to ensure that DNS resolvers are updated only on first startup.
+
 ## <a id="1200.8"></a>1200.8
 
 **Release Date**: November 10, 2017
