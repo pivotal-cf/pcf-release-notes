@@ -3622,7 +3622,7 @@ TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 ```
 
-Normally, operators would have the option to override these defaults with their chosen cipher suites. However, in the process of setting these new default, the option to override the suites was removed. Patches to restore the override behavior will be forthcoming. See release notes above for more details about which releases provide these fixes.
+These defaults can be ammended using the **TLS Cipher Suites for Router** field in the **Networking** pane in the **Elastic Runtime** tile. For more information about configuring cipher suites, see [TLS Cipher Suite Support](https://docs.pivotal.io/pivotalcf/1-10/adminguide/securing-traffic.html#ciphers).  
 
 ### <a id="cfcli"></a> cf logs Connection Issue
 
