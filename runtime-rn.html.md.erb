@@ -42,9 +42,11 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   experiencing increased incoming traffic.
 * **[Feature Improvement]** Operators can now specify the mutual TLS
   certificate validation behavior for the Router. The Router will request
-  certificates by default, and validate them if provided. Additionally, operators
-  can configure the Router to ignore certificates, or to require them with every
-  request.
+  certificates by default and validate them if provided. Operators
+  can optionally configure the Router not to request certificates or to require them with every
+  request. 
+
+<p class="note warning"><strong>WARNING: </strong>Requests to the platform will fail upon upgrade if your load balancer is configured with client certificates and Gorouter does not have the certificate authority. To mitigate this issue, select <strong>Router does not request client certificates</strong> for <strong>Router behavior for Client Certificate Validation</strong> in the <strong>Networking</strong> pane.</p>
 * **[Feature Improvement]** Operators can now override their SAML Entity ID
   when configuration SAML as an Identity Provider.<Paste>
 
