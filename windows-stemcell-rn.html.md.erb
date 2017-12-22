@@ -5,6 +5,14 @@ owner: Greenhouse
 
 This topic includes release notes for Windows stemcells used with Pivotal Cloud Foundry (PCF) Runtime for Windows.
 
+
+## <a id="1200.11"></a>1200.11
+
+**Release Date**: December 22, 2017
+
+* For Azure, GCP & AWS Windows Stemcells, the root disk (C Drive) will be automatically resized on creation to the disk size specified in BOSH cloud config. Due to current CPI limitations, vSphere Stemcells are NOT able to resize their root disk on creation.
+* Intended for use with December Microsoft security updates.
+
 ## <a id="1200.10"></a>1200.10
 
 **Release Date**: December 19, 2017
