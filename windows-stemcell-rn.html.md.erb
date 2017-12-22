@@ -10,7 +10,7 @@ This topic includes release notes for Windows stemcells used with Pivotal Cloud 
 
 **Release Date**: December 22, 2017
 
-* For Azure, GCP & AWS Windows Stemcells, the root disk (C Drive) will be automatically resized on creation to the disk size specified in BOSH cloud config. Due to current CPI limitations, vSphere Stemcells are NOT able to resize their root disk on creation.
+* For Azure, GCP & AWS Windows Stemcells, the root disk (C Drive) will be automatically resized on creation to the disk size specified in BOSH cloud config. Azure CPI v26+ sets the root disk size to a minimum value of 128GB. A larger disk size can be set in the BOSH cloud config. Due to current CPI limitations, vSphere Stemcells are NOT able to resize their root disk on creation.
 * Intended for use with December Microsoft security updates.
 
 ## <a id="1200.10"></a>1200.10
