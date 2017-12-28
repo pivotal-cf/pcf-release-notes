@@ -17,6 +17,7 @@ The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic c
 
 * Operators can rotate the BOSH blobstore after a successful redeploy by editing the **Access Key** and **Secret** fields under **S3 Compatible Blobstore** in the **Director Config** section of the tile. Operators may want to rotate credentials because the old ones have been compromised or because their enterprise policy demands rotation after a specific time period. 
 * On Azure, the **Internet Connected** checkboxes in the **Resource Config** section of the tile are now deselected by default. Pivotal recommends keeping these checkboxes deselected. For more information, see [Step 8: Resource Config Page](../customizing/azure-om-config.html#resource-config) in <em>Configuring Ops Manager Director on Azure</em>.
+* [**Security Fix**] Bumps stemcell to 3468.13
 * Bumps BOSH Director to v264.6
 * Bumps AWS CPI to v69
 * Bumps vSphere CPI to v45.1.0
@@ -34,7 +35,7 @@ Ops Manager v2.0.1 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3468.11</td>
+    <td>Stemcell</td><td>3468.13</td>
   </tr><tr>
     <td>BOSH Director</td><td>264.6</td>
   </tr><tr>
