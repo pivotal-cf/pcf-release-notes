@@ -20,6 +20,15 @@ For a list of the credentials migrated to BOSH CredHub, see the _Migration of In
 
 If you opt out of the [BOSH DNS feature](./runtime-rn.html#bosh-dns), your PCF deployment cannot support Secure Service Instance Credentials feature.
 
+### <a id='saml'></a> Upgrading with SAML and SHA1 as the Signature Algorithm
+
+PAS does not support SHA1 to sign outbound SAML requests.
+
+If you use SHA1 with PCF v1.12, PAS automatically migrates your SAML signature algorithm to SHA256.
+If you are using SAML in PCF v1.12 through Elastic Runtime or the SSO tile and
+if your Identity Provider validates the signature of the SAML authentication request,
+see [SHA Signature Support for SAML requests in PAS tile in PCF 2.0](https://discuss.pivotal.io/hc/en-us/articles/115004791554) in the Pivotal Knowledge Base. 
+
 ### <a id='remedial-steps'></a> Upgrading from Earlier Versions of Elastic Runtime
 
 You must upgrade first to a version of Elastic Runtime v1.12 to successfully upgrade to PAS v2.0.
