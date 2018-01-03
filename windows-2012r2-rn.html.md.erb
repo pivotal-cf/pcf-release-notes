@@ -1,5 +1,5 @@
 ---
-title: PAS for Windows 2012R2 v2.0 Release Notes
+title: PAS for Windows 2012R2 v2.1 Release Notes
 owner: Release Engineering
 ---
 
@@ -12,9 +12,9 @@ Operators can install Pivotal Application Service (PAS) for Windows on vSphere, 
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.0.0'></a> 2.0.0
+### <a id='2-1-0'></a> 2.1.0
 
-  <table border="1" class="nice">
+<!--   <table border="1" class="nice">
   <thead> <tr>
     <th>Component</th>
     <th>Version</th>
@@ -44,39 +44,23 @@ Operators can install Pivotal Application Service (PAS) for Windows on vSphere, 
     <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
   </tr>
   </tfoot>
-  </table>
+  </table> -->
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows 2012R2 v2.0 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.0. To use the PAS for Windows 2012R2 tile, you
-need Ops Manager v2.0 or later and PAS v2.0 or later.
+The Pivotal Application Service (PAS) for Windows 2012R2 v2.1 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.1. To use the PAS for Windows 2012R2 tile, you
+need Ops Manager v2.1 or later and PAS v2.1 or later.
 
 <!----
-For information about upgrading to PAS for Windows v2.0.0, see the
+For information about upgrading to PAS for Windows v2.1.0, see the
 [Upgrading Windows Cells](../windows/upgrading.html) topic in the PAS for Windows documentation.---->
 
-## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.0
+## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.1
 
-### <a id="RDP"></a> RDP Option Now Available in VM Options
-
-The **VM Options** pane in the **PAS for Windows** tile now optionally supports connection to all virtual machines (VMs) through Remote Desktop Protocol (RDP). 
-
-### <a id="kms"></a> KMS Configuration Option Now Available in VM Options
-
-The **VM Options** pane in the **PAS for Window 2012R2** tile now allows you to enable and configure KMS with a hostname and port. Previously, this had to be performed manually by editing the runtime config. For more information, see [Configuring a KMS Host](../windows2012r2/configure-kms.html).
-
-### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
-
-The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP address space. These errands are now set to always run by default.
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The **Advanced Features** pane of the PAS for Windows 2012R2 tile includes new
-functionality that may have certain constraints. Although these features are
-fully supported, Pivotal recommends caution when using them in production.
 
 ## <a id='adv-features'></a> Known Issues
 
-### <a id="RDP"></a> KMS Activation Does Not Work
 
-The firewall rule that is created to allow outbound KMS activation does not set the correct destination port.

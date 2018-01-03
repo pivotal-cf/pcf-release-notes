@@ -1,11 +1,11 @@
 ---
-title: PCF Isolation Segment v2.0 Release Notes
+title: PCF Isolation Segment v2.1 Release Notes
 owner: Release Engineering
 ---
 
 ## <a id='releases'></a> Releases
 
-  <table border="1" class="nice">
+<!--   <table border="1" class="nice">
   <thead> <tr>
     <th>Component</th>
     <th>Version</th>
@@ -43,12 +43,12 @@ owner: Release Engineering
     <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
   </tr>
   </tfoot>
-  </table>
+  </table> -->
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.0 tile is available for installation with PCF
-v2.0.
+The PCF Isolation Segment v2.1 tile is available for installation with PCF
+v2.1.
 
 <!----
 [Isolation segments](../concepts/security.html#isolation-segments) provide
@@ -64,60 +64,13 @@ For more information about using isolation segments in your deployment, see the
 ## <a id='install'></a> How to Install
 
 <!----
-The procedure for installing PCF Isolation Segment v2.0 is documented in the
+The procedure for installing PCF Isolation Segment v2.1 is documented in the
 [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.---->
 
-To install a PCF Isolation Segment, you must first install PCF v2.0.
+To install a PCF Isolation Segment, you must first install PCF v2.1.
 
-## <a id='2.0.0'></a> New Features in PCF Isolation Segment v2.0
+## <a id='2.0.0'></a> New Features in PCF Isolation Segment v2.1
 
-### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
-
-The trust between the Gorouter and HAProxy enables mutual authentication between applications that are running on PCF. The Gorouter and HAProxy are configured with the root certificate authority. This occurs automatically within PCF.
-
-### <a id='custom-ca'></a> Gorouter and HAProxy Trust Additional CAs
-
-When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and [Ops Manager Director Trusted Certificates](../customizing/gcp-om-config.html#security). For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
-
-### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
-
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
-
-### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
-
-PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
-
-### <a id='nsx'></a> VMware NSX-T Networking Support
-
-PCF Isolation Segment v2.0 adds support for VMware NSX-T networking.
-NSX is a networking solution for VMware that provides a firewall, load balancing, and NAT/SNAT services for PCF. NSX-T is intended to work across multiple clouds and provide networking for container platforms.
-Previous versions of PCF Isolation Segment supported NSX-V networking.
-
-To use NSX-T networking, you must install the NSX-T tile.
-
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
-
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
-
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
-
-1. Install the NSX-T tile. 
-  - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
-  - You must install the NSX-T tile before you install or upgrade the PAS tile.
-
-1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
-
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
-
-<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
-
-<p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
-
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment tile includes new
-functionality that may have certain constraints.  Although these features are
-fully supported, Pivotal recommends caution when using them in production.

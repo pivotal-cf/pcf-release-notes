@@ -1,78 +1,17 @@
 ---
-title: PCF v2.0 Breaking Changes
+title: PCF v2.1 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.0. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.1. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-### <a id="sso-upgrade"></a> SSO Tile Requires Upgrade
-
-If you have the Single Sign-On (SSO) tile installed and you are upgrading to PCF v2.0, you must upgrade the SSO tile to v1.5.3 and configure the Apps Manager errand before installing PCF v2.0. To properly prepare for upgrading to PCF 2.0 with the SSO tile, see <a href="https://discuss.pivotal.io/hc/en-us/articles/115015825568">Upgrade SSO Service Tile resource instance between PCF 1.12 and PCF 2.0</a> in the Pivotal Knowledge Base.</p>
-
-### <a id='internal-creds'></a> Internal Pivotal Application Service Credentials
-
-Several internal credentials that PAS uses for inter-component communication are now generated and stored in BOSH CredHub instead of Ops Manager. 
-If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile.
-
-For a list of the credentials migrated to BOSH CredHub, see the _Migration of Internal Credentials to BOSH CredHub_ section of the [Pivotal Application Service v2.0 Release Notes](runtime-rn.html#credhub) topic.
-
-If you opt out of the [BOSH DNS feature](./runtime-rn.html#bosh-dns), your PCF deployment cannot support Secure Service Instance Credentials feature.
-
-### <a id='saml'></a> Upgrading with SAML and SHA1 as the Signature Algorithm
-
-PAS does not support SHA1 to sign outbound SAML requests.
-
-If you use SHA1 with PCF v1.12, PAS automatically migrates your SAML signature algorithm to SHA256.
-If you are using SAML in PCF v1.12 through Elastic Runtime or the SSO tile and
-if your Identity Provider validates the signature of the SAML authentication request,
-see [SHA Signature Support for SAML requests in PAS tile in PCF 2.0](https://discuss.pivotal.io/hc/en-us/articles/115004791554) in the Pivotal Knowledge Base. 
-
-### <a id='remedial-steps'></a> Upgrading from Earlier Versions of Elastic Runtime
-
-You must upgrade first to a version of Elastic Runtime v1.12 to successfully upgrade to PAS v2.0.
-
-If you are upgrading from a PCF deployment that at one point included Elastic Runtime v1.7.16 or earlier, you must perform the remedial steps outlined in [App Usage Data and Events Data Become Corrupted After Upgrade or Install](https://discuss.pivotal.io/hc/en-us/articles/228639827-App-Usage-Data-and-Events-Data-Becomes-Corrupted-After-Upgrade-or-Install) before proceeding with this upgrade.
-If you fail to perform the remedial steps for this issue, this upgrade process may corrupt your existing usage data.
-
-### <a id='configure-client-certs-pas'></a> Configuring Router Behavior for Client Certificates while Deploying PAS
-
-For some deployment configurations, you must configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.
 
 
 ## <a id='ops-man'></a> Ops Manager
 
-### <a id='bosh-cli'></a> BOSH CLI Renamed
-
-Similar to previous Ops Manager versions, the Ops Manager virtual machine includes both versions of the BOSH CLI.
-In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
-
-If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
-In Ops Manager v2.0.0, run the same commands using `bosh`.
-For example, see the following table to compare the changes to the `bosh vms` command:
-
-| **BOSH CLI Version** | **PCF v1.12** | **PCF v2.0** |
-|------------------|---------------|--------------|
-| **BOSH CLI v1** | `bosh vms` | `bosh-old vms` |
-| **BOSH CLI v2** | `bosh2 -e MY-ENV vms` | `bosh -e MY-ENV vms`
-
-Many BOSH CLI v1 commands are incompatible with the BOSH Director.
-Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
-
-### <a id='bosh-dns-om'></a> Disabling BOSH DNS for Ops Manager Director
-
-Do not disable BOSH DNS without consulting Pivotal Support.
-
-For more information about disabling BOSH DNS, see [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
-
-### <a id='current-record'></a> `current_record` Property
-
-The `current_record` property is now reserved. You can no longer create a new property named `current_record` in a collection record.
 
 
 ## <a id='ist'></a> PCF Isolation Segment
 
-### <a id='configure-client-certs-ist'></a> Configuring Router Behavior for Client Certificates While Installing PCF Isolation Segment
-
-For some deployment configurations, you must configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.

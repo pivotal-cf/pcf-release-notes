@@ -1,9 +1,9 @@
 ---
-title: Pivotal Application Service v2.0 Release Notes
+title: Pivotal Application Service v2.1 Release Notes
 owner: Release Engineering
 ---
 
-Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.
+Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider
 program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
@@ -15,7 +15,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.0.0'></a> 2.0.0
+### <a id='2.0.0'></a> 2.1.0
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -24,7 +24,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr>
   </thead>
   <tbody>
-  <tr>
+  <!-- <tr>
     <td>Stemcell</td><td>3468.13</td>
   </tr><tr>
     <td>backup-and-restore-sdk</td><td>1.2.1</td>
@@ -108,7 +108,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
     <td>syslog-migration</td><td>10</td>
   </tr><tr>
     <td>uaa</td><td>52.4</td>
-  </tr>
+  </tr> -->
   </tbody>
   <tfoot>
   <tr>
@@ -119,273 +119,24 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.0 is documented in the [Upgrading Pivotal Cloud
+The procedure for upgrading to Pivotal Application Service (PAS) v2.1 is documented in the [Upgrading Pivotal Cloud
 Foundry](../customizing/upgrading-pcf.html) topic.
 
-When upgrading to v2.0, be aware of the following upgrade considerations:
+When upgrading to v2.1, be aware of the following upgrade considerations:
 
-* To successfully upgrade to PAS v2.0, you must first upgrade to a version of Elastic Runtime v1.12.
+* To successfully upgrade to PAS v2.1, you must first upgrade to a version of Elastic Runtime v1.12.
 
-* Some partner service tiles may be incompatible with PCF v2.0. Pivotal is
+* Some partner service tiles may be incompatible with PCF v2.1. Pivotal is
   working with partners to ensure their tiles are updated to work with the
   latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v2.0, review the appropriate
+  releases are currently compatible with PCF v2.1, review the appropriate
   partners services release documentation at
   [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
   organization that produces the tile.
 
-## <a id='new-features'></a> New Features in PAS v2.0
-
-### <a id='bosh-dns'></a> BOSH DNS Service Discovery for Application Containers (Beta)
-
-In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism.
-
-To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
-This colocation is a prerequisite for migrating completely to BOSH DNS in a 
-future release of PCF. However, this colocation does not impact the current 
-behavior of DNS for Cloud Foundry components in PCF v2.0. 
-System components still use consul to discover and locate other Cloud Foundry 
-components.
-
-You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
-[Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
-
-### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
-
-PCF now forwards BOSH health metrics generated for all VMs in a deployment to
-the Loggregator Firehose by default. For more information about this feature
-and its implementation, see the *BOSH System Metrics Forwarder* section in the
-[Overview of the Loggregator
-System](../loggregator/architecture.html#other-components).
-
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are
-currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume
-them, you may receive duplicate data. To prevent this, you can do the
-following:
-
-* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the
-Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX
-Bridge](#jmx-bridge) for additional instructions.
-* Uninstall the BOSH HM Forwarder.
-
-For guidance information about configuring the Ops Manager Director, see the Ops Manager configuration topic for your IaaS:
-
-* [Configuring Ops Manager Director on AWS (Terraform)](../customizing/aws-om-config-terraform.html#director-config)
-* [Manually Configuring Ops Manager Director for AWS](../customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
-* [Configuring Ops Manager on Azure](../customizing/azure-om-config.html#director-config)
-* [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#director-config)
-* [Configuring Ops Manager Director for OpenStack](../customizing/openstack-om-config.html#director-config)
-* [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#dir-config)
-
-#### <a id='namespace'></a> Metric Namespace Difference in JMX Bridge
-
-Because BOSH System metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of how metric names differ between PCF 2.0 and earlier versions, see the following table. 
-
-<table>
-<tr>
-<th>PCF Version</th>
-<th>Explanation</th>
-</tr>
-<tr>
-<td style="vertical-align: top;"><b>1.12 and earlier</b></td>
-<td>
-<b>Example Metric</b>:<br>
-<code>system.healthy</code><br>
-<b>Description</b>:<br>
-The BOSH Director delivers the metric name. The metric is nested in the tree structure by deployment name, VM name, VM instance number, and attributes for that VM instance. The sub-node of VM instance number is always named null.<br>
-<b>Reference Image</b>:<br>
-<img src="./images/pcf-1.12-p-metrics.png">
-</td>
-</tr>
-<tr>
-<td style="vertical-align: top;"><b>2.0</b></td>
-<td>
-<b>Example Metric</b>:<br>
-<code>bosh-system-metrics-forwarder.system.healthy</code><br>
-<b>Description:</b><br>
-The Firehose delivers the metric name. The tree shows the VM GUID instead of the VM instance number and the sub-node is always empty. This namespacing affects
-all previous BOSH health metrics.<br>
-<b>Reference Image</b>:<br>
-<img src="./images/pcf-2.0-p-metrics.png">
-</td>
-</tr>
-</table>
-
-### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
-
-The trust between the Gorouter and HAProxy enables mutual authentication between applications that run on PCF. The Gorouter and HAProxy are configured with the root certificate authority. This occurs automatically within PCF.
-
-### <a id='custom-ca'></a> Gorouter and HAProxy Trust Additional CAs
-
-When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and Ops Manager Director Trusted Certificates. 
-
-For more information about configuring this feature, see the PAS installation instructions for your IaaS:
-
-* [Deploying PAS on AWS (Terraform)](../customizing/aws-er-config-terraform.html#networking)
-* [Manually Configuring PAS for AWS](../customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](../customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP (Terraform)](../customizing/gcp-er-config-terraform.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](../customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](../customizing/config-er-vmware.html#networking)
-
-### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
-
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
-
-### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
-
-PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the PAS installation instructions for your IaaS:
-
-* [Deploying PAS on AWS (Terraform)](../customizing/aws-er-config-terraform.html#networking)
-* [Manually Configuring PAS for AWS](../customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](../customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP (Terraform)](../customizing/gcp-er-config-terraform.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](../customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](../customizing/config-er-vmware.html#networking)
-
-
-###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
-
-Several internal credentials, the `secret` and `simple_credentials` that PAS uses for inter-component communication, are now generated and stored in BOSH CredHub instead of the Ops Manager database.
-
-This is part of an ongoing effort to migrate all credentials to BOSH CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security. 
-For information about the internal credentials that were migrated to BOSH CredHub in 1.12, see the [Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
-
-To access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile. 
-For instructions about retrieving PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
-
-+ `.autoscaling.broker_credentials`
-+ `.autoscaling.encryption_key`
-+ `.backup-prepare.backup_encryption_key`
-+ `.diego_database.bbs_encryption_passphrase`
-+ `.nfs_server.blobstore_secret`
-+ `.notifications.encryption_key`
-+ `.push-pivotal-account.encryption_key`
-+ `.push-usage-service.secret_token`
-+ `.router.route_services_secret`
-+ `.properties.consul_encrypt_key`
-+ `.nats.credentials`
-
-### <a id='nsx'></a> VMware NSX-T Networking Support
-
-PAS v2.0 adds support for VMware NSX-T networking.
-NSX is a networking solution for VMware that provides a firewall, load 
-balancing, and NAT/SNAT services for PCF. 
-NSX-T is intended to work across multiple clouds and provide networking for 
-container platforms.
-Previous versions of PAS supported NSX-V networking.
-
-To use NSX-T networking, you must install the NSX-T tile.
-
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
-
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
-
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
-
-1. Install the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t). 
-  - You must install the NSX-T tile after you install the Ops Manager Director tile.
-  - You must install the NSX-T tile before you install the PAS tile.
-
-1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
-
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
-
-<p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
-
-<p class='note'><strong>Note:</strong> The IPSec add-on is not supported with NSX-T.</p>
-
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
-
-###<a id='pas-credhub'></a> Secure Service Instance Credentials (Beta)
-
-The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials. 
-
-Enabling this feature requires the following:
-
-* PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
-* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS v2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
-
-For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
-
-   <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support Secure Service Instance Credentials feature.</p>
-
-### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
-
-PAS v2.0 includes support for release-level backup and restore. [BOSH Backup and Restore (BBR)](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component. This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
-
-### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
-
-The PAS tile no longer includes individual errand VMs. Instead, the errand jobs are colocated on other VMs in the deployment. Colocated errands run faster than traditional errands and use fewer resources, including disk and IP space. These errands are now set to always run by default.
-
-### <a id='context-objects'></a> Context Objects for Service Bindings
-
-A context object is sent to service brokers when provisioning a service instance containing platform-specific information, such as the organization and space GUIDs. PAS v2.0 adds the same context object to binding requests. If the service broker wants to make decisions based on the organization or space GUIDs in which the binding is created, it can do so.
-
-For more information, see [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md).
-
-### <a id='syslog-scheduler'></a> Syslog Scheduler Highly Available During Zone Outage
-
-The Syslog Scheduler is now scalable. The number of Syslog Scheduler instances defaults to `2`. 
-This is the minimum number of instances necessary to make the syslog drain highly available.
-
-### <a id="metrics-forwarding"></a> Option to Enable Metrics Forwarder on Apps Manager
-
-Apps Manager includes a new option to bind the Metrics Forwarder service to an application. To do so, go to **Services** and click **Add a Service**.
-
-### <a id="pcf-scheduler"></a> Option to Enable PCF Scheduler on Apps Manager
-
-Apps Manager includes a new option to bind the PCF Scheduler service to an application. To do so, go to **Services** and click **Add a Service**.
-
-### <a id='app-autoscaler'></a> Option to Enable App Autoscaler on Apps Manager
-
-Apps Manager includes a new option to bind the App Autoscaler service to an application. To do so, go to **Services** and click **Add a Service**. To access the configuration panel for App Autoscaler, click **Manage**.
-
-### <a id='multi-buildpacks'></a> Apps Manager Shows Multiple Buildpacks
-
-In Apps Manager, the app page **Settings** tab shows multiple buildpacks for apps pushed with multiple buildpacks.
-
-### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
-
-Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
-
-### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF 
-
-The PAS v2.0 release on Pivotal Network includes [Terraform](https://www.terraform.io/) template downloads. Terraform is a tool for creating and updating infrastructure resources that helps provide a better and more consistent PCF install experience on multiple IaaS providers. PCF internal development teams maintain and test Terraform templates in many scenarios. 
-
-This release includes templates for GCP and AWS. If you are installing PCF on either of these IaaS providers, you can use the Terraform templates to automatically create the necessary infrastructure resources. For instructions, see the following topics:
-
-* [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
-* [Installing PCF on AWS using Terraform](../customizing/aws-terraform.html).
-  <p class="note"><strong>Note</strong>: The AWS Terraform template replaces the PCF Cloudformation for AWS Setup file on Pivotal Network.</p>
-
-### <a id="self-service"></a> Option to Enable Self-Service Network Policies
-
-Operators can now enable self-service network policies for Space Developers. Prior to this release, enabling access occurred on either a per-developer or per-group basis. For more information about enabling this feature, see the [Installing Pivotal Cloud Foundry](../installing/index.html) topic for your IaaS.
-
-##<a id='knownissues'></a> Known Issues
-
-### <a id='tasks'></a> Tasks Unreliable
-
-There is a bug in the Cloud Controller that affects the operation of tasks. Any time a user runs a task, the following may happen:
-
-* The task cancels before completing.
-* The task is reported as a failure even if it finishes successfully.
-
-### <a id='jmx-bridge'></a> Preventing Duplicated BOSH System Metrics in PCF JMX Bridge
-
-PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. See [BOSH System Metrics Available in Loggregator Firehose](#bosh-metrics) for more information.
-
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in **Director Config** of your Ops Manager Director tile.
-
-Deleting the IP address means that BOSH system metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH system metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
+## <a id='new-features'></a> New Features in PAS v2.1
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PAS tile includes new functionality that 
-may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when
-using them in production.
