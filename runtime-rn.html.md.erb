@@ -2718,6 +2718,22 @@ following metrics:
 
 A patch is planned to fix this issue and apply the deployment name consistently.
 
+### <a id='truncated-logs'></a>Truncated Syslog Messages
+
+If the total length of a syslog message transported locally from a PCF system component (for example, the Cloud Controller or a Diego cell) is more than 1,024 bytes, the packet is truncated before it reaches RSYSLOG. RSYSLOG runs on every BOSH VM instance.
+
+The truncation is caused by the following:
+
+* In PCF v1.11 and later, BOSH jobs write log messages to a file in the `/var/vcap/sys/log` directory, and then [syslog-migration-release](https://github.com/pivotal-cf/syslog-migration-release) forwards the messages to RSYSLOG. When reading log files from the `/var/vcap/sys/log` directory into RSYSLOG, the release uses [blackbox](https://github.com/concourse/blackbox). Because `blackbox` is configured to send log messages over UDP, it causes the underlying library to respect the message length restrictions of RFC 3164 and truncate packets. For more information, see [syslog Message Parts](https://tools.ietf.org/html/rfc3164#section-4.1) in the RFC 3164 documentation.
+
+    Additionally, in PCF v1.11 and later, RSYSLOG gets two copies of each log message: one is from `blackbox`, and the other is from `logger`, the Ubuntu utility that jobs use for writing logs directly to RSYSLOG. Log messages sent through `logger` may or may not be truncated as explained below.
+
+* Prior to PCF v1.11, when a job generated a log message, it generally wrote the message in two places: to the `/var/vcap/sys/log` directory and to RSYSLOG. For writing log messages directly to RSYSLOG, jobs used the `logger` utility.
+
+    If job authors use the default version of `logger` installed on the stemcell, logs larger than 1 KB are truncated because the utility has a hard-coded message length size. If job authors use a newer version of `logger` without this restriction or other tool to communicate with RSYSLOG over UDP, the truncation may not happen.
+
+In PCF, system logs are written to the `/var/vcap/sys/log` directory. You can periodically download full log lines from the directory using Ops Manager.
+
 ### <a id='mount-location'></a>Mount Location Bug
 
 If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure
