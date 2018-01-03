@@ -2728,7 +2728,7 @@ The truncation is caused by the following:
 
 * Prior to switching to syslog-migration-release in PCF v1.11, when a job generated a log message, it typically wrote the message in two locations: to the `/var/vcap/sys/log` directory and to RSYSLOG. For writing log messages directly to RSYSLOG, jobs used `logger`, an Ubuntu utility.
 
-    In PCF v1.11, RSYSLOG receives two copies of each log message: one is from `blackbox`, and one is from the `logger` utility. Log messages sent through `logger` may or may not be truncated as explained below:
+    In PCF v1.11, RSYSLOG receives two copies of each log message: one is from `blackbox`, and one is from the `logger` utility. Log messages sent through `logger` may be truncated as explained below:
 
     * If jobs are using the default version of `logger` installed on the stemcell, logs longer than 1 KB are truncated because the utility has a hard-coded message length limit. 
     * If jobs are using a newer version of `logger` without this restriction or other tool to communicate with RSYSLOG over UDP, the truncation may not happen.
