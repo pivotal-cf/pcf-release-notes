@@ -4249,6 +4249,17 @@ This section lists new and existing known issues for Elastic Runtime.
 * Disaster recovery for etcd or Consul clusters still requires manual intervention.
 * The cf CLI command for viewing application files, `cf files`, does not work with apps on Diego.
 
+### <a id='truncated-logs'></a>Truncated Syslog Messages
+
+If the total length of a syslog message transported locally from a PCF system component (for example, the Cloud Controller or a Diego cell) is greater than 1 KB, the packet is truncated before it reaches RSYSLOG installed on every BOSH VM instance.
+
+When a job generates a log message, it typically writes the message in two locations: to the `/var/vcap/sys/log` directory and to RSYSLOG. For writing log messages directly to RSYSLOG, jobs use `logger`, an Ubuntu utility. Log messages sent through `logger` may or may not be truncated as explained below:
+
+* If jobs are using the default version of `logger` installed on the stemcell, log messages longer than 1 KB are truncated because the utility has a hard-coded message length limit.
+* If jobs are using a newer version of `logger` without this restriction or other tool to communicate with RSYSLOG over UDP, the truncation may not happen.
+
+As mentioned above, jobs write system logs to the `/var/vcap/sys/log` directory. You can download full log lines from the directory files using Ops Manager.
+
 ###<a id='mount-location'></a>Mount Location Bug
 
 If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure your `"mount"` section in your bind JSON matches what is in the Dockerfile, such as `"mount":"/some/data/dir"`. 
