@@ -56,6 +56,12 @@ Ops Manager v2.1.0 uses the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v2.1
 
+### <a id="gcs-blobstore"></a> GCS Blobstore Available as an External Filestorage
+
+You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage when you configure Ops Manager for Google Cloud Platform (GCP). With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see [Step 3: Director Config Page](../customizing/gcp-om-config.html#director-config).
+
+<p class="note"><strong>Note: </strong>After you deploy Ops Manager, you cannot change the blobstore location.</p>
+
 ### <a id="ip-discontinued"></a> IP Management Removed
 
 Ops Manager no longer allows operators to allocate or manage IPs. Instead, only the BOSH Director manages IP allocation. This change is to keep IP management in one central location without redundancy. To learn more about BOSH Director and how it handles both networks and IPs, see [Dynamic Networks](https://bosh.io/docs/networks.html) in the BOSH documentation.
