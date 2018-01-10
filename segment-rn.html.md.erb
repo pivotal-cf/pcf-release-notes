@@ -5,6 +5,63 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.20'></a> 1.11.20
+
+* **[Security Fix]** Bumps the stemcell to v3445.19 to resolve the following security issues:
+  * [USN-3489-1: Berkeley DB vulnerability](https://usn.ubuntu.com/usn/usn-3489-1/)
+  * [USN-3496-3: Python vulnerability](https://usn.ubuntu.com/usn/usn-3496-3/)
+  * [USN-3498-1: curl vulnerabilities](https://usn.ubuntu.com/usn/usn-3498-1/)
+  * [USN-3505-1: Linux firmware vulnerabilities](https://usn.ubuntu.com/usn/usn-3505-1/)
+  * [USN-3506-1: rsync vulnerability](https://usn.ubuntu.com/usn/usn-3506-1/)
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for 
+  [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
+* **[Bug Fix]** Resolves an issue in container-networking where a component in the same network with mTLS can
+  cause an sql injection on the `DeleteEntry` database handler.
+* **[Feature]** Bumps garden-runc-release to v1.10.0:
+  * It is now possible to specify a `ProcessSpec.Image`. Processes can now have their own filesystem view. 
+    * Limitation: It is only possible to use `ProcessSpec.Image` and `ProcessSpec.OverrideContainerLimits` with unprivileged containers.  
+    This will be fixed in future releases.
+    * Limitation: APIs such as `BulkMetrics` and `Process.Signal` may not work immediately after `container.Run(ProcessSpec)` returns
+    for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
+  * Reduced log volume in `BulkMetrics` for large environments.
+  * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.19</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.176.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.10.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>89\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.19'></a> 1.11.19
 
 * **[Security Fix]** Bumps stemcell version to 3445.19 for [USN-3509-2](https://www.cloudfoundry.org/usn-3509-2/).
