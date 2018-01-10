@@ -5,6 +5,59 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.10'></a> 1.12.10
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for 
+  [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
+* **[Feature]** Bumps garden-runc-release to v1.10.0:
+  * It is now possible to specify a `ProcessSpec.Image`. Processes can now have their own filesystem view. 
+    * Limitation: It is only possible to use `ProcessSpec.Image` and `ProcessSpec.OverrideContainerLimits` with unprivileged containers.  
+    This will be fixed in future releases.
+    * Limitation: APIs such as `BulkMetrics` and `Process.Signal` may not work immediately after `container.Run(ProcessSpec)` returns
+    for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
+  * Reduced log volume in `BulkMetrics` for large environments.
+  * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.19</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.171.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.30.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.9'></a> 1.12.9
 
 * **[Security Fix]** Bumps stemcell version to 3445.19 for [USN-3509-2](https://www.cloudfoundry.org/usn-3509-2/).

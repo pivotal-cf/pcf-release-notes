@@ -13,6 +13,121 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.10'></a> 1.12.10
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for 
+  [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
+* **[Bug Fix]** Resolves an issue in container-networking where a component in the same network with mTLS can
+  cause an sql injection on the `DeleteEntry` database handler.
+* **[Bug Fix]** Resolves a bug where task states are not updated when droplets are deleted.
+* **[Feature Improvement]** Ops Manager now allows operators to specify an Azure environment name other than the default 
+  'AzureCloud'. The option is in tab **File Storage**, under the **External Azure Storage** in the **Environment** field.
+* **[Feature Improvement]** Bumps mysql-monitoring-release to v8.13.0 to add 
+  disk usage metrics as a percentage.
+* **[Feature Improvement]** Bumps mysql-backup-release to v1.38.0 which enables
+  mutual TLS between the backup node and server.
+* **[Feature]** Bumps garden-runc-release to v1.10.0:
+  * It is now possible to specify a `ProcessSpec.Image`. Processes can now have their own filesystem view. 
+    * Limitation: It is only possible to use `ProcessSpec.Image` and `ProcessSpec.OverrideContainerLimits` with unprivileged containers.  
+    This will be fixed in future releases.
+    * Limitation: APIs such as `BulkMetrics` and `Process.Signal` may not work immediately after `container.Run(ProcessSpec)` returns
+    for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
+  * Reduced log volume in `BulkMetrics` for large environments.
+  * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.19</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.0\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.176.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.30</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.10.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.13</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.30.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.6</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.13.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.10</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.43</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.5</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.17</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.6</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.5</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.18</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45.4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+
 ### <a id='1.12.9'></a> 1.12.9
 
 * **[Security Fix]** Bumps stemcell version to 3445.19 for [USN-3509-2](https://www.cloudfoundry.org/usn-3509-2/).
