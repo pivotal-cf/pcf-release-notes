@@ -11,6 +11,114 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.10.36'></a> 1.10.36
+
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
+* **[Security Fix]** Bump uaa-release to v30.8 to resolve [CVE-2018-1190](https://cloudfoundry.org/blog/cve-2018-1190/).
+* **[Bug Fix]** Bumps apps-manager-release to v661.1.36 to fix the following issues:
+  * Fix bug in deployment errand that prevented logging of `stdout` and `stderr`.
+  * Fixed appearance of 404 page in IE (footer is now at the bottom of the window).
+  * Fixed appearance of **Download Zip** button on **Accounting Report** page in IE.
+* **[Bug Fix]** Patches loggregator-release to fix diodes data-race.
+* **[Feature Improvement]** If an operator configures the stager with a whitelist of insecure Docker registries, the Docker 
+  app lifecycle builder now allows insecure communication with those registries.
+* **[Feature Improvement]** Ops Manager now allows operators to specify an Azure environment name other than the default 
+  `AzureCloud`. The option is in tab **File Storage**, under the **External Azure Storage** in the **Environment** field.
+* **[Feature Improvement]** Bumps mysql-monitoring-release to v8.13.0 to add 
+  disk usage metrics as a percentage.
+* **[Feature Improvement]** Bumps mysql-backup-release to v1.38.0 which enables
+  mutual TLS between the backup node and server.
+* **[Feature]** Bumps garden-runc-release to v1.10.0:
+  * It is now possible to specific a `ProcessSpec.Image`. Processes can now have their own filesystem view. 
+    * Limitation: It is only possible to use `ProcessSpec.Image` and `ProcessSpec.OverrideContainerLimits` with unprivileged containers.  
+    This will be fixed in future releases.
+    * Limitation: APIs such as `BulkMetrics` and `Process.Signal` may not work immediately after `container.Run(ProcessSpec)` returns
+    for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
+  * Reduced log volume in `BulkMetrics` for large environments.
+  * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.19</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.21.0\*</td>
+  </tr><tr>
+    <td>cf</td><td>252\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>84.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.18.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.176.0</td>
+  </tr><tr>
+    <td>consul</td><td>165\*</td>
+  </tr><tr>
+    <td>diego</td><td>1.7.1\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.30</td>
+  </tr><tr>
+    <td>etcd</td><td>97</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.10.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.13</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.6</td>
+  </tr><tr>
+    <td>loggregator</td><td>77\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.13.0</td>
+  </tr><tr>
+    <td>nats</td><td>15</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.10</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.43</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.5</td>
+  </tr><tr>
+    <td>postgres</td><td>13</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>660.7.21</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.146.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.5</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.18</td>
+  </tr><tr>
+    <td>uaa</td><td>30.8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.10.35'></a> 1.10.35
 
 * **[Security Fix]** Bumps stemcell version to 3445.19 for [USN-3509-2](https://www.cloudfoundry.org/usn-3509-2/).
@@ -1236,7 +1344,7 @@ this issue with the SAML entityID.
 
 * **[Security Fix]** Bumps stemcell to version 3363.30.
 * **[Bug Fix]** Patches Diego components to resolve race condition in the
-  buildpack and docker launchers, as well as the diego-sshd process that could
+  buildpack and Docker launchers, as well as the diego-sshd process that could
   cause errant process failures.
 * The regions listed on the File Storage form for S3-compatible blobstores now
   includes all available S3 regions.
