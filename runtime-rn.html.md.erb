@@ -300,12 +300,14 @@ Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMwa
 
 ###<a id='pas-credhub'></a> Secure Service Instance Credentials (Beta)
 
-The PAS tile now includes its own CredHub VM to support the secure storage of service instance credentials. Previously, PCF could only use the Cloud Controller database for storing these credentials. 
+The PAS tile now includes its own runtime CredHub VM to securely store the service instance credentials that apps use to access services. Previously, PCF could only use the Cloud Controller database for storing these credentials.
 
 Enabling this feature requires the following:
 
 * PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
-* PCF service authors must modify their service to store instance credentials in PAS CredHub. Alongside the PAS v2.0 release, the [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in PAS CredHub. 
+* To store service instance credentials in runtime CredHub, PCF service tile developers must modify their service tile as described in [Securing Service Credentials with Runtime CredHub](https://docs.pivotal.io/tiledev/1-12/ssi-creds-tiledev.html#ssi-vs-internal).
+
+The [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in runtime CredHub.
 
 For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
 
