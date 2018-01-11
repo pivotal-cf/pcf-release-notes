@@ -35,6 +35,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
     for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
   * Reduced log volume in `BulkMetrics` for large environments.
   * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
+* Increased disk size on clock_global VMs from 2GB to 20GB to address scenarios where disk utilization is too high. This may be addressed in a future release.
 
   <table border="1" class="nice">
   <thead> <tr>
