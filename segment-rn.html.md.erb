@@ -53,6 +53,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
     for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
   * Reduced log volume in `BulkMetrics` for large environments.
   * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
+* The Garden property `cleanup_process_dirs_on_wait` is configured to `true`, to reduce the growth of directories in the Garden container.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -97,6 +98,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 * **[Bug Fix]** Operators can now optionally disable Router Access logs. This
   will prevent the Router local disk from becoming filled when the Routers are
   experiencing increased incoming traffic.
+* This release does not set the Garden property `cleanup_process_dirs_on_wait` to `true`, which can leave many directories in the depot for the Garden container. This will be set to `true` in the next release.
 
   <table border="1" class="nice">
   <thead> <tr>
