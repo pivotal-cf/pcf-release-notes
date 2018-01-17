@@ -5,6 +5,48 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.21'></a> 1.11.21
+
+* **[Security Fix]** Bumps stemcell version to 3445.22 for
+[USN-3544-2](http://www.ubuntu.com/usn/usn-3522-2/)
+and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.22</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.176.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.10.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>89\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.0\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.20'></a> 1.11.20
 
 * **[Security Fix]** Bumps the stemcell to v3445.19 to resolve the following security issues:
