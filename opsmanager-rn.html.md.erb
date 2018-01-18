@@ -56,6 +56,12 @@ Ops Manager v2.1.0 uses the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v2.1
 
+### <a id="multiple-logins"></a> Multiple Read-Only Users can be Logged In Simultaneously
+
+Ops Manager users with **Full View** and **Restricted View** permissions can be logged in simultaneously. Previous to this change, only one user at a time could view Ops Manager.
+
+For security purposes, operators with write access still cannot be logged into Ops Manager simultaneously. For more information on operator roles and permissions, see [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/config-rbac.html).
+
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
 You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage when you configure Ops Manager for Google Cloud Platform (GCP). With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see [Step 3: Director Config Page](../customizing/gcp-om-config.html#director-config).
