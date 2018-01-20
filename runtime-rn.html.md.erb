@@ -1406,7 +1406,7 @@ this issue with the SAML entityID.
   long time.
 * **[Feature Improvement]** The internal MySQL cluster now emits metrics
   via the Firehose. You can use `cf nozzle` to view those metrics as they are
-  emitted. See [Elastic Runtime MySQL KPIs](../monitoring/kpi.html#kpi4MySQL) for KPIs based on the metrics.
+  emitted. See [Elastic Runtime MySQL KPIs](https://docs.pivotal.io/pivotalcf/1-11/monitoring/kpi.html#kpi4MySQL) for KPIs based on the metrics.
 
 
   <table border="1" class="nice">
@@ -2698,7 +2698,7 @@ this issue with the SAML entityID.
 
 The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is
 documented in the [Upgrading Pivotal Cloud
-Foundry](../customizing/upgrading-pcf.html) topic.
+Foundry](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.11, be aware of the following upgrade considerations:
 
@@ -2734,7 +2734,7 @@ Accessibility Template (VPAT) for Apps Manager.
 
 The Container-to-Container Networking feature in Elastic Runtime is out of
 beta. For more information, see the [Container-to-Container
-Networking](../devguide/deploy-apps/cf-networking.html) topic.
+Networking](https://docs.pivotal.io/pivotalcf/1-11/devguide/deploy-apps/cf-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services
 
@@ -2743,8 +2743,8 @@ beta. Additionally, the Elastic Runtime ships with an NFS Volume Service
 Broker.
 
 For more information, see
-[Using an External File System (Volume Services)](../devguide/services/using-vol-services.html)
-and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
+[Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/1-11/devguide/services/using-vol-services.html)
+and [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-11/opsguide/enable-vol-services.html).
 
 ### <a id='disk-quotas'></a> Increased Application Maximum Disk Quotas
 
@@ -2887,7 +2887,7 @@ services. This new delivery method has the following benefits:
   Foundry user-provided services (CUPS)
 
 For more information about Scalable Syslog in PCF, see [Overview of the
-Loggregator System](../loggregator/architecture.html).
+Loggregator System](https://docs.pivotal.io/pivotalcf/1-11/loggregator/architecture.html).
 
 ## <a id='knownissues'></a> Known Issues
 
@@ -2913,7 +2913,7 @@ The App Autoscaler service can panic due to an issue with leader election. To
 avoid this issue, operators must manually scale the App Autoscaler service down
 to one instance before starting the upgrade to PCF v1.11. For more information,
 see the [Scale Down App
-Autoscaler](../customizing/upgrading-pcf.html#autoscaler) section of the
+Autoscaler](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html#autoscaler) section of the
 <em>Upgrading Pivotal Cloud Foundry</em> topic.
 
 If you fail to complete this procedure prior to the upgrade and the App
