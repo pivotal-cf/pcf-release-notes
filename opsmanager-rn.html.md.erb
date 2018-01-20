@@ -11,7 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
+The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
 
 ### 1.12.10
 
@@ -466,10 +466,10 @@ Version 1.12.0 of Ops Manager consists of the following component versions:
 
 Ops Manager decreases the time required to upgrade by reducing the size of the file produced by **Export Installation Settings** by several orders of magnitude. 
 
-For upgrade instructions, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
+For upgrade instructions, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html).
 
 The exported installation file is smaller because Ops Manager no longer retains releases between upgrades if it has already uploaded them to BOSH. When backing up PCF, you must take this into account by backing up the BOSH blobstore that contains the uploaded releases. BOSH Backup and Restore (BBR) backs up the BOSH blobstore.
-For more information, see [Backing Up Pivotal Cloud Foundry with BBR](../customizing/backup-restore/backup-pcf-bbr.html).
+For more information, see [Backing Up Pivotal Cloud Foundry with BBR](https://docs.pivotal.io/pivotalcf/1-12/customizing/backup-restore/backup-pcf-bbr.html).
 
 <p class="note warning"><strong>WARNING</strong>: CFOps assumed that the Ops Manager installation settings artifact contained all necessary releases, which is no longer the case in PCF v1.12.
    CFOps should not be used to back up and restore PCF v1.12.</p>
@@ -479,14 +479,14 @@ For more information, see [Backing Up Pivotal Cloud Foundry with BBR](../customi
 
 Google Shared Virtual Private Cloud (VPC), formerly known as Google Cross-Project Networking (XPN), enables you to assign GCP resources
 to individual projects within an organization but allows communication and shared services between projects.
-For more information about this feature, see the [Configuring a Shared VPC on GCP](../customizing/gcp-shared-vpc.html) topic.
+For more information about this feature, see the [Configuring a Shared VPC on GCP](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-shared-vpc.html) topic.
 
 ### <a id='aws-gov'></a>AWS GovCloud (US)
 
 Operators can deploy Ops Manager v1.12 to [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us). For more information about deploying AWS GovCloud (US), see the following AWS installation topics:
 
-* [Deploying the CloudFormation Template for Pivotal Cloud Foundry on AWS](../customizing/cloudform-template.html)
-* [Manually Configuring AWS for PCF](../customizing/pcf-aws-manual-config.html)
+* [Deploying the CloudFormation Template for Pivotal Cloud Foundry on AWS](https://docs.pivotal.io/pivotalcf/1-12/customizing/cloudform-template.html)
+* [Manually Configuring AWS for PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/pcf-aws-manual-config.html)
 
 ### <a id='credhub-migration'></a>Migrate Non-Configurable Secrets to CredHub
 
@@ -548,7 +548,7 @@ If your original Elastic Runtime deploy was PCF 1.6 or earlier, you must regener
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012474187) article.
 
-For more information about certificate rotation, see [Regenerating and Rotating Non-Configurable TLS/SSL Certificates](../security/pcf-infrastructure/api-cert-rotation.html#regenerate).
+For more information about certificate rotation, see [Regenerating and Rotating Non-Configurable TLS/SSL Certificates](https://docs.pivotal.io/pivotalcf/1-12/security/pcf-infrastructure/api-cert-rotation.html#regenerate).
 
 ### <a id='log-search-unsupported'></a>PCF Log Search Unsupported
 

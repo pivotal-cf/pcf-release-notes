@@ -3,7 +3,7 @@ title: PCF v1.12 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html).
 
 ## <a id='elastic-runtime'></a> Elastic Runtime
 
@@ -13,7 +13,7 @@ In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge 
 
 In PCF v1.12, the **Enable secure communication between Diego and Cloud Controller** option in the **Cloud Controller** pane of the Elastic Runtime tile allows you to enable direct communications between the Cloud Controller and Diego over secure TLS and deactivate the Cloud Controller Bridge. If you deploy a fresh installation of PCF v1.12, the **Enable** checkbox is selected by default.
 
-For [upgrades](../customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the **Enable** checkbox after the upgrade is complete and then click **Apply Changes**. Selecting the checkbox before the upgrade results in API downtime.
+For [upgrades](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the **Enable** checkbox after the upgrade is complete and then click **Apply Changes**. Selecting the checkbox before the upgrade results in API downtime.
 
 ### <a id='tls-config'></a>Gorouter and HAProxy TLS Configuration
 
@@ -25,7 +25,7 @@ In addition, you must specify TLS cipher suites for both HAProxy and Gorouter. T
 
 In both cases, the HAProxy configuration is ignored if you are not using HAProxy. 
 
-See the Elastic Runtime [installation instructions](../customizing/gcp-er-config.html#networking) for your IaaS for more information.
+See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information.
 
 ### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
 
@@ -37,13 +37,13 @@ If you want to access these credentials, you must use the CredHub CLI or the Ops
 
 This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
 
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](../customizing/upgrading-pcf.html#postgres).
+If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#postgres).
 
 ### <a id='mysql-windows'></a> MySQL for PCF and PCF Runtime for Windows 
 
-If your existing PCF v1.11.x installation includes both <a href="../windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
+If your existing PCF v1.11.x installation includes both <a href="https://docs.pivotal.io/pivotalcf/1-12/windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
 
-If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](../customizing/upgrading-pcf.html#upgrade-mysql).
+If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#upgrade-mysql).
 
 ## <a id='ops-man'></a> Ops Manager
 
@@ -59,4 +59,4 @@ If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must reg
 
 PCF Log Search is not compatible with PCF v1.12. If your deployment contains PCF Log Search, you must remove the product tile before upgrading to PCF v1.12. Failure to remove this product prior to the upgrade may cause issues with your deployment.
 
-For more information, see the [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
+For more information, see the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic.

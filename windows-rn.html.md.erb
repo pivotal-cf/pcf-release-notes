@@ -5,7 +5,7 @@ owner: Release Engineering
 
 Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
 (AWS), Google Cloud Platform (GCP), or Azure. See the
-[Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic for more information.
+[Deploying PCF Runtime for Windows](https://docs.pivotal.io/pivotalcf/1-12/windows/deploy-windows.html) topic for more information.
 
 
 ## <a id='releases'></a> Releases
@@ -214,7 +214,7 @@ Cloud Foundry (PCF) version v1.12. To use the PCF Runtime for Windows tile, you
 need Ops Manager v1.12.0 or later and Elastic Runtime v1.12.0 or later.
 
 For information about upgrading to PCF Runtime for Windows v1.12.0, see the
-[Upgrading Windows Cells](../windows/upgrade-windows.html) topic in the PCF Runtime for Windows documentation.
+[Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/1-12/windows/upgrade-windows.html) topic in the PCF Runtime for Windows documentation.
 
 <p class="note"><b>Note</b>: If your existing PCF v1.11.x installation includes both <b>PCF Runtime for Windows</b> and <b>MySQL for PCF v1.x</b>, you must upgrade to MySQL for PCF v1.10.3 or later 
  before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for 
@@ -226,17 +226,17 @@ This section describes new features of the release.
 
 ### <a id='bosh-windows-ssh'></a>BOSH SSH Support
 
-If operators select a checkbox when configuring the PCF Runtime for Windows 1.12 tile, users can SSH onto Windows VMs with the `bosh ssh` command. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
+If operators select a checkbox when configuring the PCF Runtime for Windows 1.12 tile, users can SSH onto Windows VMs with the `bosh ssh` command. For more information, see the [Deploying PCF Runtime for Windows](https://docs.pivotal.io/pivotalcf/1-12/windows/deploy-windows.html) topic.
 
 <p class="note"><strong>Note</strong>: This feature is beta and not considered production-ready.</p>
 
 ### <a id='manage-windows-admin'></a>Operators Can Manage the Windows Admin Password
 
-Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
+Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see the [Deploying PCF Runtime for Windows](https://docs.pivotal.io/pivotalcf/1-12/windows/deploy-windows.html) topic.
 
 ### <a id='windows-logs'></a>Windows Event Logs Consumable via Syslog
 
-Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications. For more information, see the [Deploying PCF Runtime for Windows](../windows/deploy-windows.html) topic.
+Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications. For more information, see the [Deploying PCF Runtime for Windows](https://docs.pivotal.io/pivotalcf/1-12/windows/deploy-windows.html) topic.
 
 ###<a id='metron-api'></a>Improved Security
 
@@ -246,11 +246,11 @@ Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS a
 
 The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
 
-See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
+See the [App Instance Container Identity Credentials](https://docs.pivotal.io/pivotalcf/1-12/security/networking/tls-info.html#container-creds) section for more information.
 
 ###<a id='kms'></a> KMS Host Configuration
 
-Operators can configure their Windows VMs to register with and activate against an operator-defined KMS host via runtime configuration. See [Configuring a KMS Host](../windows/configure-kms.html).
+Operators can configure their Windows VMs to register with and activate against an operator-defined KMS host via runtime configuration. See [Configuring a KMS Host](https://docs.pivotal.io/pivotalcf/1-12/windows/configure-kms.html).
 
 ###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
 
@@ -265,7 +265,7 @@ in a 10% decrease in total memory and disk capacity during deployment. This
 can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
 successfully.
 
-Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
+Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-12/adminguide/diego-cell-upgrade.html).
 
 ## <a id='adv-features'></a> About Advanced Features
 

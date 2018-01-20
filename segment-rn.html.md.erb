@@ -488,7 +488,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   MySQL [Release
   Notes](https://github.com/cloudfoundry/diego-release/releases/tag/v1.25.3).
 * **[Feature]** Patches cf-networking-release to include support for Azure MySQL.
-* **[Stability Improvement]** Changes the default **Router Max Connections Per Backend** from `0`, or unlimited, to `500`. This change prevents an unresponsive app from consuming all the router file descriptors. In some cases, this may impact the performance of existing apps and you may need to raise the setting. For guidance, see the documentation about the **Max Connections Per Backend** field in [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking).  
+* **[Stability Improvement]** Changes the default **Router Max Connections Per Backend** from `0`, or unlimited, to `500`. This change prevents an unresponsive app from consuming all the router file descriptors. In some cases, this may impact the performance of existing apps and you may need to raise the setting. For guidance, see the documentation about the **Max Connections Per Backend** field in [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking).  
 * **[Feature]** Operators can now configure a "Frontend Idle Timeout" for the
   Router and HAProxy. The default timeout is 900 seconds.
 
@@ -627,19 +627,19 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 The PCF Isolation Segment v1.12 tile is available for installation with PCF
 v1.12.
 
-[Isolation segments](../concepts/security.html#isolation-segments) provide
+[Isolation segments](https://docs.pivotal.io/pivotalcf/1-12/concepts/security.html#isolation-segments) provide
 dedicated pools of resources where you can deploy apps and  isolate workloads.
 Using isolation segments separates app resources as completely as if they were
 in different CF deployments but avoids redundant management and network
 complexity.
 
 For more information about using isolation segments in your deployment, see the
-[Managing Isolation Segments](../adminguide/isolation-segments.html) topic.
+[Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/1-12/adminguide/isolation-segments.html) topic.
 
 ## <a id='install'></a> How to Install
 
 The procedure for installing PCF Isolation Segment v1.12 is documented in the
-[Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.
+[Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html) topic.
 
 To install a PCF Isolation Segment, you must first install PCF v1.12.
 
@@ -650,9 +650,9 @@ This section describes new features of the release.
 ###<a id='haproxy'></a> HAProxy
 
 You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. The Isolation Segment tile includes its own HAProxy VM, which uses the 
-[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For information on the configuration options for HAProxy, see the [Networking](../customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_. 
+[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For information on the configuration options for HAProxy, see the [Networking](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_. 
 
-See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information.
+See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information.
 
 ###<a id='sharding'></a> Router Sharding Mode
 
@@ -663,7 +663,7 @@ You can configure this feature using the following fields:
 * Elastic Runtime tile: **Routers reject requests for Isolation Segments** checkbox
 * Isolation Segment tile: **Router Sharding Mode** selector
 
-See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information.
+See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information.
 
 ###<a id='router-config'></a> Router Configuration Options
 
@@ -679,7 +679,7 @@ The **Networking** pane of the Isolation Segment tile now includes the following
 * **Load Balancer Healthy Threshold**
 * **Max Connections Per Backend**
 
-See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information about each field.
+See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information about each field.
 
 
 ###<a id='networking-poe'></a> Simplified TLS Configuration
@@ -704,13 +704,13 @@ forward the header only when the mutual TLS connection from the client can be
 validated. Additionally, operators may now configure Gorouter to overwrite the
 XFCC header with the client certificate received in mTLS handshakes.
 
-This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. See the Isolation Segment [installation instructions](../customizing/installing-pcf-is.html#networking) for more information.
+This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information.
 
 ###<a id='app-traffic'></a> Support for Logging All App Traffic
 
 Operators can enable logging of all accepted and denied packets due to ASGs or container-to-container networking policies. This provides more visibility into app traffic, including denied traffic.
 
-Operators configure this global logging in the **Networking** pane of the Isolation Segment tile under the **Log traffic for all accepted/denied application packets** field. See the [App Traffic Logging](../opsguide/logging-config-opsman.html#app-traffic-log) section for more information.
+Operators configure this global logging in the **Networking** pane of the Isolation Segment tile under the **Log traffic for all accepted/denied application packets** field. See the [App Traffic Logging](https://docs.pivotal.io/pivotalcf/1-12/opsguide/logging-config-opsman.html#app-traffic-log) section for more information.
 
 ###<a id='groot'></a> Introducing GrootFS
 
@@ -726,8 +726,8 @@ for [container images](http://github.com/opencontainers/image-spec).
 
 For more information about GrootFS in PCF, see the following topics:
 
-* [Understanding Container Security](../concepts/container-security.html#mechanics)
-* [Component: Garden](../concepts/architecture/garden.html#garden-rootfs)
+* [Understanding Container Security](https://docs.pivotal.io/pivotalcf/1-12/concepts/container-security.html#mechanics)
+* [Component: Garden](https://docs.pivotal.io/pivotalcf/1-12/concepts/architecture/garden.html#garden-rootfs)
 
 ###<a id='garden-cleanup'></a> Garden Disk-Cleanup 
 
@@ -746,7 +746,7 @@ in a 10% decrease in total memory and disk capacity during deployment. This
 can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
 successfully.
 
-Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html).
+Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-12/adminguide/diego-cell-upgrade.html).
 
 ###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
 
@@ -757,17 +757,17 @@ Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS a
 Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
 arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
  developers must provide credentials for any user they wish
-to bind as. See [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).  
+to bind as. See [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-12/opsguide/enable-vol-services.html).  
 
 ###<a id='app-id-creds'></a> Application Instance Identity Credentials
 
 The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
 
-See the [App Instance Container Identity Credentials](../security/networking/tls-info.html#container-creds) section for more information.
+See the [App Instance Container Identity Credentials](https://docs.pivotal.io/pivotalcf/1-12/security/networking/tls-info.html#container-creds) section for more information.
 
 ###<a id='c2c'></a> Container-to-Container Networking Updates
 
-Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html#create-policies). 
+Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-12/devguide/deploy-apps/cf-networking.html#create-policies). 
 
 ## <a id='adv-features'></a> About Advanced Features
 
