@@ -1251,7 +1251,7 @@ this issue with the SAML entityID.
   long time.
 * **[Feature Improvement]** The internal MySQL cluster now emits metrics
   via the Firehose. You can use `cf nozzle` to view those metrics as they are
-  emitted. See [Elastic Runtime MySQL KPIs](../monitoring/kpi.html#kpi4MySQL) for KPIs based on the metrics.
+  emitted. See [Elastic Runtime MySQL KPIs](https://docs.pivotal.io/pivotalcf/1-10/monitoring/kpi.html#kpi4MySQL) for KPIs based on the metrics.
 * Bumps cf-autoscaling-release to v84.5.
 
   <table border="1" class="nice">
@@ -3664,7 +3664,7 @@ this issue with the SAML entityID.
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the
-[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic.
+[Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.10, be aware of the following upgrade considerations:
 
@@ -3704,7 +3704,7 @@ In terms of upgrade, only deployments with the TCP routing feature enabled in PC
 
 The Elastic Runtime tile offers a Container-to-Container Networking feature that puts applications in their own overlay network. This feature is currently in beta.
 
-For more information, see the [Container-to-Container Networking](../devguide/deploy-apps/cf-networking.html) topic.
+For more information, see the [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-10/devguide/deploy-apps/cf-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services (Beta)
 
@@ -3712,7 +3712,7 @@ This release provides general support for volume services inside of application 
 
 Additionally, the Elastic Runtime ships with an NFS Volume Service Broker as a beta feature.
 
-For more information, see [Using an External File System (Volume Services)](../devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](../opsguide/enable-vol-services.html).
+For more information, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/1-10/devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-10/opsguide/enable-vol-services.html).
 
 ### <a id='etcd-tls'></a> Secure etcd Cluster
 
@@ -3726,7 +3726,7 @@ Limits can be set for authenticated and unauthenticated clients and expire over 
 
 You can enable these API rate limits as a beta feature in the **Advanced Features** section of the Elastic Runtime tile.
 
-For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#advanced-features) topic.
+For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](https://docs.pivotal.io/pivotalcf/1-10/customizing/gcp-er-config.html#advanced-features) topic.
 
 ### <a id='cfdot'></a> Cloud Foundry Diego Operator Toolkit
 
@@ -3740,7 +3740,7 @@ The Cloud Controller Clock has been outfitted to allow multiple instances of the
 
 Operators can scale the instance count for the VM to fit their needs. For example, operators might want to change the instance count to 2 or 3 so they have a clock in each availability zone.
 
-For more information, see [High Availability in Cloud Foundry](../concepts/high-availability.html).
+For more information, see [High Availability in Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/concepts/high-availability.html).
 
 ### <a id='router-perf-improvements'></a> Router Performance Improvements
 
@@ -3748,7 +3748,7 @@ The Routers can now be configured to maintain a number of keep-alive connections
 
 Reusing connections allows for HTTP performance improvements as the underlying connection does not need to be re-established on every request.
 
-For more information, see the [Router Idle Keepalive Connections](../adminguide/routing-keepalive.html) and the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#networking) topic.
+For more information, see the [Router Idle Keepalive Connections](https://docs.pivotal.io/pivotalcf/1-10/adminguide/routing-keepalive.html) and the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](https://docs.pivotal.io/pivotalcf/1-10/customizing/gcp-er-config.html#networking) topic.
 
 ### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
 
@@ -3758,13 +3758,13 @@ In addition to the global setting, operators can now choose to disable SSH acces
 
 Choosing to disable SSH access for new applications requires that developers enable SSH access on a per-application basis.
 
-For more information, see [Configuring SSH Access for PCF](../opsguide/config-ssh.html#diego-configuration).
+For more information, see [Configuring SSH Access for PCF](https://docs.pivotal.io/pivotalcf/1-10/opsguide/config-ssh.html#diego-configuration).
 
 ### <a id='azure-blobstore'></a> Azure Blobstore Support
 
 The Elastic Runtime now supports using Azure Storage as a backend for the platform file storage.
 
-For more information, see the [Deploying Elastic Runtime on Azure](../customizing/azure-er-config.html#external_azure) topic.
+For more information, see the [Deploying Elastic Runtime on Azure](https://docs.pivotal.io/pivotalcf/1-10/customizing/azure-er-config.html#external_azure) topic.
 
 ### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability
 
@@ -3772,7 +3772,7 @@ The internal MySQL database cluster now includes healthcheck thresholds.
 
 These thresholds can be configured to match your MySQL load balancer thresholds so that failover is seamless.
 
-For information on internal MySQL load balancer configuration, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](../customizing/gcp-er-config.html#internal-mysql) topic.
+For information on internal MySQL load balancer configuration, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](https://docs.pivotal.io/pivotalcf/1-10/customizing/gcp-er-config.html#internal-mysql) topic.
 
 Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that provides some diagnostic information about your MySQL cluster.
 
@@ -3788,9 +3788,9 @@ This setting prevents Diego from scheduling too much work for your platform to h
 
 This configuration is available as the **Max Inflight Container Starts** on the **Application Containers** screen in Elastic Runtime.
 
-To configure this feature, see [Setting a Maximum Number of Started Containers](../adminguide/max-container-starts.html).
+To configure this feature, see [Setting a Maximum Number of Started Containers](https://docs.pivotal.io/pivotalcf/1-10/adminguide/max-container-starts.html).
 
-For more information on preventing platform overload during upgrade, see also [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](../opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](../adminguide/diego-cell-upgrade.html) topics.
+For more information on preventing platform overload during upgrade, see also [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-10/adminguide/diego-cell-upgrade.html) topics.
 
 ### <a id='loggregator'></a> gRPC in Loggregator
 
@@ -3799,7 +3799,7 @@ The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> proto
 Since Loggregator now uses the gRPC protocol, your deployment may see an increase in Loggregator message throughput.
 
 For more information on scaling Dopplers, see the
-[Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](../loggregator/log-ops-guide.html) topics.
+[Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](https://docs.pivotal.io/pivotalcf/1-10/loggregator/log-ops-guide.html) topics.
 
 ### <a id='syslog-drain'></a> Org, Space, and Application Name in Syslog Drains
 
