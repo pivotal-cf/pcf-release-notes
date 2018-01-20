@@ -11,7 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The [Upgrading Pivotal Cloud Foundry](../customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
+The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
 
 ### 2.1.0
 
@@ -60,11 +60,11 @@ Ops Manager v2.1.0 uses the following component versions:
 
 Ops Manager users with **Full View** and **Restricted View** permissions can be logged in simultaneously. Previous to this change, only one user at a time could view Ops Manager.
 
-For security purposes, operators with write access still cannot be logged into Ops Manager simultaneously. For more information on operator roles and permissions, see [Configuring Role-Based Access Control (RBAC) in Ops Manager](../opsguide/config-rbac.html).
+For security purposes, operators with write access still cannot be logged into Ops Manager simultaneously. For more information on operator roles and permissions, see [Configuring Role-Based Access Control (RBAC) in Ops Manager](https://docs.pivotal.io/pivotalcf/2-1/opsguide/config-rbac.html).
 
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
-You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage when you configure Ops Manager for Google Cloud Platform (GCP). With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see [Step 3: Director Config Page](../customizing/gcp-om-config.html#director-config).
+You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage when you configure Ops Manager for Google Cloud Platform (GCP). With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see [Step 3: Director Config Page](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
 
 <p class="note"><strong>Note: </strong>After you deploy Ops Manager, you cannot change the blobstore location.</p>
 
@@ -74,8 +74,8 @@ Ops Manager no longer allows operators to allocate or manage IPs. Instead, only 
 
 ### <a id="custom-banner"></a> Custom Banner Available for Web Apps and Ops Manager
 
-From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](../customizing/pcf-interface.html#settings).
+From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-interface.html#settings).
 
 ### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
 
-For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](../customizing/cloudform-om-ebs-config.html). 
+For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](https://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
