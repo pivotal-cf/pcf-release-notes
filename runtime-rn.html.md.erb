@@ -348,7 +348,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.0 is documented in the [Upgrading Pivotal Cloud
-Foundry](../customizing/upgrading-pcf.html) topic.
+Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v2.0, be aware of the following upgrade considerations:
 
@@ -384,7 +384,7 @@ PCF now forwards BOSH health metrics generated for all VMs in a deployment to
 the Loggregator Firehose by default. For more information about this feature
 and its implementation, see the *BOSH System Metrics Forwarder* section in the
 [Overview of the Loggregator
-System](../loggregator/architecture.html#other-components).
+System](https://docs.pivotal.io/pivotalcf/2-0/loggregator/architecture.html#other-components).
 
 The new flow of BOSH system metrics cannot be disabled. Therefore, if you are
 currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume
@@ -398,12 +398,12 @@ Bridge](#jmx-bridge) for additional instructions.
 
 For guidance information about configuring the Ops Manager Director, see the Ops Manager configuration topic for your IaaS:
 
-* [Configuring Ops Manager Director on AWS (Terraform)](../customizing/aws-om-config-terraform.html#director-config)
-* [Manually Configuring Ops Manager Director for AWS](../customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
-* [Configuring Ops Manager on Azure](../customizing/azure-om-config.html#director-config)
-* [Configuring Ops Manager Director on GCP](../customizing/gcp-om-config.html#director-config)
-* [Configuring Ops Manager Director for OpenStack](../customizing/openstack-om-config.html#director-config)
-* [Configuring Ops Manager on vSphere](../customizing/vsphere-config.html#dir-config)
+* [Configuring Ops Manager Director on AWS (Terraform)](https://docs.pivotal.io/pivotalcf/2-0/customizing/aws-om-config-terraform.html#director-config)
+* [Manually Configuring Ops Manager Director for AWS](https://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-om-config.html#pcfaws-om-dirconfig)
+* [Configuring Ops Manager on Azure](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure-om-config.html#director-config)
+* [Configuring Ops Manager Director on GCP](https://docs.pivotal.io/pivotalcf/2-0/customizing/gcp-om-config.html#director-config)
+* [Configuring Ops Manager Director for OpenStack](https://docs.pivotal.io/pivotalcf/2-0/customizing/openstack-om-config.html#director-config)
+* [Configuring Ops Manager on vSphere](https://docs.pivotal.io/pivotalcf/2-0/customizing/vsphere-config.html#dir-config)
 
 #### <a id='namespace'></a> Metric Namespace Difference in JMX Bridge
 
@@ -449,27 +449,27 @@ When validating client requests using mutual TLS, the Gorouter trusts multiple c
 
 For more information about configuring this feature, see the PAS installation instructions for your IaaS:
 
-* [Deploying PAS on AWS (Terraform)](../customizing/aws-er-config-terraform.html#networking)
-* [Manually Configuring PAS for AWS](../customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](../customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP (Terraform)](../customizing/gcp-er-config-terraform.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](../customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](../customizing/config-er-vmware.html#networking)
+* [Deploying PAS on AWS (Terraform)](https://docs.pivotal.io/pivotalcf/2-0/customizing/aws-er-config-terraform.html#networking)
+* [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP (Terraform)](https://docs.pivotal.io/pivotalcf/2-0/customizing/gcp-er-config-terraform.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-0/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-0/customizing/config-er-vmware.html#networking)
 
 ### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
 
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
+You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](https://docs.pivotal.io/pivotalcf/2-0/adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
 
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
 PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information, see the PAS installation instructions for your IaaS:
 
-* [Deploying PAS on AWS (Terraform)](../customizing/aws-er-config-terraform.html#networking)
-* [Manually Configuring PAS for AWS](../customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](../customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP (Terraform)](../customizing/gcp-er-config-terraform.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](../customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](../customizing/config-er-vmware.html#networking)
+* [Deploying PAS on AWS (Terraform)](https://docs.pivotal.io/pivotalcf/2-0/customizing/aws-er-config-terraform.html#networking)
+* [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP (Terraform)](https://docs.pivotal.io/pivotalcf/2-0/customizing/gcp-er-config-terraform.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-0/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-0/customizing/config-er-vmware.html#networking)
 
 
 ###<a id='bosh-credhub'></a> Migration of Internal Credentials to BOSH CredHub
@@ -480,7 +480,7 @@ This is part of an ongoing effort to migrate all credentials to BOSH CredHub, wh
 For information about the internal credentials that were migrated to BOSH CredHub in 1.12, see the [Migration of Internal Credentials to BOSH CredHub](https://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/runtime-rn.html#credhub) section of the _Pivotal Elastic Runtime v1.12 Release Notes_ topic.
 
 To access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of accessing the **Credentials** tab of the PAS tile. 
-For instructions about retrieving PAS credentials, see [Retrieving Credentials from Your Deployment](../customizing/credentials.html).
+For instructions about retrieving PAS credentials, see [Retrieving Credentials from Your Deployment](https://docs.pivotal.io/pivotalcf/2-0/customizing/credentials.html).
 
 + `.autoscaling.broker_credentials`
 + `.autoscaling.encryption_key`
@@ -509,7 +509,7 @@ To use NSX-T networking, you must install the NSX-T tile.
 
 To enable NSX-T networking for your PCF installation, you must perform the following steps:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
 
 1. Install the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t). 
   - You must install the NSX-T tile after you install the Ops Manager Director tile.
@@ -532,18 +532,18 @@ The PAS tile now includes its own runtime CredHub VM to securely store the servi
 
 Enabling this feature requires the following:
 
-* PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](../opsguide/secure-si-creds.html).
+* PCF operators must follow the steps in [Securely Storing Service Instance Credentials with PAS CredHub](https://docs.pivotal.io/pivotalcf/2-0/opsguide/secure-si-creds.html).
 * To store service instance credentials in runtime CredHub, PCF service tile developers must modify their service tile as described in [Securing Service Credentials with Runtime CredHub](https://docs.pivotal.io/tiledev/1-12/ssi-creds-tiledev.html#ssi-vs-internal).
 
 The [Spring Cloud Services](https://docs.pivotal.io/spring-cloud-services/) tile is the first service to support storing its instance credentials in runtime CredHub.
 
-For more information about CredHub in PCF, see the [CredHub Documentation](../credhub/).
+For more information about CredHub in PCF, see the [CredHub Documentation](https://docs.pivotal.io/pivotalcf/2-0/credhub/).
 
    <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support Secure Service Instance Credentials feature.</p>
 
 ### <a id='release-level-backup-restore'></a> Release-Level Backup and Restore
 
-PAS v2.0 includes support for release-level backup and restore. [BOSH Backup and Restore (BBR)](../customizing/backup-restore/) now backs up each PAS component using scripts specific to the component. This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](../customizing/backup-restore/component-backups.html)
+PAS v2.0 includes support for release-level backup and restore. [BOSH Backup and Restore (BBR)](https://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/) now backs up each PAS component using scripts specific to the component. This new flow ensures services stop using the component database before it is backed up and improves the correctness of the backup. The steps to backup and restore with BBR are unchanged. For more information about component and service availability during backup, see [PAS Component Availability During Backup](https://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/component-backups.html)
 
 ### <a id='colocated-errands'></a> Colocated Errands on Instance VMs
 
@@ -578,7 +578,7 @@ In Apps Manager, the app page **Settings** tab shows multiple buildpacks for app
 
 ### <a id='mappings-endpoint'></a> Mappings Endpoint Integrated in Apps Manager
 
-Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](../console/using-actuators.html#view-mappings).
+Apps Manager now integrates the Spring Boot Actuator `/mappings` endpoint. This endpoint displays the endpoints an app serves and other related details. For more information, see [Using Actuators](https://docs.pivotal.io/pivotalcf/2-0/console/using-actuators.html#view-mappings).
 
 ### <a id="gcp-terraform"></a> Terraform Templates for Installing PCF 
 
@@ -586,13 +586,13 @@ The PAS v2.0 release on Pivotal Network includes [Terraform](https://www.terrafo
 
 This release includes templates for GCP and AWS. If you are installing PCF on either of these IaaS providers, you can use the Terraform templates to automatically create the necessary infrastructure resources. For instructions, see the following topics:
 
-* [Installing PCF on GCP using Terraform](../customizing/gcp-terraform.html). 
-* [Installing PCF on AWS using Terraform](../customizing/aws-terraform.html).
+* [Installing PCF on GCP using Terraform](https://docs.pivotal.io/pivotalcf/2-0/customizing/gcp-terraform.html). 
+* [Installing PCF on AWS using Terraform](https://docs.pivotal.io/pivotalcf/2-0/customizing/aws-terraform.html).
   <p class="note"><strong>Note</strong>: The AWS Terraform template replaces the PCF Cloudformation for AWS Setup file on Pivotal Network.</p>
 
 ### <a id="self-service"></a> Option to Enable Self-Service Network Policies
 
-Operators can now enable self-service network policies for Space Developers. Prior to this release, enabling access occurred on either a per-developer or per-group basis. For more information about enabling this feature, see the [Installing Pivotal Cloud Foundry](../installing/index.html) topic for your IaaS.
+Operators can now enable self-service network policies for Space Developers. Prior to this release, enabling access occurred on either a per-developer or per-group basis. For more information about enabling this feature, see the [Installing Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/installing/index.html) topic for your IaaS.
 
 ##<a id='knownissues'></a> Known Issues
 

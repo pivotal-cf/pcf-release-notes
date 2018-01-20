@@ -155,21 +155,21 @@ The PCF Isolation Segment v2.0 tile is available for installation with PCF
 v2.0.
 
 <!----
-[Isolation segments](../concepts/security.html#isolation-segments) provide
+[Isolation segments](https://docs.pivotal.io/pivotalcf/2-0/concepts/security.html#isolation-segments) provide
 dedicated pools of resources where you can deploy apps and  isolate workloads.
 Using isolation segments separates app resources as completely as if they were
 in different CF deployments but avoids redundant management and network
 complexity.
 
 For more information about using isolation segments in your deployment, see the
-[Managing Isolation Segments](../adminguide/isolation-segments.html) topic.
+[Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-0/adminguide/isolation-segments.html) topic.
 ---->
 
 ## <a id='install'></a> How to Install
 
 <!----
 The procedure for installing PCF Isolation Segment v2.0 is documented in the
-[Installing PCF Isolation Segment](../customizing/installing-pcf-is.html) topic.---->
+[Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html) topic.---->
 
 To install a PCF Isolation Segment, you must first install PCF v2.0.
 
@@ -181,15 +181,15 @@ The trust between the Gorouter and HAProxy enables mutual authentication between
 
 ### <a id='custom-ca'></a> Gorouter and HAProxy Trust Additional CAs
 
-When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and [Ops Manager Director Trusted Certificates](../customizing/gcp-om-config.html#security). For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
+When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and [Ops Manager Director Trusted Certificates](https://docs.pivotal.io/pivotalcf/2-0/customizing/gcp-om-config.html#security). For more information about configuring this feature, see the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#networking) topic.
 
 ### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
 
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](../adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
+You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](https://docs.pivotal.io/pivotalcf/2-0/adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
 
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
-PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see the [Installing PCF Isolation Segment](../customizing/installing-pcf-is.html#networking) topic.
+PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#networking) topic.
 
 ### <a id='nsx'></a> VMware NSX-T Networking Support
 
@@ -203,7 +203,7 @@ To use NSX-T networking, you must install the NSX-T tile.
 
 To enable NSX-T networking for your PCF installation, you must perform the following steps:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](../customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
 
 1. Install the NSX-T tile. 
   - You must install the NSX-T tile after you install or upgrade the Ops Manager Director tile.
