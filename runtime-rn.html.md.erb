@@ -818,7 +818,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   Notes](https://github.com/pivotal-cf/cf-autoscaling-release/releases/tag/v75.12).
 * **[Bug Fix]** Fixes a data migration in Cloud Controller to prune duplicate routes when
   upgrading to this version from a 1.8.x version of the Elastic Runtime.
-* **[Bug Fix]** Resolves an issues with loggregator websocket control frame timeouts.
+* **[Bug Fix]** Resolves an issues with Loggregator WebSocket control frame timeouts.
 * **[Feature Improvement]** Operators can now configure a "Staging Timeout" to
   force Cloud Controller to wait for staging of applications that may take a very
   long time.
@@ -1179,7 +1179,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   should skip v1.9.31 - v1.9.33.
 * **[Bug Fix]** The smoke test errand will now correctly use the `system`
   organization to deploy its canary applications.
-* The components included in routing-release (gorouter, route_registrar,
+* The components included in routing-release (Gorouter, route_registrar,
   routing-api, tcp_emitter, and tcp_router) have been updated to run on Go v1.8.
 
   <table border="1" class="nice">
@@ -1748,7 +1748,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   and refactors Pivotal Account deployment errand to avoid database issues
   during migrations on certain versions of MySQL.
 * Bumps notifications-release to v36. [Release Notes](https://github.com/cloudfoundry-incubator/notifications-release/releases/tag/v36)
-* **[Feature]** HttpStartStop metric for gorouter includes 'instanceIndex'.
+* **[Feature]** HttpStartStop metric for Gorouter includes 'instanceIndex'.
 * **[Bug Fix]** Patches Cloud Controller to prevent a DB error when a staging response contains too many environment variables.
 * Removes unnecessary persistent disk from Cloud Controller VM.
 
@@ -4282,13 +4282,13 @@ Versions 1.9.0 and higher versions of Elastic Runtime consist of the following c
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.9 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-9/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.9, be aware of the following upgrade considerations:
 
    * You must upgrade to a version of Elastic Runtime v1.8.9 or higher in order to successfully upgrade to v1.9.
    * If you are upgrading from a PCF deployment that at one point included Elastic Runtime v1.7.16 or earlier, *make sure* that you have performed the remedial steps outlined in [App Usage Data and Events Data Become Corrupted After Upgrade or Install](https://discuss.pivotal.io/hc/en-us/articles/228639827-App-Usage-Data-and-Events-Data-Becomes-Corrupted-After-Upgrade-or-Install) before proceeding with the upgrade. If you fail to perform the remedial steps, the upgrade process may corrupt your existing usage data.  
-   * Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](../../customizing/upgrading-pcf.html#remove-products).<br><br/>
+   * Before upgrading to PCF v1.9, remove any product tiles that are no longer supported in PCF. See [Review and Remove Unsupported Products](https://docs.pivotal.io/pivotalcf/1-9/customizing/upgrading-pcf.html#remove-products).<br><br/>
     Some partner service tiles may currently be incompatible with PCF v1.9. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF. <br/><br/>
     For information about which partner service releases are currently compatible with PCF v1.9, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
    * Before upgrading to PCF v1.9, ensure that you have adequate space available on your database server. See [Cloud Foundry API Availability During Upgrade](#database-migrations).
@@ -4346,7 +4346,7 @@ The task itself is guaranteed by the platform to run at most once and results in
 
 When a task is executed, it inherits the environment of its associated application, including environment variables and filesystem.
 
-For more information, see the [Running Tasks](../devguide/using-tasks.html) topic.
+For more information, see the [Running Tasks](https://docs.pivotal.io/pivotalcf/1-9/devguide/using-tasks.html) topic.
 
 ### <a id='net-core'></a>.NET Core Buildpack
 
@@ -4354,7 +4354,7 @@ The .NET Core Buildpack is now included as a core buildpack for application deve
 
 The buildpack is only new for operators who have not already upgraded to Elastic Runtime v1.8.13 or higher.
 
-For more information, see the documentation for the [.NET Core Buildpack](../buildpacks/dotnet-core/index.html).
+For more information, see the documentation for the [.NET Core Buildpack](https://docs.pivotal.io/pivotalcf/1-9/buildpacks/dotnet-core/index.html).
 
 ### <a id='actuators'></a>Support for Spring Boot Actuators in Apps Manager
 
@@ -4366,7 +4366,7 @@ If an app is configured with these actuators, users will see the following in Ap
 * **Health**: The output of the `health` actuator for each instance will be displayed in the instances table on the summary tab of an app. The instance rows can be expanded to show the full details of the `health` endpoint for any instance.
 * **Logger**: On the logs tab, the **Configure Logging** button will appear, allowing the user to temporarily configure log levels for the application's loggers without a push or restart.
 
-For more information, see the documentation for [Spring Boot Actuators](../console/spring-boot-actuators.html) and [Using Actuators](../console/using-actuators.html).
+For more information, see the documentation for [Spring Boot Actuators](https://docs.pivotal.io/pivotalcf/1-9/console/spring-boot-actuators.html) and [Using Actuators](https://docs.pivotal.io/pivotalcf/1-9/console/using-actuators.html).
 
 ### <a id='autoscaling'></a>New Autoscaling Features
 
@@ -4385,7 +4385,7 @@ The autoscaling service now also allows for multiple metrics to be combined for 
 
 Finally, to facilitate the automation of the interactions with the autoscaling service, the service now supports a REST-based API to manage your application scaling configuration.
 
-For more information, see the [Scaling an Application Using Autoscaler](../appsman-services/autoscaler/using-autoscaler.html) topic.
+For more information, see the [Scaling an Application Using Autoscaler](https://docs.pivotal.io/pivotalcf/1-9/appsman-services/autoscaler/using-autoscaler.html) topic.
 
 ### <a id='zipkin'></a>Zipkin Tracing Headers
 
@@ -4393,7 +4393,7 @@ With the Zipkin tracing option enabled, the router attaches tracing headers to i
 
 Enabling this option allows application developers who have Zipkin-compatible instrumentation in their application to trace requests as they traverse the platform.
 
-For more information, see [Enabling Zipkin Tracing](../adminguide/zipkin_tracing.html).
+For more information, see [Enabling Zipkin Tracing](https://docs.pivotal.io/pivotalcf/1-9/adminguide/zipkin_tracing.html).
 
 ## <a id='knownissues'></a>Known Issues
 
@@ -4401,7 +4401,7 @@ This section lists new and existing known issues for Elastic Runtime.
 
 ###<a id='newissues'></a>New Issues
 
-* When BOSH is restarted, LogSearch may fail to reconnect to BOSH when it restarts. As a result, after an upgrade to PCF v1.9, not all expected logs may appear in LogSearch. See [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) for the post-upgrade workaround step.
+* When BOSH is restarted, LogSearch may fail to reconnect to BOSH when it restarts. As a result, after an upgrade to PCF v1.9, not all expected logs may appear in LogSearch. See [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-9/customizing/upgrading-pcf.html) for the post-upgrade workaround step.
 * There is a naming discrepancy in the .Net Core buildpack between v1.8 and v1.9. The buildpack is referred to as "dotnet-core-buildpack" in v1.8 and "dotnet\_core\_buildpack" in v1.9.
   This will result in 2 versions of the buildpack being created after an upgrade to v1.9.
   Operators should remove the older buildpack after completing the upgrade process, making sure to migrate all applications onto the newer buildpack.
