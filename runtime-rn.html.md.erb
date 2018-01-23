@@ -13,6 +13,128 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.12'></a> 1.12.12
+
+* **[Security Fix]** Bumps uaa-release to v45.7 to fix [CVE-2018-1192] (https://www.cloudfoundry.org/blog/cve-2018-1192/).
+* **[Bug Fix] Patch to allow the BBS to maintain its lock when the MySQL VMs are being upgraded.
+* **[Bug Fix] Bumps apps-manager-release to v662.0.18 to resolve a number of issues:
+  * If instance health is not loaded, do not render row drawer on app status table.
+  * When deleting apps, use capi v3 endpoint.
+  * Fixed bug where using Docker would crash Apps Manager because of non-existent buildpack info.
+  * For app threads tab, handle when there are no app instances.
+  * Fixed download of Spring threads on IE.
+  * Hide native select dropdown on IE and Firefox.
+  * Display formatted cost with all currencies instead of just USD in plan summary.
+  * Fixed wiring issue that causes the flyout to always believe non-basic services were not allowed.
+  * Fixed select vs upgrade your account button when coming from app services tab panel header.
+  * Load app health after scaling.
+  * Updated git and buildpack text to match accessibility standards.
+  * Show v3 app scaling events on the app page event panel.
+  * Load events after scaling app.
+  * When a call to /cloudfoundryapplication fails, do not continue to check if the app is a spring app.
+  * Add clickjacking protection, while still allowing Apps Manager to load singular.
+  * Long org names in the navbar org dropdown are ellipsified.
+  * When checking env variables, do not throw if user does not have permission.
+  * Space members tab should show all members in the org even if they are not permitted to the space.
+  * Fixed 404 page footer in IE.
+  * Fixed styling in accounting report download button.
+  * Fetch all routes for spaces instead of just the first page.
+* **[Bug Fix]** Adds missing default domain `streaming-mysql-backup-tool` to mysql-backup certificate.
+* **[Bug Fix]** Bumps pivotal-account-release to v1.8.2 to fix bug that prevented errands from running more than once.
+* **[Feature Improvement]** The SAML 'Entity Id Override' field has been moved from the **Authentication and Enterprise SSO** tab to the **UAA** tab in Ops Manager, to accompany the other SAML fields in the **UAA** tab.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.22</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.0\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.176.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.30</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.10.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.13</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.30.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.6</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.13.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.10</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.43</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.2</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.18</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.6</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.5</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.18</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45.7</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.11'></a> 1.12.11
 
 * **[Security Fix]** Bumps stemcell version to 3445.22 for
