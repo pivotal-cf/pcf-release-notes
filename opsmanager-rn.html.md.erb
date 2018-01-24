@@ -64,7 +64,7 @@ For security purposes, operators with write access still cannot be logged into O
 
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
-You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage when you configure Ops Manager for Google Cloud Platform (GCP). With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see [Step 3: Director Config Page](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
+You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of *Configuring Ops Manager Director on GCP*.
 
 <p class="note"><strong>Note: </strong>After you deploy Ops Manager, you cannot change the blobstore location.</p>
 
@@ -79,3 +79,11 @@ From the Ops Manager settings, you can now add a custom banner to communicate im
 ### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
 
 For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](https://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
+
+### <a id="azure-application-gateway"></a> Integrate Azure Application Gateway Load Balancers
+
+In the **Resource Config** pane of the Azure configuration dashboard, you can enter a Microsoft Azure Application Gateway for your load balancer.
+
+To learn more about Azure Application Gateway, see [Overview of Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) in the Azure documentation.
+
+To learn more about configuring your load balancer for Azure, see the [Resource Config Page](../customizing/azure-om-config.html#resource-config) section in the *Configuring Ops Manager on Azure* topic.
