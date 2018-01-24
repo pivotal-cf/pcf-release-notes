@@ -154,7 +154,6 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 The PCF Isolation Segment v2.0 tile is available for installation with PCF
 v2.0.
 
-<!----
 [Isolation segments](https://docs.pivotal.io/pivotalcf/2-0/concepts/security.html#isolation-segments) provide
 dedicated pools of resources where you can deploy apps and  isolate workloads.
 Using isolation segments separates app resources as completely as if they were
@@ -163,17 +162,31 @@ complexity.
 
 For more information about using isolation segments in your deployment, see the
 [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-0/adminguide/isolation-segments.html) topic.
----->
 
 ## <a id='install'></a> How to Install
 
-<!----
 The procedure for installing PCF Isolation Segment v2.0 is documented in the
-[Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html) topic.---->
+[Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html) topic.
 
 To install a PCF Isolation Segment, you must first install PCF v2.0.
 
 ## <a id='2.0.0'></a> New Features in PCF Isolation Segment v2.0
+
+### <a id='bosh-dns'></a> BOSH DNS Service Discovery for Application Containers (Beta)
+
+In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism.
+
+<p class="note"><strong>Note</strong>: Port 8853 is the destination port for communications between BOSH DNS processes. Ensure your firewalls rules allow TCP traffic on 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
+
+To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
+This colocation is a prerequisite for migrating completely to BOSH DNS in a 
+future release of PCF. However, this colocation does not impact the current 
+behavior of DNS for Cloud Foundry components in PCF v2.0. 
+System components still use consul to discover and locate other Cloud Foundry 
+components.
+
+You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
+[Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
