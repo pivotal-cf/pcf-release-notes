@@ -176,7 +176,7 @@ To install a PCF Isolation Segment, you must first install PCF v2.0.
 
 In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism.
 
-<p class="note"><strong>Note</strong>: Port 8853 is the destination port for communications between BOSH DNS processes. Ensure your firewalls rules allow TCP traffic on 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
+<p class="note"><strong>Note</strong>: Port 8853 is the destination port for communications between BOSH DNS health processes. Ensure your firewall rules allow TCP traffic on 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
 
 To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
 This colocation is a prerequisite for migrating completely to BOSH DNS in a 
