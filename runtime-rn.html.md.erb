@@ -24,6 +24,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   * Fetch all routes for spaces instead of just the first page
 * **[Bug Fix]** Patches loggregator-release to ensure traffic controller starts pprof server.
 * **[Bug Fix]** Adds missing default domain `streaming-mysql-backup-tool` to mysql-backup certificate.
+  Note: if you installed 1.11.22 or 1.11.23, you will have to rotate certificates. See this KB article for more details:
+  [Pivotal Application Service Backup and Restore fails due to Missing Streaming mysql-backup-tool Domain](https://discuss.pivotal.io/hc/en-us/articles/360000139954)
 * **[Bug Fix]** Bumps pivotal-account-release to v1.8.2 to fix bug that prevented errands from running more than once.
 * **[Feature Improvement]** The SAML 'Entity Id Override' field has been moved from the **Authentication and Enterprise SSO** tab to the **UAA** tab in Ops Manager, to accompany the other SAML fields in the **UAA** tab.
 
