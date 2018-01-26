@@ -136,6 +136,9 @@ When upgrading to v2.1, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.1
 
+### <a id='multi-user-error'></a> cf CLI Errors on Multi-Origin User Ambiguity
+
+If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](../cf-cli/getting-started.html#multi-origin) for details.
 
 ## <a id='adv-features'></a> About Advanced Features
 
