@@ -30,7 +30,7 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
 
 1. Update, commit, and changes to a branch of this repository.
 
-2. Verify that your updates publishes to the appropriate staging site correctly. You may need to refresh the site in your browser to see the changes.
+2. Verify that your updates publish to the appropriate staging site correctly. You may need to refresh the site in your browser to see the changes.
 
     * [PCF 1.9 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-9/pcf-release-notes/index.html)
     * [PCF 1.10 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-10/pcf-release-notes/index.html)
