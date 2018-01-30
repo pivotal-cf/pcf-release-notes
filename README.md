@@ -1,4 +1,4 @@
-pcf-release
+pcf-release-notes
 ===========
 
 This repository stores the content that publishes to the PCF versioned release notes.
