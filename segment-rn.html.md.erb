@@ -56,14 +56,14 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for 
   [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
 * **[Feature]** Bumps garden-runc-release to v1.10.0:
-  * It is now possible to specify a `ProcessSpec.Image`. Processes can now have their own filesystem view. 
+  * It is now possible to specify a `ProcessSpec.Image`. Processes can now have their own file system view. 
     * Limitation: It is only possible to use `ProcessSpec.Image` and `ProcessSpec.OverrideContainerLimits` with unprivileged containers.  
     This will be fixed in future releases.
     * Limitation: APIs such as `BulkMetrics` and `Process.Signal` may not work immediately after `container.Run(ProcessSpec)` returns
-    for processes with `Image` and/or `OverrideContainerLimits` specified. This will be fixed in future releases.
+    for processes with `Image` or `OverrideContainerLimits` specified. This will be fixed in future releases.
   * Reduced log volume in `BulkMetrics` for large environments.
   * Correctly declares that bundles it creates are OCI Runtime Spec version 1.0.0 compliant.
-* The Garden property `cleanup_process_dirs_on_wait` is configured to `true`, to reduce the growth of directories in the Garden container.
+* The Garden property `cleanup_process_dirs_on_wait` is configured to `true` to reduce the growth of directories in the Garden container.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -107,7 +107,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 
 ### <a id='2.0.0'></a> 2.0.0
 
-<p class='note warning'><strong>Warning:</strong> This release does not set the Garden property `cleanup_process_dirs_on_wait` to `true`, which can leave many directories in the depot for the Garden container. This will be set to `true` in the next release.</p>
+<p class='note warning'><strong>Warning</strong>: This release does not set the Garden property <code>cleanup_process_dirs_on_wait</code> to <code>true</code>, which can leave many directories in the depot for the Garden container. This will be set to <code>true</code> in the next release.</p>
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -176,7 +176,7 @@ To install a PCF Isolation Segment, you must first install PCF v2.0.
 
 In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism.
 
-<p class="note"><strong>Note</strong>: Port 8853 is the destination port for communications between BOSH DNS health processes. Ensure your firewall rules allow TCP traffic on 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
+<p class="note"><strong>Note</strong>: Port 8853 is the destination port for communications between BOSH DNS health processes. Ensure your firewall rules allow TCP traffic on port 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
 
 To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
 This colocation is a prerequisite for migrating completely to BOSH DNS in a 
@@ -194,7 +194,7 @@ The trust between the Gorouter and HAProxy enables mutual authentication between
 
 ### <a id='custom-ca'></a> Gorouter and HAProxy Trust Additional CAs
 
-When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and [Ops Manager Director Trusted Certificates](https://docs.pivotal.io/pivotalcf/2-0/customizing/gcp-om-config.html#security). For more information about configuring this feature, see the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#networking) topic.
+When validating client requests using mutual TLS, the Gorouter trusts multiple certificate authorities (CAs) by default. Operators can now configure the Gorouter and HAProxy to trust custom CAs in addition to well-known, public CAs and Ops Manager Director Trusted Certificates. For more information about configuring this feature, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#networking).
 
 ### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
 
@@ -202,7 +202,7 @@ You can now add more than one certificate for Gorouter and HAProxy in the **Netw
 
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
-PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#networking) topic.
+PCF now supports XFCC header configuration for deployments that terminate TLS for the first time at HAProxy. In addition, the selection options for this configuration field have been renamed to reflect differences in XFCC configuration based on TLS termination entry points. For more information about configuring this feature, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#networking).
 
 ### <a id='nsx'></a> VMware NSX-T Networking Support
 
@@ -224,8 +224,7 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 
 1. In the PCF Isolation Segment tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
 
-Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
-Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
+Operators can additionally use the NSX Manager to configure policies for PCF applications. For more information, see the [NSX-T Container Plug-in for Kubernetes and Cloud Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) .
 
 <p class='note'><strong>Note:</strong> You must have NSX-T v2.1 installed to use this integration.</p>
 
