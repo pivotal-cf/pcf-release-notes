@@ -11,7 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a>How to Upgrade ##
 
-The [Upgrading Pivotal Cloud Foundry](<%= vars.url %>/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
+The [Upgrading Pivotal Cloud Foundry](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
 
 ### 2.1 Alpha
 
@@ -66,13 +66,13 @@ For security purposes, operators with write access still cannot be logged into O
 
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
-You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](<%= vars.url %>/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of *Configuring Ops Manager Director on GCP*.
+You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of *Configuring Ops Manager Director on GCP*.
 
 <p class="note"><strong>Note: </strong>After you deploy Ops Manager, you cannot change the blobstore location.</p>
 
 ### <a id="custom-vm-extensions"></a> Create Custom VM Extensions
 
-You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information on custom VM extensions, see [Managing Custom VM Extensions](<%= vars.url %>/pivotalcf/2-1/customizing/custom-vm-extensions.html).
+You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information on custom VM extensions, see [Managing Custom VM Extensions](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
 
 ### <a id="ip-discontinued"></a> IP Management Removed
 
@@ -80,11 +80,11 @@ Ops Manager no longer allows operators to allocate or manage IPs. Instead, only 
 
 ### <a id="custom-banner"></a> Custom Banner Available for Web Apps and Ops Manager
 
-From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](<%= vars.url %>/pivotalcf/2-1/customizing/pcf-interface.html#settings).
+From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/pcf-interface.html#settings).
 
 ### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
 
-For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](<%= vars.url %>/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
+For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
 
 ### <a id="azure-application-gateway"></a> Integrate Azure Application Gateway Load Balancers
 
@@ -92,4 +92,4 @@ In the **Resource Config** pane of the Azure configuration dashboard, you can en
 
 To learn more about Azure Application Gateway, see [Overview of Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) in the Azure documentation.
 
-To learn more about configuring your load balancer for Azure, see the [Resource Config Page](<%= vars.url %>/pivotalcf/2-1/customizing/azure-om-config.html#resource-config) section in the *Configuring Ops Manager on Azure* topic.
+To learn more about configuring your load balancer for Azure, see the [Resource Config Page](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/azure-om-config.html#resource-config) section in the *Configuring Ops Manager on Azure* topic.
