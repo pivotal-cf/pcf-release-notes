@@ -15,8 +15,8 @@ owner: Release Engineering
   * [USN-3534-1](http://www.ubuntu.com/usn/usn-3534-1/)
   * [USN-3535-1](http://www.ubuntu.com/usn/usn-3535-1/)
 * **[Bug Fix]** Configure system logging to remove duplication of logs
-* **[Feature Improvement]** Bump syslog-migration-release to v10.0.1 and add checkbox to use TCP for log file forwrading to work around issue with log line truncation.
-  * NOTE: there may be performance tradeoffs involved in using TCP instead of the default UDP configuration.
+* **[Feature Improvement]** Bump syslog-migration-release to v10.0.1 and add a checkbox for log file forwarding through TCP to work around the [Truncated Syslog Messages](runtime-rn.html#truncated-logs) issue.
+  * NOTE: Using TCP instead of the default UDP configuration may have a negative impact on performance.
 
   <table border="1" class="nice">
   <thead> <tr>
