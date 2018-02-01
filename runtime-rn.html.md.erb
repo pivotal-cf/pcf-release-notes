@@ -25,8 +25,8 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   * [USN-3534-1](http://www.ubuntu.com/usn/usn-3534-1/)
   * [USN-3535-1](http://www.ubuntu.com/usn/usn-3535-1/)
 * **[Security Fix]** Patch capi-release to fix issue where refresh tokens are not accepted where access tokens are required.
-* **[Feature Improvement]** Bump syslog-migration-release to v10.0.1 and add checkbox to use TCP for log file forwarding to work around issue with log line truncation.
-  * NOTE: there may be performance tradeoffs involved in using TCP instead of the default UDP configuration.
+* **[Feature Improvement]** Bump syslog-migration-release to v10.0.1 and add a checkbox for log file forwarding through TCP to work around the [Truncated Syslog Messages](truncated-logs) issue.
+  * NOTE: Using TCP instead of the default UDP configuration may have a negative impact on performance.
 * **[Bug Fix]** Add missing TLS configuration to Grootfs config
 * **[Bug Fix]** Garden is now configured to destory containers on startup
 * **[Bug Fix]** Bump mysql-monitoring-release to v8.14.0
