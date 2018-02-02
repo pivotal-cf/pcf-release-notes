@@ -5,11 +5,11 @@ owner: Ops Manager
 
 ## <a id='how-to-upgrade'></a> How to Upgrade ##
 
-The procedure for upgrading to Pivotal Cloud Foundry Ops Manager v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](../../customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry Ops Manager v1.8 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-8/customizing/upgrading-pcf.html) topic.
 
-Before you upgrade to Ops Manager v1.8, ensure that existing product tiles such as Elastic Runtime and RabbitMQ have been upgraded to a version that supports the upgrade. For specific version numbers and instructions, see [Review Product Compatibility Prerequisites](../../customizing/upgrading-pcf.html#review-lockstep).
+Before you upgrade to Ops Manager v1.8, ensure that existing product tiles such as Elastic Runtime and RabbitMQ have been upgraded to a version that supports the upgrade. For specific version numbers and instructions, see [Review Product Compatibility Prerequisites](https://docs.pivotal.io/pivotalcf/1-8/customizing/upgrading-pcf.html#review-lockstep).
 
-After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8, as well as other specific product versions if you are using them. For required version numbers and instructions, see [Upgrade Elastic Runtime and Product Tiles](../../customizing/upgrading-pcf.html#upgrade_products).
+After you upgrade to Ops Manager v1.8, you must immediately upgrade to Elastic Runtime v1.8, as well as other specific product versions if you are using them. For required version numbers and instructions, see [Upgrade Elastic Runtime and Product Tiles](https://docs.pivotal.io/pivotalcf/1-8/customizing/upgrading-pcf.html#upgrade_products).
 
 ### <a name='update'></a>About Updating to Ops Manager v1.8.2 or Later
 
@@ -1116,11 +1116,11 @@ Ops Manager now generates BOSH 2.0 manifests and has enabled BOSH link support. 
 
 ### <a id='service-networks'></a> Support for Service Networks
 
-Ops Manager allows Operators to create a Service Network. Service Networks are used to dynamically provision VMs for on-demand services. For an example of how to enable a Service Network in Ops Manager, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#network).
+Ops Manager allows Operators to create a Service Network. Service Networks are used to dynamically provision VMs for on-demand services. For an example of how to enable a Service Network in Ops Manager, see [Configuring Ops Manager Director on AWS](https://docs.pivotal.io/pivotalcf/1-8/customizing/cloudform-om-config.html#network).
 
 ### <a id='pivnet_token'></a> Pivotal Network Integration
 
-Operators can choose to enter their Pivotal Network token into Ops Manager and download product tile updates from within the Ops Manager UI. See the [Using Pivotal Network API to Upgrade Products](../../customizing/add-delete.html#pivnet-api) for more information.
+Operators can choose to enter their Pivotal Network token into Ops Manager and download product tile updates from within the Ops Manager UI. See the [Using Pivotal Network API to Upgrade Products](https://docs.pivotal.io/pivotalcf/1-8/customizing/add-delete.html#pivnet-api) for more information.
 
 ### <a id='new_endpoints'></a> New Ops Manager API Endpoints and Redesigned API Documentation
 
@@ -1148,15 +1148,15 @@ Ops Manager has a consolidated Settings page which includes the following fields
    * Export Installation Settings
    * Advanced
 
-See the [Understanding the Ops Manager Interface](../../customizing/pcf-interface.html) topic for more information.
+See the [Understanding the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/1-8/customizing/pcf-interface.html) topic for more information.
 
 ### <a id='resource_config'></a> Custom Instance Counts in Ops Manager Director Resource Config
 
-Operators can now enter custom values in the Instances column of the Resource Config page in Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#resource-config).
+Operators can now enter custom values in the Instances column of the Resource Config page in Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](https://docs.pivotal.io/pivotalcf/1-8/customizing/cloudform-om-config.html#resource-config).
 
 ### <a id='vsphere'></a> vSphere Admin Default Password Requirement
 
-Customers using vSphere are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at [Installing Pivotal Cloud Foundry on vSphere](../../customizing/vsphere.html).
+Customers using vSphere are now required to enter a default admin password in their OVA or TAR template. Failure to do so will result in the VM to not boot up. Additional information can be found at [Installing Pivotal Cloud Foundry on vSphere](https://docs.pivotal.io/pivotalcf/1-8/customizing/vsphere.html).
 
 ### <a id='dualhomebosh'></a> Dual-Home Ops Manager Director (BOSH Director)
 
@@ -1171,7 +1171,7 @@ For more information on how to use the dual-homing feature, see the correspondin
 
 ### <a id='hostnameforboshdirector'></a> Hostname for Ops Manager Director
 
-Operators can now specify a custom hostname for the Ops Manager Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config). This hostname can be set to a load balancer as described in [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588).
+Operators can now specify a custom hostname for the Ops Manager Director in the Director Config page. For example, see [Configuring Ops Manager Director on AWS](https://docs.pivotal.io/pivotalcf/1-8/customizing/cloudform-om-config.html#director-config). This hostname can be set to a load balancer as described in [How to set up a load balancer in front of Ops Manager Director](https://discuss.pivotal.io/hc/en-us/articles/225420588).
 
 ### <a id='boshcompilerflag'></a> BOSH Manifest Flag to Remove Compilers
 
@@ -1179,11 +1179,11 @@ This release adds a flag to the BOSH manifest that removes compilers.
 
 ### <a id='boshretries'></a> BOSH Director Retries Disabled by Default
 
-In this release BOSH Director retries are turned off by default. You can enable BOSH Director retries in the Director Config page of Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
+In this release BOSH Director retries are turned off by default. You can enable BOSH Director retries in the Director Config page of Ops Manager Director. For example, see [Configuring Ops Manager Director on AWS](https://docs.pivotal.io/pivotalcf/1-8/customizing/cloudform-om-config.html#director-config).
 
 ### <a id='postdeployscripts'></a> Support for Post Deployment Scripts
 
-Ops Manager now supports configuring the appropriate settings in the Director to run post deploy scripts. This setting can be toggled on the Director Config form. For example, see [Configuring Ops Manager Director on AWS](../../customizing/cloudform-om-config.html#director-config).
+Ops Manager now supports configuring the appropriate settings in the Director to run post deploy scripts. This setting can be toggled on the Director Config form. For example, see [Configuring Ops Manager Director on AWS](https://docs.pivotal.io/pivotalcf/1-8/customizing/cloudform-om-config.html#director-config).
 
 ## <a id='tileauthorchanges'></a> Changes in Ops Manager v1.8.0 for Tile Authors
 
