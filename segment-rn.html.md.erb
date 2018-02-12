@@ -285,6 +285,15 @@ Operators can additionally use the NSX Manager to configure policies for PCF app
 
 <p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
+##<a id='knownissues'></a> Known Issues
+
+### <a id='tasks'></a> Isolation Segment Fails on Fresh Install with Route Services
+
+In Isolation Segment 2.0.0 to 2.0.3, when installing Isolation Segment with Pivotal Application Services where route services are enabled, the deployment will fail due to a missing `router-route-services-secret` credential. This issued is fixed in Isolation Segment 2.0.4.
+
+For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/360000863274) article.
+
+
 ## <a id='adv-features'></a> About Advanced Features
 
 The Advanced Features section of the PCF Isolation Segment tile includes new
