@@ -336,6 +336,12 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='1.11.23'></a> 1.11.23
 
+<p class="note warning">
+This release introduces a bug that causes BBR backups to fail due to a missing default domain in the mysql-backup certificate.
+We recommend skipping this release and upgrading to 1.11.24 or higher, which resolves this issue.
+See the corresponding <a href="https://discuss.pivotal.io/hc/en-us/articles/360000139954">Knowledge Base</a> for more information.
+</p>
+
 * **[Security Fix]** Bumps stemcell version to 3445.22 for
 [USN-3544-2](http://www.ubuntu.com/usn/usn-3522-2/)
 and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
@@ -433,6 +439,12 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   </table>
 
 ### <a id='1.11.22'></a> 1.11.22
+
+<p class="note warning">
+This release introduces a bug that causes BBR backups to fail due to a missing default domain in the mysql-backup certificate.
+We recommend skipping this release and upgrading to 1.11.24 or higher, which resolves this issue.
+See the corresponding [<a href="https://discuss.pivotal.io/hc/en-us/articles/360000139954">Knowledge Base</a> for more information.
+</p>
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
 * **[Bug Fix]** Resolves an issue in container-networking where a component in the same network with mTLS can
