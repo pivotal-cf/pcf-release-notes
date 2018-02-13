@@ -355,6 +355,12 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.11'></a> 1.12.11
 
+<p class="note warning">
+This release introduces a bug that causes BBR backups to fail due to a missing default domain in the mysql-backup certificate.
+We recommend skipping this release and upgrading to 1.12.12 or higher, which resolves this issue.
+See the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/360000139954) for more information.
+</p>
+
 * **[Security Fix]** Bumps stemcell version to 3445.22 for
 [USN-3544-2](http://www.ubuntu.com/usn/usn-3522-2/)
 and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
@@ -452,6 +458,12 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   </table>
 
 ### <a id='1.12.10'></a> 1.12.10
+
+<p class="note warning">
+This release introduces a bug that causes BBR backups to fail due to a missing default domain in the mysql-backup certificate.
+We recommend skipping this release and upgrading to 1.12.12 or higher, which resolves this issue.
+See the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/360000139954) for more information.
+</p>
 
 * **[Security Fix]** Bumps cflinuxfs2-release to v1.176.0 for 
   [USN-3513-1](https://usn.ubuntu.com/usn/usn-3513-1/).
