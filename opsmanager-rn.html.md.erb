@@ -58,6 +58,10 @@ Ops Manager v2.1 uses the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v2.1
 
+### <a id="credhub-hsm"></a> Configure an External CredHub Encyption
+
+In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal encryption or a Luna Hardware Security Module (HSM). For more information on configuring your CredHub encryption provider, see [Director Config Page](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
+
 ### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged in Simultaneously
 
 Ops Manager users with **Full View** and **Restricted View** permissions can be logged in simultaneously. Previous to this change, only one user at a time could view Ops Manager.
