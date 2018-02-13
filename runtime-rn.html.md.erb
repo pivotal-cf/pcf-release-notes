@@ -13,6 +13,112 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.14'></a> 1.12.14
+
+* **[Security Fix]** Bump apps-manager-release to v662.0.22 to fix vulnerability that allowed arbitrary file access on server.
+* **[Bug Fix]** Patch diego-release to allow HTTP-based health check on an HTTP endpoint that expects TLS-terminated traffic.
+* Bump buildpacks to latest versions, including:
+  * dotnet-core-offline-buildpack to v2.0.1.
+  * go-offline-buildpack to v1.8.16.
+  * java-offline-buildpack to v4.8.
+  * nodejs-offline-buildpack to v1.6.15.
+  * php-offline-buildpack to v4.3.48.
+  * python-offline-buildpack to v1.6.7.
+  * ruby-offline-buildpack to v1.7.11.
+  * staticfile-offline-buildpack to v1.4.21.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.21</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.0\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.181.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.10.0</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.16</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.30.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.14.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.48</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.2</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.22</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.7</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.7</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.0\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.11</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.21</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8.0.1</td>
+  </tr><tr>
+    <td>uaa</td><td>45.7</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.13'></a> 1.12.13
 
 * **[Security Fix]** Bump stemcell to version 3468.21 to address issues:
