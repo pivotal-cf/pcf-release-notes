@@ -86,5 +86,24 @@ Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to ma
 In PCF Isolation Segment v2.1, the **Router Max Idle Keepalive Connections** field in the ** Networking** pane of the PCF Isolation Segment tile has been replaced by the **Enable Keepalive Connections for Router** checkbox.
 The checkbox is enabled by default, and the maximum number of idle keepalive connections maintained by Gorouter to all backends is set to 49,000. This improves routing performance.
 
+### <a id='healthchecks'> Improved System Performance for App Health Checks
+
+This release changes how PCF Isolation Segment runs app health checks to improve
+system performance in resource-constrained environments, such as on-premise
+installations of PCF. This change does not impact the developer workflow for
+[configuring app health checks](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/healthchecks.html).
+
+Previously, health checks during app startup increased system load because they
+ran as a Garden process every two seconds. In addition, apps that started successfully
+could fail if slow system performance caused the app health check to
+time out. In some severe cases, such app failures caused additional resource
+consumption and a chain-reaction of app failures.
+
+PCF Isolation Segment v2.1 resolves these issues through a new implementation that does not
+invoke a new process on every health check. The health check now runs
+as a long-lived process in the app container. Developers may see these
+processes if they access an app container using the `cf ssh` command and list the
+processes.
+
 ## <a id='adv-features'></a> About Advanced Features
 

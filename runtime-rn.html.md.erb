@@ -136,6 +136,14 @@ When upgrading to v2.1, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.1
 
+## <a id='blobstore-authentication'> Support for AWS IAM Instance Profiles
+
+Operators can now configure PAS to use AWS IAM Instance Profiles for blobstore authentication.
+
+### <a id='blobstore-encryption'> Support for AWS S3 SSE KMS
+
+Operators can now configure PAS to use AWS server-side encryption with KMS for blobstore encryption.
+
 ### <a id='route-consistency'> Improved Resiliency and Consistency for Application Routes
 
 Gorouter now uses TLS to verify app identity by default.
@@ -170,6 +178,10 @@ as a long-lived process in the app container. Developers may see these
 processes if they access an app container using the `cf ssh` command and list the
 processes.
 
+### <a id='container-metrics'> Container Metrics Included in Syslog Drains
+
+Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure this feature, enable the **Include container metrics in Syslog Drains** checkbox in the **System Logging** pane of the PAS tile.
+
 ### <a id='saml-uaa'> Custom SAML Entity ID for Tiles
 
 To enable tiles to set a custom SAML entity ID, independent of whether PAS itself uses an external SAML identity provider,
@@ -180,5 +192,3 @@ the **Entity ID Override** field in the **Authentication and Enterprise SSO** pa
 If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](http://docs-pcf-staging.cfapps.io/2-1/cf-cli/getting-started.html#multi-origin) for details.
 
 ## <a id='adv-features'></a> About Advanced Features
-
-
