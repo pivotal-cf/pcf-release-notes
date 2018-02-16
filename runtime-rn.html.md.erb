@@ -196,3 +196,7 @@ If multiple CF user accounts from different origins share a username, the comman
 You can now use JSON for key-value entries in the Apps Manager UI.
 
 ## <a id='adv-features'></a> About Advanced Features
+
+### <a id='c2c-discovery'></a> Container-to-Container Service Discovery
+
+Apps can find each others' internal addresses using BOSH DNS, to communicate directly [container-to-container](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/cf-networking.html#discovery). Enable this feature in the PAS tile by selecting the **Enable Service Discovery for Apps** checkbox in the **Application Developer Controls** pane.
