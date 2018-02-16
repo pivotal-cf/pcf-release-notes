@@ -144,7 +144,7 @@ Operators can now configure PAS to use AWS IAM Instance Profiles for blobstore a
 
 Operators can now configure PAS to use AWS server-side encryption with KMS for blobstore encryption.
 
-### <a id='route-consistency'></a> Improved Resiliency and Consistency for Application Routes
+### <a id='route-consistency'></a> Improved Resiliency and Consistency for App Routes
 
 Gorouter now uses TLS to verify app identity by default.
 This improves resiliency and consistency for app routes.
@@ -190,5 +190,9 @@ the **Entity ID Override** field in the **Authentication and Enterprise SSO** pa
 ### <a id='multi-user-error'></a> cf CLI Errors on Multi-Origin User Ambiguity
 
 If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](http://docs-pcf-staging.cfapps.io/2-1/cf-cli/getting-started.html#multi-origin) for details.
+
+### <a id='json'></a> Support for JSON in the Apps Manager UI
+
+You can now use JSON for key-value entries in the Apps Manager UI.
 
 ## <a id='adv-features'></a> About Advanced Features
