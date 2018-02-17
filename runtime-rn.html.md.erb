@@ -148,8 +148,8 @@ Operators can now configure PAS to use server-side encryption with AWS Key Manag
 
 Gorouter now uses TLS to verify app identity by default.
 This improves resiliency and consistency for app routes.
-For more information about how Gorouter uses app instance validation to keep its routing table current,
-see [Routing to App Instances](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#apps).
+For more information about how Gorouter prevents misrouting,
+see [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency).
 
 You can change this setting by disabling the **Router uses TLS to verify application identity** checkbox in the **Networking** pane of the PAS tile.
 Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to maintain its routing table.
@@ -184,7 +184,7 @@ processes.
 
 ### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
 
-Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure this feature, enable the **Include container metrics in Syslog Drains** checkbox in the **System Logging** pane of the PAS tile.
+Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile.
 
 ### <a id='saml-uaa'></a> Custom SAML Entity ID for Tiles
 
@@ -199,21 +199,9 @@ If multiple CF user accounts from different origins share a username, the comman
 
 You can now use JSON for key-value entries in the Apps Manager UI.
 
-### <a id='infrastructure-route'></a> Apps Manager Displays Infrastructure Route
-
-Apps Manager now displays your infrastructure route in the Apps Manager UI.
-
-### <a id='network-policy'></a> Use App Network Policies in Apps Manager
-
-You can now configure apps to use network policies through the Apps Manager UI.
-
 ### <a id='view-processes'></a> View and Scale Processes in Apps Manager
 
 You can now view and scale processes in the Apps Manager UI.
-
-### <a id='process-types'></a> Apps Manager Supports Multiple Process Types
-
-Apps Manager now supports multiple process types.
 
 ## <a id='adv-features'></a> About Advanced Features
 
