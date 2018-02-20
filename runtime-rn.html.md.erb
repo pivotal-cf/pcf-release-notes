@@ -962,7 +962,7 @@ Deleting the IP address means that BOSH system metrics will no longer be sent to
 
 ### <a id='truncated-logs'></a> Truncated Syslog Messages
 
-<p class='note'><strong>Note:</strong> This issue is remediated when you select the <strong>Use TCP for file forwarding local transport</strong>option. For more information, see <a href="../docs-pcf-install/installing-pcf-is.html#syslog">System Logging</a>.</p>
+<p class='note'><strong>Note:</strong> This issue is remediated when you select the <strong>Use TCP for file forwarding local transport</strong>option. For more information, see <a href="../customizing/installing-pcf-is.html#syslog">System Logging</a>.</p>
 
 If the total length of a syslog message transported locally from a PCF system component (for example, the Cloud Controller or a Diego cell) is greater than 1,024 bytes, the packet is truncated before it reaches RSYSLOG installed on every BOSH VM instance.
 
