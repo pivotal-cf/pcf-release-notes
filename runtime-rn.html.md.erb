@@ -15,6 +15,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 * **[Security Fix]** Bump apps-manager-release to v661.1.41 to fix vulnerability that allowed arbitrary file access on server.
 * **[Bug Fix]** Patch diego-release to allow HTTP-based health check on an HTTP endpoint that expects TLS-terminated traffic.
+* **[Bug Fix]** Bumps java-offline-buildpack to v4.8 to address an issue with multiple java-offline-buildpacks being included, which may cause deployments to have different versions of java-offline-buildpack installed.
 * Bump buildpacks to latest versions, including:
   * dotnet-core-offline-buildpack to v2.0.1.
   * go-offline-buildpack to v1.8.16.
