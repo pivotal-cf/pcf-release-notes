@@ -479,7 +479,7 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
 * **[Feature Improvement]** Application containers can be configured not to use
   BOSH DNS with the **Disable BOSH DNS server for troubleshooting purposes** checkbox
   on the director config in Ops Manager.
-* **[Bug Fix]** Bumps java-offline-buildpack to v4.7.1 to use less disk space.
+* **[Bug Fix]** Bumps java-offline-buildpack to v4.7.1 to address an issue with multiple java-offline-buildpacks being included, which may cause deployments to have different versions of java-offline-buildpack installed.
 * **[Feature]** Bumps garden-runc-release to v1.10.0:
   * It is now possible to specify a `ProcessSpec.Image`. Processes can now have their own filesystem view. 
     * Limitation: It is only possible to use `ProcessSpec.Image` and `ProcessSpec.OverrideContainerLimits` with unprivileged containers.  
