@@ -71,12 +71,11 @@ To install a PCF Isolation Segment, you must first install PCF v2.1.
 
 ## <a id='2.1.0'></a> New Features in PCF Isolation Segment v2.1
 
-### <a id='route-consistency'></a> Improved Resiliency and Consistency for App Routes
+### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
 
-Gorouter now uses TLS to verify app identity by default.
-This improves resiliency and consistency for app routes.
-For more information about how Gorouter prevents misrouting,
-see [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency).
+Gorouter now uses TLS to verify app identity and communicate with app containers by default.
+This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.
+For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io//pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end) and [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency).
 
 You can change this setting by disabling the **Router uses TLS to verify application identity** checkbox in the **Networking** pane of the PCF Isolation Segment tile.
 Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to maintain its routing table.
