@@ -156,8 +156,17 @@ Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to ma
 
 ### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Backends Enabled by Default
 
-In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox.
-The checkbox is enabled by default, and the maximum number of idle keepalive connections maintained by Gorouter to all backends is set to 49,000. This improves routing performance.
+In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the Configuring PAS topic for your IaaS:
+
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#networking)
+
+To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to backends.
+The maximum number of idle keepalive connections maintained by Gorouter to all backends is set to 49,000.
+For more information, see [Router Backend Keepalive Connections](https://docs.pivotal.io/pivotalcf/adminguide/routing-keepalive.html) and [Keepalive Connections](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#keepalive).
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
 
