@@ -1,0 +1,48 @@
+---
+title: PAS for Windows v2.1 Release Notes
+owner: Garden Windows
+---
+
+This topic contains release notes for Pivotal Application Service (PAS) for Windows.
+
+Pivotal Cloud Foundry (PCF) also has a runtime for .NET apps based on Windows Server 2012R2. See the PAS for Windows 2012R2 release notes [here](./windows-2012r2-rn.html).
+
+<p class='note'><strong>Note:</strong> Elastic Runtime has been renamed Pivotal Application Service.</p>
+
+## <a id='releases'></a> Releases
+
+## <a id='upgrade'></a>How to Upgrade
+
+The Pivotal Application Service (PAS) for Windows v2.1 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.1. To use the PAS for Windows tile, you need Ops Manager v2.1 or later and PAS v2.1 or later.
+
+For how to migrate your apps with no downtime from PAS for Windows 2012R2 cells to PAS for Windows cells, see [Migrating Apps to PAS for Windows](../windows/migrating.html).
+
+## <a id='new-features'></a> New Features in PAS for Windows v2.1
+
+### <a id="cf-ssh"></a> CF SSH
+
+Developers can use the SSH command with the Cloud Foundry CLI to enter a secure shell session in the app container. SSH is used for remote system access and administration and improves security.
+
+### <a id="autoscale"></a> Full Autoscale Support
+
+CPU load based auto-scaling is now functional. Load balancing enables dynamically-allocated resources to match performance requirements. 
+
+### <a id="context-path-routing"></a> Context Path Routing
+
+Users and ASP.net apps can now use the [Cloud Foundry](https://www.cloudfoundry.org/blog/context-path-routing/) feature for microservices.
+
+### <a id="url-rewrite"></a> Support for URL Rewrite Module
+
+The HWC buildpack included in this version supports the IIS rewrite module through web.config. This enables developers to more easily configure and manage web addresses.
+
+### <a id="cpu-limits"></a> CPU Shared Limits for Containers
+
+CPU workloads are balanced across the hosts, which helps with provisioning and performance.
+
+### <a id="instance-limits"></a> App Instance Limits
+
+Previously in Windows 2012R2, Diego Cells had a maximum of 40 app instances per cell. This is not the case in PAS for Windows, which gives developers more control and range in their containers.
+
+## <a id='known-issues'></a> Known Issues
+
+None (new product).
