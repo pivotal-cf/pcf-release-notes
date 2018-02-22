@@ -7,11 +7,21 @@ This topic includes release notes for Windows stemcells used with Pivotal Applic
 
 To download a stemcell, see the [Stemcells for PCF (Windows)](https://network.pivotal.io/products/stemcells-windows-server) on Pivotal Network. 
 
+## <a id="1200.15"></a>1200.15		
+		
+**Release Date**: Febuary 21, 2018		
+
+* Intended for use with February 2018 Microsoft security updates.
+* Increase Window's Service Start timeout [Tracker Story](https://www.pivotaltracker.com/story/show/154808080)
+* This stemcell is intended for use with <a href="https://support.microsoft.com/en-gb/help/4056898/windows-81-update-kb4056898">KB4056898</a>, which includes security improvements that address <a href="https://support.microsoft.com/en-gb/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution">speculative execution side-channel vulnerabilities</a>. See Microsoft's <a href="https://support.microsoft.com/en-us/help/4056898/windows-81-update-kb4056898">Known Issues</a> for this patch.
+* For vSphere, you must install the patch manually because it was not available through Windows Update when the patch was initially shipped. In addition, you must manually enable the patch. See <a href="https://github.com/cloudfoundry-incubator/bosh-windows-stemcell-builder/wiki/Creating-a-vSphere-Stemcell-by-Hand">Creating a vSphere Stemcell by Hand</a> for information about installing the patch.
+
 ## <a id="1200.14"></a>1200.14		
 		
 **Release Date**: Febuary 13, 2018		
 		
 * [Bug Fix] Fixes issue with OpenSSH 0.0.24
+* This stemcell is intended for use with <a href="https://support.microsoft.com/en-gb/help/4056898/windows-81-update-kb4056898">KB4056898</a>, which includes security improvements that address <a href="https://support.microsoft.com/en-gb/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution">speculative execution side-channel vulnerabilities</a>. See Microsoft's <a href="https://support.microsoft.com/en-us/help/4056898/windows-81-update-kb4056898">Known Issues</a> for this patch.
 * For vSphere, you must install the patch manually because it was not available through Windows Update when the patch was initially shipped. In addition, you must manually enable the patch. See <a href="https://github.com/cloudfoundry-incubator/bosh-windows-stemcell-builder/wiki/Creating-a-vSphere-Stemcell-by-Hand">Creating a vSphere Stemcell by Hand</a> for information about installing the patch.
 
 ## <a id="1200.13"></a>1200.13		
