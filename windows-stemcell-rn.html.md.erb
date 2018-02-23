@@ -21,6 +21,7 @@ To download a stemcell, see the [Stemcells for PCF (Windows)](https://network.pi
 		
 **Release Date**: Febuary 13, 2018		
 		
+* Mitigates <a href="https://www.cloudfoundry.org/blog/cve-2018-1197">CVE-2018-1197: GCP Metadata Endpoint Accessible from Application Containers on Windows</a>
 * [Bug Fix] Fixes issue with OpenSSH 0.0.24
 * This stemcell is intended for use with <a href="https://support.microsoft.com/en-gb/help/4056898/windows-81-update-kb4056898">KB4056898</a>, which includes security improvements that address <a href="https://support.microsoft.com/en-gb/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution">speculative execution side-channel vulnerabilities</a>. See Microsoft's <a href="https://support.microsoft.com/en-us/help/4056898/windows-81-update-kb4056898">Known Issues</a> for this patch.
 * For vSphere, you must install the patch manually because it was not available through Windows Update when the patch was initially shipped. In addition, you must manually enable the patch. See <a href="https://github.com/cloudfoundry-incubator/bosh-windows-stemcell-builder/wiki/Creating-a-vSphere-Stemcell-by-Hand">Creating a vSphere Stemcell by Hand</a> for information about installing the patch.
