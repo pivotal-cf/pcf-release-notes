@@ -17,7 +17,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='2.0.6'></a> 2.0.6
 
-* **[Bug Fix]** Patch routing-release to close websockets when server response is not 101.
+* **[Security Fix]** Patch routing-release for [CVE-2018-1221](https://www.cloudfoundry.org/blog/cve-2018-1221/).
 * **[Bug Fix]** Enable privileged containers to support upgrading from ERT 1.11 with apps that specify privileged containers.
 * **[Bug Fix]** Fix to ensure that Diego rep will always exit during evacuation, even if Garden `destroy` hangs during evacuation.
 * **[Feature Improvements]** Bump mysql-backup-release to v2 in recognition of the fact that v1.38.0 required TLS. See other changes [here](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#backup-2.1.0)

@@ -7,7 +7,7 @@ owner: Release Engineering
 
 ### <a id='2.0.5'></a> 2.0.5
 
-* **[Bug Fix]** Patch routing-release to close websockets when server response is not 101.
+* **[Security Fix]** Patch routing-release for [CVE-2018-1221](https://www.cloudfoundry.org/blog/cve-2018-1221/).
 * **[Bug Fix]** Enable privileged containers to support upgrading from ERT 1.11 with apps that specify privileged containers.
 * **[Bug Fix]** Fix to ensure that Diego rep will always exit during evacuation, even if Garden `destroy` hangs during evacuation.
 * **[Feature Improvements]** New option in the Networking page to allow operators to enable Gorouter support for the PROXY protocol. This is disabled by default.
