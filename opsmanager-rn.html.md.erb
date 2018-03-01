@@ -1111,6 +1111,12 @@ To view the release page for this stemcell, see the [stemcell 3421.3 release not
 
 This section lists known issues for Ops Manager 1.11.
 
+###<a id='read-only'></a>Read-only Mounts Show as rw and Not ro in Services Configuration
+
+When an Operator issues a `cf bind-service` command, Volume Services mounts a read-write filesystem by default. You can configure Volume Services to mount a read-only mount by adding `"readonly":true` to the bind configuration JSON string.
+
+Due to an underlying kernel defect, read-only NFS mounts show as `"mode": "rw"`, not `"mode": "ro"`.
+
 ###<a id='services-network'></a>On-Demand Services Require Dedicated Service Networks
 
 If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
