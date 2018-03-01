@@ -153,19 +153,29 @@ Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to ma
 
 In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the Configuring PAS topic for your IaaS:
 
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#networking)
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
 
 To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to backends.
 The maximum number of idle keepalive connections maintained by Gorouter to all backends is set to 49,000.
-For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#keepalive).
+For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive).
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
 
 You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
+
+### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for GoRouter and HAProxy
+
+The **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields in the **Networking** pane are now pre-populated with the default value. For more information about configuring TLS cipher suites for GoRouter and HAProxy, see the PAS configuration topic for your IaaS:
+
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking) 
 
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
 
