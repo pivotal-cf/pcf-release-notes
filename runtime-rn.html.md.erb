@@ -2096,6 +2096,18 @@ When creating a new service in Apps Manager, developers can discover additional 
 
 ##<a id='knownissues'></a> Known Issues
 
+### <a id='failure-to-run-privileged-container-apps'></a> Cells Using Grootfs Fail to Run Privileged-Container Apps
+
+In Elastic Runtime v1.12.0 through v1.12.14, Diego cells using the new Grootfs component fail to run application instances whose internal specifications required a privileged container. This defect affects buildpack-based applications last started on Elastic Runtime v1.8 or earlier.
+
+To resolve this issue, take any one of the following actions:
+
+* Deploy Elastic Runtime v1.12.15 or later,
+* Redeploy Elastic Runtime wih Grootfs disabled, or
+* Manually restart any apps that are affected.
+
+<!-- to add later: link to KB article with more information -->
+
 ### <a id='credhub-restart'></a> Manual CredHub Restart Required During an Elastic Runtime Redeploy
 
 In Elastic Runtime v1.12.0, the BOSH Backup and Restore (BBR) script does not restart the CredHub process. When following the [Restoring Pivotal Cloud Foundry from Backup with BBR](https://docs.pivotal.io/pivotalcf/1-12/customizing/backup-restore/restore-pcf-bbr.html#redeploy-ert) procedure, the Elastic Runtime redeploy fails after clicking **Apply Changes** since CredHub requires a restart.
