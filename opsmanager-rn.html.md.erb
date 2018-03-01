@@ -460,3 +460,12 @@ Ops Manager v2.0 supports specifying and rendering named manifests in a collecti
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where changes could not be applied until BOSH Director was deployed.
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where the dashboard took a long time to load.
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where BOSH Director failed to create certifications because the BOSH agent certification was created for the wrong network.
+
+##<a id='knownissues'></a> Known Issues
+
+###<a id='read-only'></a>Read-only Mounts Show as rw and Not ro in Services Configuration
+
+When an Operator issues a `cf bind-service` command, Volume Services mounts a read-write filesystem by default. You can configure Volume Services to mount a read-only mount by adding `"readonly":true` to the bind configuration JSON string.
+
+Due to an underlying kernel defect, read-only NFS mounts show as `"mode": "rw"`, not `"mode": "ro"`.
+
