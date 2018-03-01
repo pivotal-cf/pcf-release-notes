@@ -1055,6 +1055,18 @@ Operators can now enable self-service network policies for Space Developers. Pri
 
 ##<a id='knownissues'></a> Known Issues
 
+### <a id='grootfs-cells-fail-to-run-privileged-container-apps'></a> Cells Using Grootfs Fail to Run Privileged-Container Apps
+
+In PAS v2.0.0 through v2.0.5, Diego cells using the Grootfs component fail to run application instances whose internal specifications require a privileged container. This defect affects buildpack-based applications last started on Elastic Runtime v1.8 or earlier.
+
+To resolve this issue, take any one of the following actions:
+
+* Deploy PAS v2.0.6 or later,
+* Redeploy PAS wih Grootfs disabled, or
+* Manually restart any apps that are affected.
+
+<!-- to add later: link to KB article with more information -->
+
 ### <a id='tasks'></a> Tasks Unreliable
 
 There is a bug in the Cloud Controller that affects the operation of tasks. Any time a user runs a task, the following may happen:
