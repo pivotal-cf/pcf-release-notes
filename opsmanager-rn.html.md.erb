@@ -254,3 +254,12 @@ In the vSphere configuration dashboard, you can now add multiple clusters to an 
 In the **Create Networks** pane of Ops Manager, you can add additional subnets to your network. Each AZ can now have more than one subnet.
 
 This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](http://docs.pivotal.io/pivotalcf/2-1/customizing/add-subnets.html).
+
+##<a id='knownissues'></a> Known Issues
+
+###<a id='read-only'></a>Read-only Mounts Show as rw and Not ro in Services Configuration
+
+When an Operator issues a `cf bind-service` command, Volume Services mounts a read-write filesystem by default. You can configure Volume Services to mount a read-only mount by adding `"readonly":true` to the bind configuration JSON string.
+
+Due to an underlying kernel defect, read-only NFS mounts show as `"mode": "rw"`, not `"mode": "ro"`.
+
