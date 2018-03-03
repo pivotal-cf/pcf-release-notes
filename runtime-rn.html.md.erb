@@ -167,9 +167,14 @@ For more information, see [Keepalive Connections](https://docs.pivotal.io/pivota
 
 You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
 
-### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for GoRouter and HAProxy
+### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for Gorouter and HAProxy
 
-The **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields in the **Networking** pane are now pre-populated with the default value. For more information about configuring TLS cipher suites for GoRouter and HAProxy, see the PAS configuration topic for your IaaS:
+For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields in the **Networking** pane are automatically populated with the following default values:
+
+* Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+* HAProxy: `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+
+For information about configuring these fields, see the PAS configuration topic for your IaaS:
 
 * [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
 * [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
@@ -182,7 +187,7 @@ The **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** field
 This release changes how PAS runs app health checks to improve
 system performance in resource-constrained environments, such as on-premise
 installations of PAS. This change does not impact the developer workflow for
-[configuring app health checks](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/healthchecks.html).
+[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
 
 Previously, health checks during app startup increased system load because they
 ran as a Garden process every two seconds. In addition, apps that started successfully

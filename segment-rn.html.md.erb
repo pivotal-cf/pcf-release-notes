@@ -82,11 +82,11 @@ Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to ma
 
 ### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Backends Enabled by Default
 
-In PCF Isolation Segment v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PCF Isolation Segment tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/customizing/installing-pcf-is.html#networking).
+In PCF Isolation Segment v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PCF Isolation Segment tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking).
 
 To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to backends.
 The maximum number of idle keepalive connections maintained by Gorouter to all backends is set to 49,000.
-For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html#keepalive).
+For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive).
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
 
@@ -97,7 +97,7 @@ You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
 This release changes how PCF Isolation Segment runs app health checks to improve
 system performance in resource-constrained environments, such as on-premise
 installations of PCF. This change does not impact the developer workflow for
-[configuring app health checks](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/healthchecks.html).
+[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
 
 Previously, health checks during app startup increased system load because they
 ran as a Garden process every two seconds. In addition, apps that started successfully
