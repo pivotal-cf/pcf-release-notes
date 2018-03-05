@@ -205,6 +205,14 @@ With the new stemcell manager, you can import stemcells, stage stemcells, and vi
 
 For more information on the new stemcell manager, see [Importing and Managing Stemcells](http://docs.pivotal.io/2-1/opsguide/managing-stemcells.html).
 
+### <a id="custom-vm-extensions"></a> Create Custom VM Extensions
+
+You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information on custom VM extensions, see [Managing Custom VM Extensions](http://docs.pivotal.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
+
+### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
+
+For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
+
 ### <a id="credhub-hsm"></a> Configure an External CredHub Encyption Provider
 
 In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal storage or a Luna Hardware Security Module (HSM). For more information on configuring your CredHub encryption provider, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
@@ -215,27 +223,15 @@ Ops Manager users with **Full View** and **Restricted View** permissions can be 
 
 For security purposes, operators with write access still cannot be logged into Ops Manager simultaneously. For more information on operator roles and permissions, see [Configuring Role-Based Access Control (RBAC) in Ops Manager](http://docs.pivotal.io/pivotalcf/opsguide/config-rbac.html).
 
+### <a id="custom-banner"></a> Custom Banner Available for Web Apps and Ops Manager
+
+From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-interface.html#settings).
+
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
 You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of *Configuring Ops Manager Director on GCP*.
 
 <p class="note"><strong>Note: </strong>After you deploy Ops Manager, you cannot change the blobstore location.</p>
-
-### <a id="custom-vm-extensions"></a> Create Custom VM Extensions
-
-You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information on custom VM extensions, see [Managing Custom VM Extensions](http://docs.pivotal.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
-
-### <a id="ip-discontinued"></a> IP Address Management (IPAM) Removed
-
-Ops Manager no longer allows operators to allocate or manage IPs. Instead, only the BOSH Director manages IP allocation. This change is to keep IP management in one central location without redundancy. To learn more about BOSH Director and how it handles both networks and IPs, see [Dynamic Networks](https://bosh.io/docs/networks.html) in the BOSH documentation.
-
-### <a id="custom-banner"></a> Custom Banner Available for Web Apps and Ops Manager
-
-From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-interface.html#settings).
-
-### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
-
-For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
 
 ### <a id="azure-application-gateway"></a> Integrate Azure Application Gateway Load Balancers
 
@@ -255,11 +251,8 @@ In the **Create Networks** pane of Ops Manager, you can add additional subnets t
 
 This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](http://docs.pivotal.io/pivotalcf/2-1/customizing/add-subnets.html).
 
-##<a id='knownissues'></a> Known Issues
+### <a id="ip-discontinued"></a> IP Address Management (IPAM) Removed
 
-###<a id='read-only'></a>Read-only Mounts Show as rw and Not ro in Services Configuration
+Ops Manager no longer allows operators to allocate or manage IPs. Instead, only the BOSH Director manages IP allocation. This change is to keep IP management in one central location without redundancy. To learn more about BOSH Director and how it handles both networks and IPs, see [Dynamic Networks](https://bosh.io/docs/networks.html) in the BOSH documentation.
 
-When an Operator issues a `cf bind-service` command, Volume Services mounts a read-write filesystem by default. You can configure Volume Services to mount a read-only mount by adding `"readonly":true` to the bind configuration JSON string.
-
-Due to an underlying kernel defect, read-only NFS mounts show as `"mode": "rw"`, not `"mode": "ro"`.
 
