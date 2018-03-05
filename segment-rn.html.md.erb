@@ -92,6 +92,27 @@ For more information, see [Keepalive Connections](https://docs.pivotal.io/pivota
 
 You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
 
+### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for Gorouter and HAProxy
+
+For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
+fields in the **Networking** pane are automatically populated with the following values:
+
+* Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+* Defaults for HAProxy: `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+
+<p class='note'><strong>Note:</strong> AWS Classic Load Balancers do not support the Gorouter default cipher suites.
+For information about configuring Classic Load Balancers, see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#ciphers">TLS Cipher Suite Support</a>.</p>
+
+For upgrades, PAS populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PAS tile.
+For information about configuring these fields, see the PAS configuration documentation for your IaaS:
+
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
+
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
 
 This release changes how PCF Isolation Segment runs app health checks to improve
