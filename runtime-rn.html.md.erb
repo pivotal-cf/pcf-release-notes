@@ -226,6 +226,18 @@ You can now use JSON for key-value entries in the Apps Manager UI.
 
 You can now view and scale processes in the Apps Manager UI.
 
+### <a id='autoscaler-cli'></a> App Autoscaler CLI
+
+The App Autoscaler CLI lets you create and manage App Autoscaler rules from a shell or programmatically, as an alternative to the **PCF App Autoscaler** UI in Apps Manager. See [Using the App Autoscaler CLI](../appsman-services/autoscaler/using-autoscaler-cli.html) for details.
+
+The App Autoscaler CLI has the following [known issues](../appsman-services/autoscaler/using-autoscaler-cli.html#issues):
+
+* It does not work when more than one Autoscaler instance is running in the same space.
+
+* It cannot enable and disable scaling rules or create scheduled limit changes, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
+
+* It may output odd characters when the `CF_COLOR` environment variable is not set to `false` in monochrome shell windows.
+
 ### <a id=‘log-ordering’></a> Loggregator Log Ordering
 
 Ensuring log ordering in drains can be an important consideration for both operators and developers. Diego uses a nanosecond-based timestamp that can be ingested properly by Splunk. For more information, see [these instructions](https://answers.splunk.com/answers/1946/time-format-and-subseconds.html).
