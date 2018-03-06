@@ -245,14 +245,26 @@ To learn more about configuring your load balancer for Azure, see the [Resource 
 
 In the vSphere configuration dashboard, you can now add multiple clusters to an Availability Zone (AZ) with the new **Add Cluster** button. For more information on configuring AZs, see [Create Availability Zone Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/vsphere-config.html#create-az) in the _Configuring Ops Manager on vSphere_ topic.
 
+### <a id="ip-discontinued"></a> IP Address Management (IPAM) Removed
+
+Ops Manager no longer reserves a range of IPs for dynamic allocation. Instead, only the BOSH Director manages IP allocation. This change is to keep IP management in a central location without redundancy.
+
+As a result of removing IPAM from Ops Manager, see the following changes:
+
+- Ops Manager no longer picks and reserves a range of static IPs. IP allocation is handled by BOSH.
+- To optionally reserve specific IPs, enter IPs in the **Static IPs** pane of your product tile.
+- With restrictions now removed, you have more options to expand your network. See [Expand Your Network with Additional Subnets](#add-subnets) below.
+- The **Service Network** checkbox in the **Create Networks** pane has been removed.
+- You will get an ignorable warning when you click **Apply Changes** if the **Static IPs** you enter for your tile are not in the same network or AZ that is assigned to the tile.
+- You will get an ignorable warning when you click **Apply Changes** if the **Static IPs** you enter for your tile overlap with other tiles.
+- You will get an ignorable warning when you click **Apply Changes** if you enter a CIDR range that is not large enough to deploy the staged tiles.
+- For tile authors, `static_ip` and `dynamic_ip` are now ignored. Ops Manager gets static IPs from the `static_ips` property.
+
+
 ### <a id="add-subnets"></a> Expand Your Network with Additional Subnets
 
 In the **Create Networks** pane of Ops Manager, you can add additional subnets to your network. Each AZ can now have more than one subnet.
 
 This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](http://docs.pivotal.io/pivotalcf/2-1/customizing/add-subnets.html).
-
-### <a id="ip-discontinued"></a> IP Address Management (IPAM) Removed
-
-Ops Manager no longer allows operators to allocate or manage IPs. Instead, only the BOSH Director manages IP allocation. This change is to keep IP management in one central location without redundancy. To learn more about BOSH Director and how it handles both networks and IPs, see [Dynamic Networks](https://bosh.io/docs/networks.html) in the BOSH documentation.
 
 
