@@ -199,11 +199,16 @@ Ops Manager v2.1 uses the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v2.1
 
-### <a id="stemcell-manager"></a> New Stemcell Manager
+### <a id="stemcell-manager"></a> Stemcell Library
 
-With the new stemcell manager, you can import stemcells, stage stemcells, and view the stemcell versions associated with each product. In Ops Manager v2.0 and earlier, stemcell management capabilites are located within each tile. For v2.1, the stemcell manager is centrally located in the **Installation Dashboard** for all products.
+Use the new Stemcell Library to import stemcells, stage stemcells, and view the 
+stemcell versions associated with each product. 
 
-For more information on the new stemcell manager, see [Importing and Managing Stemcells](http://docs.pivotal.io/2-1/opsguide/managing-stemcells.html).
+In Ops Manager v2.0 and earlier, stemcell management capabilities are located 
+within each tile. 
+For v2.1, the Stemcell Library provides centralized stemcell management from the **Installation Dashboard** used for all products.
+
+For more information about the Stemcell Library, see [Importing and Managing Stemcells](http://docs.pivotal.io/2-1/opsguide/managing-stemcells.html).
 
 ### <a id="custom-vm-extensions"></a> Create Custom VM Extensions
 
@@ -213,7 +218,7 @@ You can create and manage custom VM extensions through the Ops Manager API. Cust
 
 For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
 
-### <a id="credhub-hsm"></a> Configure an External CredHub Encyption Provider
+### <a id="credhub-hsm"></a> Configure an External CredHub Encryption Provider
 
 In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal storage or a Luna Hardware Security Module (HSM). For more information on configuring your CredHub encryption provider, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
 
