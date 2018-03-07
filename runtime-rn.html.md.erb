@@ -145,7 +145,6 @@ BBR can back up external blobstores that are S3-compatible and have versioning e
 ### <a id='cc-blobstore'></a> Cloud Controller Blobstore on GCS Supports Service Accounts
 
 PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob storage and backup. For more information, see [Fog with Google Cloud Storage with a Service Account](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-gcs-service-account).
->>>>>>> d15d38c... Added several items [#154492986]
 
 ### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
 
@@ -222,10 +221,6 @@ as a long-lived process in the app container. Developers may see these
 processes if they access an app container using the `cf ssh` command and list the
 processes.
 
-### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
-
-Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile.
-
 ### <a id='saml-uaa'></a> Custom SAML Entity ID for Tiles
 
 To enable tiles to set a custom SAML entity ID, independent of whether PAS itself uses an external SAML identity provider,
@@ -293,7 +288,7 @@ For more information on how to modify your Java log output, see [Multi-line Java
 
 ### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
 
-You can now enable container metrics to be forwarded to your syslog and included in syslog drains.
+Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile.
 
 ### <a id='noisy-neighbor-nozzle'></a> Noisy Neighbor Nozzle
 
