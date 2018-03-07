@@ -122,7 +122,7 @@ Foundry](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/upgrading-p
 
 When upgrading to v2.1, be aware of the following upgrade considerations:
 
-* To successfully upgrade to PAS v2.1, you must first upgrade to a version of Elastic Runtime v1.12.
+* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.0 to successfully upgrade to PAS v2.1.
 
 * Some partner service tiles may be incompatible with PCF v2.1. Pivotal is
   working with partners to ensure their tiles are updated to work with the
@@ -137,6 +137,15 @@ When upgrading to v2.1, be aware of the following upgrade considerations:
 ### <a id='blobstore-encryption'></a> Support for S3 Server-Side Encryption with AWS KMS
 
 Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This configuration is optional. For more information, see [Manually Configuring PAS for AWS](http://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#file-store-config).
+
+### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
+
+BBR can back up external blobstores that are S3-compatible and have versioning enabled. To use this feature, make sure you have [BBR v1.4.1](https://github.com/cloudfoundry-incubator/backup-and-restore-sdk-release/releases/tag/v1.4.1) or higher installed.
+
+### <a id='cc-blobstore'></a> Cloud Controller Blobstore on GCS Supports Service Accounts
+
+PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob storage and backup. For more information, see [Fog with Google Cloud Storage with a Service Account](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-gcs-service-account).
+>>>>>>> d15d38c... Added several items [#154492986]
 
 ### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
 
@@ -185,6 +194,14 @@ For information about configuring these fields, see the PAS configuration docume
 * [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
 * [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
 * [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
+
+### <a id='named-service-bindings'></a> Naming a Service Binding
+
+You now have the option of giving your service binding a name when you create it.
+
+### <a id='runtime-credhub-hsm'></a> HSM Supports Runtime CredHub
+
+You can configure an HSM provider for Runtime CredHub through Ops Manager.
 
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
 
@@ -248,17 +265,48 @@ The App Autoscaler CLI has the following [known issues](https://docs.pivotal.io/
 
 * It may output odd characters when the `CF_COLOR` environment variable is not set to `false` in monochrome shell windows.
 
-### <a id=‘log-ordering’></a> Loggregator Log Ordering
+### <a id='create-internal-roles'></a> Create Internal Roles in Apps Manager
+
+You can now create internal roles in Apps Manager.
+
+### <a id='app-to-app'></a> Create App-to-App Networking Policies in Apps Manager
+
+You can now create app-to-app networking policies in Apps Manager.
+
+### <a id='multipe-process-types'></a> Multiple Process Types and Granular Controls
+
+PCF Metrics and PCF Autoscaler support multiple process types and granular controls.
+
+### <a id=‘log-ordering’></a> Log Ordering
 
 Ensuring log ordering in drains can be an important consideration for both operators and developers. Diego uses a nanosecond-based timestamp that can be ingested properly by Splunk. For more information, see [these instructions](https://answers.splunk.com/answers/1946/time-format-and-subseconds.html).
 
 The Elastic Stack can ingest the nanosecond timestamps but only supports millisecond precision, so timestamps are truncated. For more information, see [ELK's date type](https://www.elastic.co/guide/en/elasticsearch/reference/current/date.html) and the relevant [issue](https://github.com/elastic/elasticsearch/issues/10005).
 
-### <a id=‘multi-line-stack-traces’></a> Loggregator Multi-Line Stack Traces as a Single Log Entity
+### <a id=‘multi-line-stack-traces’></a> Multi-Line Stack Traces as a Single Log Entity
 
 You can now see your multi-line stack traces as a single log entity instead of broken up into multiple log messages. By modifying the Java log output, you can make your app reformat your stack trace messages so any newline characters are replaced with a token, then have your log parsing code replace that token with newline characters again.
 
 For more information on how to modify your Java log output, see [Multi-line Java message workaround](https://github.com/cloudfoundry/loggregator-release/blob/develop/docs/java-multi-line-work-around.md).
+
+### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
+
+You can now enable container metrics to be forwarded to your syslog and included in syslog drains.
+
+### <a id='noisy-neighbor-nozzle'></a> Noisy Neighbor Nozzle
+
+The Noisy Neighbor Nozzle is a Loggregator Firehose nozzle and CLI tool to help you identify applications producing a large number of logs -- i.e. "noise".
+
+For more information and to deploy this nozzle, see [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle).
+
+### <a id='emit-events'></a> Emit Runtime Components and Services Events Into Loggregator
+
+Runtime components and services can emit events into Loggregator. This allows you to easily distinguish and classify important events separately from streams for logs or consistently emitted metrics.
+
+### <a id='selector-based'></a> Selector-Based Subscripton Model and Reference Nozzle
+
+You can request Firehose subscriptions that filter out all unspecified content using the Loggregator v2 API endpoint from the Reverse Log Proxy. In addition, the reference nozzle uses the Loggregator V2 API and consumes only specified whitelisted metrics.
+>>>>>>> d15d38c... Added several items [#154492986]
 
 ### <a id='shared-instances'></a> Service Instance Sharing (Beta)
 
