@@ -22,7 +22,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr>
   </thead>
   <tbody>
-  <!--- <tr>
+  <tr>
     <td>Stemcell</td><td>3468.13</td>
   </tr><tr>
     <td>backup-and-restore-sdk</td><td>1.2.1</td>
@@ -106,7 +106,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
     <td>syslog-migration</td><td>10</td>
   </tr><tr>
     <td>uaa</td><td>52.4</td>
-  </tr> -->
+  </tr>
   </tbody>
   <tfoot>
   <tr>
@@ -136,7 +136,7 @@ When upgrading to v2.1, be aware of the following upgrade considerations:
 
 ### <a id='blobstore-encryption'></a> Support for S3 Server-Side Encryption with AWS KMS
 
-Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This configuration is optional. For more information, see [Manually Configuring PAS for AWS](http://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#file-store-config).
+Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This is an optional configuration in the **File Storage** configuration pane in PAS. For more information, see [Manually Configuring PAS for AWS](http://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#file-store-config).
 
 ### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
 
