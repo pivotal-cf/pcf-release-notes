@@ -226,6 +226,16 @@ You can now use JSON for key-value entries in the Apps Manager UI.
 
 You can now view and scale processes in the Apps Manager UI.
 
+### <a id='autoscaler-metrics'></a> App Autoscaler Metrics
+
+The App Autoscaler can use two new metrics for automatically scaling app instance counts:
+
+* **Memory Utilization**: The average RAM percentage used for all instances of the app.
+
+* **RabbitMQ Depth**: The length of a specified RabbitMQ queue.
+
+See [Scaling Rules](http://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#metric) for additional context.
+
 ### <a id='autoscaler-cli'></a> App Autoscaler CLI
 
 The App Autoscaler CLI lets you create and manage App Autoscaler rules from a shell or programmatically, as an alternative to the **PCF App Autoscaler** UI in Apps Manager. See [Using the App Autoscaler CLI](https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html) for details.
