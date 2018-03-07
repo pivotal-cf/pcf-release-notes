@@ -261,7 +261,9 @@ The App Autoscaler CLI has the following [known issues](https://docs.pivotal.io/
 
 * It does not work when more than one Autoscaler instance is running in the same space.
 
-* It cannot enable and disable scaling rules or create scheduled limit changes, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
+* It cannot enable and disable individual scaling rules, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
+
+* It cannot create scheduled limit changes, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
 
 * It may output odd characters when the `CF_COLOR` environment variable is not set to `false` in monochrome shell windows.
 
