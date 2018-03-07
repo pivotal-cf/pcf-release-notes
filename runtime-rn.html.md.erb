@@ -1,0 +1,295 @@
+---
+title: Pivotal Application Service v2.1 Release Notes
+owner: Release Engineering
+---
+
+Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+
+Read more about the [certified provider
+program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
+providers](https://www.cloudfoundry.org/provider-requirements/).
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+### <a id='2.1.0'></a> 2.1.0
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!--- <tr>
+    <td>Stemcell</td><td>3468.13</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.2.1</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.44.0\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>104</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.8.1</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>39</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>2</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.175.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>credhub</td><td>1.6.5</td>
+  </tr><tr>
+    <td>diego</td><td>1.29.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.30</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.4</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.13</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.30.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.2</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.6</td>
+  </tr><tr>
+    <td>loggregator</td><td>99\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.37.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.12.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.1.3</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.10</td>
+  </tr><tr>
+    <td>notifications</td><td>44</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>31</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.43</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.2</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>663.0.4</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>664.0.9</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.168.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.5</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.5</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.18</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.30</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>10</td>
+  </tr><tr>
+    <td>uaa</td><td>52.4</td>
+  </tr> -->
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+## <a id='upgrade'></a> How to Upgrade
+
+The procedure for upgrading to Pivotal Application Service (PAS) v2.1 is documented in the [Upgrading Pivotal Cloud
+Foundry](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic.
+
+When upgrading to v2.1, be aware of the following upgrade considerations:
+
+* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.0 to successfully upgrade to PAS v2.1.
+
+* Some partner service tiles may be incompatible with PCF v2.1. Pivotal is
+  working with partners to ensure their tiles are updated to work with the
+  latest versions of PCF.<br/><br/> For information about which partner service
+  releases are currently compatible with PCF v2.1, review the appropriate
+  partners services release documentation at
+  [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
+  organization that produces the tile.
+
+## <a id='new-features'></a> New Features in PAS v2.1
+
+### <a id='blobstore-encryption'></a> Support for S3 Server-Side Encryption with AWS KMS
+
+Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstore.
+
+### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
+
+BBR can back up external blobstores that are S3-compatible and have versioning enabled. To use this feature, make sure you have [BBR v1.4.1](https://github.com/cloudfoundry-incubator/backup-and-restore-sdk-release/releases/tag/v1.4.1) or higher installed.
+
+### <a id='cc-blobstore'></a> Cloud Controller Blobstore on GCS Supports Service Accounts
+
+PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob storage and backup. For more information, see [Fog with Google Cloud Storage with a Service Account](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-gcs-service-account).
+
+### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
+
+Gorouter now uses TLS to verify app identity and communicate with app containers by default.
+This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.
+For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end) and [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency).
+
+You can change this setting by disabling the **Router uses TLS to verify application identity** checkbox in the **Networking** pane of the PAS tile.
+Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to maintain its routing table.
+
+### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Backends Enabled by Default
+
+In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the Configuring PAS topic for your IaaS:
+
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
+
+To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to backends.
+The maximum number of idle keepalive connections maintained by Gorouter to all backends is set to 49,000.
+For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive).
+
+### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
+
+You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
+
+### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for Gorouter and HAProxy
+
+For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
+fields in the **Networking** pane are automatically populated with the following values:
+
+* Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+* Defaults for HAProxy: `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+
+<p class='note'><strong>Note:</strong> AWS Classic Load Balancers do not support the Gorouter default cipher suites.
+For information about configuring Classic Load Balancers, see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#ciphers">TLS Cipher Suite Support</a>.</p>
+
+For upgrades, PAS populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PAS tile.
+For information about configuring these fields, see the PAS configuration documentation for your IaaS:
+
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
+
+### <a id='named-service-bindings'></a> Naming a Service Binding
+
+You now have the option of giving your service binding a name when you create it.
+
+### <a id='runtime-credhub-hsm'></a> HSM Supports Runtime CredHub
+
+You can configure an HSM provider for Runtime CredHub through Ops Manager.
+
+### <a id='healthchecks'></a> Improved System Performance for App Health Checks
+
+This release changes how PAS runs app health checks to improve
+system performance in resource-constrained environments, such as on-premise
+installations of PAS. This change does not impact the developer workflow for
+[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
+
+Previously, health checks during app startup increased system load because they
+ran as a Garden process every two seconds. In addition, apps that started successfully
+could fail if slow system performance caused the app health check to
+time out. In some severe cases, such app failures caused additional resource
+consumption and a chain-reaction of app failures.
+
+PAS v2.1 resolves these issues through a new implementation that does not
+invoke a new process on every health check. The health check now runs
+as a long-lived process in the app container. Developers may see these
+processes if they access an app container using the `cf ssh` command and list the
+processes.
+
+### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
+
+Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile.
+
+### <a id='saml-uaa'></a> Custom SAML Entity ID for Tiles
+
+To enable tiles to set a custom SAML entity ID, independent of whether PAS itself uses an external SAML identity provider,
+the **Entity ID Override** field in the **Authentication and Enterprise SSO** pane of the PAS tile has been moved to the **UAA** pane and renamed to **SAML Entity ID Override**.
+
+### <a id='multi-user-error'></a> cf CLI Errors on Multi-Origin User Ambiguity
+
+If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](http://docs-pcf-staging.cfapps.io/2-1/cf-cli/getting-started.html#multi-origin) for details.
+
+### <a id='json'></a> Support for JSON in the Apps Manager UI
+
+You can now use JSON for key-value entries in the Apps Manager UI.
+
+### <a id='view-processes'></a> View and Scale Processes in Apps Manager
+
+You can now view and scale processes in the Apps Manager UI.
+
+### <a id='create-internal-roles'></a> Create Internal Roles in Apps Manager
+
+You can now create internal roles in Apps Manager.
+
+### <a id='app-to-app'></a> Create App-to-App Networking Policies in Apps Manager
+
+You can now create app-to-app networking policies in Apps Manager.
+
+### <a id='multipe-process-types'></a> Multiple Process Types and Granular Controls
+
+PCF Metrics and PCF Autoscaler support multiple process types and granular controls.
+
+### <a id=‘log-ordering’></a> Log Ordering
+
+Ensuring log ordering in drains can be an important consideration for both operators and developers. Diego uses a nanosecond-based timestamp that can be ingested properly by Splunk. For more information, see [these instructions](https://answers.splunk.com/answers/1946/time-format-and-subseconds.html).
+
+The Elastic Stack can ingest the nanosecond timestamps but only supports millisecond precision, so timestamps are truncated. For more information, see [ELK's date type](https://www.elastic.co/guide/en/elasticsearch/reference/current/date.html) and the relevant [issue](https://github.com/elastic/elasticsearch/issues/10005).
+
+### <a id=‘multi-line-stack-traces’></a> Multi-Line Stack Traces as a Single Log Entity
+
+You can now see your multi-line stack traces as a single log entity instead of broken up into multiple log messages. By modifying the Java log output, you can make your app reformat your stack trace messages so any newline characters are replaced with a token, then have your log parsing code replace that token with newline characters again.
+
+For more information on how to modify your Java log output, see [Multi-line Java message workaround](https://github.com/cloudfoundry/loggregator-release/blob/develop/docs/java-multi-line-work-around.md).
+
+### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
+
+You can now enable container metrics to be forwarded to your syslog and included in syslog drains.
+
+### <a id='noisy-neighbor-nozzle'></a> Noisy Neighbor Nozzle
+
+The Noisy Neighbor Nozzle is a Loggregator Firehose nozzle and CLI tool to help you identify applications producing a large number of logs -- i.e. "noise".
+
+For more information and to deploy this nozzle, see [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle).
+
+### <a id='emit-events'></a> Emit Runtime Components and Services Events Into Loggregator
+
+Runtime components and services can emit events into Loggregator. This allows you to easily distinguish and classify important events separately from streams for logs or consistently emitted metrics.
+
+### <a id='selector-based'></a> Selector-Based Subscripton Model and Reference Nozzle
+
+You can request Firehose subscriptions that filter out all unspecified content using the Loggregator v2 API endpoint from the Reverse Log Proxy. In addition, the reference nozzle uses the Loggregator V2 API and consumes only specified whitelisted metrics.
+
+### <a id='shared-instances'></a> Service Instance Sharing (Beta)
+
+PAS v2.1 supports service instance sharing across orgs and spaces. For more information, see [Sharing Service Instances (Beta)](https://docs.pivotal.io/pivotalcf/2-1/devguide/services/sharing-instances.html) and [Enabling Service Instance Sharing](https://docs.pivotal.io/pivotalcf/2-1/services/enable-sharing.html).
+
+## <a id='adv-features'></a> About Advanced Features
+
+### <a id='c2c-discovery'></a> Container-to-Container Service Discovery
+
+Apps can find each others' internal addresses using BOSH DNS, to communicate directly [container-to-container](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/cf-networking.html#discovery). Enable this feature in the PAS tile by selecting the **Enable Service Discovery for Apps** checkbox in the **Application Developer Controls** pane.
