@@ -214,9 +214,13 @@ For more information about the Stemcell Library, see [Importing and Managing Ste
 
 You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information on custom VM extensions, see [Managing Custom VM Extensions](http://docs.pivotal.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
 
-### <a id="custom-kms"></a> Add Custom Encryption Key to AWS Installation
+### <a id="custom-kms"></a> Add AWS KMS Encryption to BOSH and Ops Manager VMs
 
-For Ops Manager for AWS, operators can specify a custom Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS. To specify a KMS Key, enable **Encrypt EBS Volumes** in the **AWS Config** pane and enter your key in the new **Custom Encryption Key** field. For more information, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html). 
+Operators can specify a custom AWS Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS for BOSH VMs and the Ops Manager VM. You can use this feature to meet data-at-rest encryption requirements or as a security best practice. There is no performance penalty for using encrypted EBS volumes. Pivotal advises all users of PCF on AWS to enable encryption.
+
+To encrypt BOSH and all present and future product VMs, enable **Encrypt EBS Volumes** in the **AWS Config** pane of the BOSH director. To encrypt the Ops Manager VM, you will need to re-launch Ops Manager with a new Amazon Machine Image (AMI).
+
+For more information on how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html).
 
 ### <a id="credhub-hsm"></a> Configure an External CredHub Encryption Provider
 
