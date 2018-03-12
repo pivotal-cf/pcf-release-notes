@@ -218,7 +218,7 @@ You can create and manage custom VM extensions through the Ops Manager API. Cust
 
 Operators can specify a custom AWS Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS for BOSH VMs and the Ops Manager VM. You can use this feature to meet data-at-rest encryption requirements or as a security best practice. There is no performance penalty for using encrypted EBS volumes. Pivotal advises all users of PCF on AWS to enable encryption.
 
-To encrypt BOSH and all present and future product VMs, enable **Encrypt EBS Volumes** in the **AWS Config** pane of the BOSH director. To encrypt the Ops Manager VM, you will need to re-launch Ops Manager with a new Amazon Machine Image (AMI).
+To encrypt BOSH and all present and future product VMs, enable **Encrypt EBS Volumes** in the **AWS Config** pane of the BOSH director. To encrypt the Ops Manager VM, you need to re-launch Ops Manager with a new Amazon Machine Image (AMI).
 
 For more information on how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html).
 
@@ -264,9 +264,9 @@ As a result of removing IPAM from Ops Manager, see the following changes:
 - To optionally reserve specific IPs, enter IPs in the **Static IPs** pane of your product tile.
 - With restrictions now removed, you have more options to expand your network. See [Expand Your Network with Additional Subnets](#add-subnets) below.
 - The **Service Network** checkbox in the **Create Networks** pane has been removed.
-- You will get an ignorable warning when you click **Apply Changes** if the **Static IPs** you enter for your tile are not in the same network or AZ that is assigned to the tile.
-- You will get an ignorable warning when you click **Apply Changes** if the **Static IPs** you enter for your tile overlap with other tiles.
-- You will get an ignorable warning when you click **Apply Changes** if you enter a CIDR range that is not large enough to deploy the staged tiles.
+- You get an ignorable warning when you click **Apply Changes** if the **Static IPs** you enter for your tile are not in the same network or AZ that is assigned to the tile.
+- You get an ignorable warning when you click **Apply Changes** if the **Static IPs** you enter for your tile overlap with other tiles.
+- You get an ignorable warning when you click **Apply Changes** if you enter a CIDR range that is not large enough to deploy the staged tiles.
 - For tile authors, `static_ip` and `dynamic_ip` are now ignored. Ops Manager gets static IPs from the `static_ips` property.
 
 
@@ -279,3 +279,7 @@ This feature is only available if you have already deployed Ops Manager. For mor
 ### <a id="vpc-id"></a> VPC Verifier Removed from AWS Configuration
 
 When you configure Ops Manager for AWS, you do not need to provide a Virtual Private Cloud (VPC) ID.
+
+### <a id="alb"></a> Associate AWS ALBs with Jobs
+
+From the **Resource Config** pane of an AWS installation, you can associate an AWS Application Load Balancer (ALB) to a job. For more information, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem) in the AWS configuration topic.
