@@ -279,6 +279,12 @@ For more information on how to modify your Java log output, see [Multi-line Java
 
 Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile.
 
+### <a id='groot-enabled-default'></a> GrootFS is Merged with Garden and Enabled by Default
+
+GrootFS, the Garden file system manager, has merged with the Garden codebase.
+
+By default, the GrootFS container image plugin is enabled, but if you experience performance issues, you can roll back to the image plugin built into Garden RunC. To disable the GrootFS container image plugin, navigate to the **Application Containers** pane and deselect the **Enable the GrootFS container image plugin for Garden RunC** checkbox.
+
 ### <a id='noisy-neighbor-nozzle'></a> Noisy Neighbor Nozzle
 
 The Noisy Neighbor Nozzle is a Loggregator Firehose nozzle and CLI tool to help you identify applications producing a large number of logs -- i.e. "noise".
@@ -292,7 +298,6 @@ Runtime components and services can emit events into Loggregator. This allows yo
 ### <a id='selector-based'></a> Selector-Based Subscripton Model and Reference Nozzle
 
 You can request Firehose subscriptions that filter out all unspecified content using the Loggregator v2 API endpoint from the Reverse Log Proxy. In addition, the reference nozzle uses the Loggregator V2 API and consumes only specified whitelisted metrics.
->>>>>>> d15d38c... Added several items [#154492986]
 
 ### <a id='shared-instances'></a> Service Instance Sharing (Beta)
 
