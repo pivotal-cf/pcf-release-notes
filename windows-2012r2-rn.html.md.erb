@@ -61,6 +61,8 @@ For information about upgrading to PAS for Windows v2.1.0, see the
 ## <a id='adv-features'></a> About Advanced Features
 
 
-## <a id='adv-features'></a> Known Issues
+## <a id='known-issues'></a> Known Issues
 
+### <a id='shutdown'></a> PAS for Windows 2012R2 Cannot Gracefully Shut Down .NET Apps
 
+A known limitation of the IronFrame containerization framework prevents PAS for Windows 2012R2 from gracefully shutting down .NET apps. Instead, PAS for Windows 2012R2 forcefully terminates .NET apps. For more information, see the [Graceful Shutdown of .NET apps in Cloud Foundry Windows](https://discuss.pivotal.io/hc/en-us/articles/115005092734) Knowledge Base article.
