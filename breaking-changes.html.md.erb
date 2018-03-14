@@ -7,8 +7,9 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-There are no known breaking changes in PAS v2.1 at this time.
+### <a id='automated-backup'></a> Removal of Automated Backup Configuration for Internal MySQL
 
+Starting in PCF 2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. Pivotal recommends using BOSH Backup and Restore (BBR) instead, which can correctly back up and restore the internal MySQL database. See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/backup-restore/index.html) for information on using BBR. 
 
 ## <a id='opsman'></a> Ops Manager
 
