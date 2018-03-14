@@ -175,7 +175,7 @@ For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TL
 fields in the **Networking** pane are automatically populated with the following values:
 
 * Defaults for Gorouter:<br>`ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* Defaults for HAProxy:<br>`TLS_DHE_RSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+* Defaults for HAProxy:<br>`TLS_DHE_RSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 
 <p class='note'><strong>Note:</strong> If you are using AWS Classic Load Balancers,
 see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a>
@@ -192,9 +192,9 @@ For information about configuring these fields, see the PAS configuration docume
 
 ### <a id='named-service-bindings'></a> Naming a Service Binding
 
-You now have the option of giving your service binding a name when you create it.
+You now have the option of giving your service binding a name when you create it. For more information, see [Bind or Unbind a Service](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/console/manage-apps.html#bind-services) in the _Managing Apps and Service Instances Using Apps Manager_ topic.
 
-### <a id='runtime-credhub-hsm'></a> Runtime CredHub can use HSMs
+### <a id='runtime-credhub-hsm'></a> Runtime CredHub Can Use HSMs
 
 You can configure Hardware Security Modules (HSMs) for runtime CredHub through Ops Manager. An HSM provides an additional layer of security by storing keys separately from the CredHub server.
 
@@ -235,7 +235,7 @@ For information about managing apps and service instances in Apps Manager, see [
 
 ### <a id='view-processes'></a> View and Scale Processes in Apps Manager
 
-To support changes in CAPI v3, Apps Manager now displays the individual processes within apps and allows the user to scale each process independently.
+To support changes in CAPI v3, Apps Manager now displays the individual processes within apps and allows the user to scale each process independently. For more information, see [Reporting Instance Usage with App Manager](http://docs.pivotal.io/pivotalcf/2-1/opsguide/accounting-report-apps-man.html) and the [Configure Autoscaling for an App](http://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#config) section of the _Scaling an Application Using App Autoscaler_ topic.
 
 ### <a id='autoscaler-metrics'></a> App Autoscaler Metrics
 
@@ -275,9 +275,9 @@ For more information on how to modify your Java log output, see [Multi-line Java
 
 ### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
 
-Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile.
+Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile. For more information, see [CF Syslog Drain Release](https://github.com/cloudfoundry/cf-syslog-drain-release/blob/develop/README.md#drain-types-experimental).
 
-### <a id='groot-enabled-default'></a> GrootFS is Merged with Garden and Enabled by Default
+### <a id='groot-enabled-default'></a> GrootFS Is Merged with Garden and Enabled by Default
 
 GrootFS, the Garden file system manager, has merged with the Garden codebase. For more information about GrootFS, see [Garden RootFS (GrootFS)](https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/garden.html#garden-rootfs).
 
