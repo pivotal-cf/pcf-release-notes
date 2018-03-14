@@ -3574,6 +3574,14 @@ rescheduled when the rep process is restarted or when the Diego system notices
 that its presence has expired, typically within 15 seconds of the rep process
 crashing.
 
+###<a id='automated-backup'></a> Restore from Automated Backup of Internal MySQL Not Supported
+
+If you configured PAS tile to use **Internal MySQL**, do not use the **Automated Backups Configuration** field. Pivotal does not support restoring the internal MySQL database from a full backup because it degrades the Galera MySQL cluster. 
+
+To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
+
+For more information on this issue, see the following Pivotal Knowledge Base article: [Restore from PAS Automated Database Backup is Not Supported in 1.11 and later](https://discuss.pivotal.io/hc/en-us/articles/360001817593-Restore-from-PAS-Automated-Database-Backup-is-Not-Supported-in-1-11-and-later-).
+
 ###<a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
 
 Due to an underlying kernel defect, read-only volume mounts display as `"mode": "rw"` when you view the `VCAP_SERVICES` environment variable for your app.
