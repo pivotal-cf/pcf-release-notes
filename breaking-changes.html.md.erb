@@ -15,7 +15,7 @@ Pivotal recommends using BOSH Backup and Restore (BBR) instead, which can correc
 
 * BBR locks the necessary APIs as part of the backup procedure. This release-level backup ensures correctness. See [PAS Component Behavior During Backup](https://docs.pivotal.io/pivotalcf/2-1/customizing/backup-restore/component-backups.html). 
 * BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
-* BBR removes the need to manually remove the silk database table after restore. 
+* BBR eliminates the need to manually remove the silk database table after restore. 
 
 See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/backup-restore/index.html) for information on using BBR. 
 
