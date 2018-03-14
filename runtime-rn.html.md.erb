@@ -1229,6 +1229,18 @@ Due to an underlying kernel defect, read-only volume mounts display as `"mode": 
 
 For more information about binding a volume service, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-0/devguide/services/using-vol-services.html#create).
 
+###<a id='automated-backup'></a> Automated Backup of Internal MySQL Not Reliable
+
+If your PAS tile is configured to use **Internal MySQL**, Pivotal recommends that you do not use the **Automated Backups Configuration** field. It is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
+
+Pivotal recommends using BOSH Backup and Restore (BBR) instead, which can correctly back up and restore the internal MySQL database. BBR provides the following advantages over the **Automated Backup Configuration**: 
+
+* BBR locks the necessary APIs as part of the backup procedure. This release-level backup ensures correctness. See [PAS Component Behavior During Backup](https://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/component-backups.html). 
+* BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
+* BBR eliminates the need to manually remove the silk database table after restore. 
+
+See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
+
 ## <a id='adv-features'></a> About Advanced Features
 
 The Advanced Features section of the PAS tile includes new functionality that 
