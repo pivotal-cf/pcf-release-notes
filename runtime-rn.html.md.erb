@@ -173,7 +173,7 @@ For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TL
 fields in the **Networking** pane are automatically populated with the following values:
 
 * Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* Defaults for HAProxy: `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+* Defaults for HAProxy: `DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384`
 
 <p class='note'><strong>Note:</strong> If you are using AWS Classic Load Balancers,
 see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a>
