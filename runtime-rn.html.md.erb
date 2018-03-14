@@ -145,12 +145,9 @@ PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob
 ### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
 
 Gorouter now uses TLS to verify app identity and communicate with app containers by default.
-This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.  Supporting this routing improvement requires the platform to allocate more memory for application instances. CPU usage by the Gorouter and Diego cell VMs may also increase.
+This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends. Supporting this routing improvement requires the platform to allocate more memory for app instances. CPU usage by the Gorouter and Diego cell VMs may also increase.
 
 For more information about the new feature, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end) and [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency).
-
-You can change this setting by disabling the **Router uses TLS to verify application identity** checkbox in the **Networking** pane of the PAS tile.
-Disabling it sets Gorouter to send traffic unencrypted and rely on pruning to maintain its routing table.
 
 ### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Backends Enabled by Default
 
