@@ -2264,7 +2264,7 @@ For more information about binding a volume service, see [Using an External File
 
 ###<a id='automated-backup'></a> Restore from Automated Backup of Internal MySQL Not Supported
 
-If you configured PAS tile to use **Internal MySQL**, do not use the **Automated Backups Configuration** field. Pivotal does not support restoring the internal MySQL database from a full backup because it degrades the Galera MySQL cluster. 
+If you configure PAS to use **Internal MySQL**, ensure that you select **Disable Automated Backups of MySQL** under the **Automated Backups Configuration** field. Pivotal does not support restoring the internal MySQL database from a full backup because it degrades the Galera MySQL cluster.  
 
 To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
 
