@@ -54,6 +54,7 @@ The Pivotal Application Service (PAS) for Windows v2.1 tile is available with th
 
 [//]: # (For how to migrate your apps with no downtime from PAS for Windows 2012R2 cells to PAS for Windows cells, see [Migrating Apps to PAS for Windows](https://docs.pivotal.io/pivotalcf/windows/migrating.html). )
 
+
 ## <a id='new-features'></a> New Features in PAS for Windows v2.1
 
 ### <a id="cf-ssh"></a> CF SSH
@@ -79,6 +80,26 @@ CPU workloads are balanced across the hosts, which helps with provisioning and p
 ### <a id="instance-limits"></a> App Instance Limits
 
 Previously in Windows 2012R2, Diego Cells had a maximum of 40 app instances per cell. This is not the case in PAS for Windows, which gives developers more control and range in their containers.
+
+### <a id='healthchecks'></a> Improved System Performance for App Health Checks
+
+This release changes how PAS for Windows runs app health checks to improve
+system performance in resource-constrained environments, such as on-premise
+installations of PAS. This change does not impact the developer workflow for
+[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
+
+Previously, health checks during app startup increased system load because they
+ran as a Garden process every two seconds. In addition, apps that started successfully
+could fail if slow system performance caused the app health check to
+time out. In some severe cases, such app failures caused additional resource
+consumption and a chain-reaction of app failures.
+
+PAS for Windows v2.1 resolves these issues through a new implementation that does not
+invoke a new process on every health check. The health check now runs
+as a long-lived process in the app container. Developers may see these
+processes if they access an app container using the `cf ssh` command and list the
+processes.
+
 
 ## <a id='known-issues'></a> Known Issues
 

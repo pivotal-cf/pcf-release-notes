@@ -53,8 +53,31 @@ For information about upgrading to PAS for Windows 2012R2 v2.1.0, see the
 
 ## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.1
 
+### <a id='healthchecks'></a> Improved System Performance for App Health Checks
+
+This release changes how PAS for Windows 2012R2 runs app health checks to improve
+system performance in resource-constrained environments, such as on-premise
+installations of PAS. This change does not impact the developer workflow for
+[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
+
+Previously, health checks during app startup increased system load because they
+ran as a Garden process every two seconds. In addition, apps that started successfully
+could fail if slow system performance caused the app health check to
+time out. In some severe cases, such app failures caused additional resource
+consumption and a chain-reaction of app failures.
+
+PAS for Windows 2012R2 v2.1 resolves these issues through a new implementation that does not
+invoke a new process on every health check. The health check now runs
+as a long-lived process in the app container. Developers may see these
+processes if they access an app container using the `cf ssh` command and list the
+processes.
+
 
 ## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the PAS for Windows 2012R2 tile includes new functionality that may have certain constraints.
+
+Although these features are fully supported, Pivotal recommends caution when using them in production.
 
 
 ## <a id='known-issues'></a> Known Issues
