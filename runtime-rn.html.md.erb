@@ -301,8 +301,6 @@ Apps can find each others' internal addresses using BOSH DNS, to communicate dir
 
 ### <a id='automated-backup'></a> Removal of Automated Backup Configuration for Internal MySQL
 
-### <a id='automated-backup'></a> Removal of Automated Backup Configuration for Internal MySQL
-
 Starting in PCF 2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
 
 To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
