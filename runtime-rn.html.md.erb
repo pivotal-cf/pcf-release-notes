@@ -140,6 +140,10 @@ Operators can now configure PAS to use server-side encryption with AWS Key Manag
 
 BBR can back up external blobstores that are S3-compatible and have versioning enabled. To use this feature, make sure you have [BBR v1.4.1](https://github.com/cloudfoundry-incubator/backup-and-restore-sdk-release/releases/tag/v1.4.1) or higher installed.
 
+### <a id='external-databases'></a> BBR Supports External Databases
+
+PAS backup can be stored using external MySQL databases. Previously, backups had to be stored using the internal MySQL databases. Now, you can host PAS backups with an external MySQL service. For a complete list of supported databases, see the _Supported External Databases_ in the [Configuring Cloud Foundry for BOSH Backup and Restore (Experimental)](https://docs.cloudfoundry.org/bbr/cf-backup.html#supported-external-databases) topic. For more information on backing up backend PCF components with BBR, see the [Backing Up Pivotal Cloud Foundry with BBR](https://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf-bbr.html) topic.
+
 ### <a id='cc-blobstore'></a> Cloud Controller Blobstore on GCS Supports Service Accounts
 
 PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob storage and backup. For more information, see [Fog with Google Cloud Storage with a Service Account](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-gcs-service-account).
