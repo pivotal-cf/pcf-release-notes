@@ -36,6 +36,24 @@ You must upgrade first to a version of Elastic Runtime v1.12 to successfully upg
 If you are upgrading from a PCF deployment that at one point included Elastic Runtime v1.7.16 or earlier, you must perform the remedial steps outlined in [App Usage Data and Events Data Become Corrupted After Upgrade or Install](https://discuss.pivotal.io/hc/en-us/articles/228639827-App-Usage-Data-and-Events-Data-Becomes-Corrupted-After-Upgrade-or-Install) before proceeding with this upgrade.
 If you fail to perform the remedial steps for this issue, this upgrade process may corrupt your existing usage data.
 
+### <a id='re-create-vms'></a> Some Upgrades Require VM Re-Create
+
+Due to an update to <code>garden-runc-release</code>, Pivotal recommends that you re-create all VMs when you upgrade from the following older versions to current versions of PAS and PCF Isolation Segment (IST) and you do not also update your stemcell:
+
+* PAS, Small Footprint Runtime, and Elastic Runtime:
+  - v2.0.0 - v2.0.6
+  - v1.12.0 - v1.12.15
+  - v1.11.0 - v1.11.27
+  - v1.10.x, 1.9.x, 1.8.x
+
+* PCF Isolation Segment:
+  - v2.0.0 - v2.0.5
+  - v1.12.0 - v1.12.14
+  - v1.11.0 - v1.11.25
+  - v1.10.x
+
+VMs re-create automatically when you update your stemcell. Otherwise, you can re-create all VMs for both PAS and IST by enabling the <strong>Recreate All VMs</strong> checkbox on the PAS tile > <strong>Director Config</strong> pane.</p>
+
 ### <a id='configure-client-certs-pas'></a> Configuring Router Behavior for Client Certificates while Deploying PAS
 
 For some deployment configurations, you must configure how PCF handles x-forwarded-client-cert (XFCC) HTTP headers based on where TLS is terminated for the first time in your deployment. In the **Router behavior for Client Certificates field**, you cannot select the **Router does not request client certificates option**.
