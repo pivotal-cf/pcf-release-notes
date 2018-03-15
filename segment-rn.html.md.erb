@@ -94,7 +94,7 @@ You can now enable HTTP Strict Transport Security (HSTS) for HAProxy.
 
 ### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for Gorouter and HAProxy
 
-For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
+For new installations of PCF Isolation Segment v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
 fields in the **Networking** pane are automatically populated with the following values:
 
 * Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
@@ -104,14 +104,8 @@ fields in the **Networking** pane are automatically populated with the following
 see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a>
 for information about configuring your AWS load balancers and Gorouter.</p>
 
-For upgrades, PAS populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PAS tile.
-For information about configuring these fields, see the PAS configuration documentation for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
+For upgrades, PCF Isolation Segment populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PCF Isolation Segment tile.
+For information about configuring these fields, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking).
 
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
 
@@ -135,6 +129,6 @@ processes.
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PAS tile includes new functionality that may have certain constraints.
+The Advanced Features section of the PCF Isolation Segment tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
