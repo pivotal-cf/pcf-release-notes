@@ -280,6 +280,10 @@ The App Autoscaler CLI has the following [known issues](https://docs.pivotal.io/
 
 * It may output odd characters when the `CF_COLOR` environment variable is not set to `false` in monochrome shell windows.
 
+### <a id='droplets'></a> Stage a Droplet on a Stopped App
+
+You can now push an app with `--no-start` to automatically stage a droplet for when you start the app through Apps Manager. Previous to this change, Apps Manager produces an error if you push an app with `--no-start` and then start the app with Apps Manager.
+
 ### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
 
 Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile. For more information, see [CF Syslog Drain Release](https://github.com/cloudfoundry/cf-syslog-drain-release/blob/develop/README.md#drain-types-experimental).
