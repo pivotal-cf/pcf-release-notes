@@ -2220,10 +2220,16 @@ In Elastic Runtime v1.12.0 through v1.12.14, Diego cells using the new Grootfs c
 To resolve this issue, take any one of the following actions:
 
 * Deploy Elastic Runtime v1.12.15 or later,
-* Redeploy Elastic Runtime wih Grootfs disabled, or
+* Redeploy Elastic Runtime with Grootfs disabled, or
 * Manually restart any apps that are affected.
 
 <!-- to add later: link to KB article with more information -->
+
+### <a id='grootfs-quota'></a> Docker App Disk Quota Failures
+
+In PCF v1.11 and earlier, Grootfs code underestimated Docker image sizes when calculating disk quota usage. PCF v1.12 corrected this error, so after you upgrade, Docker images may exceed their existing disk quotas. This causes apps they contain to fail with the error `applying disk limits: disk limit is smaller than volume size`.
+
+To fix this error, increase your Docker disk quotas to levels that more accurately reflect reality.
 
 ### <a id='credhub-restart'></a> Manual CredHub Restart Required During an Elastic Runtime Redeploy
 
