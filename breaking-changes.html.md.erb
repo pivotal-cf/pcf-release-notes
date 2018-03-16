@@ -19,16 +19,14 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 * BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
 * BBR eliminates the need to manually remove the silk database table after restore. 
 
-### <a id='re-create-vms'></a> Some Upgrades Require VM Re-Create
+### <a id='pasw-injector'></a> PAS for Windows Requires Injector Step
 
-Due to an update to <code>garden-runc-release</code>, Pivotal recommends that you re-create all VMs when you upgrade to v2.1 from the following older versions of PAS, Small Footprint Runtime, and Elastic Runtime and you do not also update your stemcell:
+Unlike other tiles, the PAS for Windows tile requires an additional step between downloading the product file from [Pivotal Network](https://network.pivotal.io/products/pas-windows) and uploading it to Ops Manager.
 
-- v2.0.0 - v2.0.6
-- v1.12.0 - v1.12.15
-- v1.11.0 - v1.11.27
-- v1.10.x, 1.9.x, 1.8.x
+After you download the product file, you need to download and run the **PAS for Windows File System Injector** tool on the file locally, to add the Windows Server container base image. See [Installing and Configuring PAS for Windows](../windows/installing.html#install) for details. You can download the injector tool from the PAS for Windows page on Pivotal Network.
 
-VMs re-create automatically when you update your stemcell. Otherwise, you can re-create all VMs by enabling the <strong>Recreate All VMs</strong> checkbox on the PAS tile > <strong>Director Config</strong> pane.</p>
+If you try to upload the PAS for Windows product file without having run the injector tool, Ops Manager may show the following error:
+`is invalid: has an invalid release 'windows2016fs' specified for job type 'Windows Diego Cell'`
 
 ## <a id='opsman'></a> Ops Manager
 
