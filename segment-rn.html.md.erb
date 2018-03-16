@@ -74,17 +74,17 @@ You can now configure Gorouter to use TLS for verifying app identity and communi
 This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.
 To support app identification and communication over TLS, the platform must allocate more memory for app instances. CPU usage by the Gorouter and Diego cell VMs may also increase.
 
-For information about enabling this feature, see the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#application_containers).
+For information about enabling this feature, see [Application Containers](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#application_containers) in the _Installing PCF Isolation Segment_ topic.
 
 For information about TLS support and Gorouter route consistency modes, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end) and [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency) in the _HTTP Routing_ topic.
 
 ### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Back Ends Enabled by Default
 
-In PCF Isolation Segment v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PCF Isolation Segment tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking).
+In PCF Isolation Segment v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PCF Isolation Segment tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see [Networking](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking) in the _Installing PCF Isolation Segment_ topic.
 
 To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to back ends.
 The maximum number of idle keepalive connections maintained by Gorouter to all back ends is set to 49,000.
-For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive).
+For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive) in the _HTTP Routing_ topic.
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
 
@@ -103,7 +103,7 @@ see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.ht
 for information about configuring your AWS load balancers and Gorouter.</p>
 
 For upgrades, PCF Isolation Segment populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PCF Isolation Segment tile.
-For information about configuring these fields, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking).
+For information about configuring these fields, see [Networking](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking) in the _Installing PCF Isolation Segment_ topic.
 
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
 
