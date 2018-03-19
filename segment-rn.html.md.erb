@@ -51,7 +51,7 @@ The PCF Isolation Segment v2.1 tile is available for installation with PCF
 v2.1.
 
 [Isolation segments](http://docs.pivotal.io/pivotalcf/2-1/concepts/security.html#isolation-segments) provide
-dedicated pools of resources where you can deploy apps and  isolate workloads.
+dedicated pools of resources where you can deploy apps and isolate workloads.
 Using isolation segments separates app resources as completely as if they were
 in different CF deployments but avoids redundant management and network
 complexity.
@@ -94,7 +94,7 @@ For more information, see [Secure Apps Domain with HAProxy](opsguide/securing-en
 
 ### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for Gorouter and HAProxy
 
-For new installations of PCF Isolation Segment v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
+For new installations of PCF Isolation Segment, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
 fields in the **Networking** pane are automatically populated with the following values:
 
 * Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
@@ -104,7 +104,7 @@ fields in the **Networking** pane are automatically populated with the following
 see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a>
 for information about configuring your AWS load balancers and Gorouter.</p>
 
-For upgrades, PCF Isolation Segment populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PCF Isolation Segment tile.
+For upgrades, PCF Isolation Segment v2.1 populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PCF Isolation Segment tile.
 For information about configuring these fields, see [Networking](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html#networking) in the _Installing PCF Isolation Segment_ topic.
 
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
@@ -129,6 +129,6 @@ processes.
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment tile includes new functionality that may have certain constraints.
+The Advanced Features section of the PCF Isolation Segment v2.1 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.

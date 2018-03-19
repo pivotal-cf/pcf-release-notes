@@ -151,7 +151,7 @@ PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob
 You can now configure Gorouter to use TLS for verifying app identity and communicating with app containers.
 This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends. To support app identification and communication over TLS, the platform must allocate more memory for app instances. CPU usage by the Gorouter and Diego cell VMs may also increase.
 
-For information about enabling this feature, see the Configuring PAS topic for your IaaS:
+For information about enabling this feature, see the _Configuring PAS_ topic for your IaaS:
 
 * [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#application-containers-config)
 * [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#containers)
@@ -163,7 +163,7 @@ For information about TLS support and Gorouter route consistency modes, see [TLS
 
 ### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Back Ends Enabled by Default
 
-In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the Configuring PAS topic for your IaaS:
+In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the _Configuring PAS_ topic for your IaaS:
 
 * [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
 * [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
@@ -194,7 +194,7 @@ see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.ht
 for information about configuring your AWS load balancers and Gorouter.</p>
 
 For upgrades, PAS populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PAS tile.
-For information about configuring these fields, see the PAS configuration documentation for your IaaS:
+For information about configuring these fields, see the _Configuring PAS_ topic for your IaaS:
 
 * [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
 * [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
@@ -286,7 +286,7 @@ You can now push an app with `--no-start` to automatically stage a droplet for w
 
 ### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
 
-Container metrics can now be delivered in create-user-provided-service (CUPS) Syslog Drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile. For more information, see [CF Syslog Drain Release](https://github.com/cloudfoundry/cf-syslog-drain-release/blob/develop/README.md#drain-types-experimental).
+Container metrics can now be delivered in `create-user-provided-service` (CUPS) syslog drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile. For more information, see [CF Syslog Drain Release](https://github.com/cloudfoundry/cf-syslog-drain-release/blob/develop/README.md#drain-types-experimental).
 
 ### <a id='groot-enabled-default'></a> GrootFS Is Merged with Garden and Enabled by Default
 
@@ -299,10 +299,6 @@ By default, the GrootFS container image plugin is enabled, but if you experience
 The Noisy Neighbor Nozzle is a Loggregator Firehose nozzle and CLI tool to help you identify applications producing a large number of logs -- i.e. "noise".
 
 For more information and to deploy this nozzle, see [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle).
-
-### <a id='emit-events'></a> Emit Runtime Components and Services Events Into Loggregator
-
-Runtime components and services can emit events into Loggregator. This allows you to easily distinguish and classify important events separately from streams for logs or consistently emitted metrics.
 
 ### <a id='selector-based'></a> Selector-Based Subscripton Model and Reference Nozzle
 
@@ -322,7 +318,7 @@ Apps can find each others' internal addresses using BOSH DNS, to communicate dir
 
 ### <a id='automated-backup'></a> Removal of Automated Backup Configuration for Internal MySQL
 
-Starting in PCF 2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
+Starting in PCF v2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
 
 To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
 
