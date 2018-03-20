@@ -18,6 +18,7 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/cus
 * Bumps BOSH Director to 263.9.0.
 * More disk storage options for **Persistent Disk Type** in the **Resource Config** pane.
 * **[Bug Fix]** `cloud_config` now does not change during a director-only deploy.
+* **[Bug Fix]** Default value for `max_connections` is increased from 100 to 200. This change avoids errors related to the database running out of connection slots.
 
     <table border="1" class="nice">
     <thead>
