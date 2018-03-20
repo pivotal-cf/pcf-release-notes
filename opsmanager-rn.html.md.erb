@@ -250,6 +250,8 @@ To learn more about Azure Application Gateway, see [Overview of Application Gate
 
 To learn more about configuring your load balancer for Azure, see the [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/azure-om-config.html#resource-config) section in the *Configuring Ops Manager on Azure* topic.
 
+<p class="note warning"><strong>WARNING: </strong> This feature is not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration.</p>
+
 ### <a id="multiple-clusters"></a> Add Multiple Clusters to Availability Zones
 
 In the vSphere configuration dashboard, you can now add multiple clusters to an Availability Zone (AZ) with the new **Add Cluster** button. For more information on configuring AZs, see [Create Availability Zone Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/vsphere-config.html#create-az) in the _Configuring Ops Manager on vSphere_ topic.
@@ -283,3 +285,8 @@ When you configure Ops Manager for AWS, you do not need to provide a Virtual Pri
 ### <a id="alb"></a> Associate AWS ALBs with Jobs
 
 From the **Resource Config** pane of an AWS installation, you can associate an AWS Application Load Balancer (ALB) to a job. For more information, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem) in the AWS configuration topic.
+
+## <a id="known-issues"></a> Known Issues
+
+###<a id="override-port"></a> Azure Load Balancer Does Not Support Override Port
+The Azure Application Gateway feature is currently not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration. For more information about this feature, see [Integrate Azure Application Gateway Load Balancers](#azure-application-gateway) above.
