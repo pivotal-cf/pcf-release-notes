@@ -2213,6 +2213,12 @@ When creating a new service in Apps Manager, developers can discover additional 
 
 ##<a id='knownissues'></a> Known Issues
 
+### <a id='disabling-gorouter-http'></a> Disabling HTTP for Routers Causes Failures for Routes Bound to Internal Route Services
+   
+In all versions of Elastic Runtime v1.12, disabling the HTTP listener for Gorouter and HAProxy will cause clients to receive 502 responses for requests to routes that are bound to a route services that are run as apps on the platform. Route services that are run externally are not impacted.
+   
+To support route services run as apps on ERT, HTTP must remain enabled.
+   
 ### <a id='failure-to-run-privileged-container-apps'></a> Cells Using Grootfs Fail to Run Privileged-Container Apps
 
 In Elastic Runtime v1.12.0 through v1.12.14, Diego cells using the new Grootfs component fail to run application instances whose internal specifications required a privileged container. This defect affects buildpack-based applications last started on Elastic Runtime v1.8 or earlier.
