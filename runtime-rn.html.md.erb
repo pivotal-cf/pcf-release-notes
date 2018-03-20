@@ -344,17 +344,20 @@ For more information about binding a volume service, see [Using an External File
 
 ###<a id='tile-failure'></a> Service Tiles Fail to Push Apps
 
-If you have made all domains in the `system` org private, the following tiles may fail to push apps, such as smoke tests, to the `system` org:
+This issue affects PCF v2.1 and previous versions of the product.
+
+By default, the system domain in the `system` org is a shared domain.
+(The default system domain is the first domain displayed when you run the `cf domains` command.)
+
+If you have made this system domain private, the following tiles may fail to push apps, such as smoke tests, to the `system` org:
 
 * Metrics Forwarder for PCF
-* Redis for PCF
 * Scheduler for PCF
 * Spring Cloud Services for PCF
 
 These tiles assume that the default system domain is a shared domain.
-The default system domain is the first domain in the `system` org.
-For more information about shared and private domains, see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
-This issue affects PCF v2.1 and previous versions of the product.
+For more information about shared and private domains,
+see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
 
 ###<a id='uaa-request-latency'></a> UAA Request Latency Metric Not Emitted
 
