@@ -368,3 +368,7 @@ The `gorouter.latency.uaa` metric is not currently emitted in PCF v2.1. For more
 ###<a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
 
 BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
+
+###<a id='bbr-versioned-blobs'></a> BBR Cannot Support Blobs that Exceed 5GB in Size
+
+In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
