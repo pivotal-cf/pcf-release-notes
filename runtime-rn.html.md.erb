@@ -136,11 +136,11 @@ Operators can now configure PAS to use server-side encryption with AWS Key Manag
 
 ### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
 
+BBR can back up external blobstores that are S3-compatible and have versioning enabled. The backup artifact is a list of version IDs, rather than a copy of the blobs, so replication of the blobstore is recommended. 
+
 <p class="note warning"><strong>IMPORTANT: </strong>
 In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
 </p>
-
-BBR can back up external blobstores that are S3-compatible and have versioning enabled. The backup artifact is a list of version IDs, rather than a copy of the blobs, so replication of the blobstore is recommended. For more information, 
 
 ### <a id='external-databases'></a> BBR Supports External Databases
 
