@@ -19,7 +19,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   nginx and the staticfile buildpack.
 * **[Bug Fix]** Bump capi-release to version 1.40.47
   * API no longer loads all users into an array in memory
-* **[Bug Fix]** Cloud controller is configured to set `diego.cc.pid_limit` to 0
+* **[Bug Fix]** Cloud controller is configured to set `cc.diego.pid_limit` to 0
   (unlimited) so that application instances which created many threads do not
   crash. The previous limit was defaulting to 1024.
 
