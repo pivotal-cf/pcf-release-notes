@@ -26,13 +26,13 @@ Ops Manager v2.1 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3541.4</td>
+    <td>Stemcell</td><td>3541.8</td>
   </tr><tr>
-    <td>BBR SDK</td><td>1.2.1</td>
+    <td>BBR SDK</td><td>1.4.4</td>
   </tr><tr>
-    <td>BOSH Director</td><td>264.7</td>
+    <td>BOSH Director</td><td>265.1</td>
   </tr><tr>
-    <td>BOSH DNS</td><td>1.1.0*</td>
+    <td>BOSH DNS</td><td>1.3.0</td>
   </tr><tr>
     <td>CredHub</td><td>1.7.1</td>
   </tr><tr>
@@ -146,6 +146,10 @@ When you configure Ops Manager for AWS, you do not need to provide a Virtual Pri
 ### <a id="alb"></a> Associate AWS ALBs with Jobs
 
 From the **Resource Config** pane of an AWS installation, you can associate an AWS Application Load Balancer (ALB) to a job. For more information, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem) in the AWS configuration topic.
+
+### <a id="bosh-cli-v3"></a> BOSH CLI Upgraded to v3 in Ops Manager
+
+The BOSH CLI is now upgraded to v3 in Ops Manager. The upgrade alters how you update, retrieve, and delete configs for your three built-in director types: cloud, runtime, and CPI. For more information on configs in BOSH, see [Configs](http://bosh.io/docs/configs.html) in the BOSH documentation.
 
 ## <a id="known-issues"></a> Known Issues
 
