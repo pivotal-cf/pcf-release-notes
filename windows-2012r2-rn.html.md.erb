@@ -82,6 +82,10 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id='timeout'></a> Intermittent Timeout Error on AWS Deploy
+
+On Amazon Web Services (AWS), PAS for Windows 2012R2 sometimes fails to deploy, generating a timeout error when BOSH tries to create VMs from the [v1200.x stemcell](../stemcells/windows-stemcell-v1200x.html). If you encounter this problem, click **Apply changes** in Ops Manager to deploy PAS for Windows 2012R2 again.
+
 ### <a id='shutdown'></a> PAS for Windows 2012R2 Cannot Gracefully Shut Down .NET Apps
 
 A known limitation of the IronFrame containerization framework prevents PAS for Windows 2012R2 from gracefully shutting down .NET apps. For more information, see the [Graceful Shutdown of .NET Apps in Cloud Foundry Windows](https://discuss.pivotal.io/hc/en-us/articles/115005092734) Knowledge Base article.
