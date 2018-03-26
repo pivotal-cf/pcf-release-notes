@@ -503,7 +503,7 @@ See [Launching an Ops Manager Director Instance on Azure without an ARM Template
 
 ### <a id='bosh-cli'></a>BOSH CLI Renamed
 
-Similar to previous Ops Manager versions, the Ops Manager VM includes both versions of the BOSH CLI.
+Similar to previous Ops Manager versions, the Ops Manager VM includes two versions of the BOSH CLI.
 In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
 
 If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
@@ -516,7 +516,7 @@ For example, see the following table to compare the changes to the `bosh vms` co
 | **BOSH CLI v2** | `bosh2 -e MY-ENV vms` | `bosh -e MY-ENV vms`
 
 Many BOSH CLI v1 commands are incompatible with the BOSH Director.
-Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
+Pivotal recommends using BOSH CLI v2+ commands for compatibility with future versions of PCF.
 
 ### <a id='nats-over-tls'></a>BOSH NATS Traffic Uses TLS
 
