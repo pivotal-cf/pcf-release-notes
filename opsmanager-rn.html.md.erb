@@ -593,10 +593,18 @@ See [Managing Runtime Configs](https://docs.pivotal.io/tiledev/runtime-config.ht
 
 Ops Manager v2.0 supports specifying and rendering named manifests in a collection property. For more information, see the [named_manifest](https://docs.pivotal.io/tiledev/product-template-reference.html#named-manifest) section of the Product Template Reference topic.
 
-### <a id='bug-fixes'></a>Bug Fixes ###
+## <a id='bug-fixes'></a>Bug Fixes ###
 
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where the UI showed a confusing name for a collection record starting with a certificate.
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where the stemcell hardening work unexpectedly blocked non-root access to ping Ops Manager, resulting in a verification error.
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where changes could not be applied until BOSH Director was deployed.
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where the dashboard took a long time to load.
 * **[Bug Fix]** Ops Manager v2.0 fixes a bug where BOSH Director failed to create certifications because the BOSH agent certification was created for the wrong network.
+
+## <a id="known-issues"></a> Known Issues
+
+###<a id="cloud-properties-changes"></a>AWS KMS Encryption Requires Persistent Disk Bump
+
+BOSH does not automatically regrade in Ops Manager when you make a change that alters cloud properties. For example, if you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOSH Director tile, only future BOSH-deployed VMs are encrypted. To manually trigger current BOSH VMs to encrypt, select the **Resource Config** pane and bump all jobs that have a persistent disk. If you change persistent disks on jobs in Ops Manager, BOSH regrades cloud properties.
+
+For more information about the AWS KMS feature introduced in v2.0.4, see [Configuring Amazon EBS Encryption](https://docs.pivotal.io/pivotalcf/2-0/customizing/cloudform-om-ebs-config.html).
