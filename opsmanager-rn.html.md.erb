@@ -151,3 +151,9 @@ From the **Resource Config** pane of an AWS installation, you can associate an A
 
 ###<a id="override-port"></a> Azure Load Balancer Does Not Support Override Port
 The Azure Application Gateway feature is currently not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration. For more information about this feature, see [Integrate Azure Application Gateway Load Balancers](#azure-application-gateway) above.
+
+###<a id="cloud-properties-changes"></a>AWS KMS Encryption Requires Persistent Disk Bump
+
+BOSH does not automatically regrade in Ops Manager when you make a change that alters cloud properties. For example, if you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOSH Director tile, only future BOSH-deployed VMs are encrypted. To manually trigger current BOSH VMs to encrypt, select the **Resource Config** pane and bump all jobs that have a persistent disk. If you change persistent disks on jobs in Ops Manager, BOSH regrades cloud properties.
+
+For more information about the AWS KMS feature, see [AWS KMS Encryption Available for BOSH and Ops Manager VMs](#custom-kms).
