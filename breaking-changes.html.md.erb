@@ -28,6 +28,25 @@ After you download the product file, you need to download and run the **PAS for 
 If you try to upload the PAS for Windows product file without having run the injector tool, Ops Manager may show the following error:
 `is invalid: has an invalid release 'windows2016fs' specified for job type 'Windows Diego Cell'`
 
+
+### <a id='re-create-vms'></a> Some Upgrades Require VM Re-Creation
+
+Due to an update to <code>garden-runc-release</code>, Pivotal recommends that you re-create all VMs when you upgrade from the following older versions to current versions of PAS and PCF Isolation Segment (IST) and you do not also update your stemcell:
+
+* PAS, Small Footprint Runtime, and Elastic Runtime:
+  - v2.0.0 - v2.0.6
+  - v1.12.0 - v1.12.15
+  - v1.11.0 - v1.11.27
+  - v1.10.x, 1.9.x, 1.8.x
+
+* PCF Isolation Segment:
+  - v2.0.0 - v2.0.5
+  - v1.12.0 - v1.12.14
+  - v1.11.0 - v1.11.25
+  - v1.10.x
+
+VMs re-create automatically when you update your stemcell. Otherwise, you can re-create all VMs for both PAS and IST by enabling the <strong>Recreate All VMs</strong> checkbox on the PAS tile > <strong>Director Config</strong> pane.</p>
+
 ## <a id='opsman'></a> Ops Manager
 
 There are no known breaking changes in Ops Manager v2.1 at this time.
