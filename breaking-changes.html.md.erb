@@ -19,6 +19,18 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 * BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
 * BBR eliminates the need to manually remove the silk database table after restore. 
 
+###<a id='nsx'></a> Deploy Fails when NSX-T CNI Plugin Option Selected
+
+Deploys of PAS 2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
+
+```
+Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
+                   L Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
+Task 47 | 14:12:39 | Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
+```
+
+Until a fix is available in a patch release of PAS 2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
+
 ### <a id='pasw-injector'></a> PAS for Windows Requires Injector Step
 
 Unlike other tiles, the PAS for Windows tile requires an additional step between downloading the product file from [Pivotal Network](https://network.pivotal.io/products/pas-windows) and uploading it to Ops Manager.
