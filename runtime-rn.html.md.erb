@@ -334,6 +334,18 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 
 ##<a id='known-issues'></a> Known Issues
 
+###<a id='nsx'></a> Deploy Fails when NSX-T CNI Plugin Option Selected
+
+Deploys of PAS 2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
+
+```
+Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
+                   L Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
+Task 47 | 14:12:39 | Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
+```
+
+Until a fix is available in a patch release of PAS 2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
+
 ###<a id='saml'></a> SAML Identity Provider Must Be Manually Disabled
 
 If you want to switch from SAML to another identity provider such as LDAP or an internal user store, you must manually disable your SAML identity provider using the UAA API. For more information about disabling your SAML identity provider, see the [Disabling SAML Identity Provider When Switching Identity Providers for PCF 2.1](https://discuss.pivotal.io/hc/en-us/articles/360000793534) Knowledge Base article.
