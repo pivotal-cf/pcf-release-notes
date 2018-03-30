@@ -603,8 +603,24 @@ Ops Manager v2.0 supports specifying and rendering named manifests in a collecti
 
 ## <a id="known-issues"></a> Known Issues
 
-###<a id="cloud-properties-changes"></a>AWS KMS Encryption Requires Persistent Disk Bump
+###<a id="cloud-properties-changes"></a>AWS KMS Encryption Requires Manual Refresh
 
-BOSH does not automatically regrade in Ops Manager when you make a change that alters cloud properties. For example, if you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOSH Director tile, only future BOSH-deployed VMs are encrypted. To manually trigger current BOSH VMs to encrypt, select the **Resource Config** pane and bump all jobs that have a persistent disk. If you change persistent disks on jobs in Ops Manager, BOSH regrades cloud properties.
+If you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOSH Director tile, only future BOSH-deployed VMs are encrypted. To manually trigger current BOSH VMs to encrypt their persistent disks, ephemeral disks, and root separately, you must make the following changes:
+<table class="nice">
+  <tr>
+    <th>For persistent disks</th>
+    <td>In the **Resource Config** pane of your BOSH director tile, bump the persistent disk of each job.</td>
+  </tr>
+  <tr>
+    <th>For ephemeral disks</th>
+    <td>In the **Director Config** pane of your BOSH director tile, enable **Recreate all VMs** for the next deployment.</td>
+  </tr>
+  <tr>
+    <th>For the root disk</th>
+    <td>Deploy each job with a new stemcell.</td>
+  </tr>
+</table>
+
+This known issue will not affect you if you enable **Encrypt EBS Volumes** on your first deploy.
 
 For more information about the AWS KMS feature introduced in v2.0.4, see [Configuring Amazon EBS Encryption](https://docs.pivotal.io/pivotalcf/2-0/customizing/cloudform-om-ebs-config.html).
