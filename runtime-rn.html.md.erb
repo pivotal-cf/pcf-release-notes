@@ -11,6 +11,111 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.31'></a> 1.11.31
+
+* **[Bug fix]** Bump apps-manager-release to v661.1.44
+  * [IE] Fix alignment of the app search bar in the header
+  * Fixed a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh
+  * Fixed a bug that caused marketplace service plans to show "No price available"
+  * Fixed occasional error when running usage service errand that would cause errand to fail because `.cf` directory was being pushed unnecessarily
+* **[Bug fix]** Bump uaa-release to v52.8
+  * Updated JDK version to 8u162
+* **[Security Fix]** Bump capi-release to 1.28.55
+  * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fix random number guessing exploit
+  * Fix buildpack pagination
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.25</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.55\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93.1</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.188.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.16</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>89\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>2.1.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.14.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.48</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.2</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.44</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.7</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.24\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.11</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.21</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4.0.1</td>
+  </tr><tr>
+    <td>uaa</td><td>52.8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.30'></a> 1.11.30
 
 * **[Bug fix]** Bump routing-release to 0.160.24
