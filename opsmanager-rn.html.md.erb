@@ -60,12 +60,15 @@ Ops Manager v2.2 uses the following component versions:
 
 ## <a id='major-features'></a>New Features in Ops Manager v2.2
 
-## <a id='multi-dc'></a> Multiple Data Centers on vSphere
+### <a id='multi-dc'></a> Multiple Data Centers on vSphere
 
 Ops Manager now allows you to configure multiple vSphere data centers to a single BOSH director. You can add additional data centers in the **vSphere Config** pane of your vSphere BOSH Director tile.
 
 <p class="note"><strong>Note: </strong>If you are using the Ops Manager API and there are multiple vSphere configs, the <code>iaas_configuration</code> key is omitted from the <code>GET</code> HTTP request for director properties. For more information on the API request, see <a target="_blank" href="http://opsman-dev-api-docs.cfapps.io/#fetching-director-iaas-and-security-properties-experimental">Fetching director, IaaS, and security properties</a> in the Ops Manager API documentation.</p>
 
+### <a id="excluded-recursors"></a> Specify Excluded Recursors
+
+In the **Director Config** pane, you can now enter **Excluded Recursors** as a comma-separated list. This list specifies which IPs and ports you want to exclude from the DNS server. For more information, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
 
 ## <a id="known-issues"></a> Known Issues
 
