@@ -1,5 +1,5 @@
 ---
-title: Pivotal Application Service v2.1 Release Notes
+title: Pivotal Application Service v2.2 Release Notes
 owner: Release Engineering
 ---
 
@@ -13,7 +13,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.1.0'></a> 2.1.0
+### <a id='2.2.0'></a> 2.2.0
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -113,262 +113,21 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.1 is documented in the [Upgrading Pivotal Cloud
+The procedure for upgrading to Pivotal Application Service (PAS) v2.2 is documented in the [Upgrading Pivotal Cloud
 Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic.
 
-When upgrading to v2.1, be aware of the following upgrade considerations:
+When upgrading to v2.2, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.0 to successfully upgrade to PAS v2.1.
+* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.0 to successfully upgrade to PAS v2.2.
 
-* Some partner service tiles may be incompatible with PCF v2.1. Pivotal is
+* Some partner service tiles may be incompatible with PCF v2.2. Pivotal is
   working with partners to ensure their tiles are updated to work with the
   latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v2.1, review the appropriate
+  releases are currently compatible with PCF v2.2, review the appropriate
   partners services release documentation at
   [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
   organization that produces the tile.
 
-## <a id='new-features'></a> New Features in PAS v2.1
+## <a id='new-features'></a> New Features in PAS v2.2
 
-### <a id='blobstore-encryption'></a> Support for S3 Server-Side Encryption with AWS KMS
-
-Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This is an optional configuration in the **File Storage** configuration pane in PAS. For more information, see [Manually Configuring PAS for AWS](http://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#file-store-config).
-
-### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
-
-BBR can back up external blobstores that are S3-compatible and have versioning enabled. The backup artifact is a list of version IDs, rather than a copy of the blobs, so replication of the blobstore is recommended. 
-
-<p class="note warning"><strong>IMPORTANT: </strong>
-In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
-</p>
-
-### <a id='external-databases'></a> BBR Supports External Databases
-
-PAS backups can be stored using external MySQL databases. Previously, backups had to be stored using the internal MySQL databases. Now, you can host PAS backups with an external MySQL service. For a complete list of supported databases, see _Supported External Databases_ in the [Configuring Cloud Foundry for BOSH Backup and Restore (Experimental)](https://docs.cloudfoundry.org/bbr/cf-backup.html#supported-external-databases) topic. For more information on backing up backend PCF components with BBR, see the [Backing Up Pivotal Cloud Foundry with BBR](https://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf-bbr.html) topic.
-
-### <a id='cc-blobstore'></a> Cloud Controller Blobstore on GCS Supports Service Accounts
-
-PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob storage and backup. For more information, see [Fog with Google Cloud Storage with a Service Account](https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-gcs-service-account).
-
-### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
-
-You can now configure Gorouter to use TLS for verifying app identity and communicating with app containers.
-This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends. To support app identification and communication over TLS, the platform must allocate more memory for app instances. CPU usage by the Gorouter and Diego cell VMs may also increase.
-
-For information about enabling this feature, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#application-containers-config)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#containers)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#application-containers-config)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#application-containers-config)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#application-containers-config)
-
-For information about TLS support and Gorouter route consistency modes, see [TLS to Apps and Other Back-End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end) and [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency) in the _HTTP Routing_ topic.
-
-### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Back Ends Enabled by Default
-
-In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
-
-To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to back ends.
-The maximum number of idle keepalive connections maintained by Gorouter to all back ends is set to 49,000.
-For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive).
-
-### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
-
-You can now enable HTTP Strict Transport Security (HSTS) for HAProxy. HSTS headers force browsers to use HTTPS exclusively to contact HAProxy for a period of time you specify. 
-
-For more information, see [Secure Apps Domain with HAProxy](http://docs.pivotal.io/pivotalcf/2-1/opsguide/securing-endpoints.html#load-balancer).
-
-### <a id='cipher-defaults'></a> Pre-Populated TLS Cipher Defaults for Gorouter and HAProxy
-
-For new installations of PAS v2.1, the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy**
-fields in the **Networking** pane are automatically populated with the following values:
-
-* Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* Defaults for HAProxy: `DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384`
-
-<p class='note'><strong>Note:</strong> If you are using AWS Classic Load Balancers,
-see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a>
-for information about configuring your AWS load balancers and Gorouter.</p>
-
-For upgrades, PAS populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PAS tile.
-For information about configuring these fields, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
-
-### <a id='enable-proxy-support'></a> Enable PROXY Protocol Support in CF Router
-
-In the PAS networking pane, you can now enable support for PROXY protocol in CF Router. This checkbox is disabled by default. For more information, see the [PAS Deploying topic for your IaaS] (http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/pas.html).
-
-
-### <a id='named-service-bindings'></a> Naming a Service Binding
-
-You now have the option of giving your service binding a name when you create it. For more information, see [Bind or Unbind a Service](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/console/manage-apps.html#bind-services) in the _Managing Apps and Service Instances Using Apps Manager_ topic.
-
-### <a id='runtime-credhub-hsm'></a> Runtime CredHub Can Use HSMs
-
-You can configure Hardware Security Modules (HSMs) for runtime CredHub through Ops Manager. An HSM provides an additional layer of security by storing keys separately from the CredHub server.
-
-For more information on configuring HSMs for runtime CredHub, see [Securing Services Instance Credentials with Runtime CredHub (Beta)](https://docs.pivotal.io/pivotalcf/2-1/opsguide/secure-si-creds.html#pas-config).
-
-### <a id='healthchecks'></a> Improved System Performance for App Health Checks
-
-This release changes how PAS runs app health checks to improve
-system performance in resource-constrained environments, such as on-premise
-installations of PAS. This change does not impact the developer workflow for
-[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
-
-Previously, health checks during app startup increased system load because they
-ran as a Garden process every two seconds. In addition, apps that started successfully
-could fail if slow system performance caused the app health check to
-time out. In some severe cases, such app failures caused additional resource
-consumption and a chain-reaction of app failures.
-
-PAS v2.1 resolves these issues through a new implementation that does not
-invoke a new process on every health check. The health check now runs
-as a long-lived process in the app container. Developers may see these
-processes if they access an app container using the `cf ssh` command and list the
-processes.
-
-### <a id='saml-uaa'></a> Custom SAML Entity ID for Tiles
-
-To enable tiles to set a custom SAML entity ID, independent of whether PAS itself uses an external SAML identity provider,
-the **Entity ID Override** field in the **Authentication and Enterprise SSO** pane of the PAS tile has been moved to the **UAA** pane and renamed to **SAML Entity ID Override**.
-
-### <a id='multi-user-error'></a> cf CLI Errors on Multi-Origin User Ambiguity
-
-If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](http://docs.pivotal.io/2-1/cf-cli/getting-started.html#multi-origin) for details.
-
-### <a id='json'></a> Apps Manager Introduces the Enter JSON Toggle
-
-You can now use JSON for key-value entries in the Apps Manager UI.
-For information about managing apps and service instances in Apps Manager, see [Managing Apps and Service Instances Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-1/console/manage-apps.html).
-
-### <a id='view-processes'></a> View and Scale Processes in Apps Manager
-
-To support changes in CAPI v3, Apps Manager now displays the individual processes within apps and allows the user to scale each process independently. You can find this display in the **Processes and Instances** section of your app dashboard in the **Overview** pane.
-
-For more information on scaling each process, see [Scale an App](http://docs.pivotal.io/pivotalcf/2-1/console/manage-apps.html#scale) in the *Managing Apps and Service Instances Using Apps Manager* topic.
-
-### <a id='autoscaler-metrics'></a> App Autoscaler Metrics
-
-The App Autoscaler can use two new metrics for automatically scaling app instance counts:
-
-* **Memory Utilization**: The average RAM percentage used for all instances of the app.
-
-* **RabbitMQ Depth**: The length of a specified RabbitMQ queue.
-
-See [Scaling Rules](http://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#metric) for additional context.
-
-### <a id='autoscaler-cli'></a> App Autoscaler CLI
-
-The App Autoscaler CLI lets you create and manage App Autoscaler rules from a shell or programmatically, as an alternative to the **PCF App Autoscaler** UI in Apps Manager. See [Using the App Autoscaler CLI](https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html) for details.
-
-The App Autoscaler CLI has the following [known issues](https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html#issues):
-
-* It does not work when more than one Autoscaler instance is running in the same space.
-
-* It cannot enable and disable individual scaling rules, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
-
-* It cannot create scheduled limit changes, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
-
-* It may output odd characters when the `CF_COLOR` environment variable is not set to `false` in monochrome shell windows.
-
-### <a id='droplets'></a> Stage a Droplet on a Stopped App
-
-You can now push an app with `--no-start` to automatically stage a droplet for when you start the app through Apps Manager. Previous to this change, Apps Manager produces an error if you push an app with `--no-start` and then start the app with Apps Manager.
-
-### <a id='container-metrics'></a> Container Metrics Included in Syslog Drains
-
-Container metrics can now be delivered in `create-user-provided-service` (CUPS) syslog drain bindings. To configure the **Include container metrics in Syslog Drains** checkbox, navigate to the **System Logging** pane of the PAS tile. For more information, see [CF Syslog Drain Release](https://github.com/cloudfoundry/cf-syslog-drain-release/blob/develop/README.md#drain-types-experimental).
-
-### <a id='groot-enabled-default'></a> GrootFS Is Merged with Garden and Enabled by Default
-
-GrootFS, the Garden file system manager, has merged with the Garden codebase. For more information about GrootFS, see [Garden RootFS (GrootFS)](https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/garden.html#garden-rootfs).
-
-By default, the GrootFS container image plugin is enabled, but if you experience performance issues, you can roll back to the image plugin built into Garden RunC. To disable the GrootFS container image plugin, navigate to the **Application Containers** pane and deselect the **Enable the GrootFS container image plugin for Garden RunC** checkbox.
-
-### <a id='noisy-neighbor-nozzle'></a> Noisy Neighbor Nozzle
-
-The Noisy Neighbor Nozzle is a Loggregator Firehose nozzle and CLI tool to help you identify applications producing a large number of logs -- i.e. "noise".
-
-For more information and to deploy this nozzle, see [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle).
-
-### <a id='selector-based'></a> Selector-Based Subscripton Model and Reference Nozzle
-
-You can request Firehose subscriptions that filter out all unspecified content using the Loggregator v2 API endpoint from the Reverse Log Proxy. In addition, the reference nozzle uses the Loggregator V2 API and consumes only specified whitelisted metrics.
-
-### <a id='shared-instances'></a> Service Instance Sharing (Beta)
-
-PAS v2.1 supports service instance sharing across orgs and spaces. For more information, see [Sharing Service Instances (Beta)](https://docs.pivotal.io/pivotalcf/2-1/devguide/services/sharing-instances.html) and [Enabling Service Instance Sharing](https://docs.pivotal.io/pivotalcf/2-1/services/enable-sharing.html).
-
-## <a id='adv-features'></a> About Advanced Features
-
-### <a id='c2c-discovery'></a> Container-to-Container Service Discovery
-
-Apps can find each others' internal addresses using BOSH DNS, to communicate directly [container-to-container](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/cf-networking.html#discovery). Enable this feature in the PAS tile by selecting the **Enable Service Discovery for Apps** checkbox in the **Application Developer Controls** pane.
-
-##<a id='retired'></a> Retired Features
-
-### <a id='automated-backup'></a> Removal of Automated Backup Configuration for Internal MySQL
-
-Starting in PCF v2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
-
-To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
-
-BBR provides the following advantages over the **Automated Backup Configuration**: 
-
-* BBR locks the necessary APIs as part of the backup procedure. This release-level backup ensures correctness. See [PAS Component Behavior During Backup](https://docs.pivotal.io/pivotalcf/2-1/customizing/backup-restore/component-backups.html). 
-* BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
-* BBR eliminates the need to manually remove the silk database table after restore. 
-
-##<a id='known-issues'></a> Known Issues
-
-###<a id='saml'></a> SAML Identity Provider Must Be Manually Disabled
-
-If you want to switch from SAML to another identity provider such as LDAP or an internal user store, you must manually disable your SAML identity provider using the UAA API. For more information about disabling your SAML identity provider, see the [Disabling SAML Identity Provider When Switching Identity Providers for PCF 2.1](https://discuss.pivotal.io/hc/en-us/articles/360000793534) Knowledge Base article.
-
-###<a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
-
-Due to an underlying kernel defect, read-only volume mounts display as `"mode": "rw"` when you view the `VCAP_SERVICES` environment variable for your app.
-
-For more information about binding a volume service, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-1/devguide/services/using-vol-services.html#create).
-
-###<a id='tile-failure'></a> Service Tiles Fail to Push Apps
-
-This issue affects PCF v2.1 and previous versions of the product.
-
-By default, the system domain in the `system` org is a shared domain.
-The default system domain is the first domain displayed when you run the `cf domains` command.
-
-If you have made this system domain private, the following tiles may fail to push apps, such as smoke tests, or fail altogether:
-
-* Metrics Forwarder for PCF
-* Scheduler for PCF
-* Spring Cloud Services for PCF
-
-These tiles assume that the default system domain is a shared domain.
-For more information about shared and private domains,
-see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
-
-###<a id='uaa-request-latency'></a> UAA Request Latency Metric Not Emitted
-
-The `gorouter.latency.uaa` metric is not currently emitted in PCF v2.1. For more information about the `gorouter.latency.uaa` metric, see [UAA Request Latency](http://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html#uaa_latency) in _Key Performance Indicators_.
-
-###<a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
-
-BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
-
-###<a id='bbr-versioned-blobs'></a> BBR Cannot Support Blobs that Exceed 5GB in Size
-
-In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
+No new features at this time.

@@ -1,5 +1,5 @@
 ---
-title: PAS for Windows 2012R2 v2.1 Release Notes
+title: PAS for Windows 2012R2 v2.2 Release Notes
 owner: Release Engineering
 ---
 
@@ -9,7 +9,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
-### <a id='2-1-0'></a> 2.1.0
+### <a id='2-2-0'></a> 2.2.0
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -45,51 +45,12 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows 2012R2 v2.1 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.1. To use the PAS for Windows 2012R2 tile, you
-need Ops Manager v2.1 or later and PAS v2.1 or later.
+The Pivotal Application Service (PAS) for Windows 2012R2 v2.2 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.2. To use the PAS for Windows 2012R2 tile, you
+need Ops Manager v2.2 or later and PAS v2.2 or later.
 
-For information about upgrading to PAS for Windows 2012R2 v2.1.0, see the
+For information about upgrading to PAS for Windows 2012R2 v2.2.0, see the
 [Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/2-1/windows2012R2/upgrading.html) topic in the PAS for Windows documentation.
 
-## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.1
+## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.2
 
-### <a id='healthchecks'></a> Improved System Performance for App Health Checks
-
-This release changes how PAS for Windows 2012R2 runs app health checks to improve
-system performance in resource-constrained environments, such as on-premise
-installations of PAS. This change does not impact the developer workflow for
-[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
-
-Previously, health checks during app startup increased system load because they
-ran as a Garden process every two seconds. In addition, apps that started successfully
-could fail if slow system performance caused the app health check to
-time out. In some severe cases, such app failures caused additional resource
-consumption and a chain-reaction of app failures.
-
-PAS for Windows 2012R2 v2.1 resolves these issues through a new implementation that does not
-invoke a new process on every health check. The health check now runs
-as a long-lived process in the app container. Developers may see these
-processes if they access an app container using the `cf ssh` command and list the
-processes.
-
-
-## <a id='adv-features'></a> About Advanced Features
-
-The Advanced Features section of the PAS for Windows 2012R2 tile includes new functionality that may have certain constraints.
-
-Although these features are fully supported, Pivotal recommends caution when using them in production.
-
-
-## <a id='known-issues'></a> Known Issues
-
-### <a id='timeout'></a> Intermittent Timeout Error on AWS Deploy
-
-On Amazon Web Services (AWS), PAS for Windows 2012R2 sometimes fails to deploy, generating a timeout error when BOSH tries to create VMs from the [v1200.x stemcell](https://docs.pivotal.io/pivotalcf/2-1/stemcells/windows-stemcell-v1200x.html). If you encounter this problem, click **Apply changes** in Ops Manager to deploy PAS for Windows 2012R2 again.
-
-### <a id='shutdown'></a> PAS for Windows 2012R2 Cannot Gracefully Shut Down .NET Apps
-
-A known limitation of the IronFrame containerization framework prevents PAS for Windows 2012R2 from gracefully shutting down .NET apps. For more information, see the [Graceful Shutdown of .NET Apps in Cloud Foundry Windows](https://discuss.pivotal.io/hc/en-us/articles/115005092734) Knowledge Base article.
-
-###<a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
-
-BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
+No new features at this time.

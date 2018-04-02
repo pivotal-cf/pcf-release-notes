@@ -1,5 +1,5 @@
 ---
-title: PAS for Windows v2.1 Release Notes
+title: PAS for Windows v2.2 Release Notes
 owner: Garden Windows
 ---
 
@@ -12,7 +12,7 @@ Pivotal Cloud Foundry (PCF) also has a runtime for .NET apps based on Windows Se
 
 ## <a id='releases'></a> Releases
 
-### <a id='2-1-0'></a> 2.1.0
+### <a id='2-1-0'></a> 2.2.0
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -53,56 +53,14 @@ Pivotal Cloud Foundry (PCF) also has a runtime for .NET apps based on Windows Se
 
 ## <a id='upgrade'></a>How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows v2.1 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.1. To use the PAS for Windows tile, you need Ops Manager v2.1 or later and PAS v2.1 or later.
+The Pivotal Application Service (PAS) for Windows v2.2 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.2. To use the PAS for Windows tile, you need Ops Manager v2.2 or later and PAS v2.2 or later.
 
 [//]: # (For how to migrate your apps with no downtime from PAS for Windows 2012R2 cells to PAS for Windows cells, see [Migrating Apps to PAS for Windows](https://docs.pivotal.io/pivotalcf/windows/migrating.html). )
 
 
-## <a id='new-features'></a> New Features in PAS for Windows v2.1
+## <a id='new-features'></a> New Features in PAS for Windows v2.2
 
-### <a id="cf-ssh"></a> CF SSH
-
-Developers can use the SSH command with the Cloud Foundry CLI to enter a secure shell session in the app container. SSH is used for remote system access and administration and improves security.
-
-### <a id="autoscale"></a> Full Autoscale Support
-
-CPU load based auto-scaling is now functional. Load balancing enables dynamically-allocated resources to match performance requirements. 
-
-### <a id="context-path-routing"></a> Context Path Routing
-
-Users and ASP.net apps can now use the [Cloud Foundry](https://www.cloudfoundry.org/blog/context-path-routing/) feature for microservices.
-
-### <a id="url-rewrite"></a> Support for URL Rewrite Module
-
-The HWC buildpack included in this version supports the IIS rewrite module through web.config. This enables developers to more easily configure and manage web addresses.
-
-### <a id="cpu-limits"></a> CPU Shared Limits for Containers
-
-CPU workloads are balanced across the hosts, which helps with provisioning and performance.
-
-### <a id="instance-limits"></a> App Instance Limits
-
-Previously in Windows 2012R2, Diego Cells had a maximum of 40 app instances per cell. This is not the case in PAS for Windows, which gives developers more control and range in their containers.
-
-### <a id='healthchecks'></a> Improved System Performance for App Health Checks
-
-This release changes how PAS for Windows runs app health checks to improve
-system performance in resource-constrained environments, such as on-premise
-installations of PAS. This change does not impact the developer workflow for
-[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
-
-Previously, health checks during app startup increased system load because they
-ran as a Garden process every two seconds. In addition, apps that started successfully
-could fail if slow system performance caused the app health check to
-time out. In some severe cases, such app failures caused additional resource
-consumption and a chain-reaction of app failures.
-
-PAS for Windows v2.1 resolves these issues through a new implementation that does not
-invoke a new process on every health check. The health check now runs
-as a long-lived process in the app container. Developers may see these
-processes if they access an app container using the `cf ssh` command and list the
-processes.
-
+No new features at this time.
 
 ## <a id='adv-features'></a> About Advanced Features
 
@@ -112,10 +70,4 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='no-aws-stemcell'></a> No 1709 stemcell for AWS
-
-As of the PCF v2.1.0 release, there is no Amazon Web Services (AWS) stemcell v1709.x for Windows Server 2016 available on [Pivotal Network](https://network.pivotal.io/products/stemcells-windows-server).
-
-###<a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
-
-BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
+No known issues at this time.
