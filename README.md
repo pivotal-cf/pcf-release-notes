@@ -32,17 +32,17 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
 
 2. Verify that your updates publish to the appropriate staging site correctly. You may need to refresh the site in your browser to see the changes.
 
-    * [PCF 1.9 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-9/pcf-release-notes/index.html)
     * [PCF 1.10 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-10/pcf-release-notes/index.html)
     * [PCF 1.11 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-11/pcf-release-notes/index.html)
     * [PCF 1.12 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-12/pcf-release-notes/index.html)
     * [PCF 2.0 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-0/pcf-release-notes/index.html)
+    * [PCF 2.1 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-9/pcf-release-notes/index.html)
 3. Open the appropriate tab in Concourse, click the **production** box, then click the **+** button in the top right to start a production build.
 
-    * [PCF 1.9](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-1-9)
     * [PCF 1.10](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-1-10)
     * [PCF 1.11](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-1-11)
     * [PCF 1.12](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-1-12)
     * [PCF 2.0](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-0)
+    * [PCF 2.1](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-1)
     
 
