@@ -15,9 +15,11 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### 2.1.1
 
+* **[Security]** Bumps stemcell to 3451.10
 * **[Feature]** The BOSH CLI is now upgraded to v3 in Ops Manager. You can split cloud configs and other configurations into multiple files. This change allows you to manage and evolve configurations separately. For more information on configuration management in BOSH, see [Configs](http://bosh.io/docs/configs.html) in the BOSH documentation.
-* Bumps stemcell to 3451.10
+* **[Feature]** In the **Director Config** pane, you can now enter **Excluded Recursors** as a comma-separated list. This list specifies which IPs and ports you want to exclude from the DNS server. For more information, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
 * Bumps BOSH Director to 265.2
+* **[Bug Fix]** Ops Manager sets a consistent entity ID in both SAML and non-SAML cases.
 
 
 Ops Manager v2.1.1 uses the following component versions:
