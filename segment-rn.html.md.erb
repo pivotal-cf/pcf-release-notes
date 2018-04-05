@@ -5,6 +5,53 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.1.1'></a> 2.1.1
+
+* **[Maintenance]** Bump stemcell to version 3451.9
+* **[Bug fix]** Bump cf-networking-release to version 1.10.1
+  * Fixes issue where deploy would fail when configured to use the NSX-T CNI plugin
+* **[Bug fix]** Bump routing-release to version 0.174.0
+  * Router gracefully falls back to non-TLS-enabled backends when encountering a
+    retriable error with a TLS-enabled backend
+
+ <table border="1" class="nice">
+ <thead> <tr>
+   <th>Component</th>
+   <th>Version</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+   <td>Stemcell</td><td>3541.9</td>
+ </tr><tr>
+   <td>cf-networking</td><td>1.10.1\*</td>
+ </tr><tr>
+   <td>cflinuxfs2</td><td>1.188.0</td>
+ </tr><tr>
+   <td>consul</td><td>191</td>
+ </tr><tr>
+   <td>diego</td><td>1.35.0</td>
+ </tr><tr>
+   <td>garden-runc</td><td>1.11.1</td>
+ </tr><tr>
+   <td>haproxy</td><td>8.6.0</td>
+ </tr><tr>
+   <td>loggregator</td><td>101.5\*</td>
+ </tr><tr>
+   <td>nfs-volume</td><td>1.2.0</td>
+ </tr><tr>
+   <td>routing</td><td>0.174.0</td>
+ </tr><tr>
+   <td>syslog-migration</td><td>11.1.0</td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+ </tr>
+ </tfoot>
+ </table>
+
 ### <a id='2.1.0'></a> 2.1.0
 
  <table border="1" class="nice">
