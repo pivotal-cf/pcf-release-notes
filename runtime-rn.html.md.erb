@@ -519,3 +519,7 @@ BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
 ###<a id='bbr-versioned-blobs'></a> BBR Cannot Support Blobs that Exceed 5GB in Size
 
 In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
+
+###<a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
+
+If you disable TLS from verifying back end identity and redeploy PCF after having already enabled it in your previous deployment, and the deployment has apps with more than one instance, you might see an increase in the number of 525 Handshake Failure errors. Pivotal recommends you do not disable TLS to validate identity once it has already been enabled.
