@@ -520,8 +520,8 @@ BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
 
 In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
 
-###<a id='525-handshake-failures'></a> 525 Handshake Failures when connecting to backends
+###<a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
 
-If an operator enables TLS  for verifying backend identity when on  PCF 2.1, and later disables TLS to backends and redeploys, and the deployment has applications with more than one instance an operator might see an increase in the number of 525 Handshake Failure errors. We identified an issue when some instances of an application are on Diego cells where Envoy has TLS enabled and some are on Diego cells where TLS is disabled (which could happen in this scenario). In this case, if the router first tried to establish a connection with a TLS enabled backend and fails for a reason that causes a transparent retry, and then chooses a non TLS enabled backend, it does not switch from using https to http. This results in an increase in 525 Handshake Failure errors. This will be fixed in a patch release for PCF 2.1.
+If you enable TLS for verifying back end identity in PCF v2.1 and later disable TLS to back ends and redeploy, and the deployment has apps with more than one instance, you might see an increase in the number of 525 Handshake Failure errors.
 
-We recommend you do not disable TLS to validate identity once enabled, until a patch is released.
+Pivotal recommends you do not disable TLS to validate identity once it has already been enabled.
