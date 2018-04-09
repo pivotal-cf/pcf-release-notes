@@ -522,6 +522,4 @@ In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot supp
 
 ###<a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
 
-If you enable TLS for verifying back end identity in PCF v2.1 and later disable TLS to back ends and redeploy, and the deployment has apps with more than one instance, you might see an increase in the number of 525 Handshake Failure errors.
-
-Pivotal recommends you do not disable TLS to validate identity once it has already been enabled.
+If you disable TLS from verifying back end identity and redeploy PCF after having already enabled it in your previous deployment, and the deployment has apps with more than one instance, you might see an increase in the number of 525 Handshake Failure errors. Pivotal recommends you do not disable TLS to validate identity once it has already been enabled.
