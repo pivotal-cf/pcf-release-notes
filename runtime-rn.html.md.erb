@@ -43,7 +43,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   * Updates MariaDB to 10.1.30 and other dependencies for security fixes
 * **[Feature improvement]** Bump mysql-monitoring-release to v8.16.0
   * Improvements for CPU utilization monitoring, query reporting and `mysql-diag`
-  * [Full release notes](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#monitoring-8.16.0)
+  * [Full release notes](https://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#monitoring-8.16.0)
 * **[Feature improvement]** Add UAA client for the [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle)
 * **[Security fix]** Bump capi-release to 1.49.2
   * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fix random number guessing exploit
@@ -249,7 +249,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.1 is documented in the [Upgrading Pivotal Cloud
-Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic.
+Foundry](https://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v2.1, be aware of the following upgrade considerations:
 
@@ -267,7 +267,7 @@ When upgrading to v2.1, be aware of the following upgrade considerations:
 
 ### <a id='blobstore-encryption'></a> Support for S3 Server-Side Encryption with AWS KMS
 
-Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This is an optional configuration in the **File Storage** configuration pane in PAS. For more information, see [Manually Configuring PAS for AWS](http://docs.pivotal.io/pivotalcf/2-0/customizing/pcf-aws-manual-er-config.html#file-store-config).
+Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This is an optional configuration in the **File Storage** configuration pane in PAS. For more information, see [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#file-store-config).
 
 ### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
 
@@ -343,12 +343,12 @@ For information about configuring these fields, see the _Configuring PAS_ topic 
 
 ### <a id='enable-proxy-support'></a> Enable PROXY Protocol Support in CF Router
 
-In the PAS networking pane, you can now enable support for PROXY protocol in CF Router. This checkbox is disabled by default. For more information, see the [PAS Deploying topic for your IaaS] (http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/customizing/pas.html).
+In the PAS networking pane, you can now enable support for PROXY protocol in CF Router. This checkbox is disabled by default. For more information, see the [PAS Deploying topic for your IaaS] (https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
 
 
 ### <a id='named-service-bindings'></a> Naming a Service Binding
 
-You now have the option of giving your service binding a name when you create it. For more information, see [Bind or Unbind a Service](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/console/manage-apps.html#bind-services) in the _Managing Apps and Service Instances Using Apps Manager_ topic.
+You now have the option of giving your service binding a name when you create it. For more information, see [Bind or Unbind a Service](https://docs.pivotal.io/pivotalcf/2-1/console/manage-apps.html#bind-services) in the _Managing Apps and Service Instances Using Apps Manager_ topic.
 
 ### <a id='runtime-credhub-hsm'></a> Runtime CredHub Can Use HSMs
 
@@ -382,7 +382,7 @@ the **Entity ID Override** field in the **Authentication and Enterprise SSO** pa
 
 ### <a id='multi-user-error'></a> cf CLI Errors on Multi-Origin User Ambiguity
 
-If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](http://docs.pivotal.io/2-1/cf-cli/getting-started.html#multi-origin) for details.
+If multiple CF user accounts from different origins share a username, the commands that manage Space and Org user roles return an error instead of operating on the first account returned. See [Identical Usernames in Multiple Origins](https://docs.pivotal.io/2-1/cf-cli/getting-started.html#multi-origin) for details.
 
 ### <a id='json'></a> Apps Manager Introduces the Enter JSON Toggle
 
@@ -403,7 +403,7 @@ The App Autoscaler can use two new metrics for automatically scaling app instanc
 
 * **RabbitMQ Depth**: The length of a specified RabbitMQ queue.
 
-See [Scaling Rules](http://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#metric) for additional context.
+See [Scaling Rules](https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#metric) for additional context.
 
 ### <a id='autoscaler-cli'></a> App Autoscaler CLI
 
@@ -459,7 +459,7 @@ Apps can find each others' internal addresses using BOSH DNS, to communicate dir
 
 Starting in PCF v2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
 
-To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
+To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-1/customizing/backup-restore/index.html) for information on using BBR. 
 
 BBR provides the following advantages over the **Automated Backup Configuration**: 
 
