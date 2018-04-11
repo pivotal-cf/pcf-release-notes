@@ -508,7 +508,7 @@ These tiles assume that the default system domain is a shared domain.
 For more information about shared and private domains,
 see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
 
-###<a id='uaa-debug-logs'></a> PAS Forwards High Volume of DEBUG Log Messages
+###<a id='debug-logs'></a> PAS Forwards High Volume of DEBUG Log Messages
 
 PAS forwards a high volume of DEBUG syslog messages from UAA and other system components to an external service. To remediate this issue, you can filter out log messages that contain `"DEBUG"` in their body by using the `if ($msg contains "DEBUG") then stop` custom syslog rule.
 
