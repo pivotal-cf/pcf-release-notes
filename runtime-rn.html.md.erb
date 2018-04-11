@@ -1536,6 +1536,12 @@ The new flow of BOSH system metrics cannot be disabled. Therefore, if you are cu
 
 Deleting the IP address means that BOSH system metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH system metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
 
+###<a id='uaa-debug-logs'></a> PAS Forwards High Volume of Debug Log Messages
+
+PAS forwards a high volume of DEBUG syslog messages from UAA and other system components to external endpoints. To remediate this issue, you can filter out log messages that contain "DEBUG" in their body by using the `if ($msg contains "DEBUG")` custom syslog rule.
+
+For information about enabling syslog forwarding and configuring custom syslog rules in PAS, see [Enable Syslog Forwarding](https://docs.pivotal.io/pivotalcf/2-0/opsguide/logging-config-opsman.html#syslog-forward) in the _Configuring Logging in PAS_ topic and [Exclude Logs With Certain Content](https://docs.pivotal.io/pivotalcf/2-0/customizing/custom-syslog-rules.html#exclude-content) in the _Customizing Platform Log Forwarding_ topic.
+
 ### <a id='truncated-logs'></a> Truncated Syslog Messages
 
 <p class='note'><strong>Note:</strong> This issue is remediated when you select the <strong>Use TCP for file forwarding local transport</strong> option. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html#syslog">System Logging</a>.</p>
