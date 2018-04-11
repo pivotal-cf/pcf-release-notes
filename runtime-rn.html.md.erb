@@ -1538,7 +1538,7 @@ Deleting the IP address means that BOSH system metrics will no longer be sent to
 
 ###<a id='uaa-debug-logs'></a> PAS Forwards High Volume of Debug Log Messages
 
-PAS forwards a high volume of DEBUG syslog messages from UAA and other system components to external endpoints. To remediate this issue, you can filter out log messages that contain "DEBUG" in their body by using the `if ($msg contains "DEBUG")` custom syslog rule.
+PAS forwards a high volume of DEBUG syslog messages from UAA and other system components to external endpoints. To remediate this issue, you can filter out log messages that contain "DEBUG" in their body by using the `if ($msg contains "DEBUG") then stop` custom syslog rule.
 
 For information about enabling syslog forwarding and configuring custom syslog rules in PAS, see [Enable Syslog Forwarding](https://docs.pivotal.io/pivotalcf/2-0/opsguide/logging-config-opsman.html#syslog-forward) in the _Configuring Logging in PAS_ topic and [Exclude Logs With Certain Content](https://docs.pivotal.io/pivotalcf/2-0/customizing/custom-syslog-rules.html#exclude-content) in the _Customizing Platform Log Forwarding_ topic.
 
