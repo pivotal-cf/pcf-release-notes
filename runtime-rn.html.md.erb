@@ -2551,6 +2551,12 @@ For more information, see the corresponding [Knowledge Base](https://discuss.piv
 
 You cannot scale the Autoscaler job to greater than one instance.
 
+###<a id='debug-logs'></a> Elastic Runtime Forwards High Volume of DEBUG Log Messages
+
+Elastic Runtime forwards a high volume of DEBUG syslog messages from UAA and other system components to an external service.
+
+<p class='note'><strong>Note:</strong> For information about remediating this issue in PAS v2.0, see <a href="https://docs.pivotal.io/pivotalcf/2-0/pcf-release-notes/runtime-rn.html#uaa-debug-logs">PAS Forwards High Volume of DEBUG Log Messages</a> in <em>Pivotal Application Service v2.0 Release Notes</em>.</p>
+
 ### <a id='truncated-logs'></a> Truncated Syslog Messages
 
 <p class='note'><strong>Note:</strong> This issue is remediated when you select the <strong>Use TCP for file forwarding local transport</strong> option. For more information, see <a href="https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#syslog">System Logging</a>.</p>
