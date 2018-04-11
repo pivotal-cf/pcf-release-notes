@@ -508,6 +508,12 @@ These tiles assume that the default system domain is a shared domain.
 For more information about shared and private domains,
 see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
 
+###<a id='uaa-debug-logs'></a> PAS Forwards High Volume of Debug Log Messages
+
+PAS forwards a high volume of DEBUG syslog messages from UAA and other system components to external endpoints. To remediate this issue, you can filter out log messages that contain "DEBUG" in their body by using the `if ($msg contains "DEBUG")` custom syslog rule.
+
+For information about enabling syslog forwarding and configuring custom syslog rules in PAS, see [Enable Syslog Forwarding](https://docs.pivotal.io/pivotalcf/2-1/opsguide/logging-config-opsman.html#syslog-forward) in the _Configuring Logging in PAS_ topic and [Exclude Logs With Certain Content](https://docs.pivotal.io/pivotalcf/2-1/customizing/custom-syslog-rules.html#exclude-content) in the _Customizing Platform Log Forwarding_ topic.
+
 ###<a id='uaa-request-latency'></a> UAA Request Latency Metric Not Emitted
 
 The `gorouter.latency.uaa` metric is not currently emitted in PCF v2.1. For more information about the `gorouter.latency.uaa` metric, see [UAA Request Latency](http://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html#uaa_latency) in _Key Performance Indicators_.
