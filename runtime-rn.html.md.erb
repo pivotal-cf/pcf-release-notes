@@ -473,7 +473,7 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 
 ###<a id='nsx'></a> Deploy Fails when NSX-T CNI Plugin Option Selected
 
-Deploys of PAS 2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
+Deploys of PAS v2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
 
 ```
 Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
@@ -481,7 +481,7 @@ Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
 Task 47 | 14:12:39 | Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
 ```
 
-Until a fix is available in a patch release of PAS 2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
+PAS v2.1.1 fixes this issue and is available on [Pivotal Network](https://network.pivotal.io/products/elastic-runtime).
 
 ###<a id='saml'></a> SAML Identity Provider Must Be Manually Disabled
 
