@@ -471,6 +471,12 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 
 ##<a id='known-issues'></a> Known Issues
 
+###<a id='gcs-timeouts'></a> Intermittent cf push Timeouts with Google Cloud Storage with Service Account
+
+PAS on Google Cloud Platform can use Google Cloud Storage (GCS) authenticated with Google Service Account as its filestore. You configure this in the PAS tile > **File Storage** pane.
+
+With this external filestore configuration, GCS with Google Service Account, PAS v2.1 intermittently experiences timeouts when you `cf push` apps. The failures may occur more frequently when you push large apps that require storing or retrieving larger files.
+
 ###<a id='nsx'></a> Deploy Fails when NSX-T CNI Plugin Option Selected
 
 Deploys of PAS v2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
