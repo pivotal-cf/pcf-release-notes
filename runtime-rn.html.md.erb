@@ -1418,11 +1418,11 @@ To enable NSX-T networking for your PCF installation, you must perform the follo
 
 1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
 
-1. Install the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t). 
-  - You must install the NSX-T tile after you install the Ops Manager Director tile.
-  - You must install the NSX-T tile (import and config but do not click Apply Changes) before you install the PAS tile.
+1. 1. Import and configure the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t), but do not click **Apply Changes**. You must install the NSX-T tile after you install the Ops Manager Director tile. You must install the NSX-T tile before you install the PAS tile.
 
 1. In the PAS tile > **Networking** pane, under **Container Network Plugin Interface**, select **External**.
+
+1. Click Apply Changes after installing and configuring the NSX-T and PAS tiles.
 
 Operators can additionally use the NSX Manager to configure policies for PCF applications. See the [NSX-T Container Plug-in for Kubernetes and Cloud
 Foundry - Installation and Administration Guide](https://docs.vmware.com/en/VMware-NSX-T/2.1/nsxt_21_ncp_kubernetes.pdf) for more information.
