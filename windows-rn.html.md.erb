@@ -10,10 +10,47 @@ Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.7'></a> 1.12.7
+
+* Bumps stemcell to v1200.16. [Release Notes](https://docs.pivotal.io/pivotalcf/2-1/stemcells/windows-stemcell-v1200x.html#1200.16)
+* Removes Hakim job from the Windows Diego cell, as it is now providing minimal value
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.16</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>event_log</td><td>0.2</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.7.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.13</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.6.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.6'></a> 1.12.6
 
-* **[Bug Fix]** Bump windows-utilities-release to v0.6.0 to fix KMS firewall rule not being reset when upgrading from older releases.
-* Bump hwc-offline-buildpack to v2.3.13.
+* **[Bug Fix]** Bumps windows-utilities-release to v0.6.0 to fix KMS firewall rule not being reset when upgrading from older releases.
+* Bumps hwc-offline-buildpack to v2.3.13.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -49,7 +86,7 @@ Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
 
 ### <a id='1.12.5'></a> 1.12.5
 
-* **[Security Fix]** Bumps the stemcell to 1200.13. [Release Notes](https://docs.pivotal.io/pivotalcf/1-9/pcf-release-notes/windows-stemcell-rn.html#1200.13)
+* **[Security Fix]** Bumps stemcell to 1200.13. [Release Notes](https://docs.pivotal.io/pivotalcf/1-9/pcf-release-notes/windows-stemcell-rn.html#1200.13)
 
   <table border="1" class="nice">
   <thead> <tr>

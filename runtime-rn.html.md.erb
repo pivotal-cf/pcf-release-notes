@@ -13,15 +13,116 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.20'></a> 1.12.20
+
+* **[Bug Fix]** Bumps capi-release to v1.40.51 to:
+  * Prevent app upload from failing when the app has broken symlinks
+  * Fix broken cf ssh for Docker apps
+* **[Bug Fix]** Bumps cf-mysql-release to v36.11.0. [Release Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36.11.0)
+* **[Feature Improvement]** Bumps mysql-monitoring-release to v8.16.0. [Release Notes](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#monitoring-8.16.0)
+* **[Feature Improvement]** Bumps loggregator-release to v96.0.17 to add stricter app id validation in Traffic Controller
+* **[Feature Improvement]** The SSO Operator Dashboard now allows plan administrator to send password reset emails
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.25</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.51\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.11.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.188.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.12.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.16</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>96.0.17\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>2.1.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.16.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.48</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.2</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.25</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.8</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.7</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.13\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.11</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.21</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8.0.1</td>
+  </tr><tr>
+    <td>uaa</td><td>52.8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+
 ### <a id='1.12.19'></a> 1.12.19
 
-* **[Bug fix]** Bump apps-manager-release to v662.0.25
-  * [IE] Fix alignment of the app search bar in the header
-  * Fixed a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh
-  * Fixed a bug that caused marketplace service plans to show "No price available"
-* **[Bug fix]** Bump uaa-release to v52.8
-  * Updated JDK version to 8u162
-* **[Security Fix]** Bump capi-release to 1.40.49
+* **[Bug fix]** Bumps apps-manager-release to v662.0.25
+  * [IE] Fixes alignment of the app search bar in the header
+  * Fixes a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh
+  * Fixes a bug that caused marketplace service plans to show "No price available"
+* **[Bug fix]** Bumps uaa-release to v52.8
+  * Updates JDK version to 8u162
+* **[Security Fix]** Bumps capi-release to 1.40.49
   * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fix random number guessing exploit
   * Fix buildpack pagination
 
@@ -117,13 +218,13 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.18'></a> 1.12.18
 
-* **[Feature Improvment]** Bump garden-runc-release to v1.12.1
+* **[Feature Improvment]** Bumps garden-runc-release to v1.12.1
   * Includes fix for bug where users' files could go missing in docker-based applications
-* **[Bug fix]** Bump routing-release to 0.163.13
-  * Remove backends on any error to prevent 502 errors from being returned to
+* **[Bug fix]** Bumps routing-release to 0.163.13
+  * Removes backends on any error to prevent 502 errors from being returned to
     clients
   * Updates golang to v1.9.4
-* **[Bug Fix]** Remove unneeded persistent disk from diego brain vms
+* **[Bug Fix]** Removes unneeded persistent disk from diego brain vms
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -217,9 +318,9 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.17'></a> 1.12.17
 
-* **[Feature Improvement]** Bump apps-manager to 662.0.24, which uses
+* **[Feature Improvement]** Bumps apps-manager to 662.0.24, which uses
   nginx and the staticfile buildpack.
-* **[Bug Fix]** Bump capi-release to version 1.40.47
+* **[Bug Fix]** Bumps capi-release to version 1.40.47
   * API no longer loads all users into an array in memory
 * **[Bug Fix]** Cloud controller is configured to set `cc.diego.pid_limit` to 0
   (unlimited) so that application instances which created many threads do not
@@ -322,9 +423,9 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
  automatically if you are updating your stemcell. If not, you can check the
  "Recreate All VMs" checkbox on the Ops Manager Director > Director Config tab.
 
-* **[Security Fix]** Bump stemcell from version 3468.21 to version 3468.25 to address issues:
+* **[Security Fix]** Bumps stemcell from version 3468.21 to version 3468.25 to address issues:
   * [USN-3582-2](http://www.ubuntu.com/usn/usn-3581-2/)
-* **[Security Fix]** Bump cflinuxfs2-release from v181.0 to v1.188.0 to address issues:
+* **[Security Fix]** Bumps cflinuxfs2-release from v181.0 to v1.188.0 to address issues:
   * [USN-3577-1](http://www.ubuntu.com/usn/usn-3577-1/)
   * [USN-3569-1](http://www.ubuntu.com/usn/usn-3569-1/)
   * [USN-3554-1](http://www.ubuntu.com/usn/usn-3554-1/)
@@ -332,12 +433,12 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   * [USN-3543-1](http://www.ubuntu.com/usn/usn-3543-1/)
   * [USN-3540-2](http://www.ubuntu.com/usn/usn-3540-2/)
   * [USN-3538-1](http://www.ubuntu.com/usn/usn-3538-1/)
-* **[Feature Improvement]** Bump garden-runc-release to
+* **[Feature Improvement]** Bumps garden-runc-release to
   [v1.11.1](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.11.1)
   which includes grootfs root filesystem by default.
-* **[Feature Improvement]** Patch cloud controller so users with `admin_read_only` scope can view stats for apps,
+* **[Feature Improvement]** Patches cloud controller so users with `admin_read_only` scope can view stats for apps,
   which is needed by the `cf v3-apps` command.
-* **[Bug Fix]** Patch cloud controller nginx http upload module
+* **[Bug Fix]** Patches cloud controller nginx http upload module
   to fix issue where incorrect initialization of the upload path could cause
   segmentation faults.
 
@@ -434,15 +535,15 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.15'></a> 1.12.15
 
-* **[Security Fix]** Patch routing-release for [CVE-2018-1221](https://www.cloudfoundry.org/blog/cve-2018-1221/).
-* **[Bug Fix]** Bump push-usage-service to increase memory footprint, to avoid occasional crashes that some users were seeing.
-* **[Bug Fix]** Enable privileged containers to support upgrading from ERT 1.11 with apps that specify privileged containers.
+* **[Security Fix]** Patches routing-release for [CVE-2018-1221](https://www.cloudfoundry.org/blog/cve-2018-1221/).
+* **[Bug Fix]** Bumps push-usage-service to increase memory footprint, to avoid occasional crashes that some users were seeing.
+* **[Bug Fix]** Enables privileged containers to support upgrading from ERT 1.11 with apps that specify privileged containers.
 * **[Bug Fix]** Fix to ensure that Diego rep will always exit during evacuation, even if Garden `destroy` hangs during evacuation.
-* **[Bug Fix]** Patch syslog to prevent duplication from blackbox log forwarding.
+* **[Bug Fix]** Patches syslog to prevent duplication from blackbox log forwarding.
 * **[Feature Improvements]** Bump mysql-backup-release to v2 in recognition of the fact that v1.38.0 required TLS. See other changes [here](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#backup-2.1.0)
 * **[Feature Improvements]** New option in the Networking page to allow operators to enable Gorouter support for the PROXY protocol. This is disabled by default.
-* **[Feature Improvement]** Enable Garden `debug_listen_address` to listen on a local interface.
-* **[Feature Improvement]** Add credentials for Healthwatch alerts.
+* **[Feature Improvement]** Enables Garden `debug_listen_address` to listen on a local interface.
+* **[Feature Improvement]** Adds credentials for Healthwatch alerts.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -538,8 +639,8 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.14'></a> 1.12.14
 
-* **[Security Fix]** Bump apps-manager-release to v662.0.22 to fix vulnerability that allowed arbitrary file access on server.
-* **[Bug Fix]** Patch diego-release to allow HTTP-based health check on an HTTP endpoint that expects TLS-terminated traffic.
+* **[Security Fix]** Bumps apps-manager-release to v662.0.22 to fix vulnerability that allowed arbitrary file access on server.
+* **[Bug Fix]** Patches diego-release to allow HTTP-based health check on an HTTP endpoint that expects TLS-terminated traffic.
 * **[Bug Fix]** Bumps java-offline-buildpack to v4.8 to address an issue with multiple java-offline-buildpacks being included, which may cause deployments to have different versions of java-offline-buildpack installed.
 * Bump buildpacks to latest versions, including:
   * dotnet-core-offline-buildpack to v2.0.1.
@@ -645,20 +746,20 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.13'></a> 1.12.13
 
-* **[Security Fix]** Bump stemcell to version 3468.21 to address issues:
+* **[Security Fix]** Bumps stemcell to version 3468.21 to address issues:
   * [USN-3534-1](http://www.ubuntu.com/usn/usn-3534-1/)
   * [USN-3540-2](http://www.ubuntu.com/usn/usn-3540-2/)
-* **[Security Fix]** Bump cflinuxfs2-release to v1.181.0 to address issues:
+* **[Security Fix]** Bumps cflinuxfs2-release to v1.181.0 to address issues:
   * [USN-3532-1](http://www.ubuntu.com/usn/usn-3532-1/)
   * [USN-3534-1](http://www.ubuntu.com/usn/usn-3534-1/)
   * [USN-3535-1](http://www.ubuntu.com/usn/usn-3535-1/)
-* **[Security Fix]** Bump apps-manager-release to v662.0.19
+* **[Security Fix]** Bumps apps-manager-release to v662.0.19
   * Adds new security headers: 'Strict-Transport-Security', 'X-Content-Type-Options', and 'X-XSS-Protection'
-* **[Security Fix]** Patch capi-release to fix issue where refresh tokens are not accepted where access tokens are required.
+* **[Security Fix]** Patches capi-release to fix issue where refresh tokens are not accepted where access tokens are required.
   * [CVE-2018-1195](https://www.cloudfoundry.org/cve-2017-14388/)
-* **[Bug Fix]** Bump mysql-monitoring-release to v8.14.0
-* **[Bug Fix]** Patch capi-release to use delayed job queue to know when a job is in progress
-* **[Feature Improvement]** Bump syslog-migration-release to v8.0.1 and add a checkbox for log file forwarding through TCP to work around the [Truncated Syslog Messages](#truncated-logs) issue.
+* **[Bug Fix]** Bumps mysql-monitoring-release to v8.14.0
+* **[Bug Fix]** Patches capi-release to use delayed job queue to know when a job is in progress
+* **[Feature Improvement]** Bumps syslog-migration-release to v8.0.1 and add a checkbox for log file forwarding through TCP to work around the [Truncated Syslog Messages](#truncated-logs) issue.
   * NOTE: Using TCP instead of the default UDP configuration may have a negative impact on performance.
 
   <table border="1" class="nice">
