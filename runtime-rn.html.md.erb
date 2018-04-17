@@ -477,9 +477,39 @@ PAS on Google Cloud Platform can use Google Cloud Storage (GCS) authenticated wi
 
 With this external filestore configuration, GCS with Google Service Account, PAS v2.1 intermittently experiences timeouts when you `cf push` apps. The failures may occur more frequently when you push large apps that require storing or retrieving larger files.
 
-###<a id='nsx'></a> Deploy Fails when NSX-T CNI Plugin Option Selected
+###<a id='nsx-t1'></a> NSX-T Container Plugin Fails to install with PAS
 
-Deploys of PAS v2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
+The VMware NSX-T Container Plug-in tile v2.1.0 and v2.1.0.1 fail to install with PAS 2.1. The output of the error is as follows:
+
+```
+oslo_config.cfg.ConfigFilesPermissionDeniedError: Failed to open some config files: /etc/nsx-ujo/ncp.ini
+
+Traceback (most recent call last):
+
+  File "/usr/local/bin/ncp", line 10, in <module>
+
+    sys.exit(main())
+
+  File "/usr/local/lib/python2.7/dist-packages/nsx_ujo/cmd/ncp.py", line 11, in main
+
+    nsx_log_adaptor.init_log('nsx-container-ncp', 'ncp')
+
+  File "/usr/local/lib/python2.7/dist-packages/nsx_ujo/common/nsx_log_adaptor.py", line 134, in init_log
+
+    cfg.CONF(args=sys.argv[1:], default_config_files=[constants.NCP_INI_PATH])
+
+  File "/usr/local/lib/python2.7/dist-packages/oslo_config/cfg.py", line 2493, in __call__
+
+    self._namespace._files_permission_denied)
+
+oslo_config.cfg.ConfigFilesPermissionDeniedError: Failed to open some config files: /etc/nsx-ujo/ncp.ini
+```
+
+Until a fix is available in a patch release of VMware NSX-T Container Plug-in for PCF v2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
+
+###<a id='nsx-t2'></a> PAS Install Fails when NSX-T Container Plug-in is Selected
+
+PAS v2.1.0 fails to install when configured to use the NSX-T plugin. The output of the error is as follows:
 
 ```
 Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
@@ -487,7 +517,7 @@ Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
 Task 47 | 14:12:39 | Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
 ```
 
-PAS v2.1.1 fixes this issue and is available on [Pivotal Network](https://network.pivotal.io/products/elastic-runtime).
+PAS v2.1.1 fixes this issue and is available on [Pivotal Network](https://network.pivotal.io/products/elastic-runtime), but NSX-T Container Plugin v2.1.0 does not install with PAS v2.1.1, [as described above](#nsx-1). Until a fix is available in a patch release of VMware NSX-T Container Plug-in for PCF v2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
 
 ###<a id='saml'></a> SAML Identity Provider Must Be Manually Disabled
 
