@@ -17,10 +17,10 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='2.0.11'></a> 2.0.11
 
-* **[Bug Fix]** Bumps capi-release to v1.44.30 to prevent app upload from failing when the app has broken symlinks
-* **[Bug Fix]** Bumps autoscaler-release to v104.2 to fix issue where brief periods of cloud controller downtime could cause autoscaler to become disabled
-* **[Feature Improvement]** Updates the Small Footprint PAS tile name from "PCF Small Footprint" to "Small Footprint PAS"
-* **[Feature Improvement]** Adds bosh-dns alias for UAA. This allows service brokers deployed as applications to resolve UAA's DNS address and authenticate
+* **[Bug Fix]** Bumps capi-release to v1.44.30 to prevent app upload from failing when the app has broken symlinks.
+* **[Bug Fix]** Bumps autoscaler-release to v104.2 to fix issue where brief periods of cloud controller downtime could cause autoscaler to become disabled.
+* **[Feature Improvement]** Updates the Small Footprint PAS tile name from "PCF Small Footprint" to "Small Footprint PAS".
+* **[Feature Improvement]** Adds bosh-dns alias for UAA. This allows service brokers deployed as applications to resolve UAA's DNS address and authenticate.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -122,16 +122,16 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='2.0.10'></a> 2.0.10
 
-* **[Bug fix]** Bumps apps-manager-release to v663.0.11
-  * [IE] Fixes alignment of the app search bar in the header
-  * Checks if the user has permission to view autoscale bindings before making the request, which prevents the app page from having an error when refreshing
-  * Fixes a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh
-  * Fixes a bug that caused marketplace service plans to show "No price available"
-* **[Bug fix]** Bumps uaa-release to v52.8
-  * Updates JDK version to 8u162
-* **[Security Fix]** Bumps capi-release to 1.44.29
-  * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fixes random number guessing exploit
-  * Fixes buildpack pagination
+* **[Bug fix]** Bumps apps-manager-release to v663.0.11.
+  * [IE] Fixes alignment of the app search bar in the header.
+  * Checks if the user has permission to view autoscale bindings before making the request, which prevents the app page from having an error when refreshing.
+  * Fixes a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh.
+  * Fixes a bug that caused marketplace service plans to show "No price available".
+* **[Bug fix]** Bumps uaa-release to v52.8:
+  * Updates JDK version to 8u162.
+* **[Security Fix]** Bumps capi-release to 1.44.29:
+  * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fixes random number guessing exploit.
+  * Fixes buildpack pagination.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -233,13 +233,13 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='2.0.9'></a> 2.0.9
 
-* **[Feature Improvment]** Bump garden-runc-release to v1.12.1
-  * Includes fix for bug where users' files could go missing in docker-based applications
-* **[Bug fix]** Bumps routing-release to 0.168.7
+* **[Feature Improvment]** Bump garden-runc-release to v1.12.1:
+  * Includes fix for bug where users' files could go missing in docker-based applications.
+* **[Bug fix]** Bumps routing-release to 0.168.7:
   * Removes backends on any error to prevent 502 errors from being returned to
-    clients
-  * Updates golang to v1.9.4
-* **[Bug Fix]** Removes unneeded persistent disk from diego brain vms
+    clients.
+  * Updates golang to v1.9.4.
+* **[Bug Fix]** Removes unneeded persistent disk from diego brain vms.
 
   <table border="1" class="nice">
   <thead> <tr>
