@@ -635,7 +635,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='1.11.26'></a> 1.11.26
 
-* **[Security Fix]** Bumps apps-manager-release to v661.1.41 to fix vulnerability that allowed arbitrary file access on server.
+* Bumps apps-manager-release to v661.1.41:
+  * Fixes vulnerability that allowed arbitrary file access on server.
+  * Increases memory footprint of usage service app to 1GB.
+  * Adds security headers to the Apps Manager JS server (Strict-Transport-Security, X-Content-Type-Options, X-XSS-Protection, Cache-Control, Pragma).
+  * Fixes checkbox alignment in the invite members page in Internet Explorer.
 * **[Bug Fix]** Patches diego-release to allow HTTP-based health check on an HTTP endpoint that expects TLS-terminated traffic.
 * **[Bug Fix]** Bumps java-offline-buildpack to v4.8 to address an issue with multiple java-offline-buildpacks being included, which may cause deployments to have different versions of java-offline-buildpack installed.
 * Bump buildpacks to latest versions, including:
