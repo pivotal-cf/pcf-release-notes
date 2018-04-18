@@ -7,12 +7,12 @@ owner: Release Engineering
 
 ### <a id='1.12.16'></a> 1.12.16
 
-* **[Feature Improvment]** Bump garden-runc-release to v1.12.1
-  * Includes fix for bug where users' files could go missing in docker-based applications
-* **[Bug fix]** Bump routing-release to 0.163.13
-  * Remove backends on any error to prevent 502 errors from being returned to
-    clients
-  * Updates golang to v1.9.4
+* **[Feature Improvment]** Bumps garden-runc-release to v1.12.1:
+  * Includes fix for bug where users' files could go missing in docker-based applications.
+* **[Bug fix]** Bumps routing-release to 0.163.13:
+  * Removes backends on any error to prevent 502 errors from being returned to
+    clients.
+  * Updates golang to v1.9.4.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -59,9 +59,9 @@ owner: Release Engineering
  automatically if you are updating your stemcell. If not, you can check the
  "Recreate All VMs" checkbox on the Ops Manager Director > Director Config tab.
 
-* **[Security Fix]** Bump stemcell from version 3468.21 to version 3468.25 to address issues:
+* **[Security Fix]** Bumps stemcell from version 3468.21 to version 3468.25 to address issues:
   * [USN-3582-2](http://www.ubuntu.com/usn/usn-3581-2/)
-* **[Security Fix]** Bump cflinuxfs2-release from v181.0 to v1.188.0 to address issues:
+* **[Security Fix]** Bumps cflinuxfs2-release from v181.0 to v1.188.0 to address issues:
   * [USN-3577-1](http://www.ubuntu.com/usn/usn-3577-1/)
   * [USN-3569-1](http://www.ubuntu.com/usn/usn-3569-1/)
   * [USN-3554-1](http://www.ubuntu.com/usn/usn-3554-1/)
@@ -69,7 +69,7 @@ owner: Release Engineering
   * [USN-3543-1](http://www.ubuntu.com/usn/usn-3543-1/)
   * [USN-3540-2](http://www.ubuntu.com/usn/usn-3540-2/)
   * [USN-3538-1](http://www.ubuntu.com/usn/usn-3538-1/)
-* **[Feature Improvement]** Bump garden-runc-release to
+* **[Feature Improvement]** Bumps garden-runc-release to
   [v1.11.1](https://github.com/cloudfoundry/garden-runc-release/releases/tag/v1.11.1)
   which includes grootfs root filesystem by default.
 
@@ -112,10 +112,10 @@ owner: Release Engineering
   </table>
 
 ### <a id='1.12.14'></a> 1.12.14
-* **[Security Fix]** Patch routing-release for [CVE-2018-1221](https://www.cloudfoundry.org/blog/cve-2018-1221/).
-* **[Bug Fix]** Enable privileged containers to support upgrading from ERT 1.11 with apps that specify privileged containers.
+* **[Security Fix]** Patches routing-release for [CVE-2018-1221](https://www.cloudfoundry.org/blog/cve-2018-1221/).
+* **[Bug Fix]** Enables privileged containers to support upgrading from ERT 1.11 with apps that specify privileged containers.
 * **[Bug Fix]** Fix to ensure that Diego rep will always exit during evacuation, even if Garden `destroy` hangs during evacuation.
-* **[Bug Fix]** Patch syslog to prevent duplication from blackbox log forwarding.
+* **[Bug Fix]** Patches syslog to prevent duplication from blackbox log forwarding.
 * **[Feature Improvements]** New option in the Networking page to allow operators to enable Gorouter support for the PROXY protocol. This is disabled by default.
 * **[Feature Improvement]** Enable Garden `debug_listen_address` to listen on a local interface.
 

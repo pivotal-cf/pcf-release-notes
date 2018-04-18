@@ -16,12 +16,12 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 ### <a id='1.12.20'></a> 1.12.20
 
 * **[Bug Fix]** Bumps capi-release to v1.40.51 to:
-  * Prevent app upload from failing when the app has broken symlinks
-  * Fix broken cf ssh for Docker apps
+  * Prevent app upload from failing when the app has broken symlinks.
+  * Fix broken cf ssh for Docker apps.
 * **[Bug Fix]** Bumps cf-mysql-release to v36.11.0. [Release Notes](https://github.com/cloudfoundry/cf-mysql-release/releases/tag/v36.11.0)
 * **[Feature Improvement]** Bumps mysql-monitoring-release to v8.16.0. [Release Notes](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#monitoring-8.16.0)
-* **[Feature Improvement]** Bumps loggregator-release to v96.0.17 to add stricter app id validation in Traffic Controller
-* **[Feature Improvement]** The SSO Operator Dashboard now allows plan administrator to send password reset emails
+* **[Feature Improvement]** Bumps loggregator-release to v96.0.17 to add stricter app id validation in Traffic Controller.
+* **[Feature Improvement]** The SSO Operator Dashboard now allows plan administrator to send password reset emails.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -116,15 +116,15 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.19'></a> 1.12.19
 
-* **[Bug fix]** Bumps apps-manager-release to v662.0.25
-  * [IE] Fixes alignment of the app search bar in the header
-  * Fixes a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh
-  * Fixes a bug that caused marketplace service plans to show "No price available"
-* **[Bug fix]** Bumps uaa-release to v52.8
-  * Updates JDK version to 8u162
-* **[Security Fix]** Bumps capi-release to 1.40.49
-  * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fix random number guessing exploit
-  * Fix buildpack pagination
+* **[Bug fix]** Bumps apps-manager-release to v662.0.25:
+  * [IE] Fixes alignment of the app search bar in the header.
+  * Fixes a bug that prevented mid-level fetch tasks from being cleared when switching routes and on the 30 second refresh.
+  * Fixes a bug that caused marketplace service plans to show "No price available".
+* **[Bug fix]** Bumps uaa-release to v52.8:
+  * Updates JDK version to 8u162.
+* **[Security Fix]** Bumps capi-release to 1.40.49:
+  * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fixes random number guessing exploit.
+  * Fixes buildpack pagination.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -218,13 +218,13 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='1.12.18'></a> 1.12.18
 
-* **[Feature Improvment]** Bumps garden-runc-release to v1.12.1
-  * Includes fix for bug where users' files could go missing in docker-based applications
-* **[Bug fix]** Bumps routing-release to 0.163.13
+* **[Feature Improvment]** Bumps garden-runc-release to v1.12.1:
+  * Includes fix for bug where users' files could go missing in docker-based applications.
+* **[Bug fix]** Bumps routing-release to 0.163.13:
   * Removes backends on any error to prevent 502 errors from being returned to
-    clients
-  * Updates golang to v1.9.4
-* **[Bug Fix]** Removes unneeded persistent disk from diego brain vms
+    clients.
+  * Updates golang to v1.9.4.
+* **[Bug Fix]** Removes unneeded persistent disk from diego brain vms.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -320,8 +320,8 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 * **[Feature Improvement]** Bumps apps-manager to 662.0.24, which uses
   nginx and the staticfile buildpack.
-* **[Bug Fix]** Bumps capi-release to version 1.40.47
-  * API no longer loads all users into an array in memory
+* **[Bug Fix]** Bumps capi-release to version 1.40.47:
+  * API no longer loads all users into an array in memory.
 * **[Bug Fix]** Cloud controller is configured to set `cc.diego.pid_limit` to 0
   (unlimited) so that application instances which created many threads do not
   crash. The previous limit was defaulting to 1024.
@@ -542,7 +542,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 * **[Bug Fix]** Patches syslog to prevent duplication from blackbox log forwarding.
 * **[Feature Improvements]** Bump mysql-backup-release to v2 in recognition of the fact that v1.38.0 required TLS. See other changes [here](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#backup-2.1.0)
 * **[Feature Improvements]** New option in the Networking page to allow operators to enable Gorouter support for the PROXY protocol. This is disabled by default.
-* **[Feature Improvement]** Enables Garden `debug_listen_address` to listen on a local interface.
+* **[Feature Improvement]** Enable Garden `debug_listen_address` to listen on a local interface.
 * **[Feature Improvement]** Adds credentials for Healthwatch alerts.
 
   <table border="1" class="nice">
