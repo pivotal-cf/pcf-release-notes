@@ -103,6 +103,7 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/cus
 * More disk storage options for **Persistent Disk Type** in the **Resource Config** pane.
 * **[Bug Fix]** `cloud_config` now does not change during a director-only deploy.
 * **[Bug Fix]** Default value for `max_connections` is increased from 100 to 200. This change avoids errors related to the database running out of connection slots.
+* **[Bug Fix]** Ops Manager API endpoint `/api/v0/deployed/products/{guid}/status` no longer returns a 500 error when a VM is being rebooted. Instead, the API returns a 200 error with more information.
 
     <table border="1" class="nice">
     <thead>
