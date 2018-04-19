@@ -1390,21 +1390,21 @@ components.
 You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
 [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
 
-### <a id='bosh-metrics'></a> BOSH System Metrics Available in Loggregator Firehose
+### <a id='bosh-metrics'></a> BOSH Component Metrics Available in Loggregator Firehose
 
 PCF now forwards BOSH health metrics generated for all VMs in a deployment to
 the Loggregator Firehose by default. For more information about this feature
-and its implementation, see the *BOSH System Metrics Forwarder* section in the
+and its implementation, see the *BOSH Component Metrics Forwarder* section in the
 [Overview of the Loggregator
 System](https://docs.pivotal.io/pivotalcf/2-0/loggregator/architecture.html#other-components).
 
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are
+The new flow of BOSH component metrics cannot be disabled. Therefore, if you are
 currently using the PCF JMX Bridge tile or the BOSH HM Forwarder to consume
 them, you may receive duplicate data. To prevent this, you can do the
 following:
 
-* Stop using PCF JMX Bridge to consume BOSH system metrics outside of the
-Firehose. See [Preventing Duplicated BOSH System Metrics in PCF JMX
+* Stop using PCF JMX Bridge to consume BOSH component metrics outside of the
+Firehose. See [Preventing Duplicated BOSH Component Metrics in PCF JMX
 Bridge](#jmx-bridge) for additional instructions.
 * Uninstall the BOSH HM Forwarder.
 
@@ -1419,7 +1419,7 @@ For guidance information about configuring the Ops Manager Director, see the Ops
 
 #### <a id='namespace'></a> Metric Namespace Difference in JMX Bridge
 
-Because BOSH System metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of how metric names differ between PCF 2.0 and earlier versions, see the following table. 
+Because BOSH component metrics now come from the Firehose, their namespaces are different in PCF JMX Bridge. For an explanation of how metric names differ between PCF 2.0 and earlier versions, see the following table. 
 
 <table>
 <tr>
@@ -1633,13 +1633,13 @@ There is a bug in the Cloud Controller that affects the operation of tasks. Any 
 * The task cancels before completing.
 * The task is reported as a failure even if it finishes successfully.
 
-### <a id='jmx-bridge'></a> Preventing Duplicated BOSH System Metrics in PCF JMX Bridge
+### <a id='jmx-bridge'></a> Preventing Duplicated BOSH Component Metrics in PCF JMX Bridge
 
-PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. See [BOSH System Metrics Available in Loggregator Firehose](#bosh-metrics) for more information.
+PCF now forwards BOSH health metrics generated for all VMs in a deployment to the Loggregator Firehose by default. See [BOSH Component Metrics Available in Loggregator Firehose](#bosh-metrics) for more information.
 
-The new flow of BOSH system metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in **Director Config** of your Ops Manager Director tile.
+The new flow of BOSH component metrics cannot be disabled. Therefore, if you are currently using the PCF JMX Bridge tile to consume them, you may receive duplicate data. To prevent this, delete **JMX Provider IP Address** in **Director Config** of your Ops Manager Director tile.
 
-Deleting the IP address means that BOSH system metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH system metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
+Deleting the IP address means that BOSH component metrics will no longer be sent to JMX Bridge using the direct connection from the BOSH Director to the JMX Provider. As these BOSH component metrics are now available in JMX Bridge by default through its Firehose nozzle, breaking the prior direct connection by deleting the JMX Provider IP address prevents the duplication of BOSH metrics for JMX Bridge consumers.
 
 ###<a id='uaa-debug-logs'></a> PAS Forwards High Volume of DEBUG Log Messages
 
