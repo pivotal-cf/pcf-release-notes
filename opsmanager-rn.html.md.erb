@@ -19,8 +19,8 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 * Bumps BOSH Director to v265.2
 * Bumps Azure to v35.2
 * Enables BOSH DNS
-* Operators can use `PUT api/v0/settings/syslog` in the Ops Manager API to configure syslog for the OpsManager VM. For more information, see [Updating the Syslog configuration](https://opsman-dev-api-docs.cfapps.io/#updating-the-syslog-configuration) in the Ops Manager API documentation.
-* When Operators delete a service tile, Ops Manager automatically deletes credentials from CredHub.
+* Operators can use `PUT api/v0/settings/syslog` in the Ops Manager API to configure syslog for the Ops Manager VM. For more information, see [Updating the Syslog configuration](https://opsman-dev-api-docs.cfapps.io/#updating-the-syslog-configuration) in the Ops Manager API documentation.
+* When Operators delete a service tile, Ops Manager automatically deletes CredHub credentials from that service tile if it finds no dependencies.
 * New field **Azure Active Director Authentication** in the **Azure Config** pane of the BOSH Director tile. The field allows you to select your active director for an Azure Stack deployment.
 * The Operator can specify multiple vSphere configs. For more information about this feature, see [Multiple Data Centers on vSphere](#multi-dc).
 
