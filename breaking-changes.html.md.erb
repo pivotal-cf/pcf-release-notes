@@ -45,6 +45,10 @@ If your existing PCF v1.11.x installation includes both <a href="https://docs.pi
 
 If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#upgrade-mysql).
 
+### <a id='port-8844'></a> Port 8844
+
+In order for the CredHub API to communicate with the BOSH Director, TCP Port 8844 must be opened in Ops Manager and Elastic Runtime. For more information, see [Preparing Your Firewall for Deploying PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/config_firewall.html).
+
 ## <a id='ops-man'></a> Ops Manager
 
 ### <a id='bosh-2'></a>BOSH CLI v2
