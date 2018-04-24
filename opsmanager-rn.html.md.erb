@@ -273,3 +273,8 @@ If you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOS
 This known issue does not affect you if you enable **Encrypt EBS Volumes** during your first deployment.
 
 For more information about the AWS KMS feature, see [AWS KMS Encryption Available for BOSH and Ops Manager VMs](#custom-kms).
+
+### <a id="bug-fixes"></a> Bug Fixes
+
+* Added the missing "Inventory Service Opject" vSphere privileges that are in the CPI canonical list. For more information about vSphere vCenter privileges, see [vSphere Service Account Requirements](http://docs.pivotal.io/customizing/vsphere-service-account.html).
+* Ops Manager sets a consistent entity ID in both SAML and non-SAML cases.
