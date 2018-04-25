@@ -122,6 +122,16 @@ On each **Apply Changes**, Ops Manager sends your user-specified credentials to 
 
 For information about how this feature affects tile authors, see [PCF v2.2 Partners Release Notice](https://docs.pivotal.io/tiledev/2-2/release-notes-2-2.html#om-credhub) in the _PCF Tile Developer Guide_.
 
+### <a id="custom-ssl"></a> Specify a Custom Trusted SSL Certificate
+
+Operators can specify a custom trusted SSL certificate and key for the Ops Manager server so that traffic isn't exposed to man-in-the-middle attacks when using Ops Manager.
+
+By default, Ops Manager uses an auto-generated self-signed certificate. To change this configuration to your own SSL certificate, go to **Settings** from the Ops Manager Installation Dashboard and select the **SSL Certificate** pane to enter your **Certificate** and **Private Key**.
+
+For more information about navigating the Ops Manager Settings page, see [Settings Page](../customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
+
+<p class="note"><strong>Note: </strong>Custom SSL certificate and key is persisted between upgrades. Custom SSL only needs a one-time configuration.</p>
+
 ### <a id="tls-blobstore"></a> TLS for Internal Blobstore Supported
 
 Ops Manager now supports TLS communications if you choose to use an internal blobstore.
