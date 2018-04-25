@@ -61,7 +61,23 @@ VMs re-create automatically when you update your stemcell. Otherwise, you can re
 
 ## <a id='opsman'></a> Ops Manager
 
-There are no known breaking changes in Ops Manager v2.1 at this time.
+### <a id="inventory-service"></a> Ops Manager Validates Inventory Service vSphere vCenter Permissions
+
+As a bug fix, Ops Manager now validates vSphere vCenter permissions from the inventory service object. The following permission validations were previously missing and are now included:
+
+- `InventoryService.Tagging.CreateTag`
+- `InventoryService.Tagging.DeleteTag`
+- `InventoryService.Tagging.EditTag`
+
+When you click **Apply Changes** with a vSphere deployment and you do not have these permissions configured, you may receive the following error:
+
+```
+Could not log in: Required Datacenter privileges not available: 
+["Host.Inventory.EditCluster", "InventoryService.Tagging.CreateTag", 
+"InventoryService.Tagging.DeleteTag", "InventoryService.Tagging.EditTag"]
+```
+
+Include the required datacenter privileges to continue. For more information about vSphere vCenter privileges, see [vSphere Service Account Requirements](http://docs.pivotal.io/customizing/vsphere-service-account.html).
 
 ## <a id='ist'></a> PCF Isolation Segment
 
