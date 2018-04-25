@@ -11,6 +11,113 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.11.33'></a> 1.11.33
+
+* **[Security Fix]** Bumps stemcell to v3468.30:
+  * [USN-3619-2](https://usn.ubuntu.com/3619-2/)
+  * [USN-3611-1](https://usn.ubuntu.com/3611-1/)
+  * [USN-3610-1](https://usn.ubuntu.com/3610-1/)
+  * [USN-3598-1](https://usn.ubuntu.com/3598-1/)
+  * [USN-3586-1](https://usn.ubuntu.com/3586-1/)
+  * [USN-3584-1](https://usn.ubuntu.com/3584-1/)
+* **[Bug Fix]** Bumps syslog-migration-release to v4.0.2:
+  * Prevent logs from blackbox from being written to the default syslog log files to prevent logs from being written to the disk 3 additional times.
+  * Fix rfc5424 compatibility by ensuring only 1 space occurs between the message and the structured data.
+* **[Bug Fix]** Bumps loggregator-release to v89.0.27 to fix Traffic Controller resource leaks when connections are slow.
+* **[Feature Improvement]** Adds field **Custom syslog Configuration** to specify custom logging rules in the **System Logging** tab. For more information, see [custom syslog rules](https://docs.pivotal.io/pivotalcf/1-11/customizing/custom-syslog-rules.html).
+
+<table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.30</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>capi</td><td>1.28.56\*</td>
+  </tr><tr>
+    <td>cf</td><td>259\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>93.1</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.5</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>0.25.0\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>21</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.188.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.23.2</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
+  </tr><tr>
+    <td>etcd</td><td>104</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.16</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>89.0.27\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>2.1.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.14.0</td>
+  </tr><tr>
+    <td>nats</td><td>16</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.6</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>28</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.48</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.2</td>
+  </tr><tr>
+    <td>postgres</td><td>17</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>661.1.47</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.7</td>
+  </tr><tr>
+    <td>routing</td><td>0.160.24\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.11</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>11</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.21</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.28</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>4.0.2</td>
+  </tr><tr>
+    <td>uaa</td><td>52.8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.11.32'></a> 1.11.32
 
 * **[Bug Fix]** Bumps capi-release to v1.28.56 to prevent app upload from failing when the app has broken symlinks.
