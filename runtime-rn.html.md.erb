@@ -13,118 +13,236 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.1.3'></a> 2.1.3
+
+* **[Security Fix]** Bumps cflinuxfs2 to v1.196.0:
+  * [USN-3611-1](https://usn.ubuntu.com/3611-1/)
+  * [USN-3610-1](https://usn.ubuntu.com/3610-1/)
+* **[Security Fix]** Bumps stemcell to v3541.12:
+  * [USN-3619-2](https://usn.ubuntu.com/3619-2/)
+  * [USN-3611-1](https://usn.ubuntu.com/3611-1/)
+  * [USN-3610-1](https://usn.ubuntu.com/3610-1/)
+  * [USN-3598-1](https://usn.ubuntu.com/3598-1/)
+  * [USN-3586-1](https://usn.ubuntu.com/3586-1/)
+  * [USN-3584-1](https://usn.ubuntu.com/3584-1/)
+* **[Bug Fix]** Bumps push-apps-manager-release to v664.0.5:
+  * Updates the CF CLI.
+  * Increases memory per instance from 64 MB to 128 MB.
+* **[Bug Fix]** Bumps syslog-migration-release to v11.1.1:
+  * Prevent logs from blackbox from being written to the default syslog log files to prevent logs from being written to the disk 3 additional times.
+  * Fix rfc5424 compatibility by ensuring only 1 space occurs between the message and the structured data.
+* **[Bug Fix]** Fixes a bug that caused the Cloud Controller sync job to fail when pushing an app with TCP routing enabled, which causes Diego to not know if its desired state is consistent with Cloud Controller.
+* **[Feature Improvement]** Bumps capi-release to v1.49.4 to improve database connection validation.
+* **[Feature Improvement]** Bumps diego-release to v1.35.3 to remove file limits for Envoy.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3541.12</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.4.2</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.49.4\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>118.2</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.11.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.1\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>39</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>5.1</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.196.0</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>credhub</td><td>1.7.1</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.3</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.16</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.5\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.16.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>notifications</td><td>44</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>31</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.48</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.3</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>664.0.5</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.1</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.7</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.11</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.21</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.1.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.1</td>
+  </tr><tr>
+    <td>uaa</td><td>55</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.1.2'></a> 2.1.2
 
 * **[Bug Fix]** Bumps capi-release to v1.49.3 to prevent app upload from failing when the app has broken symlinks.
 * **[Bug Fix]** Bumps apps-manager-release to v664.0.4 to fix endpoint headers.
 * **[Bug Fix]** Updates Small Footprint PAS to add `uaa` tag to UAA route registrar so router metrics can be filtered for the UAA component.
 
-<table border="1" class="nice">
-<thead> <tr>
-  <th>Component</th>
-  <th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Stemcell</td><td>3541.9</td>
-</tr><tr>
-  <td>backup-and-restore-sdk</td><td>1.4.2</td>
-</tr><tr>
-  <td>binary-offline-buildpack</td><td>1.0.15</td>
-</tr><tr>
-  <td>bosh-dns-aliases</td><td>0.0.1</td>
-</tr><tr>
-  <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
-</tr><tr>
-  <td>capi</td><td>1.49.3\*</td>
-</tr><tr>
-  <td>cf-autoscaling</td><td>118.2</td>
-</tr><tr>
-  <td>cf-backup-and-restore</td><td>0.0.10</td>
-</tr><tr>
-  <td>cf-mysql</td><td>36.11.0</td>
-</tr><tr>
-  <td>cf-networking</td><td>1.10.1\*</td>
-</tr><tr>
-  <td>cf-smoke-tests</td><td>39</td>
-</tr><tr>
-  <td>cf-syslog-drain</td><td>5.1</td>
-</tr><tr>
-  <td>cflinuxfs2</td><td>1.188.0</td>
-</tr><tr>
-  <td>consul</td><td>191</td>
-</tr><tr>
-  <td>credhub</td><td>1.7.1</td>
-</tr><tr>
-  <td>diego</td><td>1.35.0</td>
-</tr><tr>
-  <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
-</tr><tr>
-  <td>garden-runc</td><td>1.11.1</td>
-</tr><tr>
-  <td>go-offline-buildpack</td><td>1.8.16</td>
-</tr><tr>
-  <td>haproxy</td><td>8.6.0</td>
-</tr><tr>
-  <td>java-offline-buildpack</td><td>4.8</td>
-</tr><tr>
-  <td>loggregator</td><td>101.5\*</td>
-</tr><tr>
-  <td>mysql-backup</td><td>1.38.0</td>
-</tr><tr>
-  <td>mysql-monitoring</td><td>8.16.0</td>
-</tr><tr>
-  <td>nats</td><td>22</td>
-</tr><tr>
-  <td>nfs-volume</td><td>1.2.0</td>
-</tr><tr>
-  <td>nodejs-offline-buildpack</td><td>1.6.15</td>
-</tr><tr>
-  <td>notifications</td><td>44</td>
-</tr><tr>
-  <td>notifications-ui</td><td>31</td>
-</tr><tr>
-  <td>php-offline-buildpack</td><td>4.3.48</td>
-</tr><tr>
-  <td>pivotal-account</td><td>1.8.3</td>
-</tr><tr>
-  <td>push-apps-manager-release</td><td>664.0.4</td>
-</tr><tr>
-  <td>push-usage-service-release</td><td>666.0.1</td>
-</tr><tr>
-  <td>python-offline-buildpack</td><td>1.6.7</td>
-</tr><tr>
-  <td>routing</td><td>0.174.0</td>
-</tr><tr>
-  <td>ruby-offline-buildpack</td><td>1.7.11</td>
-</tr><tr>
-  <td>staticfile-offline-buildpack</td><td>1.4.21</td>
-</tr><tr>
-  <td>statsd-injector</td><td>1.1.0</td>
-</tr><tr>
-  <td>syslog-migration</td><td>11.1.0</td>
-</tr><tr>
-  <td>uaa</td><td>55</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-  <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-</tr>
-</tfoot>
-</table>
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3541.9</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.4.2</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.15</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.49.3\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>118.2</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.11.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.1\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>39</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>5.1</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.188.0</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>credhub</td><td>1.7.1</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.1</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.16</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.5\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.16.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>notifications</td><td>44</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>31</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.48</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.3</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>664.0.4</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.1</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.7</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.11</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.21</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.1.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.0</td>
+  </tr><tr>
+    <td>uaa</td><td>55</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
 
 ### <a id='2.1.1'></a> 2.1.1
 
 * **[Maintenance]** Bumps stemcell to version 3451.9.
-* **[Bug fix]** Bumps cf-networking-release to version 1.10.1:
+* **[Bug Fix]** Bumps cf-networking-release to version 1.10.1:
   * Fixes issue where deploy would fail when configured to use the NSX-T CNI plugin.
-* **[Bug fix]** Bumps routing-release to version 0.174.0:
+* **[Bug Fix]** Bumps routing-release to version 0.174.0:
   * Router gracefully falls back to non-TLS-enabled backends when encountering a
     retriable error with a TLS-enabled backend.
-* **[Bug fix]** Bumps apps-manager-release to v664.0.3:
+* **[Bug Fix]** Bumps apps-manager-release to v664.0.3:
   * Fixes a bug when running a task that forced users to change the memory and disk before the task could be run.
   * Fixes a bug that caused Apps Manager to send invalid parameters to services instances when binding to apps.
   * Introduces React error boundaries on app tabs to prevent full-page crashes.
@@ -139,20 +257,20 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   * Fixes a bug preventing the submission of UPS instance updates when changing only URLs and not credential parameters.
   * Reintroduces cache busting for js/css files.
   * Fixes a bug that would cause apps manager to fail to load when environment variables contained newlines.
-* **[Bug fix]** Bumps autoscaling-release to v118.2:
+* **[Bug Fix]** Bumps autoscaling-release to v118.2:
   * Fixes issue where brief periods of cloud controller downtime could cause autoscaler to become disabled.
-* **[Security fix]** Bumps mysql-release to v36.11.0:
+* **[Security Fix]** Bumps mysql-release to v36.11.0:
   * Allows rotation of passwords for pre-seeded users.
   * Updates MariaDB to 10.1.30 and other dependencies for security fixes.
-* **[Feature improvement]** Bumps mysql-monitoring-release to v8.16.0:
+* **[Feature Improvement]** Bumps mysql-monitoring-release to v8.16.0:
   * Improvements for CPU utilization monitoring, query reporting and `mysql-diag`.
   * [Full release notes](https://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#monitoring-8.16.0)
-* **[Feature improvement]** Adds UAA client for the [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle).
-* **[Security fix]** Bumps capi-release to v1.49.2:
+* **[Feature Improvement]** Adds UAA client for the [Noisy Neighbor Nozzle](https://github.com/cloudfoundry/noisy-neighbor-nozzle).
+* **[Security Fix]** Bumps capi-release to v1.49.2:
   * [CVE-2018-1266](https://www.cloudfoundry.org/blog/cve-2018-1266): Fix random number guessing exploit.
   * Internal routes for apps are no longer automatically generated.
-* **[Bug fix]** Updates identity client to fix issue where it would be unable to send invitation emails.
-* **[Feature improvement]** Adds `uaa` tag to UAA route registrar so router metrics can be filtered for the UAA component.
+* **[Bug Fix]** Updates identity client to fix issue where it would be unable to send invitation emails.
+* **[Feature Improvement]** Adds `uaa` tag to UAA route registrar so router metrics can be filtered for the UAA component.
   * Note: This improvement was made to PAS only. The same change will be made to SF-PAS in the next patch release.
 
   <table border="1" class="nice">

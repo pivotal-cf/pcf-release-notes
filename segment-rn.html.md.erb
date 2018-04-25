@@ -7,6 +7,61 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.1.2'></a> 2.1.2
+
+* **[Security Fix]** Bumps cflinuxfs2 to v1.196.0:
+  * [USN-3611-1](https://usn.ubuntu.com/3611-1/)
+  * [USN-3610-1](https://usn.ubuntu.com/3610-1/)
+* **[Security Fix]** Bumps stemcell to v3541.12:
+  * [USN-3619-2](https://usn.ubuntu.com/3619-2/)
+  * [USN-3611-1](https://usn.ubuntu.com/3611-1/)
+  * [USN-3610-1](https://usn.ubuntu.com/3610-1/)
+  * [USN-3598-1](https://usn.ubuntu.com/3598-1/)
+  * [USN-3586-1](https://usn.ubuntu.com/3586-1/)
+  * [USN-3584-1](https://usn.ubuntu.com/3584-1/)
+* **[Bug Fix]** Bumps syslog-migration-release to v11.1.1:
+  * Prevent logs from blackbox from being written to the default syslog log files to prevent logs from being written to the disk 3 additional times.
+  * Fix rfc5424 compatibility by ensuring only 1 space occurs between the message and the structured data.
+* **[Feature Improvement]** Bumps diego-release to v1.35.3 to remove file limits for Envoy.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3541.12</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.1\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.196.0</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.3</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.5\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.1.1'></a> 2.1.1
 
 * **[Maintenance]** Bump stemcell to version 3451.9.
@@ -16,43 +71,43 @@ owner: Release Engineering
   * Router gracefully falls back to non-TLS-enabled backends when encountering a
     retriable error with a TLS-enabled backend.
 
- <table border="1" class="nice">
- <thead> <tr>
-   <th>Component</th>
-   <th>Version</th>
- </tr>
- </thead>
- <tbody>
- <tr>
-   <td>Stemcell</td><td>3541.9</td>
- </tr><tr>
-   <td>cf-networking</td><td>1.10.1\*</td>
- </tr><tr>
-   <td>cflinuxfs2</td><td>1.188.0</td>
- </tr><tr>
-   <td>consul</td><td>191</td>
- </tr><tr>
-   <td>diego</td><td>1.35.0</td>
- </tr><tr>
-   <td>garden-runc</td><td>1.11.1</td>
- </tr><tr>
-   <td>haproxy</td><td>8.6.0</td>
- </tr><tr>
-   <td>loggregator</td><td>101.5\*</td>
- </tr><tr>
-   <td>nfs-volume</td><td>1.2.0</td>
- </tr><tr>
-   <td>routing</td><td>0.174.0</td>
- </tr><tr>
-   <td>syslog-migration</td><td>11.1.0</td>
- </tr>
- </tbody>
- <tfoot>
- <tr>
-   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
- </tr>
- </tfoot>
- </table>
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3541.9</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.1\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.188.0</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.0</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.5\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
 
 ### <a id='2.1.0'></a> 2.1.0
 

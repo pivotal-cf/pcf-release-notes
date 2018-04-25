@@ -11,6 +11,53 @@ Pivotal Cloud Foundry (PCF) also has a runtime for .NET apps based on Windows Se
 
 ## <a id='releases'></a> Releases
 
+### <a id='2-1-2'></a> 2.1.2
+
+* **[Bug Fix]** Bumps windows-utilities-release to v0.7.0 to fix issue where drain scripts fails if OpenSSH is not installed.
+* **[Bug Fix]** In the **VM Options** tab, **Manage Administrator Password**, the **Use the Windows default password** option has been changed to **Use random password** to correctly reflect the actual setting. 
+* **[Bug Fix]** Winc-network MTU is now configured in the Pivotal Application Services Tile, instead of being hardcoded.
+* **[Bug Fix]** Updates winc-network IP to 172.30.0.1, to allow containers to resolve DNS records.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1709.3</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.0</td>
+  </tr><tr>
+    <td>event_log</td><td>0.2</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.11.1</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.13.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.13</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.5\*</td>
+  </tr><tr>
+    <td>winc</td><td>1.0.0</td>
+  </tr>
+  </tr><tr>
+    <td>windows2016fs</td><td>1.0.0</td>
+  </tr>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.7.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2-1-1'></a> 2.1.1
 
 * **[Bug fix]** Update text on VM Options > Manage Administrator Password.
