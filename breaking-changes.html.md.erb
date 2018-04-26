@@ -7,7 +7,11 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-There are no known breaking changes in Ops Manager v2.2 at this time.
+### <a id="timestamp"></a> Metrics Logs May Parse Timestamps Incorrectly
+
+Diego timestamps in logs are now in RFC 3339 format. Because of this change, metrics logs may not anticipate the timestamp format change, resulting in unexpected behavior.
+
+If you experience issues, disable the format change in your tile configuration. For more information about this PCF v2.2 feature, see [New Format for Diego Timestamps](#runtime-rn.html#timestamp) in _Pivotal Application Service v2.2 Release Notes_.
 
 ## <a id='opsman'></a> Ops Manager
 
@@ -15,4 +19,6 @@ There are no known breaking changes in Ops Manager v2.2 at this time.
 
 ## <a id='ist'></a> PCF Isolation Segment
 
-There are no known breaking changes in PCF Isolation Segment v2.2 at this time. 
+### <a id="ist-timestamp"></a> Metrics Logs May Parse Timestamps Incorrectly
+
+See breaking changes for [Pivotal Application Service (PAS)](#timestamp) for more information.

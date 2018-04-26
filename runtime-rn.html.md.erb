@@ -130,4 +130,10 @@ When upgrading to v2.2, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.2
 
-No new features at this time.
+### <a id="timestamp"></a> New Format for Diego Timestamps
+
+Diego timestamps in logs are now in RFC 3339 format.
+
+The new timestamp format is enabled by default. If you want to disable the new timestamp format, you can in the PAS tile configuration.
+
+<p class="note breaking"><strong>Breaking Change:</strong> Metrics logs may not anticipate the timestamp format change, resulting in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
