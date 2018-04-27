@@ -112,7 +112,9 @@ Ops Manager v2.2 uses the following component versions:
 
 ### <a id='multi-dc'></a> Multiple Data Centers on vSphere
 
-Ops Manager now allows you to configure multiple vSphere data centers to a single BOSH Director. You can add additional data centers in the **vSphere Config** pane of your vSphere BOSH Director tile.
+Ops Manager now allows you to configure multiple vSphere vCenters to a single BOSH Director.
+
+You can add additional data centers in the **vSphere Config** pane of your vSphere BOSH Director tile. For more information about how to add, edit, and delete vCenters, see [Managing Multiple vSphere vCenters](http://docs.pivotal.io/pivotalcf/2-2/customizing/multiple-datacenters.html).
 
 <p class="note"><strong>Note: </strong>If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key. For more information about the API request, see <a target="_blank" href="http://opsman-dev-api-docs.cfapps.io/#fetching-director-iaas-and-security-properties-experimental">Fetching director, IaaS, and security properties</a> in the Ops Manager API documentation.</p>
 
