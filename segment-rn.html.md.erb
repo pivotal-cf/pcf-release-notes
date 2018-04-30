@@ -1078,3 +1078,13 @@ Container-to-container networking is now always enabled. The commands are integr
 The Advanced Features section of the PCF Isolation Segment tile includes new
 functionality that may have certain constraints.  Although these features are
 fully supported, Pivotal recommends caution when using them in production.
+
+##<a id='known-issues'></a> Known Issues
+
+### <a id='ist-apps'></a> Apps Deployed to PCF Isolation Segment Unreachable
+
+If you upgrade from PCF v1.11 to v1.12 and the PCF Isolation Segment tile is installed on your foundation, any apps deployed to a space associated with the tile may become unreachable until you manually restart them or map an arbitrary route to each of them.
+
+This happens because the isolation segment metadata for your existing apps is not automatically sent to the Gorouter on upgrade. Once you restart a given app or map a route to it, the Gorouter will receive the updated route information, including the isolation segment metadata.
+
+If PCF Isolation Segment is installed on your foundation, do not upgrade to PCF v1.12 until this issue is fixed and a patch is available.
