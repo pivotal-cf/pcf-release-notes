@@ -93,7 +93,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>pivotal-account</td><td>1.8.2</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>662.0.25</td>
+    <td>push-apps-manager-release</td><td>662.0.28</td>
   </tr><tr>
     <td>push-usage-service-release</td><td>663.0.8</td>
   </tr><tr>
@@ -134,6 +134,11 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 * **[Feature Improvement]** Bumps mysql-monitoring-release to v8.16.0. [Release Notes](http://docs.pivotal.io/p-mysql/1-10/mysql-components-release-notes.html#monitoring-8.16.0)
 * **[Feature Improvement]** Bumps loggregator-release to v96.0.17 to add stricter app id validation in Traffic Controller.
 * **[Feature Improvement]** The SSO Operator Dashboard now allows plan administrator to send password reset emails.
+* **[Bug Fix]** Bumps push-apps-manager-release to v662.0.28
+    * Reintroduce cache busting for js/css files
+    * Fixed a bug that would cause apps manager to fail to load when environment variables contained newlines
+    * Fix headers for endpoints that we serve
+    * Updated the CF CLI that is used to push Apps Manager and Invitations
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -195,7 +200,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>pivotal-account</td><td>1.8.2</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>662.0.25</td>
+    <td>push-apps-manager-release</td><td>662.0.28</td>
   </tr><tr>
     <td>push-usage-service-release</td><td>663.0.8</td>
   </tr><tr>
