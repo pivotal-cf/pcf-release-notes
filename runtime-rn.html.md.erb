@@ -267,6 +267,12 @@ When upgrading to v2.2, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.2
 
+### <a id="cipher-suites"> More Secure Cipher Suites for CF SSH
+
+When you call `cf ssh` from the CF CLI, you have defaults that enable more secure encryption. Previous to this change, the SSH proxy accepted a broader range of ciphers, MACs, and key exchanges. The range is now narrowed.
+
+These defaults are nonconfigurable in the PAS tile.
+
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
 Diego timestamps in logs are now in RFC 3339 format.
