@@ -269,9 +269,9 @@ When upgrading to v2.2, be aware of the following upgrade considerations:
 
 ### <a id="cipher-suites"></a> More Secure Cipher Suites for CF SSH
 
-When you call `cf ssh` from the CF CLI, you have defaults that enable more secure encryption. Previous to this change, the SSH proxy accepted a broader range of ciphers, MACs, and key exchanges. The range is now narrowed.
+When you call `cf ssh` from the CF CLI, the SSH proxy accepts a narrower range of ciphers, MACs, and key exchanges. This change enables greater security and reduces vulnerabilities.
 
-These defaults are nonconfigurable in the PAS tile.
+These SSH-proxy defaults are not configurable in the PAS tile.
 
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
