@@ -13,6 +13,48 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
 
+### 1.12.18
+
+* **[Security Fix]** Bumps stemcell to 3445.42
+* **[Bug Fix]** Adds support to nested credentials when you `GET` from the product credentials `/api/v0/deployed/products/:product_guid/credentials` endpoint in the Ops Manager API. In addition, when you `GET` from the credential reference `/api/v0/deployed/products/:product_guid/credentials/:credential_reference` endpoint and specify a nested credential in the `:credential_reference`, the output returns a value. For more information about the API endpoints resolved in this bug, see [Viewing available credentials](https://opsman-dev-api-docs.cfapps.io/#viewing-available-credentials) and [Fetching Credentials](https://opsman-dev-api-docs.cfapps.io/#fetching-credentials) from the Ops Manager API documentation.
+* Bumps UAA to 45.8
+* Bumps BOSH Director to 263.10
+
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3445.42*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>263.10*</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.3.5</td>
+    </tr><tr>
+      <td>UAA</td><td>45.8*</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>69</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>34</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>35</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>45.1.0</td>
+    </tr><tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+    </tfoot>
+    </table>
+
 ### 1.12.17
 
 * **[Security Fix]** Bumps Stemcell to 3445.32.
