@@ -281,6 +281,12 @@ The new timestamp format is enabled by default. If you want to disable the new t
 
 <p class="note breaking"><strong>Breaking Change:</strong> Metrics logs may not anticipate the timestamp format change, resulting in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
 
+### <a id="resource"></a> Diego More Resilient to Resource Unavailability
+
+Diego executes tasks with more resilience to resources when they are unavailable or scarce.
+
+For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
+
 ### <a id='logout'></a> Improved Session Timeout Behavior in Apps Manager
 
 Users are now logged out of Apps Manager once the UAA login cookie expires.
