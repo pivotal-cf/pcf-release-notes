@@ -1129,6 +1129,8 @@ fully supported, Pivotal recommends caution when using them in production.
 
 ### <a id='ist-apps'></a> Apps Deployed to PCF Isolation Segment Unreachable
 
+**Fixed in 1.12.18**
+
 If you upgrade from PCF v1.11 to v1.12 and the PCF Isolation Segment tile is installed on your foundation, any apps deployed to a space associated with the tile may become unreachable until you manually restart them or map an arbitrary route to each of them.
 
 This happens because the isolation segment metadata for your existing apps is not automatically sent to the Gorouter on upgrade. After you restart a given app or map a route to it, the Gorouter receives the updated route information, including the isolation segment metadata.
