@@ -267,11 +267,13 @@ When upgrading to v2.2, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.2
 
-### <a id="cipher-suites"></a> More Secure Cipher Suites for CF SSH
+### <a id="cipher-suites"></a> More Secure Cipher Suites for SSH Proxy
 
-When you call `cf ssh` from the CF CLI, the SSH proxy accepts a narrower range of ciphers, MACs, and key exchanges. This change enables greater security and reduces vulnerabilities.
+The SSH proxy accepts a narrower range of ciphers, MACs, and key exchanges. This change enables greater security and reduces vulnerabilities.
 
-These SSH-proxy defaults are not configurable in the PAS tile.
+These SSH-proxy settings are not configurable in the PAS tile.
+
+<p class="note"><strong>Note:</strong> This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. See <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a> for more information.</p>
 
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 

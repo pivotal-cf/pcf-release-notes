@@ -13,6 +13,10 @@ Diego timestamps in logs are now in RFC 3339 format. Because of this change, met
 
 If you experience issues, disable the format change in your tile configuration. For more information about this PCF v2.2 feature, see [New Format for Diego Timestamps](runtime-rn.html#timestamp) in _Pivotal Application Service v2.2 Release Notes_.
 
+### <a id="ssh-client"></a> SSH Proxy May Restrict Client Access
+
+The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. For more information, see <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a>.
+
 ## <a id='opsman'></a> Ops Manager
 
 There are no known breaking changes in Ops Manager v2.2 at this time.
