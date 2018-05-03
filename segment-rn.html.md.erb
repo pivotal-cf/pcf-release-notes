@@ -1129,7 +1129,9 @@ fully supported, Pivotal recommends caution when using them in production.
 
 ### <a id='ist-apps'></a> Apps Deployed to PCF Isolation Segment Unreachable
 
-**Fixed in 1.12.18**
+<p class="note"><strong>Fixed in</strong> PCF Isolation Segment <a href="#1.12.18">v1.12.18</a>.
+For more information, see <a href="https://docs.pivotal.io/pivotalcf/1-12/adminguide/routing-is.html#sharding-routers-isolation-segment">Sharding Routers for Isolation Segments</a> in <em>Routing for Isolation Segments</em>
+and <a href="https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#ist">Step 7: Upgrade PCF Isolation Segment</a> in <em>Upgrading Pivotal Cloud Foundry</em>.</p>
 
 If you upgrade from PCF v1.11 to v1.12 and the PCF Isolation Segment tile is installed on your foundation, any apps deployed to a space associated with the tile may become unreachable until you manually restart them or map an arbitrary route to each of them.
 
