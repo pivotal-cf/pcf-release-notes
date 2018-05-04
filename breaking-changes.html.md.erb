@@ -33,6 +33,10 @@ The internal credentials that Elastic Runtime uses for inter-component communica
 
 If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of the **Credentials** tab of the Elastic Runtime tile.
 
+### <a id='port-8844'></a> CredHub API Communication on Port 8844
+
+In order for the CredHub API to communicate with the BOSH Director, TCP Port 8844 must be opened in Ops Manager and Elastic Runtime. For more information, see [Preparing Your Firewall for Deploying PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/config_firewall.html).
+
 ### <a id='postgres'></a> Postgres
 
 This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
@@ -44,10 +48,6 @@ If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upg
 If your existing PCF v1.11.x installation includes both <a href="https://docs.pivotal.io/pivotalcf/1-12/windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
 
 If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#upgrade-mysql).
-
-### <a id='port-8844'></a> CredHub API Communication on Port 8844
-
-In order for the CredHub API to communicate with the BOSH Director, TCP Port 8844 must be opened in Ops Manager and Elastic Runtime. For more information, see [Preparing Your Firewall for Deploying PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/config_firewall.html).
 
 ## <a id='ops-man'></a> Ops Manager
 
