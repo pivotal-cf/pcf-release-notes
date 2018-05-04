@@ -35,7 +35,7 @@ If you want to access these credentials, you must use the CredHub CLI or the Ops
 
 ### <a id='port-8844'></a> CredHub API Communication on Port 8844
 
-In order for the CredHub API to communicate with the BOSH Director, TCP Port 8844 must be opened in Ops Manager and Elastic Runtime. For more information, see [Preparing Your Firewall for Deploying PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/config_firewall.html).
+In order for the CredHub API to communicate with the BOSH Director, TCP Port 8844 must be open on the networks where Ops Manager and Elastic Runtime VMs are deployed. TCP Port 8844 must be open to enable internal networking between VMs located inside the local network. For more information, see [Preparing Your Firewall for Deploying PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/config_firewall.html).
 
 ### <a id='postgres'></a> Postgres
 
