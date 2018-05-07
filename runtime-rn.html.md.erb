@@ -285,7 +285,9 @@ The new timestamp format is enabled by default. If you want to disable the new t
 
 ### <a id="task-placement-resilience"></a> Task Placement More Resilient to Resource Unavailability
 
-Placement of staging and application tasks is more resilient to temporary unavailibility of memory or disk resources. This temporarily unavailability may occur when many application instances or tasks are being created or destroyed simultaneously or when the Diego BBS or auctioneer fail to communicate to one or more Diego cells. The Diego system now attempts to place the Task on a cell with sufficient capacity several times over approximately a two-minute period of time, instead of causing the Task to fail immediately.
+When memory or disk resources are temporarily unavailable, PAS no longer fails application and staging tasks immediately. Instead, it attempts several times to place the task on a Diego cell with sufficient capacity.
+
+This temporary unavailability may occur when many application instances or tasks are being created or destroyed simultaneously or when the Diego Bulletin Board System (BBS) or auctioneer fails to communicate to one or more Diego cells.
 
 For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
 
