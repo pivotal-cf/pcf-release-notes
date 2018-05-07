@@ -667,12 +667,11 @@ These SSH-proxy settings are not configurable in the PAS tile.
 
 <p class="note"><strong>Note:</strong> This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. See <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a> for more information.</p>
 
-### <a id="timestamp"></a> New Format for Diego Timestamps
+### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
 
-You can now use RFC 3339 format for Diego timestamps in logs.
+The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log level identifiers are also formatted as strings instead of numeric codes.
 
-For new PAS v2.2 installations, RFC 3339 format is enabled by default.
-The Unix epoch format is set by default for upgrades to PAS v2.2.
+The new timestamp format is enabled by default for new deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
 
 You can enable the new timestamp format for Diego logs in the PAS tile.
 
