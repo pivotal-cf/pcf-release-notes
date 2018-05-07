@@ -103,7 +103,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>pivotal-account</td><td>1.8.2</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>663.0.11</td>
+    <td>push-apps-manager-release</td><td>663.0.14</td>
   </tr><tr>
     <td>push-usage-service-release</td><td>664.0.11</td>
   </tr><tr>
@@ -135,6 +135,11 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 * **[Bug Fix]** Bumps capi-release to v1.44.30 to prevent app upload from failing when the app has broken symlinks.
 * **[Bug Fix]** Bumps autoscaler-release to v104.2 to fix issue where brief periods of cloud controller downtime could cause autoscaler to become disabled.
+* **[Bug Fix]** Bumps apps-manager-release to v663.0.14:
+  * Reintroduce cache busting for js/css files.
+  * Fixed a bug that would cause apps manager to fail to load when environment variables contained newlines.
+  * Fix headers for endpoints that we serve.
+  * Updated the CF CLI that is used to push Apps Manager and Invitations.
 * **[Feature Improvement]** Updates the Small Footprint PAS tile name from "PCF Small Footprint" to "Small Footprint PAS".
 * **[Feature Improvement]** Adds bosh-dns alias for UAA. This allows service brokers deployed as applications to resolve UAA's DNS address and authenticate.
 
@@ -208,7 +213,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tr><tr>
     <td>pivotal-account</td><td>1.8.2</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>663.0.11</td>
+    <td>push-apps-manager-release</td><td>663.0.14</td>
   </tr><tr>
     <td>push-usage-service-release</td><td>664.0.11</td>
   </tr><tr>
