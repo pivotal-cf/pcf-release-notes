@@ -283,9 +283,9 @@ The new timestamp format is enabled by default. If you want to disable the new t
 
 <p class="note breaking"><strong>Breaking Change:</strong> Metrics logs may not anticipate the timestamp format change, resulting in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
 
-### <a id="resource"></a> Diego More Resilient to Resource Unavailability
+### <a id="task-placement-resilience"></a> Task Placement More Resilient to Resource Unavailability
 
-Diego executes tasks with more resilience to resources when they are unavailable or scarce.
+Placement of staging and application tasks is more resilient to temporary unavailibility of memory or disk resources. This temporarily unavailability may occur when many application instances or tasks are being created or destroyed simultaneously or when the Diego BBS or auctioneer fail to communicate to one or more Diego cells. The Diego system now attempts to place the Task on a cell with sufficient capacity several times over approximately a two-minute period of time, instead of causing the Task to fail immediately.
 
 For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
 
