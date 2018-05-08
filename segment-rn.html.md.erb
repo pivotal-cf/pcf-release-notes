@@ -7,11 +7,11 @@ owner: Release Engineering
 
 ### <a id='1.12.18'></a> 1.12.18
 
-* **[Feature Improvement]** Add cell and instance identifiers in application logs for container lifecycle
 * **[Security Fix]** Bumps garden-runc to version 1.13.1
-  * [CVE-2018-1277](https://www.cloudfoundry.org/blog/cve-2018-1277/)
+  * [CVE-2018-1277](https://www.cloudfoundry.org/blog/cve-2018-1277/).
 * **[Bug Fix]** Add "Shared and Segment" sharding mode for routers in Isolation Segments
   * Allows for zero downtime upgrades from IST 1.11 for applications that are only reachable through the isolation segment routers.
+* **[Feature Improvement]** Bumps diego-release to v1.25.13 to add cell and instance identifiers in the container lifecycle logs.
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -29,7 +29,7 @@ owner: Release Engineering
   </tr><tr>
     <td>consul</td><td>187</td>
   </tr><tr>
-    <td>diego</td><td>1.25.3</td>
+    <td>diego</td><td>1.25.13</td>
   </tr><tr>
     <td>garden-runc</td><td>1.13.1</td>
   </tr><tr>
