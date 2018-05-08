@@ -134,6 +134,15 @@ For more information about navigating the Ops Manager Settings page, see [Settin
 
 <p class="note"><strong>Note: </strong>Custom SSL certificate and key is persisted between upgrades. Custom SSL only needs a one-time configuration.</p>
 
+### <a id="om-syslog"></a> Configure an Ops Manager Syslog Server
+
+You can configure a syslog server for Ops Manager logs, including rails production logs, audit logs, UAA logs, nginx logs, and upstart logs for Ops Manager processes. Previous to this change, Ops Manager logs were not centralized in one accessible location. You also have the option to TLS-encrypt your logs.
+
+To configure syslog for Ops Manager, go to **Syslog** from Ops Manager **Settings**, select **Yes** to enable syslog and fill the required fields.
+
+For more information about configuring syslog for Ops Manager, see [Settings Page](http://docs.pivotal.io/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
+
+
 ### <a id="tls-blobstore"></a> TLS for Internal Blobstore Supported
 
 Ops Manager now supports TLS communications if you choose to use an internal blobstore.
