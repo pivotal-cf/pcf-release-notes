@@ -302,8 +302,7 @@ The `cf-drain-cli` plugin now enables app developers to bind user-provided syslo
 For more information, see the [CF Drain CLI Plugin](https://github.com/cloudfoundry/cf-drain-cli) GitHub repository.
 If a service tile supports syslog drains, app developers can use this plugin to forward logs and metrics from their service instance to an external endpoint.
 
-### <a id='logout'></a> Improved Session Timeout Behavior in Apps Manager
+### <a id='logout'></a> Improved Session Management Behavior in Apps Manager
 
-Users are now logged out of Apps Manager once the UAA login session cookie expires.
-In PAS v2.2, the default timeout for a global login session is set to 30 minutes.
+Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
 You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
