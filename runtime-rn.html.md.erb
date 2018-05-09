@@ -294,7 +294,10 @@ For more information about Diego task allocation, see [How Diego Balances App Pr
 ### <a id="log-cache"></a> Loggregator Introduces Log Cache
 
 Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them.
-For more information, see the [Log Cache](https://github.com/cloudfoundry/log-cache) and [Log Cache CLI Plugin](https://github.com/cloudfoundry/log-cache-cli) GitHub repositories.
+Persisting data from the Loggregator system with Log Cache
+enables users to retrieve recent logs for their apps in deployments with a large number of Dopplers
+without network and computation delays associated with the current architecture of the "cf logs --recent" cf CLI command.
+For more information about the new component, see the [Log Cache](https://github.com/cloudfoundry/log-cache) and [Log Cache CLI Plugin](https://github.com/cloudfoundry/log-cache-cli) GitHub repositories.
 
 ### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
 
