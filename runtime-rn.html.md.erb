@@ -16,6 +16,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 ### <a id='2.1.4'></a> 2.1.4
 
 * **[Security Fix]** Bumps garden-release to v1.13.1 for [CVE-2018-1277](https://www.cloudfoundry.org/blog/cve-2018-1277/).
+* **[Bug Fix]** Resolves an issue where BBR could not support any individual blob that was greater than 5GB in size when configuring external S3 versioned blobstores.
 * **[Bug Fix]** Bumps backup-and-restore-sdk to v1.5.3 to ensure that external blob stores with custom CA certs can be backed up and restored.
 * **[Bug Fix]** Bumps credhub-release to v1.7.3 to resolve an issue where the CredHub job could not be backed up with BBR when colocated with backup-and-restore-sdk-release's `database-backup-restorer` job from v1.5.3.
 * **[Bug Fix]** Bumps autoscaling-release to v118.3 to use CF CLI v6.36.1.
@@ -619,10 +620,6 @@ Operators can now configure PAS to use server-side encryption with AWS Key Manag
 
 BBR can back up external blobstores that are S3-compatible and have versioning enabled. The backup artifact is a list of version IDs, rather than a copy of the blobs, so replication of the blobstore is recommended. 
 
-<p class="note warning"><strong>IMPORTANT: </strong>
-In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
-</p>
-
 ### <a id='external-databases'></a> BBR Supports External Databases
 
 PAS backups can be stored using external MySQL databases. Previously, backups had to be stored using the internal MySQL databases. Now, you can host PAS backups with an external MySQL service. For a complete list of supported databases, see _Supported External Databases_ in the [Configuring Cloud Foundry for BOSH Backup and Restore (Experimental)](https://docs.cloudfoundry.org/bbr/cf-backup.html#supported-external-databases) topic. For more information on backing up backend PCF components with BBR, see the [Backing Up Pivotal Cloud Foundry with BBR](https://docs.pivotal.io/pivotalcf/customizing/backup-restore/backup-pcf-bbr.html) topic.
@@ -903,10 +900,6 @@ The `gorouter.latency.uaa` metric is not currently emitted in PCF v2.1. For more
 ###<a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
 
 BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
-
-###<a id='bbr-versioned-blobs'></a> BBR Cannot Support Blobs that Exceed 5GB in Size
-
-In PAS 2.1.0, when configuring external S3 versioned blobstores, BBR cannot support any individual blob that is greater than 5GB in size. Consult your AWS Console to determine the size of your blobs. If your backups fail while using external S3 versioned blobstores, contact Pivotal Support. 
 
 ###<a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
 
