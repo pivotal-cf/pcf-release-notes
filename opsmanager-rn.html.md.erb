@@ -9,7 +9,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <hr>
 
-## <a id='how-to-upgrade'></a>How to Upgrade ##
+## <a id='how-to-upgrade'></a> How to Upgrade
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.2.
 
@@ -155,7 +155,7 @@ Ops Manager v2.2 uses the following component versions:
 
 <hr>
 
-## <a id='major-features'></a>New Features in Ops Manager v2.2
+## <a id='major-features'></a> New Features in Ops Manager v2.2
 
 ### <a id='multi-dc'></a> Multiple Data Centers on vSphere
 
@@ -170,6 +170,12 @@ You can add additional data centers in the **vSphere Config** pane of your vSphe
 On each **Apply Changes**, Ops Manager sends your user-specified credentials to BOSH CredHub. This feature offers greater security for your credentials. For more information about where Ops Manager stores your credentials, see [BOSH CredHub](https://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
 
 For information about how this feature affects tile authors, see [PCF v2.2 Partners Release Notice](https://docs.pivotal.io/tiledev/2-2/release-notes-2-2.html#om-credhub) in the _PCF Tile Developer Guide_.
+
+### <a id='secret-text-field'></a> Secret Text Areas
+
+Ops Manager v2.2 supports a text area in its UI that tile authors can mark as `secret`. When a text area is marked as a `secret`, the UI shows an `*` when the page is saved, and the API does not return the value entered in this field.
+
+For more information, see the [Custom Forms and Properties](../../tile-generator.html#custom-forms) section of the _Tile Generator_ topic.
 
 ### <a id="custom-ssl"></a> Specify a Custom Trusted SSL Certificate
 
