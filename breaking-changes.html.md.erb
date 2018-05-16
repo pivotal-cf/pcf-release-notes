@@ -24,7 +24,11 @@ The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. 
 
 ## <a id='opsman'></a> Ops Manager
 
-There are no known breaking changes in Ops Manager v2.2 at this time.
+### <a id="om-syslog"></a> Ops Manager Logs Have Changed Locations
+
+Ops Manager centralized its logs so that you can now configure a syslog server in the Ops Manager **Settings**. Because of this feature change for Ops Manager v2.2, you cannot run scripts to fetch Ops Manager logs at their previous locations. Instead, Pivotal now recommends you configure syslog.
+
+For more information about the syslog feature, see [Configure an Ops Manager Syslog Server](opsmanager-rn.html#om-syslog) in the _PCF Ops Manager Release v2.2 Release Notes_.
 
 ## <a id='ist'></a> PCF Isolation Segment
 
