@@ -110,11 +110,15 @@ The Pivotal Application Service (PAS) for Windows v2.2 tile is available with th
 
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
-Diego timestamps in logs are now RFC 3339 format.
+Diego timestamps in logs are now in RFC 3339 format.
 
-The new timestamp format is enabled by default. If you want to disable the new timestamp format, you can in the Windows tile configuration.
+For new v2.2 installations, RFC 3339 format is enabled by default.
+The Unix epoch format is set by default for upgrades to v2.2.
 
-<p class="note breaking"><strong>Breaking Change:</strong> Metrics logs may not anticipate the timestamp format change, resulting in unexpected behavior. If you experience issues, disable the format change in your tile configuration.</p>
+You can enable the new timestamp format for Diego logs in the PAS tile.
+
+<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system
+anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
 ## <a id='adv-features'></a> About Advanced Features
 
