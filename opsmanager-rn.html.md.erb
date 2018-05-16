@@ -165,6 +165,12 @@ You can add additional data centers in the **vSphere Config** pane of your vSphe
 
 <p class="note"><strong>Note: </strong>If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key. For more information about the API request, see <a target="_blank" href="http://opsman-dev-api-docs.cfapps.io/#fetching-director-iaas-and-security-properties-experimental">Fetching director, IaaS, and security properties</a> in the Ops Manager API documentation.</p>
 
+### <a id="azure-china"></a> Ops Manager Supports Azure China
+
+Ops Manager now supports a special region in Azure called Azure China. Azure China is a physically separated instance of cloud services that is located in China and independently operated. For more information about Azure China, see [What is Azure China 21Vianet?](https://docs.microsoft.com/en-us/azure/china/china-welcome) in the Azure China documentation.
+
+To tell the BOSH Director that you are using an Azure China environment, select `Azure China Cloud` from the **Azure Environment** field of the **Azure Config** pane. For more information, see [Azure Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure-om-config.html#azure-config) in the _Configuring Ops Manager on Azure_ manual installation topic.
+
 ### <a id="om-credhub"></a> Ops Manager Credentials Stored in CredHub
 
 On each **Apply Changes**, Ops Manager sends your user-specified credentials to BOSH CredHub. This feature offers greater security for your credentials. For more information about where Ops Manager stores your credentials, see [BOSH CredHub](https://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
