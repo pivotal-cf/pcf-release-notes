@@ -181,6 +181,8 @@ For information about how this feature affects tile authors, see [PCF v2.2 Partn
 
 Ops Manager v2.2 supports a text area in its UI that tile authors can mark as `secret`. When a text area is marked as a `secret`, the UI shows an `*` when the page is saved, and the API does not return the value entered in this field.
 
+If you want to mark a text area as `secret`, you must set `type: secret` and `display_type: text_area` in your property blueprint.
+
 For more information, see the [Custom Forms and Properties](http://docs.pivotal.io/pivotalcf/2-2/tile-generator.html#custom-forms) section of the _Tile Generator_ topic.
 
 ### <a id="custom-ssl"></a> Specify a Custom Trusted SSL Certificate
