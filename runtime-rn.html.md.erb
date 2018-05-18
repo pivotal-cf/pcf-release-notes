@@ -13,6 +13,126 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.2.0-beta.2'></a> 2.2.0-beta.2
+
+* **[New Feature]** New log-cache release exposes low latency APIs for logs and metrics
+  * App developers can interact with it using the [log-cache CF CLI plugin](https://github.com/cloudfoundry/log-cache-cli)
+  * Other tiles and services will use log cache to enable new features
+
+* **[Removed Feature]** MySQL backup jobs and corresponding configuration have been removed
+  * This feature was deprecated in a previous release
+* **[Removed Feature]** Pivotal Account app is no longer deployed as a post deploy errand
+  * `login.SYSTEMDOMAIN` now routes to the UAA app directly
+  * NOTE: if Pivotal Account was previously deployed, it will not currently be removed automatically
+
+  Add log-cache version `1.1.1`
+
+  Rollback credhub version to `1.8.3`
+
+  Bump cf-smoke-tests version to `40.0.4`
+  Bump push-apps-manager-release version to `665.0.7`
+  Bump routing version to `0.178.0`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3586.7</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.6.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.57.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>118.2</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.14.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.1.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.4</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>6.5</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.208.0</td>
+  </tr><tr>
+    <td>consul</td><td>192</td>
+  </tr><tr>
+    <td>credhub</td><td>1.8.3</td>
+  </tr><tr>
+    <td>diego</td><td>2.6.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.6</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.2</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.21</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.7.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.1.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.3.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.23</td>
+  </tr><tr>
+    <td>notifications</td><td>46</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>32</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.54</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>2.0.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.7</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>pxc</td><td>0.6.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.178.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.18</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.27</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>silk</td><td>2.1.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>58.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.2.0-beta.1'></a> 2.2.0-beta.1
 
 * **[New Feature]** Add support for IAM Instance Profile authentication to AWS blobstores
