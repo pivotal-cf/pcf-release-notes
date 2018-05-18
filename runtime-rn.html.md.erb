@@ -13,6 +13,130 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.1.5'></a> 2.1.5
+
+* **[Security Fix]** Bump stemcell to v3541.25:
+  * [USN-3641](https://usn.ubuntu.com/3641-1/)
+  * [USN-3631-2](https://usn.ubuntu.com/3631-2/)
+  * [USN-3628-1](https://usn.ubuntu.com/3628-1/)
+  * [USN-3625-1](https://usn.ubuntu.com/3625-1/)
+  * [USN-3624-1](https://usn.ubuntu.com/3624-1/)
+* **[Security Fix]** Bump cflinuxfs2-release to v1.201.0:
+  * [USN-3628-1](https://usn.ubuntu.com/3628-1/)
+  * [USN-3625-1](https://usn.ubuntu.com/3625-1/)
+  * [USN-3624-1](https://usn.ubuntu.com/3624-1/)
+  * [USN-3622-1](https://usn.ubuntu.com/3622-1/)
+* **[Feature Improvement]** Bump routing-release to v0.174.1 to enable operator to disable logging of client IPs, in compliance with the EU General Data Protection Regulation (GDPR).
+* **[Feature Improvement] Bump apps-manager-release to v664.0.10:
+  * When binding a service instance, notify the user to restage their app from the CLI.
+  * When logged-in user can see no apps, show "No results" instead of "Loading..." in the app search.
+* **[Feature Improvement]** Bump autoscaling-release to v118.4 to add ability to view Autoscaler logs in app logs when LOG_VERBOSE is true.
+* Increase UAA session cookie max age to 8 hours.
+* Bump mysql-monitoring-release to v8.18.0.
+* Bumps the following buildpacks:
+  * Java-offline-buildpack to v4.12.0.
+  * Nodejs-offline-buildpack to v1.6.23.
+  * Php-offline-buildpack to v4.3.54.
+  * Python-offline-buildpack to v1.6.15.
+  * Ruby-offline-buildpack to v1.7.18.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3541.25</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.5.3</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.49.5\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>118.4</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.11.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.1\*</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>39</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>5.1</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.201.0</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>credhub</td><td>1.7.3</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.4</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.6</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.21</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.5\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.38.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.23</td>
+  </tr><tr>
+    <td>notifications</td><td>44</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>31</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.54</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.3</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>664.0.10</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.1</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.1</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.18</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.27</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.1.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.1</td>
+  </tr><tr>
+    <td>uaa</td><td>55</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+
 ### <a id='2.1.4'></a> 2.1.4
 
 * **[Security Fix]** Bumps garden-release to v1.13.1 for [CVE-2018-1277](https://www.cloudfoundry.org/blog/cve-2018-1277/).
