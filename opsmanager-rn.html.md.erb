@@ -160,6 +160,7 @@ Ops Manager v2.2 uses the following component versions:
 
 <hr>
 
+
 ## <a id='major-features'></a> New Features in Ops Manager v2.2
 
 ### <a id='multi-dc'></a> Multiple Data Centers on vSphere
@@ -182,11 +183,17 @@ On each **Apply Changes**, Ops Manager sends your user-specified credentials to 
 
 For information about how this feature affects tile authors, see [PCF v2.2 Partners Release Notice](https://docs.pivotal.io/tiledev/2-2/release-notes-2-2.html#om-credhub) in the _PCF Tile Developer Guide_.
 
-### <a id='secret-text-field'></a> Secret Text Areas
+### <a id='secret-text-field'></a> Multi-Line Credentials
 
-Ops Manager v2.2 supports a text area in its UI that tile authors can mark as `secret`. When a text area is marked as a `secret`, the UI shows an `*` when the page is saved, and the API does not return the value entered in this field.
+Ops Manager v2.2 now supports text areas for any type of multi-line credential. If you want a `secret` property to use a text area instead of the default single-line text field, you must set `display_type` to `text_area` in the `property_inputs` section of your property blueprint, as in the example below.
 
-If you want to mark a text area as `secret`, you must set `type: secret` and `display_type: text_area` in your property blueprint.
+```
+property_inputs:
+  - reference: secret_meaning
+    label: 'Secret Meaning'
+    description: 'If you play it backwards...'
+    display_type: 'text_area'
+```
 
 For more information, see the [Custom Forms and Properties](http://docs.pivotal.io/pivotalcf/2-2/tile-generator.html#custom-forms) section of the _Tile Generator_ topic.
 
@@ -221,6 +228,7 @@ To enable internal blobstore TLS communication, all of your tiles must have stem
 ### <a id="excluded-recursors"></a> Specify Excluded Recursors
 
 In the **Director Config** pane, you can now enter **Excluded Recursors** as a comma-separated list. This list specifies which IPs and ports you want to exclude from the DNS server. For more information, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
+
 
 ## <a id="known-issues"></a> Known Issues
 
