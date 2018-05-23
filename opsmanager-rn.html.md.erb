@@ -13,6 +13,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.10 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) topic.
 
+### 1.10.27
+
+* **[Feature]** Makes Azure network and resource group matchers case-insensitive.
+* **[Bug Fix]** Backports `GET /api/v0/staged/director/networks` to older releases.
+* **[Bug Fix]** Ops Manager gives BOSH sufficient IPs to deploy after scaling down or deleting instance groups.
+* **[Security Fix]** Bumps nginx to 1.13.2.
+* **[Security Fix]** Bumps rubygems to 2.6.13.
+* **[Security Fix]** Bumps postgres to 9.4.16.
+
 ### 1.10.26
 
 * Bumps Ruby to 2.3.6.
