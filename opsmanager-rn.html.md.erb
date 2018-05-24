@@ -232,4 +232,6 @@ In the **Director Config** pane, you can now enter **Excluded Recursors** as a c
 
 ## <a id="known-issues"></a> Known Issues
 
-No known issues at this time.
+### <a id="golang-x509"></a> Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
+
+x509 certificate parsing in the Go language is [stricter](https://golang.org/doc/go1.10#minor_library_changes) in v1.10 than it is in v1.9. As a result, certificates that many Pivotal customers originally generated with open-source tools and currently use could cause errors if parsed by Go v1.10. To avoid this, PCF v2.2 uses Go v1.9.
