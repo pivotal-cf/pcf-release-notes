@@ -703,3 +703,10 @@ If a service tile supports syslog drains, app developers can use this plugin to 
 
 Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
 You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
+
+
+##<a id='known-issues'></a> Known Issues
+
+### <a id="golang-x509"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
+
+x509 certificate parsing in the Go language is [stricter](https://golang.org/doc/go1.10#minor_library_changes) in v1.10 than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9, and PAS includes both versions of the language.
