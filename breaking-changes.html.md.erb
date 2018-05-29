@@ -22,6 +22,14 @@ For more information about this PCF v2.2 feature, see [New Format for Diego Time
 
 The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. For more information, see <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a>.
 
+### <a id="instance-profile"></a>Deployments Fail Without Either An Instance Profile Or Access And Secret Keys 
+
+PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required. If you neither use an instance profile nor enter an access and secret key, deployment will fail.
+
+If you configure both an instance profile and an access and secret key, the instance profile is prioritized and the access and secret key are ignored.
+
+For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+
 ## <a id='opsman'></a> Ops Manager
 
 ### <a id="om-syslog"></a> Ops Manager Logs Have Changed Locations
@@ -35,3 +43,13 @@ For more information about the syslog feature, see [Configure an Ops Manager Sys
 ### <a id="ist-timestamp"></a> Log Aggregation Systems May Parse Timestamps Incorrectly
 
 See [New Format for Diego Timestamps](segment-rn.html#timestamp) in _PCF Isolation Segment v2.2 Release Notes_ and breaking changes for [Pivotal Application Service (PAS)](#timestamp) for more information.
+
+## <a id="srt"> PCF Small Footprint Runtime
+
+### <a id="instance-profile"></a>Deployments Fail Without Either An Instance Profile Or Access And Secret Keys 
+
+Small Footprint Runtime now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required. If you neither use an instance profile nor enter an access and secret key, deployment will fail.
+
+If you configure both an instance profile and an access and secret key, the instance profile is prioritized and the access and secret key are ignored.
+
+For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
