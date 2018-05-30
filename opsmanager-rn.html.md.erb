@@ -222,6 +222,10 @@ For more information about the Stemcell Library, see [Importing and Managing Ste
 
 You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information about custom VM extensions, see [Managing Custom VM Extensions](http://docs.pivotal.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
 
+### <a id="azure-stack"></a>Azure Stack Support (Beta)
+
+Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack. **Azure Stack support is in beta** for Ops Manager v2.0 and should not be used in production.
+
 ### <a id="custom-kms"></a> AWS KMS Encryption Available for BOSH and Ops Manager VMs
 
 Operators can specify a custom AWS Key Management Service (KMS) encryption key to encrypt all the Elastic Block Store (EBS) volumes in AWS for BOSH VMs and the Ops Manager VM. You can use this feature to meet data-at-rest encryption requirements or as a security best practice. There is no performance penalty for using encrypted EBS volumes. Pivotal advises all users of PCF on AWS to enable encryption.
