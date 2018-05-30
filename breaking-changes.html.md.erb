@@ -23,9 +23,9 @@ For more information about this PCF v2.2 feature, see [New Format for Diego Time
 
 The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. For more information, see <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a>.
 
-### <a id="instance-profile"></a> Deployments Fail Without Either An Instance Profile Or Access And Secret Keys 
+### <a id="instance-profile"></a> Deployments with S3 Filestore Require an Instance Profile or an Access and Secret Key  
 
-PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required. If you neither use an instance profile nor enter an access and secret key, deployment will fail.
+PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required. If you do not specify one of these authentication mechanisms, the deployment fails.
 
 If you configure both an instance profile and an access and secret key, the instance profile is prioritized and the access and secret key are ignored.
 
@@ -50,9 +50,9 @@ See [New Format for Diego Timestamps](segment-rn.html#timestamp) in _PCF Isolati
 
 ## <a id="srt"></a> PCF Small Footprint Runtime
 
-### <a id="srt-instance-profile"></a> Deployments Fail Without Either An Instance Profile Or Access And Secret Keys 
+### <a id="srt-instance-profile"></a> Deployments with S3 Filestore Require an Instance Profile or an Access and Secret Key 
 
-Small Footprint Runtime now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required. If you do not provide either an instance profile or an access and secret key, the deployment fails.
+Small Footprint Runtime now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required. If you do not specify one of these authentication mechanisms, the deployment fails.
 
 If you configure both an instance profile and an access and secret key, the instance profile is prioritized and the access and secret key are ignored.
 
