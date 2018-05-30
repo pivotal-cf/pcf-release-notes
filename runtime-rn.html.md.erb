@@ -714,6 +714,11 @@ PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/
 
 For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
 
+### <a id="mysql-tls"></a> TLS-Encrypted Option for Internal System Databases
+
+For internal system databases, PAS now supports a [Percona Server](https://www.percona.com/software/mysql-database/percona-server) database with TLS-encrypted communication between server nodes, as well as the previous [MariaDB](http://www.mariadb.org) option. See [Migrate to TLS Communication](../opsguide/scaling-down-mysql.html#migrate) for details.
+
+<p class="note warning"><strong>WARNING</strong>: Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
 
 ## <a id='known-issues'></a> Known Issues
 
