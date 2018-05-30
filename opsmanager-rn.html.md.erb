@@ -211,7 +211,16 @@ Ops Manager now allows you to configure multiple vSphere vCenters to a single BO
 
 You can add additional data centers in the **vSphere Config** pane of your vSphere BOSH Director tile. For more information about how to add, edit, and delete vCenters, see [Managing Multiple vSphere vCenters](http://docs.pivotal.io/pivotalcf/2-2/customizing/multiple-datacenters.html).
 
-<p class="note"><strong>Note: </strong>If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key. For more information about the API request, see <a target="_blank" href="http://opsman-dev-api-docs.cfapps.io/#fetching-director-iaas-and-security-properties-experimental">Fetching director, IaaS, and security properties</a> in the Ops Manager API documentation.</p>
+<p class="note"><strong>Note: </strong>If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key.</p>
+
+### <a id="selective-deploy"></a> (Beta) Selectively Deploy Ops Manager Tiles
+
+You can now choose to deploy one or several tiles rather than all tiles in the Ops Manager Installation Dashboard. If you choose to selectively deploy your environment, you can drastically reduce the time to **Apply Changes**. This feature is ideal for operators who have tracked their changes to specific tiles and want to avoid unnecessary tile deployments.
+
+This feature is currently in beta. To access this feature, click **Review Pending Changes** underneath the **Apply Changes** button in the Ops Manager Installation Dashboard. For more information, see [Understanding the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html).
+
+<p class="note"><strong>Note: </strong>Ops Manager is sociting feedback for this feature. Please submit feedback through your PA or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a></p>
+
 
 ### <a id="azure-china"></a> Ops Manager Supports Azure China
 
