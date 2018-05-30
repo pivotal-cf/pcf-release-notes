@@ -638,6 +638,7 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tfoot>
   </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.2 is documented in the [Upgrading Pivotal Cloud
@@ -654,6 +655,7 @@ When upgrading to v2.2, be aware of the following upgrade considerations:
   partners services release documentation at
   [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
   organization that produces the tile.
+
 
 ## <a id='new-features'></a> New Features in PAS v2.2
 
@@ -673,6 +675,8 @@ For new PAS v2.2 installations, RFC 3339 format is enabled by default.
 The Unix epoch format is set by default for upgrades to PAS v2.2.
 
 You can enable the new timestamp format for Diego logs in the PAS tile.
+
+For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
 
 <p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system
 anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
@@ -710,7 +714,8 @@ PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/
 
 For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
 
-##<a id='known-issues'></a> Known Issues
+
+## <a id='known-issues'></a> Known Issues
 
 ### <a id="golang-x509"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
 
