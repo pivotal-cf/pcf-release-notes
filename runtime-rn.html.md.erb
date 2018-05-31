@@ -255,10 +255,10 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 * **[New Feature]** Add support to BBR for backing up S3 compatible blobstores that are not configured with versioning enabled
 * **[New Feature]** UAA now supports creating identity zones that can use multi-factor authentication
   * NOTE: this feature is only available to other tiles and users of UAA; it is not available in PAS
-* **[New Feature]** New "PXC" MySQL release with improved security
+* **[New Feature]** New Percona "PXC" MySQL release with improved security
   * Within the cluster, peers communicate with each other over TLS
   * NOTE: this is on by default for new deployments, but off by default when upgrading
-  * Turning it on for an existing deployment will result in some downtime while data is migrated from the existng cf-mysql database to the new database
+  * Turning it on for an existing deployment will result in some downtime while data is migrated from the existing cf-mysql database to the new database
 
 * **[Feature Improvement]** Add option to enable verbose event logging in Autoscaler
 * **[Feature Improvement]** Add option to enable human-readable timestamps in logs for Diego components
@@ -716,7 +716,7 @@ For more information, see the **External or S3 Filestore** section of any IaaS-s
 
 ### <a id="mysql-tls"></a> TLS-Encrypted Option for Internal System Databases
 
-For internal system databases, PAS now supports a [Percona Server](https://www.percona.com/software/mysql-database/percona-server) database with TLS-encrypted communication between server nodes, as well as the previous [MariaDB](http://www.mariadb.org) option. See [Migrate to TLS Communication](https://docs.pivotal.io/pivotalcf/2-2/opsguide/scaling-down-mysql.html#migrate) for details.
+For internal system databases, PAS now supports a more secure [Percona Server](https://www.percona.com/software/mysql-database/percona-server) database with TLS-encrypted communication between server nodes, as well as the previous [MariaDB](http://www.mariadb.org) option. See [Migrate to TLS Communication](https://docs.pivotal.io/pivotalcf/2-2/opsguide/scaling-down-mysql.html#migrate) for details.
 
 <p class="note warning"><strong>WARNING</strong>: Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
 

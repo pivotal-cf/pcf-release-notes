@@ -31,6 +31,12 @@ If you configure both an instance profile and an access and secret key, the inst
 
 For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
 
+### <a id="db-tls-downtime"></a> Temporary Downtime when Migrating Internal System Databases 
+
+Upgrading existing internal system databases to the new default option of **Internal Databases - MySQL with TLS** causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.
+
+The length of downtime depends on multiple factors, including database size, persistent disk type, CPU and disk capacity of VMs, and PAS configuration. For more information, see [Migrate to TLS Communication](https://docs.pivotal.io/pivotalcf/opsguide/scaling-down-mysql.html#migrate).
+
 
 ## <a id='opsman'></a> Ops Manager
 
