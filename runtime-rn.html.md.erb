@@ -736,6 +736,14 @@ To configure this value, see the _Configure App Autoscaler_ section of one of th
 * [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#config-autoscaler)
 * [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler)
 
+### <a id="verbose-logging-autoscaler"></a> Added App Autoscaler Verbose Logging
+
+Verbose logs are now available for App Autoscaler. Verbose logs allow you greater insight into App Autoscaler's behavior by outputting more detailed logs. Verbose logs show specific reasons why App Autoscaler scaled the app, information on minimum and maximum instance limits, App Autoscaler's status, and more.
+
+To enable verbose logs, select the **Verbose Logging** checkbox in the App Autoscaler pane.
+
+For more information, see [(Optional) Configure App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler) in the documentation for any IaaS.
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="golang-x509"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
