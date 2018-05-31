@@ -720,6 +720,22 @@ For internal system databases, PAS now supports a more secure [Percona Server](h
 
 <p class="note warning"><strong>WARNING</strong>: Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
 
+### <a id="metrics-collecton-interval"></a> Updated App Autoscaler Metrics Collection Interval Values
+
+This release updates the minimum, maximum, and default values for the Metrics Collection Interval used by the App Autoscaler in PAS. Updated minimum: 60 seconds. Updated maximum: 3600 seconds. Updated default: 120 seconds.
+
+To configure this value, see the _Configure App Autoscaler_ section of one of the following PAS configuration topics:
+
+* [Deploying PAS on AWS using Terraform](https://docs.pivotal.io/pivotalcf/2-2/customizing/aws-er-config-terraform.html#config-autoscaler)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#config-autoscaler)
+* [Configuring PAS for vSphere
+](https://docs.pivotal.io/pivotalcf/2-2/customizing/config-er-vmware.html#config-autoscaler)
+* [Deploying PAS on GCP using Terraform
+](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config-terraform.html#config-autoscaler)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#config-autoscaler)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#config-autoscaler)
+* [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler)
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="golang-x509"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
