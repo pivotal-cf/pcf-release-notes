@@ -16,6 +16,14 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 ### 2.1.4
 
 * Bumps vSphere to v49
+* **[Feature Improvement]** Decrease upload time for large tiles and stemcells.
+**[Bug Fix]** Helps alleviate Ruby's susceptibility to high memory usage. May prevent the Ops Manager VM from running out of memory during a long VM lifecycle.
+* **[Bug Fix]** Ops Manager UI shows product job log download link only once per instance group rather than for all instances.
+* **[Bug Fix]** The Ops Manager API endpoint `/api/v0/deployed/certificates` now lists all RSA certificates.
+* **[Bug Fix]** Azure network and resource group matchers are case insensitive.
+* **[Bug Fix]** The Ops Manager API no longer has the `service_network` key.
+* **[Bug Fix]** The menu links are clickable in all subpages.
+* **[Bug Fix]** In the Stemcell Library, stemcells only apply to the tiles you select regardless of compatibility.
 
 
 Ops Manager v2.1.4 uses the following component versions:
@@ -49,7 +57,7 @@ Ops Manager v2.1.4 uses the following component versions:
   </tr><tr>
     <td>OpenStack CPI</td><td>37</td>
   </tr><tr>
-    <td>vSphere CPI</td><td>49</td>
+    <td>vSphere CPI</td><td>49*</td>
   </tr><tr>
   </tbody>
   <tfoot>
