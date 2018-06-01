@@ -15,7 +15,10 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-11/cus
 
 ### 1.11.28
 
-* **[Security Fix]** Bumps stemcell to 3421.63
+* **[Security Fix]** Bumps stemcell to 3421.63.
+* **[Bug Fix]** Helps alleviate Ruby's susceptibility to high memory usage. May prevent the Ops Manager VM from running out of memory during a long VM lifecycle.
+* **[Bug Fix]** Ops Manager UI shows product job log download link only once per instance group rather than for all instances.
+* **[Bug Fix]** The Ops Manager API endpoint `/api/v0/deployed/certificates` now lists all RSA certificates.
 
 Ops Manager v1.11.28 uses the following component versions:
 
