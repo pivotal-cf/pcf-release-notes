@@ -5,6 +5,51 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.20'></a> 1.12.20
+
+* **[Security Fix]** Bump cflinuxfs2 to version `1.210.0`:
+  * [USN-3643-1](https://usn.ubuntu.com/3643-1/)
+* Bump cf-networking to version `1.4.3`
+* Update grootfs checkbox to indicate the recreating VMs is recommended
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.42</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.3\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.210.0</td>
+  </tr><tr>
+    <td>consul</td><td>187</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.13</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.1</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>96\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.14\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8.0.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='1.12.19'></a> 1.12.19
 
 * **[Security Fix]** Bump stemcell to v3468.42:
