@@ -11,6 +11,48 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
+### <a id='2-1-5'></a> 2.1.5
+
+* **[Security Fix]** Bump loggregator to version `101.11`
+  * Add strict application ID validation to TrafficController (CVE-2018-1268 CVE-2018-1269)
+  * Stricter appID validation in TrafficController
+  * Change RLP health endpoint to default to random port.
+  * Metron health endpoint only listens on localhost
+  * Bump go to 1.9.4
+  * Fix doppler emitting multiple ingress metrics.
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.17</td>
+  </tr><tr>
+    <td>consul</td><td>191</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.4</td>
+  </tr><tr>
+    <td>event_log</td><td>0.3.0</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.13.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.13</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.11\*</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.7.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2-1-4'></a> 2.1.4
 
 * **[Security Fix]** Bump stemcell to v1200.17. See [release notes](https://docs.pivotal.io/pivotalcf/2-1/stemcells/windows-stemcell-v1200x.html).
