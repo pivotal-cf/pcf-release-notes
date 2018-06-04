@@ -322,6 +322,16 @@ Ops Manager now supports TLS communications if you choose to use an internal blo
 
 To enable internal blobstore TLS communication, all of your tiles must have stemcells v3468 or later. If your tiles meet this requirement, disable the **Allow Legacy Agents** checkbox in the **Director Config** pane of your BOSH Director tile.
 
+### <a id='tls-external-db'></a> Custom TLS Certificate for External MySQL Database Supported
+
+Ops Manager now allows you to configure a custom TLS certificate for an external MySQL database.
+
+To configure a custome TLS certificate, navigate to **Director Config > Database Location** and select **External MySQL Database** to see the **Enable TLS** checkbox and the **TLS CA**, **TLS Certificate**, **TLS Private Key**, and **Advanced DB Connection Options** fields.
+
+<p class=‘note’><strong>Note:</strong> You can only configure the TLS-related field if you check the <strong>Enable TLS for Director Database</strong> checkbox. Otherwise, all the other fields will remain greyed out.</p>
+
+For more information, see the **Director Config Page** section of any IaaS-specific Ops Manager configuration topic, such as [Configuring BOSH Director on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
+
 ### <a id="excluded-recursors"></a> Specify Excluded Recursors
 
 In the **Director Config** pane, you can now enter **Excluded Recursors** as a comma-separated list. This list specifies which IPs and ports you want to exclude from the DNS server. For more information, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
