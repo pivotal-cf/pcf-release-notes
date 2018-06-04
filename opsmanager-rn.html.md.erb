@@ -13,6 +13,46 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
 
+### 1.12.21
+
+* **[Security Fix]** Bumps stemcell to 3445.48.
+* **[Bug Fix]** Helps alleviate Ruby's susceptibility to high memory usage. May prevent the Ops Manager VM from running out of memory during a long VM lifecycle.
+* **[Bug Fix]** Ops Manager UI shows product job log download link only once per instance group rather than for all instances.
+* **[Bug Fix]** The Ops Manager API endpoint `/api/v0/deployed/certificates` now lists all RSA certificates.
+
+
+Ops Manager v1.12.20 uses the following component versions:
+
+    <table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3445.48*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>263.10</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.3.5</td>
+    </tr><tr>
+      <td>UAA</td><td>45.8*</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>69</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>34</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>35</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>45.1.0</td>
+    </tr><tr>
+    </tbody>
+    </table>
+
 ### 1.12.20
 
 * **[Feature]** Makes Azure network and resource group matchers case-insensitive.
