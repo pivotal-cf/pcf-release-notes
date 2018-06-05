@@ -689,6 +689,12 @@ This temporary unavailability may occur when many application instances or tasks
 
 For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
 
+### <a id="instance-identity-certs-org-space-ids"></a> Instance Identity Certificates Contain CF Org and Space IDs
+
+The instance identity certificates provided to application instance and task containers now contain organizational units with their CF org and space IDs in the certificate subject name. Existing applications must be restarted after an upgrade to PAS v2.2 to receive these new identifiers.
+
+For more information, see [Using Instance Identity Credentials](https://docs.pivotal.io/pivotalcf/2-2/devguide/deploy-apps/instance-identity.html).
+
 ### <a id="log-cache"></a> Loggregator Introduces Log Cache
 
 Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them.
