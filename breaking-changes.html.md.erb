@@ -35,6 +35,9 @@ For more information, see the **External or S3 Filestore** section of any IaaS-s
 
 Upgrading existing internal system databases to the new option of **Internal Databases - MySQL - Percona XtraDB Cluster** causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS. For more information, see [MySQL Migration Downtime](https://docs.pivotal.io/pivotalcf/opsguide/scaling-down-mysql.html#mysql-downtime).
 
+### <a id="autoscaler-log-cache"></a> App Autoscaler Fails When Loggregator's Log Cache Is Disabled
+
+App Autoscaler relies on API endpoints in Loggregator's Log Cache component. If you disable Log Cache, App Autoscaler will fail. For more information about Log Cache, see [Loggregator Introduces Log Cache](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#log-cache).
 
 ## <a id='opsman'></a> Ops Manager
 

@@ -810,9 +810,11 @@ For more information about Diego task allocation, see [How Diego Balances App Pr
 
 ### <a id="log-cache"></a> Loggregator Introduces Log Cache
 
-Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them.
-Log Cache speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers.
-Users may notice faster results when retrieving recent logs for their apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
+Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. If you use Log Cache, you may notice faster results when retrieving recent logs for your apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
+
+Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
+
+<p class="note"><strong>Note</strong>: Pivotal Application Service's App Autoscaler relies on Log Cache to function properly. If you disable Log Cache, App Autoscaler will fail. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/breaking-changes.html#autoscaler-log-cache">App Autoscaler Fails When Loggregator's Log Cache Is Disabled</a>.</p>
 
 For more information about the new component, see the [Log Cache](https://github.com/cloudfoundry/log-cache) and [Log Cache CLI Plugin](https://github.com/cloudfoundry/log-cache-cli) GitHub repositories.
 
