@@ -38,6 +38,14 @@ Upgrading existing internal system databases to the new option of **Internal Dat
 
 ## <a id='opsman'></a> Ops Manager
 
+### <a id="bosh-dns"></a> Redeploy All Products After Upgrading To 2.2
+
+When you upgrade to 2.2, redeploy all products by clicking **Apply Changes** in the Ops Manager installation dashboard. A universal redeploy ensures that the updated BOSH DNS release applies consistently to all components after upgrade. 
+
+Do not use the **Review Pending Changes** button to deploy components individually. Instead, redeploy everything after upgrade and selectively deploy individual components for subsequent changes. 
+
+For more information about selective deployment, see [(Beta) Selectively Deploy Ops Manager Tiles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/opsmanager-rn.html#selective-deploy).
+
 ### <a id="om-syslog"></a> Ops Manager Logs Have Changed Locations
 
 Ops Manager centralized its logs so that you can now configure a syslog server in the Ops Manager **Settings**. Because of this feature change for Ops Manager v2.2, you cannot run scripts to fetch Ops Manager logs at their previous locations. Instead, Pivotal now recommends you configure syslog.
