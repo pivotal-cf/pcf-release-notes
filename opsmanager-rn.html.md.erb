@@ -263,9 +263,11 @@ You can add additional data centers in the **vSphere Config** pane of your vSphe
 
 You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. If you choose to selectively deploy your environment, you can drastically reduce the time to **Apply Changes**. This feature is ideal for operators who have tracked their changes to specific tiles and want to avoid unnecessary tile deployments.
 
+<p class="note"><strong>Note</strong>: Do not use selective deploy immediately after upgrading to 2.2. Instead, redeploy all components once using **Apply Changes** on the Ops Manager dashboard, and use selective deploy for subsequent changes. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/breaking-changes.html#bosh-dns">Redeploy All Products After Upgrading to 2.2</a>.</p>
+
 This feature is currently in beta. To access this feature, click **Review Pending Changes** underneath the **Apply Changes** button in the Ops Manager Installation Dashboard. For more information, see [Reviewing Pending Changes with Ops Manager](https://docs.pivotal.io/pivotalcf/2-2/customizing/selective-deploy.html).
 
-<p class="note"><strong>Note: </strong>Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
+<p class="note"><strong>Note</strong>: Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
 
 
 ### <a id="azure-china"></a> Ops Manager Supports Azure China
