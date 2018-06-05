@@ -41,11 +41,11 @@ App Autoscaler relies on API endpoints in Loggregator's Log Cache component. If 
 
 ## <a id='opsman'></a> Ops Manager
 
-### <a id="bosh-dns"></a> Redeploy All Products After Upgrading To 2.2
+### <a id="bosh-dns"></a> Redeploy All Products After Upgrading to Ops Manager v2.2
 
-When you upgrade to 2.2, redeploy all products by clicking **Apply Changes** in the Ops Manager installation dashboard. A universal redeploy ensures that the updated BOSH DNS release applies consistently to all components after upgrade. 
+When upgrading to PCF v2.2, redeploy all products by clicking **Apply Changes** in the Ops Manager installation dashboard. A universal redeploy ensures that the updated BOSH DNS release applies consistently to all components. 
 
-Do not use the **Review Pending Changes** button to deploy components individually. Instead, redeploy everything after upgrade and selectively deploy individual components for subsequent changes. 
+Do not use the **Review Pending Changes** button to deploy components individually during the upgrade to PCF v2.2. Instead, redeploy everything and selectively deploy individual components only after you have successfully upgraded to PCF v2.2. 
 
 For more information about selective deployment, see [(Beta) Selectively Deploy Ops Manager Tiles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/opsmanager-rn.html#selective-deploy).
 
