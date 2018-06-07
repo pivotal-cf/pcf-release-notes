@@ -939,7 +939,7 @@ Loggregator adds an in-memory caching layer for logs and metrics and provides a 
 
 Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
 
-For more information about Log Cache, see [Enable Log Cache](../../opsguide/logging-config-opsman.html#log-cache).
+For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
 
 <p class="note"><strong>Note:</strong> Pivotal Application Service's App Autoscaler relies on Log Cache to function properly. If you disable Log Cache, App Autoscaler will fail. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/breaking-changes.html#autoscaler-log-cache">App Autoscaler Fails When Loggregator's Log Cache Is Disabled</a>.</p>
 
