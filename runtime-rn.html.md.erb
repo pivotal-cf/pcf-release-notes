@@ -933,6 +933,12 @@ This temporary unavailability may occur when many application instances or tasks
 
 For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
 
+### <a id='c2c-discovery'></a> Service Discovery for Container-to-Container Networking Enabled By Default
+
+In PAS v2.1, service discovery for container-to-container networking was an experimental feature that you could opt in to use. In PAS v2.2, this feature is enabled by default, and you can opt out of using it.
+
+For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#er-appdevctrl-config).
+
 ### <a id="log-cache"></a> Loggregator Introduces Log Cache
 
 Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. If you use Log Cache, you may notice faster results when retrieving recent logs for your apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
