@@ -13,6 +13,356 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.2.0-rc.1'></a> 2.2.0-rc.1
+
+* **[Bug Fix]** Bump garden to 1.13.3 to fix issue with deleted files in application containers created from docker images
+* **[Feature Improvement]** Bump notifications-ui to version `33`
+  * Add cookie setting for GDPR compliance
+* **[Feature Improvement]** Bump credhub to version 1.9.3
+  * Reverted a validation to allow for both encryption_key_name and encryption_password in the same key
+  * Allows for more characters in credential names
+  * Increases the max length of cert subject alternate names (SANs) from 64 to 253
+  * Fixes a bug related to CredHub consuming postgres BOSH links
+* **[Feature Improvement]** Logs explicitly marked by the releases as "DEBUG" are no longer forwarded by default
+  * This feature can be disabled from the System Logging form. If you currently have a custom rule to drop debug logs, you can delete it if this feature is enabled.
+
+* Bump dotnet-core-offline-buildpack to version `2.0.7`
+* Bump go-offline-buildpack to version `1.8.23`
+* Bump java-offline-buildpack to version `4.12.1`
+* Bump nodejs-offline-buildpack to version `1.6.25`
+* Bump php-offline-buildpack to version `4.3.56`
+* Bump python-offline-buildpack to version `1.6.17`
+* Bump ruby-offline-buildpack to version `1.7.19`
+* Bump staticfile-offline-buildpack to version `1.4.28`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3586.16</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.7.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.58.1</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>201.0.0</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.14.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.3.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.4</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>6.5</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.212.0</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.3</td>
+  </tr><tr>
+    <td>diego</td><td>2.8.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.7</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.23</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.7.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12.1</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.3.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.25</td>
+  </tr><tr>
+    <td>notifications</td><td>46</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.56</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.9.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.9</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.17</td>
+  </tr><tr>
+    <td>pxc</td><td>0.6.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.178.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.19</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.28</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>silk</td><td>2.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>58.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+### <a id='2.2.0-beta.5'></a> 2.2.0-beta.5
+
+* **[Security Fix]** Bump diego to version `2.8.0` for [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/)
+* Bump capi to version `1.58.1`
+* Bump consul to version `193`
+* Bump log-cache to version `1.3.0`
+* Bump nfs-volume to version `1.2.1`
+* Bump push-apps-manager-release to version `665.0.9`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3586.16</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.7.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.58.1</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>201.0.0</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.14.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.3.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.4</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>6.5</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.212.0</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>credhub</td><td>1.8.3</td>
+  </tr><tr>
+    <td>diego</td><td>2.8.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.6</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.2</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.21</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.7.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.3.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.23</td>
+  </tr><tr>
+    <td>notifications</td><td>46</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>32</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.54</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.9.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.9</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>pxc</td><td>0.6.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.178.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.18</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.27</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>silk</td><td>2.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>58.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+### <a id='2.2.0-beta.4'></a> 2.2.0-beta.4
+
+* **[Feature]** Application service discovery is enabled by default
+  * Job is now co-located on the diego brain instance group
+  * NOTE: dedicated service discovery instance group is now deprecated
+    If upgrading from 2.1 with this feature enabled, do not scale down service discovery instance group until after the upgrade
+* **[Feature]** Operator can configure a list of DNS search domains
+* **[Feature Improvement]** diego SSH proxy uses internal route for UAA
+* Bump cf-networking to version `2.3.0`
+  * Fixes issue with package name conflict between networking and silk
+* Bump cflinuxfs2 to version `1.212.0`
+* Bump log-cache to version `1.2.0`
+  * Add checkbox to allow operators to disable log cache
+    NOTE: if log cache is disabled, autoscaling will not function properly
+* Bump pivotal-account to version `1.9.0`
+  * Delete Pivotal Account errand runs by default to clean up application from previous deployment on upgrade
+* Bump silk to version `2.3.0`
+* Bump stemcell to version `3586.16`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3586.16</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.7.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.58.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>201.0.0</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.14.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.3.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.4</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>6.5</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.212.0</td>
+  </tr><tr>
+    <td>consul</td><td>192</td>
+  </tr><tr>
+    <td>credhub</td><td>1.8.3</td>
+  </tr><tr>
+    <td>diego</td><td>2.7.1</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.6</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.2</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.21</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.7.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.2.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.3.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.23</td>
+  </tr><tr>
+    <td>notifications</td><td>46</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>32</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.54</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.9.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.8</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.15</td>
+  </tr><tr>
+    <td>pxc</td><td>0.6.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.178.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.18</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.27</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>silk</td><td>2.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>58.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.2.0-beta.3'></a> 2.2.0-beta.3
 
 * **[Feature]** Operator can disable logging of client IP addresses
@@ -667,11 +1017,28 @@ These SSH-proxy settings are not configurable in the PAS tile.
 
 <p class="note"><strong>Note:</strong> This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. See <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a> for more information.</p>
 
-### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
+### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
 
-The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log level identifiers are also formatted as strings instead of numeric codes.
+Operators can now disable logging of client IP addresses in Gorouter to comply with the General Data Protection Regulation (GDPR).
 
-The new timestamp format is enabled by default for new deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
+This setting, **Logging of Client IPs in CF Router**, is configured in the **Networking** pane of the PAS tile.
+You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
+By default, the **Log client IPs** option is set in PAS.
+
+For more information about configuring the **Logging of Client IPs in CF Router** field, see the _Configuring PAS_ topic for your IaaS:
+
+* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#networking)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#networking)
+* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#networking)
+* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-2/customizing/config-er-vmware.html#networking)
+
+### <a id="timestamp"></a> New Format for Diego Timestamps
+
+You can now use RFC 3339 format for Diego timestamps in logs.
+
+For new PAS v2.2 installations, RFC 3339 format is enabled by default.
+The Unix epoch format is set by default for upgrades to PAS v2.2.
 
 You can enable the new timestamp format for Diego logs in the PAS tile.
 
@@ -688,13 +1055,21 @@ This temporary unavailability may occur when many application instances or tasks
 
 For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
 
-### <a id="log-cache"></a> Loggregator Introduces Log Cache
+### <a id='c2c-discovery'></a> Service Discovery for Container-to-Container Networking Enabled By Default
 
-Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them.
-Log Cache speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers.
-Users may notice faster results when retrieving recent logs for their apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
+In PAS v2.1, service discovery for container-to-container networking was an experimental feature that you could opt in to use. In PAS v2.2, this feature is enabled by default, and you can opt out of using it.
 
-For more information about the new component, see the [Log Cache](https://github.com/cloudfoundry/log-cache) and [Log Cache CLI Plugin](https://github.com/cloudfoundry/log-cache-cli) GitHub repositories.
+For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#er-appdevctrl-config).
+
+### <a id="log-cache"></a> Loggregator Adds Log Cache in PAS Advanced Features
+
+Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Use Log Cache to query and filter logs.
+
+Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
+
+For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
+
+<p class="note breaking"><strong>Breaking Change</strong>: If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
 
 ### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
 
@@ -715,17 +1090,27 @@ For more information about scaling apps using App Autoscaler, see [Scaling an Ap
 Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
 You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
 
-### <a id="instance-profile"></a> Added Support for AWS Instance Profiles 
+### <a id="instance-profile"></a> Support for AWS Instance Profiles 
 
 PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required.
 
 For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
 
+### <a id='pivotal-account'></a> Pivotal Account Replaced by UAA
+
+Prior to PAS v2.2, you could use Pivotal Account to create and manage user accounts. In PAS v2.2, PAS stops using Pivotal Account, and you can now create and manage user accounts through the UAA UI instead.
+
+The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with the **Delete Pivotal Account Application** errand, which is configured to run automatically. For more information, see the **Configure Errands** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#errands).
+
+### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
+
+PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+
 ### <a id="mysql-tls"></a> TLS-Encrypted Option for Internal System Databases
 
 For internal system databases, PAS now supports a more secure [Percona Server](https://www.percona.com/software/mysql-database/percona-server) database with TLS-encrypted communication between server nodes, as well as the previous [MariaDB](http://www.mariadb.org) option. See [Migrate to TLS Communication](https://docs.pivotal.io/pivotalcf/2-2/opsguide/scaling-down-mysql.html#migrate) for details.
 
-<p class="note warning"><strong>WARNING</strong>: Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
+<p class="note warning"><strong>WARNING:</strong> Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
 
 ### <a id="metrics-collecton-interval"></a> Updated App Autoscaler Metrics Collection Interval Values
 
@@ -743,13 +1128,14 @@ To configure this value, see the _Configure App Autoscaler_ section of one of th
 * [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#config-autoscaler)
 * [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler)
 
-### <a id="verbose-logging-autoscaler"></a> Added App Autoscaler Verbose Logging
+### <a id="verbose-logging-autoscaler"></a> App Autoscaler Verbose Logging
 
 Verbose logs are now available for App Autoscaler. Verbose logs show specific reasons why App Autoscaler scaled the app, information on minimum and maximum instance limits, App Autoscaler's status, and more. Verbose logs result in more detailed logs, but do not otherwise impact performance.
 
 To enable verbose logs, select the **Verbose Logging** checkbox in the App Autoscaler pane.
 
 For more information, see [(Optional) Configure App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler) in the documentation for any IaaS.
+
 
 ## <a id='known-issues'></a> Known Issues
 
