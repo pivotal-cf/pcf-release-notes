@@ -1033,12 +1033,11 @@ For more information about configuring the **Logging of Client IPs in CF Router*
 * [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#networking)
 * [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-2/customizing/config-er-vmware.html#networking)
 
-### <a id="timestamp"></a> New Format for Diego Timestamps
+### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
 
-You can now use RFC 3339 format for Diego timestamps in logs.
+The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log level identifiers are also formatted as strings instead of numeric codes.
 
-For new PAS v2.2 installations, RFC 3339 format is enabled by default.
-The Unix epoch format is set by default for upgrades to PAS v2.2.
+The new timestamp format is enabled by default for new deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
 
 You can enable the new timestamp format for Diego logs in the PAS tile.
 
