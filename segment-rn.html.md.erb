@@ -324,6 +324,16 @@ To install a PCF Isolation Segment, you must first install PCF v2.2.
 
 ## <a id='2.2.0'></a> New Features in PCF Isolation Segment v2.2
 
+### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
+
+Operators can now disable logging of client IP addresses in Gorouter to comply with the General Data Protection Regulation (GDPR).
+
+This setting, **Logging of Client IPs in CF Router**, is configured in the **Networking** pane of the PCF Isolation Segment tile.
+You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
+By default, the **Log client IPs** option is set in PCF Isolation Segment.
+
+For more information about configuring the **Logging of Client IPs in CF Router** field, see [Networking](https://docs.pivotal.io/pivotalcf/2-2/customizing/installing-pcf-is.html#networking) in the _Installing PCF Isolation Segment_ topic.
+
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
 You can now use RFC 3339 format for Diego timestamps in logs.
