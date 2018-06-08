@@ -11,12 +11,65 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.2.
+The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.2.
+
+### 2.2 Beta 5
+
+* Bumps CredHub to v1.9.3
+* **[Feature Improvement]** When you select an internal director blobstore, you now see an option to **Enable TLS**.
+* **[Bug Fix]** Fixes validation errors for blobstore TLS with a Windows VM.
+
+
+Ops Manager v2.2 Beta 5 uses the following component versions:
+
+ <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3586.16</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.6</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>265.2</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.5.0</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.9.3*</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.3</td>
+  </tr><tr>
+    <td>UAA</td><td>57</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>70</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.2</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>38</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>49</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 
 ### 2.2 Beta 4
 
 * **[Security Fix]** Bumps stemcell to 3586.16
 * Fixes Azure Registry and unicode issue
+
+Ops Manager v2.2 Beta 4 uses the following component versions:
 
  <table border="1" class="nice">
   <thead>
@@ -64,6 +117,8 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 * Bumps CredHub to v1.9.1
 * Bumps UAA to v57
 * Bumps vSphere CPI to v49
+
+Ops Manager v2.2 Beta 3 uses the following component versions:
 
  <table border="1" class="nice">
   <thead>
@@ -114,6 +169,8 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 * Bumps vSphere to v48
 * Bumps BBR SDK to v1.6
 * Bumps Syslog to v11.3
+
+Ops Manager v2.2 Beta 1 uses the following component versions:
 
  <table border="1" class="nice">
   <thead>
@@ -205,7 +262,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### 2.2 Alpha 1
 
-Ops Manager v2.2 uses the following component versions:
+Ops Manager v2.2 Alpha 1 uses the following component versions:
 
  <table border="1" class="nice">
   <thead>
@@ -261,18 +318,29 @@ You can add additional data centers in the **vSphere Config** pane of your vSphe
 
 ### <a id="selective-deploy"></a> (Beta) Selectively Deploy Ops Manager Tiles
 
-You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. If you choose to selectively deploy your environment, you can drastically reduce the time to **Apply Changes**. This feature is ideal for operators who have tracked their changes to specific tiles and want to avoid unnecessary tile deployments.
+You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. If you choose to selectively deploy your environment, you can drastically reduce the time to **Apply Changes**. This feature is ideal for operators who have tracked their changes to specific tiles and want to break up their deployments.
 
 This feature is currently in beta. To access this feature, click **Review Pending Changes** underneath the **Apply Changes** button in the Ops Manager Installation Dashboard. For more information, see [Reviewing Pending Changes with Ops Manager](https://docs.pivotal.io/pivotalcf/2-2/customizing/selective-deploy.html).
 
-<p class="note"><strong>Note: </strong>Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
 
+<p class="note warning"><strong>Warning</strong>: Do not selectively deploy tiles when upgrading to PCF v2.2. Instead, redeploy all product tiles using <strong>Apply Changes</strong> on the Ops Manager Installation Dashboard. For more information, see <a href="./breaking-changes.html#bosh-dns">Redeploy All Products After Upgrading to Ops Manager v2.2</a>.</p>
+
+<p class="note"><strong>Note</strong>: Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
+
+
+### <a id="azure-stack"></a> Azure Stack is Generally Available
+
+Pivotal officially supports Azure Stack.
+
+Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your own on-premise datacenter. For more information about Azure Stack, see [What is Azure Stack?](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-poc) from the Microsoft Azure documentation.
+
+You can configure Azure Stack through the **BOSH Director for Azure** tile. For more information about Azure Stack-specific configurations, see the steps in the [Azure Config Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-om-config.html#azure-config) section of the _Configuring BOSH Director on Azure_ topic.
 
 ### <a id="azure-china"></a> Ops Manager Supports Azure China
 
 Ops Manager now supports a special region in Azure called Azure China. Azure China is a physically separated instance of cloud services that is located in China and independently operated. For more information about Azure China, see [What is Azure China 21Vianet?](https://docs.microsoft.com/en-us/azure/china/china-welcome) in the Azure China documentation.
 
-To tell the BOSH Director that you are using an Azure China environment, go to the BOSH Director tile and select `Azure China Cloud` from the **Azure Environment** field. For more information, see [Azure Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/azure-om-config.html#azure-config) in the _Configuring Ops Manager on Azure_ manual installation topic.
+To tell the BOSH Director that you are using an Azure China environment, go to the **BOSH Director for Azure** tile and select `Azure China Cloud` from the **Azure Environment** field. For more information, see [Azure Config Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-om-config.html#azure-config) in the _Configuring Ops Manager on Azure_ manual installation topic.
 
 ### <a id="om-credhub"></a> Ops Manager Credentials Stored in CredHub
 
@@ -300,7 +368,7 @@ Operators can specify a custom trusted SSL certificate and key for the Ops Manag
 
 By default, Ops Manager uses an auto-generated self-signed certificate. To change this configuration to your own SSL certificate, navigate to **Settings** from the Ops Manager Installation Dashboard and select the **SSL Certificate** pane to enter your **Certificate** and **Private Key**.
 
-For more information about navigating the Ops Manager Settings page, see [Settings Page](http://docs.pivotal.io/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
+For more information about navigating the Ops Manager Settings page, see [Settings Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
 
 <p class="note"><strong>Note:</strong> Custom SSL certificate and key is persisted between upgrades. Custom SSL only needs a one-time configuration.</p>
 
@@ -310,7 +378,7 @@ You can configure a syslog server for Ops Manager logs. Logs include rails produ
 
 To configure syslog for Ops Manager, go to **Syslog** from Ops Manager **Settings**, select **Yes** to enable syslog and fill the required fields.
 
-For more information about configuring syslog for Ops Manager, see [Settings Page](http://docs.pivotal.io/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
+For more information about configuring syslog for Ops Manager, see [Settings Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
 
 <p class="note"><strong>Note:</strong> When you configure syslog, Ops Manager does not validate your credentials. Test your syslog server to ensure that it is receiving Ops Manager logs.</p>
 
@@ -332,10 +400,6 @@ To configure a custome TLS certificate, navigate to **Director Config > Database
 
 For more information, see the **Director Config Page** section of any IaaS-specific Ops Manager configuration topic, such as [Configuring BOSH Director on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
 
-### <a id="excluded-recursors"></a> Specify Excluded Recursors
-
-In the **Director Config** pane, you can now enter **Excluded Recursors** as a comma-separated list. This list specifies which IPs and ports you want to exclude from the DNS server. For more information, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config).
-
 ### <a id="ui-changes"></a> UI Improvements to Ops Manager Installation Dashboard
 
 The following lists UI changes to the Ops Manager Installation Dashboard:
@@ -343,9 +407,22 @@ The following lists UI changes to the Ops Manager Installation Dashboard:
 - **Stemcell Library** is persistently in the page header. You can now access Stemcell Library from anywhere in Ops Manager, including from within tiles.
 - **Changelog** is persistently in the page header. You can now access the changelog from anywhere in Ops Manager.
 - **Review Pending Changes BETA** button is below **Apply Changes**. For more information about this feature, see [Selectively Deploy Ops Manager Tiles](#selective-deploy).
+- **Azure Logo** is updated.
+- **BOSH Director tile name** is changed to "BOSH Director for YOUR_IAAS".
 
 For more information about the Ops Manager UI, see [Installation Dashboard Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#installation-dashboard) in the _Understanding the Ops Manager Interface_ topic.
 
+### <a id="staged-products-api"></a> More Detail Available Via Ops Manager API Endpoint
+
+A new API endpoint is available for Ops Manager. Send a `GET` to `/v0/staged/pending_changes` to see details about your Ops Manager installation, including tile names, errand names, build version, and deployment status. The API response will show information on all tiles, whether they are deployed or have pending changes.
+
+For more information about setting up the Ops Manager API, see [Using the Ops Manager API](https://docs.pivotal.io/pivotalcf/2-2/customizing/ops-man-api.html).
+
+### <a id="identification-tags"></a> Custom Identification Tags Supported
+
+You can specify a single set of tags that apply to all VMs and disks for your foundation. Identification tags allow you to easily identify which foundation your VMs belong to when viewing your IaaS. You are able to set custom **Identification Tags** in the **Director Config** pane of your BOSH Director tile.
+
+For more information about configuring identification tags, see the Ops Manager config topic for your IaaS. For example, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config) in the _Configuring BOSH Director on GCP_ topic.
 
 ## <a id="known-issues"></a> Known Issues
 
