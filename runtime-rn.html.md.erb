@@ -1061,17 +1061,15 @@ In PAS v2.1, service discovery for container-to-container networking was an expe
 
 For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#er-appdevctrl-config).
 
-### <a id="log-cache"></a> Loggregator Introduces Log Cache
+### <a id="log-cache"></a> Loggregator Adds Log Cache in PAS Advanced Features
 
-Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. If you use Log Cache, you may notice faster results when retrieving recent logs for your apps from Log Cache instead of executing the `cf logs APP-NAME --recent` command.
+Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Use Log Cache to query and filter logs.
 
 Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
 
 For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
 
-<p class="note"><strong>Note:</strong> Pivotal Application Service's App Autoscaler relies on Log Cache to function properly. If you disable Log Cache, App Autoscaler will fail. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/breaking-changes.html#autoscaler-log-cache">App Autoscaler Fails When Loggregator's Log Cache Is Disabled</a>.</p>
-
-For more information about the new component, see the [Log Cache](https://github.com/cloudfoundry/log-cache) and [Log Cache CLI Plugin](https://github.com/cloudfoundry/log-cache-cli) GitHub repositories.
+<p class="note breaking"><strong>Breaking Change</strong>: If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
 
 ### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
 
