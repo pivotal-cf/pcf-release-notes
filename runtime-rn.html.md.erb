@@ -1055,6 +1055,12 @@ This temporary unavailability may occur when many application instances or tasks
 
 For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
 
+### <a id="instance-identity-certs-org-space-ids"></a> Instance Identity Certificates Contain CF Org and Space IDs
+
+The instance identity certificates provided to application instance and task containers now contain organizational units with their CF org and space IDs in the certificate subject name. Existing applications must be restarted after an upgrade to PAS v2.2 to receive these new identifiers.
+
+For more information, see [Using Instance Identity Credentials](https://docs.pivotal.io/pivotalcf/2-2/devguide/deploy-apps/instance-identity.html).
+
 ### <a id='c2c-discovery'></a> Service Discovery for Container-to-Container Networking Enabled By Default
 
 In PAS v2.1, service discovery for container-to-container networking was an experimental feature that you could opt in to use. In PAS v2.2, this feature is enabled by default, and you can opt out of using it.
