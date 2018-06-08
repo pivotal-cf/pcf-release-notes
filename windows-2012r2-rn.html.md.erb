@@ -10,16 +10,57 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.2.0-rc.1'></a> 2.2.0-rc.1
+
+* **[Security Fix]** Bump diego to version `2.8.0` for [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/)
+
+* Bump stemcell to version `1200.19`
+* Bump consul to version `193`
+* Bump event-log to version `0.7.0`
+* Bump garden-windows to version `0.14.0`
+* Bump hwc-offline-buildpack to version `2.3.17`
+* Bump windows-utilities to version `0.10.0`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.19</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>diego</td><td>2.8.0</td>
+  </tr><tr>
+    <td>event_log</td><td>0.7.0</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.14.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.17</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.1</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.10.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.2.0-alpha.1'></a> 2.2.0-alpha.1
 
 * Bump stemcell to version `1200.16`
-* Bump consul version `192`
-* Bump diego version `2.4.0`
-* Bump hwc-offline-buildpack version `2.3.15`
-* Bump loggregator version `102.1`
-* Bump windows-utilities version `0.7.0`
-
-* Bump bump bump
+* Bump consul to version `192`
+* Bump diego to version `2.4.0`
+* Bump hwc-offline-buildpack to version `2.3.15`
+* Bump loggregator to version `102.1`
+* Bump windows-utilities to version `0.7.0`
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -52,41 +93,6 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tr>
   </tfoot>
   </table>
-
-### <a id='2.2.0-alpha.1'></a> 2.2.0-alpha.1
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>1200.15</td>
-  </tr><tr>
-    <td>consul</td><td>191</td>
-  </tr><tr>
-    <td>diego</td><td>1.35.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.2</td>
-  </tr><tr>
-    <td>garden-windows</td><td>0.13.0</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.13</td>
-  </tr><tr>
-    <td>loggregator</td><td>101.5\*</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.6.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
 
 ## <a id='upgrade'></a> How to Upgrade
 
