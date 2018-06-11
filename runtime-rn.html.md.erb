@@ -1074,7 +1074,7 @@ Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data fr
 
 For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
 
-<p class="note breaking"><strong>Breaking Change</strong>: If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
 
 ### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
 
@@ -1100,6 +1100,12 @@ You can configure the **Global Login Session Max Timeout** and **Global Login Se
 PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required.
 
 For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+
+### <a id='dns-search-domains'></a> DNS Search Domains
+
+PAS v2.2 allows you to configure the DNS seach domains to be used in containers by entering a comma-separated list.
+
+For more information, see the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs-pcf-staging.cfapps.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
 
 ### <a id='pivotal-account'></a> Pivotal Account Replaced by UAA
 
