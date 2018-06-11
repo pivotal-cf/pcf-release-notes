@@ -1147,6 +1147,14 @@ To enable verbose logs, select the **Verbose Logging** checkbox in the App Autos
 
 For more information, see [(Optional) Configure App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler) in the documentation for any IaaS.
 
+### <a id="bosh-dns-enabled">BOSH DNS is Enabled By Default
+
+BOSH DNS is enabled by default for both app containers and PCF components in 2.2, including during upgrades. 
+
+You can disable BOSH DNS if instructed to do so by Pivotal support. For more information, see [BOSH DNS Enabled By Default For App Containers and PCF Components](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
+
+<p class="note warning"><strong>WARNING</strong>: Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable several PAS features, PKS, and NSX-T.</p>
+
 
 ## <a id='known-issues'></a> Known Issues
 
