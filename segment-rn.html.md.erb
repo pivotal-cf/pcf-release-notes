@@ -347,6 +347,11 @@ For more information, see the **Configure Application Containers** section of an
 
 <p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
+### <a id='dns-search-domains'></a> DNS Search Domains
+
+PCF Isolation Segment allows you to configure the DNS search domains to be used in containers by entering a comma-separated list.
+
+For more information, see the **DNS Search Domains** configuration described in the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
 
 ## <a id='adv-features'></a> About Advanced Features
 
