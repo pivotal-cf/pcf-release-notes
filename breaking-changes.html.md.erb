@@ -7,6 +7,25 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
+### <a id="haproxy-downtime"></a> Temporary Downtime while HAProxy Waits for Gorouter TLS Handshake
+
+PCF v2.0 introduces [mutual TLS authentication](./runtime-rn.html#mutual-tls) between HAProxy and the Gorouter. During upgrade to v2.0, the HAProxy component upgrades before the Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate. If you are using HAProxy, this may cause temporary outage for PCF apps, but in the situations described below, you can avoid downtime with the following upgrade procedure:
+
+  1. Change the **Router behavior for Client Certificate Validation** setting to **Router does not request client certificates...**
+  1. Upgrade (**Apply Changes**).
+  1. Change your **Router behavior...** setting back to its previous setting.
+  1. Upgrade again to restore previous router setting.
+
+The above procedure avoids downtime under the following conditions:
+
+* Your **Configure support for the X-Forwarded-Client-Cert header** setting is **TLS terminated for the first time at infrastructure load balancer** and your **Router behavior...** setting is **Router requests...** or **Router requires...** client certificates.
+
+* Your **Configure support for the X-Forwarded-Client-Cert header** setting is either **TLS terminated for the first time at HAProxy** or **TLS terminated for the first time at the Router**, and you do not forward certificates to client apps (because no apps on the platform require mTLS).
+
+If your **Configure support for the X-Forwarded-Client-Cert header** setting is **TLS terminated for the first time at HAProxy** and you forward certificates to client apps because they require mTLS, there is currently no path for a zero downtime upgrade. Pivotal is working on a patch to enable one.
+
+If you still want to upgrade to PCF v2.0 and can allow a few minutes of downtime, you can follow the procedure above. Apps that use the XFCC header become inaccessible until the second upgrade step. 
+
 ### <a id="sso-upgrade"></a> SSO Tile Requires Upgrade
 
 If you have the Single Sign-On (SSO) tile installed and you are upgrading to PCF v2.0, you must upgrade the SSO tile to v1.5.3 and configure the Apps Manager errand before installing PCF v2.0. To properly prepare for upgrading to PCF 2.0 with the SSO tile, see <a href="https://discuss.pivotal.io/hc/en-us/articles/115015825568">Upgrade SSO Service Tile resource instance between PCF 1.12 and PCF 2.0</a> in the Pivotal Knowledge Base.</p>
