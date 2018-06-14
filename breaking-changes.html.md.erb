@@ -102,6 +102,18 @@ For example, see the following table to compare the changes to the `bosh vms` co
 Many BOSH CLI v1 commands are incompatible with the BOSH Director.
 Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
 
+###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+
+In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes upgrades from these versions to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
+
+1. Download a current stemcell from [Pivotal Network](https://network.pivotal.io).
+
+1. Upload the stemcell by clicking **Import a Product** in Ops Manager, or by manually running `bosh upload-stemcell` with the BOSH CLI.
+
+See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn't exist](https://community.pivotal.io/s/article/Deploy-fails-with-Error-Stemcell-doesnt-exist) for details.
+
+This known has been fixed in Ops Manager v2.0 and later, but it affects upgrades from v1.12 to v2.0.
+
 ### <a id='bosh-dns-om'></a> Disabling BOSH DNS for Ops Manager Director
 
 Do not disable BOSH DNS without consulting Pivotal Support.
