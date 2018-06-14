@@ -988,6 +988,18 @@ Ops Manager now supports empty arrays in double parentheses. For more informatio
 
 ## <a id='known-issues'></a> Known Issues
 
+###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+
+In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes deployments or upgrades to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
+
+1. Download a current stemcell from [Pivotal Network](https://network.pivotal.io).
+
+1. Upload the stemcell by clicking **Import a Product** in Ops Manager, or by manually running `bosh upload-stemcell` with the BOSH CLI v3.
+
+See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn't exist](https://community.pivotal.io/s/article/Deploy-fails-with-Error-Stemcell-doesnt-exist) for details.
+
+This known issue has been fixed in Ops Manager v2.0 and later.
+
 ### <a id='credhub-certs'></a>CredHub Requires Director Certificate Rotation
 
 If your original Elastic Runtime deploy was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN) during a deploy. Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format CredHub does not understand.
