@@ -55,6 +55,18 @@ If you do not upgrade MySQL for PCF, the upgrade fails. For more information, se
 
 Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In v2, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see [Pivotal Operations Manager Release Notes](opsmanager-rn.html#bosh2).
 
+###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+
+In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes deployments or upgrades to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
+
+1. Download a current stemcell from [Pivotal Network](https://network.pivotal.io).
+
+1. Upload the stemcell by clicking **Import a Product** in Ops Manager, or by manually running `bosh upload-stemcell` with the BOSH CLI.
+
+See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn't exist](https://community.pivotal.io/s/article/Deploy-fails-with-Error-Stemcell-doesnt-exist) for details.
+
+This known issue has been fixed in Ops Manager v2.0 and later.
+
 ### <a id='director-certificates'></a>Director Certificate Rotation
 
 If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see [CredHub Requires Director Certificate Rotation](opsmanager-rn.html#credhub-certs).
