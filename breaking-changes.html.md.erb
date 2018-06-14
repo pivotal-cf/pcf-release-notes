@@ -11,8 +11,6 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 PCF v2.0 introduces [mutual TLS authentication](./runtime-rn.html#mutual-tls) between HAProxy and the Gorouter. During upgrade to v2.0, the HAProxy component upgrades before Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate. This is because the Gorouter cannot yet validate the client certificate sent by HAProxy, causing a TLS handshake failure. If you are using HAProxy, this may cause temporary outage for PCF apps, but in the situations described below, you can avoid downtime with the following upgrade procedure:
 
-During upgrade to v2.0, the HAProxy component upgrades before the Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate 
-
   1. Change the **Router behavior for Client Certificate Validation** setting to **Router does not request client certificates...**
   1. Upgrade (**Apply Changes**).
   1. Change your **Router behavior...** setting back to its previous setting.
