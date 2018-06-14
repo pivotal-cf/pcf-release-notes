@@ -1408,6 +1408,18 @@ To view the release page for this stemcell, see the [stemcell 3421.3 release not
 
 This section lists known issues for Ops Manager 1.11.
 
+###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+
+In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes deployments or upgrades to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
+
+1. Download a current stemcell from [Pivotal Network](https://network.pivotal.io).
+
+1. Upload the stemcell by clicking **Import a Product** in Ops Manager, or by manually running `bosh upload-stemcell` with the BOSH CLI v3.
+
+See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn't exist](https://community.pivotal.io/s/article/Deploy-fails-with-Error-Stemcell-doesnt-exist) for details.
+
+This known issue has been fixed in Ops Manager v2.0 and later.
+
 ###<a id="reupload-stemcells"></a> Stemcells Not Included in Installation Export
 
 Ops Manager no longer includes stemcells in the installation export `zip` file. You may need to re-upload stemcells when importing the installation file into a new Ops Manager instance.  You can see product configuration as incomplete if you do not have the appropriate stemcell uploaded. Incomplete tiles that need stemcells are indicated by an orange tile.
