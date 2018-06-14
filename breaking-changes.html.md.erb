@@ -7,9 +7,11 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-### <a id="haproxy-downtime"></a> Temporary Downtime while HAProxy Waits for Gorouter TLS Handshake
+### <a id="haproxy-downtime"></a>Temporary Downtime due to Connection Failure between HAProxy and Gorouter
 
-PCF v2.0 introduces [mutual TLS authentication](./runtime-rn.html#mutual-tls) between HAProxy and the Gorouter. During upgrade to v2.0, the HAProxy component upgrades before the Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate. If you are using HAProxy, this may cause temporary outage for PCF apps, but in the situations described below, you can avoid downtime with the following upgrade procedure:
+PCF v2.0 introduces [mutual TLS authentication](./runtime-rn.html#mutual-tls) between HAProxy and the Gorouter. During upgrade to v2.0, the HAProxy component upgrades before Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate. This is because the Gorouter cannot yet validate the client certificate sent by HAProxy, causing a TLS handshake failure. If you are using HAProxy, this may cause temporary outage for PCF apps, but in the situations described below, you can avoid downtime with the following upgrade procedure:
+
+During upgrade to v2.0, the HAProxy component upgrades before the Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate 
 
   1. Change the **Router behavior for Client Certificate Validation** setting to **Router does not request client certificates...**
   1. Upgrade (**Apply Changes**).
