@@ -1025,13 +1025,8 @@ This setting, **Logging of Client IPs in CF Router**, is configured in the **Net
 You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
 By default, the **Log client IPs** option is set in PAS.
 
-For more information about configuring the **Logging of Client IPs in CF Router** field, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-2/customizing/config-er-vmware.html#networking)
+For more information about configuring the **Logging of Client IPs in CF Router** field, see the _Configure Networking_ topic for your IaaS:
+see the **Configure Networking** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#networking).
 
 ### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
 
@@ -1126,17 +1121,8 @@ For internal system databases, PAS now supports a more secure [Percona Server](h
 
 This release updates the minimum, maximum, and default values for the Metrics Collection Interval used by the App Autoscaler in PAS. Updated minimum: 60 seconds. Updated maximum: 3600 seconds. Updated default: 120 seconds.
 
-To configure this value, see the _Configure App Autoscaler_ section of one of the following PAS configuration topics:
-
-* [Deploying PAS on AWS using Terraform](https://docs.pivotal.io/pivotalcf/2-2/customizing/aws-er-config-terraform.html#config-autoscaler)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#config-autoscaler)
-* [Configuring PAS for vSphere
-](https://docs.pivotal.io/pivotalcf/2-2/customizing/config-er-vmware.html#config-autoscaler)
-* [Deploying PAS on GCP using Terraform
-](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config-terraform.html#config-autoscaler)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#config-autoscaler)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#config-autoscaler)
-* [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler)
+To configure this value, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP using Terraform
+](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config-terraform.html#config-autoscaler).
 
 ### <a id="verbose-logging-autoscaler"></a> App Autoscaler Verbose Logging
 
@@ -1144,7 +1130,7 @@ Verbose logs are now available for App Autoscaler. Verbose logs show specific re
 
 To enable verbose logs, select the **Verbose Logging** checkbox in the App Autoscaler pane.
 
-For more information, see [(Optional) Configure App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler) in the documentation for any IaaS.
+For more information, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler).
 
 ### <a id="bosh-dns-enabled"></a> BOSH DNS is Enabled By Default
 
@@ -1159,13 +1145,7 @@ You can disable BOSH DNS if instructed to do so by Pivotal support. For more inf
 By default, PAS v2.2 does not forward DEBUG syslog messages to external services.
 The new **Don't Forward Debug Logs** checkbox is configurable in the **System Logging** pane of the PAS tile.
 
-For more information about configuring this checkbox, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#sys-logging)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#external-endpoints)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#sys-logging)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#config-sys-logging)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-2/customizing/config-er-vmware.html#external-endpoints)
+For more information about configuring this checkbox, see the **(Optional) Configure System Logging** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#external-endpoints).
 
 If you currently have a custom rule to filter out DEBUG syslog messages, you can delete it.
 Before deleting your custom rule, ensure the **Don't Forward Debug Logs** checkbox is enabled in the PAS tile.
