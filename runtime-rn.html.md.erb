@@ -1019,7 +1019,7 @@ These SSH proxy settings are not configurable in the PAS tile.
 
 ### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
 
-Operators can now disable logging of client IP addresses in Gorouter to comply with the General Data Protection Regulation (GDPR).
+Operators can now disable logging of client IP addresses in the Gorouter to comply with the General Data Protection Regulation (GDPR).
 
 This setting, **Logging of Client IPs in CF Router**, is configured in the **Networking** pane of the PAS tile.
 You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
@@ -1043,8 +1043,7 @@ You can enable the new timestamp format for Diego logs in the PAS tile.
 
 For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
 
-<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system
-anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
 ### <a id="task-placement-resilience"></a> Task Placement More Resilient to Resource Unavailability
 
@@ -1147,21 +1146,20 @@ To enable verbose logs, select the **Verbose Logging** checkbox in the App Autos
 
 For more information, see [(Optional) Configure App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler) in the documentation for any IaaS.
 
-### <a id="bosh-dns-enabled">BOSH DNS is Enabled By Default
+### <a id="bosh-dns-enabled"></a> BOSH DNS is Enabled By Default
 
-BOSH DNS is enabled by default for both app containers and PCF components in 2.2, including during upgrades. 
+BOSH DNS is enabled by default for both app containers and PCF components in PAS v2.2, including during upgrades. 
 
 You can disable BOSH DNS if instructed to do so by Pivotal support. For more information, see [BOSH DNS Enabled By Default For App Containers and PCF Components](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
 
-<p class="note warning"><strong>WARNING</strong>: Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable several PAS features, PKS, and NSX-T.</p>
+<p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable several PAS features, PKS, and NSX-T.</p>
 
 ### <a id="debug-logs"></a> Forwarding of DEBUG Syslog Messages Disabled by Default
 
 By default, PAS v2.2 does not forward DEBUG syslog messages to external services.
 The new **Don't Forward Debug Logs** checkbox is configurable in the **System Logging** pane of the PAS tile.
 
-For more information about configuring this checkbox,
-see the _Configuring PAS_ topic for your IaaS:
+For more information about configuring this checkbox, see the _Configuring PAS_ topic for your IaaS:
 
 * [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#sys-logging)
 * [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#external-endpoints)
@@ -1172,8 +1170,9 @@ see the _Configuring PAS_ topic for your IaaS:
 If you currently have a custom rule to filter out DEBUG syslog messages, you can delete it.
 Before deleting your custom rule, ensure the **Don't Forward Debug Logs** checkbox is enabled in the PAS tile.
 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="golang-x509"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
 
-x509 certificate parsing in the Go language is [stricter](https://golang.org/doc/go1.10#minor_library_changes) in v1.10 than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9, and PAS includes both versions of the language.
+x509 certificate parsing in the Go language is [stricter](https://golang.org/doc/go1.10#minor_library_changes) in v1.10 than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9, and PAS v2.2 includes both versions of the language.
