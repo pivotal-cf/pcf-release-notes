@@ -1025,7 +1025,7 @@ This setting, **Logging of Client IPs in CF Router**, is configured in the **Net
 You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
 By default, the **Log client IPs** option is set in PAS.
 
-For more information about configuring the **Logging of Client IPs in CF Router** field, see the **Configure Networking** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-2/customizing/openstack-er-config.html#networking).
+For more information about configuring the **Logging of Client IPs in CF Router** field, see the **Configure Networking** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#networking).
 
 ### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
 
@@ -1035,7 +1035,7 @@ The new timestamp format is enabled by default for new deployments. Upgrades fro
 
 You can enable the new timestamp format for Diego logs in the PAS tile.
 
-For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
+For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#application-containers-config).
 
 <p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
 
@@ -1092,23 +1092,23 @@ You can configure the **Global Login Session Max Timeout** and **Global Login Se
 
 PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required.
 
-For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+For more information, see the **External or S3 Filestore** sectihttps://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
 
 ### <a id='dns-search-domains'></a> DNS Search Domains
 
 PAS v2.2 allows you to configure the DNS search domains to be used in containers by entering a comma-separated list.
 
-For more information, see the **DNS Search Domains** configuration described in the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
+For more information, see the **DNS Search Domains** configuration described in the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#networking).
 
 ### <a id='pivotal-account'></a> Pivotal Account Replaced by UAA
 
 Prior to PAS v2.2, you could use Pivotal Account to create and manage user accounts. In PAS v2.2, PAS stops using Pivotal Account, and you can now create and manage user accounts through the UAA UI instead.
 
-The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with the **Delete Pivotal Account Application** errand, which is configured to run automatically. For more information, see the **Configure Errands** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#errands).
+The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with the **Delete Pivotal Account Application** errand, which is configured to run automatically. For more information, see the **Configure Errands** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#errands).
 
 ### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
 
-PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#external_s3).
+PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
 
 ### <a id="mysql-tls"></a> TLS-Encrypted Option for Internal System Databases
 
@@ -1120,8 +1120,7 @@ For internal system databases, PAS now supports a more secure [Percona Server](h
 
 This release updates the minimum, maximum, and default values for the Metrics Collection Interval used by the App Autoscaler in PAS. Updated minimum: 60 seconds. Updated maximum: 3600 seconds. Updated default: 120 seconds.
 
-To configure this value, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP using Terraform
-](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config-terraform.html#config-autoscaler).
+To configure this value, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#config-autoscaler).
 
 ### <a id="verbose-logging-autoscaler"></a> App Autoscaler Verbose Logging
 
@@ -1129,7 +1128,7 @@ Verbose logs are now available for App Autoscaler. Verbose logs show specific re
 
 To enable verbose logs, select the **Verbose Logging** checkbox in the App Autoscaler pane.
 
-For more information, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#config-autoscaler).
+For more information, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#config-autoscaler).
 
 ### <a id="bosh-dns-enabled"></a>BOSH DNS is Enabled By Default
 
@@ -1137,18 +1136,18 @@ BOSH DNS is enabled by default for both app containers and PCF components in PCF
 
 In previous versions, Consul managed service discovery between PCF components, but Consul is being replaced by BOSH DNS.
 
-<p class="note"><strong>Note</strong>: In PCF 2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
+<p class="note"><strong>Note:</strong> In PCF 2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
 
 You can disable BOSH DNS if instructed to do so by Pivotal support. If you disabled BOSH DNS in PCF 2.1, reenable it before upgrading to PCF 2.2. For more information, see [BOSH DNS Enabled By Default For App Containers and PCF Components](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
 
-<p class="note warning"><strong>WARNING</strong>: Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
+<p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
 
 ### <a id="debug-logs"></a> Forwarding of DEBUG Syslog Messages Disabled by Default
 
 By default, PAS v2.2 does not forward DEBUG syslog messages to external services.
 The new **Don't Forward Debug Logs** checkbox is configurable in the **System Logging** pane of the PAS tile.
 
-For more information about configuring this checkbox, see the **(Optional) Configure System Logging** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-er-config.html#external-endpoints).
+For more information about configuring this checkbox, see the **(Optional) Configure System Logging** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#sys-logging).
 
 If you currently have a custom rule to filter out DEBUG syslog messages, you can delete it.
 Before deleting your custom rule, ensure the **Don't Forward Debug Logs** checkbox is enabled in the PAS tile.
