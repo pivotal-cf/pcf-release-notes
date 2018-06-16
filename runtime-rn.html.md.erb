@@ -1132,13 +1132,13 @@ For more information, see the **(Optional) Configure App Autoscaler** section of
 
 ### <a id="bosh-dns-enabled"></a>BOSH DNS is Enabled By Default
 
-BOSH DNS is enabled by default for both app containers and PCF components in PCF 2.2, including during upgrades. 
+BOSH DNS is enabled by default for both app containers and PCF components in PCF v2.2, including during upgrades. 
 
 In previous versions, Consul managed service discovery between PCF components, but Consul is being replaced by BOSH DNS.
 
 <p class="note"><strong>Note:</strong> In PCF 2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
 
-You can disable BOSH DNS if instructed to do so by Pivotal support. If you disabled BOSH DNS in PCF 2.1, reenable it before upgrading to PCF 2.2. For more information, see [BOSH DNS Enabled By Default For App Containers and PCF Components](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
+You can disable BOSH DNS if instructed to do so by Pivotal support. If you disabled BOSH DNS in PCF v2.1, reenable it before upgrading to PCF v2.2. For more information, see [BOSH DNS Enabled By Default For App Containers and PCF Components](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
 
 <p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
 
