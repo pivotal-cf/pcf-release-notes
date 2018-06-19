@@ -335,10 +335,9 @@ For more information about configuring the **Logging of Client IPs in CF Router*
 
 ### <a id="timestamp"></a> New Format for Diego Timestamps
 
-You can now use RFC 3339 format for Diego timestamps in logs.
+The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log-level identifiers are also formatted as strings instead of numeric codes.
 
-For new v2.2 installations, RFC 3339 format is enabled by default.
-The Unix epoch format is set by default for upgrades to v2.2.
+RFC 3339 timestamps are enabled by default for new v2.2 deployments. Upgrades from earlier versions retain the previous component log format with Unix epoch timestamps.
 
 You can enable the new timestamp format for Diego logs in the Pivotal Application Service (PAS) tile.
 

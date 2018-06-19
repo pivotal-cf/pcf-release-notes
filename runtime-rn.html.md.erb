@@ -1029,9 +1029,9 @@ For more information about configuring the **Logging of Client IPs in CF Router*
 
 ### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
 
-The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log level identifiers are also formatted as strings instead of numeric codes.
+The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log-level identifiers are also formatted as strings instead of numeric codes.
 
-The new timestamp format is enabled by default for new deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
+RFC 3339 timestamps are enabled by default for new PAS v2.2 deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
 
 You can enable the new timestamp format for Diego logs in the PAS tile.
 
