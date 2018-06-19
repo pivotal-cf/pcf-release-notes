@@ -1174,7 +1174,15 @@ The error reads: `SSL_connect returned=1 errno=0 state=SSLv3 read server certifi
 
 This error appears because Operations Manager attempts to validate the S3 blobstore by testing the SSL certificate. Operations Manager does not use trusted certificates to make this connection, so the connection fails. 
 
-A workaround is available for this issue.
+A workaround is available for this issue. Operators can install the public CA certificate directly into Operations Manager OS config by following these steps:
+
+1. SSH into the Operations Manager VM.
+2. Copy the public CA certificate into `/etc/ssl/certs`.
+3. Run `sudo update-ca-certificates -f -v`. This installs the new CA certificate.
+
+Upon successful execution, "1 added" will display in the output. For example: `Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.`
+
+This indicates the new cert was installed.
 
 ### <a id="ki-boshwindows-access-denied"></a> Deploying PAS for Windows Tile Results in an Access is Denied Error
 
@@ -1191,6 +1199,6 @@ This issue causes deployment to fail with an error indicating one or more jobs a
 The error reads:
 `Error: 'cloud_controller/6632bf71-7493-4383-a3f9-9401bafb4710 (1)' is not running after update. Review logs for failed jobs: cloud_controller_ng`
 
-Additionally, when you `ssh` into a VM and run `monit summary`, monit reports jobs as "Execution Failed".
+Additionally, when you SSH into a VM and run `monit summary`, monit reports jobs as "Execution Failed".
 
 To remediate this issue, use monit to restart the affect processes.
