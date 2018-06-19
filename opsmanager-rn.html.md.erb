@@ -13,6 +13,48 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.0.
 
+### 2.0.15
+
+* **[Bug Fix]** You can now rotate SSL certificates while maintaining trust between BOSH Director and VMs. 
+* **[Bug Fix]** You can now delete the only AZ in an installation.
+* **[Bug Fix]** You can now delete the only network in an installation.
+
+Ops Manager v2.0.15 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.46</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264.10.0</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.3</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.5</td>
+  </tr><tr>
+    <td>UAA</td><td>52.7</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+</table>
+
 ### 2.0.14
 
 * **[Security Fix]** Bumps stemcell to 3468.46.
