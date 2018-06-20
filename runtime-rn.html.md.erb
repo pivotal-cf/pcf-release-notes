@@ -1083,35 +1083,6 @@ In PAS v2.1, service discovery for container-to-container networking was an expe
 
 For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#er-appdevctrl-config).
 
-### <a id="log-cache"></a> Loggregator Adds Log Cache in PAS Advanced Features
-
-Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Use Log Cache to query and filter logs.
-
-Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
-
-For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
-
-<p class="note breaking"><strong>Breaking Change:</strong> If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
-
-### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
-
-The `cf-drain-cli` plugin now enables app developers to bind user-provided syslog drains to service instances.
-For more information, see the [CF Drain CLI Plugin](https://github.com/cloudfoundry/cf-drain-cli) GitHub repository.
-If a service tile supports syslog drains, app developers can use this plugin to forward logs and metrics from their service instance to an external endpoint.
-
-### <a id='autoscaler-ui'></a> App Autoscaler UI Integrated into Apps Manager
-
-The App Autoscaler UI is now integrated into Apps Manager.
-This enables users to configure autoscaling for their apps through Apps Manager.
-The new UI is based on the App Autoscaler API v2.0.
-
-For more information about scaling apps using App Autoscaler, see [Scaling an Application Using App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/appsman-services/autoscaler/using-autoscaler.html).
-
-### <a id='logout'></a> Improved Session Management Behavior in Apps Manager
-
-Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
-You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
-
 ### <a id='dns-search-domains'></a> DNS Search Domains
 
 PAS v2.2 allows you to configure the DNS search domains to be used in containers by entering a comma-separated list.
@@ -1128,6 +1099,45 @@ The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with th
 
 PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
 
+### <a id="log-cache"></a> Loggregator Adds Log Cache in PAS Advanced Features
+
+Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Use Log Cache to query and filter logs.
+
+Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
+
+For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
+
+<p class="note breaking"><strong>Breaking Change:</strong> If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
+
+### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
+
+The `cf-drain-cli` plugin now enables app developers to bind user-provided syslog drains to service instances.
+For more information, see the [CF Drain CLI Plugin](https://github.com/cloudfoundry/cf-drain-cli) GitHub repository.
+If a service tile supports syslog drains, app developers can use this plugin to forward logs and metrics from their service instance to an external endpoint.
+
+### <a id="debug-logs"></a> Forwarding of DEBUG Syslog Messages Disabled by Default
+
+By default, PAS v2.2 does not forward DEBUG syslog messages to external services.
+The new **Don't Forward Debug Logs** checkbox is configurable in the **System Logging** pane of the PAS tile.
+
+For more information about configuring this checkbox, see the **(Optional) Configure System Logging** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#sys-logging).
+
+If you currently have a custom rule to filter out DEBUG syslog messages, you can delete it.
+Before deleting your custom rule, ensure the **Don't Forward Debug Logs** checkbox is enabled in the PAS tile.
+
+### <a id='autoscaler-ui'></a> App Autoscaler UI Integrated into Apps Manager
+
+The App Autoscaler UI is now integrated into Apps Manager.
+This enables users to configure autoscaling for their apps through Apps Manager.
+The new UI is based on the App Autoscaler API v2.0.
+
+For more information about scaling apps using App Autoscaler, see [Scaling an Application Using App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/appsman-services/autoscaler/using-autoscaler.html).
+
+### <a id='logout'></a> Improved Session Management Behavior in Apps Manager
+
+Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
+You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
+
 ### <a id="metrics-collecton-interval"></a> Updated App Autoscaler Metrics Collection Interval Values
 
 This release updates the minimum, maximum, and default values for the Metrics Collection Interval used by the App Autoscaler in PAS. Updated minimum: 60 seconds. Updated maximum: 3600 seconds. Updated default: 120 seconds.
@@ -1141,16 +1151,6 @@ Verbose logs are now available for App Autoscaler. Verbose logs show specific re
 To enable verbose logs, select the **Verbose Logging** checkbox in the App Autoscaler pane.
 
 For more information, see the **(Optional) Configure App Autoscaler** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#config-autoscaler).
-
-### <a id="debug-logs"></a> Forwarding of DEBUG Syslog Messages Disabled by Default
-
-By default, PAS v2.2 does not forward DEBUG syslog messages to external services.
-The new **Don't Forward Debug Logs** checkbox is configurable in the **System Logging** pane of the PAS tile.
-
-For more information about configuring this checkbox, see the **(Optional) Configure System Logging** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#sys-logging).
-
-If you currently have a custom rule to filter out DEBUG syslog messages, you can delete it.
-Before deleting your custom rule, ensure the **Don't Forward Debug Logs** checkbox is enabled in the PAS tile.
 
 ## <a id='known-issues'></a> Known Issues
 
