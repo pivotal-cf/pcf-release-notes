@@ -5,9 +5,59 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.0.11'></a> 2.0.11
-
 **NOTE:** If you have versions of PAS and IST prior to 2.0.15 installed, you will have to update them together when upgrading to 2.0.15+
+
+### <a id='2.0.12'></a> 2.0.12
+
+* **[Security Fix]** Bump diego to version `1.32.3`
+  * [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/)
+* **[Bug fix]** bump nfs-volume-release to version `1.2.1`
+  * Fix incompatibility with new garden-runc release when using read-only NFS volume mounts
+* **[Bug Fix]** Bump garden to version `1.13.3`
+  * Fix issue with deleted files in application containers created from docker images
+* Bump cflinuxfs2 to version `1.219.0`
+* Bump consul to version `193` to use go `1.9`
+* Bump stemcell to version `3468.46`
+
+<table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.46</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.8.5</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.219.0</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>diego</td><td>1.32.3</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.2</td>
+  </tr><tr>
+    <td>loggregator</td><td>99\*</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.168.8\*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>10.0.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
+### <a id='2.0.11'></a> 2.0.11
 
 * **[Security Fix]** Bump cflinuxfs2 to version `1.210.0`:
   * [USN-3643-1](https://usn.ubuntu.com/3643-1/)

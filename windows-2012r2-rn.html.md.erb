@@ -12,6 +12,46 @@ Operators can install Pivotal Application Service (PAS) for Windows on vSphere, 
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.0.8'></a> 2.0.8
+
+* **[Security Fix]** Bump diego to version `1.32.3`
+  * [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/)
+* Bump consul to version `193` to use go `1.9`
+* Bump hwc-offline-buildpack to version `2.3.17`
+* Bump stemcell to version `1200.19`
+
+<table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.19</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>diego</td><td>1.32.3</td>
+  </tr><tr>
+    <td>event_log</td><td>0.3.0</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.12.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.17</td>
+  </tr><tr>
+    <td>loggregator</td><td>99\*</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.7.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id='2.0.6'></a> 2.0.6
 
 * **[Security Fix]** Bump stemcell to v1200.17. See [release notes](https://docs.pivotal.io/pivotalcf/2-1/stemcells/windows-stemcell-v1200x.html).

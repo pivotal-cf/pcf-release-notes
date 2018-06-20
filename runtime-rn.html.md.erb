@@ -15,9 +15,135 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.0.15'></a> 2.0.15
-
 **NOTE:** If you have versions of PAS and IST prior to 2.0.15 installed, you will have to update them together when upgrading to 2.0.15+
+
+### <a id='2.0.16'></a> 2.0.16
+
+* **[Security Fix]** Bump diego to version `1.32.3`
+  * [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/)
+* **[Security Fix]** Bump pivotal-account to version `1.8.5`
+  * [CVE-142112](https://nodesecurity.io/advisories/130)
+  * [CVE-130424](https://www.kb.cert.org/vuls/id/576313)
+* **[Bug fix]** bump nfs-volume-release to version `1.2.1`
+  * Fix incompatibility with new garden-runc release when using read-only NFS volume mounts
+* **[Bug Fix]** Bump garden to version `1.13.3`
+  * Fix issue with deleted files in application containers created from docker images
+* **[Bug Fix]** Update autoscaler default instance count to 1 to avoid issue with distributed consensus
+* **[Feature Improvement]** Bump notifications-ui to version `33`
+  * Add cookie setting to notifications-ui for GDPR compliance
+* **[Feature Improvement]** CF Networking database connection timeouts are now configurable
+* **[Feature Improvement]** Max connections for the Internal MySQL Database are now configurable
+* Bump cflinuxfs2 to version `1.219.0`
+* Bump consul to version `193` to use go `1.9`
+* Bump dotnet-core-offline-buildpack to version `2.0.7`
+* Bump go-offline-buildpack to version `1.8.23`
+* Bump java-offline-buildpack to version `4.12.1`
+* Bump nodejs-offline-buildpack to version `1.6.25`
+* Bump php-offline-buildpack to version `4.3.56`
+* Bump python-offline-buildpack to version `1.6.17`
+* Bump ruby-offline-buildpack to version `1.7.19`
+* Bump staticfile-offline-buildpack to version `1.4.28`
+* Bump stemcell to version `3468.46`
+
+<table border="1" class="nice">
+  <thead> <tr>
+    <th>component</th>
+    <th>version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3468.46</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.2.1</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.18</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.44.3\*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>104.3</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.10.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.8.5</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>39</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>2</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.219.0</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>credhub</td><td>1.6.5</td>
+  </tr><tr>
+    <td>diego</td><td>1.32.3\*</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.0.7</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.23</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.2</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>99\*</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>2.1.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.25</td>
+  </tr><tr>
+    <td>notifications</td><td>44</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>31</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.56</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.5</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>663.0.20</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>664.0.11</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.17</td>
+  </tr><tr>
+    <td>routing</td><td>0.168.8\*</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.19</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.5</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.28</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.30</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>10.0.2</td>
+  </tr><tr>
+    <td>uaa</td><td>52.8</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
+### <a id='2.0.15'></a> 2.0.15
 
 * **[Security Fix]** Bump cflinuxfs2 to version `1.210.0`:
   * [USN-3643-1](https://usn.ubuntu.com/3643-1/)
