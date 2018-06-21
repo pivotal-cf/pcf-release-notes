@@ -369,7 +369,7 @@ Ops Manager now allows you to configure multiple vSphere vCenters to a single BO
 
 You can add additional data centers in the **vSphere Config** pane of your vSphere BOSH Director tile. For more information about how to add, edit, and delete vCenters, see [Managing Multiple vSphere vCenters](http://docs.pivotal.io/pivotalcf/2-2/customizing/multiple-datacenters.html).
 
-<p class="note"><strong>Note: </strong>If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key.</p>
+<p class="note"><strong>Note:</strong> If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key.</p>
 
 ### <a id="selective-deploy"></a> (Beta) Selectively Deploy Ops Manager Tiles
 
@@ -377,9 +377,9 @@ You can now choose to deploy a selection of tiles rather than all tiles in Ops M
 
 This feature is currently in beta. To access this feature, click **Review Pending Changes** underneath the **Apply Changes** button in the Ops Manager Installation Dashboard. For more information, see [Reviewing Pending Changes with Ops Manager](https://docs.pivotal.io/pivotalcf/2-2/customizing/review-pending-changes.html).
 
-<p class="note warning"><strong>Warning</strong>: Do not selectively deploy tiles when upgrading to PCF v2.2. Instead, redeploy all product tiles using <strong>Apply Changes</strong> on the Ops Manager Installation Dashboard. For more information, see <a href="./breaking-changes.html#bosh-dns">Redeploy All Products After Upgrading to Ops Manager v2.2</a>.</p>
+<p class="note warning"><strong>WARNING:</strong> Do not selectively deploy tiles when upgrading to PCF v2.2. Instead, redeploy all product tiles using <strong>Apply Changes</strong> on the Ops Manager Installation Dashboard. For more information, see <a href="./breaking-changes.html#bosh-dns">Redeploy All Products After Upgrading to Ops Manager v2.2</a>.</p>
 
-<p class="note"><strong>Note</strong>: Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
+<p class="note"><strong>Note:</strong> Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
 
 ### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
 
@@ -451,6 +451,10 @@ For more information about configuring syslog for Ops Manager, see [Settings Pag
 
 <p class="note breaking"><strong>Breaking Change:</strong> If you were running scripts to get Ops Manager logs, those scripts break on upgrade to Ops Manager v2.2 and later.</p>
 
+### <a id='trusty-to-xenial'></a> Xenial Stemcell Upgrade Support
+
+As of April 2019, Trusty stemcells will no longer receive support, nor will Pivotal have CVE patches for them. Ops Manager v2.2 allows tile authors to upgrade from Trusty stemcells to Xenial stemcells.
+
 ### <a id="tls-blobstore"></a> TLS for Internal Blobstore Supported
 
 Ops Manager now supports TLS communications if you choose to use an internal blobstore.
@@ -492,7 +496,7 @@ You can specify a single set of tags that apply to all VMs and disks for your fo
 
 For more information about configuring identification tags, see the Ops Manager config topic for your IaaS. For example, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-om-config.html#director-config) in the _Configuring BOSH Director on GCP_ topic.
 
-### <a id="bosh-dns-enabled"></a>BOSH DNS Enabled By Default
+### <a id="bosh-dns-enabled"></a> BOSH DNS Enabled By Default
 
 BOSH DNS is enabled by default for both app containers and PCF components in PCF v2.2. 
 
@@ -502,17 +506,18 @@ In previous versions, Consul managed service discovery between PCF components, b
 
 You can disable BOSH DNS if instructed to do so by Pivotal support. If you disabled BOSH DNS in PCF v2.1, reenable it before upgrading to PCF v2.2. For more information, see [BOSH DNS Enabled By Default](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
 
-<p class="note warning"><strong>WARNING</strong>: Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
+<p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
+
 
 ## <a id="known-issues"></a> Known Issues
 
-### <a id="ki-mysql-error"></a>Apps Serve Routes Even After App Deletion Due To MySQL Errors
+### <a id="ki-mysql-error"></a> Apps Serve Routes Even After App Deletion Due To MySQL Errors
 
 After an app is deleted, the app instances are not always cleaned up on Diego cells. Those instances will continue to serve routes. 
 
 This error occurs when the cloud controller and Diego cells fall out of sync. You can resolve this issue by restarting the `cloud_controller_clock` process in the `clock_global` VM.
 
-### <a id="ki-golang-issue"></a>Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
+### <a id="ki-golang-issue"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
 
 x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
 
@@ -534,7 +539,6 @@ Upon successful execution, "1 added" will display in the output. For example: `U
 
 This indicates the new cert was installed.
 
-
 ### <a id="ki-boshwindows-access-denied"></a> Deploying PAS for Windows Tile Results in an Access is Denied Error
 
 This rare issue can occur when you deploy PAS for Windows Tile v2.2.
@@ -543,7 +547,7 @@ The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f38768793
 
 If you encounter this error, Pivotal recommends retrying the deployment until the error does not occur.
 
-### <a id="ki-deployment-fails-jobs-not-running"></a>Deployment Fails Because Monit Reports Job as Failed
+### <a id="ki-deployment-fails-jobs-not-running"></a> Deployment Fails Because Monit Reports Job as Failed
 
 This issue causes deployment to fail with an error indicating one or more jobs are not running after an update. 
 
