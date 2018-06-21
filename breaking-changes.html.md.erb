@@ -51,6 +51,18 @@ Ops Manager centralized its logs so that you can now configure a syslog server i
 
 For more information about the syslog feature, see [Configure an Ops Manager Syslog Server](opsmanager-rn.html#om-syslog) in the _PCF Ops Manager Release v2.2 Release Notes_.
 
+### <a id="om-api-secrets"></a> Ops Manager API Does Not Return Secret Properties
+
+For security, the Ops Manager API response to the `/api/v0/staged/director/properties` endpoint no longer includes the following properties:
+
+* GCS blobstore service key `service_account_key` (on Google Cloud Services) 
+* Health Monitor emailer SMTP password `smtp_password`
+* Health Monitor PagerDuty service key `service_key`
+
+This change may break any code that relies on retrieving these properties from a `GET /api/v0/staged/director/properties` call.
+
+For more information, see the [Ops Manager API v2.2 documentation](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#fetching-director-iaas-and-security-properties-experimental).
+
 ## <a id='ist'></a> PCF Isolation Segment
 
 ### <a id="ist-timestamp"></a> Log Aggregation Systems May Parse Diego Timestamps Incorrectly
