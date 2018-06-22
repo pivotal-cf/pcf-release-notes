@@ -381,10 +381,6 @@ This feature is currently in beta. To access this feature, click **Review Pendin
 
 <p class="note"><strong>Note:</strong> Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
 
-### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
-
-The Change Log pane products as **Unchanged** when they remain deployed, but their configuration has not changed from a prior deployment, so Ops Manager did not re-deploy them.
-
 ### <a id="manifest-history"></a> Ops Manager Stores Past Manifests
 
 Through the Ops Manager API, you can see Ops Manager's manifest history. Manifest history is helpful for running `diff` commands on manifests to see changes over time.
@@ -489,6 +485,10 @@ The following lists UI changes to the Ops Manager Installation Dashboard:
 - **Changelog** page shows tiles which were not changed but were still deployed.
 
 For more information about the Ops Manager UI, see [Installation Dashboard Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#installation-dashboard) in the _Understanding the Ops Manager Interface_ topic.
+
+### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
+
+The [Change Log](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#changelog) pane lists products as **Unchanged** when they remain deployed, but their configuration has not changed from a prior deployment, so Ops Manager did not re-deploy them.
 
 ### <a id="staged-products-api"></a> More Detail Available Via Ops Manager API Endpoint
 
