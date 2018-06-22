@@ -517,19 +517,9 @@ You can disable BOSH DNS if instructed to do so by Pivotal support. If you disab
 
 ## <a id="known-issues"></a> Known Issues
 
-### <a id="ki-mysql-error"></a> Apps Serve Routes Even After App Deletion Due To MySQL Errors
-
-After an app is deleted, the app instances are not always cleaned up on Diego cells. Those instances will continue to serve routes. 
-
-This error occurs when the cloud controller and Diego cells fall out of sync. You can resolve this issue by restarting the `cloud_controller_clock` process in the `clock_global` VM.
-
-### <a id="ki-golang-issue"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
-
-x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
-
 ### <a id="ki-opsmanager-tls-error"></a>Operations Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
 
-If a remote S3 blobstore uses a privately signed SSL certificate, operators see an error when configuring the Bosh Director to use an S3 blobstore. 
+If a remote S3 blobstore uses a privately signed SSL certificate, operators see an error when configuring the BOSH Director to use an S3 blobstore. 
 
 The error reads: `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (OpenSSL::SSL::SSLError) Unable to verify certificate. This may be an issue with the remote host or with Excon. Excon has certificates bundled, but these can be customized:`
 
@@ -543,23 +533,15 @@ A workaround is available for this issue. Operators can install the public CA ce
 
 Upon successful execution, "1 added" will display in the output. For example: `Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.`
 
-This indicates the new cert was installed.
+This indicates the new certificate was installed.
 
-### <a id="ki-boshwindows-access-denied"></a> Deploying PAS for Windows Tile Results in an Access is Denied Error
+### <a id="ki-deployment-fails-jobs-not-running"></a> Ops Manager Deployment Fails Because Monit Reports Job as Failed
 
-This rare issue can occur when you deploy PAS for Windows Tile v2.2.
-
-The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f3876879397d result: Compiling package certsplitter_windows: Removing packages: Uninstalling package bundle: remove /var/vcap/data/packages/golang-windows/83bf1f4181665d2ee2c0118a56bd04764b8f56b0\go\bin\go.exe: Access is denied.`
-
-If you encounter this error, Pivotal recommends retrying the deployment until the error does not occur.
-
-### <a id="ki-deployment-fails-jobs-not-running"></a> Deployment Fails Because Monit Reports Job as Failed
-
-This issue causes deployment to fail with an error indicating one or more jobs are not running after an update. 
+This issue causes Ops Manager deployments to fail with an error indicating one or more jobs are not running after an update. 
 
 The error reads:
 `Error: 'cloud_controller/6632bf71-7493-4383-a3f9-9401bafb4710 (1)' is not running after update. Review logs for failed jobs: cloud_controller_ng`
 
 Additionally, when you SSH into a VM and run `monit summary`, monit reports jobs as "Execution Failed".
 
-To remediate this issue, use monit to restart the affect processes.
+To remediate this issue, use monit to restart the affected processes.

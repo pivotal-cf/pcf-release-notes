@@ -176,4 +176,10 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
-No known issues at this time.
+### <a id="ki-boshwindows-access-denied"></a> Deploying PCF Runtime for Windows Tile Results in an Access is Denied Error
+
+This rare issue can occur when you deploy the PCF Runtime for Windows tile v2.2.
+
+The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f3876879397d result: Compiling package certsplitter_windows: Removing packages: Uninstalling package bundle: remove /var/vcap/data/packages/golang-windows/83bf1f4181665d2ee2c0118a56bd04764b8f56b0\go\bin\go.exe: Access is denied.`
+
+If you encounter this error, Pivotal recommends retrying the deployment until the error does not occur.
