@@ -517,23 +517,23 @@ You can disable BOSH DNS if instructed to do so by Pivotal support. If you disab
 
 ## <a id="known-issues"></a> Known Issues
 
-### <a id="ki-opsmanager-tls-error"></a>Operations Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
+### <a id="ki-opsmanager-tls-error"></a>Ops Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
 
 If a remote S3 blobstore uses a privately signed SSL certificate, operators see an error when configuring the BOSH Director to use an S3 blobstore. 
 
 The error reads: `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (OpenSSL::SSL::SSLError) Unable to verify certificate. This may be an issue with the remote host or with Excon. Excon has certificates bundled, but these can be customized:`
 
-This error appears because Operations Manager attempts to validate the S3 blobstore by testing the SSL certificate. Operations Manager does not use trusted certificates to make this connection, so the connection fails. 
+This error appears because Ops Manager attempts to validate the S3 blobstore by testing the SSL certificate. Ops Manager does not use trusted certificates to make this connection, so the connection fails. 
 
-A workaround is available for this issue. Operators can install the public CA certificate directly into Operations Manager OS config by following these steps:
+A workaround is available for this issue. Operators can install the public CA certificate directly into the OS config of Ops Manager by following these steps:
 
-1. SSH into the Operations Manager VM.
+1. SSH into the Ops Manager VM.
 2. Copy the public CA certificate into `/etc/ssl/certs`.
 3. Run `sudo update-ca-certificates -f -v`. This installs the new CA certificate.
 
-Upon successful execution, "1 added" will display in the output. For example: `Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.`
+Upon successful execution, "1 added" displays in the output. For example: `Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.`
 
-This indicates the new certificate was installed.
+This indicates the new certificate has been installed.
 
 ### <a id="ki-deployment-fails-jobs-not-running"></a> Ops Manager Deployment Fails Because Monit Reports Job as Failed
 
