@@ -1272,9 +1272,9 @@ You can configure the **Global Login Session Max Timeout** and **Global Login Se
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="ki-mysql-error"></a>Apps Serve Routes Even After App Deletion Due To MySQL Errors
+### <a id="ki-mysql-error"></a>Apps Serve Routes After App Deletion Due to MySQL Errors
 
-After an app is deleted, the app instances are not always cleaned up on Diego cells. Those instances will continue to serve routes. 
+After an app is deleted, the app instances are not always cleaned up on Diego cells. Those instances continue to serve routes. 
 
 This error occurs when the Cloud Controller and Diego cells fall out of sync. You can resolve this issue by restarting the `cloud_controller_clock` process in the `clock_global` VM.
 
@@ -1282,9 +1282,9 @@ This error occurs when the Cloud Controller and Diego cells fall out of sync. Yo
 
 x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
 
-### <a id="ki-boshwindows-access-denied"></a> Deploying PCF Runtime for Windows Tile Results in an Access is Denied Error
+### <a id="ki-boshwindows-access-denied"></a> Deploying PAS Runtime for Windows Results in an Access is Denied Error
 
-This rare issue can occur when you deploy the PCF Runtime for Windows tile v2.2.
+This rare issue can occur when you deploy the PAS Runtime for Windows v2.2.
 
 The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f3876879397d result: Compiling package certsplitter_windows: Removing packages: Uninstalling package bundle: remove /var/vcap/data/packages/golang-windows/83bf1f4181665d2ee2c0118a56bd04764b8f56b0\go\bin\go.exe: Access is denied.`
 
