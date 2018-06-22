@@ -11,6 +11,46 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.2.0-rc.2'></a> 2.2.0-rc.2
+
+* **[Bug Fix]** Bump consul to version `194`
+  * Fix issue with conflicting compiled releases with consul 193
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1709.4*</td>
+  </tr><tr>
+    <td>consul</td><td>193</td>
+  </tr><tr>
+    <td>diego</td><td>2.8.0</td>
+  </tr><tr>
+    <td>event_log</td><td>0.2</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.17*</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.1</td>
+  </tr><tr>
+    <td>winc</td><td>1.3.0</td>
+  </tr>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.10.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.2.0-rc.1'></a> 2.2.0-rc.1
 
 * **[Security Fix]** Bump diego to version `2.8.0` to address [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/) and to use Go 1.9
