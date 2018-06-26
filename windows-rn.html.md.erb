@@ -184,6 +184,6 @@ The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f38768793
 
 If you encounter this error, Pivotal recommends retrying the deployment until the error does not occur.
 
-### <a id="consul-agent"></a>`consul_agent_windows` Does Not Prestart on Diego Cells
+### <a id="consul-agent"></a> Consul Agent Job Does Not Prestart on Windows Diego Cells
 
 In PAS for Windows v2.2, the `consul_agent_windows` job may fail to prestart when a Diego cell VM is created. The `Cannot index into a null array` error message typically indicates that your Diego cell VM is affected. To work around this issue, you can recreate the VM.
