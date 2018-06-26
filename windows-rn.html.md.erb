@@ -186,4 +186,4 @@ If you encounter this error, Pivotal recommends retrying the deployment until th
 
 ### <a id="consul-agent"></a>`consul_agent_windows` Does Not Prestart on Diego Cells
 
-In PAS for Windows v2.2, the `consul_agent_windows` job may fail to prestart when a Diego cell VM is created. The `Cannot index into a null array` error message typically indicates that your Diego cell VM is affected. Recreating the VM may help to resolve this issue.
+In PAS for Windows v2.2, the `consul_agent_windows` job may fail to prestart when a Diego cell VM is created. The `Cannot index into a null array` error message typically indicates that your Diego cell VM is affected. To work around this issue, you can recreate the VM.
