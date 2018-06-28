@@ -550,3 +550,7 @@ The error reads:
 Additionally, when you SSH into a VM and run `monit summary`, monit reports jobs as "Execution Failed".
 
 To remediate this issue, use monit to restart the affected processes.
+
+### <a id="bosh-dns-version"></a> BOSH DNS Version Change Increases Upgrade Time
+
+Ops Manager 2.2.0 ships with BOSH DNS 1.5, while Ops Manager 2.1 uses BOSH DNS 1.6. This version disparity means that the upgrade process re-installs BOSH DNS on each component VM, which causes the upgrade to last longer. An Ops Manager 2.2.x patch release containing BOSH DNS 1.6 will resolve this issue. 
