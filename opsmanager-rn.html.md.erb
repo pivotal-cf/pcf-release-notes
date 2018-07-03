@@ -15,6 +15,11 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### 2.1.7
 
+* **[Bug Fix]**: Ops Manager syncs with the configured NTP Server, resolving the issue in the following KB article: https://community.pivotal.io/s/article/Operations-Manager-does-not-Sync-with-the-Configured-NTP-Server-in-PCF-20. 
+* **[Bug Fix]**: Enables BOSH DNS healthiness. 
+* **[Security Fix]** On vSphere, the `ubuntu` user must enter their password when using `sudo`. 
+* **[Security Fix]**: Bumps Sprockets to v3.72 or later for CVE. See [[CVE-2018-3760] Path Traversal in Sprockets](https://groups.google.com/forum/#!topic/ruby-security-ann/2S9Pwz2i16k) for more information.
+
 Ops Manager v2.1.7 uses the following component versions:
 
 <table border="1" class="nice">
