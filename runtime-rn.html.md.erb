@@ -15,44 +15,6 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
 
 ### <a id='2.2.0'></a> 2.2.0
 
-* **[Feature]** Application service discovery is enabled by default
-  * Job is now co-located on the diego brain instance group
-  * NOTE: dedicated service discovery instance group is now deprecated
-    If upgrading from 2.1 with this feature enabled, do not scale down service discovery instance group until after the upgrade
-* **[Feature]** Operator can configure a list of DNS search domains
-* **[Feature]** Add support for IAM Instance Profile authentication to AWS blobstores
-  * NOTE: there is currently a known issue using this feature in combination with BBR
-* **[Feature]** Add support to BBR for backing up S3 compatible blobstores that are not configured with versioning enabled
-* **[Feature]** UAA now supports creating identity zones that can use multi-factor authentication
-  * NOTE: this feature is only available to other tiles and users of UAA; it is not available in PAS
-* **[Feature]** New Percona "PXC" MySQL release with improved security
-  * Within the cluster, peers communicate with each other over TLS
-  * NOTE: this is on by default for new deployments, but off by default when upgrading
-  * Turning it on for an existing deployment will result in some downtime while data is migrated from the existing cf-mysql database to the new database
-
-* **[Feature Improvement]** diego SSH proxy uses internal route for UAA
-* **[Feature Improvement]** Increases session cookie max age to 8 hours for UAA
-* **[Feature Improvement]** BBR can now be used when S3 blobstore authentication is configured to use IAM Instance Profiles
-* **[New Feature]** New log-cache release exposes low latency APIs for logs and metrics
-  * App developers can interact with it using the [log-cache CF CLI plugin](https://github.com/cloudfoundry/log-cache-cli)
-  * Other tiles and services will use log cache to enable new features
-* **[Feature Improvement]** Logs explicitly marked by the releases as "DEBUG" are no longer forwarded by default
-  * This feature can be disabled from the System Logging form. If you currently have a custom rule to drop debug logs, you can delete it if this feature is enabled.
-* **[Feature Improvement]** Add option to enable verbose event logging in Autoscaler
-* **[Feature Improvement]** Add option to enable human-readable timestamps in logs for Diego components
-  * NOTE: this is on by default for new deployments, but off by default when upgrading
-
-* **[Removed Feature]** MySQL backup jobs and corresponding configuration have been removed
-  * This feature was deprecated in a previous release
-* **[Removed Feature]** Pivotal Account app is no longer deployed as a post deploy errand
-  * `login.SYSTEMDOMAIN` now routes to the UAA app directly
-  * NOTE: if Pivotal Account was previously deployed, it will not currently be removed automatically
-* **[Removed Feature]** MySQL backup jobs and corresponding configuration have been removed
-  * This feature was deprecated in a previous release
-* **[Removed Feature]** Pivotal Account app is no longer deployed as a post deploy errand
-  * `login.SYSTEMDOMAIN` now routes to the UAA app directly
-  * NOTE: if Pivotal Account was previously deployed, it will not currently be removed automatically
-
   <table border="1" class="nice">
   <thead> <tr>
     <th>Component</th>
