@@ -323,6 +323,14 @@ For more information, see the **(Optional) Configure App Autoscaler** section of
 Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
 You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
 
+### <a id="invocation-timeout-api"></a> Health Check Invocation Timeout is Configurable via Cloud Controller V3 API
+
+This V3 API endpoint allows users to change the duration that a health check invocation waits before timing out. When you use the health check API endpoint, the ```invocation_timeout``` flag lets you change the invocation timeout period.
+
+By default, the health check invocation timeout is set to one second. Increasing the invocation timeout period allows health checks to perform complex actions that a shorter invocation timeout period does not allow. 
+
+For more information, see [The health_check object](http://v3-apidocs.cloudfoundry.org/version/3.50.0/index.html#the-health_check-object).
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="ki-mysql-error"></a>Apps Serve Routes After App Deletion Due to MySQL Errors
