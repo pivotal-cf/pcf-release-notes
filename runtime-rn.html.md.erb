@@ -225,6 +225,26 @@ Prior to PAS v2.2, you could use Pivotal Account to create and manage user accou
 
 The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with the **Delete Pivotal Account Application** errand, which is configured to run automatically. For more information, see the **Configure Errands** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#errands).
 
+<p class="note"><b>Note</b>: The <b>Delete Pivotal Account Application</b> errand does not delete the <code>account</code> database used by the app.</p> 
+
+You can manually delete the `account` database that remains as an artifact in PAS MySQL. Follow the steps below.
+
+1. Use `bosh ssh` to access one of the MySQL VMs in your deployment. See [Advanced Troubleshooting with the BOSH CLI](https://docs.pivotal.io/pivotalcf/2-2/customizing/trouble-advanced.html#bosh-ssh) for instructions. For example:
+
+    ```
+    bosh ssh mysql/0
+    ```
+2. Run the following command to start MySQL using the credentials in `mylogin.cnf`: 
+
+    ```
+    mysql --defaults-file=/var/vcap/jobs/mysql/config/mylogin.cnf
+    ```
+3. Run the following command to delete the `account` database:
+
+    ```
+    DROP database account;
+    ```
+
 ### <a id="log-cache"></a> Loggregator Adds Log Cache in PAS Advanced Features
 
 Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Use Log Cache to query and filter logs.
