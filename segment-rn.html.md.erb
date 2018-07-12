@@ -699,26 +699,22 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   </tfoot>
 </table>
 
+
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.0 tile is available for installation with PCF
-v2.0.
+The PCF Isolation Segment v2.0 tile is available for installation with PCF v2.0.
 
-[Isolation segments](https://docs.pivotal.io/pivotalcf/2-0/concepts/security.html#isolation-segments) provide
-dedicated pools of resources where you can deploy apps and  isolate workloads.
-Using isolation segments separates app resources as completely as if they were
-in different CF deployments but avoids redundant management and network
-complexity.
+[Isolation segments](https://docs.pivotal.io/pivotalcf/2-0/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the
-[Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-0/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-0/adminguide/isolation-segments.html) topic.
+
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.0 is documented in the
-[Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v2.0 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-0/customizing/installing-pcf-is.html) topic.
 
 To install a PCF Isolation Segment, you must first install PCF v2.0.
+
 
 ## <a id='2.0.0'></a> New Features in PCF Isolation Segment v2.0
 
@@ -726,17 +722,11 @@ To install a PCF Isolation Segment, you must first install PCF v2.0.
 
 In PCF v2.0, application containers look up services using the BOSH DNS service discovery mechanism.
 
-<p class="note"><strong>Note</strong>: Port 8853 is the destination port for communications between BOSH DNS health processes. Ensure your firewall rules allow TCP traffic on port 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
+<p class="note"><strong>Note:</strong> Port 8853 is the destination port for communications between BOSH DNS health processes. Ensure your firewall rules allow TCP traffic on port 8853 for all VMs running BOSH DNS. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-0/security/networking/bosh-dns-network-paths.html">BOSH DNS Network Communications</a>.</p>
 
-To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. 
-This colocation is a prerequisite for migrating completely to BOSH DNS in a 
-future release of PCF. However, this colocation does not impact the current 
-behavior of DNS for Cloud Foundry components in PCF v2.0. 
-System components still use consul to discover and locate other Cloud Foundry 
-components.
+To support this lookup, BOSH Director colocates a BOSH DNS server on every deployed VM. This colocation is a prerequisite for migrating completely to BOSH DNS in a future release of PCF. However, this colocation does not impact the current behavior of DNS for Cloud Foundry components in PCF v2.0. System components still use consul to discover and locate other Cloud Foundry components.
 
-You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and 
-[Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
+You can opt out of deploying BOSH DNS in PCF v2.0. For more information, see the [Ops Manager v2.0 Release Notes](./opsmanager-rn.html#bosh-dns) and [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
 
 ### <a id='mutual-tls'></a> Gorouter and HAProxy Trust the Diego Instance Identity Intermediate CA
 
@@ -748,7 +738,7 @@ When validating client requests using mutual TLS, the Gorouter trusts multiple c
 
 ### <a id='multiple-cert'></a> Gorouter and HAProxy Support Multiple Certificates
 
-You can now add more than one certificate for Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](https://docs.pivotal.io/pivotalcf/2-0/adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
+You can now add more than one certificate for the Gorouter and HAProxy in the **Networking** configuration pane. This improves security and removes the need to reissue the existing certificate when you want to add TLS support for custom domains. The Gorouter and HAProxy use SNI to determine the correct certificate to present in a TLS handshake. For more information, see the [Multiple Certificates](https://docs.pivotal.io/pivotalcf/2-0/adminguide/securing-traffic.html#multcerts) section of _Securing Traffic into Cloud Foundry_.
 
 ### <a id='haproxy-xfcc'></a> XFCC Support for Deployments that Terminate TLS at HAProxy 
 
@@ -762,11 +752,11 @@ Previous versions of PCF Isolation Segment supported NSX-V networking.
 
 To use NSX-T networking, you must install the NSX-T tile.
 
-<p class='note warning'><strong>Warning:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
+<p class='note warning'><strong>WARNING:</strong> The NSX-T integration is only for fresh installs of PCF. You cannot upgrade an existing deployment to use NSX-T, and there is no upgrade path from NSX-V to NSX-T.</p>
 
-To enable NSX-T networking for your PCF installation, you must perform the following steps:
+To enable NSX-T networking for your PCF installation, do the following:
 
-1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager on vSphere_ for more information.
+1. In the Ops Manager Director tile > **vCenter Config** pane, select **NSX-T** from the **NSX Mode** drop-down menu. See [Step 2: vCenter Config Page](https://docs.pivotal.io/pivotalcf/2-0/customizing/vsphere-config.html#vcenter-config) in _Configuring Ops Manager Director on vSphere_ for more information.
 
 1. Import and configure the [NSX-T tile](https://network.pivotal.io/products/vmware-nsx-t), but do not click **Apply Changes**. You must install the NSX-T tile after you install the Ops Manager Director tile. You must install the NSX-T tile before you install the PAS tile.
 
@@ -780,19 +770,18 @@ Operators can additionally use the NSX Manager to configure policies for PCF app
 
 <p class='note'><strong>Note:</strong> The IPsec add-on is not supported with NSX-T.</p>
 
-<p class="note breaking"><strong>Breaking Change</strong>: If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
+<p class="note breaking"><strong>Breaking Change:</strong> If you opt out of the <a href="#bosh-dns">BOSH DNS feature</a>, your PCF deployment cannot support NSX-T networking.</p>
 
-##<a id='knownissues'></a> Known Issues
+
+## <a id='knownissues'></a> Known Issues
 
 ### <a id='tasks'></a> Isolation Segment Fails on Fresh Install with Route Services
 
-In Isolation Segment 2.0.0 to 2.0.3, when installing Isolation Segment with Pivotal Application Services where route services are enabled, the deployment will fail due to a missing `router-route-services-secret` credential. This issued is fixed in Isolation Segment 2.0.4.
+In Isolation Segment v2.0.0 to v2.0.3, when installing Isolation Segment with Pivotal Application Services where route services are enabled, the deployment will fail due to a missing `router-route-services-secret` credential. This issued is fixed in Isolation Segment v2.0.4.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/360000863274) article.
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment tile includes new
-functionality that may have certain constraints.  Although these features are
-fully supported, Pivotal recommends caution when using them in production.
+The Advanced Features section of the PCF Isolation Segment tile includes new functionality that may have certain constraints.  Although these features are fully supported, Pivotal recommends caution when using them in production.

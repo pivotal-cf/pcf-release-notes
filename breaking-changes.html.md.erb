@@ -5,11 +5,12 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.0. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/upgrading-pcf.html).
 
+
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-### <a id="haproxy-downtime"></a>Temporary Downtime due to Connection Failure between HAProxy and Gorouter
+### <a id="haproxy-downtime"></a> Temporary Downtime Due to Connection Failure between HAProxy and Gorouter
 
-PCF v2.0 introduces [mutual TLS authentication](./runtime-rn.html#mutual-tls) between HAProxy and the Gorouter. During upgrade to v2.0, the HAProxy component upgrades before Gorouter, and in the few minutes between when HAProxy upgrades and Gorouter upgrades, the two components cannot communicate. This is because the Gorouter cannot yet validate the client certificate sent by HAProxy, causing a TLS handshake failure. If you are using HAProxy, this may cause temporary outage for PCF apps, but in the situations described below, you can avoid downtime with the following upgrade procedure:
+PCF v2.0 introduces [mutual TLS authentication](./runtime-rn.html#mutual-tls) between HAProxy and the Gorouter. During upgrade to v2.0, the HAProxy component upgrades before the Gorouter, and in the few minutes between when HAProxy upgrades and the Gorouter upgrades, the two components cannot communicate. This is because the Gorouter cannot yet validate the client certificate sent by HAProxy, causing a TLS handshake failure. If you are using HAProxy, this may cause temporary outage for PCF apps, but in the situations described below, you can avoid downtime with the following upgrade procedure:
 
   1. Change the **Router behavior for Client Certificate Validation** setting to **Router does not request client certificates...**
   1. Upgrade (**Apply Changes**).
@@ -28,12 +29,9 @@ If you still want to upgrade to PCF v2.0 and can allow a few minutes of downtime
 
 ### <a id="sso-upgrade"></a> SSO Tile Requires Upgrade
 
-If you have the Single Sign-On (SSO) tile installed and you are upgrading to PCF v2.0, you must upgrade the SSO tile to v1.5.3 and configure the Apps Manager errand before installing PCF v2.0. To properly prepare for upgrading to PCF 2.0 with the SSO tile, see <a href="https://discuss.pivotal.io/hc/en-us/articles/115015825568">Upgrade SSO Service Tile resource instance between PCF 1.12 and PCF 2.0</a> in the Pivotal Knowledge Base.</p>
+If you have the Single Sign-On (SSO) tile installed and you are upgrading to PCF v2.0, you must upgrade the SSO tile to v1.5.3 and configure the Apps Manager errand before installing PCF v2.0. To properly prepare for upgrading to PCF 2.0 with the SSO tile, see [Upgrade SSO Service Tile resource instance between PCF 1.12 and PCF 2.0](https://discuss.pivotal.io/hc/en-us/articles/115015825568) in the Pivotal Knowledge Base.
 
-<p class="note warning">
-<strong>WARNING: </strong>You must upgrade PCF Operations Manager (Ops Manager) before upgrading PAS (formerly Pivotal Elastic Runtime).
-Ops Manager v2.0 is required when upgrading from Elastic Runtime v1.12 to a PCF PAS v2.0 deployment that has the SSO v1.5.3 tile installed.
-</p>
+<p class="note warning"><strong>WARNING:</strong> You must upgrade PCF Operations Manager (Ops Manager) before upgrading PAS (formerly Pivotal Elastic Runtime). Ops Manager v2.0 is required when upgrading from Elastic Runtime v1.12 to a PCF PAS v2.0 deployment that has the SSO v1.5.3 tile installed.</p>
 
 ### <a id='internal-creds'></a> Internal Pivotal Application Service Credentials
 
@@ -48,10 +46,7 @@ If you opt out of the [BOSH DNS feature](./runtime-rn.html#bosh-dns), your PCF d
 
 PAS does not support SHA1 to sign outbound SAML requests.
 
-If you use SHA1 with PCF v1.12, PAS automatically migrates your SAML signature algorithm to SHA256.
-If you are using SAML in PCF v1.12 through Elastic Runtime or the SSO tile and
-if your Identity Provider validates the signature of the SAML authentication request,
-see [SHA Signature Support for SAML requests in PAS tile in PCF 2.0](https://discuss.pivotal.io/hc/en-us/articles/115004791554) in the Pivotal Knowledge Base. 
+If you use SHA1 with PCF v1.12, PAS automatically migrates your SAML signature algorithm to SHA256. If you are using SAML in PCF v1.12 through Elastic Runtime or the SSO tile and if your Identity Provider validates the signature of the SAML authentication request, see [SHA Signature Support for SAML requests in PAS tile in PCF 2.0](https://discuss.pivotal.io/hc/en-us/articles/115004791554) in the Pivotal Knowledge Base. 
 
 ### <a id='remedial-steps'></a> Upgrading from Earlier Versions of Elastic Runtime
 
@@ -62,7 +57,7 @@ If you fail to perform the remedial steps for this issue, this upgrade process m
 
 ### <a id='re-create-vms'></a> Some Upgrades Require VM Re-Creation
 
-Due to an update to <code>garden-runc-release</code>, Pivotal recommends that you re-create all VMs when you upgrade from the following older versions to current versions of PAS and PCF Isolation Segment (IST) and you do not also update your stemcell:
+Due to an update to `garden-runc-release`, Pivotal recommends that you re-create all VMs when you upgrade from the following older versions to current versions of PAS and PCF Isolation Segment (IST) and you do not also update your stemcell:
 
 * PAS, Small Footprint Runtime, and Elastic Runtime:
   - v2.0.0 - v2.0.6
@@ -76,7 +71,7 @@ Due to an update to <code>garden-runc-release</code>, Pivotal recommends that yo
   - v1.11.0 - v1.11.25
   - v1.10.x
 
-VMs re-create automatically when you update your stemcell. Otherwise, you can re-create all VMs for both PAS and IST by enabling the <strong>Recreate All VMs</strong> checkbox on the PAS tile > <strong>Director Config</strong> pane.</p>
+VMs re-create automatically when you update your stemcell. Otherwise, you can re-create all VMs for both PAS and IST by enabling the **Recreate All VMs** checkbox on the **Director Config** pane in the PAS tile.
 
 ### <a id='configure-client-certs-pas'></a> Configuring Router Behavior for Client Certificates while Deploying PAS
 
@@ -87,8 +82,7 @@ For some deployment configurations, you must configure how PCF handles x-forward
 
 ### <a id='bosh-cli'></a> BOSH CLI Renamed
 
-Similar to previous Ops Manager versions, the Ops Manager virtual machine includes both versions of the BOSH CLI.
-In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
+Similar to previous Ops Manager versions, the Ops Manager virtual machine includes both versions of the BOSH CLI. In Ops Manager v2.0, both versions of the BOSH CLI have been renamed.
 
 If you used BOSH CLI v2 in earlier versions of Ops Manager, you ran commands using `bosh2`.
 In Ops Manager v2.0.0, run the same commands using `bosh`.
@@ -99,10 +93,9 @@ For example, see the following table to compare the changes to the `bosh vms` co
 | **BOSH CLI v1** | `bosh vms` | `bosh-old vms` |
 | **BOSH CLI v2** | `bosh2 -e MY-ENV vms` | `bosh -e MY-ENV vms`
 
-Many BOSH CLI v1 commands are incompatible with the BOSH Director.
-Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
+Many BOSH CLI v1 commands are incompatible with the BOSH Director. Pivotal recommends using BOSH CLI v2 commands for compatibility with future versions of PCF.
 
-###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+### <a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
 
 In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes upgrades from these versions to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
 
@@ -120,11 +113,11 @@ Do not disable BOSH DNS without consulting Pivotal Support.
 
 For more information about disabling BOSH DNS, see [Disabling or Opting Out of BOSH DNS in PCF](https://discuss.pivotal.io/hc/en-us/articles/115015720428-Disabling-or-Opting-Out-of-BOSH-DNS-in-PCF) in the Pivotal Knowledge Base.
 
-### <a id='current-record'></a>current_record Property
+### <a id='current-record'></a> current_record Property
 
 The `current_record` property is now reserved. You can no longer create a new property named `current_record` in a collection record.
 
-### <a id="azure-stack"></a>Azure Stack Support is in Beta for Ops Manager
+### <a id="azure-stack"></a> Azure Stack Support is in Beta for Ops Manager
 
 Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack. **Azure Stack support is in beta** for Ops Manager v2.0 and should not be used in production.
 
