@@ -9,7 +9,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <hr>
 
-## <a id='how-to-upgrade'></a>How to Upgrade ##
+## <a id='how-to-upgrade'></a> How to Upgrade
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
 
@@ -399,15 +399,14 @@ Ops Manager v2.1.0 uses the following component versions:
 
 <hr>
 
-## <a id='major-features'></a>New Features in Ops Manager v2.1
+
+## <a id='major-features'></a> New Features in Ops Manager v2.1
 
 ### <a id="stemcell-manager"></a> Stemcell Library
 
-Use the new Stemcell Library to import stemcells, stage stemcells, and view the 
-stemcell versions associated with each product. 
+Use the new Stemcell Library to import stemcells, stage stemcells, and view the stemcell versions associated with each product. 
 
-In Ops Manager v2.0 and earlier, stemcell management capabilities are located 
-within each tile. 
+In Ops Manager v2.0 and earlier, stemcell management capabilities are located within each tile. 
 For v2.1, the Stemcell Library provides centralized stemcell management from the **Installation Dashboard** used for all products.
 
 For more information about the Stemcell Library, see [Importing and Managing Stemcells](http://docs.pivotal.io/2-1/opsguide/managing-stemcells.html).
@@ -416,7 +415,7 @@ For more information about the Stemcell Library, see [Importing and Managing Ste
 
 You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information about custom VM extensions, see [Managing Custom VM Extensions](http://docs.pivotal.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
 
-### <a id="azure-stack"></a>Azure Stack Support (Beta)
+### <a id="azure-stack"></a> Azure Stack Support (Beta)
 
 Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack. **Azure Stack support is in beta** for Ops Manager v2.0 and should not be used in production.
 
@@ -432,7 +431,7 @@ For more information about how to encrypt BOSH and Ops Manager VMs, see [Configu
 
 In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal storage or a Luna Hardware Security Module (HSM). For more information about configuring your CredHub encryption provider, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
 
-### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged in Simultaneously
+### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged In Simultaneously
 
 Ops Manager users with **Full View** and **Restricted View** permissions can be logged in simultaneously. Previous to this change, only one user at a time could view Ops Manager.
 
@@ -446,7 +445,7 @@ From the Ops Manager settings, you can now add a custom banner to communicate im
 
 You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of *Configuring Ops Manager Director on GCP*.
 
-<p class="note"><strong>Note: </strong>After you deploy Ops Manager, you cannot change the blobstore location.</p>
+<p class="note"><strong>Note:</strong> After you deploy Ops Manager, you cannot change the blobstore location.</p>
 
 ### <a id="azure-application-gateway"></a> Integrate Azure Application Gateway Load Balancers
 
@@ -456,7 +455,7 @@ To learn more about Azure Application Gateway, see [Overview of Application Gate
 
 To learn more about configuring your load balancer for Azure, see the [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/azure-om-config.html#resource-config) section in the *Configuring Ops Manager on Azure* topic.
 
-<p class="note"><strong>Note: </strong> This feature is not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration.</p>
+<p class="note"><strong>Note:</strong> This feature is not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration.</p>
 
 ### <a id="multiple-clusters"></a> Add Multiple Clusters to Availability Zones
 
@@ -477,7 +476,6 @@ As a result of removing IPAM from Ops Manager, see the following changes:
 - You get an ignorable warning when you click **Apply Changes** if you enter a CIDR range that is not large enough to deploy the staged tiles.
 - For tile authors, `static_ip` and `dynamic_ip` are now ignored. Ops Manager gets static IPs from the `static_ips` property.
 
-
 ### <a id="add-subnets"></a> Expand Your Network with Additional Subnets
 
 In the **Create Networks** pane of Ops Manager, you can add additional subnets to your network. Each AZ can now have more than one subnet.
@@ -490,16 +488,19 @@ When you configure Ops Manager for AWS, you do not need to provide a Virtual Pri
 
 ### <a id="alb"></a> Associate AWS ALBs with Jobs
 
-From the **Resource Config** pane of an AWS installation, you can associate an AWS Application Load Balancer (ALB) to a job. For more information, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem) in the AWS configuration topic.
+From the **Resource Config** pane of an AWS installation, you can associate an AWS Application Load Balancer (ALB) to a job. For more information, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem) in the _Configuring BOSH Director on AWS_ topic.
+
 
 ## <a id="known-issues"></a> Known Issues
 
-###<a id="override-port"></a> Azure Load Balancer Does Not Support Override Port
+### <a id="override-port"></a> Azure Load Balancer Does Not Support Override Port
+
 The Azure Application Gateway feature is currently not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration. For more information about this feature, see [Integrate Azure Application Gateway Load Balancers](#azure-application-gateway) above.
 
-###<a id="cloud-properties-changes"></a>AWS KMS Encryption Requires Manual Refresh
+### <a id="cloud-properties-changes"></a> AWS KMS Encryption Requires Manual Refresh
 
 If you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOSH Director tile, only future BOSH-deployed VMs are encrypted. To manually trigger current BOSH VMs to encrypt their persistent disks, ephemeral disks, and the root separately, you must make the following changes:
+
 <table class="nice">
   <tr>
     <th>For persistent disks</th>
@@ -518,6 +519,7 @@ If you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOS
 This known issue does not affect you if you enable **Encrypt EBS Volumes** during your first deployment.
 
 For more information about the AWS KMS feature, see [AWS KMS Encryption Available for BOSH and Ops Manager VMs](#custom-kms).
+
 
 ## <a id="bug-fixes"></a> Bug Fixes
 

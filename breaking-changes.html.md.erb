@@ -5,11 +5,12 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.1. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/2-1/customizing/upgrading-pcf.html).
 
+
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
 ### <a id='automated-backup'></a> Removal of Automated Backup Configuration for Internal MySQL
 
-Starting in PCF 2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
+Starting in PCF v2.1, the PAS tile no longer includes the **Automated Backups Configuration** field. This option has been removed because it is not possible to restore the internal MySQL database from a full backup without degrading the Galera MySQL cluster. 
 
 To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/backup-restore/index.html) for information on using BBR. 
 
@@ -19,7 +20,7 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 * BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
 * BBR eliminates the need to manually remove the silk database table after restore. 
 
-###<a id='nsx'></a> Deploy Fails when NSX-T CNI Plugin Option Selected
+### <a id='nsx'></a> Deploy Fails When NSX-T CNI Plugin Option Selected
 
 Deploys of PAS 2.1.0 fail when configured to use the NSX-T CNI plugin. The output of the error is as follows:
 
@@ -40,7 +41,6 @@ After you download the product file, you need to download and run the **PAS for 
 If you try to upload the PAS for Windows product file without having run the injector tool, Ops Manager may show the following error:
 `is invalid: has an invalid release 'windows2016fs' specified for job type 'Windows Diego Cell'`
 
-
 ### <a id='re-create-vms'></a> Some Upgrades Require VM Re-Creation
 
 Due to an update to <code>garden-runc-release</code>, Pivotal recommends that you re-create all VMs when you upgrade from the following older versions to current versions of PAS and PCF Isolation Segment (IST) and you do not also update your stemcell:
@@ -58,6 +58,7 @@ Due to an update to <code>garden-runc-release</code>, Pivotal recommends that yo
   - v1.10.x
 
 VMs re-create automatically when you update your stemcell. Otherwise, you can re-create all VMs for both PAS and IST by enabling the <strong>Recreate All VMs</strong> checkbox on the PAS tile > <strong>Director Config</strong> pane.</p>
+
 
 ## <a id='opsman'></a> Ops Manager
 
@@ -78,11 +79,12 @@ Could not log in: Required Datacenter privileges not available:
 ```
 Include the required datacenter privileges to continue. For more information about vSphere vCenter privileges, see [vSphere Service Account Requirements](http://docs.pivotal.io/customizing/vsphere-service-account.html).
 
-### <a id="azure-stack"></a>Azure Stack Support is in Beta for Ops Manager
+### <a id="azure-stack"></a> Azure Stack Support is in Beta for Ops Manager
 
 Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack. **Azure Stack support is in beta** for Ops Manager v2.0 and should not be used in production.
 
 Using Azure Stack in production deployments may result in unpredictable behavior.
+
 
 ## <a id='ist'></a> PCF Isolation Segment
 

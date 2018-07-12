@@ -5,9 +5,7 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-Read more about the [certified provider
-program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
-providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
@@ -964,28 +962,23 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tfoot>
   </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.1 is documented in the [Upgrading Pivotal Cloud
-Foundry](https://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Application Service (PAS) v2.1 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v2.1, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.0 to successfully upgrade to PAS v2.1.
 
-* Some partner service tiles may be incompatible with PCF v2.1. Pivotal is
-  working with partners to ensure their tiles are updated to work with the
-  latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v2.1, review the appropriate
-  partners services release documentation at
-  [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
-  organization that produces the tile.
+* Some partner service tiles may be incompatible with PCF v2.1. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.1, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+
 
 ## <a id='new-features'></a> New Features in PAS v2.1
 
 ### <a id='blobstore-encryption'></a> Support for S3 Server-Side Encryption with AWS KMS
 
-Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This is an optional configuration in the **File Storage** configuration pane in PAS. For more information, see [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#file-store-config).
+Operators can now configure PAS to use server-side encryption with AWS Key Management Service (KMS) for S3 blobstores. This is an optional configuration in the **File Storage** configuration pane in PAS. For more information, see [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#file-store-config).
 
 ### <a id='blobstore-backup'></a> BBR Backs Up External S3 Versioned Blobstores
 
@@ -1001,35 +994,23 @@ PAS v2.1 supports the use of service accounts with GCS for Cloud Controller blob
 
 ### <a id='route-consistency'></a> Increased Resiliency, Consistency, and Security for HTTP Routing
 
-You can now configure Gorouter to use TLS for verifying app identity and communicating with app containers.
-This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from Gorouter to back ends.
+You can now configure the Gorouter to use TLS for verifying app identity and communicating with app containers.
+This improves resiliency and consistency for app routes as well as increases security by encrypting data in flight from the Gorouter to back ends.
 
 TLS routing requires an additional 32&nbsp;MB of RAM capacity on your Diego cells per app instance, as well as additional CPU capacity. Pivotal recommends you adjust your RAM and CPU capacity before upgrading PCF if you want to enable TLS routing to back ends. Check the total amount of Diego cell memory available to allocate in your environment, and if it is less than 32&nbsp;MB times the number of running app instances, scale out your Diego cells.
 
 You may see an increase of memory and CPU usage for your Gorouters after enabling TLS routing. Check the total amount of memory and CPU usage of the Gorouters in your environment, and if they are close to the size limit, consider scaling out your Gorouters before enabling TLS routing.
 
-For information about enabling this feature, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#application-containers-config)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#containers)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#application-containers-config)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#application-containers-config)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#application-containers-config)
+For information about enabling this feature, see the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
 
 For information about TLS support and Gorouter route consistency modes, see [TLS to Apps and Other Back End Services](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#tls-to-back-end) and [Preventing Misrouting](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#consistency) in the _HTTP Routing_ topic.
 
 ### <a id='keepalive-connections'></a> Gorouter Keepalive Connections to Back Ends Enabled by Default
 
-In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the _Configuring PAS_ topic for your IaaS:
+In PAS v2.1, the **Router Max Idle Keepalive Connections** field in the **Networking** pane of the PAS tile has been replaced by the **Enable Keepalive Connections for Router** checkbox. For more information about configuring keepalive connections, see the [Deploying PAS topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
 
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
-
-To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, Gorouter maintains established TCP connections to back ends.
-The maximum number of idle keepalive connections maintained by Gorouter to all back ends is set to 49,000.
+To improve routing performance, the checkbox is enabled by default. When keepalive connections are enabled, the Gorouter maintains established TCP connections to back ends.
+The maximum number of idle keepalive connections maintained by the Gorouter to all back ends is set to 49,000.
 For more information, see [Keepalive Connections](https://docs.pivotal.io/pivotalcf/2-1/concepts/http-routing.html#keepalive).
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
@@ -1046,23 +1027,14 @@ fields in the **Networking** pane are automatically populated with the following
 * Defaults for Gorouter: `ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * Defaults for HAProxy: `DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384`
 
-<p class='note'><strong>Note:</strong> If you are using AWS Classic Load Balancers,
-see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a>
-for information about configuring your AWS load balancers and Gorouter.</p>
+<p class='note'><strong>Note:</strong> If you are using AWS Classic Load Balancers, see <a href="http://docs.pivotal.io/pivotalcf/2-1/adminguide/securing-traffic.html#default">TLS Cipher Suite Support by AWS Load Balancers</a> for information about configuring your AWS load balancers and Gorouter.</p>
 
 For upgrades, PAS populates the **TLS Cipher Suites for Router** and **TLS Cipher Suites for HAProxy** fields with the values specified in your previous version of the PAS tile.
-For information about configuring these fields, see the _Configuring PAS_ topic for your IaaS:
-
-* [Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#networking)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#networking)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#networking)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#networking)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#networking)
+For information about configuring these fields, see the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
 
 ### <a id='enable-proxy-support'></a> Enable PROXY Protocol Support in CF Router
 
-In the PAS networking pane, you can now enable support for PROXY protocol in CF Router. This checkbox is disabled by default. For more information, see the [PAS Deploying topic for your IaaS] (https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
-
+In the PAS networking pane, you can now enable support for PROXY protocol in CF Router. This checkbox is disabled by default. For more information, see the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
 
 ### <a id='named-service-bindings'></a> Named Service Bindings
 
@@ -1072,40 +1044,19 @@ You now have the option of giving your service binding a name when you create it
 
 You can configure Hardware Security Modules (HSMs) for runtime CredHub through Ops Manager. An HSM provides an additional layer of security by storing keys separately from the CredHub server.
 
-For more information about configuring HSMs for runtime CredHub, see the PAS installation topic for your IaaS:
-
-* [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-er-config.html#credhub)
-* [Deploying PAS on AWS using Terraform](https://docs.pivotal.io/pivotalcf/2-1/customizing/aws-er-config-terraform.html#credhub)
-* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config.html#credhub)
-* [Deploying PAS on Azure using Terraform](https://docs.pivotal.io/pivotalcf/2-1/customizing/azure-er-config-terraform.html#credhub)
-* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config.html#credhub)
-* [Deploying PAS on GCP using Terraform](https://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-er-config-terraform.html#credhub)
-* [Installing PAS after Deploying PCF on OpenStack](https://docs.pivotal.io/pivotalcf/2-1/customizing/openstack-er-config.html#credhub)
-* [Configuring PAS for vSphere](https://docs.pivotal.io/pivotalcf/2-1/customizing/config-er-vmware.html#credhub)
+For more information about configuring HSMs for runtime CredHub, see the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/pas.html).
 
 ### <a id='healthchecks'></a> Improved System Performance for App Health Checks
 
-This release changes how PAS runs app health checks to improve
-system performance in resource-constrained environments, such as on-premise
-installations of PAS. This change does not impact the developer workflow for
-[configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
+This release changes how PAS runs app health checks to improve system performance in resource-constrained environments, such as on-premise installations of PAS. This change does not impact the developer workflow for [configuring app health checks](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/healthchecks.html).
 
-Previously, health checks during app startup increased system load because they
-ran as a Garden process every two seconds. In addition, apps that started successfully
-could fail if slow system performance caused the app health check to
-time out. In some severe cases, such app failures caused additional resource
-consumption and a chain-reaction of app failures.
+Previously, health checks during app startup increased system load because they ran as a Garden process every two seconds. In addition, apps that started successfully could fail if slow system performance caused the app health check to time out. In some severe cases, such app failures caused additional resource consumption and a chain-reaction of app failures.
 
-PAS v2.1 resolves these issues through a new implementation that does not
-invoke a new process on every health check. The health check now runs
-as a long-lived process in the app container. Developers may see these
-processes if they access an app container using the `cf ssh` command and list the
-processes.
+PAS v2.1 resolves these issues through a new implementation that does not invoke a new process on every health check. The health check now runs as a long-lived process in the app container. Developers may see these processes if they access an app container using the `cf ssh` command and list the processes.
 
 ### <a id='saml-uaa'></a> Custom SAML Entity ID for Tiles
 
-To enable tiles to set a custom SAML entity ID, independent of whether PAS itself uses an external SAML identity provider,
-the **Entity ID Override** field in the **Authentication and Enterprise SSO** pane of the PAS tile has been moved to the **UAA** pane and renamed to **SAML Entity ID Override**.
+To enable tiles to set a custom SAML entity ID, independent of whether PAS itself uses an external SAML identity provider, the **Entity ID Override** field in the **Authentication and Enterprise SSO** pane of the PAS tile has been moved to the **UAA** pane and renamed to **SAML Entity ID Override**.
 
 ### <a id='multi-user-error'></a> cf CLI Errors on Multi-Origin User Ambiguity
 
@@ -1127,7 +1078,6 @@ For more information on scaling each process, see [Scale an App](http://docs.piv
 The App Autoscaler can use two new metrics for automatically scaling app instance counts:
 
 * **Memory Utilization**: The average RAM percentage used for all instances of the app.
-
 * **RabbitMQ Depth**: The length of a specified RabbitMQ queue.
 
 See [Scaling Rules](https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#metric) for additional context.
@@ -1139,11 +1089,8 @@ The App Autoscaler CLI lets you create and manage App Autoscaler rules from a sh
 The App Autoscaler CLI has the following [known issues](https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html#issues):
 
 * It does not work when more than one Autoscaler instance is running in the same space.
-
 * It cannot enable and disable individual scaling rules, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
-
 * It cannot create scheduled limit changes, unlike the App Autoscaler pane in Apps Manager or the App Autoscaler API.
-
 * It may output odd characters when the `CF_COLOR` environment variable is not set to `false` in monochrome shell windows.
 
 ### <a id='droplets'></a> Stage a Droplet on a Stopped App
@@ -1174,6 +1121,7 @@ You can request Firehose subscriptions that filter out all unspecified content u
 
 PAS v2.1 supports service instance sharing across orgs and spaces. For more information, see [Sharing Service Instances (Beta)](https://docs.pivotal.io/pivotalcf/2-1/devguide/services/sharing-instances.html) and [Enabling Service Instance Sharing](https://docs.pivotal.io/pivotalcf/2-1/services/enable-sharing.html).
 
+
 ## <a id='adv-features'></a> About Advanced Features
 
 ### <a id='c2c-discovery'></a> Container-to-Container Service Discovery
@@ -1194,6 +1142,7 @@ BBR provides the following advantages over the **Automated Backup Configuration*
 * BBR backs up the MySQL cluster and the blobstore together so that they are consistent.  
 * BBR eliminates the need to manually remove the silk database table after restore. 
 
+
 ##<a id='known-issues'></a> Known Issues
 
 ###<a id='gcs-timeouts'></a> Intermittent cf push Timeouts with Google Cloud Storage with Service Account
@@ -1202,9 +1151,9 @@ PAS on Google Cloud Platform can use Google Cloud Storage (GCS) authenticated wi
 
 With this external filestore configuration, GCS with Google Service Account, PAS v2.1 intermittently experiences timeouts when you `cf push` apps. The failures may occur more frequently when you push large apps that require storing or retrieving larger files.
 
-###<a id='nsx-t1'></a> NSX-T Container Plugin Fails to install with PAS
+###<a id='nsx-t1'></a> NSX-T Container Plugin Fails to Install with PAS
 
-The VMware NSX-T Container Plug-in tile v2.1.0.x and v2.1.2 fail to install with PAS 2.1. The output of the error may be as follows:
+The VMware NSX-T Container Plug-in tile v2.1.0.x and v2.1.2 fail to install with PAS v2.1. The output of the error may be as follows:
 
 ```
 oslo_config.cfg.ConfigFilesPermissionDeniedError: Failed to open some config files: /etc/nsx-ujo/ncp.ini
@@ -1230,9 +1179,9 @@ Traceback (most recent call last):
 oslo_config.cfg.ConfigFilesPermissionDeniedError: Failed to open some config files: /etc/nsx-ujo/ncp.ini
 ```
 
-Until a fix is available in a patch release of VMware NSX-T Container Plug-in for PCF v2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
+Until a fix is available in a patch release of VMware NSX-T Container Plug-in for PCF v2.1, Pivotal recommends that you use PAS v2.0 if NSX-T CNI integration is a requirement.
 
-###<a id='nsx-t2'></a> PAS Install Fails when NSX-T Container Plug-in is Selected
+### <a id='nsx-t2'></a> PAS Install Fails When NSX-T Container Plug-In is Selected
 
 PAS v2.1.0 fails to install when configured to use the NSX-T plugin. The output of the error is as follows:
 
@@ -1242,19 +1191,19 @@ Task 47 | 14:12:38 | Preparing deployment: Preparing deployment (00:00:01)
 Task 47 | 14:12:39 | Error: Colocated job 'cni' is already added to the instance group 'diego_cell'.
 ```
 
-PAS v2.1.1 fixes this issue and is available on [Pivotal Network](https://network.pivotal.io/products/elastic-runtime), but NSX-T Container Plugin v2.1.0 does not install with PAS v2.1.1, [as described above](#nsx-1). Until a fix is available in a patch release of VMware NSX-T Container Plug-in for PCF v2.1, Pivotal recommends that you use PAS 2.0 if NSX-T CNI integration is a requirement.
+PAS v2.1.1 fixes this issue and is available on [Pivotal Network](https://network.pivotal.io/products/elastic-runtime), but NSX-T Container Plugin v2.1.0 does not install with PAS v2.1.1, [as described above](#nsx-1). Until a fix is available in a patch release of VMware NSX-T Container Plug-in for PCF v2.1, Pivotal recommends that you use PAS v2.0 if NSX-T CNI integration is a requirement.
 
-###<a id='saml'></a> SAML Identity Provider Must Be Manually Disabled
+### <a id='saml'></a> SAML Identity Provider Must Be Manually Disabled
 
 If you want to switch from SAML to another identity provider such as LDAP or an internal user store, you must manually disable your SAML identity provider using the UAA API. For more information about disabling your SAML identity provider, see the [Disabling SAML Identity Provider When Switching Identity Providers for PCF 2.1](https://discuss.pivotal.io/hc/en-us/articles/360000793534) Knowledge Base article.
 
-###<a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
+### <a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
 
 Due to an underlying kernel defect, read-only volume mounts display as `"mode": "rw"` when you view the `VCAP_SERVICES` environment variable for your app.
 
 For more information about binding a volume service, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-1/devguide/services/using-vol-services.html#create).
 
-###<a id='tile-failure'></a> Service Tiles Fail to Push Apps
+### <a id='tile-failure'></a> Service Tiles Fail to Push Apps
 
 This issue affects PCF v2.1 and previous versions of the product.
 
@@ -1268,23 +1217,22 @@ If you have made this system domain private, the following tiles may fail to pus
 * Spring Cloud Services for PCF
 
 These tiles assume that the default system domain is a shared domain.
-For more information about shared and private domains,
-see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
+For more information about shared and private domains, see [Domains](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/routes-domains.html#domains) in the _Routes and Domains_ topic.
 
-###<a id='debug-logs'></a> PAS Forwards High Volume of DEBUG Log Messages
+### <a id='debug-logs'></a> PAS Forwards High Volume of DEBUG Log Messages
 
 PAS forwards a high volume of DEBUG syslog messages from UAA and other system components to an external service. To remediate this issue, you can filter out log messages that contain `"DEBUG"` in their body by using the `if ($msg contains "DEBUG") then stop` custom syslog rule.
 
 For information about enabling syslog forwarding and configuring custom syslog rules in PAS, see [Enable Syslog Forwarding](https://docs.pivotal.io/pivotalcf/2-1/opsguide/logging-config-opsman.html#syslog-forward) in the _Configuring Logging in PAS_ topic and [Exclude Logs With Certain Content](https://docs.pivotal.io/pivotalcf/2-1/customizing/custom-syslog-rules.html#exclude-content) in the _Customizing Platform Log Forwarding_ topic.
 
-###<a id='uaa-request-latency'></a> UAA Request Latency Metric Not Emitted
+### <a id='uaa-request-latency'></a> UAA Request Latency Metric Not Emitted
 
 The `gorouter.latency.uaa` metric is not currently emitted in PCF v2.1. For more information about the `gorouter.latency.uaa` metric, see [UAA Request Latency](http://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html#uaa_latency) in _Key Performance Indicators_.
 
-###<a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
+### <a id='bosh-metrics'></a> PCF v2.1 Not Emitting BOSH VM Metrics for Windows Diego Cells
 
 BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
 
-###<a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
+### <a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
 
 If you disable TLS from verifying back end identity and redeploy PCF after having already enabled it in your previous deployment, and the deployment has apps with more than one instance, you might see an increase in the number of 525 Handshake Failure errors. Pivotal recommends you do not disable TLS to validate identity once it has already been enabled.
