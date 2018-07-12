@@ -10,7 +10,7 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ### <a id="timestamp"></a> Log Aggregation Systems May Parse Diego Timestamps Incorrectly
 
-The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>.
+The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339).
 
 This timestamp format is enabled by default for new PAS v2.2 deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
 
@@ -21,7 +21,7 @@ For more information about this PCF v2.2 feature, see [PCF v2.2 Feature Highligh
 
 ### <a id="ssh-client"></a> SSH Proxy May Restrict Client Access
 
-The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-2/devguide/deploy-apps/ssh-apps.html#other-ssh-access">Application SSH Access without cf CLI</a>.
+The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. This feature may have complications if you use a SSH client other than <code>cf ssh</code> to connect. For more information, see [Application SSH Access without cf CLI](https://docs.pivotal.io/pivotalcf/2-2/devguide/deploy-apps/ssh-apps.html#other-ssh-access).
 
 ### <a id="db-tls-downtime"></a> Temporary Downtime when Migrating Internal System Databases 
 
@@ -34,6 +34,7 @@ This change has no effect if you have **External Databases** selected in the PAS
 ### <a id="autoscaler-log-cache"></a> App Autoscaler Fails When Loggregator's Log Cache Is Disabled
 
 App Autoscaler relies on API endpoints in Loggregator's Log Cache component. If you disable Log Cache, App Autoscaler will fail. For more information about Log Cache, see [Loggregator Introduces Log Cache](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#log-cache).
+
 
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
 
@@ -64,6 +65,7 @@ For security, Ops Manager API responses from the `/api/v0/staged/director/proper
 This change may break any code that relies on retrieving these properties from a `GET /api/v0/staged/director/properties` call.
 
 For more information, see the [Ops Manager API v2.2 documentation](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#fetching-director-iaas-and-security-properties-experimental).
+
 
 ## <a id='ist'></a> PCF Isolation Segment
 

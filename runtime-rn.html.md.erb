@@ -5,9 +5,7 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-Read more about the [certified provider
-program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
-providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
@@ -115,22 +113,16 @@ providers](https://www.cloudfoundry.org/provider-requirements/).
   </tfoot>
   </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.2 is documented in the [Upgrading Pivotal Cloud
-Foundry](http://docs.pivotal.io/pivotalcf/2-2/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Application Service (PAS) v2.2 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-2/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v2.2, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.1 to successfully upgrade to PAS v2.2.
 
-* Some partner service tiles may be incompatible with PCF v2.2. Pivotal is
-  working with partners to ensure their tiles are updated to work with the
-  latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v2.2, review the appropriate
-  partners services release documentation at
-  [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
-  organization that produces the tile.
+* Some partner service tiles may be incompatible with PCF v2.2. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.2, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in PAS v2.2
@@ -153,11 +145,11 @@ For internal system databases, PAS now supports a more secure [Percona Server](h
 
 PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required.
 
-For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
+For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
 
 ### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
 
-PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Manually Configuring PAS for AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
+PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
 
 ### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
 
@@ -171,7 +163,7 @@ For more information about configuring the **Logging of Client IPs in CF Router*
 
 ### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
 
-The timestamps in the Diego component logs are now in a format compatible with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>. Log-level identifiers are also formatted as strings instead of numeric codes.
+The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339). Log-level identifiers are also formatted as strings instead of numeric codes.
 
 RFC 3339 timestamps are enabled by default for new PAS v2.2 deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
 
@@ -195,7 +187,7 @@ The instance identity certificates provided to application instance and task con
 
 For more information, see [Using Instance Identity Credentials](https://docs.pivotal.io/pivotalcf/2-2/devguide/deploy-apps/instance-identity.html).
 
-### <a id="bosh-dns-enabled"></a>BOSH DNS Enabled By Default
+### <a id="bosh-dns-enabled"></a> BOSH DNS Enabled By Default
 
 BOSH DNS is enabled by default for both app containers and PCF components in PCF v2.2. 
 
@@ -312,6 +304,7 @@ This V3 API endpoint allows users to change the duration that a health check inv
 By default, the health check invocation timeout is set to one second. Increasing the invocation timeout period allows health checks to perform complex actions that a shorter invocation timeout period does not allow. 
 
 For more information, see [The health_check object](http://v3-apidocs.cloudfoundry.org/version/3.50.0/index.html#the-health_check-object).
+
 
 ## <a id='known-issues'></a> Known Issues
 
