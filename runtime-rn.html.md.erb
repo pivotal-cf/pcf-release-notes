@@ -344,7 +344,7 @@ Prior to PAS v2.2, you could use Pivotal Account to create and manage user accou
 
 The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with the **Delete Pivotal Account Application** errand, which is configured to run automatically. For more information, see the **Configure Errands** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/2-2/customizing/gcp-er-config.html#errands).
 
-<p class="note"><b>Note</b>: The <b>Delete Pivotal Account Application</b> errand does not delete the <code>account</code> database used by the app.</p> 
+<p class="note"><strong>Note</strong>: The <strong>Delete Pivotal Account Application</strong> errand does not delete the <code>account</code> database used by the app.</p> 
 
 You can manually delete the `account` database that remains as an artifact in PAS MySQL. Follow the steps below.
 
@@ -435,7 +435,7 @@ For more information, see [The health_check object](http://v3-apidocs.cloudfound
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="ki-mysql-error"></a>Apps Serve Routes After App Deletion Due to MySQL Errors
+### <a id="ki-mysql-error"></a> Apps Serve Routes After App Deletion Due to MySQL Errors
 
 After an app is deleted, the app instances are not always cleaned up on Diego cells. Those instances continue to serve routes. 
 
@@ -459,12 +459,12 @@ If you encounter this error, Pivotal recommends retrying the deployment until th
 
 For more information, see the Knowledge Base article [Deploying PAS for Windows Tile Results in an Access is Denied Error](https://community.pivotal.io/s/article/Deploying-PAS-for-Windows-Tile-results-in-access-denied-error).
 
-### <a id="ki-scs-error"></a>PAS Deployment Fails with Spring Cloud Services v1.5.5 and Earlier.
+### <a id="ki-scs-error"></a> PAS Deployment Fails with Spring Cloud Services v1.5.5 and Earlier
 
 If you are running Spring Cloud Services, you need to upgrade to Spring Cloud Services v1.5.6 or later before you can upgrade PCF to v2.2.
 
 For more information, see the Knowledge Base article [Spring Cloud Services Deployment fails with can't resolve link error in PAS 2.2](https://community.pivotal.io/s/article/Spring-Cloud-Services-Deployment-fails-with).
 
-### <a id="ki-golang-issue"></a>Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
+### <a id="ki-golang-issue"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
 
 x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
