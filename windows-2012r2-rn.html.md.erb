@@ -12,6 +12,49 @@ Operators can install Pivotal Application Service (PAS) for Windows on vSphere, 
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.0.9'></a> 2.0.9
+
+* **[Security Fix]** Bump loggregator release for CVE-2018-1268 and CVE-2018-1269
+* **[Bug Fix]** bump consul to v195
+  * Includes golang 1.9.7, removes golang 1.8.*.
+  * Deploying v193 could fail on some deployments due to a conflict with other tiles that compiled the release differently
+  * Fixes intermittent consul DNS issues on Windows Cells
+
+* Bump consul to version `195`
+* Bump loggregator to version `99.1`
+
+<table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.19</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>diego</td><td>1.32.3</td>
+  </tr><tr>
+    <td>event_log</td><td>0.3.0</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.12.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.17</td>
+  </tr><tr>
+    <td>loggregator</td><td>99.1</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.7.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id='2.0.8'></a> 2.0.8
 
 * **[Security Fix]** Bump diego to version `1.32.3`
