@@ -11,7 +11,134 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-## <a id='pas-2-2'></a>Pivotal Application Service v2.2
+## <a id='2.2.1'></a>2.2.1
+
+* **[Feature Improvement]** Allows PCF Metrics to be installed with both v1.5 and v1.4 versions to prevent dataloss.
+* **[Bug Fix]** Bump cf-smoke-tests-release to 40.0.5 to fix some flakiness
+* **[Security Fix]** Bump apps manager for CVE-2018-11044
+  * When creating new services, no longer show org-scoped services from other organizations
+  * Org Managers and Admins can leave organizations
+* **[Security Fix]** Bump loggregator release for CVE-2018-1268 and CVE-2018-1269
+* *** **[Bug Fix]**** bump consul to v195
+  * Includes golang 1.9.7, removes golang 1.8.*.
+  * Deploying v193 could fail on some deployments due to a conflict with other tiles that compiled the release differently
+  * Fixes intermittent consul DNS issues on Windows Cells
+
+* Bump binary-offline-buildpack to version `1.0.21`
+* Bump cf-smoke-tests to version `40.0.5`
+* Bump cflinuxfs2 to version `1.223.0`
+* Bump consul to version `195`
+* Bump dotnet-core-offline-buildpack to version `2.1.3`
+* Bump go-offline-buildpack to version `1.8.25`
+* Bump loggregator to version `102.2`
+* Bump nodejs-offline-buildpack to version `1.6.28`
+* Bump php-offline-buildpack to version `4.3.57`
+* Bump push-apps-manager-release to version `665.0.11`
+* Bump python-offline-buildpack to version `1.6.18`
+* Bump ruby-offline-buildpack to version `1.7.21`
+* Bump staticfile-offline-buildpack to version `1.4.29`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3586.24</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.7.1</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.21</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.58.1</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>201.0.0</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.14.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.3.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.5</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>6.5</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.223.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.3</td>
+  </tr><tr>
+    <td>diego</td><td>2.8.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.3</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.25</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.7.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.12.1</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.3.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>102.2</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.18.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.28</td>
+  </tr><tr>
+    <td>notifications</td><td>46</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.57</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.9.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.11</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.18</td>
+  </tr><tr>
+    <td>pxc</td><td>0.9.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.178.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.21</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.29</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>silk</td><td>2.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>60</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+## <a id='2.2.0'></a>2.2.0
 
   <table border="1" class="nice">
   <thead> <tr>
