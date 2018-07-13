@@ -13,12 +13,58 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.0.
 
+### 2.0.17
+
+* **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
+* **[Feature Improvement]**: **Apply Changes** and Installation Dashboard now load more quickly.
+* **[Security Fix]** Bumps Nokogiri to 1.8.4 to remediate [CVE-2017-15412](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15412).
+
+Ops Manager v2.0.17 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3468.51</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264.11.0</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.4</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.7</td>
+  </tr><tr>
+    <td>UAA</td><td>52.10*</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### 2.0.16
 
 * **[Bug Fix]** Ops Manager syncs with the configured NTP Server, resolving the issue in the following KB article: https://community.pivotal.io/s/article/Operations-Manager-does-not-Sync-with-the-Configured-NTP-Server-in-PCF-20. 
 * **[Security Fix]** On vSphere, the `ubuntu` user must enter their password when using `sudo`. 
 * **[Security Fix]** Bumps Sprockets to v3.72 or later for CVE. See [[CVE-2018-3760] Path Traversal in Sprockets](https://groups.google.com/forum/#!topic/ruby-security-ann/2S9Pwz2i16k) for more information. 
-
 
 Ops Manager v2.0.16 uses the following component versions:
 
