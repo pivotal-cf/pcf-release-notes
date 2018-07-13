@@ -5,9 +5,7 @@ owner: Release Engineering
 
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-Read more about the [certified provider
-program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of
-providers](https://www.cloudfoundry.org/provider-requirements/).
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
@@ -3062,45 +3060,33 @@ this issue with the SAML entityID.
   </tfoot>
 </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry (PCF) Elastic Runtime v1.12 is
-documented in the [Upgrading Pivotal Cloud
-Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry (PCF) Elastic Runtime v1.12 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.12, be aware of the following upgrade considerations:
 
-* You must upgrade first to a version of Elastic Runtime v1.11.x to
-  successfully upgrade to v1.12.
-* If your existing PCF v1.11.x installation includes both <a href="https://docs.pivotal.io/pivotalcf/1-12/windows/index.html">PCF Runtime 
- for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later 
- before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for 
- PCF, see the 
- <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
- 
-* Some partner service tiles may be incompatible with PCF v1.12. Pivotal is
-  working with partners to ensure their tiles are being updated to work with the
-  latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v1.12, review the appropriate
-  partners services release documentation at
-  [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
-  organization that produces the tile.
+* You must upgrade first to a version of Elastic Runtime v1.11.x to successfully upgrade to v1.12.
+* If your existing PCF v1.11.x installation includes both [PCF Runtime for Windows](https://docs.pivotal.io/pivotalcf/1-12/windows/index.html) and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the [MySQL for PCF](http://docs.pivotal.io/p-mysql/1-10/index.html) documentation.
+* Some partner service tiles may be incompatible with PCF v1.12. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v1.12, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+
 
 ## <a id='new-features'></a> New Features in Elastic Runtime v1.12.0
 
 This section describes new features of the release.
 
-###<a id='multi-buildpack'></a> Multiple Buildpack App Support
+### <a id='multi-buildpack'></a> Multiple Buildpack App Support
 
 Developers can now push apps that take advantage of multiple buildpacks simultaneously. You can upgrade apps to use multiple buildpacks with the [`cf v3-push` command](https://docs.pivotal.io/pivotalcf/1-12/buildpacks/use-multiple-buildpacks.html). This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.
 
 Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Additionally, you can specify [custom buildpacks](https://docs.pivotal.io/pivotalcf/1-12/buildpacks/developing-buildpacks.html) before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.
 
-###<a id='v3-push'></a> Granular cf push Commands and Procfile Support
+### <a id='v3-push'></a> Granular cf push Commands and Procfile Support
 
 This release includes experimental commands that provide developers with the ability to better orchestrate app deployment workflows. Additionally, developers can supply a Procfile with their app to run multiple long-lived processes using a single codebase. For more information, see [Using Experimental cf CLI Commands](https://docs.pivotal.io/pivotalcf/1-12/devguide/v3-commands.html).
 
-###<a id='credhub'></a> Migration of Internal Credentials to CredHub
+### <a id='credhub'></a> Migration of Internal Credentials to CredHub
 
 Internal credentials, the `secret` and `simple_credentials` that Elastic Runtime uses for inter-component communication, are generated and stored in CredHub instead of Ops Manager. This is part of an ongoing effort to migrate all credentials to CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  
 
@@ -3133,216 +3119,175 @@ If you want to access the following credentials, you must use the CredHub CLI or
 * `.nfs_server.blobstore_credentials`
 * `.router.status_credentials`
 
-###<a id='groot'></a> Introducing GrootFS
+### <a id='groot'></a> Introducing GrootFS
 
-GrootFS is the new container image management plugin for Garden-runC.
-It helps with the filesystem isolation of Garden-runC containers,
-image caching,
-and disk quota enforcement.
-GrootFS replaces the previous built-in functionality,
-which used an obsolete layer filesystem (AUFS)
-that lacks support from the Linux Kernel community.
-Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards
-for [container images](http://github.com/opencontainers/image-spec).
+GrootFS is the new container image management plugin for Garden-runC. It helps with the filesystem isolation of Garden-runC containers, image caching, and disk quota enforcement.
+GrootFS replaces the previous built-in functionality, which used an obsolete layer filesystem (AUFS) that lacks support from the Linux Kernel community. Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards for [container images](http://github.com/opencontainers/image-spec).
 
 For more information about GrootFS in PCF, see the following topics:
 
 * [Understanding Container Security](https://docs.pivotal.io/pivotalcf/1-12/concepts/container-security.html#mechanics)
 * [Component: Garden](https://docs.pivotal.io/pivotalcf/1-12/concepts/architecture/garden.html#garden-rootfs)
 
-###<a id='app-id-creds'></a> Application Instance Identity Credentials
+### <a id='app-id-creds'></a> Application Instance Identity Credentials
 
 The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
 
-See the [App Instance Container Identity Credentials](https://docs.pivotal.io/pivotalcf/1-12/security/networking/tls-info.html#container-creds) section for more information.
+For more information, see the [App Instance Container Identity Credentials](https://docs.pivotal.io/pivotalcf/1-12/security/networking/tls-info.html#container-creds) section.
 
-###<a id='networking-poe'></a> Simplified TLS Configuration
+### <a id='networking-poe'></a> Simplified TLS Configuration
 
-The point of entry options on the Elastic Runtime **Networking** pane have been restructured to be
-more understandable and flexible.  Operators no longer need to configure
-the Router or HAProxy separately as both components are configured using
-the same options. This includes the following changes:
+The point of entry options on the Elastic Runtime **Networking** pane have been restructured to be more understandable and flexible. Operators no longer need to configure the Gorouter or HAProxy separately as both components are configured using the same options. This includes the following changes:
 
-* Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both Gorouter and HAProxy using a single field. 
-* HAProxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
-* You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. 
+* The Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both the Gorouter and HAProxy using a single field. 
+* HAProxy forwards all requests to the Gorouter over TLS by default. You can optionally disable this feature. 
+* You can configure the minimum version of TLS for the Gorouter and HAProxy with a single field. 
 * You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. 
-* You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
-* You can specify TLS cipher suites for HAProxy and Gorouter independently.
+* You can optionally disable the HTTP listener for both the Gorouter and HAProxy with a single checkbox. 
+* You can specify TLS cipher suites for the Gorouter and HAProxy independently.
 
+For more information, see the _Configure Networking_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-12/customizing/pas.html).
 
-See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information.
+### <a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
 
-###<a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
+The Gorouter can now forward the `X-Forwarded-Client-Cert` header to app instances when provided. Alternatively, operators can configure the Gorouter to forward the header only when the mutual TLS connection from the client can be validated. Additionally, operators may now configure the Gorouter to overwrite the XFCC header with the client certificate received in mTLS handshakes.
 
-Gorouter can now forward the `X-Forwarded-Client-Cert` header to app
-instances when provided. Alternatively, operators can configure Gorouter to
-forward the header only when the mutual TLS connection from the client can be
-validated. Additionally, operators may now configure Gorouter to overwrite the
-XFCC header with the client certificate received in mTLS handshakes.
+This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. For more information, see the _Configure Networking_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-12/customizing/pas.html).
 
-This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information.
+### <a id='cc-diego'></a> Secure Communication Between Cloud Controller and Diego
 
-###<a id='cc-diego'></a> Secure Communication Between Cloud Controller and Diego
+In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands. The Cloud Controller Bridge conveyed communications between the Cloud Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller and Diego communicate directly via secure TLS protocol. This change streamlines and secures internal communications, and removes the Cloud Controller Bridge.
 
-In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
-component, which translated Cloud Controller requests into Diego API commands.
-The Cloud Controller Bridge conveyed communications between the Cloud
-Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller
-and Diego communicate directly via secure TLS protocol. This change streamlines
-and secures internal communications, and removes the Cloud Controller Bridge.
+Securing this communication path will require a second deployment after completing your upgrade to PCF v1.12. Follow the steps in our [upgrade guide](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#cc) to secure your PCF installation.
 
-Securing this communication path will require a second deployment after
-completing your upgrade to PCF v1.12. Follow the steps in our [upgrade guide](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#cc) to
-secure your PCF installation.
-
-###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
+### <a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
 
 Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
 
-###<a id='scaling-loggregator'></a> Scaling Loggregator
+### <a id='scaling-loggregator'></a> Scaling Loggregator
 
 As part of this release, the Loggregator team has provided guidelines for scaling the Loggregator system. For more information, see [Scaling Loggregator](https://docs.pivotal.io/pivotalcf/1-12/loggregator/log-ops-guide.html#scaling) and [Scaling Nozzles](https://docs.pivotal.io/pivotalcf/1-12/loggregator/log-ops-guide.html#scaling-nozzles) and [Operator Guidebook](https://docs.pivotal.io/pivotalcf/1-12/loggregator/log-ops-guide.html).
 
-###<a id='haproxy-release'></a> HAProxy Release
+### <a id='haproxy-release'></a> HAProxy Release
 
-This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated
-[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
+This release removes the old HAProxy job, which was the last remaining component from `cf-release`. It now uses the newly incubated [haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). This replacement allows Elastic Runtime to expose new HAProxy features, such as [request filtering](#request-filtering). 
 
-###<a id='request-filtering'></a> HAProxy Request Filtering
+### <a id='request-filtering'></a> HAProxy Request Filtering
 
-If your PCF deployment uses HAProxy and you want it to receive traffic only from specific sources, you can use the **Protected Domains** and **Trusted CIDRs** fields in the **Networking Pane** of the Elastic Runtime tile. A key use case for this feature is when a deployment must only allow requests to the system domain from a private network or VPN. See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+If your PCF deployment uses HAProxy and you want it to receive traffic only from specific sources, you can use the **Protected Domains** and **Trusted CIDRs** fields in the **Networking Pane** of the Elastic Runtime tile. A key use case for this feature is when a deployment must only allow requests to the system domain from a private network or VPN. For more information, see the _Configure Networking_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-12/customizing/pas.html).
 
-###<a id='c2c'></a> Container-to-Container Networking Updates
+### <a id='c2c'></a> Container-to-Container Networking Updates
 
-Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-12/devguide/deploy-apps/cf-networking.html#create-policies). 
+Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. For more information, see [Create Policies for Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-12/devguide/deploy-apps/cf-networking.html#create-policies). 
 
-###<a id='app-traffic'></a> Support for Logging All App Traffic
+### <a id='app-traffic'></a> Support for Logging All App Traffic
 
 Operators can enable logging of all accepted and denied packets due to ASGs or container-to-container networking policies. This provides more visibility into app traffic, including denied traffic.
 
-Operators configure this global logging in the **Networking** pane of the Elastic Runtime tile under the **Log traffic for all accepted/denied application packets** field. See the [App Traffic Logging](https://docs.pivotal.io/pivotalcf/1-12/opsguide/logging-config-opsman.html#app-traffic-log) section for more information. 
+Operators configure this global logging in the **Networking** pane of the Elastic Runtime tile under the **Log traffic for all accepted/denied application packets** field. For more information, see the [App Traffic Logging](https://docs.pivotal.io/pivotalcf/1-12/opsguide/logging-config-opsman.html#app-traffic-log) section. 
 
-###<a id='orpha-blobs'></a> Orphaned Blob Cleanup
+### <a id='orpha-blobs'></a> Orphaned Blob Cleanup
 
 The Cloud Controller now scans the blobstore on a regular interval to identify and remove orphaned blobs. For more information, see the [Blobstore](https://docs.pivotal.io/pivotalcf/1-12/concepts/architecture/cloud-controller.html#blob-store) section of the _Cloud Controller_ topic. 
 
-###<a id='sharding'></a> Router Sharding Mode
+### <a id='sharding'></a> Router Sharding Mode
 
-This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. Operators can choose to have the Elastic Runtime tile
-routers only acknowledge requests from apps deployed within the its
-Cells, or reject requests for any isolation segment. 
+This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. Operators can choose to have the Elastic Runtime tile routers only acknowledge requests from apps deployed within the its Cells, or reject requests for any isolation segment. 
 
 You can configure this feature using the following fields:
 
 * Elastic Runtime tile: **Routers reject requests for Isolation Segments** checkbox
 * Isolation Segment tile: **Router Sharding Mode** selector
 
-See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information.
+For more information, see the _Configure Networking_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-12/customizing/pas.html).
 
-###<a id='max-conn'></a> Gorouter Max Connection Configuration
+### <a id='max-conn'></a> Gorouter Max Connection Configuration
 
-Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from consuming all available Gorouter resources. See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information. 
+Operators can limit the number of app instance connections to the backend using the **Max Connections Per Backend** field in the **Networking** pane of the Elastic Runtime tile. This field can help prevent malicious apps from consuming all available Gorouter resources. For more information, see the _Configure Networking_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-12/customizing/pas.html).
 
-###<a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images
+### <a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images
 
 For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: [Push a Docker Image from Google Container Registry (GCR)](https://docs.pivotal.io/pivotalcf/1-12/devguide/deploy-apps/push-docker.html#gcr). The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial `cf push`, but subsequent `restage`, `push`, or rescheduling operations fail once the access token expires.
 
-###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
+### <a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
 
-Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
-arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
- developers must provide credentials for any user they wish
-to bind as. See [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-12/opsguide/enable-vol-services.html). 
+Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, developers must provide credentials for any user they wish to bind as. For more information, see [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-12/opsguide/enable-vol-services.html). 
 
-###<a id='mysql-metrics'></a> Metrics for MySQL
+### <a id='mysql-metrics'></a> Metrics for MySQL
 
-The internal MySQL job included in Elastic Runtime now emits metrics. See the [Elastic Runtime MySQL KPIs](https://docs.pivotal.io/pivotalcf/1-12/monitoring/kpi.html#kpi4MySQL).
+The internal MySQL job included in Elastic Runtime now emits metrics. For more information, see the [Elastic Runtime MySQL KPIs](https://docs.pivotal.io/pivotalcf/1-12/monitoring/kpi.html#kpi4MySQL).
 
-###<a id='cloudform'></a> CloudFormation Template Improvements 
+### <a id='cloudform'></a> CloudFormation Template Improvements 
 
 This release includes an improved CloudFormation template file available with the Elastic Runtime tile on [Pivotal Network](https://network.pivotal.io). The new template creates three availability zones, a load balancer for TCP routing, and the Ops Manager VM. For updated installation instructions, see [Installing PCF on AWS Using CloudFormation](https://docs.pivotal.io/pivotalcf/1-12/customizing/cloudform-install.html).
 
-###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
+### <a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
 
-This release lowers the default max-in-flight percentage on 
-Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
+This release lowers the default max-in-flight percentage on Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
 
-* Many simultaneous VM creates/deletes and BOSH blob updates placing
-significant stress on the underlying infrastructure, especially on vSphere
-which has a greater probability of being under-provisioned.
-* Cells that are draining are no longer available for allocation, resulting
-in a 10% decrease in total memory and disk capacity during deployment. This
-can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
-successfully.
+* Many simultaneous VM creates/deletes and BOSH blob updates placing significant stress on the underlying infrastructure, especially on vSphere which has a greater probability of being under-provisioned.
+* Cells that are draining are no longer available for allocation, resulting in a 10% decrease in total memory and disk capacity during deployment. This can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads successfully.
 
 Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-12/adminguide/diego-cell-upgrade.html).
 
-###<a id='etcd-gone'></a> Removal of etcd
+### <a id='etcd-gone'></a> Removal of etcd
 
-This release removes the `etcd` server VMs from the PCF deployment.  Operators
-must ensure they are deploying service tiles that are known to be compatible
-with PCF Elastic Runtime 1.12.
+This release removes the `etcd` server VMs from the PCF deployment. Operators must ensure they are deploying service tiles that are known to be compatible with PCF Elastic Runtime 1.12.
 
-###<a id='postgres-gone'></a> Removal of Postgres
+### <a id='postgres-gone'></a> Removal of Postgres
 
-This release removes the legacy Postgres databases for the Cloud Controller and
-UAA.  If your deployment was originally installed before PCF 1.6 and still uses
-Postgres, you must contact your dedicated Support Engineer or Platform
-Architect for assistance migrating your Cloud Controller and UAA databases to
-MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and
-instructions on Pivotal Network.
+This release removes the legacy Postgres databases for the Cloud Controller and UAA. If your deployment was originally installed before PCF v1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance migrating your Cloud Controller and UAA databases to MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
 
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the
-upgrade will fail.
+If you do not migrate to MySQL before upgrading to Elastic Runtime v1.12, the upgrade will fail.
 
-### <a id='in-context-service'></a>Apps Manager: In-context Service Creation
+### <a id='in-context-service'></a> Apps Manager: In-Context Service Creation
 
 Developers can create services without leaving the app or space view for an accelerated workflow.
 
-### <a id='service-config-discovery'></a>Apps Manager: Service Configuration Parameter Discovery
+### <a id='service-config-discovery'></a> Apps Manager: Service Configuration Parameter Discovery
 
 When creating a new service in Apps Manager, developers can discover additional parameter options as fields, or a JSON editor that enables them to define the parameters.
 
-##<a id='knownissues'></a> Known Issues
 
-### <a id='disabling-gorouter-http'></a> Disabling HTTP for Routers Causes Failures for Routes Bound to Internal Route Services
+## <a id='knownissues'></a> Known Issues
+
+### <a id='disabling-gorouter-http'></a> Disabling HTTP for Gorouter Causes Failures for Routes Bound to Internal Route Services
    
-In all versions of Elastic Runtime v1.12, disabling the HTTP listener for Gorouter and HAProxy will cause clients to receive 502 responses for requests to routes that are bound to a route services that are run as apps on the platform. Route services that are run externally are not impacted.
+In all versions of Elastic Runtime v1.12, disabling the HTTP listener for the Gorouter and HAProxy will cause clients to receive 502 responses for requests to routes that are bound to a route services that are run as apps on the platform. Route services that are run externally are not impacted.
    
 To support route services run as apps on ERT, HTTP must remain enabled.
    
-### <a id='failure-to-run-privileged-container-apps'></a> Cells Using Grootfs Fail to Run Privileged-Container Apps
+### <a id='failure-to-run-privileged-container-apps'></a> Cells Using GrootFS Fail to Run Privileged-Container Apps
 
-In Elastic Runtime v1.12.0 through v1.12.14, Diego cells using the new Grootfs component fail to run application instances whose internal specifications required a privileged container. This defect affects buildpack-based applications last started on Elastic Runtime v1.8 or earlier.
+In Elastic Runtime v1.12.0 through v1.12.14, Diego cells using the new GrootFS component fail to run application instances whose internal specifications required a privileged container. This defect affects buildpack-based applications last started on Elastic Runtime v1.8 or earlier.
 
 To resolve this issue, take any one of the following actions:
 
 * Deploy Elastic Runtime v1.12.15 or later,
-* Redeploy Elastic Runtime with Grootfs disabled, or
+* Redeploy Elastic Runtime with GrootFS disabled, or
 * Manually restart any apps that are affected.
 
 <!-- to add later: link to KB article with more information -->
 
 ### <a id='grootfs-quota'></a> Docker App Disk Quota Failures
 
-In PCF v1.11 and earlier, Grootfs code underestimated Docker image sizes when calculating disk quota usage. PCF v1.12 corrected this error, so after you upgrade, Docker images may exceed their existing disk quotas. This causes apps they contain to fail with the error `applying disk limits: disk limit is smaller than volume size`.
+In PCF v1.11 and earlier, GrootFS code underestimated Docker image sizes when calculating disk quota usage. PCF v1.12 corrected this error, so after you upgrade, Docker images may exceed their existing disk quotas. This causes apps they contain to fail with the error `applying disk limits: disk limit is smaller than volume size`.
 
 To fix this error, increase your Docker disk quotas to levels that more accurately reflect reality.
 
 ### <a id='credhub-restart'></a> Manual CredHub Restart Required During an Elastic Runtime Redeploy
 
-In Elastic Runtime v1.12.0, the BOSH Backup and Restore (BBR) script does not restart the CredHub process. When following the [Restoring Pivotal Cloud Foundry from Backup with BBR](https://docs.pivotal.io/pivotalcf/1-12/customizing/backup-restore/restore-pcf-bbr.html#redeploy-ert) procedure, the Elastic Runtime redeploy fails after clicking **Apply Changes** since CredHub requires a restart.
+In Elastic Runtime v1.12, the BOSH Backup and Restore (BBR) script does not restart the CredHub process. When following the [Restoring Pivotal Cloud Foundry from Backup with BBR](https://docs.pivotal.io/pivotalcf/1-12/customizing/backup-restore/restore-pcf-bbr.html#redeploy-ert) procedure, the Elastic Runtime redeploy fails after clicking **Apply Changes** since CredHub requires a restart.
 
 To work around this issue, manually restart the CredHub process on the BOSH Director by running `monit restart credhub`, then click **Apply Changes**.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115012475527) article.
 
-###<a id='autoscaler'></a> Lack of Autoscaler Scaling
+### <a id='autoscaler'></a> Lack of Autoscaler Scaling
 
 You cannot scale the Autoscaler job to greater than one instance.
 
-###<a id='debug-logs'></a> Elastic Runtime Forwards High Volume of DEBUG Log Messages
+### <a id='debug-logs'></a> Elastic Runtime Forwards High Volume of DEBUG Log Messages
 
 Elastic Runtime forwards a high volume of DEBUG syslog messages from UAA and other system components to an external service.
 
@@ -3367,13 +3312,13 @@ The truncation is caused by the following:
 
 As mentioned above, jobs write system logs to the `/var/vcap/sys/log` directory. You can download full log lines from the directory files using Ops Manager.
 
-###<a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
+### <a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
 
 Due to an underlying kernel defect, read-only volume mounts display as `"mode": "rw"` when you view the `VCAP_SERVICES` environment variable for your app.
 
 For more information about binding a volume service, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/1-12/devguide/services/using-vol-services.html#create).
 
-###<a id='automated-backup'></a> Restore from Automated Backup of Internal MySQL Not Supported
+### <a id='automated-backup'></a> Restore from Automated Backup of Internal MySQL Not Supported
 
 If you configure PAS to use **Internal MySQL**, ensure that you select **Disable Automated Backups of MySQL** under the **Automated Backups Configuration** field. Pivotal does not support restoring the internal MySQL database from a full backup because it degrades the Galera MySQL cluster.  
 
@@ -3383,8 +3328,6 @@ For more information on this issue, see the following Pivotal Knowledge Base art
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the Elastic Runtime tile includes new
-functionality that may have certain constraints.
+The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when
-using them in production.
+Although these features are fully supported, Pivotal recommends caution when using them in production.

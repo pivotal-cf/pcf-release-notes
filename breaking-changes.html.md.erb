@@ -5,6 +5,7 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html).
 
+
 ## <a id='elastic-runtime'></a> Elastic Runtime
 
 ### <a id='cc-bridge'></a> Cloud Controller Bridge
@@ -15,17 +16,17 @@ In PCF v1.12, the **Enable secure communication between Diego and Cloud Controll
 
 For [upgrades](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#cc), if you want to use this new feature, you must manually select the **Enable** checkbox after the upgrade is complete and then click **Apply Changes**. Selecting the checkbox before the upgrade results in API downtime.
 
-### <a id='tls-config'></a>Gorouter and HAProxy TLS Configuration
+### <a id='tls-config'></a> Gorouter and HAProxy TLS Configuration
 
 In previous versions of PCF, you had the option of selecting **Forward unencrypted traffic to Elastic Runtime Router** in the **Networking** pane of Elastic Runtime. If you selected this option, you did not have to provide a certificate or private key for Gorouter configuration. 
 
-In PCF v1.12, Gorouter and HAProxy now always listen for TLS requests. Therefore, you must configure an SSL certificate for Gorouter and HAProxy in Elastic Runtime. You configure Gorouter and HAProxy using the same field and with the same certificate. 
+In PCF v1.12, the Gorouter and HAProxy now always listen for TLS requests. Therefore, you must configure an SSL certificate for the Gorouter and HAProxy in Elastic Runtime. You configure the Gorouter and HAProxy using the same field and with the same certificate. 
 
-In addition, you must specify TLS cipher suites for both HAProxy and Gorouter. These cipher suites are specified independently in different fields. If you configured a previous installation with TLS cipher suites, these configurations persist through the upgrade. Make sure that you have configured the correct set of TLS cipher suites and minimum TLS version to support your client and load balancer needs.
+In addition, you must specify TLS cipher suites for both HAProxy and the Gorouter. These cipher suites are specified independently in different fields. If you configured a previous installation with TLS cipher suites, these configurations persist through the upgrade. Make sure that you have configured the correct set of TLS cipher suites and minimum TLS version to support your client and load balancer needs.
 
 In both cases, the HAProxy configuration is ignored if you are not using HAProxy. 
 
-See the Elastic Runtime [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/gcp-er-config.html#networking) for your IaaS for more information.
+For more information, see the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-12/customizing/pas.html).
 
 ### <a id='internal-creds'></a> Internal Elastic Runtime Credentials
 
@@ -39,23 +40,24 @@ In order for the CredHub API to communicate with the BOSH Director, TCP Port 884
 
 ### <a id='postgres'></a> Postgres
 
-This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
+This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF v1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.
 
-If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#postgres).
+If you do not migrate to MySQL before upgrading to Elastic Runtime v1.12, the upgrade fails. For more information, see [Migrate the CC and UAA Databases from Postgres to MySQL](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#postgres).
 
 ### <a id='mysql-windows'></a> MySQL for PCF and PCF Runtime for Windows 
 
-If your existing PCF v1.11.x installation includes both <a href="https://docs.pivotal.io/pivotalcf/1-12/windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.
+If your existing PCF v1.11.x installation includes both [PCF Runtime for Windows](https://docs.pivotal.io/pivotalcf/1-12/windows/index.html) and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the [MySQL for PCF](http://docs.pivotal.io/p-mysql/1-10/index.html) documentation.
 
 If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see [Upgrade MySQL for PCF](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#upgrade-mysql).
 
+
 ## <a id='ops-man'></a> Ops Manager
 
-### <a id='bosh-2'></a>BOSH CLI v2
+### <a id='bosh-2'></a> BOSH CLI v2
 
-Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In v2, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see [Pivotal Operations Manager Release Notes](opsmanager-rn.html#bosh2).
+Ops Manager v1.12 uses the BOSH Command Line Interface (CLI) v2. In v2, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see [Pivotal Operations Manager Release Notes](opsmanager-rn.html#bosh2).
 
-###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+### <a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
 
 In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes deployments or upgrades to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
 
@@ -67,11 +69,11 @@ See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn'
 
 This known issue has been fixed in Ops Manager v2.0 and later.
 
-### <a id='director-certificates'></a>Director Certificate Rotation
+### <a id='director-certificates'></a> Director Certificate Rotation
 
-If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see [CredHub Requires Director Certificate Rotation](opsmanager-rn.html#credhub-certs).
+If your original Elastic Runtime deployment was PCF v1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager v1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see [CredHub Requires Director Certificate Rotation](opsmanager-rn.html#credhub-certs).
 
-### <a id='log-search-unsupported'></a>PCF Log Search
+### <a id='log-search-unsupported'></a> PCF Log Search
 
 PCF Log Search is not compatible with PCF v1.12. If your deployment contains PCF Log Search, you must remove the product tile before upgrading to PCF v1.12. Failure to remove this product prior to the upgrade may cause issues with your deployment.
 

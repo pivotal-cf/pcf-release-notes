@@ -1171,39 +1171,34 @@ and [USN-3544-4](http://www.ubuntu.com/usn/usn-3522-4/)
   </tfoot>
 </table>
 
+
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v1.12 tile is available for installation with PCF
-v1.12.
+The PCF Isolation Segment v1.12 tile is available for installation with PCF v1.12.
 
-[Isolation segments](https://docs.pivotal.io/pivotalcf/1-12/concepts/security.html#isolation-segments) provide
-dedicated pools of resources where you can deploy apps and  isolate workloads.
-Using isolation segments separates app resources as completely as if they were
-in different CF deployments but avoids redundant management and network
-complexity.
+[Isolation segments](https://docs.pivotal.io/pivotalcf/1-12/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the
-[Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/1-12/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/1-12/adminguide/isolation-segments.html) topic.
+
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v1.12 is documented in the
-[Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v1.12 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html) topic.
 
 To install a PCF Isolation Segment, you must first install PCF v1.12.
+
 
 ## <a id='1.12.0'></a> New Features in PCF Isolation Segment v1.12.0
 
 This section describes new features of the release.
 
-###<a id='haproxy'></a> HAProxy
+### <a id='haproxy'></a> HAProxy
 
-You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. The Isolation Segment tile includes its own HAProxy VM, which uses the 
-[haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease). For information on the configuration options for HAProxy, see the [Networking](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_. 
+You can now use an HAProxy for the Isolation Segment tile that is independent from the Elastic Runtime HAProxy. The Isolation Segment tile includes its own HAProxy VM, which uses the [haproxy-boshrelease](https://github.com/cloudfoundry-incubator/haproxy-boshrelease).
 
-See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information.
+For information on the configuration options for HAProxy, see the [Networking](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) section of _Installing PCF Isolation Segment_.
 
-###<a id='sharding'></a> Router Sharding Mode
+### <a id='sharding'></a> Router Sharding Mode
 
 This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. In addition to compute isolation, operators can now configure networking isolation for their isolation segments. Alternatively, operators can deploy the Isolation Segment tile for the purpose of using its routers for the Elastic Runtime tile. 
 
@@ -1214,7 +1209,7 @@ You can configure this feature using the following fields:
 
 See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information.
 
-###<a id='router-config'></a> Router Configuration Options
+### <a id='router-config'></a> Router Configuration Options
 
 The **Networking** pane of the Isolation Segment tile now includes the following fields for the router.  Additionally, the default instance count for the **Router** VM is now set to `3` in the **Resource Config** pane. 
 
@@ -1228,109 +1223,84 @@ The **Networking** pane of the Isolation Segment tile now includes the following
 * **Load Balancer Healthy Threshold**
 * **Max Connections Per Backend**
 
-See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information about each field.
+For more information about each field, see the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking).
 
 
 ###<a id='networking-poe'></a> Simplified TLS Configuration
 
-The point of entry options on the Isolation Segment tile **Networking** pane have been restructured to be
-more understandable and flexible.  Operators no longer need to configure
-the Router or HAProxy separately as both components are configured using
-the same options. This includes the following changes:
+The point of entry options on the Isolation Segment tile **Networking** pane have been restructured to be more understandable and flexible. Operators no longer need to configure the Gorouter or HAProxy separately as both components are configured using the same options. This includes the following changes:
 
-* Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both Gorouter and HAProxy using a single field. 
-* HAProxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. 
-* You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. 
+* The Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both the Gorouter and HAProxy using a single field. 
+* HAProxy forwards all requests to the Gorouter over TLS by default. You can optionally disable this feature. 
+* You can configure the minimum version of TLS for the Gorouter and HAProxy with a single field. 
 * You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. 
-* You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. 
-* You can specify TLS cipher suites for HAProxy and Gorouter independently.
+* You can optionally disable the HTTP listener for both the Gorouter and HAProxy with a single checkbox. 
+* You can specify TLS cipher suites for the Gorouter and HAProxy independently.
 
-###<a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
+### <a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic
 
-Gorouter can now forward the `X-Forwarded-Client-Cert` header to app
-instances when provided. Alternatively, operators can configure Gorouter to
-forward the header only when the mutual TLS connection from the client can be
-validated. Additionally, operators may now configure Gorouter to overwrite the
-XFCC header with the client certificate received in mTLS handshakes.
+The Gorouter can now forward the `X-Forwarded-Client-Cert` header to app instances when provided. Alternatively, operators can configure the Gorouter to forward the header only when the mutual TLS connection from the client can be validated. Additionally, operators may now configure the Gorouter to overwrite the XFCC header with the client certificate received in mTLS handshakes.
 
-This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. See the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking) for more information.
+This configuration is available in the **Networking** pane under **Configure the CF Router support for the X-Forwarded-Client-Cert header**. For more information, see the Isolation Segment [installation instructions](https://docs.pivotal.io/pivotalcf/1-12/customizing/installing-pcf-is.html#networking).
 
-###<a id='app-traffic'></a> Support for Logging All App Traffic
+### <a id='app-traffic'></a> Support for Logging All App Traffic
 
 Operators can enable logging of all accepted and denied packets due to ASGs or container-to-container networking policies. This provides more visibility into app traffic, including denied traffic.
 
 Operators configure this global logging in the **Networking** pane of the Isolation Segment tile under the **Log traffic for all accepted/denied application packets** field. See the [App Traffic Logging](https://docs.pivotal.io/pivotalcf/1-12/opsguide/logging-config-opsman.html#app-traffic-log) section for more information.
 
-###<a id='groot'></a> Introducing GrootFS
+### <a id='groot'></a> Introducing GrootFS
 
-GrootFS is the new container image management plugin for Garden-runC.
-It helps with the filesystem isolation of Garden-runC containers,
-image caching,
-and disk quota enforcement.
-GrootFS replaces the previous built-in functionality,
-which used an obsolete layer filesystem (AUFS)
-that lacks support from the Linux Kernel community.
-Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards
-for [container images](http://github.com/opencontainers/image-spec).
+GrootFS is the new container image management plugin for Garden-runC. It helps with the filesystem isolation of Garden-runC containers, image caching, and disk quota enforcement.
+GrootFS replaces the previous built-in functionality, which used an obsolete layer filesystem (AUFS) that lacks support from the Linux Kernel community. Additionally, GrootFS uses [OCI](https://www.opencontainers.org/) standards for [container images](http://github.com/opencontainers/image-spec).
 
 For more information about GrootFS in PCF, see the following topics:
 
 * [Understanding Container Security](https://docs.pivotal.io/pivotalcf/1-12/concepts/container-security.html#mechanics)
 * [Component: Garden](https://docs.pivotal.io/pivotalcf/1-12/concepts/architecture/garden.html#garden-rootfs)
 
-###<a id='garden-cleanup'></a> Garden Disk-Cleanup 
+### <a id='garden-cleanup'></a> Garden Disk-Cleanup 
 
 Operators using PCF Isolation Segment can now configure the Garden and GrootFS cleanup thresholds independently of the Elastic Runtime tile. The **Application Containers** pane of the Isolation Segment tile now includes the following selector: **Docker Images Disk-Cleanup Scheduling on Cell VMs**. 
 
-###<a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
+### <a id='max-in-flight'></a> Diego Cell Max-in-Flight Default
 
-This release lowers the default max-in-flight percentage on 
-Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
+This release lowers the default max-in-flight percentage on Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:
 
-* Many simultaneous VM creates/deletes and BOSH blob updates placing
-significant stress on the underlying infrastructure, especially on vSphere
-which has a greater probability of being under-provisioned.
-* Cells that are draining are no longer available for allocation, resulting
-in a 10% decrease in total memory and disk capacity during deployment. This
-can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
-successfully.
+* Many simultaneous VM creates/deletes and BOSH blob updates placing significant stress on the underlying infrastructure, especially on vSphere which has a greater probability of being under-provisioned.
+* Cells that are draining are no longer available for allocation, resulting in a 10% decrease in total memory and disk capacity during deployment. This can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads successfully.
 
 Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-12/adminguide/diego-cell-upgrade.html).
 
-###<a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
+### <a id='diego-metron'></a> Secure Communication Between Diego and Loggregator
 
 Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego `rep` and Loggregator.
 
-###<a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
+### <a id='ldap-volume'></a> NFSV3 Volume Services with LDAP
 
-Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
-arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
- developers must provide credentials for any user they wish
-to bind as. See [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-12/opsguide/enable-vol-services.html).  
+Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, developers must provide credentials for any user they wish to bind as. For more information, see [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-12/opsguide/enable-vol-services.html).  
 
-###<a id='app-id-creds'></a> Application Instance Identity Credentials
+### <a id='app-id-creds'></a> Application Instance Identity Credentials
 
 The instance identity system in Diego provides each app container with a PEM-encoded [X.509](https://www.ietf.org/rfc/rfc5280.txt) certificate and [PKCS #1 RSA](https://tools.ietf.org/html/rfc3447) private key. The values of the environment variables `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.
 
-See the [App Instance Container Identity Credentials](https://docs.pivotal.io/pivotalcf/1-12/security/networking/tls-info.html#container-creds) section for more information.
+For more information, see the [App Instance Container Identity Credentials](https://docs.pivotal.io/pivotalcf/1-12/security/networking/tls-info.html#container-creds).
 
-###<a id='c2c'></a> Container-to-Container Networking Updates
+### <a id='c2c'></a> Container-to-Container Networking Updates
 
 Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See [Create Policies for Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-12/devguide/deploy-apps/cf-networking.html#create-policies). 
 
+
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment tile includes new
-functionality that may have certain constraints.  Although these features are
-fully supported, Pivotal recommends caution when using them in production.
+The Advanced Features section of the PCF Isolation Segment tile includes new functionality that may have certain constraints. Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-##<a id='known-issues'></a> Known Issues
+
+## <a id='known-issues'></a> Known Issues
 
 ### <a id='ist-apps'></a> Apps Deployed to PCF Isolation Segment Unreachable
 
-<p class="note"><strong>Fixed in</strong> PCF Isolation Segment <a href="#1.12.18">v1.12.18</a>.
-For more information, see <a href="https://docs.pivotal.io/pivotalcf/1-12/adminguide/routing-is.html#sharding-routers-isolation-segment">Sharding Routers for Isolation Segments</a> in <em>Routing for Isolation Segments</em>
-and <a href="https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#ist">Step 7: Upgrade PCF Isolation Segment</a> in <em>Upgrading Pivotal Cloud Foundry</em>.</p>
+<p class="note"><strong>Note:</strong> This has been fixed in PCF Isolation Segment <a href="#1.12.18">v1.12.18</a>. For more information, see <a href="https://docs.pivotal.io/pivotalcf/1-12/adminguide/routing-is.html#sharding-routers-isolation-segment">Sharding Routers for Isolation Segments</a> in <em>Routing for Isolation Segments</em> and <a href="https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html#ist">Step 7: Upgrade PCF Isolation Segment</a> in <em>Upgrading Pivotal Cloud Foundry</em>.</p>
 
 If you upgrade from PCF v1.11 to v1.12 and the PCF Isolation Segment tile is installed on your foundation, any apps deployed to a space associated with the tile may become unreachable until you manually restart them or map an arbitrary route to each of them.
 
