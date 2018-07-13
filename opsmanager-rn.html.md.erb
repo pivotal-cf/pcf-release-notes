@@ -1294,33 +1294,34 @@ Version 1.11.0 of Ops Manager consists of the following component versions:
 
 <hr>
 
-## <a id='major-features'></a>New Features in Ops Manager v1.11.0
 
-### <a id='ops-man-api'></a>Ops Manager API
+## <a id='major-features'></a> New Features in Ops Manager v1.11
+
+### <a id='ops-man-api'></a> Ops Manager API
 
 Operators can now use the Ops Manager API to trigger an installation process for Ops Manager Director only, skipping the deployment of all other products that have pending changes in Ops Manager. The Ops Manager Director tile must be configured to be deployed. For more information about using this Ops Manager API feature, see the [Applying Changes to Ops Manager Director](https://docs.pivotal.io/pivotalcf/1-11/customizing/deploy-ops-man-director.html) topic.
 
-### <a id='logging'></a>Ops Manager VM Improved Logging
+### <a id='logging'></a> Ops Manager VM Improved Logging
 
-Ops Manager v1.11.0 logs all activity of commands on the Ops Manager VM using Audit D. 
+Ops Manager v1.11 logs all activity of commands on the Ops Manager VM using Audit D. 
 
-### <a id='vm-hardening'></a>Ops Manager VM Hardening
+### <a id='vm-hardening'></a> Ops Manager VM Hardening
 
 The Ops Manager VM is now built on the stemcell. For enhanced security to maintain consistency with industry standards, Ops Manager VMs should now pass security scans with the same success rates as other BOSH-deployed VMs.
 
-As of v1.11.0, `sudo` without a password is disabled by default on the Ops Manager VM. Customers that have scripts that SSH into the Ops Manager VM and perform tasks as `sudo` should update their scripts.
+As of v1.11, `sudo` without a password is disabled by default on the Ops Manager VM. Customers that have scripts that SSH into the Ops Manager VM and perform tasks as `sudo` should update their scripts.
 
-### <a id='nsx-integration'></a>NSX Integration
+### <a id='nsx-integration'></a> NSX Integration
 
-Operators can use Ops Manager v1.11 to configure their BOSH Director to talk to NSX. Ops Manager v1.11 supports NSX-V 6.2+.
+Operators can use Ops Manager v1.11 to configure their BOSH Director to talk to NSX. Ops Manager v1.11 supports NSX-V v6.2+.
 
 Ops Manager has API endpoints to configure NSX security groups and load balancers per job on vSphere appliances. For more information about this feature, see the [Configuring Ops Manager Director for VMware vSphere](https://docs.pivotal.io/pivotalcf/1-11/customizing/vsphere-config.html#vcenter-config) topic.
 
-### <a id='azure-managed'></a>Azure Managed Disk
+### <a id='azure-managed'></a> Azure Managed Disk
 
 Ops Manager now allows operators to deploy using Azure's new fully managed storage service. With this new service, users no longer have to manually manage their storage capacity. For more information about how to use the managed disk feature, see the [Configuring Ops Manager Director on Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure-om-config.html) topic.
 
-### <a id='bosh-cli-2'></a>BOSH CLI v2
+### <a id='bosh-cli-2'></a> BOSH CLI v2
 
 The Ops Manager VM includes the BOSH CLI v2. For more information about the BOSH CLI v2, see the [BOSH documentation](https://bosh.io/docs/cli-v2.html) topic.
 
@@ -1338,7 +1339,7 @@ The BOSH Director now sends all logs to syslog, to preserve logs in case of cata
 
 Learn more about Pivotal's log format in the [Logs, Metrics, and Nozzles](https://docs.pivotal.io/tiledev/nozzle.html#syslog-format-pcf) topic.
 
-Learn how to set up syslog in the _Configuring Ops Manager Director_ topic specific to your IaaS. 
+For more information, see the _Syslog Page_ section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-11/customizing/deploy-bosh-om.html). 
 
 <table>
  <tr>
@@ -1368,20 +1369,24 @@ Learn how to set up syslog in the _Configuring Ops Manager Director_ topic speci
 </table>
 
 ### <a id='worker'></a> Worker Configuration
-Operators can now configure the number of workers that are available on the BOSH Director. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
 
-### <a id='jmx-provider'></a> JMX Provider IP Address 
-The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for the secure transportation of metrics. For more information, see the _Director Config Page_ section of the  _Configuring Ops Manager Director_ topic specific to your IaaS.
+Operators can now configure the number of workers that are available on the BOSH Director. For more information, see the _Director Config Page_ section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-11/customizing/deploy-bosh-om.html).
 
-### <a id='vm-catalog'></a> Updated VM Catalog 
-Ops Manager v1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. For more information, see the _Resource Config Page_ [section](https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf-aws-manual-om-config.html#resource-config) of the  _Configuring Ops Manager Director_ topic for AWS.
+### <a id='jmx-provider'></a> JMX Provider IP Address
+
+The Director Configuration form in Ops Manager now includes a new field called JMX Provider IP Address that configures the JMX JSON plugin for the secure transportation of metrics. For more information, see the _Director Config Page_ section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-11/customizing/deploy-bosh-om.html).
+
+### <a id='vm-catalog'></a> Updated VM Catalog
+
+Ops Manager v1.11 has an updated VM catalog for the AWS appliances that includes the new m4, c4, and r4 instance types. For more information, see the [Resource Config Page](https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf-aws-manual-om-config.html#resource-config) section of the _Configuring Ops Manager Director for AWS_ topic.
 
 ### <a id='bosh'></a> BOSH Updates
+
 The following list sections updates in the new BOSH version that are not exposed by Ops Manager, but may be helpful for operators and tile developers for improving their workflows.
 
 #### BOSH Director
 
-Ops Manager v1.11.0 uses BOSH v262.1, which includes the following changes to the BOSH Director:
+Ops Manager v1.11 uses BOSH v262.1, which includes the following changes to the BOSH Director:
 
 + Integration with upcoming `bbr` binary for backups/restore
   + Added `bin/bbr/backup` and `bin/bbr/restore` scripts to director and blobstore jobs
@@ -1391,22 +1396,24 @@ Ops Manager v1.11.0 uses BOSH v262.1, which includes the following changes to th
 
 For a full list of updates and fixes in the new BOSH version that Ops Manager uses, see the [BOSH release notes](https://bosh.io/releases/github.com/cloudfoundry/bosh?all=1), beginning with [v262](https://bosh.io/releases/github.com/cloudfoundry/bosh?version=262).
 
-
 #### Stemcell
-Ops Manager 1.11.0 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
+
+Ops Manager v1.11 uses Stemcell 3421.3. Below is the major change in Stemcell 3421.3:
 
 + Bump Ubuntu stemcells for USN-3304-1: Sudo vulnerability
 
 To view the release page for this stemcell, see the [stemcell 3421.3 release notes page](https://github.com/cloudfoundry/bosh-linux-stemcell-builder/releases/tag/v3421.3). 
 
 ### <a id='fixes'></a> Bug Fixes
-+ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML.
+
++ Ops Manager v1.11 fixes a bug where Ops Manager was incorrectly setting the signature algorithm when configured with SAML.
 + The signature algorithm is now defaulted to SHA256.
-+ Ops Manager 1.11.0 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
++ Ops Manager v1.11 fixes a bug where Ops Manager was incorrectly setting the redirect URI for the BOSH UAA.
+
 
 ## <a id='knownissues'></a> Known Issues
 
-This section lists known issues for Ops Manager 1.11.
+This section lists known issues for Ops Manager v1.11.
 
 ###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
 
@@ -1420,16 +1427,15 @@ See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn'
 
 This known issue has been fixed in Ops Manager v2.0 and later.
 
-###<a id="reupload-stemcells"></a> Stemcells Not Included in Installation Export
+### <a id="reupload-stemcells"></a> Stemcells Not Included in Installation Export
 
-Ops Manager no longer includes stemcells in the installation export `zip` file. You may need to re-upload stemcells when importing the installation file into a new Ops Manager instance.  You can see product configuration as incomplete if you do not have the appropriate stemcell uploaded. Incomplete tiles that need stemcells are indicated by an orange tile.
+Ops Manager no longer includes stemcells in the installation export `zip` file. You may need to re-upload stemcells when importing the installation file into a new Ops Manager instance. You can see product configuration as incomplete if you do not have the appropriate stemcell uploaded. Incomplete tiles that need stemcells are indicated by an orange tile.
 
 This known issue has been fixed in Ops Manager v1.12 and later.
 
-###<a id='services-network'></a>On-Demand Services Require Dedicated Service Networks
+### <a id='services-network'></a> On-Demand Services Require Dedicated Service Networks
 
-If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
-define a dedicated service network for the tile.
+If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not define a dedicated service network for the tile.
 
 To work around this issue, use one of the following methods:
 
@@ -1438,19 +1444,17 @@ To work around this issue, use one of the following methods:
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
 
-###<a id='aws-diego'></a>Diego VM Type Defaults to m4 After Upgrading on AWS
+### <a id='aws-diego'></a> Diego VM Type Defaults to m4 After Upgrading on AWS
 
-If you deployed Diego cells with Ops Manager 1.10, by default AWS deployed them as type `r3` with 32&nbsp;GB RAM.
-When you upgrade to Ops Manager 1.11, by default the `r3` VMs become `m4` VMs with only 16&nbsp;GB RAM.
-The reduced Diego cell memory can cause insufficient memory issues.
+If you deployed Diego cells with Ops Manager v1.10, by default AWS deployed them as type `r3` with 32&nbsp;GB RAM. When you upgrade to Ops Manager v1.11, by default the `r3` VMs become `m4` VMs with only 16&nbsp;GB RAM. The reduced Diego cell memory can cause insufficient memory issues.
 
-To work around this issue, go to the **Resource Config** tab and manually select a VM type with at least 32&nbsp;GB RAM.
-You can also increase the number of Diego cells to give apps greater memory capacity.
+To work around this issue, go to the **Resource Config** tab and manually select a VM type with at least 32&nbsp;GB RAM. You can also increase the number of Diego cells to give apps greater memory capacity.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009737188) article.
 
-###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
-Ops Manager 1.11.1 publishes AMIs to the following newly supported AWS regions:
+### <a id='aws-regions'></a> Ops Manager Fails to Connect to Newly Supported AWS Regions
+
+Ops Manager v1.11.1 publishes AMIs to the following newly supported AWS regions:
 
 * ap-south-1
 * ca-central-1
@@ -1463,29 +1467,29 @@ To work around this issue, go to the **AWS Config** tab and select the **Use AWS
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009684148) article.
 
-###<a id='log'></a>Changelog Does Not Display
+### <a id='log'></a> Changelog Does Not Display
+
 When your deployment includes more than one tile, viewing the logs for your deploy by clicking **Changelog** on the Ops Manager Installation Dashboard fails.
 
 To view the logs, add `.txt` to the URL for the log to download it as a raw text file.  
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115008775808) article.
 
-###<a id='incorrect-help'></a>Incorrect Help Text
+### <a id='incorrect-help'></a> Incorrect Help Text
 
-For operators using vSphere, the **vCenter Config** section in Ops Manager 1.11.0 provides incorrect help text under **NSX Networking**. Enter your username and password for the NSX manager, not vCenter.
+For operators using vSphere, the **vCenter Config** section in Ops Manager v1.11 provides incorrect help text under **NSX Networking**. Enter your username and password for the NSX manager, not vCenter.
 
-###<a id='timeout'></a>Deployment Hangs or Times Out on vSphere
+### <a id='timeout'></a> Deployment Hangs or Times Out on vSphere
 
 When deploying with Ops Manager on vSphere, after clicking **Apply Changes** the deployment either hangs indefinitely or returns `Task NUMBER timeout`, where `NUMBER` is the deployment task number.
 
-To work around this issue, navigate to the **Resource Config** tab in the Ops Manager tile.
-For the **Ops Manager Director** job, select a VM type that has at least 8&nbsp;GB of memory and retry the deployment.
+To work around this issue, navigate to the **Resource Config** tab in the Ops Manager tile. For the **Ops Manager Director** job, select a VM type that has at least 8&nbsp;GB of memory and retry the deployment.
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115009450768) article.
 
-###<a id='resource-config'></a>Resource Config Page Returns a 500 Error
+### <a id='resource-config'></a> Resource Config Page Returns a 500 Error
 
-When importing previous versions of an installation with non-default VM sizes that Ops Manager 1.11 no longer supports, the **Resource Config** page returns a 500 error.
+When importing previous versions of an installation with non-default VM sizes that Ops Manager v1.11 no longer supports, the **Resource Config** page returns a 500 error.
 
 To work around this issue, use the API to export the list of supported VM types from the old Ops Manager installation and import the list to the new Ops Manager installation.
 

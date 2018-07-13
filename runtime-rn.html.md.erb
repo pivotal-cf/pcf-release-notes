@@ -4059,103 +4059,69 @@ this issue with the SAML entityID.
   </tfoot>
 </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is
-documented in the [Upgrading Pivotal Cloud
-Foundry](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.11 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.11, be aware of the following upgrade considerations:
 
-* You must upgrade first to a version of Elastic Runtime v1.10.x in order to
-  successfully upgrade to v1.11.
-* Some partner service tiles may be incompatible with PCF v1.11. Pivotal is
-  working with partners to ensure their tiles are being updated to work with the
-  latest versions of PCF.<br/><br/> For information about which partner service
-  releases are currently compatible with PCF v1.11, review the appropriate
-  partners services release documentation at
-  [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner
-  organization that produces the tile.
+* You must upgrade first to a version of Elastic Runtime v1.10.x in order to successfully upgrade to v1.11.
+* Some partner service tiles may be incompatible with PCF v1.11. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v1.11, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the Elastic Runtime tile includes new
-functionality that may have certain constraints.
+The Advanced Features section of the Elastic Runtime tile includes new functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when
-using them in production.
+Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-## <a id='1.11.0'></a> New Features in Elastic Runtime v1.11.0
+
+## <a id='1.11.0'></a> New Features in Elastic Runtime v1.11
 
 This section describes new features of the release.
 
 ### <a id='apps-manager-508'></a> Apps Manager 508 Compliance
 
-Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/)
-of the Rehabilitation Act. Customers can now receive an approved Voluntary Product
-Accessibility Template (VPAT) for Apps Manager.
+Apps Manager has improved its compliance with [Section 508](https://www.section508.gov/) of the Rehabilitation Act. Customers can now receive an approved Voluntary Product Accessibility Template (VPAT) for Apps Manager.
 
 ### <a id='container-networking'></a> Container-to-Container Networking
 
-The Container-to-Container Networking feature in Elastic Runtime is out of
-beta. For more information, see the [Container-to-Container
-Networking](https://docs.pivotal.io/pivotalcf/1-11/devguide/deploy-apps/cf-networking.html) topic.
+The Container-to-Container Networking feature in Elastic Runtime is out of beta. For more information, see the [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-11/devguide/deploy-apps/cf-networking.html) topic.
 
 ### <a id='volume-services'></a> Volume Services
 
-General support for volume services inside of application containers is out of
-beta. Additionally, the Elastic Runtime ships with an NFS Volume Service
-Broker.
+General support for volume services inside of application containers is out of beta. Additionally, the Elastic Runtime ships with an NFS Volume Service Broker.
 
-For more information, see
-[Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/1-11/devguide/services/using-vol-services.html)
-and [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-11/opsguide/enable-vol-services.html).
+For more information, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/1-11/devguide/services/using-vol-services.html) and [Enabling NFS Volume Services](https://docs.pivotal.io/pivotalcf/1-11/opsguide/enable-vol-services.html).
 
 ### <a id='disk-quotas'></a> Increased Application Maximum Disk Quotas
 
-For applications that require large amounts of disk, the maximum disk quota has been raised
-to 20GB. This will allow application developers to specify a disk size up to 20GB for their
-applications.
+For applications that require large amounts of disk, the maximum disk quota has been raised to 20&nbsp;GB. This will allow application developers to specify a disk size up to 20&nbsp;GB for their applications.
 
-Operators should take note that applications with large disk settings can be difficult for
-Diego to find a placement for. If there is not enough disk on any of the Diego Cells,
-developers will see an "insufficient resources" error message. Ensuring your Diego Cells
-provide enough disk to accommodate these much larger application instances will be an
-important part of your resource planning.
+Operators should take note that applications with large disk settings can be difficult for Diego to find a placement for. If there is not enough disk on any of the Diego Cells, developers will see an "insufficient resources" error message. Ensuring your Diego Cells provide enough disk to accommodate these much larger application instances will be an important part of your resource planning.
 
 ### <a id='override-dns'></a> Override DNS Servers
 
-By default, containers use the same DNS servers as the host. To
-override the DNS servers used by the containers of an isolation segment,
-enter a comma-separated list of servers in the **DNS Servers** field of the
-**Application Containers** section of the tile.
+By default, containers use the same DNS servers as the host. To override the DNS servers used by the containers of an isolation segment, enter a comma-separated list of servers in the **DNS Servers** field of the **Application Containers** section of the tile.
 
 ### <a id='ha-defaults'></a> Highly-Available Default Configuration
 
-The Resource Configuration defaults have been changed to streamline the path to a
-production-ready deployment. The default instance count for each VM type in the
-deployment has been set to ensure an operator can deploy a highly-available Cloud
-Foundry out of the box.
+The Resource Configuration defaults have been changed to streamline the path to a production-ready deployment. The default instance count for each VM type in the deployment has been set to ensure an operator can deploy a highly-available Cloud Foundry out of the box.
 
-This change will result in larger resource requirements for a default Elastic Runtime
-deployment. Operators should take this into account when deploying environments on
-constrained resources.
+This change will result in larger resource requirements for a default Elastic Runtime deployment. Operators should take this into account when deploying environments on constrained resources.
 
-### <a id='sha2-checksums'></a> Component BOSH releases are SHA2-checksummed
+### <a id='sha2-checksums'></a> Component BOSH Releases are SHA2-checksummed
 
-BOSH now supports releases that include a SHA2-checksum of their contents. All the
-releases included in the Elastic Runtime have been checksummed with SHA2 for improved
-data integrity in the face of hash collisions.
+BOSH now supports releases that include a SHA2-checksum of their contents. All the releases included in the Elastic Runtime have been checksummed with SHA2 for improved data integrity in the face of hash collisions.
 
 ### <a id='bbr'></a> BOSH Backup and Restore
 
-The Elastic Runtime now includes support for the new BOSH Backup and Restore tool (`bbr`).
-Using `bbr` allow an operator to take a snapshot of their internal blobstore and databases.
+The Elastic Runtime now includes support for the new BOSH Backup and Restore tool (`bbr`). Using `bbr` allow an operator to take a snapshot of their internal blobstore and databases.
 
 ### <a id='priv-docker-reg'></a> Private Docker Registries
 
-Application developers can now push Docker-based applications with images that are hosted
-on a private registry.
+Application developers can now push Docker-based applications with images that are hosted on a private registry.
 
 PCF can use private Docker repositories from various different Docker registries:
 
@@ -4190,108 +4156,63 @@ PCF can use private Docker repositories from various different Docker registries
   </tr>
 </table>
 
-* GCR can be used to host private Docker images for PCF. However, the passwords
-GCR issues are essentially access tokens which expire within an hour. This
-means that the initial application push will be successful but the application
-may later crash as PCF will not be able to contact GCR.
+* GCR can be used to host private Docker images for PCF. However, the passwords GCR issues are essentially access tokens which expire within an hour. This means that the initial application push will be successful but the application may later crash as PCF will not be able to contact GCR.
 
-### <a id='syslog'></a> Common Syslog Formatting and Syslog over TLS
+### <a id='syslog'></a> Common Syslog Formatting and Syslog Over TLS
 
-The Elastic Runtime now emits BOSH component logs in a common syslog format
-following RFC5424.  Additionally, syslog over TLS is now supported to allow
-operators to deliver their platform logs securely to their syslog aggregator.
+The Elastic Runtime now emits BOSH component logs in a common syslog format following RFC5424. Additionally, syslog over TLS is now supported to allow operators to deliver their platform logs securely to their syslog aggregator.
 
-### <a id='uaa-sql-server'></a> UAA supports SQL Server database
+### <a id='uaa-sql-server'></a> UAA Supports SQL Server Database
 
-Operators can now independently configure their UAA service to store its data in an external
-SQL Server database. You can configure the UAA database in the **UAA**
-pane of the Elastic Runtime tile.
+Operators can now independently configure their UAA service to store its data in an external SQL Server database. You can configure the UAA database in the **UAA** pane of the Elastic Runtime tile.
 
-**Important Note**: UAA database configuration has been fully separated into
-the UAA tab to allow its independent configuration. Upon upgrade, settings will
-be migrated from the existing installation. Going forward, you must change both
-the UAA and System Database forms to keep their configuration in sync.
+<p class='note'><strong>Note:</strong> UAA database configuration has been fully separated intovthe UAA tab to allow its independent configuration. Upon upgrade, settings willvbe migrated from the existing installation. Going forward, you must change both the UAA and System Database forms to keep their configuration in sync.</p>
 
 ### <a id='locket'></a> Improved Distributed Lock Management
 
-In older versions of the Elastic Runtime, components that needed to maintain a distributed
-lock could leverage Consul to handle the locking mechanism. In 1.11, that locking mechanism
-has been replaced with a new service called `locket`. By switching to `locket`, the Elastic
-Runtime will be moving onto a more stable footing for its distributed locking needs.
+In older versions of the Elastic Runtime, components that needed to maintain a distributed lock could leverage Consul to handle the locking mechanism. In v1.11, that locking mechanism has been replaced with a new service called `locket`. By switching to `locket`, the Elastic Runtime will be moving onto a more stable footing for its distributed locking needs.
 
 ### <a id='internal-uaa-expire'></a> UAA User Passwords Never Expire
 
-As of v1.11, Elastic Runtime no longer provides the **Number of Months Before
-Password Expires** field in the **Authentication and Enterprise SSO** section.
-Instead, it sets the value to zero, which means that UAA user passwords for
-deployments using internal UAA never expire.
+As of v1.11, Elastic Runtime no longer provides the **Number of Months Before Password Expires** field in the **Authentication and Enterprise SSO** section. Instead, it sets the value to zero, which means that UAA user passwords for deployments using internal UAA never expire.
 
-If you have set a non-zero password expiry, Elastic Runtime will set it to zero
-when you upgrade from v1.10 to v1.11.
+If you have set a non-zero password expiry, Elastic Runtime will set it to zero when you upgrade from v1.10 to v1.11.
 
-### <a id='uaa-redirect-uris'></a>Redirect URI Validation for OAuth Clients
+### <a id='uaa-redirect-uris'></a> Redirect URI Validation for OAuth Clients
 
-Starting from v1.11, UAA validates the redirect URIs of OAuth clients to
-prevent open redirect attacks. A redirect URI is now a mandatory parameter for
-OAuth clients that use the `authorization_code` and `implicit` grant types to
-acquire an access token. For more information, see [Known
-Issues](runtime-rn.html#uaa-redirect).
+Starting from v1.11, UAA validates the redirect URIs of OAuth clients to prevent open redirect attacks. A redirect URI is now a mandatory parameter for OAuth clients that use the `authorization_code` and `implicit` grant types to acquire an access token. For more information, see [Known Issues](runtime-rn.html#uaa-redirect).
 
 ### <a id='scalable-syslog'></a> Scalable Syslog
 
-Loggregator now uses the [Scalable
-Syslog](https://github.com/cloudfoundry/scalable-syslog-release) BOSH release
-to support streaming app logs to syslog-compatible aggregation or analytics
-services. This new delivery method has the following benefits:
+Loggregator now uses the [Scalable Syslog](https://github.com/cloudfoundry/scalable-syslog-release) BOSH release to support streaming app logs to syslog-compatible aggregation or analytics services. This new delivery method has the following benefits:
 
 * Decouples syslog drains from the Firehose
-* Prevents log loss in the Firehose that previously resulted from syslog drains
-  competing for the resources used to deliver logs
+* Prevents log loss in the Firehose that previously resulted from syslog drains competing for the resources used to deliver logs
 * Provides high message reliability for syslog drains
-* Maintains the UX of binding an app to a syslog drain service through Cloud
-  Foundry user-provided services (CUPS)
+* Maintains the UX of binding an app to a syslog drain service through Cloud Foundry user-provided services (CUPS)
 
-For more information about Scalable Syslog in PCF, see [Overview of the
-Loggregator System](https://docs.pivotal.io/pivotalcf/1-11/loggregator/architecture.html).
+For more information about Scalable Syslog in PCF, see [Overview of the Loggregator System](https://docs.pivotal.io/pivotalcf/1-11/loggregator/architecture.html).
+
 
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for PCF Elastic Runtime.
 
-### <a id='unavailability-internal-mysql-update'></a>Brief Unavailability of Application Management during Internal MySQL Database Updates
+### <a id='unavailability-internal-mysql-update'></a> Brief Unavailability of Application Management During Internal MySQL Database Updates
 
-**Fixed in ERT 1.11.9.**
+**Fixed in ERT v1.11.9.**
 
-This issue applies only to Elastic Runtime deployments using an internal MySQL
-database with more than one MySQL instance. When updating this MySQL database
-deployment, some application management operations such as `cf push` may become
-unavailable for up to 15 seconds, as may the Routing API. Application instances
-will continue to run, however, and their routes will remain registered. This
-period of unavailability results from certain Elastic Runtime components losing
-their leader-election locks and being able to reclaim the lock only after the
-15-second lock expiration time. This availability issue will be fixed in a
-forthcoming patch release.
+This issue applies only to Elastic Runtime deployments using an internal MySQL database with more than one MySQL instance. When updating this MySQL database deployment, some application management operations such as `cf push` may become unavailable for up to 15 seconds, as may the Routing API. Application instances will continue to run, however, and their routes will remain registered. This period of unavailability results from certain Elastic Runtime components losing their leader-election locks and being able to reclaim the lock only after the 15-second lock expiration time. This availability issue will be fixed in a forthcoming patch release.
 
-### <a id='autoscaler'></a>App Autoscaler Panic
+### <a id='autoscaler'></a> App Autoscaler Panic
 
-The App Autoscaler service can panic due to an issue with leader election. To
-avoid this issue, operators must manually scale the App Autoscaler service down
-to one instance before starting the upgrade to PCF v1.11. For more information,
-see the [Scale Down App
-Autoscaler](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html#autoscaler) section of the
-<em>Upgrading Pivotal Cloud Foundry</em> topic.
+The App Autoscaler service can panic due to an issue with leader election. To avoid this issue, operators must manually scale the App Autoscaler service down to one instance before starting the upgrade to PCF v1.11. For more information, see the [Scale Down App Autoscaler](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html#autoscaler) section of the _Upgrading Pivotal Cloud Foundry_ topic.
 
-If you fail to complete this procedure prior to the upgrade and the App
-Autoscaler service panics, follow the instructions in the [Autoscaler failing
-on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768)
-Knowledge Base article to restore the service.
+If you fail to complete this procedure prior to the upgrade and the App Autoscaler service panics, follow the instructions in the [Autoscaler failing on SQL query](https://discuss.pivotal.io/hc/en-us/articles/115008780768) Knowledge Base article to restore the service.
 
-### <a id='metrics'></a>Loggregator Metrics
+### <a id='metrics'></a> Loggregator Metrics
 
-Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a
-hard-coded deployment name. Because the components do not allow the deployment
-name to be configured, Metron cannot properly tag the metrics. This affects the
-following metrics:
+Reverse Log Proxy (RLP) and Traffic Controller emit metrics tagged with a hard-coded deployment name. Because the components do not allow the deployment name to be configured, Metron cannot properly tag the metrics. This affects the following metrics:
 
 * `loggregator.rlp.ingress`
 * `loggregator.rlp.dropped`
@@ -4300,13 +4221,13 @@ following metrics:
 
 A patch is planned to fix this issue and apply the deployment name consistently.
 
-###<a id='debug-logs'></a> Elastic Runtime Forwards High Volume of DEBUG Log Messages
+### <a id='debug-logs'></a> Elastic Runtime Forwards High Volume of DEBUG Log Messages
 
 Elastic Runtime forwards a high volume of DEBUG syslog messages from UAA and other system components to an external service.
 
 <p class='note'><strong>Note:</strong> For information about remediating this issue in PAS v2.0, see <a href="https://docs.pivotal.io/pivotalcf/2-0/pcf-release-notes/runtime-rn.html#uaa-debug-logs">PAS Forwards High Volume of DEBUG Log Messages</a> in <em>Pivotal Application Service v2.0 Release Notes</em>.</p>
 
-### <a id='truncated-logs'></a>Truncated Syslog Messages
+### <a id='truncated-logs'></a> Truncated Syslog Messages
 
 <p class='note'><strong>Note:</strong> This issue is remediated when you select the <strong>Use TCP for file forwarding local transport</strong> option. For more information, see <a href="https://docs.pivotal.io/pivotalcf/1-11/opsguide/installing-pcf-is.html">System Logging</a>.</p>
 
@@ -4325,37 +4246,23 @@ The truncation is caused by the following:
 
 As mentioned above, jobs write system logs to the `/var/vcap/sys/log` directory. You can download full log lines from the directory files using Ops Manager.
 
-### <a id='mount-location'></a>Mount Location Bug
+### <a id='mount-location'></a> Mount Location Bug
 
-If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure
-your `"mount"` section in your bind JSON matches what is in the Dockerfile,
-such as `"mount":"/some/data/dir"`.
+If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure your `"mount"` section in your bind JSON matches what is in the Dockerfile, such as `"mount":"/some/data/dir"`.
 
-See [this example
-Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfile#L5)
-on GitHub for reference.
+See [this example Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfile#L5) on GitHub for reference.
 
-This only works if the path in question is in an already existing root level
-folder. For example, `"/var/some/random/path"` works, but
-`"/some/random/path"` causes your app to crash at startup. This limitation
-is caused by an aufs bug.
+This only works if the path in question is in an already existing root level folder. For example, `"/var/some/random/path"` works, but `"/some/random/path"` causes your app to crash at startup. This limitation is caused by an aufs bug.
 
 ### <a id='ecr-gcr-issue'></a> Private Docker Registry Support for ECR, GCR and JFrog Artifactory
 
-**Fixed in ERT 1.11.3.**
+**Fixed in ERT v1.11.3.**
 
-The private Docker registry support referenced above does not currently support
-Amazon EC2 Container Registry, Google Cloud Platform Container Registry, or JFrog Artifactory.
-Future patches will bring support for these registries.
+The private Docker registry support referenced above does not currently support Amazon EC2 Container Registry, Google Cloud Platform Container Registry, or JFrog Artifactory. Future patches will bring support for these registries.
 
-### <a id='uaa-redirect'></a>UAA Redirect URIs
+### <a id='uaa-redirect'></a> UAA Redirect URIs
 
-A redirect URI is now a mandatory parameter for the `authorization_code` and
-`implicit` grant types, which is required to submit an access request. When
-using the UAA API or UAAC and declaring OAuth clients in the manifest, make
-sure at least one redirect URI is specified. Existing OAuth clients that do not
-provide this information will get an error when accessing the
-`/oauth/authorize` endpoint. See the example below:
+A redirect URI is now a mandatory parameter for the `authorization_code` and `implicit` grant types, which is required to submit an access request. When using the UAA API or UAAC and declaring OAuth clients in the manifest, make sure at least one redirect URI is specified. Existing OAuth clients that do not provide this information will get an error when accessing the `/oauth/authorize` endpoint. See the example below:
 
 <pre class='terminal'>
 {
@@ -4371,28 +4278,19 @@ supported only in the first part of the base domain:
   * `https://*.apps.com*` is not supported.
   * `https://*.apps*.com*` is not supported.
 
-### <a id='fail-postgres'></a>Failed Upgrade In Large Deployments
+### <a id='fail-postgres'></a> Failed Upgrade In Large Deployments
 
-Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a
-timeout while updating PostgreSQL. If the upgrade fails, redeploy.
+Upgrades of large deployments to Elastic Runtime v1.11 may fail due to a timeout while updating PostgreSQL. If the upgrade fails, redeploy.
 
-For more information, see the ["Deploying ERT 1.11 fails to due to a timeout
-while updating
-PostGreSQL"](https://discuss.pivotal.io/hc/en-us/articles/115008875387)
-Knowledge Base article.
+For more information, see the ["Deploying ERT 1.11 fails to due to a timeout while updating PostGreSQL"](https://discuss.pivotal.io/hc/en-us/articles/115008875387) Knowledge Base article.
 
-### <a id='rep-crashes'></a>Diego Cell Rep Crashes
+### <a id='rep-crashes'></a> Diego Cell Rep Crashes
 
-**Fixed in ERT 1.11.1.**
+**Fixed in ERT v1.11.1.**
 
-In ERT 1.11.0, the Diego cell rep process will
-infrequently crash as a result of a race condition when buffering health-check
-logs for application instances. The application instances on that cell will be
-rescheduled when the rep process is restarted or when the Diego system notices
-that its presence has expired, typically within 15 seconds of the rep process
-crashing.
+In ERT v1.11.0, the Diego cell rep process will infrequently crash as a result of a race condition when buffering health-check logs for application instances. The application instances on that cell will be rescheduled when the rep process is restarted or when the Diego system notices that its presence has expired, typically within 15 seconds of the rep process crashing.
 
-###<a id='automated-backup'></a> Restore from Automated Backup of Internal MySQL Not Supported
+### <a id='automated-backup'></a> Restore from Automated Backup of Internal MySQL Not Supported
 
 If you configure PAS to use **Internal MySQL**, ensure that you select **Disable Automated Backups of MySQL** under the **Automated Backups Configuration** field. Pivotal does not support restoring the internal MySQL database from a full backup because it degrades the Galera MySQL cluster. 
 
@@ -4400,7 +4298,7 @@ To back up and restore the internal MySQL database, you must use BOSH Backup and
 
 For more information on this issue, see the following Pivotal Knowledge Base article: [Restore from PAS Automated Database Backup is Not Supported in 1.11 and later](https://discuss.pivotal.io/hc/en-us/articles/360001817593-Restore-from-PAS-Automated-Database-Backup-is-Not-Supported-in-1-11-and-later-).
 
-###<a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
+### <a id='read-only'></a> Read-Only Volume Mounts Display as "rw"
 
 Due to an underlying kernel defect, read-only volume mounts display as `"mode": "rw"` when you view the `VCAP_SERVICES` environment variable for your app.
 
