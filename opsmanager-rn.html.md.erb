@@ -9,7 +9,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <hr>
 
-## <a id='how-to-upgrade'></a>How to Upgrade ##
+## <a id='how-to-upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.10 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) topic.
 
@@ -1248,14 +1248,14 @@ Version 1.10.0 of Ops Manager consists of the following component versions:
 </tbody>
 </table>
 
-## <a id='major-features'></a>New Features in Ops Manager v1.10.0
 
-### <a id='api'></a>Ops Manager API
+## <a id='major-features'></a> New Features in Ops Manager v1.10
 
-Operators can now use the API to automate more tasks, such as configuring tiles, uploading tiles, and fetching upgrades from Pivotal Network. 
-To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
+### <a id='api'></a> Ops Manager API
 
-#### <a id='new-endpoints'></a>New Endpoints
+Operators can now use the API to automate more tasks, such as configuring tiles, uploading tiles, and fetching upgrades from Pivotal Network. To view the Ops Manager API documentation, browse to `https://YOUR-OPS-MANAGER-FQDN/docs`.
+
+#### <a id='new-endpoints'></a> New Endpoints
 
 The Ops Manager API adds the following endpoints:
 
@@ -1265,31 +1265,31 @@ The Ops Manager API adds the following endpoints:
 * `GET /api/v0/certificate_authorities`: Operators can list all root certificate authorities for Ops Manager.
 * `POST /api/v0/certificate_authorities`: Operators can create a root certificate authority.
 * `POST /api/v0/certificate_authorities/active/regenerate`: Operators can rotate non-configurable certificates by deleting all non-configuration certificates and then regenerating them.
-	<p class="note"><strong>Note</strong>: For more information about using the Ops Manager API for certificate rotation, see the <a href="#certs">Certificate Rotation</a> section below.</p>
+	<p class="note"><strong>Note:</strong> For more information about using the Ops Manager API for certificate rotation, see the <a href="#certs">Certificate Rotation</a> section below.</p>
 * `POST /api/v0/certificate_authorities/generate`: Operators can generate an additional root certificate authority.
 * `POST /api/v0/certificate_authorities/:certificate_authority_guid/activate`: Operators can activate a root certificate authority, and make all others inactive.
 * `DELETE /api/v0/certificate_authorities/:certificate_authority_guid`: Operators can delete a specific inactive certificate authority from Ops Manager.
 * `POST /api/v0/staged/installations/commit`: Operators can save the installation state as if the deployment was triggered by clicking **Apply Changes**, preparing the installation manifest. Operators can then fetch the manifest using the `/api/v0/deployed/product/[product_id]/manifest` endpoint.
 
-#### <a id='certs'></a>Certificate Rotation
+#### <a id='certs'></a> Certificate Rotation
 
 Ops Manager ships with a Certificate Authority (CA). This CA generates certificates that are used for communication across various PCF components. These certificates are non-configurable. 
 
-Ops Manager now allows you to regenerate non-configurable TLS/SSL certs using the API. See the [Rotating Non-Configurable TLS/SSL Certificates](https://docs.pivotal.io/pivotalcf/1-10/security/pcf-infrastructure/api-cert-rotation.html) topic for more information.
+Ops Manager now allows you to regenerate non-configurable TLS/SSL certs using the API. For more information, see [Rotating Non-Configurable TLS/SSL Certificates](https://docs.pivotal.io/pivotalcf/1-10/security/pcf-infrastructure/api-cert-rotation.html).
 
 Ops Manager also allows operators to use an API endpoint to add their own custom CA authority. If added, this custom CA will be used to sign all non-configurable certificates and deployed across all relevant PCF components.
 
-### <a id='sha2'></a>SHA-2
+### <a id='sha2'></a> SHA-2
 
 Previous versions of PCF used SHA-1 hashes, while PCF v1.10 uses SHA-2 by default. Both Operations Manager installations and certificates provided by PCF use SHA-2 hashes.
 
 You cannot obtain SHA-2 by upgrading existing environments to PCF v1.10. However, you can convert existing SHA-1 hashes into SHA-2 hashes by rotating your Ops Manager certificates by following the procedure in [Regenerating and Rotating Non-Configurable TLS/SSL Certificates](https://docs.pivotal.io/pivotalcf/1-10/security/pcf-infrastructure/api-cert-rotation.html). 
 
-### <a id='azure-gov'></a>Azure Government Cloud
+### <a id='azure-gov'></a> Azure Government Cloud
 
-Operators can now deploy Ops Manager in an Azure Government Cloud environment. For more information, see the [Deploying PCF on Azure Government Cloud](https://docs.pivotal.io/pivotalcf/1-10/customizing/azure-gov-cloud.html) topic.
+Operators can now deploy Ops Manager in an Azure Government Cloud environment. For more information, see [Deploying PCF on Azure Government Cloud](https://docs.pivotal.io/pivotalcf/1-10/customizing/azure-gov-cloud.html).
 
-### <a id='errands'></a>Smart Errands
+### <a id='errands'></a> Smart Errands
 
 Errands are scripts that Ops Manager runs to automate tasks. In PCF 1.10, Ops Manager provides three configurations for errands:
 
@@ -1301,7 +1301,7 @@ If a tile developer does not specify a default configuration for an errand, then
 
 Operators should set errand configurations to **On** for any tile that pushes apps. For example, if your deployment includes the [Single Sign-On](https://docs.pivotal.io/p-identity/1-9/index.html), [Push Notification Service](https://docs.pivotal.io/push/1-8/index.html), or [PCF Metrics](https://docs.pivotal.io/pcf-metrics/1-3/index.html) tiles, the errands for these tiles must run automatically to keep up with buildpack patches.
 
-See the [Managing Errands in Ops Manager](https://docs.pivotal.io/pivotalcf/1-10/customizing/managing_errands.html) topic for more information.
+For more information, see [Managing Errands in Ops Manager](https://docs.pivotal.io/pivotalcf/1-10/customizing/managing_errands.html).
 
 ### <a id='bosh'></a> BOSH Updates
 
@@ -1309,7 +1309,7 @@ The following list sections updates in the new BOSH version that are not exposed
 
 #### BOSH Director
 
-Ops Manager v1.10.0 uses BOSH v261, which includes the following changes to the BOSH Director:
+Ops Manager v1.10 uses BOSH v261, which includes the following changes to the BOSH Director:
 
 * **Context IDs for Tasks**: The [Tasks](https://bosh.io/docs/director-api-v1.html#tasks) endpoint for the BOSH Director API includes a `context_id` property. This feature is particularly useful in tracking multiple BOSH tasks that are related. For example, PCF On-Demand Services uses it to track the multiple BOSH tasks involved in the `cf create-service` process.
 * **HM Alerts as BOSH Events**: You can now view BOSH Health Monitor alerts, such as process restarts and monit alerts, with the `bosh events` command. The `bosh events` command provides a historic view of your system, including events such as the creation of VMs. For more information, see the [BOSH Events documentation](https://bosh.io/docs/events). 
@@ -1319,7 +1319,7 @@ For a full list of updates and fixes in the new BOSH version that Ops Manager us
 
 #### Stemcell
 
-Ops Manager v1.10.0 uses Stemcell 3363.10. Here are some of the major changes in Stemcell 3363: 
+Ops Manager v1.10 uses Stemcell 3363.10. Here are some of the major changes in Stemcell 3363: 
 
 * Additional auditd rules
 * A new group, `bosh_sshers`, assigned to the `vcap` user. Users must belong to this group to use SSH. 
@@ -1327,11 +1327,12 @@ Ops Manager v1.10.0 uses Stemcell 3363.10. Here are some of the major changes in
 
 For a full list of updates and fixes in the new stemcell that Ops Manager uses, see the [stemcell release notes](https://docs.pivotal.io/pivotalcf/1-10/stemcells/index.html).
 
+
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for Ops Manager v1.10.
 
-###<a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
+### <a id="no-stemcell"></a> Missing Stemcell Causes Failure to Deploy
 
 In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by errands. This causes deployments or upgrades to fail with `Error: Stemcell doesn't exist`. To prevent this error, do the following before you click **Apply changes** in Ops Manager to upgrade:
 
@@ -1339,20 +1340,19 @@ In PCF v1.12 and earlier, the BOSH Director may delete stemcells required by err
 
 1. Upload the stemcell by clicking **Import a Product** in Ops Manager, or by manually running `bosh upload-stemcell` with the BOSH CLI.
 
-See the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn't exist](https://community.pivotal.io/s/article/Deploy-fails-with-Error-Stemcell-doesnt-exist) for details.
+For more information, see the Pivotal Knowledge Base article [Deploy fails with Error: Stemcell doesn't exist](https://community.pivotal.io/s/article/Deploy-fails-with-Error-Stemcell-doesnt-exist).
 
 This known issue has been fixed in Ops Manager v2.0 and later.
 
-###<a id="reupload-stemcells"></a> Stemcells Not Included in Installation Export
+### <a id="reupload-stemcells"></a> Stemcells Not Included in Installation Export
 
 Ops Manager no longer includes stemcells in the installation export `zip` file. You may need to re-upload stemcells when importing the installation file into a new Ops Manager instance.  You can see product configuration as incomplete if you do not have the appropriate stemcell uploaded. Incomplete tiles that need stemcells are indicated by an orange tile.
 
 This known issue has been fixed in Ops Manager v1.12 and later.
 
-###<a id='services-network'></a>On-Demand Services Require Dedicated Service Networks
+### <a id='services-network'></a> On-Demand Services Require Dedicated Service Networks
 
-If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not
-define a dedicated service network for the tile.
+If you use any service tile that offers both on-demand and not on-demand modes of operation, clicking **Apply Changes** in Ops Manager fails if you did not define a dedicated service network for the tile.
 
 To work around this issue, use one of the following methods:
 
@@ -1361,7 +1361,8 @@ To work around this issue, use one of the following methods:
 
 For more information, see the corresponding [Knowledge Base](https://discuss.pivotal.io/hc/en-us/articles/115010154387) article.
 
-###<a id='aws-regions'></a>Ops Manager Fails to Connect to Newly Supported AWS Regions
+### <a id='aws-regions'></a> Ops Manager Fails to Connect to Newly Supported AWS Regions
+
 Ops Manager v1.10.1 publishes AMIs to the following newly supported AWS regions:
 
 * ap-south-1

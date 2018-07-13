@@ -3932,10 +3932,10 @@ this issue with the SAML entityID.
   </tfoot>
   </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the
-[Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Cloud Foundry Elastic Runtime v1.10 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v1.10, be aware of the following upgrade considerations:
 
@@ -3944,9 +3944,8 @@ When upgrading to v1.10, be aware of the following upgrade considerations:
      * **RabbitMQ for PCF**. Upgrade to RabbitMQ for PCF v1.7.13 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about RabbitMQ for PCF, see the [RabbitMQ for PCF documentation](https://docs.pivotal.io/rabbitmq-cf/1-7/index.html).
      * **Redis for PCF**. Upgrade to Redis for PCF v1.7.3 or later, and deselect the **Use non-secure communication for metrics** checkbox. For more information about Redis for PCF, see the [Redis for PCF documentation](https://docs.pivotal.io/redis/1-7/index.html).
    * Some partner service tiles may be incompatible with PCF v1.10. Pivotal is working with partners to ensure their tiles are being updated to work with the latest versions of PCF.<br/><br/>
-     For information about which partner service releases are currently compatible with PCF v1.10, review the
-     appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or
-     contact the partner organization that produces the tile.
+     For information about which partner service releases are currently compatible with PCF v1.10, review the appropriate partners services release documentation at [http://docs.pivotal.io](http://docs.pivotal.io), or contact the partner organization that produces the tile.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
@@ -3954,13 +3953,14 @@ The Advanced Features section of the Elastic Runtime tile includes new functiona
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-## <a id='1.10.0'></a> New Features in Elastic Runtime v1.10.0
+
+## <a id='1.10.0'></a> New Features in Elastic Runtime v1.10
 
 This section describes new features of the release.
 
-### <a id='diego_and_routing'></a>Diego and Routing API Migrate to a Relational Datastore
+### <a id='diego_and_routing'></a> Diego and Routing API Migrate to a Relational Datastore
 
-Both Diego and the Routing API datastores have switched over to using a relational database as their backing store. Both Diego and Routing API use the same  database, either internal MySQL or external database, that you configure during a new deployment of Elastic Runtime.
+Both Diego and the Routing API datastores have switched over to using a relational database as their backing store. Both Diego and Routing API use the same database, either internal MySQL or external database, that you configure during a new deployment of Elastic Runtime.
 
 #### Diego Relational Store
 
@@ -3970,12 +3970,11 @@ Diego no longer uses etcd as a backend datastore. It will now use the database s
 
 In terms of upgrade, only deployments with the TCP routing feature enabled in PCF v1.8 are impacted. When those deployments are upgraded from PCF v1.8 to PCF v1.9, the upgrade process migrates existing routing API data automatically.
 
-
 ### <a id='container-networking'></a> Container-to-Container Networking (Beta)
 
-The Elastic Runtime tile offers a Container-to-Container Networking feature that puts applications in their own overlay network. This feature is currently in beta.
+The Elastic Runtime tile offers a container-to-container networking feature that puts applications in their own overlay network. This feature is currently in beta.
 
-For more information, see the [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-10/devguide/deploy-apps/cf-networking.html) topic.
+For more information, see [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/1-10/devguide/deploy-apps/cf-networking.html).
 
 ### <a id='volume-services'></a> Volume Services (Beta)
 
@@ -3997,7 +3996,7 @@ Limits can be set for authenticated and unauthenticated clients and expire over 
 
 You can enable these API rate limits as a beta feature in the **Advanced Features** section of the Elastic Runtime tile.
 
-For more information, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](https://docs.pivotal.io/pivotalcf/1-10/customizing/gcp-er-config.html#advanced-features) topic.
+For more information, see the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-10/customizing/pas.html).
 
 ### <a id='cfdot'></a> Cloud Foundry Diego Operator Toolkit
 
@@ -4005,7 +4004,7 @@ All Diego VMs now include an operator toolkit, known as `cfdot`, for interacting
 
 For more details about `cfdot`, see the [cfdot documentation](https://github.com/cloudfoundry/cfdot).
 
-### <a id='cc-clock'></a> Multi-node Cloud Controller Clock
+### <a id='cc-clock'></a> Multi-Node Cloud Controller Clock
 
 The Cloud Controller Clock has been outfitted to allow multiple instances of the VM to run in parallel.
 
@@ -4019,7 +4018,7 @@ The Routers can now be configured to maintain a number of keep-alive connections
 
 Reusing connections allows for HTTP performance improvements as the underlying connection does not need to be re-established on every request.
 
-For more information, see the [Router Idle Keepalive Connections](https://docs.pivotal.io/pivotalcf/1-10/adminguide/routing-keepalive.html) and the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](https://docs.pivotal.io/pivotalcf/1-10/customizing/gcp-er-config.html#networking) topic.
+For more information, see the [Router Idle Keepalive Connections](https://docs.pivotal.io/pivotalcf/1-10/adminguide/routing-keepalive.html) and the _Configure Networking_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-10/customizing/pas.html).
 
 ### <a id='disabled-ssh-default'></a> Disable Default SSH Access for New Applications
 
@@ -4035,7 +4034,7 @@ For more information, see [Configuring SSH Access for PCF](https://docs.pivotal.
 
 The Elastic Runtime now supports using Azure Storage as a backend for the platform file storage.
 
-For more information, see the [Deploying Elastic Runtime on Azure](https://docs.pivotal.io/pivotalcf/1-10/customizing/azure-er-config.html#external_azure) topic.
+For more information, see [Deploying Elastic Runtime on Azure](https://docs.pivotal.io/pivotalcf/1-10/customizing/azure-er-config.html#external_azure).
 
 ### <a id='mysql-improvements'></a> Improvements Internal MySQL Diagnostics and Availability
 
@@ -4043,7 +4042,7 @@ The internal MySQL database cluster now includes healthcheck thresholds.
 
 These thresholds can be configured to match your MySQL load balancer thresholds so that failover is seamless.
 
-For information on internal MySQL load balancer configuration, see the _Deploying Elastic Runtime_ topic for the IaaS where you are deploying PCF. For example, if you are deploying PCF on Google Cloud Platform (GCP), see the [Deploying Elastic Runtime on GCP](https://docs.pivotal.io/pivotalcf/1-10/customizing/gcp-er-config.html#internal-mysql) topic.
+For information on internal MySQL load balancer configuration, see the _(Optional) Configure Internal MySQL_ section of the [Elastic Runtime installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/1-10/customizing/pas.html).
 
 Additionally, the MySQL Monitor job now includes a tool called `mysql-diag` that provides some diagnostic information about your MySQL cluster.
 
@@ -4061,28 +4060,28 @@ This configuration is available as the **Max Inflight Container Starts** on the 
 
 To configure this feature, see [Setting a Maximum Number of Started Containers](https://docs.pivotal.io/pivotalcf/1-10/adminguide/max-container-starts.html).
 
-For more information on preventing platform overload during upgrade, see also [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-10/adminguide/diego-cell-upgrade.html) topics.
+For more information on preventing platform overload during upgrade, see [Upgrade Considerations for Selecting File Storage in Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/opsguide/storage_considerations.html) and [Managing Diego Cell Limits During Upgrade](https://docs.pivotal.io/pivotalcf/1-10/adminguide/diego-cell-upgrade.html).
 
 ### <a id='loggregator'></a> gRPC in Loggregator
 
-The Loggregator system now uses the <a href="http://www.grpc.io/">gRPC</a> protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. This improves the stability and the performance of the Loggregator system.
+The Loggregator system now uses the [gRPC](http://www.grpc.io/) protocol for secure and reliable communication between the Metron Agent and the Doppler, and between the Doppler and the Traffic Controller. This improves the stability and the performance of the Loggregator system.
 
 Since Loggregator now uses the gRPC protocol, your deployment may see an increase in Loggregator message throughput.
 
-For more information on scaling Dopplers, see the
-[Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](https://docs.pivotal.io/pivotalcf/1-10/loggregator/log-ops-guide.html) topics.
+For more information on scaling Dopplers, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-10/customizing/upgrading-pcf.html) and [Loggregator Guide for Cloud Foundry Operators](https://docs.pivotal.io/pivotalcf/1-10/loggregator/log-ops-guide.html).
 
 ### <a id='syslog-drain'></a> Org, Space, and Application Name in Syslog Drains
 
 The Loggregator system now includes the org, space, and application name in the host information for syslog drains. Application GUID's continue to be included for precise filtering, but this allows for more easily readable logs delivered via a drain and matches functionality included in most syslog nozzles. 
 
+
 ## <a id='knownissues'></a> Known Issues
 
 This section lists known issues for PCF Elastic Runtime.
 
-### <a id="cipher-suites"></a> Router & Loggregator Cipher Suites Issue
+### <a id="cipher-suites"></a> Router and Loggregator Cipher Suites Issue
 
-In an effort to enforce more secure cipher suites for the common platform ingress / egress points at the Router and Loggregator, the default cipher suites for these components were limited to the following suites:
+In an effort to enforce more secure cipher suites for the common platform ingress/egress points at the Router and Loggregator, the default cipher suites for these components were limited to the following suites:
 
 ```
 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -4111,16 +4110,16 @@ Please ask your Cloud Foundry Operator to check the platform configuration
 (loggregator endpoint is wss://loggregator.example.com:443).
 ```
 
-**Solution**: Upgrade to cf CLI version 6.23 or later. After you upgrade, if you still encounter the connection issue, make sure you log out and log in again using `cf logout` and `cf login`.
+**Solution**: Upgrade to cf CLI version v6.23 or later. After you upgrade, if you still encounter the connection issue, make sure you log out and log in again using `cf logout` and `cf login`.
 
-### <a id="invalid-metric"></a> Recommended Messages Received Firehose Metric Not Accurate in ERT 1.10.0
+### <a id="invalid-metric"></a> Recommended Messages Received Firehose Metric Not Accurate in ERT v1.10.0
 
 In PCF v1.10, the recommended metric for monitoring firehose message throughput is changing to `DopplerServer.listeners.totalReceivedMessageCount`.
 
-  * As of ERT 1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched.
-  * As of ERT 1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.
+  * As of ERT v1.10.0 `DopplerServer.listeners.totalReceivedMessageCount` is not an accurate metric for all possible firehose traffic. This is being patched.
+  * As of ERT v1.10.1, `DopplerServer.listeners.totalReceivedMessageCount` can be expected to accurately represent a count of firehose message throughput.
 
-### <a id='truncated-logs'></a>Truncated Syslog Messages
+### <a id='truncated-logs'></a> Truncated Syslog Messages
 
 If the total length of a syslog message transported locally from a PCF system component (for example, the Cloud Controller or a Diego cell) is greater than 1 KB, the packet is truncated before it reaches RSYSLOG installed on every BOSH VM instance.
 
@@ -4131,11 +4130,10 @@ When a job generates a log message, it typically writes the message in two locat
 
 As mentioned above, jobs write system logs to the `/var/vcap/sys/log` directory. You can download full log lines from the directory files using Ops Manager.
 
-###<a id='mount-location'></a>Mount Location Bug
+### <a id='mount-location'></a> Mount Location Bug
 
 If you have the `VOLUME ["/some/data/dir"]` directive in your image, ensure your `"mount"` section in your bind JSON matches what is in the Dockerfile, such as `"mount":"/some/data/dir"`. 
 
 See [this example Dockerfile](https://github.com/azwickey-pivotal/volume-demo/blob/master/Dockerfile#L5) on GitHub for reference.
 
 This only works if the path in question is in an already existing root level folder.  In other words, `"/var/some/random/path"` should work, but `"/some/random/path"` will cause your app to crash at startup. This limitation is due to an aufs bug.
-
