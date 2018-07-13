@@ -1,24 +1,18 @@
 ---
-title: PAS for Windows 2012R2 v2.2 Release Notes
+title: PAS for Windows 2012R2 v2.3 Release Notes
 owner: Release Engineering
 ---
 
 Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vSphere, Amazon Web Services
-(AWS), Google Cloud Platform (GCP), or Azure. For more information, see [Installing PAS for Windows](https://docs.pivotal.io/pivotalcf/2-1/windows2012r2/deploy-windows.html).
+(AWS), Google Cloud Platform (GCP), or Azure. For more information, see [Installing PAS for Windows](https://docs.pivotal.io/pivotalcf/2-3/windows2012r2/deploy-windows.html).
 
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.2.1'></a> 2.2.1
+### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
 
-* **[Security Fix]** Bump loggregator release for CVE-2018-1268 and CVE-2018-1269
-* **[Bug Fix]** bump consul to v195
-  * Includes golang 1.9.7, removes golang 1.8.*.
-  * Deploying v193 could fail on some deployments due to a conflict with other tiles that compiled the release differently
-  * Fixes intermittent consul DNS issues on Windows Cells
-
-* Bump consul to version `195`
-* Bump loggregator to version `102.2`
+* Bump diego to version `2.12.0`
+* Bump stemcell to version `1200.21`
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -28,13 +22,13 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>1200.19</td>
+    <td>stemcell</td><td>1200.21</td>
   </tr><tr>
     <td>consul</td><td>195</td>
   </tr><tr>
-    <td>diego</td><td>2.8.0</td>
+    <td>diego</td><td>2.12.0</td>
   </tr><tr>
-    <td>event_log</td><td>0.7.0*</td>
+    <td>event_log</td><td>0.7.0</td>
   </tr><tr>
     <td>garden-windows</td><td>0.14.0</td>
   </tr><tr>
@@ -52,60 +46,19 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2.2.0'></a> 2.2.0
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Stemcell</td><td>1200.19</td>
-  </tr><tr>
-    <td>consul</td><td>194</td>
-  </tr><tr>
-    <td>diego</td><td>2.8.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.7.0*</td>
-  </tr><tr>
-    <td>garden-windows</td><td>0.14.0</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.17</td>
-  </tr><tr>
-    <td>loggregator</td><td>102.1</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.10.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-
 ## <a id='upgrade'></a> How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows 2012R2 v2.2 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.2. To use the PAS for Windows 2012R2 tile, you
-need Ops Manager v2.2 or later and PAS v2.2 or later.
+The Pivotal Application Service (PAS) for Windows 2012R2 v2.3 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.3. To use the PAS for Windows 2012R2 tile, you
+need Ops Manager v2.3 or later and PAS v2.3 or later.
 
-For information about upgrading to PAS for Windows 2012R2 v2.2.0, see the
-[Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/2-1/windows2012R2/upgrading.html) topic in the PAS for Windows documentation.
+For information about upgrading to PAS for Windows 2012R2 v2.3.0, see the
+[Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/2-3/windows2012R2/upgrading.html) topic in the PAS for Windows documentation.
 
 
-## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.2
+## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.3
 
-### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
+TODO
 
-The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339). Log-level identifiers are also formatted as strings instead of numeric codes.
+## <a id='known-issues'></a> Known Issues
 
-RFC 3339 timestamps are enabled by default for new v2.2 deployments. Upgrades from earlier versions retain the previous component log format with Unix epoch timestamps.
-
-You can enable the new timestamp format for Diego logs in the PAS tile.
-
-For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
-
-<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
+### <a id="diego-windows-azure"></a> Diego release v2.12.0 has a known issue running on Windows cells on Azure.

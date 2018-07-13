@@ -1,22 +1,21 @@
 ---
-title: PCF Isolation Segment v2.2 Release Notes
+title: PCF Isolation Segment v2.3 Release Notes
 owner: Release Engineering
 ---
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
 
-### <a id='2.2.1'></a> 2.2.1
-
-* **[Security Fix]** Bump loggregator release for CVE-2018-1268 and CVE-2018-1269
-* **[Bug Fix]** bump consul to v195
-  * Includes golang 1.9.7, removes golang 1.8.*.
-  * Deploying v193 could fail on some deployments due to a conflict with other tiles that compiled the release differently
-  * Fixes intermittent consul DNS issues on Windows Cells
-
-* Bump cflinuxfs2 to version `1.223.0`
-* Bump consul to version `195`
-* Bump loggregator to version `102.2`
+* Bump bpm to version `0.8.0`
+* Bump cf-networking to version `2.7.0`
+* Bump diego to version `2.12.0`
+* Bump garden-runc to version `1.15.1`
+* Bump haproxy to version `8.8.0`
+* Bump mapfs to version `1.0.1`
+* Bump nfs-volume to version `1.4.0`
+* Bump routing to version `0.179.0`
+* Bump silk to version `2.7.0`
 
  <table border="1" class="nice">
  <thead> <tr>
@@ -26,27 +25,31 @@ owner: Release Engineering
  </thead>
  <tbody>
  <tr>
-   <td>Stemcell</td><td>3586.24</td>
+   <td>stemcell</td><td>3586.24</td>
  </tr><tr>
-   <td>cf-networking</td><td>2.3.0</td>
+   <td>bmp</td><td>0.8.0</td>
+ </tr><tr>
+   <td>cf-networking</td><td>2.7.0</td>
  </tr><tr>
    <td>cflinuxfs2</td><td>1.223.0</td>
  </tr><tr>
    <td>consul</td><td>195</td>
  </tr><tr>
-   <td>diego</td><td>2.8.0</td>
+   <td>diego</td><td>2.12.0</td>
  </tr><tr>
-   <td>garden-runc</td><td>1.13.3</td>
+   <td>garden-runc</td><td>1.15.1</td>
  </tr><tr>
-   <td>haproxy</td><td>8.7.0</td>
+   <td>haproxy</td><td>8.8.0</td>
  </tr><tr>
    <td>loggregator</td><td>102.2</td>
  </tr><tr>
-   <td>nfs-volume</td><td>1.2.1</td>
+   <td>mapfs</td><td>1.0.1</td>
  </tr><tr>
-   <td>routing</td><td>0.178.0</td>
+   <td>nfs-volume</td><td>1.4.0</td>
  </tr><tr>
-   <td>silk</td><td>2.3.0</td>
+   <td>routing</td><td>0.179.0</td>
+ </tr><tr>
+   <td>silk</td><td>2.7.0</td>
  </tr>
    <td>syslog</td><td>11.3.2</td>
  </tr>
@@ -57,99 +60,32 @@ owner: Release Engineering
  </tr>
  </tfoot>
  </table>
-
-### <a id='2.2.0'></a> 2.2.0
-
- <table border="1" class="nice">
- <thead> <tr>
-   <th>Component</th>
-   <th>Version</th>
- </tr>
- </thead>
- <tbody>
- <tr>
-   <td>Stemcell</td><td>3586.24</td>
- </tr><tr>
-   <td>cf-networking</td><td>2.3.0</td>
- </tr><tr>
-   <td>cflinuxfs2</td><td>1.220.0</td>
- </tr><tr>
-   <td>consul</td><td>194</td>
- </tr><tr>
-   <td>diego</td><td>2.8.0</td>
- </tr><tr>
-   <td>garden-runc</td><td>1.13.3</td>
- </tr><tr>
-   <td>haproxy</td><td>8.7.0</td>
- </tr><tr>
-   <td>loggregator</td><td>102.1</td>
- </tr><tr>
-   <td>nfs-volume</td><td>1.2.1</td>
- </tr><tr>
-   <td>routing</td><td>0.178.0</td>
- </tr><tr>
-   <td>silk</td><td>2.3.0</td>
- </tr>
-   <td>syslog</td><td>11.3.2</td>
- </tr>
- </tbody>
- <tfoot>
- <tr>
-   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
- </tr>
- </tfoot>
- </table>
-
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.2 tile is available for installation with PCF v2.2.
+The PCF Isolation Segment v2.3 tile is available for installation with PCF v2.2.
 
-[Isolation segments](http://docs.pivotal.io/pivotalcf/2-1/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+[Isolation segments](http://docs.pivotal.io/pivotalcf/2-3/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-1/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-3/adminguide/isolation-segments.html) topic.
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.2 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-1/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v2.3 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-3/customizing/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v2.2.
+To install a PCF Isolation Segment, you must first install PCF v2.3.
 
+## <a id='2.2.0'></a> New Features in PCF Isolation Segment v2.3
 
-## <a id='2.2.0'></a> New Features in PCF Isolation Segment v2.2
-
-### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
-
-Operators can now disable logging of client IP addresses in the Gorouter to comply with the General Data Protection Regulation (GDPR).
-
-This setting, **Logging of Client IPs in CF Router**, is configured in the **Networking** pane of the PCF Isolation Segment tile.
-You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
-By default, the **Log client IPs** option is set in PCF Isolation Segment.
-
-For more information about configuring the **Logging of Client IPs in CF Router** field, see [Networking](https://docs.pivotal.io/pivotalcf/2-2/customizing/installing-pcf-is.html#networking) in the _Installing PCF Isolation Segment_ topic.
-
-### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
-
-The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339. Log-level identifiers are also formatted as strings instead of numeric codes.
-
-RFC 3339 timestamps are enabled by default for new v2.2 deployments. Upgrades from earlier versions retain the previous component log format with Unix epoch timestamps.
-
-You can enable the new timestamp format for Diego logs in the Pivotal Application Service (PAS) tile.
-
-For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
-
-<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
-
-### <a id='dns-search-domains'></a> DNS Search Domains
-
-PCF Isolation Segment allows you to configure the DNS search domains used in containers by entering a comma-separated list.
-
-For more information, see the **DNS Search Domains** configuration described in the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
-
+TODO
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment v2.2 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the PCF Isolation Segment v2.3 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
+
+## <a id='known-issues'></a> Known Issues
+
+### <a id="nfs-broker-push"></a> The nfsbrokerpush errand fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.

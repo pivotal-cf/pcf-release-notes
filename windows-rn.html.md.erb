@@ -1,17 +1,16 @@
 ---
-title: PAS for Windows v2.2 Release Notes
+title: PAS for Windows v2.3 Release Notes
 owner: Garden Windows
 ---
 
 This topic contains release notes for Pivotal Application Service (PAS) for Windows.
 
-<p class='note'><strong>Note:</strong> PAS for Windows is not currently available on Pivotal Network.
-</p>
-
-
 ## <a id='releases'></a> Releases
 
-### <a id='2.2.0'></a> 2.2.0
+### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
+
+* Bump diego to version `2.12.0`
+* Bump garden-runc to version `1.15.1`
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -21,22 +20,21 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>1709.8</td>
+    <td>stemcell</td><td>1709.10</td>
   </tr><tr>
-    <td>consul</td><td>193</td>
+    <td>consul</td><td>195</td>
   </tr><tr>
-    <td>diego</td><td>2.8.0</td>
+    <td>diego</td><td>2.12.0</td>
   </tr><tr>
-    <td>event_log</td><td>0.2</td>
+    <td>event_log</td><td>0.7.0</td>
   </tr><tr>
-    <td>garden-runc</td><td>1.13.3</td>
+    <td>garden-runc</td><td>1.15.1</td>
   </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.17*</td>
+    <td>hwc-offline-buildpack</td><td>2.3.17</td>
   </tr><tr>
-    <td>loggregator</td><td>102.1</td>
+    <td>loggregator</td><td>102.2</td>
   </tr><tr>
     <td>winc</td><td>1.3.0</td>
-  </tr>
   </tr><tr>
     <td>windows-utilities</td><td>0.10.0</td>
   </tr>
@@ -51,25 +49,14 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows v2.2 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.2. To use the PAS for Windows tile, you need Ops Manager v2.2 or later and PAS v2.2 or later.
+The Pivotal Application Service (PAS) for Windows v2.3 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.3. To use the PAS for Windows tile, you need Ops Manager v2.3 or later and PAS v2.3 or later.
 
 [//]: # (For how to migrate your apps with no downtime from PAS for Windows 2012R2 cells to PAS for Windows cells, see [Migrating Apps to PAS for Windows](https://docs.pivotal.io/pivotalcf/windows/migrating.html). )
 
 
-## <a id='new-features'></a> New Features in PAS for Windows v2.2
+## <a id='new-features'></a> New Features in PAS for Windows v2.3
 
-### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
-
-The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339. Log-level identifiers are also formatted as strings instead of numeric codes.
-
-RFC 3339 timestamps are enabled by default for new v2.2 deployments. Upgrades from earlier versions retain the previous component log format with Unix epoch timestamps.
-
-You can enable the new timestamp format for Diego logs in the PAS tile.
-
-For more information, see the **Configure Application Containers** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#application-containers-config).
-
-<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
-
+TODO
 
 ## <a id='adv-features'></a> About Advanced Features
 
@@ -77,19 +64,8 @@ The Advanced Features section of the PAS for Windows 2012R2 tile includes new fu
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="ki-boshwindows-access-denied"></a> Deploying PAS Runtime for Windows Results in an Access is Denied Error
+### <a id="diego-windows-azure"></a> Diego release v2.12.0 has a known issue running on Windows cells on Azure.
 
-This rare issue can occur when you deploy the PAS Runtime for Windows v2.2.
-
-The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f3876879397d result: Compiling package certsplitter_windows: Removing packages: Uninstalling package bundle: remove /var/vcap/data/packages/golang-windows/83bf1f4181665d2ee2c0118a56bd04764b8f56b0\go\bin\go.exe: Access is denied.`
-
-If you encounter this error, Pivotal recommends retrying the deployment until the error does not occur.
-
-For more information, see the Knowledge Base article [Deploying PAS for Windows Tile Results in an Access is Denied Error](https://community.pivotal.io/s/article/Deploying-PAS-for-Windows-Tile-results-in-access-denied-error).
-
-### <a id="consul-agent"></a> Consul Agent Job Does Not Prestart on Windows Diego Cells
-
-In PAS for Windows v2.2, the `consul_agent_windows` job may fail to prestart when a Diego cell VM is created. The `Cannot index into a null array` error message typically indicates that your Diego cell VM is affected. To work around this issue, you can recreate the VM.
+### <a id="stemcell-1709-10"></a> Stemcell 1709.10 is not available for AWS and has other known issues. It is recommended that you do not deploy this tile until a newer stemcell is available.

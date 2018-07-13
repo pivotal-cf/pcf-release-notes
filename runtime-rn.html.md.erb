@@ -1,5 +1,5 @@
 ---
-title: Pivotal Application Service v2.2 Release Notes
+title: Pivotal Application Service v2.3 Release Notes
 owner: Release Engineering
 ---
 
@@ -11,32 +11,26 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-## <a id='2.2.1'></a>2.2.1
+### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
 
-* **[Feature Improvement]** Allows PCF Metrics to be installed with both v1.5 and v1.4 versions to prevent dataloss.
-* **[Bug Fix]** Bump cf-smoke-tests-release to 40.0.5 to fix some flakiness
-* **[Security Fix]** Bump apps manager for CVE-2018-11044
-  * When creating new services, no longer show org-scoped services from other organizations
-  * Org Managers and Admins can leave organizations
-* **[Security Fix]** Bump loggregator release for CVE-2018-1268 and CVE-2018-1269
-* *** **[Bug Fix]**** bump consul to v195
-  * Includes golang 1.9.7, removes golang 1.8.*.
-  * Deploying v193 could fail on some deployments due to a conflict with other tiles that compiled the release differently
-  * Fixes intermittent consul DNS issues on Windows Cells
-
-* Bump binary-offline-buildpack to version `1.0.21`
-* Bump cf-smoke-tests to version `40.0.5`
-* Bump cflinuxfs2 to version `1.223.0`
-* Bump consul to version `195`
-* Bump dotnet-core-offline-buildpack to version `2.1.3`
-* Bump go-offline-buildpack to version `1.8.25`
-* Bump loggregator to version `102.2`
-* Bump nodejs-offline-buildpack to version `1.6.28`
-* Bump php-offline-buildpack to version `4.3.57`
-* Bump push-apps-manager-release to version `665.0.11`
-* Bump python-offline-buildpack to version `1.6.18`
-* Bump ruby-offline-buildpack to version `1.7.21`
-* Bump staticfile-offline-buildpack to version `1.4.29`
+* Bump backup-and-restore-sdk to version `1.8.1`
+* Bump bpm to version `0.8.0`
+* Bump capi to version `1.61.0`
+* Bump cf-autoscaling to version `203`
+* Bump cf-networking to version `2.7.0`
+* Bump cf-syslog-drain to version `7.0`
+* Bump diego to version `2.12.0`
+* Bump garden-runc to version `1.15.1`
+* Bump haproxy to version `8.8.0`
+* Bump mapfs to version `1.0.1`
+* Bump mysql-monitoring to version `8.20.0`
+* Bump nfs-volume to version `1.4.0`
+* Bump notifications to version `51`
+* Bump push-apps-manager-release to version `665.0.6`
+* Bump push-usage-service-release to version `667.0.1`
+* Bump pxc to version `0.10.0`
+* Bump routing to version `0.179.0`
+* Bump silk to version `2.7.0`
 
   <table border="1" class="nice">
   <thead> <tr>
@@ -48,7 +42,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   <tr>
     <td>stemcell</td><td>3586.24</td>
   </tr><tr>
-    <td>backup-and-restore-sdk</td><td>1.7.1</td>
+    <td>backup-and-restore-sdk</td><td>1.8.1</td>
   </tr><tr>
     <td>binary-offline-buildpack</td><td>1.0.21</td>
   </tr><tr>
@@ -56,19 +50,21 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tr><tr>
     <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
   </tr><tr>
-    <td>capi</td><td>1.58.1</td>
+    <td>bpm</td><td>0.8.0</td>
   </tr><tr>
-    <td>cf-autoscaling</td><td>201.0.0</td>
+    <td>capi</td><td>1.61.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>203.0.0</td>
   </tr><tr>
     <td>cf-backup-and-restore</td><td>0.0.11</td>
   </tr><tr>
     <td>cf-mysql</td><td>36.14.0</td>
   </tr><tr>
-    <td>cf-networking</td><td>2.3.0</td>
+    <td>cf-networking</td><td>2.7.0</td>
   </tr><tr>
     <td>cf-smoke-tests</td><td>40.0.5</td>
   </tr><tr>
-    <td>cf-syslog-drain</td><td>6.5</td>
+    <td>cf-syslog-drain</td><td>7.0</td>
   </tr><tr>
     <td>cflinuxfs2</td><td>1.223.0</td>
   </tr><tr>
@@ -76,15 +72,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tr><tr>
     <td>credhub</td><td>1.9.3</td>
   </tr><tr>
-    <td>diego</td><td>2.8.0</td>
+    <td>diego</td><td>2.12.0</td>
   </tr><tr>
     <td>dotnet-core-offline-buildpack</td><td>2.1.3</td>
   </tr><tr>
-    <td>garden-runc</td><td>1.13.3</td>
+    <td>garden-runc</td><td>1.15.1</td>
   </tr><tr>
     <td>go-offline-buildpack</td><td>1.8.25</td>
   </tr><tr>
-    <td>haproxy</td><td>8.7.0</td>
+    <td>haproxy</td><td>8.8.0</td>
   </tr><tr>
     <td>java-offline-buildpack</td><td>4.12.1</td>
   </tr><tr>
@@ -92,15 +88,17 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tr><tr>
     <td>loggregator</td><td>102.2</td>
   </tr><tr>
-    <td>mysql-monitoring</td><td>8.18.0</td>
+    <td>mapfs</td><td>1.0.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
   </tr><tr>
     <td>nats</td><td>24</td>
   </tr><tr>
-    <td>nfs-volume</td><td>1.2.1</td>
+    <td>nfs-volume</td><td>1.4.0</td>
   </tr><tr>
     <td>nodejs-offline-buildpack</td><td>1.6.28</td>
   </tr><tr>
-    <td>notifications</td><td>46</td>
+    <td>notifications</td><td>51</td>
   </tr><tr>
     <td>notifications-ui</td><td>33</td>
   </tr><tr>
@@ -108,24 +106,24 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tr><tr>
     <td>pivotal-account</td><td>1.9.0</td>
   </tr><tr>
-    <td>push-apps-manager-release</td><td>665.0.11</td>
+    <td>push-apps-manager-release</td><td>665.0.6</td>
   </tr><tr>
-    <td>push-usage-service-release</td><td>666.0.2</td>
+    <td>push-usage-service-release</td><td>667.0.1</td>
   </tr><tr>
     <td>python-offline-buildpack</td><td>1.6.18</td>
   </tr><tr>
-    <td>pxc</td><td>0.9.0</td>
+    <td>pxc</td><td>0.10.0</td>
   </tr><tr>
-    <td>routing</td><td>0.178.0</td>
+    <td>routing</td><td>0.179.0</td>
   </tr><tr>
     <td>ruby-offline-buildpack</td><td>1.7.21</td>
+  </tr><tr>
+    <td>silk</td><td>2.7.0</td>
   </tr><tr>
     <td>staticfile-offline-buildpack</td><td>1.4.29</td>
   </tr><tr>
     <td>statsd-injector</td><td>1.3.0</td>
   </tr><tr>
-    <td>silk</td><td>2.3.0</td>
-  </tr><tr>
     <td>syslog</td><td>11.3.2</td>
   </tr><tr>
     <td>uaa</td><td>60</td>
@@ -138,333 +136,24 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tfoot>
   </table>
 
-## <a id='2.2.0'></a>2.2.0
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>3586.24</td>
-  </tr><tr>
-    <td>backup-and-restore-sdk</td><td>1.7.1</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.18</td>
-  </tr><tr>
-    <td>bosh-dns-aliases</td><td>0.0.2</td>
-  </tr><tr>
-    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
-  </tr><tr>
-    <td>capi</td><td>1.58.1</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>201.0.0</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.11</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36.14.0</td>
-  </tr><tr>
-    <td>cf-networking</td><td>2.3.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>40.0.4</td>
-  </tr><tr>
-    <td>cf-syslog-drain</td><td>6.5</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.220.0</td>
-  </tr><tr>
-    <td>consul</td><td>194</td>
-  </tr><tr>
-    <td>credhub</td><td>1.9.3</td>
-  </tr><tr>
-    <td>diego</td><td>2.8.0</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>2.0.7</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.13.3</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.23</td>
-  </tr><tr>
-    <td>haproxy</td><td>8.7.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>4.12.1</td>
-  </tr><tr>
-    <td>log-cache</td><td>1.3.0</td>
-  </tr><tr>
-    <td>loggregator</td><td>102.1</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.18.0</td>
-  </tr><tr>
-    <td>nats</td><td>24</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.2.1</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.25</td>
-  </tr><tr>
-    <td>notifications</td><td>46</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>33</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.56</td>
-  </tr><tr>
-    <td>pivotal-account</td><td>1.9.0</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>665.0.9</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>666.0.2</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.6.17</td>
-  </tr><tr>
-    <td>pxc</td><td>0.9.0</td>
-  </tr><tr>
-    <td>routing</td><td>0.178.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.7.19</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.28</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.3.0</td>
-  </tr><tr>
-    <td>silk</td><td>2.3.0</td>
-  </tr><tr>
-    <td>syslog</td><td>11.3.2</td>
-  </tr><tr>
-    <td>uaa</td><td>60</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
 
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.2 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-2/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Application Service (PAS) v2.3 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-3/customizing/upgrading-pcf.html) topic.
 
 When upgrading to v2.2, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.1 to successfully upgrade to PAS v2.2.
+* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.2 to successfully upgrade to PAS v2.3.
 
-* Some partner service tiles may be incompatible with PCF v2.2. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.2, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with PCF v2.3. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.3, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in PAS v2.2
 
-### <a id="cipher-suites"></a> More Secure Cipher Suites for CF SSH Proxy
-
-The CF SSH proxy accepts a narrower range of ciphers, MACs, and key exchanges. This change improves the security of CF SSH sessions.
-
-These SSH proxy settings are not configurable in the PAS tile.
-
-<p class="note"><strong>Note:</strong> This change may be incompatible with SSH clients other than <code>cf ssh</code>. See <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/ssh-apps.html#ssh-proxy-security-configuration">SSH Proxy Security Configuration</a> for more information about the supported ciphers, MACs, and key exchanges.</p>
-
-### <a id="mysql-tls"></a> TLS-Encrypted Option for Internal System Databases
-
-For internal system databases, PAS now supports a more secure [Percona Server](https://www.percona.com/software/mysql-database/percona-server) database with TLS-encrypted communication between server nodes, as well as the previous [MariaDB](http://www.mariadb.org) option. See [Migrate to TLS Communication](https://docs.pivotal.io/pivotalcf/2-2/opsguide/scaling-down-mysql.html#migrate) for details.
-
-<p class="note warning"><strong>WARNING:</strong> Migrating PAS internal databases to using TLS causes temporary downtime of PAS system functions. It does not interrupt apps hosted by PAS.</p>
-
-### <a id="instance-profile"></a> Support for AWS Instance Profiles 
-
-PAS now supports [AWS instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) when you are configuring an S3 filestore. Either an instance profile or an access and secret key are required.
-
-For more information, see the **External or S3 Filestore** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#external_s3).
-
-### <a id="unversioned-s3"></a> Unversioned S3 Buckets for Backups
-
-PAS can now back up unversioned S3 buckets used for external file storage, saving backup artifacts to separate, dedicated backup buckets. For more information, see the **External or S3 Filestore** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-### <a id="gdpr-compliance"></a> Gorouter Logging Changes for GDPR Compliance
-
-Operators can now disable logging of client IP addresses in the Gorouter to comply with the General Data Protection Regulation (GDPR).
-
-This setting, **Logging of Client IPs in CF Router**, is configured in the **Networking** pane of the PAS tile.
-You can disable logging of the ` X-Forwarded-For` HTTP header only or of both the source IP address and the `X-Forwarded-For` HTTP header.
-By default, the **Log client IPs** option is set in PAS.
-
-For more information about configuring the **Logging of Client IPs in CF Router** field, see the **Configure Networking** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-### <a id="timestamp"></a> New Format for Timestamps in Diego Component Logs
-
-The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339). Log-level identifiers are also formatted as strings instead of numeric codes.
-
-RFC 3339 timestamps are enabled by default for new PAS v2.2 deployments. Upgrades from earlier PAS versions retain the previous component log format with Unix epoch timestamps.
-
-You can enable the new timestamp format for Diego logs in the PAS tile.
-
-For more information, see the **Configure Application Containers** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-<p class="note breaking"><strong>Breaking Change:</strong> Before enabling RFC 3339 format for Diego logs, ensure that your log aggregation system anticipates the timestamp format change. If you experience issues, you can disable RFC 3339 format in the PAS tile.</p>
-
-### <a id="task-placement-resilience"></a> Task Placement More Resilient to Resource Unavailability
-
-When memory or disk resources are temporarily unavailable, PAS no longer fails application and staging tasks immediately. Instead, it attempts several times to place the task on a Diego cell with sufficient capacity.
-
-This temporary unavailability may occur when many application instances or tasks are being created or destroyed simultaneously or when the Diego Bulletin Board System (BBS) or auctioneer fails to communicate to one or more Diego cells.
-
-For more information about Diego task allocation, see [How Diego Balances App Processes](https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html).
-
-### <a id="instance-identity-certs-org-space-ids"></a> Instance Identity Certificates Contain CF Org and Space IDs
-
-The instance identity certificates provided to application instance and task containers now contain organizational units with their CF org and space IDs in the certificate subject name. Existing applications must be restarted after an upgrade to PAS v2.2 to receive these new identifiers.
-
-For more information, see [Using Instance Identity Credentials](https://docs.pivotal.io/pivotalcf/2-2/devguide/deploy-apps/instance-identity.html).
-
-### <a id="bosh-dns-enabled"></a> BOSH DNS Enabled By Default
-
-BOSH DNS is enabled by default for both app containers and PCF components in PCF v2.2. 
-
-In previous versions, Consul managed service discovery between PCF components, but Consul is being replaced by BOSH DNS.
-
-<p class="note"><strong>Note:</strong> In PCF v2.2, Consul and BOSH DNS are both available in PCF, but BOSH DNS is the only service used for DNS requests.</p> 
-
-You can disable BOSH DNS if instructed to do so by Pivotal support. If you disabled BOSH DNS in PCF v2.1, reenable it before upgrading to PCF v2.2. For more information, see [BOSH DNS Enabled By Default For App Containers and PCF Components](https://docs.pivotal.io/pivotalcf/2-2/installing/highlights.html#bosh-dns-enable).
-
-<p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
-
-### <a id='c2c-discovery'></a> Service Discovery for Container-to-Container Networking Enabled By Default
-
-In PAS v2.1, service discovery for container-to-container networking was an experimental feature that you could opt in to use. In PAS v2.2, this feature is enabled by default, and you can opt out of using it.
-
-For more information about disabling service discovery for container-to-container networking, see the **Configure Application Developer Controls** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-### <a id='dns-search-domains'></a> DNS Search Domains
-
-PAS v2.2 allows you to configure the DNS search domains to be used in containers by entering a comma-separated list.
-
-For more information, see the **DNS Search Domains** configuration described in the **Container Networking** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-### <a id='pivotal-account'></a> Pivotal Account Replaced by UAA
-
-Prior to PAS v2.2, you could use Pivotal Account to create and manage user accounts. In PAS v2.2, PAS stops using Pivotal Account, and you can now create and manage user accounts through the UAA UI instead.
-
-The **Errands** pane in the PAS tile replaces **Pivotal Account Errand** with the **Delete Pivotal Account Application** errand, which is configured to run automatically. For more information, see the **Configure Errands** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-<p class="note"><strong>Note:</strong> The <strong>Delete Pivotal Account Application</strong> errand does not delete the <code>account</code> database used by the app.</p> 
-
-You can manually delete the `account` database that remains as an artifact in PAS MySQL. Follow the steps below.
-
-1. Use `bosh ssh` to access one of the MySQL VMs in your deployment. See [Advanced Troubleshooting with the BOSH CLI](https://docs.pivotal.io/pivotalcf/2-2/customizing/trouble-advanced.html#bosh-ssh) for instructions. For example:
-
-    ```
-    bosh ssh mysql/0
-    ```
-2. Run the following command to start MySQL using the credentials in `mylogin.cnf`: 
-
-    ```
-    mysql --defaults-file=/var/vcap/jobs/mysql/config/mylogin.cnf
-    ```
-3. Run the following command to delete the `account` database:
-
-    ```
-    DROP database account;
-    ```
-
-### <a id="log-cache"></a> Loggregator Adds Log Cache in PAS Advanced Features
-
-Loggregator adds an in-memory caching layer for logs and metrics and provides a RESTful interface for retrieving them. Use Log Cache to query and filter logs.
-
-Log Cache is colocated on the Doppler VMs. It speeds up the retrieval of data from the Loggregator system, especially for deployments with a large number of Dopplers. Log Cache uses the available memory on a device to store logs, and so may impact performance during periods of high memory contention.
-
-For more information about Log Cache, see [Enable Log Cache](https://docs.pivotal.io/pivotalcf/2-2/opsguide/logging-config-opsman.html#log-cache).
-
-<p class="note breaking"><strong>Breaking Change:</strong> If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail.</a>.</p>
-
-### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
-
-The `cf-drain-cli` plugin now enables app developers to bind user-provided syslog drains to service instances.
-For more information, see the [CF Drain CLI Plugin](https://github.com/cloudfoundry/cf-drain-cli) GitHub repository.
-If a service tile supports syslog drains, app developers can use this plugin to forward logs and metrics from their service instance to an external endpoint.
-
-### <a id="debug-logs"></a> Forwarding of DEBUG Syslog Messages Disabled by Default
-
-By default, PAS v2.2 does not forward DEBUG syslog messages to external services.
-The new **Don't Forward Debug Logs** checkbox is configurable in the **System Logging** pane of the PAS tile.
-
-For more information about configuring this checkbox, see the **(Optional) Configure System Logging** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-If you currently have a custom rule to filter out DEBUG syslog messages, you can delete it.
-Before deleting your custom rule, ensure the **Don't Forward Debug Logs** checkbox is enabled in the PAS tile.
-
-### <a id='autoscaler-ui'></a> App Autoscaler UI Integrated into Apps Manager
-
-The App Autoscaler UI is now integrated into Apps Manager.
-This enables users to configure autoscaling for their apps through Apps Manager.
-The new UI is based on the App Autoscaler API v2.0.
-
-For more information about scaling apps using App Autoscaler, see [Scaling an Application Using App Autoscaler](https://docs.pivotal.io/pivotalcf/2-2/appsman-services/autoscaler/using-autoscaler.html).
-
-### <a id="autoscaler-cli"></a> Improved App Autoscaler CLI
-
-The App Autoscaler CLI now supports creating custom autoscaling rules and scheduled limit changes for apps bound to the App Autoscaler service.
-
-For more information about the App Autoscaler CLI,
-see [Using the App Autoscaler CLI](https://docs.pivotal.io/pivotalcf/2-2/appsman-services/autoscaler/using-autoscaler-cli.html).
-
-### <a id="metrics-collecton-interval"></a> Updated App Autoscaler Metrics Collection Interval Values
-
-This release updates the minimum, maximum, and default values for the Metrics Collection Interval used by the App Autoscaler in PAS. Updated minimum: 60 seconds. Updated maximum: 3600 seconds. Updated default: 120 seconds.
-
-To configure this value, see the **(Optional) Configure App Autoscaler** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-### <a id="verbose-logging-autoscaler"></a> App Autoscaler Verbose Logging
-
-Verbose logs are now available for App Autoscaler. Verbose logs show specific reasons why App Autoscaler scaled the app, information on minimum and maximum instance limits, App Autoscaler's status, and more. Verbose logs result in more detailed logs, but do not otherwise impact performance.
-
-To enable verbose logs, select the **Verbose Logging** checkbox in the App Autoscaler pane.
-
-For more information, see the **(Optional) Configure App Autoscaler** section of the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pas.html).
-
-### <a id='logout'></a> Improved Session Management Behavior in Apps Manager
-
-Users are now logged out of Apps Manager when they log out of UAA or their UAA session expires.
-You can configure the **Global Login Session Max Timeout** and **Global Login Session Idle Timeout** values in the **UAA** pane of the PAS tile.
-
-### <a id="invocation-timeout-api"></a> Health Check Invocation Timeout is Configurable via Cloud Controller V3 API
-
-This V3 API endpoint allows users to change the duration that a health check invocation waits before timing out. When you use the health check API endpoint, the ```invocation_timeout``` flag lets you change the invocation timeout period.
-
-By default, the health check invocation timeout is set to one second. Increasing the invocation timeout period allows health checks to perform complex actions that a shorter invocation timeout period does not allow. 
-
-For more information, see [The health_check object](http://v3-apidocs.cloudfoundry.org/version/3.50.0/index.html#the-health_check-object).
-
+TODO
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="ki-mysql-error"></a> Apps Serve Routes After App Deletion Due to MySQL Errors
+### <a id="nfs-broker-push"></a> The nfsbrokerpush errand fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
 
-After an app is deleted, the app instances are not always cleaned up on Diego cells. Those instances continue to serve routes. 
-
-This error occurs when the Cloud Controller and Diego cells fall out of sync. You can resolve this issue by restarting the `cloud_controller_clock` process in the `clock_global` VM.
-
-For more information, see the Knowledge Base article [Apps Serve Routes Even After App Deletion Due To MySQL Errors](https://community.pivotal.io/s/article/Apps-Continue-to-Serve-Routes-even-after-App-Deletion-due-to-Mysql2Error-This-connection-is-in-use-by--Thread-errors).
-
-### <a id="ki-gcs-blobstore-timeouts"></a> Timeouts Connecting to GCS Blobstores Using Service Account Key Authentication
-
-Pushing large apps may fail if you use Google Cloud Storage (GCS) as an external blobstore, and you authenticate to it with a GCS Service Account. This option is configured in the PAS tile **File Storage** pane, under **Configure your Cloud Controller's filesystem**.
-
-For more information, see the Knowledge Base article [Timeouts connecting to GCS blobstores when configured to use service account key authentication](https://community.pivotal.io/s/article/Timeouts-connecting-to-GCS-blobstores-when-configured-to-use-service-account-key-authentication).
-
-### <a id="ki-boshwindows-access-denied"></a> Deploying PAS Runtime for Windows Results in an Access is Denied Error
-
-This rare issue can occur when you deploy the PAS Runtime for Windows v2.2.
-
-The error reads: `Action Failed get_task: Task 5b085f4a-b56a-42e3-5974-f3876879397d result: Compiling package certsplitter_windows: Removing packages: Uninstalling package bundle: remove /var/vcap/data/packages/golang-windows/83bf1f4181665d2ee2c0118a56bd04764b8f56b0\go\bin\go.exe: Access is denied.`
-
-If you encounter this error, Pivotal recommends retrying the deployment until the error does not occur.
-
-For more information, see the Knowledge Base article [Deploying PAS for Windows Tile Results in an Access is Denied Error](https://community.pivotal.io/s/article/Deploying-PAS-for-Windows-Tile-results-in-access-denied-error).
-
-### <a id="ki-scs-error"></a> PAS Deployment Fails with Spring Cloud Services v1.5.5 and Earlier
-
-If you are running Spring Cloud Services, you need to upgrade to Spring Cloud Services v1.5.6 or later before you can upgrade PCF to v2.2.
-
-For more information, see the Knowledge Base article [Spring Cloud Services Deployment fails with can't resolve link error in PAS 2.2](https://community.pivotal.io/s/article/Spring-Cloud-Services-Deployment-fails-with).
-
-### <a id="ki-golang-issue"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
-
-x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
