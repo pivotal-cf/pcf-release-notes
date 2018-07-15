@@ -15,6 +15,18 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### 2.1.8
 
+** NOTICE: This release has been taken down from PivNet**
+* A bug in OpsManager causes PAS's Diego cells to fail to trust all of the appropriate TLS certificates which were previously trusted before upgrading OpsManager.
+The full impact of the bug has not yet been confirmed, but it is known that it is possible for this bug to additionally affect other tiles.  
+Specifically, it will affect tiles where the author of the tile, inside the tile's YAML definition file, has used a multiline string which contains multiple double-parenthesis expressions within the multi-line string.  
+The bug will cause these to render incorrectly in the BOSH manifest for the tile.  
+These multi-line strings containing multiple double-parenthesis expressions are typically used by tile authors to construct certificate chains for their BOSH manifests.
+*The following is an example of a portion of a tile's YAML file which will be effected by this bug:
+      trusted_certs: |
+          ((( /cf/diego-instance-identity-root-ca.certificate )))
+          (( $ops_manager.ca_certificate ))
+          (( $ops_manager.trusted_certificates ))
+
 * **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
 * **[Feature Improvement]**: Installation Dashboard and deployment status pages may load more quickly.
 * **[Security Fix]**: Bumps Nokogiri to 1.8.4 to remediate [CVE-2017-15412](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15412).
