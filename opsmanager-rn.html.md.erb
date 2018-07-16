@@ -64,17 +64,24 @@ Ops Manager v2.1.9 uses the following component versions:
 
 ### 2.1.8
 
-** NOTICE: This release has been taken down from PivNet**
-* A bug in OpsManager causes PAS's Diego cells to fail to trust all of the appropriate TLS certificates which were previously trusted before upgrading OpsManager.
-The full impact of the bug has not yet been confirmed, but it is known that it is possible for this bug to additionally affect other tiles.  
-Specifically, it will affect tiles where the author of the tile, inside the tile's YAML definition file, has used a multiline string which contains multiple double-parenthesis expressions within the multi-line string.  
-The bug will cause these to render incorrectly in the BOSH manifest for the tile.  
-These multi-line strings containing multiple double-parenthesis expressions are typically used by tile authors to construct certificate chains for their BOSH manifests.
-*The following is an example of a portion of a tile's YAML file which will be effected by this bug:
-      trusted_certs: |
-          ((( /cf/diego-instance-identity-root-ca.certificate )))
-          (( $ops_manager.ca_certificate ))
-          (( $ops_manager.trusted_certificates ))
+<p class="note warning"><strong>WARNING</strong>: This release is no longer available for download. Upgrade to 2.1.9 instead. For more details, continue reading.</p>
+
+In Ops Manager 2.1.8, a bug caused PAS's Diego cells to fail to trust all of the appropriate TLS certificates which were trusted previously.
+
+The full impact of the bug has not yet been confirmed, but it is possible that it affects other tiles. Specifically, it affects tiles where the tile author used a multi-line string which contains multiple double-parenthesis expressions within the multi-line string inside the tile's YAML definition file.  
+
+Tile authors often use multi-line strings containing multiple double-parenthesis expressions to construct certificate chains for their BOSH manifests. This bug causes these strings to render incorrectly in the manifests.
+
+The following is an example of a portion of a tile's YAML file which will be affected by this bug:
+
+<code>
+trusted_certs: | <br/>
+  ((( /cf/diego-instance-identity-root-ca.certificate )))<br/>
+  (( $ops_manager.ca_certificate ))<br/>
+  (( $ops_manager.trusted_certificates ))
+</code>
+
+This version of Ops Manager is no longer available on Pivotal Network. Upgrade to 2.1.9 instead.
 
 * **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
 * **[Feature Improvement]**: Installation Dashboard and deployment status pages may load more quickly.
