@@ -16,9 +16,9 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### 2.1.9
 
-* **[Bug Fix]**: Fixes critical manifest generation grammar issue introduced in 2.1.8.
+* **[Bug Fix]**: Fixes critical manifest generation grammar issue introduced in v2.1.8.
 
-2.1.8 is no longer available.
+Ops Manager v2.1.8 is no longer available.
 
 Ops Manager v2.1.9 uses the following component versions:
 
@@ -64,9 +64,9 @@ Ops Manager v2.1.9 uses the following component versions:
 
 ### 2.1.8
 
-<p class="note warning"><strong>WARNING</strong>: This release is no longer available for download. Upgrade to 2.1.9 instead. For more details, continue reading.</p>
+<p class="note warning"><strong>WARNING</strong>: This release is no longer available for download. Upgrade to v2.1.9 instead. For more details, continue reading.</p>
 
-In Ops Manager 2.1.8, a bug caused PAS's Diego cells to fail to trust all of the appropriate TLS certificates which were trusted previously.
+In Ops Manager v2.1.8, a bug caused PAS's Diego cells to fail to trust all of the appropriate TLS certificates which were trusted previously.
 
 The full impact of the bug has not yet been confirmed, but it is possible that it affects other tiles. Specifically, it affects tiles where the tile author used a multi-line string which contains multiple double-parenthesis expressions within the multi-line string inside the tile's YAML definition file.  
 
@@ -81,7 +81,7 @@ trusted_certs: | <br/>
   (( $ops_manager.trusted_certificates ))
 </code>
 
-This version of Ops Manager is no longer available on Pivotal Network. Upgrade to 2.1.9 instead.
+This version of Ops Manager is no longer available on Pivotal Network. Upgrade to v2.1.9 instead.
 
 * **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
 * **[Feature Improvement]**: Installation Dashboard and deployment status pages may load more quickly.
