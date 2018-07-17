@@ -544,7 +544,7 @@ For more information about how to encrypt BOSH and Ops Manager VMs, see [Configu
 
 ### <a id="credhub-hsm"></a> Configure an External CredHub Encryption Provider
 
-In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal storage or a Luna Hardware Security Module (HSM). For more information about configuring your CredHub encryption provider, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
+In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal storage or a Luna Hardware Security Module (HSM). For more information about configuring your CredHub encryption provider, see the **Director Config Page** section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/deploy-bosh-om.html).
 
 ### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged In Simultaneously
 
@@ -554,11 +554,11 @@ For security purposes, operators with write access still cannot be logged into O
 
 ### <a id="custom-banner"></a> Create a Custom Banner
 
-From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see [Settings Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-interface.html#settings).
+From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see the **Settings Page** of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/deploy-bosh-om.html).
 
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
-You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of *Configuring Ops Manager Director on GCP*.
+You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of the _Configuring Ops Manager Director on GCP_ topic.
 
 <p class="note"><strong>Note:</strong> After you deploy Ops Manager, you cannot change the blobstore location.</p>
 
@@ -568,13 +568,13 @@ In the **Resource Config** pane of the Azure configuration dashboard, you can en
 
 To learn more about Azure Application Gateway, see [Overview of Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) in the Azure documentation.
 
-To learn more about configuring your load balancer for Azure, see the [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/azure-om-config.html#resource-config) section in the *Configuring Ops Manager on Azure* topic.
+To learn more about configuring your load balancer for Azure, see the [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/azure-om-config.html#resource-config) section of the _Configuring Ops Manager on Azure_ topic.
 
 <p class="note"><strong>Note:</strong> This feature is not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration.</p>
 
 ### <a id="multiple-clusters"></a> Add Multiple Clusters to Availability Zones
 
-In the vSphere configuration dashboard, you can now add multiple clusters to an Availability Zone (AZ) with the new **Add Cluster** button. For more information about configuring AZs, see [Create Availability Zone Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/vsphere-config.html#create-az) in the _Configuring Ops Manager on vSphere_ topic.
+In the vSphere configuration dashboard, you can now add multiple clusters to an Availability Zone (AZ) with the new **Add Cluster** button. For more information about configuring AZs, see the [Create Availability Zone Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/vsphere-config.html#create-az) section of the _Configuring Ops Manager on vSphere_ topic.
 
 ### <a id="ip-discontinued"></a> IP Address Management (IPAM) Removed
 
@@ -639,4 +639,5 @@ For more information about the AWS KMS feature, see [AWS KMS Encryption Availabl
 ## <a id="bug-fixes"></a> Bug Fixes
 
 * Ops Manager now validates inventory service vSphere vCenter privileges. For more information about this breaking change, see [Additional vSphere Permission Validation](breaking-changes.html#inventory-service) in the _PCF v2.1 Breaking Changes_ release notes.
+
 * Ops Manager sets a consistent entity ID in both SAML and non-SAML cases.
