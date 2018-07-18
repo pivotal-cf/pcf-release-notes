@@ -432,6 +432,14 @@ By default, the health check invocation timeout is set to one second. Increasing
 
 For more information, see [The health_check object](http://v3-apidocs.cloudfoundry.org/version/3.50.0/index.html#the-health_check-object).
 
+### <a id='selector-based'></a> Selector-Based Subscripton Model and Reference Nozzles
+
+You can request Firehose subscriptions that filter out all unspecified content using the Loggregator v2 API endpoint from the Reverse Log Proxy.
+
+For examples of nozzles that use the Loggregator V2 API and consume only specified whitelisted metrics, see `rlpreader` and `rlptypereader` in the [loggregator-tools](https://github.com/cloudfoundry-incubator/loggregator-tools) repository. 
+
+For more information about this feature, see the _V2 Subscriptions_ page of the [loggregator-release](https://github.com/cloudfoundry/loggregator-release/blob/master/docs/v2-subscriptions.md) repository. 
+
 
 ## <a id='known-issues'></a> Known Issues
 
