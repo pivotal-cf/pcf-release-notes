@@ -15,6 +15,53 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.2.
 
+### v2.2.1
+
+* **[Bug Fix]**: Fixes critical manifest generation grammar issue.
+* **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
+* **[Bug Fix]**: Certain VM image components no longer write to the real disk after reboot.
+* **[Bug Fix]**: Ops Manager now verfies certificates successfully when connecting to S3 blobstores with TLS. This resolves a <a href="#ki-opsmanager-tls-error">known issue</a> in Ops Manager v2.2.0. For more information, see [Operations Manager Validation returns TLS error when configuring Bosh Director S3 blobstore](https://pvtl.force.com/s/article/Operations-Manager-Validation-returns-TLS-error-when-configuring-Bosh-Director-S3-blobstore).
+* **[Security Fix]**: Bumps Nokogiri to 1.8.4 to remediate [CVE-2017-15412](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15412).
+* **[Feature Improvement]**: Installation Dashboard and deployment status pages may load more quickly.
+
+Ops Manager v2.2.1 uses the following component versions:
+
+ <table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3586.25*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.6</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>266.6*</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.6</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.9.3</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.3</td>
+  </tr><tr>
+    <td>UAA</td><td>57.4*</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>70</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.2</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>38</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>50</td>
+  </tr>* *Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.*<tr>
+  </tbody>
+  </table>
+
 ### 2.2.0
 
 Ops Manager v2.2.0 uses the following component versions:
