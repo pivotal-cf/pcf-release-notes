@@ -535,9 +535,11 @@ You can configure the **Global Login Session Max Timeout** and **Global Login Se
 
 ### <a id="invocation-timeout-api"></a> Health Check Invocation Timeout is Configurable via Cloud Controller V3 API
 
-This V3 API endpoint allows users to change the duration that a health check invocation waits before timing out. When you use the health check API endpoint, the ```invocation_timeout``` flag lets you change the invocation timeout period.
+This V3 API endpoint allows users to change the duration of a health check invocation timeout. An invocation timeout is a period of time within a standard timeout period, during which a healthcheck assess the health of your app. A responsive app is marked as alive, but an unresponsive app is marked as dead. 
 
-By default, the health check invocation timeout is set to one second. Increasing the invocation timeout period allows health checks to perform complex actions that a shorter invocation timeout period does not allow. 
+By default, the health check invocation timeout is set to one second. Increasing the invocation timeout period allows health checks to perform complex actions that may exceed the default timeout setting. A longer invocation timeout period may prevent your app from being marked as dead when it is actually healthy.
+
+Change the invocation timeout period with the ```invocation_timeout``` flag in the healthcheck API.
 
 For more information, see [The health_check object](http://v3-apidocs.cloudfoundry.org/version/3.50.0/index.html#the-health_check-object).
 
