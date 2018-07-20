@@ -13,6 +13,49 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-11/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.11.
 
+### 1.11.29
+
+* **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
+* **[Security Fix]**: Bumps Nogokiri to 1.8.4 to remediate [CVE-2017-15412](https://cve.mitre.org/
+cgi-bin/cvename.cgi?name=CVE-2017-15412). 
+* **[Security Fix]**: Bumps Sprokets to 3.72 or later to remediate [CVE-2018-3760](https://groups.google.com/forum/#!topic/ruby-security-ann/2S9Pwz2i16k).
+* **[Security Fix]**: Files on Ops Manager VM are no longer world-writeable 
+* **[Security Fix]**: On vSphere, ubuntu users are now required to enter their password when using `sudo`.
+
+Ops Manager v1.11.29 uses the following component versions:
+
+<table border="1" class="nice">
+    <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Stemcell</td><td>3421.68*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>262.8</td>
+    </tr><tr>
+      <td><code>bosh-init</code></td><td>0.0.103</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.0.11</td>
+    </tr><tr>
+      <td>UAA</td><td>45.11*</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>69</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>35</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>27</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>45.1.0</td>
+    </tr><tr>
+    </tbody>
+</table>
+
 ### 1.11.28
 
 * **[Security Fix]** Bumps stemcell to 3421.63.
