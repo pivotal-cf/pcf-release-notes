@@ -147,22 +147,24 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.3 to successfully upgrade to PAS v2.3.
 
-* GrootFS must be enabled **prior to** upgrading to PAS v2.3. *Note: This can be enabled by navigating to "Application Containers" within the PAS tile config and selecting "Enable the GrootFS container image plugin for Garden RunC". We recommend recreating all VMs when enabling GrootFS.*
+* You must enable GrootFS before upgrading to PAS v2.3. To enable GrootFS, go to **Application Containers** in PAS and select **Enable the GrootFS container image plugin for Garden RunC**. Pivotal recommends recreating all VMs when enabling GrootFS. To recreate all VMs, go to **Director Config** in the BOSH Director tile and selet **Recreate all VMs**. 
 
 * Some partner service tiles may be incompatible with PCF v2.3. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.3, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in PAS v2.3
 
-### Container Image Management Tool (CIMT) no longer configurable
+###  CIMT No Longer Configurable
 
-The previous CIMT has been removed and GrootFS will now be used in all PAS deployments. GrootFS was introduced as the default CIMT in PAS 1.12 with the ability to opt-out in favor of using the old (deprecated) CIMT.
+PAS v2.3 uses GrootFS as the only container image management tool (CIMT) and removes the ability to use the CIMT built into Garden-runC.
 
-The ability to opt-out of using GrootFS has now been removed.
+PAS v1.12 to v2.2 includes GrootFS as the default CIMT but provides the ability to use the built-in CIMT instead. In PAS v2.3, there is no checkbox to enable or disable GrootFS in the **Configure Application Containers** pane. 
 
-TODO
+<p class="warning note"><strong>WARNING</strong>: You must enable GrootFS before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="nfs-broker-push"></a> The nfsbrokerpush errand fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
+### <a id="nfs-broker-push"></a> nfsbrokerpush Errand Failure
+
+The `nfsbrokerpush` errand fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
 
