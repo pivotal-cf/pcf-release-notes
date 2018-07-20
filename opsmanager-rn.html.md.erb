@@ -13,13 +13,57 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
 
+### 1.12.23
+
+* **[Bug Fix]**: Ops Manager now verfies certificates successfully when connecting to S3 blobstores with TLS. For more information, see [Operations Manager Validation returns TLS error when configuring Bosh Director S3 blobstore](https://pvtl.force.com/s/article/Operations-Manager-Validation-returns-TLS-error-when-configuring-Bosh-Director-S3-blobstore).
+* **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
+* **[Security Fix]**: Bumps Nogokiri to 1.8.4 to remediate [CVE-2017-15412](https://cve.mitre.org/
+cgi-bin/cvename.cgi?name=CVE-2017-15412). 
+
+Ops Manager v1.12.23 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Stemcell</td><td>3445.53*</td>
+    </tr><tr>
+      <td>BOSH Director</td><td>263.11</td>
+    </tr><tr>
+      <td>CredHub</td><td>1.3.5</td>
+    </tr><tr>
+      <td>UAA</td><td>45.11*</td>
+    </tr><tr>
+      <td>AWS CPI</td><td>69</td>
+    </tr><tr>
+      <td>Azure CPI</td><td>34</td>
+    </tr><tr>
+      <td>GCP CPI</td><td>25.9.0</td>
+    </tr><tr>
+      <td>OpenStack CPI</td><td>35</td>
+    </tr><tr>
+      <td>vSphere CPI</td><td>45.1.0</td>
+    </tr><tr>
+  </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+    </tr>
+  </tfoot>
+</table>
+
 ### 1.12.22
 
-* **[Bug Fix]** You can now delete the only AZ in an installation.
-* **[Bug Fix]** You can now delete the first AZ in an installation, provided that it is not associated with a deployed product. 
-* **[Bug Fix]** You can now delete the only network in an installation.
-* **[Security Fix]** On vSphere, the `ubuntu` user must enter their password when using `sudo`. 
-* **[Security Fix]** Bumps Sprockets to v3.72 or later for CVE. See [[CVE-2018-3760] Path Traversal in Sprockets](https://groups.google.com/forum/#!topic/ruby-security-ann/2S9Pwz2i16k) for more information.
+* **[Bug Fix]**: You can now delete the only AZ in an installation.
+* **[Bug Fix]**: You can now delete the first AZ in an installation, provided that it is not associated with a deployed product. 
+* **[Bug Fix]**: You can now delete the only network in an installation.
+* **[Security Fix]**: On vSphere, the `ubuntu` user must enter their password when using `sudo`. 
+* **[Security Fix]**: Bumps Sprockets to v3.72 or later for CVE. See [[CVE-2018-3760] Path Traversal in Sprockets](https://groups.google.com/forum/#!topic/ruby-security-ann/2S9Pwz2i16k) for more information.
 
 Ops Manager v1.12.22 uses the following component versions:
 
