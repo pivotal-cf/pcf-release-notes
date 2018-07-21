@@ -11,6 +11,134 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-alpha.2'></a>2.3.0-alpha.2
+
+* **[Feature Improvement]** Use stemcell based on Ubuntu Xenial
+* **[Feature Improvement]** `capi` `/v2/info` endpoint returns additional metadata for `name`, `build` and `description`
+* **[Feature Improvement]** Allows PCF Metrics to be installed with both v1.5 and v1.4 versions to prevent dataloss.
+* **[Bug fix]** Apps using a Docker image from an insecure registry configured in the Private Docker Insecure Registry Whitelist can now be staged successfully.
+
+* Bump bpm to version `0.9.0`
+* Bump broker-registrar to version `3.4.0`
+* Bump capi to version `1.62.0`
+* Bump cf-mysql to version `36.15.0`
+* Bump cf-networking to version `2.9.0`
+* Bump cflinuxfs2 to version `1.227.0`
+* Bump credhub to version `1.9.5`
+* Bump diego to version `2.13.0`
+* Bump java-offline-buildpack to version `4.13`
+* Bump log-cache to version `1.4.0`
+* Bump loggregator to version `103.0`
+* Bump silk to version `2.9.0`
+* Bump uaa to version `60.2`
+* Bump stemcell to version `97`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>97</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.8.1</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.21</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>bpm</td><td>0.9.0</td>
+  </tr><tr>
+    <td>broker-registrar</td><td>3.4.0</td>
+  </tr><tr>
+    <td>capi</td><td>1.62.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>203.0.0</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.15.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.9.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.5</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>7.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.227.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.5</td>
+  </tr><tr>
+    <td>diego</td><td>2.13.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.3</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.15.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.25</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.8.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.13</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.4.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>103.0</td>
+  </tr><tr>
+    <td>mapfs</td><td>1.0.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.4.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.28</td>
+  </tr><tr>
+    <td>notifications</td><td>51</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.57</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.9.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.6</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>667.0.1</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.18</td>
+  </tr><tr>
+    <td>pxc</td><td>0.10.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.179.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.21</td>
+  </tr><tr>
+    <td>silk</td><td>2.9.0</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.29</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>60.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
 
 * Remove ability to opt-out of GrootFS
@@ -164,7 +292,18 @@ PAS v1.12 to v2.2 includes GrootFS as the default CIMT but provides the ability 
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="nfs-broker-push"></a> nfsbrokerpush Errand Failure
+### <a id="nfs-broker-push"></a> nfsbrokerpush errand failure
 
-The `nfsbrokerpush` errand fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
+The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
 
+### <a id="bbr-aws"></a> BOSH Backup and Restore (BBR) failure on AWS
+
+On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (BBR) may fail.
+
+### <a id="ops-manager-2-3"></a> PAS fails to deploy with latest Ops Manager 2.3 alphas
+
+PAS fails to deploy with latest Ops Manager 2.3 as of this time (2.3-alpha.1 and 2.3-alpha.2). The tile was last tested successfully with Ops Manager 2.2.0.
+
+### <a id="xenial-pivnet"></a> Ubuntu Xenial not declared as dependency on PivNet
+
+The PAS tile now requires an Ubuntu Xenial stemcell. The stemcell is available as a beta product on PivNet, but is not able to be declared as a dependency in the PivNet UI.

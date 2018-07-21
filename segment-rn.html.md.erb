@@ -5,6 +5,63 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-alpha.2'></a>2.3.0-alpha.2
+
+* **[Feature Improvement]** Use stemcell based on Ubuntu Xenial
+* **[Feature Improvement]** Enable app service discovery for cells in isolation segments
+
+* Bump bpm to version `0.9.0`
+* Bump cf-networking to version `2.9.0`
+* Bump cflinuxfs2 to version `1.227.0`
+* Bump diego to version `2.13.0`
+* Bump loggregator to version `103.0`
+* Bump silk to version `2.9.0`
+* Bump stemcell to version `97`
+
+ <table border="1" class="nice">
+ <thead> <tr>
+   <th>Component</th>
+   <th>Version</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+   <td>stemcell</td><td>97</td>
+ </tr><tr>
+   <td>bmp</td><td>0.9.0</td>
+ </tr><tr>
+   <td>cf-networking</td><td>2.9.0</td>
+ </tr><tr>
+   <td>cflinuxfs2</td><td>1.227.0</td>
+ </tr><tr>
+   <td>consul</td><td>195</td>
+ </tr><tr>
+   <td>diego</td><td>2.13.0</td>
+ </tr><tr>
+   <td>garden-runc</td><td>1.15.1</td>
+ </tr><tr>
+   <td>haproxy</td><td>8.8.0</td>
+ </tr><tr>
+   <td>loggregator</td><td>103.0</td>
+ </tr><tr>
+   <td>mapfs</td><td>1.0.1</td>
+ </tr><tr>
+   <td>nfs-volume</td><td>1.4.0</td>
+ </tr><tr>
+   <td>routing</td><td>0.179.0</td>
+ </tr><tr>
+   <td>silk</td><td>2.9.0</td>
+ </tr>
+   <td>syslog</td><td>11.3.2</td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+ </tr>
+ </tfoot>
+ </table>
+
 ### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
 
 * Bump bpm to version `0.8.0`
@@ -88,4 +145,10 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="nfs-broker-push"></a> The nfsbrokerpush errand fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
+### <a id="nfs-broker-push"></a> nfsbrokerpush errand failure
+
+The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
+
+### <a id="xenial-pivnet"></a> Ubuntu Xenial not declared as dependency on PivNet
+
+The Isolation Segment tile (IST) now requires an Ubuntu Xenial stemcell. The stemcell is available as a beta product on PivNet, but is not able to be declared as a dependency in the PivNet UI.
