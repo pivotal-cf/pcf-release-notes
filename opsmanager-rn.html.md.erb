@@ -278,7 +278,7 @@ With BOSH DNS, every BOSH-deployed VM has a DNS server. In large PCF installatio
 
 This error is caused by a race condition and deadlock in the VM's DNS server.
 
-To fix this problem, use `monit` to restart the `bosh-dns` process.
+To fix this problem, run `monit` on the VM with failing DNS to restart its `bosh-dns` process.
 
 ### <a id="ki-opsmanager-tls-error"></a>Ops Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
 
