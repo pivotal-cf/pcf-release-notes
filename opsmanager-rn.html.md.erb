@@ -652,6 +652,14 @@ From the **Resource Config** pane of an AWS installation, you can associate an A
 
 ## <a id="known-issues"></a> Known Issues
 
+### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
+
+With BOSH DNS, every BOSH-deployed VM has a DNS server. In large PCF installations, this DNS server may hang or DNS lookups may fail when the VM experiences too many DNS lookups in a short amount of time.
+
+This error is caused by a race condition and deadlock in the VM's DNS server.
+
+To fix this problem, run `monit` on the VM with failing DNS to restart its `bosh-dns` process.
+
 ### <a id="override-port"></a> Azure Load Balancer Does Not Support Override Port
 
 The Azure Application Gateway feature is currently not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration. For more information about this feature, see [Integrate Azure Application Gateway Load Balancers](#azure-application-gateway) above.
