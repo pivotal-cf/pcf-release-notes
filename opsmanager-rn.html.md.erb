@@ -272,13 +272,13 @@ Ops Manager no longer includes a **When Changed** option for tile errands. In th
 
 ## <a id="known-issues"></a> Known Issues
 
-### <a id="ki-bosh-dns-hangs"></a>DNS server hangs or DNS lookups on the VM fail
+### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
 
-In large PCF installations, it possible that the DNS server hangs or the DNS lookups fail on BOSH deployed VMs. 
+With BOSH DNS, every BOSH-deployed VM has a DNS server. In large PCF installations, this DNS server may hang or DNS lookups may fail when the VM experiences too many DNS lookups in a short amount of time.
 
-This error happens because of a race condition and deadlock in the DNS server. 
+This error is caused by a race condition and deadlock in the VM's DNS server.
 
-To remediate this issue, use monit to restart the bosh-dns process.
+To fix this problem, use `monit` to restart the `bosh-dns` process.
 
 ### <a id="ki-opsmanager-tls-error"></a>Ops Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
 
