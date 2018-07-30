@@ -1075,6 +1075,14 @@ Ops Manager v2.0 supports specifying and rendering named manifests in a collecti
 
 ## <a id="known-issues"></a> Known Issues
 
+### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
+
+With BOSH DNS, every BOSH-deployed VM has a DNS server. In large PCF installations, this DNS server may hang or DNS lookups may fail when the VM experiences too many DNS lookups in a short amount of time.
+
+This error is caused by a race condition and deadlock in the VM's DNS server.
+
+To fix this problem, run `monit` on the VM with failing DNS to restart its `bosh-dns` process.
+
 ### <a id="cloud-properties-changes"></a> AWS KMS Encryption Requires Manual Refresh
 
 If you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOSH Director tile, only future BOSH-deployed VMs are encrypted. To manually trigger current BOSH VMs to encrypt their persistent disks, ephemeral disks, and root separately, you must make the following changes:
