@@ -25,7 +25,7 @@ The SSH proxy now accepts a narrower range of ciphers, MACs, and key exchanges. 
 
 ### <a id="db-tls-downtime"></a> Temporary Downtime when Migrating Internal System Databases 
 
-If you use internal system databases, migrating the databases to the new option of **Internal Databases - MySQL - Percona XtraDB Cluster** causes temporary downtime of PAS system functions. Migrating the database does not interrupt apps running on PAS, but does temporarily prevent you from pushing new ones. For more information, see [Migrate to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-2/opsguide/scaling-down-mysql.html#migrate).
+If you use internal system databases, migrating the databases to the new option of **Internal Databases - MySQL - Percona XtraDB Cluster** causes temporary downtime of PAS system functions. Migrating the database does not interrupt apps running on PAS, but does temporarily prevent you from pushing new ones. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-2/opsguide/migrate-internal-mysql.html).
 
 PAS v2.2 deprecates the MariaDB Galera internal database option, and Pivotal plans to remove MariaDB Galera as a database option in PAS v2.3. To continue using internal system databases in future versions of PAS, you need to migrate them to Percona while you are running PAS v2.2, or else when you upgrade to PAS v2.3.
 
