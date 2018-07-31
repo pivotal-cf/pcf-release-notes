@@ -3424,7 +3424,16 @@ If you configure PAS to use **Internal MySQL**, ensure that you select **Disable
 
 To back up and restore the internal MySQL database, you must use BOSH Backup and Restore (BBR). See [Backing Up and Restoring Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-0/customizing/backup-restore/index.html) for information on using BBR. 
 
-For more information on this issue, see the following Pivotal Knowledge Base article: [Restore from PAS Automated Database Backup is Not Supported in 1.11 and later](https://discuss.pivotal.io/hc/en-us/articles/360001817593-Restore-from-PAS-Automated-Database-Backup-is-Not-Supported-in-1-11-and-later-).
+For more information on this issue, see the Knowledge base article [Restore from PAS Automated Database Backup is Not Supported in 1.11 and later](https://discuss.pivotal.io/hc/en-us/articles/360001817593-Restore-from-PAS-Automated-Database-Backup-is-Not-Supported-in-1-11-and-later-).
+
+### <a id='java-apps'></a> Some Java Apps Do Not Work in PAS v1.12 and Later
+
+Some Java apps that work as expected in PAS v1.11 do not work when pushed to PAS v1.12 or later, or when PAS is upgraded to v1.12 or later. When upgrading from v1.11 to v1.12, the app does not need to be repushed to encounter this issue. Upgrading to v1.12 with GrootFS enabled may expose a misconfigured app.
+
+Java apps may fail if they have duplicate class entries on their classpath, depending on the file ordering provided by the underlying filesystem and operating system to the JVM. In PAS v1.11 and prior, Cloud Foundry Garden uses Garden Shed as its filesystem, which is based on Aufs on ext4. In PAS v1.12 and higher, Garden uses OverlayFS on XFS as its filesystem, unless you disable GrootFS.
+
+If upgrading to PAS v1.12 or later causes Java apps to stop working, eliminate duplicate classpath entries in your app.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
