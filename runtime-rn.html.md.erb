@@ -3434,6 +3434,27 @@ Java apps may fail if they have duplicate class entries on their classpath, depe
 
 If upgrading to PAS v1.12 or later causes Java apps to stop working, eliminate duplicate classpath entries in your app.
 
+### <a id='tcp-port-config'></a> Configuring Multiple TCP Ports
+
+You cannot enter a comma-separated list of ports in the **TCP Routing Ports** field of the PAS tile. If you enter a comma-separated list, the Routing API does not start. The field allows the following formatting:
+
+* A single value, such as `1234`
+* A range of values, such as `1234-5678`
+
+If you want to configure multiple ports, Pivotal recommends the following:
+
+<p class="note"><strong>Note</strong>: This procedure causes brief downtime for TCP applications that are listening on ports that are opened post deployment.</p>
+
+1. Configure PAS with **Enable TCP Routing** selected.
+1. Enter one port you want to use in the **TCP Routing Ports** field. 
+1. Deploy PAS. 
+1. Use the Routing API to modify the TCP routing ports to include all the ports you want to configure. When using the Routing API, you can include a comma separated list of ports. See the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic.  
+
+---
+
+
+
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
