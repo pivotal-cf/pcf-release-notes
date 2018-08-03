@@ -587,3 +587,25 @@ For more information, see the Knowledge Base article [Spring Cloud Services Depl
 ### <a id="ki-golang-issue"></a> Some Components Use Go v1.9 to Avoid x.509 Cert Errors in v1.10
 
 x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
+
+### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
+
+This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI. 
+
+#### Issue
+
+You cannot enter a comma-separated list of ports in the **TCP Routing Ports** field of the PAS tile. If you enter a comma-separated list, the Routing API does not start. The **TCP Routing Ports** field allows entries in the following formats:
+
+* A single value, such as `1234`
+* A range of values, such as `1234-5678`
+
+#### Workaround
+
+If you want to configure multiple ports, Pivotal recommends following these steps:
+
+<p class="note"><strong>Note</strong>: This procedure causes brief downtime for TCP apps listening on ports that you open after deploying PAS.</p>
+
+1. Configure PAS with **Enable TCP Routing** selected.
+1. Enter one port you want to use in the **TCP Routing Ports** field. 
+1. Deploy PAS. 
+1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/2-2/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports. 
