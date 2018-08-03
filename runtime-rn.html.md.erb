@@ -1462,3 +1462,25 @@ BOSH VM metrics are not being emitted for Windows Diego cells in PCF v2.1.
 ### <a id='525-handshake-failures'></a> 525 Handshake Failures When Connecting to Back Ends
 
 If you disable TLS from verifying back end identity and redeploy PCF after having already enabled it in your previous deployment, and the deployment has apps with more than one instance, you might see an increase in the number of 525 Handshake Failure errors. Pivotal recommends you do not disable TLS to validate identity once it has already been enabled.
+
+### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
+
+This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI. 
+
+#### Issue
+
+You cannot enter a comma-separated list of ports in the **TCP Routing Ports** field of the PAS tile. If you enter a comma-separated list, the Routing API does not start. The **TCP Routing Ports** field allows entries in the following formats:
+
+* A single value, such as `1234`
+* A range of values, such as `1234-5678`
+
+#### Workaround
+
+If you want to configure multiple ports, Pivotal recommends following these steps:
+
+<p class="note"><strong>Note</strong>: This procedure causes brief downtime for TCP apps listening on ports that you open after deploying PAS.</p>
+
+1. Configure PAS with **Enable TCP Routing** selected.
+1. Enter one port you want to use in the **TCP Routing Ports** field. 
+1. Deploy PAS. 
+1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/2-1/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports. 
