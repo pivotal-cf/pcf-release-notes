@@ -5,6 +5,54 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.1.9'></a> 2.1.9
+
+* **[Bug Fix]** Fix TLS pruning behavior for Gorouter
+* **[Bug Fix]** Docker image based app resource reporting correctly includes image size in disk usage
+
+* Bump diego to version `1.35.8`
+* Bump loggregator to version `101.13`
+* Bump routing to version `0.174.2`
+* Bump stemcell to version `3541.36`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3541.36</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.2\*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.227.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.8</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.13</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.2</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.1</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.1.8'></a> 2.1.8
 
 * **[Feature Improvement]** Add ability to configure HAproxy client certificate verification
