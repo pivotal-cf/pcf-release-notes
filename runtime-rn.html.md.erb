@@ -298,7 +298,7 @@ bpm is a layer between `monit` and the BOSH jobs running on PAS component VMs. I
 
 * **A well-defined lifecycle**: The introduction of bpm removes a dependency on `monit`. `monit` cannot guarantee job and process start order, and has hidden timeouts that can put a system in an unexpected state. In contrast, bpm clearly defines how it communicates with a process, as well as job length and behavior. 
 * **Isolation**: bpm isolates collocated jobs from each other. With the exception of networking, bpm namespaces system resources so a job cannot view or interact with the processes of another job. This provides a security barrier such that if a job on a VM is compromised, the incident is limited to just that job rather than all jobs on the same machine.
-* **Resource limiting**: bpm includes resource limiting capability. This prevents any one job using too many operating system resources and impacting collocated jobs. 
+* **Resource limiting**: bpm includes resource limiting capability. This prevents any one job from using too many operating system resources and impacting collocated jobs. 
 
 For more information about bpm, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
 
