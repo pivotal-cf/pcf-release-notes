@@ -282,6 +282,14 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.3
 
+### <a id="xenial"> Introducing Xenial Stemcells
+
+PAS v2.3.0 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus). 
+
+The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates. 
+
+Using Xenial stemcells in v2.3 ensures that PAS users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical. 
+
 ### <a id="cimt"> CIMT No Longer Configurable
 
 PAS v2.3 uses GrootFS as the only container image management tool (CIMT) and removes the ability to use the CIMT built into Garden-runC.
