@@ -96,7 +96,29 @@ The Pivotal Application Service (PAS) for Windows v2.3 tile is available with th
 
 ## <a id='new-features'></a> New Features in PAS for Windows v2.3
 
-TODO
+PAS for Windows v2.3 includes the following major features:
+
+### <a id='multi-buildpacks'></a>Support for Multiple Buildpacks
+
+PAS for Windows v2.3 introduces support for pushing a .NET app with multiple buildpacks.
+
+For more information, see [Pushing an Application with Multiple Buildpacks](../buildpacks/use-multiple-buildpacks.html).
+
+### <a id='ephemeral-disk'></a>Ephemeral Disk Configuration Options
+
+Operators can now use ephemeral disk configuration options for Windows Server cells.
+
+### <a id='compression'></a>HTTP Compression in the HWC Buildpack
+
+PAS for Windows v2.3 enables the HTTP compression module from Internet Information Services (IIS), which enables gzip compression for static assets and dynamic content in the HWC buildpack.
+
+### <a id='windows-v1803'></a>Windows Server version 1803
+
+PAS for Windows v2.3 includes the latest version of Windows Server (version 1803).
+The container image for Windows Server version 1803 is 30% smaller than the previous release (version 1709), reducing the memory footprint required for .NET apps.
+The release also includes optimizations for containers, improved compatibility, and enhanced debugging tools.
+
+For more information, see [What's New in Windows Server version 1803](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1803) in the Microsoft documentation.
 
 ## <a id='adv-features'></a> About Advanced Features
 
@@ -106,6 +128,13 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="diego-windows-azure"></a> Diego release v2.12.0 has a known issue running on Windows cells on Azure.
+This section includes known issues with PAS for Windows v2.3.
 
-### <a id="stemcell-1709-10"></a> Stemcell 1709.10 is not available for AWS and has other known issues. It is recommended that you do not deploy this tile until a newer stemcell is available.
+### <a id="diego-windows-azure"></a>Diego v2.12.0 Issue for Windows Cells on Azure
+
+Diego release v2.12.0 has a known issue running on Windows cells on Azure.
+
+### <a id="stemcell-1709-10"></a>Stemcell v1709.10 Not Available for AWS
+
+Stemcell v1709.10 is not available for AWS and has other known issues.
+It is recommended that you do not deploy this tile until a newer stemcell is available.
