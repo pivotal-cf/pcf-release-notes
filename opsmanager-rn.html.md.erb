@@ -106,7 +106,7 @@ Ops Manager v2.3 includes the following major features:
 
 Ops Manager and BOSH Director stemcells run on Ubuntu 16.04, "Xenial Zerus." This Long Term Support (LTS) release is valid through April 2021. 
 
-### <a id="bosh-dns">BOSH DNS is Required
+### <a id="bosh-dns"></a> BOSH DNS is Required
 
 BOSH DNS is enabled by default in PCF 2.3. 
 
@@ -114,7 +114,7 @@ The option to disable BOSH DNS is no longer available in the Ops Manager UI or A
 
 <p class="note warning"><strong>WARNING</strong>: Upgrades to PCF 2.3 will fail if BOSH DNS is disabled. Enable BOSH DNS before upgrading to PCF 2.3.</p>
 
-### <a id="bosh-dns-certs">BOSH DNS Certificate Authority Upgrades
+### <a id="bosh-dns-certs"></a> BOSH DNS Certificate Authority Upgrades
 
 BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to 2.3.
 
@@ -125,7 +125,7 @@ To apply the CAs completely, you must upgrade to PCF 2.3 and then rotate all cer
 1. Use the Ops Manager API to `POST /api/v0/certificate_authorities/active/regenerate`.
 1. **Apply Changes** for all tiles simultaneously to rotate the certificates.
 
-### <a id="ldap"></a>Ops Manager Supports LDAP Authentication
+### <a id="ldap"></a> Ops Manager Supports LDAP Authentication
 
 Lightweight Directory Access Protocal (LDAP) authentication is now available. It joins the Security Assertion Markup Language (SAML) as one of two authentication methods Ops Manager supports.
 
@@ -137,7 +137,7 @@ Lightweight Directory Access Protocal (LDAP) authentication is now available. It
 
 If you use OpenStack, you can now boot virtual machines (VMs) from a Cinder volume. Cinder is an opensource block storage solution for OpenStack users. Access this option from the OpenStack _IaaS Config_ page. 
 
-### <a id="persistent-disk">Recreate Persistent Disks for Specific Installations
+### <a id="persistent-disk"></a> Recreate Persistent Disks for Specific Installations
 
 Operators can now recreate all persistent disks for an installation by selecting a checkbox in the _Director Config_ page. On next **Apply Changes**, this feature recreates the persistent disks for the BOSH Director, the BOSH Director VM, and all tiles.
 
