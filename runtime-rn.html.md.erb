@@ -300,13 +300,18 @@ bpm also includes resource limiting capability. This prevents any one job from u
 
 For more information about bpm, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
 
-### <a id="cimt"></a> CIMT No Longer Configurable
+### <a id="groot"></a> Deprecated Garden Image Plugin Option Removed
 
-PAS v2.3 uses GrootFS as the only container image management tool (CIMT) and removes the ability to use the CIMT built into Garden-runC.
+<p class="warning note"><strong>WARNING</strong>: If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
 
-PAS v1.12 to v2.2 includes GrootFS as the default CIMT but provides the ability to use the built-in CIMT instead. In PAS v2.3, there is no checkbox to enable or disable GrootFS in the **Configure Application Containers** pane. 
+Garden creates app containers in PAS and includes an image plugin that prepares the filesystem for the container. PCF 1.12 introduced GrootFS as the default image plugin to replace the previous built-in functionality, garden-shed, which used an obsolete layer filesystem (AUFS) that lacked support from the Linux Kernel community.
 
-<p class="warning note"><strong>WARNING</strong>: You must enable GrootFS before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
+Though GrootFS is the default image plugin in v1.12-v2.2, PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is now deprecated and PAS v2.3 removes the option to use it. 
+
+For more information about GrootFS in PCF, see the following topics:
+
+* [Understanding Container Security](https://docs.pivotal.io/pivotalcf/2-3/concepts/container-security.html#mechanics)
+* [Garden](https://docs.pivotal.io/pivotalcf/2-3/concepts/architecture/garden.html#garden-rootfs)
 
 ## <a id='known-issues'></a> Known Issues
 
