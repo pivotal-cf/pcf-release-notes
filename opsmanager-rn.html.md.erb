@@ -102,6 +102,45 @@ Ops Manager v2.3.0 uses the following component versions:
 
 Ops Manager v2.3 includes the following major features:
 
+### <a id="xenial"></a> Ops Manager and BOSH Director Upgraded to Ubuntu 16.04 (Xenial Zerus)
+
+Ops Manager and BOSH Director stemcells run on Ubuntu 16.04, "Xenial Zerus." This Long Term Support (LTS) release is valid through April 2021. 
+
+### <a id="bosh-dns">BOSH DNS is Required
+
+BOSH DNS is enabled by default in PCF 2.3. 
+
+The option to disable BOSH DNS is no longer available in the Ops Manager UI or API.
+
+<p class="note warning"><strong>WARNING</strong>: Upgrades to PCF 2.3 will fail if BOSH DNS is disabled. Enable BOSH DNS before upgrading to PCF 2.3.</p>
+
+### <a id="bosh-dns-certs">BOSH DNS Certificate Authority Upgrades
+
+BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to 2.3.
+
+To apply the CAs completely, you must upgrade to PCF 2.3 and then rotate all certificates in your installation. Follow the procedure below to rotate your certificates:
+
+1. Upgrade Ops Manager to 2.3
+1. Click **Apply Changes** to distribute new CA to all VMs. Do not use **Review Pending Changes** to update your installation incrementally. Upgrade all tiles simultaneously.
+1. Use the Ops Manager API to `POST /api/v0/certificate_authorities/active/regenerate`.
+1. **Apply Changes** for all tiles simultaneously to rotate the certificates.
+
+### <a id="ldap"></a>Ops Manager Supports LDAP Authentication
+
+Lightweight Directory Access Protocal (LDAP) authentication is now available. It joins the Security Assertion Markup Language (SAML) as one of two authentication methods Ops Manager supports.
+
+**Admins**: Enable LDAP or SAML authentication through the _Settings_ page.
+
+**Operators:** Configure LDAP settings on the _Set Up_ page for new installations of Ops Manager.
+
+### <a id="cinder"></a> Virtual Machines Running on OpenStack Can Boot From Cinder Volumes
+
+If you use OpenStack, you can now boot virtual machines (VMs) from a Cinder volume. Cinder is an opensource block storage solution for OpenStack users. Access this option from the OpenStack _IaaS Config_ page. 
+
+### <a id="persistent-disk">Recreate Persistent Disks for Specific Installations
+
+Operators can now recreate all persistent disks for an installation by selecting a checkbox in the _Director Config_ page. On next **Apply Changes**, this feature recreates the persistent disks for the BOSH Director, the BOSH Director VM, and all tiles.
+
 ### <a id="review-pending-changes"></a> UI Improvements to Review Pending Changes 
 
 The _Review Pending Changes_ page in the Ops Manager installation dashboard features UI improvements.
@@ -110,5 +149,21 @@ See the following changes:
 
 - You now cannot enable orange tiles for selective deployment. In Ops Manager v2.2, you can enable orange tiles but you cannot click **Apply Changes**.
 - When you enable a tile for selective deployment, its dependencies are also enabled. In Ops Manager v2.2, you must enable your tile dependencies manually.
+- When an update fails, a list of pending changes that did not complete appears on the _Review Pending Changes_ page.
+- When you attempt to change a tile with an out-of-date stemcell, a message appears notifying you that the stemcell is out of date. Click this message to access the Stemcell Library.
+- When a tile is staged to be deleted, indicator text appears on that tile.
+- **Apply Changes** displays as **Review Pending Changes** when there are pending changes staged.
+- Stemcell changes appear in the _Changes_ field for each tile.
+- When _Review Pending Changes_ returns an error, the error message includes the name of the affected tiles.
+- The "Beta" label no longer appears on the _Review Pending Changes_ page.
+- The _Review Pending Changes_ page has minor UI improvements throughout.
 
 For more information about the page UI, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/review-pending-changes.html#review-pending-changes).
+
+### <a id="review-pending-changes-api"></a> API Improvements to Review Pending Changes
+
+- You can use `GET /api/v0/staged/pending_changes` to see stemcell changes in the Ops Manager API.
+- When the API returns an error, the error message includes the name of the affected products.
+- When an update fails, you can use `GET /api/v0/staged/pending_changes` to see a list of pending changes that did not complete.
+
+For more information about the Review Pending Changes API endpoints, see the [Ops Manager API documentation](http://docs.pivotal.io/pivotalcf/2-3/opsman-api/).
