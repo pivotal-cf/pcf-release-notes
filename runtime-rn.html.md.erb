@@ -11,7 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.3.0-alpha.2'></a>2.3.0-alpha.2
+### <a id='2.3.0-alpha.2'></a> 2.3.0-alpha.2
 
 * **[Feature Improvement]** Use stemcell based on Ubuntu Xenial
 * **[Feature Improvement]** `capi` `/v2/info` endpoint returns additional metadata for `name`, `build` and `description`
@@ -139,7 +139,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tfoot>
   </table>
 
-### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
+### <a id='2.3.0-alpha.1'></a> 2.3.0-alpha.1
 
 * Remove ability to opt-out of GrootFS
 * Bump backup-and-restore-sdk to version `1.8.1`
@@ -266,7 +266,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </table>
 
 
-
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.3 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-3/customizing/upgrading-pcf.html) topic.
@@ -302,30 +301,35 @@ For more information about bpm, see the [bpm-release](https://github.com/cloudfo
 
 ### <a id="groot"></a> Deprecated Garden Image Plugin Option Removed
 
-<p class="warning note"><strong>WARNING</strong>: If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
+<p class="warning note"><strong>WARNING:</strong> If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
 
-Garden creates app containers in PAS and includes an image plugin that prepares the filesystem for the container. PCF 1.12 introduced GrootFS as the default image plugin to replace the previous built-in functionality, garden-shed, which used an obsolete layer filesystem (AUFS) that lacked support from the Linux Kernel community.
+Garden creates app containers in PAS and includes an image plugin that prepares the filesystem for the container. PCF v1.12 introduced GrootFS as the default image plugin to replace the previous built-in functionality, garden-shed, which used an obsolete layer filesystem (AUFS) that lacked support from the Linux Kernel community.
 
-Though GrootFS is the default image plugin in v1.12-v2.2, PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is now deprecated and PAS v2.3 removes the option to use it. 
+Though GrootFS is the default image plugin in v1.12 through v2.2, PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is now deprecated and PAS v2.3 removes the option to use it. 
 
 For more information about GrootFS in PCF, see the following topics:
 
 * [Understanding Container Security](https://docs.pivotal.io/pivotalcf/2-3/concepts/container-security.html#mechanics)
 * [Garden](https://docs.pivotal.io/pivotalcf/2-3/concepts/architecture/garden.html#garden-rootfs)
 
+### <a id="encyrpt-traffic"></a> Gorouter to Cloud Controller Traffic is Encrypted
+
+In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
+
+
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="nfs-broker-push"></a> nfsbrokerpush errand failure
+### <a id="nfs-broker-push"></a> nfsbrokerpush Errand Failure
 
 The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
 
-### <a id="bbr-aws"></a> BOSH Backup and Restore (BBR) failure on AWS
+### <a id="bbr-aws"></a> BOSH Backup and Restore (BBR) Failure on AWS
 
 On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (BBR) may fail.
 
-### <a id="ops-manager-2-3"></a> PAS fails to deploy with latest Ops Manager 2.3 alphas
+### <a id="ops-manager-2-3"></a> PAS Fails to Deploy with Latest Ops Manager v2.3 Alphas
 
-PAS fails to deploy with latest Ops Manager 2.3 as of this time (2.3-alpha.1 and 2.3-alpha.2). The tile was last tested successfully with Ops Manager 2.2.0.
+PAS fails to deploy with latest Ops Manager v2.3 as of this time (2.3-alpha.1 and 2.3-alpha.2). The tile was last tested successfully with Ops Manager v2.2.0.
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
@@ -340,11 +344,14 @@ You cannot enter a comma-separated list of ports in the **TCP Routing Ports** fi
 
 #### Workaround
 
-If you want to configure multiple ports, Pivotal recommends following these steps:
+If you want to configure multiple ports, do the following:
 
-<p class="note"><strong>Note</strong>: This procedure causes brief downtime for TCP apps listening on ports that you open after deploying PAS.</p>
+<p class="note"><strong>Note:</strong> This procedure causes brief downtime for TCP apps listening on ports that you open after deploying PAS.</p>
 
 1. Configure PAS with **Enable TCP Routing** selected.
-1. Enter one port you want to use in the **TCP Routing Ports** field. 
-1. Deploy PAS. 
-1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports. 
+
+1. Enter one port you want to use in the **TCP Routing Ports** field.
+
+1. Deploy PAS.
+
+1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports.
