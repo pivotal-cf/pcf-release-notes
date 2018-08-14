@@ -13,7 +13,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.3.
 
-### 2.3 Alpha 4
+### 2.3 Beta 1
+
+* **[Bug Fix]**: Certain VM image components no longer write to the persistent disk after reboot.
+* **[Security Fix]**: TLS is enabled by default for Director Internal Blobstore during first-time installation.
 
 Ops Manager v2.3.0 uses the following component versions:
 
@@ -26,14 +29,14 @@ Ops Manager v2.3.0 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Ops Manager</td><td>2.3.0-alpha.4</td>
+    <td>Ops Manager</td><td>2.3.0-build.95*</td>
   </tr>
   <tr>
     <td>Stemcell</td><td>97.3 (Xenial)*</td>
   </tr><tr>
     <td>BBR SDK</td><td>1.7*</td>
   </tr><tr>
-    <td>BOSH Director</td><td>266.5</td>
+    <td>BOSH Director</td><td>267.3.0*</td>
   </tr><tr>
     <td>BOSH DNS</td><td>1.8.0*</td>
   </tr><tr>
@@ -43,13 +46,13 @@ Ops Manager v2.3.0 uses the following component versions:
   </tr><tr>
     <td>UAA</td><td>60.2*</td>
   </tr><tr>
-    <td>AWS CPI</td><td>71*</td>
+    <td>AWS CPI</td><td>72*</td>
   </tr><tr>
     <td>Azure CPI</td><td>35.2</td>
   </tr><tr>
     <td>GCP CPI</td><td>27.0.1*</td>
   </tr><tr>
-    <td>OpenStack CPI</td><td>38</td>
+    <td>OpenStack CPI</td><td>39*</td>
   </tr><tr>
     <td>vSphere CPI</td><td>50</td>
   </tr>
