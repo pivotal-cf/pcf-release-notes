@@ -11,6 +11,157 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-alpha.3'></a> 2.3.0-alpha.3
+
+* **[Feature Improvment]** GrootFS is always enabled. The option to disable it has been removed.
+* **[Feature Improvment]** UAA processes are isolated with the [BOSH Process Manager (bpm)](https://github.com/cloudfoundry-incubator/bpm-release)
+* **[Feature Improvment]** Diego processes are isolated with by the [BOSH Process Manager (bpm)]https://github.com/cloudfoundry-incubator/bpm-release)
+* **[Feature Improvement]** Add new UAA scopes so Apps Manager needs networking administration features
+* **[Feature Improvement]** Use BOSH DNS for all internal service discovery; Remove consul agents from all instances.
+
+* **[Bug Fix]** Fixed these known issues in alpha.2:
+  * The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
+  * PAS fails to deploy with latest Ops Manager v2.3 as of this time (2.3-alpha.1 and 2.3-alpha.2). The tile was last tested successfully with Ops Manager v2.2.0.
+
+* **[Known Issue]** Added known issues in alpha.3:
+  * Autoscaler backup failure on stemcells without python (e.g. AWS)
+  * Binary buildpacks for PASW are not properly installed
+
+* Bump backup-and-restore-sdk to version `1.9.0`
+* Bump binary-offline-buildpack to version `1.0.22`
+* Bump capi to version `1.63.0`
+* Bump cf-autoscaling to version `204`
+* Bump cf-cli to version `1.5.0`
+* Bump cf-networking to version `2.11.0`
+* Bump cf-smoke-tests to version `40.0.6`
+* Bump cflinuxfs2 to version `1.228.0`
+* Bump diego to version `2.14.0`
+* Bump dotnet-core-offline-buildpack to version `2.1.4`
+* Bump garden-runc to version `1.16.1`
+* Bump go-offline-buildpack to version `1.8.26`
+* Bump haproxy to version `8.9.0`
+* Bump java-offline-buildpack to version `4.14`
+* Bump log-cache to version `1.4.1`
+* Bump nats to version `25`
+* Bump nfs-volume to version `1.5.0`
+* Bump nodejs-offline-buildpack to version `1.6.30`
+* Bump php-offline-buildpack to version `4.3.59`
+* Bump python-offline-buildpack to version `1.6.20`
+* Bump pxc to version `0.13.0`
+* Bump ruby-offline-buildpack to version `1.7.22`
+* Bump silk to version `2.11.0`
+* Bump staticfile-offline-buildpack to version `1.4.31`
+* Bump stemcell to version `97.3`
+
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>97.3</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.9.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.22</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>bpm</td><td>0.9.0</td>
+  </tr><tr>
+    <td>broker-registrar</td><td>3.4.0</td>
+  </tr><tr>
+    <td>capi</td><td>1.63.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>204</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-cli<td><td>1.5.0</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.15.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.11.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.6</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>7.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.228.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.5</td>
+  </tr><tr>
+    <td>diego</td><td>2.14.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.4</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.16.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.26</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.9.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.14</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.4.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>103.0</td>
+  </tr><tr>
+    <td>mapfs</td><td>1.0.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
+  </tr><tr>
+    <td>nats</td><td>25</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.5.0</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.30</td>
+  </tr><tr>
+    <td>notifications</td><td>51</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.59</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.9.0</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>665.0.6</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>667.0.1</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.20</td>
+  </tr><tr>
+    <td>pxc</td><td>0.13.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.179.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.22</td>
+  </tr><tr>
+    <td>silk</td><td>2.11.0</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.31</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>60.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.3.0-alpha.2'></a> 2.3.0-alpha.2
 
 * **[Feature Improvement]** Use stemcell based on Ubuntu Xenial
@@ -319,17 +470,17 @@ In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To 
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="nfs-broker-push"></a> nfsbrokerpush Errand Failure
-
-The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
-
 ### <a id="bbr-aws"></a> BOSH Backup and Restore (BBR) Failure on AWS
 
 On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (BBR) may fail.
 
-### <a id="ops-manager-2-3"></a> PAS Fails to Deploy with Latest Ops Manager v2.3 Alphas
+### <a id="bbr-aws"></a> Autoscaler backup failure on stemcells without python (e.g. AWS)
 
-PAS fails to deploy with latest Ops Manager v2.3 as of this time (2.3-alpha.1 and 2.3-alpha.2). The tile was last tested successfully with Ops Manager v2.2.0.
+Autoscaler backups fail on stemcells without python. The backup scripts in the autoscaler service implicitly depend on python, which was previously available in the stemcell, but has since been removed.
+
+### <a id="bbr-aws"></a> Binary buildpacks for PASW are not properly installed
+
+Applications that use the binary buildpack and are deployed on the PASW tile may fail to start when used in conjuction with this version of PAS. As a workaround, the appropriate buildpack can be uplaoded directly.
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
