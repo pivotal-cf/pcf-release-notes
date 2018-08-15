@@ -467,7 +467,15 @@ For more information about GrootFS in PCF, see the following topics:
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
 
-## <a id="delete-routes"></a> Delete Routes With Your App in Apps Manager
+### <a id="nfs"></a> Experimental NFS Volume Service Plan
+
+PAS v2.3 includes an additional service plan, `nfs-experimental`, for mounting apps to NFS Volume Services. `nfs-experimental` mounts use a different mounting strategy that increases performance with faster read/write speeds and asynchronous communication. 
+
+The `nfs-experimental` plan also adds support for mounting apps to NFSv4 volumes. You can specify your desired NFS protocol using the `version` parameter when creating a service instance. 
+
+For instructions on using `nfs-experimental`, see [NFS Volume Service](https://docs.pivotal.io/pivotalcf/2-3/devguide/services/using-vol-services.html#nfs).
+
+### <a id="delete-routes"></a> Delete Route and App Simultaneously with Apps Manager
 
 When you click **Delete App** in the **View Settings** tab of your
 app, you are now prompted with the option to delete the routes associated with your app.
