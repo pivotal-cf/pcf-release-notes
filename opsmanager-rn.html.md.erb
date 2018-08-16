@@ -13,6 +13,52 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
 
+### 2.1.11
+
+* **[Security Fix]** Bumps stemcell to 3541.37
+* Bumps BOSH Director to v265.7
+
+Ops Manager v2.1.11 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3541.37*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.4.4</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>265.7*</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.6.0</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.7.7</td>
+  </tr><tr>
+    <td>UAA</td><td>55.2</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated from Ops Manager v2.1.9 to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### 2.1.10
 
 * **[Bug Fix]**: Fixes an error reading `Unknown CPI error 'Unknown' with message 'execution expired' in 'create_vm' CPI method` for deployments on Azure.
