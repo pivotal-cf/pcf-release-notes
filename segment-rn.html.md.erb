@@ -5,6 +5,51 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='1.12.24'></a> 1.12.24
+
+* **[Bug fix]** Prevent downtime when upgrading from 1.12 to 2.0 when deployment includes HAProxy
+
+* Bump cflinuxfs2 to version `1.228.0`
+* Bump stemcell to version `3468.55`
+
+<table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3468.55</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.3*</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.228.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.15</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.13.3</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>96.5</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.1</td>
+  </tr><tr>
+    <td>routing</td><td>0.163.14*</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8.0.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id='1.12.23'></a> 1.12.23
 
 * **[Bug Fix]** Docker image based app resource reporting correctly includes image size in disk usage
