@@ -592,6 +592,12 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](https://docs.pivotal.io/pivotalcf/2-3/concepts/container-security.html#mechanics)
 * [Garden](https://docs.pivotal.io/pivotalcf/2-3/concepts/architecture/garden.html#garden-rootfs)
 
+### <a id="networking-tab"></a> Create Container-to-Container Networking Policies in Apps Manager
+
+Operators and Developers can click **Networking** in Apps Manager to set container-to-container networking polices. To set container-to-container networking polices you must have the `network.admin` or `network.write` UAA scope. 
+
+For more information, see [Create Policies for Container-to-Container Networking](http://docs-pcf-staging.cfapps.io//pivotalcf/2-3/console/manage-apps.html#networking).
+
 ### <a id="encyrpt-traffic"></a> Gorouter to Cloud Controller Traffic is Encrypted
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
