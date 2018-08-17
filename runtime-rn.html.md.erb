@@ -14,7 +14,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id='2.3.0-beta.1'></a> 2.3.0-beta.1
 
 * **[Feature]** PAS includes the cflinuxfs3 rootfs and associated buildpacks
-* **[Bug Fix]** PAS includes binary buildpack with support for the PASW2016 and 2012 windows stacks
+
+* **[Bug Fix]** Fixed these known issues in alpha.3:
+  * Binary buildpacks for PASW are not properly installed
 
 * Bump binary-offline-buildpack to version `1.0.23`
 * Bump capi to version `1.65.0`
@@ -619,10 +621,6 @@ On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (B
 ### <a id="bbr-aws"></a> Autoscaler backup failure on stemcells without python (e.g. AWS)
 
 Autoscaler backups fail on stemcells without python. The backup scripts in the autoscaler service implicitly depend on python, which was previously available in the stemcell, but has since been removed.
-
-### <a id="bbr-aws"></a> Binary buildpacks for PASW are not properly installed
-
-Applications that use the binary buildpack and are deployed on the PASW tile may fail to start when used in conjuction with this version of PAS. As a workaround, the appropriate buildpack can be uplaoded directly.
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
