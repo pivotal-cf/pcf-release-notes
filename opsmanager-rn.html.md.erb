@@ -13,6 +13,54 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.0.
 
+### 2.0.21
+
+* **[Security Fix]** Bumps stemcell to 3468.64
+
+Ops Manager v2.0.21 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td></td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3468.64*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264.15.0*</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.4</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.7</td>
+  </tr><tr>
+    <td>UAA</td><td>52.10</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated from Ops Manager v2.0.19 to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### 2.0.20
 
 * **[Bug Fix]**: External databases can now connect to Ops Manager using TLS.
