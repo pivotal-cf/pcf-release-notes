@@ -15,8 +15,10 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### 2.1.11
 
-* **[Security Fix]** Bumps stemcell to 3541.37
-* Bumps BOSH Director to v265.7
+* **[Security Fix]** Bumps stemcell to 3541.44
+* Bumps BOSH Director to v265.9
+* Bumps GCP to v27.0.1
+* Bumps BOSH DNS to v265.9
 * **[Bug Fix]** Private key is not returned when you GET the `/iaas_configurations` API endpoint.
 * **[Bug Fix]** UAA config remains mounted in RAM disk when image is recreated.
 * **[Bug Fix]** You can edit an Availability Zone (AZ) if it is unassociated with a product.
@@ -33,13 +35,13 @@ Ops Manager v2.1.11 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Stemcell</td><td>3541.37*</td>
+    <td>Stemcell</td><td>3541.44*</td>
   </tr><tr>
     <td>BBR SDK</td><td>1.4.4</td>
   </tr><tr>
-    <td>BOSH Director</td><td>265.7*</td>
+    <td>BOSH Director</td><td>265.9*</td>
   </tr><tr>
-    <td>BOSH DNS</td><td>1.6.0</td>
+    <td>BOSH DNS</td><td>1.8.0*</td>
   </tr><tr>
     <td>CredHub</td><td>1.7.7</td>
   </tr><tr>
@@ -49,9 +51,9 @@ Ops Manager v2.1.11 uses the following component versions:
 </tr><tr>
     <td>Azure CPI</td><td>35</td>
   </tr><tr>
-    <td>GCP CPI</td><td>25.10.0</td>
+    <td>GCP CPI</td><td>27.0.1*</td>
   </tr><tr>
-    <td>OpenStack CPI</td><td>35</td>
+    <td>OpenStack CPI</td><td>37</td>
   </tr><tr>
     <td>vSphere CPI</td><td>45.1.0</td>
   </tr><tr>
@@ -65,6 +67,8 @@ Ops Manager v2.1.11 uses the following component versions:
 
 ### 2.1.10
 
+* **[Security Fix]** Bumps stemcell to 3541.35
+* Bumps BOSH Director to v265.4
 * **[Bug Fix]**: Fixes an error reading `Unknown CPI error 'Unknown' with message 'execution expired' in 'create_vm' CPI method` for deployments on Azure.
 
 Ops Manager v2.1.10 uses the following component versions:
@@ -82,7 +86,7 @@ Ops Manager v2.1.10 uses the following component versions:
   </tr><tr>
     <td>BBR SDK</td><td>1.4.4</td>
   </tr><tr>
-    <td>BOSH Director</td><td>265.3.0</td>
+    <td>BOSH Director</td><td>265.4*</td>
   </tr><tr>
     <td>BOSH DNS</td><td>1.6.0</td>
   </tr><tr>
@@ -94,9 +98,9 @@ Ops Manager v2.1.10 uses the following component versions:
   </tr><tr>
     <td>Azure CPI</td><td>35</td>
   </tr><tr>
-    <td>GCP CPI</td><td>25.10.0</td>
+    <td>GCP CPI</td><td>27</td>
   </tr><tr>
-    <td>OpenStack CPI</td><td>35</td>
+    <td>OpenStack CPI</td><td>37</td>
   </tr><tr>
     <td>vSphere CPI</td><td>45.1.0</td>
   </tr><tr>
