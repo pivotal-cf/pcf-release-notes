@@ -170,24 +170,26 @@ Ops Manager now allows you to configure multiple OpenStack data centers to a sin
 
 You can add additional OpenStack configs in the **OpenStack Config** pane of your BOSH Director tile. For more information about how to add, edit, and delete OpenStack configs, see [Managing Multiple Data Centers](http://docs.pivotal.io/pivotalcf/2-3/customizing/multiple-datacenters.html).
 
-
 ### <a id="bosh-dns"></a> BOSH DNS is Required
 
-BOSH DNS is enabled by default in PCF 2.3. 
+BOSH DNS is enabled by default in PCF v2.3. 
 
 The option to disable BOSH DNS is no longer available in the Ops Manager UI or API.
 
-<p class="note warning"><strong>WARNING</strong>: Upgrades to PCF 2.3 will fail if BOSH DNS is disabled. Enable BOSH DNS before upgrading to PCF 2.3.</p>
+<p class="note warning"><strong>WARNING:</strong> Upgrades to PCF v2.3 will fail if BOSH DNS is disabled. Enable BOSH DNS before upgrading to PCF v2.3.</p>
 
 ### <a id="bosh-dns-certs"></a> BOSH DNS Certificate Authority Upgrades
 
-BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to 2.3.
+BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to v2.3.
 
-To apply the CAs completely, you must upgrade to PCF 2.3 and then rotate all certificates in your installation. Follow the procedure below to rotate your certificates:
+To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. Follow the procedure below to rotate your certificates:
 
-1. Upgrade Ops Manager to 2.3
+1. Upgrade Ops Manager to v2.3.
+
 1. Click **Apply Changes** to distribute new CA to all VMs. Do not use **Review Pending Changes** to update your installation incrementally. Upgrade all tiles simultaneously.
+
 1. Use the Ops Manager API to `POST /api/v0/certificate_authorities/active/regenerate`.
+
 1. **Apply Changes** for all tiles simultaneously to rotate the certificates.
 
 ### <a id="ldap"></a> Ops Manager Supports LDAP Authentication
