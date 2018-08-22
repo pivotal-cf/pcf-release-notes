@@ -571,13 +571,13 @@ Using Xenial stemcells in v2.3 ensures that PAS users continue to have access to
 
 ### <a id="bpm"></a> BOSH Process Manager 
 
-Starting in v2.3, most PAS components use BOSH Process Manager (bpm).  
+Starting in v2.3, most PAS components use BOSH Process Manager (BPM).  
 
-bpm is a layer between BOSH and the jobs running on PAS component VMs. It improves the way processes run on VMs by providing isolation between collocated jobs. With the exception of networking, bpm namespaces system resources so a job cannot view or interact with the processes of another job. This provides a security barrier such that if a job on a VM is compromised, the incident is limited to just that job rather than all jobs on the same machine.
+BPM is a layer between BOSH and the jobs running on PAS component VMs. It improves the way processes run on VMs by isolating colocated jobs. With the exception of networking, BPM namespaces operating system resources so a job cannot view or interact with the processes of another job. This provides a security barrier such that if a job on a VM is compromised, the incident is limited to just that job rather than all jobs on the same machine.
 
-bpm also includes resource limiting capability. This prevents any one job from using too many operating system resources and impacting collocated jobs. 
+BPM also includes resource limiting capability. This prevents any one job from using too much operating system resources and impacting colocated jobs. 
 
-For more information about bpm, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
+For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
 
 ### <a id="groot"></a> Deprecated Garden Image Plugin Option Removed
 
