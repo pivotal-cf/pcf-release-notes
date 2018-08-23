@@ -624,6 +624,12 @@ In PAS v2.3, PAS component VMs no longer include the `consul_agent` job. PAS com
 
 However, the `consul_server` VM continues to exist in PAS deployments to support any service or partner tiles that still require communication with Consul.
 
+### <a id='backup-prepare-rename'></a> Renamed Backup Restore Node
+
+The Backup Prepare Node has been renamed to Backup Restore Node. 
+
+<p class="note warning"><strong>Warning</strong>: The persistent disk attached to the existing Backup Prepare node will not be migrated to the new Backup Restore node. Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="bbr-aws"></a> BOSH Backup and Restore (BBR) Failure on AWS
