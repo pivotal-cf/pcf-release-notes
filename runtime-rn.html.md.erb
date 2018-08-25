@@ -11,6 +11,137 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-beta.2'></a> 2.3.0-beta.2
+
+* **[Feature]** PAS configured with Azure blobstores works with backup and restore (BBR) when blobstores are configured with "soft delete"
+* **[Feature]** Operators can configure an internal domain for service discovery
+* **[Feature]** Add support for TLS connections to the LDAP server used by NFS volume services
+* **[Feature Improvment]** The CF CLI is installed as a BOSH release on VMs which require it (e.g. those that run errands)
+* **[Feature Improvement]** NFS volume broker supports LDAP id resolution from servers with blank "gidNumber" fields
+* **[Feature Improvement]** Fix NFS LDAP configuration UI to more closely resemble UAA LDAP config
+* **[Feature Improvment]** Rename `backup-prepare` instance group to `backup-restore`
+
+* **[Bug Fix]** Fixed these known issues in beta.1:
+  * On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (BBR) may fail.
+  * Autoscaler backups fail on stemcells without python. The backup scripts in the autoscaler service implicitly depend on python, which was previously available in the stemcell, but has since been removed.
+
+* **[Known Issue]** Added known issues in alpha.3:
+  * NFS broker push fails on upgrades from 2.2 due to missing migration from cflinuxfs2 to cflinuxfs3
+* Bump binary-offline-buildpack to version `1.0.24`
+* Bump bpm to version `0.11.0`
+* Bump capi to version `1.66.0`
+* Bump cf-autoscaling to version `206`
+* Bump cflinuxfs2 to version `1.232.0`
+* Bump cflinuxfs3 to version `0.13.0`
+* Bump nfs-volume to version `1.5.3`
+* Bump stemcell ubuntu-xenial to version `97.12`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>97.12</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.9.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.24</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>bpm</td><td>0.11.0</td>
+  </tr><tr>
+    <td>capi</td><td>1.66.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>206</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-cli</td><td>1.5.0</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.15.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.11.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.6</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>7.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.232.0</td>
+  </tr><tr>
+    <td>cflinuxfs3</td><td>0.13.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.5</td>
+  </tr><tr>
+    <td>diego</td><td>2.14.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.4</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.16.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.26</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.9.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.15</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.3.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>103.0</td>
+  </tr><tr>
+    <td>mapfs</td><td>1.0.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
+  </tr><tr>
+    <td>nats</td><td>25</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.5.3</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.30</td>
+  </tr><tr>
+    <td>notifications</td><td>51</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.59</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>666.0.1</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>667.0.1</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.20</td>
+  </tr><tr>
+    <td>pxc</td><td>0.13.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.179.1</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.22</td>
+  </tr><tr>
+    <td>silk</td><td>2.11.0</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.31</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>60.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.3.0-beta.1'></a> 2.3.0-beta.1
 
 * **[Feature]** PAS includes the cflinuxfs3 rootfs and associated buildpacks. For information about migrating apps to cflinuxfs3, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/stacks.html#cli-commands).
@@ -632,13 +763,9 @@ The Backup Prepare Node has been renamed to Backup Restore Node.
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="bbr-aws"></a> BOSH Backup and Restore (BBR) Failure on AWS
+### <a id='nfs-broker-push-upgrade'></a> NFS Broker push fails on upgrades from 2.2
 
-On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (BBR) may fail.
-
-### <a id="bbr-aws"></a> Autoscaler backup failure on stemcells without python (e.g. AWS)
-
-Autoscaler backups fail on stemcells without python. The backup scripts in the autoscaler service implicitly depend on python, which was previously available in the stemcell, but has since been removed.
+NFS broker push fails on upgrades from 2.2 due to missing migration from cflinuxfs2 to cflinuxfs3
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 

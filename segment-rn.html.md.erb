@@ -5,6 +5,68 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-beta.1'></a>2.3.0-beta.1
+
+* **[Feature]** Add support for TLS connections to the LDAP server used by NFS volume services
+* **[Feature]** Operators can configure an internal domain for service discovery in PAS
+* **[Feature Improvement]** IST inherits `frontend_idle_timeout` value from PAS, which are configured to account for different IAAS load balancer timeouts
+* **[Feature Improvment]** UAA processes are isolated with the [BOSH Process Manager (bpm)](https://github.com/cloudfoundry-incubator/bpm-release)
+* **[Feature Improvment]** Diego processes are isolated with by the [BOSH Process Manager (bpm)]https://github.com/cloudfoundry-incubator/bpm-release)
+* **[Feature Improvment]** GrootFS is always enabled. The option to disable it has been removed.
+* **[Feature Improvement]** Fix NFS LDAP configuration UI to more closely resemble UAA LDAP config
+
+* Bump cflinuxfs2 to version `1.232.0`
+* Bump cflinuxfs3 to version `0.14.0`
+* Bump nfs-volume to version `1.5.3`
+* Bump routing to version `0.179.1`
+* Bump stemcell ubuntu-xenial to version `97.12`
+
+ <table border="1" class="nice">
+ <thead> <tr>
+   <th>Component</th>
+   <th>Version</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+   <td>stemcell</td><td>97.12</td>
+ </tr><tr>
+   <td>bpm</td><td>0.9.0</td>
+ </tr><tr>
+   <td>cf-networking</td><td>2.11.0</td>
+ </tr><tr>
+   <td>cflinuxfs2</td><td>1.232.0</td>
+ </tr><tr>
+   <td>cflinuxfs3</td><td>0.14.0</td>
+ </tr><tr>
+   <td>consul</td><td>195</td>
+ </tr><tr>
+   <td>diego</td><td>2.14.0</td>
+ </tr><tr>
+   <td>garden-runc</td><td>1.16.1</td>
+ </tr><tr>
+   <td>haproxy</td><td>8.9.0</td>
+ </tr><tr>
+   <td>loggregator</td><td>103.0</td>
+ </tr><tr>
+   <td>mapfs</td><td>1.0.1</td>
+ </tr><tr>
+   <td>nfs-volume</td><td>1.5.3</td>
+ </tr><tr>
+   <td>routing</td><td>0.179.1</td>
+ </tr><tr>
+   <td>silk</td><td>2.11.0</td>
+ </tr>
+   <td>syslog</td><td>11.3.2</td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+ </tr>
+ </tfoot>
+ </table>
+
 ### <a id='2.3.0-alpha.3'></a>2.3.0-alpha.3
 
 * **[Feature Improvement]** Use BOSH DNS for all internal service discovery; Remove consul agents from all instances.
@@ -28,7 +90,7 @@ owner: Release Engineering
  <tr>
    <td>stemcell</td><td>97.3</td>
  </tr><tr>
-   <td>bmp</td><td>0.9.0</td>
+   <td>bpm</td><td>0.9.0</td>
  </tr><tr>
    <td>cf-networking</td><td>2.11.0</td>
  </tr><tr>
@@ -85,7 +147,7 @@ owner: Release Engineering
  <tr>
    <td>stemcell</td><td>97</td>
  </tr><tr>
-   <td>bmp</td><td>0.9.0</td>
+   <td>bpm</td><td>0.9.0</td>
  </tr><tr>
    <td>cf-networking</td><td>2.9.0</td>
  </tr><tr>
@@ -141,7 +203,7 @@ owner: Release Engineering
  <tr>
    <td>stemcell</td><td>3586.24</td>
  </tr><tr>
-   <td>bmp</td><td>0.8.0</td>
+   <td>bpm</td><td>0.8.0</td>
  </tr><tr>
    <td>cf-networking</td><td>2.7.0</td>
  </tr><tr>
@@ -201,7 +263,3 @@ The Advanced Features section of the PCF Isolation Segment v2.3 tile includes ne
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
 ## <a id='known-issues'></a> Known Issues
-
-### <a id="nfs-broker-push"></a> nfsbrokerpush errand failure
-
-The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
