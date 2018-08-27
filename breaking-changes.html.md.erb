@@ -18,49 +18,6 @@ To fix this condition, customers should unbind the service, rebind it, and then 
 
 Alternately, customers wishing to avoid application down time can temporarily re-bind their applications as read/write before upgrading, and then swtich to read-only afterwards.
 
-### <a id='stacks'></a>Migrate Linux Apps to Use the cflinuxfs3 Stack
-
-PAS v2.3.0 includes both the `cflinuxfs2` and `cflinuxfs3` Linux stacks.
-
-The `cflinuxfs2` stack is derived from Ubuntu Trusty 14.04. Support for Ubuntu Trusty 14.04 ends in April 2019.
-Future versions of PAS may remove support for <code>cflinuxfs2</code>.
-
-Push all new apps using <code>cflinuxfs3</code> and migrate existing apps to <code>cflinuxfs3</code> as soon as possible. To push an app using cflinuxfs3, run `cf push -s cflinuxfs3 MY-APP`, replacing `MY-APP` with the name of the app.
-
-For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html).
-
-### <a id='cflinuxfs3'></a>Tile Authors Must Manually Migrate Apps to cflinuxfs3
-
-PAS v2.3.0 includes both the `cflinuxfs2` and `cflinuxfs3` stacks.
-Pivotal recommends pushing all apps using the `cflinuxfs3` stack for better performance and compatibility with future versions of PAS.
-
-See the following table for more information about compatibility:
-
-<table>
-  <tr>
-    <th>PAS Versions</th>
-    <th>Recommended Stack</th>
-  </tr>
-  <tr>
-    <td>PAS v2.3 and later</td>
-    <td>cflinuxfs3</td>
-  </tr>
-  <tr>
-    <td>PAS v2.2 and earlier</td>
-    <td>cflinuxfs2</td>
-  </tr>
-</table>
-
-If your tile contains errands that push apps, such as service brokers, you must manually configure the errands to push apps using the `cflinuxfs3` stack.
-To maintain compatibility with PAS v2.2, you must also configure the errands to push apps using `cflinuxfs2` if the `cflinuxfs3` stack is not available.
-
-Errands cannot detect the PAS version.
-Configure the errands in your tile to run `cf stacks` to see which stacks are available, and then push the app using the appropriate stack.
-
-To push an app using `cflinuxfs3`, run `cf push -s cflinuxfs3 MY-APP`, replacing `MY-APP` with the name of the app.
-
-To push an app using `cflinuxfs2`, run `cf push MY-APP`, replacing `MY-APP` with the name of the app.
-
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
 
 ## <a id='ist'></a> PCF Isolation Segment
