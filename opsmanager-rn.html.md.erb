@@ -260,11 +260,17 @@ Ops Manager v2.3 includes the following major features:
 
 ### <a id="xenial"></a> Ops Manager and BOSH Director Upgraded to Ubuntu 16.04 (Xenial Xerus)
 
-Ops Manager v2.3.0 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
+Ops Manager v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
 
 The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
 Using Xenial stemcells in v2.3 ensures that Ops Manager users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
+
+### <a id='tls-blobstore'></a> TLS for Internal Blobstore Enabled by Default
+
+Ops Manager now enables TLS communications for an internal blobstore by default.
+
+If you want to disable TLS for your internal blobstore, disable **Enable TLS** in the **Director Config** pane of the BOSH Director tile.
 
 ### <a id="multi-dc"></a> Multiple Data Centers on OpenStack
 
