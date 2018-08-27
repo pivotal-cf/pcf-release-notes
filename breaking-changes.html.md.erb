@@ -65,11 +65,9 @@ To push an app using `cflinuxfs2`, run `cf push MY-APP`, replacing `MY-APP` with
 
 ###<a id='bosh-dns'></a> BOSH DNS Must be Enabled
 
-In PCF v2.3, BOSH DNS is enabled by default. Upgrades to PCF v2.3 will fail if BOSH DNS is disabled in PCF v2.2.
+In PCF v2.3, you cannot opt out of BOSH DNS. Upgrades to PCF v2.3 will fail if BOSH DNS is disabled in PCF v2.2.
 
-<%= image_tag("bosh-dns-error") %>
-
-PCF v2.3 removes the option to opt out of BOSH DNS.
+<%= image_tag("bosh-dns-error.png") %>
 
 ## <a id='ist'></a> PCF Isolation Segment
 
