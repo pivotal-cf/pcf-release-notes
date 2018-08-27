@@ -769,6 +769,15 @@ The `nfs-experimental` service now supports mounting apps to NFSv4 volumes. You 
 
 For instructions on using `nfs-experimental`, see [NFS Volume Service](https://docs.pivotal.io/pivotalcf/2-3/devguide/services/using-vol-services.html#nfs).
 
+### <a id="nfs-ldap"></a> NFS LDAP Configuration Updates
+
+The LDAP configuration for NFS in the PAS **Application Containers** pane includes the following updates:
+
+* You can optionally enter a **LDAP Server CA Cert** if your LDAP server supports TLS and you want to enable secure connections from the NFS driver to your LDAP server.
+* The **LDAP User Fully-Qualified Domain Name** has been renamed to **LDAP User Search Base** for clarity and consistency with LDAP UAA configuration in the **Authentication and Enterprise SSO** pane. 
+
+See [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
+
 ### <a id="add-domain"></a> Create Private Domains in Apps Manager
 
 Admins and Org Managers can click **Add a Domain** in Apps Manager to create a new private domain. For more information, see [Domains](https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#domains).
