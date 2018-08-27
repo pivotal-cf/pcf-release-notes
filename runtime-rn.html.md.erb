@@ -702,7 +702,7 @@ BPM also includes resource limiting capability. This prevents any one job from u
 
 For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
 
-### <a id="groot"></a> Deprecated Garden Image Plugin Option Removed
+### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
 <p class="warning note"><strong>WARNING:</strong> If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
 
@@ -749,13 +749,13 @@ You can now give binding names to service bindings in Apps Manager.
 
 For more information, see the [Bind or Unbind a Service](https://docs.pivotal.io/pivotalcf/2-3/console/manage-apps.html#bind-services) section of the _Managing Apps and Services Using Apps Manager_ topic.
 
-### <a id='remove-consul-agent'></a> Removal of Consul Agent
+### <a id='remove-consul-agent'></a> Remove Consul Agent
 
 In PAS v2.3, PAS component VMs no longer include the `consul_agent` job. PAS component VMs can now only use BOSH DNS for service discovery.
 
 However, the `consul_server` VM continues to exist in PAS deployments to support any service or partner tiles that still require communication with Consul.
 
-### <a id='backup-prepare-rename'></a> Renamed Backup Restore Node
+### <a id='backup-prepare-rename'></a> Rename Backup Restore Node
 
 The Backup Prepare Node has been renamed to Backup Restore Node. 
 
