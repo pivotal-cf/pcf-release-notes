@@ -738,6 +738,14 @@ BPM also includes resource limiting capability. This prevents any one job from u
 
 For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
 
+### <a id="service-discovery"></a> App Service Discovery Updates
+
+PAS v2.3.0 includes the following updates to app service discovery:
+
+* App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane. 
+* You can now configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`. 
+
+
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
 <p class="warning note"><strong>WARNING:</strong> If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
@@ -768,6 +776,15 @@ PAS includes `nfs` and `nfs-experimental` services for mounting apps to NFS volu
 The `nfs-experimental` service now supports mounting apps to NFSv4 volumes. You can specify your desired NFS protocol using the `version` parameter when creating a service instance. 
 
 For instructions on using `nfs-experimental`, see [NFS Volume Service](https://docs.pivotal.io/pivotalcf/2-3/devguide/services/using-vol-services.html#nfs).
+
+### <a id="nfs-ldap"></a> NFS LDAP Configuration Updates
+
+The LDAP configuration for NFS in the PAS **Application Containers** pane includes the following updates:
+
+* You can optionally enter a **LDAP Server CA Cert** if your LDAP server supports TLS and you want to enable secure connections from the NFS driver to your LDAP server.
+* The **LDAP User Fully-Qualified Domain Name** has been renamed to **LDAP User Search Base** for clarity and consistency with LDAP UAA configuration in the **Authentication and Enterprise SSO** pane. 
+
+See [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
 
 ### <a id="add-domain"></a> Create Private Domains in Apps Manager
 
