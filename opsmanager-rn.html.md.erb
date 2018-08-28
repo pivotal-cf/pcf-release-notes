@@ -316,6 +316,15 @@ If you use OpenStack, you can now boot virtual machines (VMs) from a Cinder volu
 
 Operators can now recreate all persistent disks for an installation by selecting a checkbox in the _Director Config_ page. On next **Apply Changes**, this feature recreates the persistent disks for the BOSH Director, the BOSH Director VM, and all tiles.
 
+
+### <a id="recreate-persistent-disks"></a> Recreate All Persistent Disks
+
+In the **Director Config** pane of the BOSH Director tile, you can
+enable **Recreate All Persistent Disks**. Enabling the checkbox
+forces BOSH to migrate and recreate all persistent disks without
+losing persistent disk data.
+
+
 ### <a id="review-pending-changes"></a> UI Improvements to Review Pending Changes
 
 The _Review Pending Changes_ page in the Ops Manager installation dashboard features UI improvements.
