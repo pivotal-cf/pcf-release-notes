@@ -11,6 +11,146 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-rc.1'></a> 2.3.0-rc.1
+
+* **[Feature]** Add mutual TLS route integrity option
+  * With this option enabled, Router and applications use mutual TLS to verify each other's identity. Note: this is incompatible with TCP Routing and SSH access to app containers.
+  * The default non-mutual TLS option is recommended for most use cases.
+* **[Feature Improvement]** Default route integrity option is now "Router uses TLS to verify application identity"
+  * With this option enabled, the Router verifies the identity of the application instance backends, but the application does not verify the identity of the router.
+  * This is the recommended option for most use cases
+* **[Feature Improvement]** Improve description for the Frontend Idle Timeout setting
+  * This setting must be tuned according to the IAAS load balancer.
+  * See [the documentation](https://docs.pivotal.io/pivotalcf/2-2/customizing/frontend-idle-timeout.html) for more details.
+* **[Feature Improvement]** CloudController is configured to accept TLS traffic from Router
+* **[Feature Improvement]** The following system applications all use the new cflinuxfs3 stack:
+  * Apps Manager, Autoscaling, NFS Broker, Usage Service
+* **[Bug Fix]** Fix an issue where some BOSH metrics could stop appearing in the firehose due to idle connections being killed
+
+* **[Bug Fix]** Fixed these known issues in beta.2:
+  * NFS broker push fails on upgrades from 2.2 due to missing migration from cflinuxfs2 to cflinuxfs3
+
+* **[Known Issue]** Added known issues in rc.1:
+  * Autoscaling intermittently fails with "Internal Server Error" during smoke tests
+
+* Bump binary-offline-buildpack to version `1.0.25`
+* Bump bosh-system-metrics-forwarder to version `0.0.15`
+* Bump cf-autoscaling to version `208`
+* Bump cf-networking to version `2.12.0`
+* Bump cflinuxfs2 to version `1.234.0`
+* Bump cflinuxfs3 to version `0.17.0`
+* Bump log-cache to version `1.4.4`
+* Bump push-apps-manager-release to version `666.0.3`
+* Bump push-usage-service-release to version `667.0.5`
+* Bump silk to version `2.12.0`
+* Bump stemcell ubuntu-xenial to version `97.15`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>97.15</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.9.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.25</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.15</td>
+  </tr><tr>
+    <td>bpm</td><td>0.11.0</td>
+  </tr><tr>
+    <td>capi</td><td>1.66.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>208</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-cli</td><td>1.5.0</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.15.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.12.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.6</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>7.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.234.0</td>
+  </tr><tr>
+    <td>cflinuxfs3</td><td>0.17.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.5</td>
+  </tr><tr>
+    <td>diego</td><td>2.14.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.4</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.16.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.26</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.9.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.15</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.4.4</td>
+  </tr><tr>
+    <td>loggregator</td><td>103.0</td>
+  </tr><tr>
+    <td>mapfs</td><td>1.0.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
+  </tr><tr>
+    <td>nats</td><td>25</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.5.3</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.30</td>
+  </tr><tr>
+    <td>notifications</td><td>51</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.59</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>666.0.3</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>667.0.5</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.20</td>
+  </tr><tr>
+    <td>pxc</td><td>0.13.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.179.1</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.22</td>
+  </tr><tr>
+    <td>silk</td><td>2.12.0</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.31</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>60.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.3.0-beta.2'></a> 2.3.0-beta.2
 
 * **[Feature]** PAS configured with Azure blobstores works with backup and restore (BBR) when blobstores are configured with "soft delete"
@@ -27,6 +167,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 * **[Known Issue]** Added known issues in beta.2:
   * NFS broker push fails on upgrades from 2.2 due to missing migration from cflinuxfs2 to cflinuxfs3
+
 * Bump binary-offline-buildpack to version `1.0.24`
 * Bump bpm to version `0.11.0`
 * Bump capi to version `1.66.0`
@@ -817,9 +958,9 @@ The Backup Prepare Node has been renamed to Backup Restore Node.
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='nfs-broker-push-upgrade'></a> NFS Broker push fails on upgrades from 2.2
+### <a id='autoscaling-smoke-test-failure'></a> Autoscaling smoke test failure
 
-NFS broker push fails on upgrades from 2.2 due to missing migration from cflinuxfs2 to cflinuxfs3
+Autoscaling intermittently fails with "Internal Server Error" during smoke tests
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
