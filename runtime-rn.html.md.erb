@@ -162,6 +162,10 @@ By default, you the router will use TLS to verify application identity. If upgra
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id='autoscaling-did-not-scale'></a> Autoscaling smoke test failure
+
+Autoscaling smoke tests fail with "test app did not scale up." This is fixed by log-cache 1.4.4, which we will bump to in the next release.
+
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
 This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI. 
