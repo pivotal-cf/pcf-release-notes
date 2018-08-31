@@ -18,6 +18,11 @@ To fix this condition, customers should unbind the service, rebind it, and then 
 
 Alternately, customers wishing to avoid application down time can temporarily re-bind their applications as read/write before upgrading, and then swtich to read-only afterwards.
 
+### <a id='strict-route-integrity'></a> SSH and TCP Do Not Work with Strict Route Integrity Enabled
+
+When you enable the **Strict route integrity** checkbox in PAS v2.3, Envoy only recognizes communications from the Gorouter. Therefore, SSH and TCP no longer work.
+
+
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
 
 ###<a id='bosh-dns'></a> BOSH DNS Must be Enabled
@@ -25,6 +30,7 @@ Alternately, customers wishing to avoid application down time can temporarily re
 In PCF v2.3, you cannot opt out of BOSH DNS. Upgrades to PCF v2.3 will fail if BOSH DNS is disabled in PCF v2.2.
 
 <%= image_tag("bosh-dns-error.png") %>
+
 
 ## <a id='ist'></a> PCF Isolation Segment
 
