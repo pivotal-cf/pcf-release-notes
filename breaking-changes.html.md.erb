@@ -8,9 +8,9 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-### <a id="readonly-volume-mounts"></a> Read-only Volume Mounts
+### <a id="readonly-volume-mounts"></a> Read-Only Volume Mounts
 
-We back-ported a fix from NFS 1.3.1 to NFS 1.2.1 for an incompatibility between our NFS Volume release and Diego's container runtime, garden. But, because the fix was in the NFS Service Broker, and service bindings created by old versions of this broker won't get migrated during upgrade, existing NFS service bindings that specify read-only mounts will still exhibit the incompatibility.
+We backported a fix from NFS v1.3.1 to NFS v1.2.1 for an incompatibility between our NFS Volume release and Diego's container runtime, garden. But, because the fix was in the NFS Service Broker, and service bindings created by old versions of this broker will not get migrated during upgrade, existing NFS service bindings that specify read-only mounts will still exhibit the incompatibility.
 
 As a result, customers upgrading from versions containing nfs-volume-release < 1.2.1 that have NFS services bound read-only to their applications will see that their applications crash after upgrade.
 
@@ -18,9 +18,9 @@ To fix this condition, customers should unbind the service, rebind it, and then 
 
 Alternately, customers wishing to avoid application down time can temporarily re-bind their applications as read/write before upgrading, and then swtich to read-only afterwards.
 
-### <a id='strict-route-integrity'></a> SSH and TCP Do Not Work with Strict Route Integrity Enabled
+### <a id='mutual-tls-id'></a> SSH and TCP Do Not Work with Mutual TLS App Identity Verification Enabled
 
-When you enable the **Strict route integrity** checkbox in PAS v2.3, Envoy only recognizes communications from the Gorouter. Therefore, SSH and TCP no longer work.
+When you enable the **Router and applications use mutual TLS to verify each other's identity** option in PAS v2.3, Envoy only recognizes communications from the Gorouter. As a result, SSH and TCP no longer work.
 
 
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
