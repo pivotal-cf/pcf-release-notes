@@ -862,7 +862,7 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 * **Assign a stack to custom buildpacks**: 
   * Associate custom buildpacks in your PAS deployment with a stack so they do not have a missing stack record. For example, for a buildpack compatible with  `cflinuxfs2`, you can run `cf update CUSTOM-BUILDPACK-NAME -s cflinuxfs2`. Buildpacks with a missing stack record will continue to work, but there may be errors when attempting to manage them with the cf CLI.  
 * **Modify custom buildpacks for cflinuxfs3**: 
-  * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command. 
+  * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` option provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command. 
   * Ensure that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead. 
 
 #### <a id="cflinuxfs3-guidance-tiledev"></a> Guidance for Tile Developers
