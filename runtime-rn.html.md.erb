@@ -827,7 +827,7 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 
 ### <a id="xenial"></a> Xenial Stemcells
 
-PAS v2.3.0 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus). 
+PAS v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus). 
 
 The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates. 
 
@@ -844,16 +844,16 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 #### <a id="cflinuxfs3-overview"></a> Overview 
 
 * **What's new?**
-  * PAS v2.3.0 adds the following:
+  * PAS v2.3 adds the following:
       * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver) 
       * A new set of buildpacks that are compatible with `cflinuxfs3`
   * cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
-    <p class="note"><strong>Note</strong>: PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a> .</p>
+    <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>.</p>
       * The output of the `cf buildpacks` command has a `stacks` column.
       * The following commands now accept a `-s` flag for specifying a stack:  `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`.<br> This is useful if there are two buildpacks of the same name that use a different stack.
       * The `cf update-buildpack` command also allows you to assign a stack to an existing buildpack that does not yet have a stack record.
 * **What about cflinuxfs2?**
-  * PAS v2.3.0 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019 and will no longer receive security updates. Using `cflinuxfs3` in v2.3 ensures that PAS users continue to have access to a secure stack based on a Ubuntu distribution maintained by Canonical.
+  * PAS v2.3 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019 and will no longer receive security updates. Using `cflinuxfs3` in v2.3 ensures that PAS users continue to have access to a secure stack based on a Ubuntu distribution maintained by Canonical.
 
 #### <a id="cflinuxfs3-guidance-operator"></a> Guidance for Operators
 
@@ -881,7 +881,7 @@ For more information about BPM, see the [bpm-release](https://github.com/cloudfo
 
 ### <a id="service-discovery"></a> App Service Discovery Updates
 
-PAS v2.3.0 includes the following updates to app service discovery:
+PAS v2.3 includes the following updates to app service discovery:
 
 * App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane. 
 * You can now configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`. 
@@ -910,6 +910,14 @@ For more information, see [Create Container-to-Container Networking Policies](ht
 ### <a id="encyrpt-traffic"></a> Gorouter to Cloud Controller Traffic is Encrypted
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
+
+### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
+
+In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. This ensures that only authorized clients, such as Gorouters, can send traffic to app instances through the infrastructure network.
+
+Previously, the **Router uses TLS to verify application identity** option only required that app instances use TLS to verify its identity with Diego before communicating with the Gorouter itself. However, this created a need for increased security between the Gorouter and the app instances themselves. The newest TLS app identity verification option, mutual TLS app identity verification, ensures that the Gorouter is the only client that can communicate with app instances through Envoy.
+
+<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <em>Known Issues</em> section below.</p>
 
 ### <a id="nfs"></a> Experimental NFS Volume Service Supports NFSv4
 
@@ -954,13 +962,22 @@ However, the `consul_server` VM continues to exist in PAS deployments to support
 
 The Backup Prepare Node has been renamed to Backup Restore Node. 
 
-<p class="note warning"><strong>Warning</strong>: The persistent disk attached to the existing Backup Prepare node will not be migrated to the new Backup Restore node. Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
+<p class="note warning"><strong>WARNING:</strong> The persistent disk attached to the existing Backup Prepare node will not be migrated to the new Backup Restore node. Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
+
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='autoscaling-smoke-test-failure'></a> Autoscaling smoke test failure
+### <a id='autoscaling-smoke-test-failure'></a> Autoscaling Smoke Test Failure
 
-Autoscaling intermittently fails with "Internal Server Error" during smoke tests
+Autoscaling intermittently fails with "Internal Server Error" during smoke tests.
+
+### <a id='mutual-tls-id-limitations'></a> Mutual TLS App Identity Verification Limitations
+
+Mutual TLS app identity verification is not currently compatible with TCP routing or CF SSH, since Envoy only recognizes communications from the Gorouter.
+
+Mutual TLS app identity verification is not compatible with older tile versions, such as PAS v2.3 with PCF Isolation Segment (IST) v2.2 or earlier. Operators upgrading from PCF v2.2 or earlier should not enable mutual TLS app identity verification on any PAS or IST tiles until they have all been upgraded to v2.3 or later. Otherwise, the older Gorouters will be unable to send traffic to the app instances with mutual TLS app identity verification enabled.
+
+Neither mode of app identity verification is available for Windows at this time.
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
