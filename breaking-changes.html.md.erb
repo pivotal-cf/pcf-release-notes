@@ -5,6 +5,17 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.2. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/2-2/customizing/upgrading-pcf.html).
 
+## <a id='general'></a> Pivotal Cloud Foundry
+
+### <a id="xenial"></a> Tile Patch Releases Use Xenial Stemcells
+
+Ubuntu 14.04 LTS (Trusty) stemcells are reaching end-of-support in April 2019. Starting in September 2018, Pivotal and its partners will begin releasing product tiles for PCF that support Ubuntu 16.04 LTS (Xenial) stemcells instead. Using supported stemcells is necessary to avoid exposure to security vulnerabilities.
+
+You must manually download and import a new Xenial stemcell into the <b>Ops Manager Stemcell Library</b> before deploying any tiles that require a Xenial stemcell. As a consequence, any automation you have set up to update the existing tile using Trusty stemcells may break.
+
+Before you upgrade any tiles either from Pivotal or a partner, always verify that the tile is compatible with the version of PCF you are deploying and its supported stemcells. For more information on checking PCF and stemcell compatibility, see [Tile Compatibility](https://docs.pivotal.io/pivotalcf/upgrading/checklist.html#compatibility) in the Upgrade Checklist.
+
+To find out which stemcell version is used by a product tile version, check the release notes or the Pivotal Network download page for the tile.
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
