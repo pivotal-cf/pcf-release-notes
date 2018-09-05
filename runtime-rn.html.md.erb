@@ -919,7 +919,7 @@ In the **Application Containers** pane of PAS v2.3, there is now a third option 
 
 Previously, the **Router uses TLS to verify application identity** option only required that app instances use TLS to verify its identity with Diego before communicating with the Gorouter itself. However, this created a need for increased security between the Gorouter and the app instances themselves. The newest TLS app identity verification option, mutual TLS app identity verification, ensures that the Gorouter is the only client that can communicate with app instances through Envoy.
 
-<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <em>Known Issues</em> section below.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <em>Known Issues</em> section below.</p>
 
 ### <a id="nfs"></a> Experimental NFS Volume Service Supports NFSv4
 
