@@ -354,11 +354,11 @@ To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all ce
 
 ### <a id="ldap"></a> Ops Manager Supports LDAP Authentication
 
-Lightweight Directory Access Protocal (LDAP) authentication is now available. It joins the Security Assertion Markup Language (SAML) as one of two authentication methods Ops Manager supports.
+Ops Manager supports Lightweight Directory Access Protocal (LDAP) for authentication, in addition to Security Assertion Markup Language (SAML).
 
-**Admins**: Enable LDAP or SAML authentication through the **Settings** page. For more information about configuring LDAP settings in Ops Manager, see [Understanding the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings).
+For new Ops Manager installations, operators can configure LDAP authentication from the **Welcome to Ops Manager** page. See the **LDAP Server** section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-3/customizing/deploy-bosh-om.html#contents) for more information.
 
-**Operators:** Configure LDAP settings on the **Welcome to Ops Manager** page for new installations of Ops Manager. For more information about configuring LDAP settings for new installations of Ops Manager, see the **LDAP Server** section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-3/customizing/deploy-bosh-om.html#contents).
+For existing Ops Manager installations, operators can configure LDAP authentication through the Ops Manager **Settings** page. For more information, see the [Settings Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings) section of the Understanding the Ops Manager Interface topic.
 
 ### <a id="cinder"></a> Virtual Machines Running on OpenStack Can Boot From Cinder Volumes
 
@@ -375,20 +375,20 @@ losing persistent disk data.
 
 ### <a id="review-pending-changes"></a> UI Improvements to Review Pending Changes
 
-The _Review Pending Changes_ page in the Ops Manager installation dashboard features UI improvements.
+The **Review Pending Changes** page in the Ops Manager installation dashboard features UI improvements.
 
 See the following changes:
 
 - You now cannot enable orange tiles for selective deployment. In Ops Manager v2.2, you can enable orange tiles but you cannot click **Apply Changes**.
 - When you enable a tile for selective deployment, its dependencies are also enabled. In Ops Manager v2.2, you must enable your tile dependencies manually.
-- When an update fails, a list of pending changes that did not complete appears on the _Review Pending Changes_ page.
+- When an update fails, a list of pending changes that did not complete appears on the **Review Pending Changes** page.
 - When you attempt to change a tile with an out-of-date stemcell, a message appears notifying you that the stemcell is out of date. Click this message to access the Stemcell Library.
 - When a tile is staged to be deleted, indicator text appears on that tile.
 - **Apply Changes** displays as **Review Pending Changes** when there are pending changes staged.
-- Stemcell changes appear in the _Changes_ field for each tile.
-- When _Review Pending Changes_ returns an error, the error message includes the name of the affected tiles.
-- The "Beta" label no longer appears on the _Review Pending Changes_ page.
-- The _Review Pending Changes_ page has minor UI improvements throughout.
+- Stemcell changes appear in the **Changes** field for each tile.
+- When **Review Pending Changes** returns an error, the error message includes the name of the affected tiles.
+- The **Beta** label no longer appears on the **Review Pending Changes** page.
+- The **Review Pending Changes** page has minor UI improvements throughout.
 
 For more information about the page UI, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/review-pending-changes.html#review-pending-changes).
 
