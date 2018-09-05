@@ -23,6 +23,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   * This setting must be tuned according to the IAAS load balancer.
   * See [the documentation](https://docs.pivotal.io/pivotalcf/2-2/customizing/frontend-idle-timeout.html) for more details.
 * **[Feature Improvement]** CloudController is configured to accept TLS traffic from Router
+* **[Feature Improvement]** Usage Service migration with large task count backfill is now mcuh faster
 * **[Feature Improvement]** The following system applications all use the new cflinuxfs3 stack:
   * Apps Manager, Autoscaling, NFS Broker, Usage Service
 * **[Bug Fix]** Fix an issue where some BOSH metrics could stop appearing in the firehose due to idle connections being killed
