@@ -8,19 +8,9 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-<<<<<<< HEAD
 ### <a id="readonly-volume-mounts"></a> Read-Only Volume Mounts
-=======
-### <a id="backup-restore-name-change"></a> backup-prepare instance group has been renamed to backup-restore
 
-We changed the name of the `backup-prepare` instance group to `backup-restore` to better reflect what it does. This could break some external tools that were setting the properties for this instance group via the Ops Manager API.
-
-Note: We plan to finalize the name `backup_restore` in the next release, for consistency with other instance group names.
-
-### <a id="readonly-volume-mounts"></a> Read-only Volume Mounts
->>>>>>> 86920417a93bc4eaf679c9cb4cec5c8f765e268c
-
-We backported a fix from NFS v1.3.1 to NFS v1.2.1 for an incompatibility between our NFS Volume release and Diego's container runtime, garden. But, because the fix was in the NFS Service Broker, and service bindings created by old versions of this broker will not get migrated during upgrade, existing NFS service bindings that specify read-only mounts will still exhibit the incompatibility.
+A fix from NFS v1.3.1 has been backported to NFS v1.2.1 for an incompatibility between the NFS Volume release and Diego's container runtime, Garden. Because the fix was in the NFS Service Broker, and service bindings created by old versions of this broker will not get migrated during upgrade, existing NFS service bindings that specify read-only mounts will still exhibit the incompatibility.
 
 As a result, customers upgrading from versions containing nfs-volume-release < 1.2.1 that have NFS services bound read-only to their applications will see that their applications crash after upgrade.
 
@@ -31,6 +21,10 @@ Alternately, customers wishing to avoid application down time can temporarily re
 ### <a id='mutual-tls-id'></a> SSH and TCP Do Not Work with Mutual TLS App Identity Verification Enabled
 
 When you enable the **Router and applications use mutual TLS to verify each other's identity** option in PAS v2.3, Envoy only recognizes communications from the Gorouter. As a result, SSH and TCP no longer work.
+
+### <a id="backup-restore-name-change"></a> Backup-Prepare Instance Group Has Been Renamed to Backup-Restore
+
+The name of the `backup-prepare` instance group has been changed to `backup-restore` to better reflect what it does. This could break some external tools that were setting the properties for this instance group via the Ops Manager API.
 
 
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
