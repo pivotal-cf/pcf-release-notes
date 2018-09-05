@@ -848,10 +848,9 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
       * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver) 
       * A new set of buildpacks that are compatible with `cflinuxfs3`
   * cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
-    <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>.</p>
+    <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>. See <a href="https://docs.pivotal.io/pivotalcf/2-3/buildpacks/stack-association.html">Stack Association</a> for more information.</p>
       * The output of the `cf buildpacks` command has a `stacks` column.
       * The following commands now accept a `-s` flag for specifying a stack:  `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`.<br> This is useful if there are two buildpacks of the same name that use a different stack.
-      * The `cf update-buildpack` command also allows you to assign a stack to an existing buildpack that does not yet have a stack record.
 * **What about cflinuxfs2?**
   * PAS v2.3 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019 and will no longer receive security updates. Using `cflinuxfs3` in v2.3 ensures that PAS users continue to have access to a secure stack based on a Ubuntu distribution maintained by Canonical.
 
@@ -862,7 +861,7 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 * **Migrate apps to cflinuxfs3**: 
   * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries and must update their app accordingly. 
 * **Assign a stack to custom buildpacks**: 
-  * Associate custom buildpacks in your PAS deployment with a stack so they do not have a missing stack record. To do this, ensure your buildpack specifies a stack as a top level property in its manifest and then update it with the `cf update-buildpack`. Buildpacks with a missing stack record will continue to work, but they are more manageable when associated with a stack.  
+  * Associate custom buildpacks in your PAS deployment with a stack so they do not have a missing stack record. To do this, ensure your buildpack specifies a stack as a top level property in its manifest and then update it with the `cf update-buildpack` command. See [Creating Custom Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/buildpacks/custom.html). Buildpacks with a missing stack record will continue to work, but they are more manageable when associated with a stack. 
 * **Modify custom buildpacks for cflinuxfs3**: 
   * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` option provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command. 
   * Ensure that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead. 
