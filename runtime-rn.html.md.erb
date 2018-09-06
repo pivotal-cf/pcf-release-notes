@@ -856,8 +856,8 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 
 #### <a id="cflinuxfs3-guidance-operator"></a> Guidance for Operators
 
-* **Add disk to Cloud Controller and Diego**: 
-  * The new set of buildpacks may increase the amount of persistent disk required by the **Cloud Controller** and **Diego Cell** VMs in your deployment. 
+* **Scale Cloud Controller if necessary**: 
+  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is high, you may need to increase the persistent disk of the **Cloud Controller** VM to accommodate the new buildpacks. 
 * **Migrate apps to cflinuxfs3**: 
   * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries and must update their app accordingly. 
 * **Assign a stack to custom buildpacks**: 
