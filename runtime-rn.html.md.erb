@@ -848,7 +848,7 @@ For more information, see the Knowledge Base article [Spring Cloud Services Depl
 
 x509 certificate parsing in the Go language is [stricter in v1.10](https://golang.org/doc/go1.10#minor_library_changes) than it is in v1.9. As a result, certificates that many Pivotal customers generated with open-source tools and continue to use could cause errors if parsed by Go v1.10. To avoid this, some PAS v2.2 components use Go v1.9. PAS v2.2 includes both versions of the language.
 
-### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
+### <a id='tcp-port-config'></a> Configuring a List of TCP Routing Ports
 
 This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI. 
 
