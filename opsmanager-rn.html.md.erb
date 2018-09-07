@@ -354,6 +354,19 @@ To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all ce
 
 1. **Apply Changes** for all tiles simultaneously to rotate the certificates.
 
+### <a id="verifier-control"></a> Disable Verifiers By Type with the Ops Manager API
+
+You can disable verifiers by type with the Ops Manager API. Ops Manager provides this
+option for troubleshooting purposes. For example, your deployment may have a unique
+configuration that the verifier cannot detect. In this case, you can unblock your
+deployment by disabling the verifier.
+
+For more information, see [Disabling Ops Manager
+Verifiers](https://docs.pivotal.io/pivotalcf/2-3/customizing/granular-verifier-control.html).
+
+<p class="note"><strong>Note:</strong> This is an advanced feature. Pivotal recommends
+contacting support before you disable Ops Manager verifiers.</p>
+
 ### <a id="ldap"></a> Ops Manager Supports LDAP Authentication
 
 Ops Manager supports Lightweight Directory Access Protocal (LDAP) for authentication, in addition to Security Assertion Markup Language (SAML).
