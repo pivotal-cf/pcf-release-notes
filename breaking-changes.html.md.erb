@@ -10,13 +10,11 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ### <a id="readonly-volume-mounts"></a> Read-Only Volume Mounts
 
-A fix from NFS v1.3.1 has been backported to NFS v1.2.1 for an incompatibility between the NFS Volume release and Diego's container runtime, Garden. Because the fix was in the NFS Service Broker, and service bindings created by old versions of this broker will not get migrated during upgrade, existing NFS service bindings that specify read-only mounts will still exhibit the incompatibility.
+A fix from NFS v1.3.1 has been backported to NFS v1.2.1 to resolve an incompatibility between the NFS volume release and Diego's container runtime, Garden. Because the fix is in the NFS Service Broker, and service bindings created by old versions of this broker are not migrated during an upgrade, existing NFS service bindings that specify read-only mounts still exhibit the incompatibility. As a result, apps with NFS services bound as read-only crash after upgrading from NFS v1.2.0 or earlier.
 
-As a result, customers upgrading from versions containing nfs-volume-release < 1.2.1 that have NFS services bound read-only to their applications will see that their applications crash after upgrade.
+To fix this condition, you should unbind the service, rebind it, and restage the app.
 
-To fix this condition, customers should unbind the service, rebind it, and then restage the application.
-
-Alternately, customers wishing to avoid application down time can temporarily re-bind their applications as read/write before upgrading, and then swtich to read-only afterwards.
+Alternately, to avoid app downtime, you can temporarily rebind your apps as read/write before upgrading and switch to read-only afterward.
 
 ### <a id='mutual-tls-id'></a> SSH and TCP Do Not Work with Mutual TLS App Identity Verification Enabled
 
@@ -24,7 +22,7 @@ When you enable the **Router and applications use mutual TLS to verify each othe
 
 ### <a id="backup-restore-name-change"></a> Backup-Prepare Instance Group Has Been Renamed to Backup-Restore
 
-The name of the `backup-prepare` instance group has been changed to `backup-restore` to better reflect what it does. This could break some external tools that were setting the properties for this instance group via the Ops Manager API.
+The name of the `backup-prepare` instance group has been changed to `backup-restore`. This may break some external tools that were setting the properties for this instance group through the Ops Manager API.
 
 
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
@@ -37,7 +35,7 @@ Starting in PCF v2.3, Ops Manager uses a Xenial stemcell. Before you upgrade to 
   + ClamAV Add-on for PCF v1.2.22 and later. For information on how to update this add-on, see [Updating ClamAV Add-on for PCF to Run with Xenial Stemcells](https://docs.pivotal.io/addon-antivirus/updating-for-xenial.html).
   + File Integrity Monitoring (FIM) Add-on for PCF v1.4.28 and later. For information on how to update this add-on, see [Updating FIM Add-on for PCF to Run with Xenial Stemcells](https://docs.pivotal.io/addon-fim/updating-for-xenial.html).
   + IPSec Add-on for PCF v1.9.9 and later. For information on how to update this add-on, see [Updating IPsec Add-on for PCF to Run with Xenial Stemcells](https://docs.pivotal.io/addon-ipsec/updating-for-xenial.html).<br/><br/>
-  You must apply these updates before you deploy any tiles that use the Xenial stemcell and before you upgrade to PCF v2.3.
+You must apply these updates before you deploy any tiles that use the Xenial stemcell and before you upgrade to PCF v2.3.
 
 1. Verify that any tiles that you have installed in your current foundation, either from Pivotal or a partner, are compatible with PCF v2.3. For more information on checking PCF and stemcell compatibility, see [Tile Compatibility](https://docs.pivotal.io/pivotalcf/2-3/upgrading/checklist.html#compatibility) in the Upgrade Checklist.<br/><br/>
   In some cases, you may need to download and import a new Xenial stemcell into Ops Manager v2.2 to upgrade your tiles. To download a Xenial stemcell from Pivotal Network, visit [Stemcells for PCF (Ubuntu Xenial)](https://network.pivotal.io/products/stemcells-ubuntu-xenial).
