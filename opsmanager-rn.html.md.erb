@@ -15,7 +15,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/cus
 
 ### 2.3.0-rc.4
 
-* **[Security Fix]**: Operators get new certificate authorities (CAs) for BOSH DNS healthiness and the DNS API that are valid for four years. Operators can rotate existing CAs to longer-lived CAs. New installations generate leaf certificates from that CA. Use POST /api/v0/certificate_authorities/active/regenerate to rotate DNS healthiness leaf certificates.
+* **[Security Fix]**: Operators get new certificate authorities (CAs) for BOSH DNS healthiness and the DNS API that are valid for four years. Operators can rotate existing CAs to longer-lived CAs. New installations generate leaf certificates from that CA. Use `POST /api/v0/certificate_authorities/active/regenerate` to rotate DNS healthiness leaf certificates.
 * **[Bug Fix]**: Ops Manager verifiers no longer time out when Ops Manager is configured with a proxy.
 * **[Bug Fix]**: Ops Manager verifiers now work on vCenter 6.7.
 * **[UI Enhancement]**: Required fields show a red asterisk ( * ) next to the field label.
