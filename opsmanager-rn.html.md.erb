@@ -17,8 +17,8 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 
 ### 2.2.5
 
-* **[Feature]**:Operators automatically get new CAs for BOSH DNS Healthiness and DNS API that are valid for four years.
-* **[Feature]**: All DNS healthiness certificates are signed by a new long lived Credhub CA.
+* **[Feature]**: New CAs for BOSH DNS healthiness and DNS API apply automatically on upgrade. These CAs are valid for four years.
+* **[Feature]**: All DNS healthiness certificates are signed by a Credhub CA.
 * **[Feature]**: Operators can rotate DNS healthiness certificates using `POST/api/v0/certificate_authorities/active/regenerate`.
 * **[Feature Improvement]**: Ops Manager API warns you when you attempt to regenerate certificates without first applying changes to propagate CA changes.
 * **[Bug Fix]**: Verifiers work in vCenter v6.7.
@@ -34,7 +34,7 @@ Ops Manager v2.2.5 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-  <td>Ops Manager</td><td>2.2-build.316</td>
+  <td>Ops Manager</td><td>2.2-build.316*</td>
   </tr>
   <tr>
     <td>Stemcell</td><td>3586.40</td>
@@ -64,6 +64,7 @@ Ops Manager v2.2.5 uses the following component versions:
   <tr>
     <td>vSphere CPI</td><td>50</td>
   </tr>
+  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
   </table>
 
