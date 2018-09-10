@@ -17,6 +17,57 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 
 ### 2.2.5
 
+* **[Feature]**: Operators can rotate BOSH DNS healthiness certificates to a new certificate authority (CA) that is valid for four years.
+* **[UI Enhancement]**: An error message appears when Ops Manager fails to import an installation.
+* **[UI Enhancement]**: An error message appears when a file downloaded from Pivotal Network is invalid or corrupt.
+
+Ops Manager v2.2.5 uses the following component versions:
+
+ <table border="1" class="nice">
+ <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td>2.2-build.319*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3586.40</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.6</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>266.12*</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.8</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.21</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.9.3</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.3</td>
+  </tr><tr>
+    <td>UAA</td><td>57.4</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>70</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.2</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27.0.1</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>38</td>
+  </tr>
+  <tr>
+    <td>vSphere CPI</td><td>50</td>
+  </tr>
+  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+  </table>
+
+### 2.2.5
+
 * **[Feature]**: New CAs for BOSH DNS healthiness and DNS API apply automatically on upgrade. These CAs are valid for four years.
 * **[Feature]**: All DNS healthiness certificates are signed by a Credhub CA.
 * **[Feature]**: Operators can rotate DNS healthiness certificates using `POST/api/v0/certificate_authorities/active/regenerate`.
