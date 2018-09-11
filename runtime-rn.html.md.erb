@@ -892,6 +892,22 @@ PAS v2.3 includes the following updates to app service discovery:
 
 For more information, see [Configure Application Developer Controls](https://docs.pivotal.io/2-3/customizing/gcp-er-config-terraform.html#er-appdevctrl-config) in _Deploying PAS on GCP Using Terraform_ as an example.  
 
+
+
+### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
+
+In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers.
+This configuration improves resiliency and consistency for application routes.
+Find this setting in the PAS tile > **Application Containers** pane.
+
+For more information,
+see [Increased Resiliency, Consistency, and Security for HTTP
+Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency)
+in the PAS v2.1 release notes.
+
+If you upgrade to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is not the default setting.
+
+
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
 <p class="warning note"><strong>WARNING:</strong> If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
