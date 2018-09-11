@@ -890,9 +890,7 @@ PAS v2.3 includes the following updates to app service discovery:
 * App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane. 
 * You can now configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`. 
 
-For more information, see [Configure Application Developer Controls](https://docs.pivotal.io/2-3/customizing/gcp-er-config-terraform.html#er-appdevctrl-config) in _Deploying PAS on GCP Using Terraform_ as an example.  
-
-
+For more information, see [Configure Application Developer Controls](https://docs.pivotal.io/2-3/customizing/gcp-er-config-terraform.html#er-appdevctrl-config) in _Deploying PAS on GCP Using Terraform_ as an example.
 
 ### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
 
@@ -906,7 +904,6 @@ Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html
 in the PAS v2.1 release notes.
 
 If you upgrade to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is not the default setting.
-
 
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
@@ -931,13 +928,13 @@ For more information, see [Create Container-to-Container Networking Policies](ht
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
 
-### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
+### <a id='mutual-tls-id'></a> <%= vars.sri_name_title %>
 
 In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. This ensures that only authorized clients, such as Gorouters, can send traffic to app instances through the infrastructure network.
 
 Previously, the **Router uses TLS to verify application identity** option only required that app instances use TLS to verify its identity with Diego before communicating with the Gorouter itself. However, this created a need for increased security between the Gorouter and the app instances themselves. The newest TLS app identity verification option, <%= vars.sri_name %>, ensures that the Gorouter is the only client that can communicate with app instances through Envoy.
 
-<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <a href="#known-issues">Known Issues</a> section.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations"><%= vars.sri_name_title %> Limitations</a> in the <a href="#known-issues">Known Issues</a> section.</p>
 
 ### <a id="nfs"></a> Experimental NFS Volume Service Supports NFSv4
 
