@@ -978,6 +978,18 @@ In PAS v2.3, PAS component VMs no longer include the `consul_agent` job. PAS com
 
 However, the `consul_server` VM continues to exist in PAS deployments to support any service or partner tiles that still require communication with Consul.
 
+### <a id='backup-resources'></a> BBR Improvements for External S3-Compatible Filestore
+
+PAS v2.3 no longer backs up the resources bucket in external S3-compatible filestores.
+This improvement decreases the total size of your backup and
+the downtime of the Cloud Foundry API when you back up or restore your PAS deployment with BBR.
+
+PAS v2.3 removes the following:
+
+* The `resources_backup_bucket` property from the tile configuration
+* The **Backup Resources Bucket Name* field
+in the **External S3-Compatible Filestore** section of the **File Storage* pane from the PAS UI
+
 ### <a id='backup-prepare-rename'></a> Rename Backup Restore Node
 
 The Backup Prepare Node has been renamed to Backup Restore Node. 
