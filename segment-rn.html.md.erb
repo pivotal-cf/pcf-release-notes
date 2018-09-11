@@ -312,7 +312,18 @@ To install a PCF Isolation Segment, you must first install PCF v2.3.
 
 ## <a id='2.3.0'></a> New Features in PCF Isolation Segment v2.3
 
-TODO
+### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
+
+In new installations of PCF v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers.
+This configuration improves resiliency and consistency for application routes.
+Find this setting in the Isolation Segment tile > **Application Containers** pane.
+
+For more information,
+see [Increased Resiliency, Consistency, and Security for HTTP
+Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/segment-rn.html#route-consistency)
+in the Isolation Segment v2.1 release notes.
+
+If you upgrade to PCF v2.3, each Isolation Segment tile retains its previous setting for HTTP communication to apps. TLS is not the default setting.
 
 ## <a id='adv-features'></a> About Advanced Features
 
