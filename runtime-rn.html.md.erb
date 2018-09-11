@@ -931,7 +931,7 @@ For more information, see [Create Container-to-Container Networking Policies](ht
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
 
-### <a id='mutual-tls-id'></a> <%= vars.sri_name %>
+### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
 In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. This ensures that only authorized clients, such as Gorouters, can send traffic to app instances through the infrastructure network.
 
