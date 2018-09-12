@@ -9,6 +9,9 @@ owner: Release Engineering
 
 ### <a id='2.0.17'></a> 2.0.17
 
+* **[Bug Fix]** Prune router backends when they return a 502 and do not retry for 30 seconds
+* **[Bug Fix]** Prevent requests from timing out by setting`Router Timeout to Backends` per request instead of per connection 
+
 * Bump cflinuxfs2 to version `1.235.0`
 * Bump routing to version `0.168.12`
 * Bump stemcell ubuntu-trusty to version `3468.67`
