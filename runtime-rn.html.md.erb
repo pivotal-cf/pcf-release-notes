@@ -850,7 +850,7 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
   * PAS v2.3 adds the following:
       * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver) 
       * A new set of buildpacks that are compatible with `cflinuxfs3`
-  * cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
+  * cf [CLI v6.39.0](https://github.com/cloudfoundry/cli/releases/tag/v6.39.0) adds the following to support the association between stacks and buildpacks:
     <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>. See <a href="https://docs.pivotal.io/pivotalcf/2-3/buildpacks/stack-association.html">Stack Association</a> for more information.</p>
       * The output of the `cf buildpacks` command has a `stacks` column.
       * The following commands now accept a `-s` flag for specifying a stack:  `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`.<br> This is useful if there are two buildpacks of the same name that use a different stack.
