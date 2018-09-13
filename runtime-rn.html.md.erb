@@ -1184,7 +1184,7 @@ Autoscaling intermittently fails with "Internal Server Error" during smoke tests
 
 Mutual TLS app identity verification disables TCP routing and `cf ssh` to app containers by only accepting incoming communication from the Gorouter.
 
-Mutual TLS app identity verification requires v2.3 or later of both PAS and PCF Isolation Segment (IST). PCF v2.2 Gorouters and cells do not support mTLS handshakes.
+To support mutual TLS app identity verification, you need v2.3 or later of both PAS and PCF Isolation Segment (IST). The Gorouter and cell components in PCF v2.2 and earlier do not support mTLS handshakes.
 
 Neither TLS nor mTLS app identity verification is available for Windows cells at this time.
 
