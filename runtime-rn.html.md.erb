@@ -1157,6 +1157,17 @@ The Backup Prepare Node has been renamed to Backup Restore Node.
 <p class="note warning"><strong>WARNING:</strong> The persistent disk attached to the existing Backup Prepare node will not be migrated to the new Backup Restore node. Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
 
 
+
+### <a id="override-timeout"></a> Operators Can Override Cloud Controller Connection Timeout
+
+Operators can override connection timeout values for the Cloud Controller database.
+Extending the connection timeout can prevent downtime when MySQL proxy VMs are recreated.
+The default timeout is 3600 seconds.
+
+You can change the timeout value in the **Cloud Controller** pane of the PAS tile.
+
+
+
 ## <a id='known-issues'></a> Known Issues
 
 
