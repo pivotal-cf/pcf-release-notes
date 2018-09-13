@@ -11,11 +11,17 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <hr>
 
+
+
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.2.
 
+
+
 ## <a id="releases"></a> Releases
+
+
 
 ### <a id="2-2-6"></a> 2.2.6
 
@@ -67,6 +73,8 @@ Ops Manager v2.2.6 uses the following component versions:
   <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
   </table>
+
+
 
 ### <a id="2-2-5"></a> 2.2.5
 
@@ -120,6 +128,8 @@ Ops Manager v2.2.5 uses the following component versions:
   <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
   </table>
+
+
 
 ### <a id="2-2-4"></a> 2.2.4
 
@@ -175,6 +185,8 @@ Ops Manager v2.2.4 uses the following component versions:
   </tbody>
   </table>
 
+
+
 ### <a id="2-2-3"></a>2.2.3
 
 * **[Security Fix]** Bumps stemcell to 3586.36
@@ -227,6 +239,8 @@ Ops Manager v2.2.3 uses the following component versions:
   </tbody>
   </table>
 
+
+
 ###  <a id="2-2-2"></a>2.2.2
 
 Ops Manager v2.2.2 uses the following component versions:
@@ -271,6 +285,8 @@ Ops Manager v2.2.2 uses the following component versions:
   <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
   </table>
+
+
 
 ###  <a id="2-2-1"></a>2.2.1
 
@@ -324,6 +340,8 @@ Ops Manager v2.2.1 uses the following component versions:
   </tbody>
   </table>
 
+
+
 ### <a id="2-2-0"></a> 2.2.0
 
 Ops Manager v2.2.0 uses the following component versions:
@@ -368,9 +386,12 @@ Ops Manager v2.2.0 uses the following component versions:
 <hr>
 
 
+
 ## <a id='major-features'></a> New Features in Ops Manager v2.2
 
 Ops Manager v2.2 includes the following major features:
+
+
 
 ### <a id='multi-dc'></a> Multiple Data Centers on vSphere
 
@@ -379,6 +400,8 @@ Ops Manager now allows you to configure multiple vSphere vCenters to a single BO
 You can add additional data centers in the **vSphere Config** pane of your vSphere BOSH Director tile. For more information about how to add, edit, and delete vCenters, see [Managing Multiple vSphere vCenters](http://docs.pivotal.io/pivotalcf/2-2/customizing/multiple-datacenters.html).
 
 <p class="note"><strong>Note:</strong> If you use the Ops Manager API and multiple vSphere configs exist, the GET HTTP request for Director properties omits the <code>iaas_configuration</code> key.</p>
+
+
 
 ### <a id="selective-deploy"></a> Selectively Deploy Tiles in Ops Manager or via an API Endpoint
 
@@ -392,6 +415,8 @@ In the Ops Manager UI, this feature is in beta. It is generally available as an 
 
 <p class="note"><strong>Note:</strong> Ops Manager is soliciting feedback for this feature. Submit feedback through your product architect or directly by emailing <a href="mailto:opsmanager-feedback+selective_deploys@pivotal.io">opsmanager-feedback+selective_deploys@pivotal.io</a>.</p>
 
+
+
 ### <a id="manifest-history"></a> Ops Manager Stores Past Manifests
 
 Through the Ops Manager API, you can see Ops Manager's manifest history. Manifest history is helpful for running `diff` commands on manifests to see changes over time.
@@ -402,6 +427,8 @@ For this feature, use the following Ops Manager API endpoints:
 
 - **/api/v0/installations**: For more information, see [Getting a list of recent install events](http://docs.pivotal.io/pivotalcf/2-2/opsman-api/#getting-a-list-of-recent-install-events) from the Ops Manager API documentation.
 
+
+
 ### <a id="azure-stack"></a> Azure Stack is Generally Available
 
 Pivotal officially supports Azure Stack.
@@ -410,17 +437,23 @@ Azure Stack is a hybrid cloud platform that lets you deliver Azure services from
 
 You can configure Azure Stack through the **BOSH Director for Azure** tile. For more information about Azure Stack-specific configurations, see the steps in the [Azure Config Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-om-config.html#azure-config) section of the _Configuring BOSH Director on Azure_ topic.
 
+
+
 ### <a id="azure-china"></a> Ops Manager Supports Azure China
 
 Ops Manager now supports a special region in Azure called Azure China. Azure China is a physically separated instance of cloud services that is located in China and independently operated. For more information about Azure China, see [What is Azure China 21Vianet?](https://docs.microsoft.com/en-us/azure/china/china-welcome) in the Azure China documentation.
 
 To tell the BOSH Director that you are using an Azure China environment, go to the **BOSH Director for Azure** tile and select `Azure China Cloud` from the **Azure Environment** field. For more information, see [Azure Config Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/azure-om-config.html#azure-config) in the _Configuring Ops Manager on Azure_ manual installation topic.
 
+
+
 ### <a id="om-credhub"></a> Ops Manager Credentials Stored in CredHub
 
 On each **Apply Changes**, Ops Manager sends your user-specified credentials to BOSH CredHub. This feature offers greater security for your credentials. For more information about where Ops Manager stores your credentials, see [BOSH CredHub](https://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
 
 For information about how this feature affects tile authors, see [PCF v2.2 Partners Release Notice](https://docs.pivotal.io/tiledev/2-2/release-notes-2-2.html#om-credhub) in the _PCF Tile Developer Guide_.
+
+
 
 ### <a id='secret-text-field'></a> Multi-Line Credentials
 
@@ -436,6 +469,8 @@ property_inputs:
 
 For more information, see the [Custom Forms and Properties](http://docs.pivotal.io/pivotalcf/2-2/tile-generator.html#custom-forms) section of the _Tile Generator_ topic.
 
+
+
 ### <a id="custom-ssl"></a> Specify a Custom Trusted SSL Certificate
 
 Operators can specify a custom trusted SSL certificate and key for the Ops Manager server so that traffic isn't exposed to man-in-the-middle attacks when using Ops Manager.
@@ -446,11 +481,15 @@ For more information about navigating the Ops Manager Settings page, see [Settin
 
 <p class="note"><strong>Note:</strong> Custom SSL certificate and key is persisted between upgrades. Custom SSL only needs a one-time configuration.</p>
 
+
+
 ### <a id='delete-api-token'></a> Delete Your Pivotal Network API Token
 
 You can now delete your Pivotal Network API token, along with the Pivotal Network release dashboard and all of the tile metadata from Pivotal Network products.
 
 For more information, see [Settings Page](http://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#settings) in the _Understanding the Ops Manager Interface_ topic.
+
+
 
 ### <a id="om-syslog"></a> Configure an Ops Manager Syslog Server
 
@@ -464,15 +503,21 @@ For more information about configuring syslog for Ops Manager, see [Settings Pag
 
 <p class="note breaking"><strong>Breaking Change:</strong> If you were running scripts to get Ops Manager logs, those scripts break on upgrade to Ops Manager v2.2 and later.</p>
 
+
+
 ### <a id='trusty-to-xenial'></a> Xenial Stemcell Upgrade Support
 
 As of April 2019, Trusty stemcells will no longer receive support, nor will Pivotal have CVE patches for them. Ops Manager v2.2 allows tile authors to upgrade from Trusty stemcells to Xenial stemcells.
+
+
 
 ### <a id="tls-blobstore"></a> TLS for Internal Blobstore Supported
 
 Ops Manager now supports TLS communications if you choose to use an internal blobstore.
 
 To enable internal blobstore TLS communication, all of your tiles must have stemcell v3586 or later. You can configure internal TLS by clicking **Enable TLS** in the **Director Config** pane of the BOSH Director tile.
+
+
 
 ### <a id='tls-external-db'></a> Custom TLS Certificate for External MySQL Database Supported
 
@@ -483,6 +528,8 @@ To configure a custom TLS certificate, navigate to **Director Config > Database 
 <p class='note'><strong>Note:</strong> You must select <strong>Enable TLS for Director Database</strong> to configure the TLS-related fields.</p>
 
 For more information, see the **Director Config Page** section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/deploy-bosh-om.html).
+
+
 
 ### <a id="ui-changes"></a> UI Improvements to Installation Dashboard
 
@@ -497,9 +544,13 @@ The following lists UI changes to the Ops Manager Installation Dashboard:
 
 For more information about the Ops Manager UI, see [Installation Dashboard Page](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#installation-dashboard) in the _Understanding the Ops Manager Interface_ topic.
 
+
+
 ### <a id="changelog"></a> Change Log Includes Products Deployed but Unchanged
 
 The [Change Log](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface.html#changelog) pane lists products as **Unchanged** when they remain deployed, but their configuration has not changed from a prior deployment, so Ops Manager did not re-deploy them.
+
+
 
 ### <a id="staged-products-api"></a> More Detail Available Via Ops Manager API Endpoint
 
@@ -507,11 +558,15 @@ A new API endpoint is available for Ops Manager. Send a `GET` to `/v0/staged/pen
 
 For more information about setting up the Ops Manager API, see [Using the Ops Manager API](https://docs.pivotal.io/pivotalcf/2-2/customizing/ops-man-api.html).
 
+
+
 ### <a id="identification-tags"></a> Custom Identification Tags Supported
 
 You can specify a single set of tags that apply to all VMs and disks for your foundation. Identification tags allow you to easily identify which foundation your VMs belong to when viewing your IaaS. You are able to set custom **Identification Tags** in the **Director Config** pane of your BOSH Director tile.
 
 For more information about configuring identification tags, see the **Director Config Page** section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-2/customizing/deploy-bosh-om.html).
+
+
 
 ### <a id="bosh-dns-enabled"></a> BOSH DNS Enabled By Default
 
@@ -525,12 +580,18 @@ You can disable BOSH DNS if instructed to do so by Pivotal support. If you disab
 
 <p class="note warning"><strong>WARNING:</strong> Do not disable BOSH DNS without instructions from Pivotal support. Disabling BOSH DNS will also disable PKS, NSX-T, and several PAS features.</p>
 
+
+
 ### <a id="when-changed"></a> "When Changed" Errand Setting Removed
 
 Ops Manager no longer includes a **When Changed** option for tile errands. In the **Errands** pane for a given tile, you can set errands **On** to run them or **Off** to not run them. The default setting is **On**. 
 
 
+
+
 ## <a id="known-issues"></a> Known Issues
+
+
 
 ### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
 
@@ -539,6 +600,8 @@ With BOSH DNS, every BOSH-deployed VM has a DNS server. In large PCF installatio
 This error is caused by a race condition and deadlock in the VM's DNS server.
 
 To fix this problem, run `monit` on the VM with failing DNS to restart its `bosh-dns` process.
+
+
 
 ### <a id="ki-opsmanager-tls-error"></a>Ops Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
 
@@ -559,6 +622,8 @@ Upon successful execution, "1 added" displays in the output. For example: `Updat
 This indicates the new certificate has been installed.
 
 For more information, see the Knowledge Base article [Operations Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore](https://community.pivotal.io/s/article/Operations-Manager-Validation-returns-TLS-error-when-configuring-Bosh-Director-S3-blobstore).
+
+
 
 ### <a id="ki-deployment-fails-jobs-not-running"></a> Ops Manager Deployment Fails Because Monit Reports Job as Failed
 
