@@ -13,6 +13,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.3.
 
+## <a id="releases"></a> Releases
+
 ### <a id="2-3-0-rc-4"></a> 2.3.0-rc.4
 
 * **[Security Fix]**: Operators get new certificate authorities (CAs) for BOSH DNS healthiness and the DNS API that are valid for four years. Operators can rotate existing CAs to longer-lived CAs. New installations generate leaf certificates from that CA. Use `POST /api/v0/certificate_authorities/active/regenerate` to rotate DNS healthiness leaf certificates.
