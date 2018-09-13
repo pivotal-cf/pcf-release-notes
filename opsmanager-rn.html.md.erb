@@ -9,11 +9,17 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <hr>
 
+
+
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.1.
 
+
+
 ## <a id="releases"></a> Releases
+
+
 
 ### <a id="2-1-14"></a> 2.1.14
 
@@ -68,6 +74,8 @@ Ops Manager v2.1.14 uses the following component versions:
   </tfoot>
 </table>
 
+
+
 ### <a id="2-1-13"></a> 2.1.13
 
 * **[Security Fix]** Bumps stemcell to 3541.46
@@ -117,6 +125,8 @@ Ops Manager v2.1.13 uses the following component versions:
   </tr>
   </tfoot>
 </table>
+
+
 
 ### <a id="2-1-12"></a> 2.1.12
 
@@ -170,6 +180,8 @@ Ops Manager v2.1.12 uses the following component versions:
 </table>
 
 
+
+
 ### <a id="2-1-11"></a> 2.1.11
 
 * **[Security Fix]** Bumps stemcell to 3541.37
@@ -221,6 +233,8 @@ Ops Manager v2.1.11 uses the following component versions:
   </tfoot>
 </table>
 
+
+
 ### <a id="2-1-10"></a> 2.1.10
 
 * **[Security Fix]** Bumps stemcell to 3541.35
@@ -268,6 +282,8 @@ Ops Manager v2.1.10 uses the following component versions:
   </tfoot>
 </table>
 
+
+
 ### <a id="2-1-9"></a> 2.1.9
 
 * **[Bug Fix]**: Fixes critical manifest generation grammar issue introduced in v2.1.8.
@@ -314,6 +330,8 @@ Ops Manager v2.1.9 uses the following component versions:
   </tr>
   </tfoot>
 </table>
+
+
 
 
 ### <a id="2-1-8"></a> 2.1.8
@@ -382,6 +400,8 @@ Ops Manager v2.1.8 uses the following component versions:
   </tfoot>
 </table>
 
+
+
 ### <a id="2-1-7"></a> 2.1.7
 
 * **[Bug Fix]** Ops Manager syncs with the configured NTP Server, resolving the issue in the following KB article: https://community.pivotal.io/s/article/Operations-Manager-does-not-Sync-with-the-Configured-NTP-Server-in-PCF-20. 
@@ -430,6 +450,8 @@ Ops Manager v2.1.7 uses the following component versions:
   </tfoot>
 </table>
 
+
+
 ### <a id="2-1-6"></a> 2.1.6
 
 * **[Security]** Remediates [CVE-2018-11046](https://pivotal.io/security/cve-2018-11046).
@@ -472,6 +494,8 @@ Ops Manager v2.1.6 uses the following component versions:
   </tr><tr>
   </tbody>
 </table>
+
+
 
 ### <a id="2-1-5"></a> 2.1.5
 
@@ -519,6 +543,8 @@ Ops Manager v2.1.5 uses the following component versions:
   </tr>
   </tfoot>
   </table>
+
+
 
 ### <a id="2-1-4"></a> 2.1.4
 
@@ -577,6 +603,8 @@ Ops Manager v2.1.4 uses the following component versions:
   </tfoot>
   </table>
 
+
+
 ### <a id="2-1-3"></a> 2.1.3
 
 * **[Security]** Bumps stemcell to 3541.25
@@ -626,6 +654,8 @@ Ops Manager v2.1.3 uses the following component versions:
   </tfoot>
   </table>
 
+
+
 ### <a id="2-1-2"></a> 2.1.2
 
 * **[Security]** Bumps stemcell to 3451.12
@@ -671,6 +701,8 @@ Ops Manager v2.1.2 uses the following component versions:
   </tr>
   </tfoot>
   </table>
+
+
 
 ###  <a id="2-1-1"></a>2.1.1
 
@@ -721,6 +753,8 @@ Ops Manager v2.1.1 uses the following component versions:
   </tfoot>
   </table>
 
+
+
 ### <a id="2-1-0"></a> 2.1.0
 
 Ops Manager v2.1.0 uses the following component versions:
@@ -769,6 +803,8 @@ Ops Manager v2.1.0 uses the following component versions:
 
 ## <a id='major-features'></a> New Features in Ops Manager v2.1
 
+
+
 ### <a id="stemcell-manager"></a> Stemcell Library
 
 Use the new Stemcell Library to import stemcells, stage stemcells, and view the stemcell versions associated with each product. 
@@ -778,13 +814,19 @@ For v2.1, the Stemcell Library provides centralized stemcell management from the
 
 For more information about the Stemcell Library, see [Importing and Managing Stemcells](http://docs.pivotal.io/2-1/opsguide/managing-stemcells.html).
 
+
+
 ### <a id="custom-vm-extensions"></a> Create Custom VM Extensions
 
 You can create and manage custom VM extensions through the Ops Manager API. Custom VM extensions allow you to assign a group of IaaS-specific `cloud_properties` to a custom VM extension `name`. You can then assign this custom VM extension to jobs. For more information about custom VM extensions, see [Managing Custom VM Extensions](http://docs.pivotal.io/pivotalcf/2-1/customizing/custom-vm-extensions.html).
 
+
+
 ### <a id="azure-stack"></a> Azure Stack Support (Beta)
 
 Operators can deploy Ops Manager v2.0 to Microsoft Azure in their own local datacenter using Azure Stack. **Azure Stack support is in beta** for Ops Manager v2.0 and should not be used in production.
+
+
 
 ### <a id="custom-kms"></a> AWS KMS Encryption Available for BOSH and Ops Manager VMs
 
@@ -794,9 +836,13 @@ To encrypt BOSH and all present and future product VMs, enable **Encrypt EBS Vol
 
 For more information about how to encrypt BOSH and Ops Manager VMs, see [Configuring Amazon EBS Encryption](http://docs.pivotal.io/pivotalcf/2-1/customizing/cloudform-om-ebs-config.html).
 
+
+
 ### <a id="credhub-hsm"></a> Configure an External CredHub Encryption Provider
 
 In the **Director Config** pane of an installation, you now have the option to select a **CredHub Encryption Provider** to store your encryption keys. For Ops Manager v2.1, you only have the option to select internal storage or a Luna Hardware Security Module (HSM). For more information about configuring your CredHub encryption provider, see the **Director Config Page** section of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/deploy-bosh-om.html).
+
+
 
 ### <a id="multiple-logins"></a> Multiple Read-Only Users Can Be Logged In Simultaneously
 
@@ -804,15 +850,21 @@ Ops Manager users with **Full View** and **Restricted View** permissions can be 
 
 For security purposes, operators with write access still cannot be logged into Ops Manager simultaneously. For more information about operator roles and permissions, see [Configuring Role-Based Access Control (RBAC) in Ops Manager](http://docs.pivotal.io/pivotalcf/opsguide/config-rbac.html).
 
+
+
 ### <a id="custom-banner"></a> Create a Custom Banner
 
 From the Ops Manager settings, you can now add a custom banner to communicate important messages to operators. In the new **Custom Banner** pane, enter text in the **Banner UI** field to create a banner that appears on each page of the Ops Manager UI. If you enter text in the **SSH Banner** field, that text appears to each operator who shells into Ops Manager. For more information about navigating Ops Manager settings, see the **Settings Page** of the [Ops Manager Director installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-1/customizing/deploy-bosh-om.html).
+
+
 
 ### <a id="gcs-blobstore"></a> GCS Blobstore Available for External File Storage
 
 You now have the option to select a Google Cloud Storage (GCS) blobstore as your external file storage. With this new feature, Pivotal now recommends you select the **GCS Blobstore** option for the **Blobstore Location** if you install Ops Manager with GCP. For more information, see the [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config) section of the _Configuring Ops Manager Director on GCP_ topic.
 
 <p class="note"><strong>Note:</strong> After you deploy Ops Manager, you cannot change the blobstore location.</p>
+
+
 
 ### <a id="azure-application-gateway"></a> Integrate Azure Application Gateway Load Balancers
 
@@ -824,9 +876,13 @@ To learn more about configuring your load balancer for Azure, see the [Resource 
 
 <p class="note"><strong>Note:</strong> This feature is not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration.</p>
 
+
+
 ### <a id="multiple-clusters"></a> Add Multiple Clusters to Availability Zones
 
 In the vSphere configuration dashboard, you can now add multiple clusters to an Availability Zone (AZ) with the new **Add Cluster** button. For more information about configuring AZs, see the [Create Availability Zone Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/vsphere-config.html#create-az) section of the _Configuring Ops Manager on vSphere_ topic.
+
+
 
 ### <a id="ip-discontinued"></a> IP Address Management (IPAM) Removed
 
@@ -843,22 +899,32 @@ As a result of removing IPAM from Ops Manager, see the following changes:
 - You get an ignorable warning when you click **Apply Changes** if you enter a CIDR range that is not large enough to deploy the staged tiles.
 - For tile authors, `static_ip` and `dynamic_ip` are now ignored. Ops Manager gets static IPs from the `static_ips` property.
 
+
+
 ### <a id="add-subnets"></a> Expand Your Network with Additional Subnets
 
 In the **Create Networks** pane of Ops Manager, you can add additional subnets to your network. Each AZ can now have more than one subnet.
 
 This feature is only available if you have already deployed Ops Manager. For more information, see [Expanding Your Network with Additional Subnets](http://docs.pivotal.io/pivotalcf/2-1/customizing/add-subnets.html).
 
+
+
 ### <a id="vpc-id"></a> VPC Verifier Removed from AWS Configuration
 
 When you configure Ops Manager for AWS, you do not need to provide a Virtual Private Cloud (VPC) ID.
+
+
 
 ### <a id="alb"></a> Associate AWS ALBs with Jobs
 
 From the **Resource Config** pane of an AWS installation, you can associate an AWS Application Load Balancer (ALB) to a job. For more information, see [Resource Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/pcf-aws-manual-om-config.html#pcfaws-om-rscestem) in the _Configuring BOSH Director on AWS_ topic.
 
 
+
+
 ## <a id="known-issues"></a> Known Issues
+
+
 
 ### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
 
@@ -868,9 +934,13 @@ This error is caused by a race condition and deadlock in the VM's DNS server.
 
 To fix this problem, run `monit` on the VM with failing DNS to restart its `bosh-dns` process.
 
+
+
 ### <a id="override-port"></a> Azure Load Balancer Does Not Support Override Port
 
 The Azure Application Gateway feature is currently not recommended for production use. The Azure load balancer does not support an override port in the healthcheck configuration. For more information about this feature, see [Integrate Azure Application Gateway Load Balancers](#azure-application-gateway) above.
+
+
 
 ### <a id="cloud-properties-changes"></a> AWS KMS Encryption Requires Manual Refresh
 
@@ -894,6 +964,7 @@ If you select **Encrypt EBS Volumes** in the **AWS Config** pane of your AWS BOS
 This known issue does not affect you if you enable **Encrypt EBS Volumes** during your first deployment.
 
 For more information about the AWS KMS feature, see [AWS KMS Encryption Available for BOSH and Ops Manager VMs](#custom-kms).
+
 
 
 ## <a id="bug-fixes"></a> Bug Fixes
