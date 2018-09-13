@@ -18,7 +18,7 @@ Alternately, to avoid app downtime, you can temporarily rebind your apps as read
 
 ### <a id='mutual-tls-id'></a> SSH and TCP Do Not Work with Mutual TLS App Identity Verification Enabled
 
-When you enable the **Router and applications use mutual TLS to verify each other's identity** option in PAS v2.3, Envoy only recognizes communications from the Gorouter. As a result, SSH and TCP no longer work.
+When you enable the **Router and applications use mutual TLS to verify each other's identity** option in PAS v2.3, the [Envoy proxy](https://www.envoyproxy.io/) running in each app container only recognizes communications from the Gorouter. As a result, SSH and TCP no longer work.
 
 ### <a id="backup-restore-name-change"></a> Backup-Prepare Instance Group Has Been Renamed to Backup-Restore
 

@@ -1077,11 +1077,11 @@ In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To 
 
 ### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
-In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. This ensures that only authorized clients, such as Gorouters, can send traffic to app instances through the infrastructure network.
+In the **Application Containers** pane of PAS v2.3, the new option **Router and applications use mutual TLS to verify each other's identity** configures the Gorouter and app containers to verify each other's identities through mutual TLS (mTLS).
 
-Previously, the **Router uses TLS to verify application identity** option only required that app instances use TLS to verify its identity with Diego before communicating with the Gorouter itself. However, this created a need for increased security between the Gorouter and the app instances themselves. The newest TLS app identity verification option, mutual TLS app identity verification, ensures that the Gorouter is the only client that can communicate with app instances through Envoy.
+With the existing option **Router uses TLS to verify application identity**, the Gorouter uses a one-way TLS handshake to verify the identity of the app container, but the app container does not verify the identity of the Gorouter. The new mTLS option increases security by ensuring that the Gorouter is the only client that can communicate with app instances.
 
-<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <a href="#known-issues">Known Issues</a> section.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> Enabling mTLS creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <a href="#known-issues">Known Issues</a> section.</p>
 
 
 
@@ -1177,16 +1177,14 @@ You can change the timeout value in the **Cloud Controller** pane of the PAS til
 PAS upgrades may fail on the NFS Broker errand. This issue can occur regardless of whether or not the NFS Broker errand is enabled.
 
 
-
 ### <a id='autoscaling-smoke-test-failure'></a> Autoscaling Smoke Test Failure
 
 Autoscaling intermittently fails with "Internal Server Error" during smoke tests.
 
 
-
 ### <a id='mutual-tls-id-limitations'></a> Mutual TLS App Identity Verification Limitations
 
-Mutual TLS app identity verification is not currently compatible with TCP routing or CF SSH, since Envoy only recognizes communications from the Gorouter.
+Mutual TLS app identity verification is not currently compatible with TCP routing or CF SSH, since the [Envoy proxy](https://www.envoyproxy.io/) running in each app container only recognizes communications from the Gorouter.
 
 Mutual TLS app identity verification is not compatible with older tile versions, such as PAS v2.3 with PCF Isolation Segment (IST) v2.2 or earlier. Operators upgrading from PCF v2.2 or earlier should not enable mutual TLS app identity verification on any PAS or IST tiles until they have all been upgraded to v2.3 or later. Otherwise, the older Gorouters will be unable to send traffic to the app instances with mutual TLS app identity verification enabled.
 
