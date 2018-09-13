@@ -13,7 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/1-12/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v1.12.
 
-### 1.12.25
+### <a id="1-12-25"></a> 1.12.25
 
 * **[Security Fix]** Bumps stemcell to 3445.64
 * Bumps BOSH Director to v263.12
@@ -55,7 +55,7 @@ Ops Manager v1.12.25 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.24
+### <a id="1-12-24"></a> 1.12.24
 
 Ops Manager v1.12.24 uses the following component versions:
 
@@ -94,7 +94,7 @@ Ops Manager v1.12.24 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.23
+### <a id="1-12-23"></a> 1.12.23
 
 * **[Bug Fix]**: Ops Manager now verfies certificates successfully when connecting to S3 blobstores with TLS. For more information, see [Operations Manager Validation returns TLS error when configuring Bosh Director S3 blobstore](https://pvtl.force.com/s/article/Operations-Manager-Validation-returns-TLS-error-when-configuring-Bosh-Director-S3-blobstore).
 * **[Bug Fix]**: You can now delete an unused AZ in an installation after clicking **Apply Changes**.
@@ -138,7 +138,7 @@ Ops Manager v1.12.23 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.22
+### <a id="1-12-22"></a> 1.12.22
 
 * **[Bug Fix]**: You can now delete the only AZ in an installation.
 * **[Bug Fix]**: You can now delete the first AZ in an installation, provided that it is not associated with a deployed product. 
@@ -183,7 +183,7 @@ Ops Manager v1.12.22 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.21
+### <a id="1-12-21"></a> 1.12.21
 
 * **[Security Fix]** Bumps stemcell to 3445.48.
 * **[Bug Fix]** Helps alleviate Ruby's susceptibility to high memory usage. May prevent the Ops Manager VM from running out of memory during a long VM lifecycle.
@@ -223,7 +223,7 @@ Ops Manager v1.12.21 uses the following component versions:
   </tbody>
 </table>
 
-### 1.12.20
+### <a id="1-12-20"></a> 1.12.20
 
 * **[Feature]** Makes Azure network and resource group matchers case-insensitive.
 * **[Bug Fix]** Backports `GET /api/v0/staged/director/networks` to older releases.
@@ -260,7 +260,7 @@ Ops Manager v1.12.20 uses the following component versions:
   </tbody>
 </table>
 
-### 1.12.19
+### <a id="1-12-19"></a> 1.12.19
 
 * **[Security Fix]** Bumps stemcell to 3445.45
 * **[Bug Fix]** The credentials API endpoints for deployed products do not include secrets. For more information about these API endpoints, see [Viewing available credentials](https://opsman-dev-api-docs.cfapps.io/#viewing-available-credentials) and [Fetching credentials](https://opsman-dev-api-docs.cfapps.io/#fetching-credentials) in the Ops Manager API documentation.
@@ -302,7 +302,7 @@ Ops Manager v1.12.19 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.18
+### <a id="1-12-18"></a> 1.12.18
 
 * **[Security Fix]** Bumps stemcell to 3445.42
 * **[Bug Fix]** Adds support to nested credentials when you `GET` from the product credentials `/api/v0/deployed/products/:product_guid/credentials` endpoint in the Ops Manager API. In addition, when you `GET` from the credential reference `/api/v0/deployed/products/:product_guid/credentials/:credential_reference` endpoint and specify a nested credential in the `:credential_reference`, the output returns a value. For more information about the API endpoints resolved in this bug, see [Viewing available credentials](https://opsman-dev-api-docs.cfapps.io/#viewing-available-credentials) and [Fetching Credentials](https://opsman-dev-api-docs.cfapps.io/#fetching-credentials) from the Ops Manager API documentation.
@@ -346,7 +346,7 @@ Ops Manager v1.12.18 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.17
+### <a id="1-12-17"></a> 1.12.17
 
 * **[Security Fix]** Bumps Stemcell to 3445.32.
 * **[Feature]** You are now able to fetch availability zones (AZs) from the Ops Manager API. For more information, see [Fetching availability zones](https://opsman-dev-api-docs.cfapps.io/#fetching-availability-zones) in the Ops Manager API documentation.
@@ -388,7 +388,7 @@ Ops Manager v1.12.17 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.16
+### <a id="1-12-16"></a> 1.12.16
 
 * **[Security Fix]** Bumps Stemcell to 3445.30.
 * **[Feature]** The BOSH CLI is now upgraded to v3 in Ops Manager. You can now split cloud config and other configurations into multiple files. This change allows you to manage and evolve configurations separately. For more information on configuration management in BOSH, see [Configs](http://bosh.io/docs/configs.html) in the BOSH documentation.
@@ -431,7 +431,7 @@ Ops Manager v1.12.16 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.15
+### <a id="1-12-15"></a> 1.12.15
 
 * Bumps BOSH Director to 263.9.0.
 * More disk storage options for **Persistent Disk Type** in the **Resource Config** pane.
@@ -476,7 +476,7 @@ Ops Manager v1.12.15 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.13
+### <a id="1-12-13"></a> 1.12.13
 
 * **[Security Fix]** Bumps stemcell to 3445.28.
 * Bumps BOSH Director to 263.7.0.
@@ -518,7 +518,7 @@ Ops Manager v1.12.13 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.12
+### <a id="1-12-12"></a> 1.12.12
 
 * **[Security Fix]** Bumps stemcell to 3445.24.
 * Increases connection timeout to accommodate large installation exports.
@@ -560,7 +560,7 @@ Ops Manager v1.12.12 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.11
+### <a id="1-12-11"></a> 1.12.11
 
 * **[Security Fix]** Bumps stemcell to 3445.23.
 
@@ -601,7 +601,7 @@ Ops Manager v1.12.11 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.10
+### <a id="1-12-10"></a> 1.12.10
 
 * **[Security Fix]** Bumps stemcell to 3445.22.
 * Bumps UAA to v45.7.
@@ -643,7 +643,7 @@ Ops Manager v1.12.10 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.9
+### <a id="1-12-9"></a> 1.12.9
 
 * Bumps AWS CPI to v69.
 * Bumps OpenStack CPI to v35.
@@ -686,7 +686,7 @@ Ops Manager v1.12.9 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.8
+### <a id="1-12-8"></a> 1.12.8
 
 * **[Feature Improvement]** Allows s3 blobstore credentials to be uploaded for deployed director.
 * Internet connected checkbox for Azure is off by default.
@@ -729,7 +729,7 @@ Ops Manager v1.12.8 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.7
+### <a id="1-12-7"></a> 1.12.7
 
 * **[Security Fix]** Bumps stemcell to 3445.19.
 
@@ -770,7 +770,7 @@ Ops Manager v1.12.7 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.6
+### <a id="1-12-6"></a> 1.12.6
 
 * **[Bug Fix]** Allows the network to ping the Ops Manager VM when installing a tile.
 * **[Security Fix]** Bumps stemcell to 3445.17.
@@ -815,7 +815,7 @@ Ops Manager v1.12.6 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.5
+### <a id="1-12-5"></a> 1.12.5
 
 * **[Bug Fix]** Updates the fog client to address an OpenStack installation bug.
 * **[Feature Improvement]** Adds performance improvements to decrease Ops Manager dashboard load time.
@@ -858,7 +858,7 @@ Ops Manager v1.12.5 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.4
+### <a id="1-12-4"></a> 1.12.4
 
 * **[Security Fix]** Bumps stemcell to 3445.16.
 * Bumps BOSH Director to 263.4.
@@ -901,7 +901,7 @@ Ops Manager v1.12.4 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.3
+### <a id="1-12-3"></a> 1.12.3
 
 * Bumps Azure CPI to 29.
 * Bumps CredHub to 1.3.4.
@@ -943,7 +943,7 @@ Ops Manager v1.12.3 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.2
+### <a id="1-12-2"></a> 1.12.2
 
 * **[Feature]** Ops Manager supports uploading Windows 2016 stemcells.
 * **[Feature]** Tile authors can set the default instance count for an errand to zero.
@@ -985,7 +985,7 @@ Ops Manager v1.12.2 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.1
+### <a id="1-12-1"></a> 1.12.1
 
 * **[Security Fix]** Bumps stemcell to 3445.11 to address [USN-3420-2](https://usn.ubuntu.com/usn/usn-3420-2).
 * Bumps CredHub to 1.3.2.
@@ -1027,7 +1027,7 @@ Ops Manager v1.12.1 uses the following component versions:
   </tfoot>
 </table>
 
-### 1.12.0
+### <a id="1-12-0"></a> 1.12.0
 
 Version 1.12.0 of Ops Manager consists of the following component versions:
 
