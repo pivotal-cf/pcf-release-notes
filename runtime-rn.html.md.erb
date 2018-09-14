@@ -1148,11 +1148,13 @@ in the **External S3-Compatible Filestore** section of the **File Storage** pane
 
 
 
-### <a id='backup-prepare-rename'></a> Rename Backup Restore Node
+### <a id='backup-prepare-rename'></a> Backup Prepare Node Renamed to Backup Restore Node
 
-The Backup Prepare Node has been renamed to Backup Restore Node. 
+The `backup-prepare` instance group has been renamed to `backup_restore`.
+The **Resource Config** pane in the PAS tile now shows **Backup Restore Node** instead of **Backup Prepare Node**.
 
-<p class="note warning"><strong>WARNING:</strong> The persistent disk attached to the existing Backup Prepare node will not be migrated to the new Backup Restore node. Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
+<p class="note warning"><strong>WARNING:</strong> The persistent disk attached to the existing Backup Prepare Node will not be migrated to the new Backup Restore Node.
+Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
 
 
 
