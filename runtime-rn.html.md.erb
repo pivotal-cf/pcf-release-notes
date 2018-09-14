@@ -1156,11 +1156,11 @@ The Backup Prepare Node has been renamed to Backup Restore Node.
 
 
 
-### <a id="override-timeout"></a> Operators Can Override Cloud Controller Connection Timeout
+### <a id="override-timeout"></a> Operators Can Override Cloud Controller Connection and Read Timeouts
 
-Operators can override connection timeout values for the Cloud Controller database.
-Extending the connection timeout can prevent downtime when MySQL proxy VMs are recreated.
-The default timeout is 3600 seconds.
+Operators can override connection and read timeout values for the Cloud Controller database.
+Extending connection and read timeouts can prevent downtime when MySQL proxy VMs are recreated.
+The default timeout is 3600 seconds or 60 minutes.
 
 You can change the timeout value in the **Cloud Controller** pane of the PAS tile.
 
