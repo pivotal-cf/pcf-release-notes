@@ -11,6 +11,129 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-rc.2'></a> 2.3.0-rc.2
+
+* **[Feature Improvement]** Enable route-integrity by default for new tile deployments
+* **[Feature Improvement]** Do not back up resources bucket as it is not restored
+* **[Bug Fix]** Fix issues with failing autoscaling smoke tests
+* **[Bug Fix]** Add label to checkbox to enable backups for Azure blobstores
+
+* Bump binary-offline-buildpack to version `1.0.26`
+* Bump cf-autoscaling to version `210`
+* Bump cf-smoke-tests to version `40.0.8`
+* Bump cflinuxfs2 to version `1.235.0`
+* Bump cflinuxfs3 to version `0.20.0`
+* Bump diego to version `2.17.0`
+* Bump push-apps-manager-release to version `666.0.5`
+* Bump push-usage-service-release to version `667.0.8`
+* Bump routing to version `0.179.2`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>97.15</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.9.0</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.26</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.2</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.15</td>
+  </tr><tr>
+    <td>bpm</td><td>0.11.0</td>
+  </tr><tr>
+    <td>capi</td><td>1.66.0</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>210</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.11</td>
+  </tr><tr>
+    <td>cf-cli</td><td>1.5.0</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.15.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>2.12.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.8</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>7.0</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.235.0</td>
+  </tr><tr>
+    <td>cflinuxfs3</td><td>0.20.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.9.5</td>
+  </tr><tr>
+    <td>diego</td><td>2.17.0</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.4</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.16.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.26</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.9.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.15</td>
+  </tr><tr>
+    <td>log-cache</td><td>1.4.4</td>
+  </tr><tr>
+    <td>loggregator</td><td>103.0</td>
+  </tr><tr>
+    <td>mapfs</td><td>1.0.1</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
+  </tr><tr>
+    <td>nats</td><td>25</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.5.3</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.30</td>
+  </tr><tr>
+    <td>notifications</td><td>51</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.59</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>666.0.5</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>667.0.8</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.20</td>
+  </tr><tr>
+    <td>pxc</td><td>0.13.0</td>
+  </tr><tr>
+    <td>routing</td><td>0.179.2</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.22</td>
+  </tr><tr>
+    <td>silk</td><td>2.12.0</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.31</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.3.0</td>
+  </tr><tr>
+    <td>syslog</td><td>11.3.2</td>
+  </tr><tr>
+    <td>uaa</td><td>60.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.3.0-rc.1'></a> 2.3.0-rc.1
 
 * **[Feature]** Add mutual TLS route integrity option
@@ -23,6 +146,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   * This setting must be tuned according to the IAAS load balancer.
   * See [the documentation](https://docs.pivotal.io/pivotalcf/2-2/customizing/frontend-idle-timeout.html) for more details.
 * **[Feature Improvement]** CloudController is configured to accept TLS traffic from Router
+* **[Feature Improvement]** Usage Service migration with large task count backfill is now much faster
 * **[Feature Improvement]** The following system applications all use the new cflinuxfs3 stack:
   * Apps Manager, Autoscaling, NFS Broker, Usage Service
 * **[Bug Fix]** Fix an issue where some BOSH metrics could stop appearing in the firehose due to idle connections being killed
@@ -810,6 +934,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </table>
 
 
+
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.3 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-3/customizing/upgrading-pcf.html) topic.
@@ -823,7 +949,11 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 * Some partner service tiles may be incompatible with PCF v2.3. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.3, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
+
+
 ## <a id='new-features'></a> New Features in PAS v2.3
+
+
 
 ### <a id="xenial"></a> Xenial Stemcells
 
@@ -843,13 +973,15 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 * [Guidance for Operators](#cflinuxfs3-guidance-operator) 
 * [Guidance for Tile Developers](#cflinuxfs3-guidance-tiledev)
 
+
+
 #### <a id="cflinuxfs3-overview"></a> Overview 
 
 * **What's new?**
   * PAS v2.3 adds the following:
       * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver) 
       * A new set of buildpacks that are compatible with `cflinuxfs3`
-  * cf CLI v6.39.0 adds the following to support the association between stacks and buildpacks:
+  * cf [CLI v6.39.0](https://github.com/cloudfoundry/cli/releases/tag/v6.39.0) adds the following to support the association between stacks and buildpacks:
     <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>. See <a href="https://docs.pivotal.io/pivotalcf/2-3/buildpacks/stack-association.html">Stack Association</a> for more information.</p>
       * The output of the `cf buildpacks` command has a `stacks` column.
       * The following commands now accept a `-s` flag for specifying a stack:  `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`.<br> This is useful if there are two buildpacks of the same name that use a different stack.
@@ -868,9 +1000,13 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
   * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` option provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command. 
   * Ensure that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead. 
 
+
+
 #### <a id="cflinuxfs3-guidance-tiledev"></a> Guidance for Tile Developers
 
 See [Tile Authors Must Manually Migrate Apps to cflinuxfs3](https://docs.pivotal.io/tiledev/2-3/release-notes.html#cflinuxfs3).
+
+
 
 ### <a id="bpm"></a> BOSH Process Manager 
 
@@ -882,6 +1018,8 @@ BPM also includes resource limiting capability. This prevents any one job from u
 
 For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
 
+
+
 ### <a id="service-discovery"></a> App Service Discovery Updates
 
 PAS v2.3 includes the following updates to app service discovery:
@@ -889,7 +1027,24 @@ PAS v2.3 includes the following updates to app service discovery:
 * App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane. 
 * You can now configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`. 
 
-For more information, see [Configure Application Developer Controls](https://docs.pivotal.io/2-3/customizing/gcp-er-config-terraform.html#er-appdevctrl-config) in _Deploying PAS on GCP Using Terraform_ as an example.  
+For more information, see [Configure Application Developer Controls](https://docs.pivotal.io/2-3/customizing/gcp-er-config-terraform.html#er-appdevctrl-config) in _Deploying PAS on GCP Using Terraform_ as an example.
+
+
+
+### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
+
+In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers.
+This configuration improves resiliency and consistency for application routes.
+Find this setting in the PAS tile > **Application Containers** pane.
+
+For more information,
+see [Increased Resiliency, Consistency, and Security for HTTP
+Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency)
+in the PAS v2.1 release notes.
+
+If you upgrade to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is not the default setting.
+
+
 
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
@@ -904,23 +1059,29 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](https://docs.pivotal.io/pivotalcf/2-3/concepts/container-security.html#mechanics)
 * [Garden](https://docs.pivotal.io/pivotalcf/2-3/concepts/architecture/garden.html#garden-rootfs)
 
+
+
 ### <a id="networking-tab"></a> Create Container-to-Container Networking Policies in Apps Manager
 
 Operators and Developers can click **Networking** in Apps Manager to set container-to-container networking polices. To set container-to-container networking polices you must have the `network.admin` or `network.write` UAA scope. 
 
 For more information, see [Create Container-to-Container Networking Policies](http://docs-pcf-staging.cfapps.io//pivotalcf/2-3/console/manage-apps.html#networking).
 
+
+
 ### <a id="encyrpt-traffic"></a> Gorouter to Cloud Controller Traffic is Encrypted
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
 
+
+
 ### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
-In the **Application Containers** pane of PAS v2.3, there is now a third option for configuring TLS to verify application identity: **Router and applications use mutual TLS to verify each other's identity**. This ensures that only authorized clients, such as Gorouters, can send traffic to app instances through the infrastructure network.
+In the **Application Containers** pane of PAS v2.3, the new option **Router and applications use mutual TLS to verify each other's identity** configures the Gorouter and app containers to verify each other's identities through mutual TLS (mTLS).
 
-Previously, the **Router uses TLS to verify application identity** option only required that app instances use TLS to verify its identity with Diego before communicating with the Gorouter itself. However, this created a need for increased security between the Gorouter and the app instances themselves. The newest TLS app identity verification option, mutual TLS app identity verification, ensures that the Gorouter is the only client that can communicate with app instances through Envoy.
+With the **Router uses TLS to verify application identity** option, the Gorouter uses a one-way TLS handshake to verify the identity of the app container, but the app container does not verify the identity of the Gorouter. The new mTLS option increases security over one-way TLS by ensuring that the Gorouter is the only client that can communicate with app instances.
 
-<p class='note breaking'><strong>Breaking Change:</strong> Enabling this option creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations">Mutual TLS App Identity Verification Limitations</a> in the <a href="#known-issues">Known Issues</a> section.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> Enabling mTLS creates certain limitations. For more information, see <a href="#mutual-tls-id-limitations">Limitations with Mutual TLS App Identity Verification</a> in the <em>Known Issues</em> section.</p>
 
 ### <a id="nfs"></a> Experimental NFS Volume Service Supports NFSv4
 
@@ -929,6 +1090,8 @@ PAS includes `nfs` and `nfs-experimental` services for mounting apps to NFS volu
 The `nfs-experimental` service now supports mounting apps to NFSv4 volumes. You can specify your desired NFS protocol using the `version` parameter when creating a service instance. 
 
 For instructions on using `nfs-experimental`, see [NFS Volume Service](https://docs.pivotal.io/pivotalcf/2-3/devguide/services/using-vol-services.html#nfs).
+
+
 
 ### <a id="nfs-ldap"></a> NFS LDAP Configuration Updates
 
@@ -939,9 +1102,13 @@ The LDAP configuration for NFS in the PAS **Application Containers** pane includ
 
 See [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
 
+
+
 ### <a id="add-domain"></a> Create Private Domains in Apps Manager
 
 Admins and Org Managers can click **Add a Domain** in Apps Manager to create a new private domain. For more information, see [Domains](https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#domains).
+
+
 
 ### <a id="delete-routes"></a> Delete Route and App Simultaneously with Apps Manager
 
@@ -949,17 +1116,37 @@ When you click **Delete App** in the **View Settings** tab of your app, you are 
 
 For more information about locating **Delete App** in Apps Manager, see [View Settings](https://docs.pivotal.io/pivotalcf/2-3/console/manage-apps.html#view-settings).
 
+
+
 ### <a id=‘binding-name’></a> Name Service Bindings in Apps Manager
 
 You can now give binding names to service bindings in Apps Manager.
 
 For more information, see the [Bind or Unbind a Service](https://docs.pivotal.io/pivotalcf/2-3/console/manage-apps.html#bind-services) section of the _Managing Apps and Services Using Apps Manager_ topic.
 
+
+
 ### <a id='remove-consul-agent'></a> Remove Consul Agent
 
 In PAS v2.3, PAS component VMs no longer include the `consul_agent` job. PAS component VMs can now only use BOSH DNS for service discovery.
 
 However, the `consul_server` VM continues to exist in PAS deployments to support any service or partner tiles that still require communication with Consul.
+
+
+
+### <a id='backup-resources'></a> BBR Improvements for External S3-Compatible Filestore
+
+PAS v2.3 no longer backs up the resources bucket in external S3-compatible filestores.
+This improvement decreases the total size of your backup and
+the downtime of the Cloud Foundry API when you back up or restore your PAS deployment with BBR.
+
+PAS v2.3 removes the following:
+
+* The `resources_backup_bucket` property from the tile configuration
+* The **Backup Resources Bucket Name** field
+in the **External S3-Compatible Filestore** section of the **File Storage** pane from the PAS UI
+
+
 
 ### <a id='backup-prepare-rename'></a> Rename Backup Restore Node
 
@@ -968,23 +1155,40 @@ The Backup Prepare Node has been renamed to Backup Restore Node.
 <p class="note warning"><strong>WARNING:</strong> The persistent disk attached to the existing Backup Prepare node will not be migrated to the new Backup Restore node. Any data that you have stored on the previous persistent disk may be lost after upgrade.</p>
 
 
+
+### <a id="override-timeout"></a> Operators Can Override Cloud Controller Connection and Read Timeouts
+
+Operators can override connection and read timeout values for the Cloud Controller database.
+Extending connection and read timeouts can prevent downtime when MySQL proxy VMs are recreated.
+The default timeout is 3600 seconds or 60 minutes.
+
+You can change the timeout value in the **Cloud Controller** pane of the PAS tile.
+
+
+
 ## <a id='known-issues'></a> Known Issues
+
+
 
 ### <a id='nfs-broker'></a> PAS Upgrades Fail on NFS Broker Errand
 
 PAS upgrades may fail on the NFS Broker errand. This issue can occur regardless of whether or not the NFS Broker errand is enabled.
 
+
 ### <a id='autoscaling-smoke-test-failure'></a> Autoscaling Smoke Test Failure
 
 Autoscaling intermittently fails with "Internal Server Error" during smoke tests.
 
-### <a id='mutual-tls-id-limitations'></a> Mutual TLS App Identity Verification Limitations
 
-Mutual TLS app identity verification is not currently compatible with TCP routing or CF SSH, since Envoy only recognizes communications from the Gorouter.
+### <a id='mutual-tls-id-limitations'></a> Limitations with Mutual TLS App Identity Verification
 
-Mutual TLS app identity verification is not compatible with older tile versions, such as PAS v2.3 with PCF Isolation Segment (IST) v2.2 or earlier. Operators upgrading from PCF v2.2 or earlier should not enable mutual TLS app identity verification on any PAS or IST tiles until they have all been upgraded to v2.3 or later. Otherwise, the older Gorouters will be unable to send traffic to the app instances with mutual TLS app identity verification enabled.
+Mutual TLS app identity verification disables TCP routing and `cf ssh` to app containers by only accepting incoming communication from the Gorouter.
 
-Neither mode of app identity verification is available for Windows at this time.
+To support mutual TLS app identity verification, you need v2.3 or later of both PAS and PCF Isolation Segment (IST). The Gorouter and cell components in PCF v2.2 and earlier do not support mTLS handshakes.
+
+Neither TLS nor mTLS app identity verification is available for Windows cells at this time.
+
+
 
 ### <a id='tcp-port-config'></a> Configuring a List of TCP Routing Ports
 
@@ -996,6 +1200,8 @@ You cannot enter a comma-separated list of ports in the **TCP Routing Ports** fi
 
 * A single value, such as `1234`
 * A range of values, such as `1234-5678`
+
+
 
 #### Workaround
 

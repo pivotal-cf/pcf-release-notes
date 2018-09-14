@@ -5,6 +5,63 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-rc.2'></a>2.3.0-rc.2
+
+* Bump bpm to version `0.11.0`
+* Bump cf-networking to version `2.12.0`
+* Bump cflinuxfs2 to version `1.235.0`
+* Bump cflinuxfs3 to version `0.19.0`
+* Bump diego to version `2.17.0`
+* Bump routing to version `0.179.2`
+* Bump silk to version `2.12.0`
+* Bump stemcell ubuntu-xenial to version `97.15`
+
+ <table border="1" class="nice">
+ <thead> <tr>
+   <th>Component</th>
+   <th>Version</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+   <td>stemcell</td><td>97.15</td>
+ </tr><tr>
+   <td>bpm</td><td>0.11.0</td>
+ </tr><tr>
+   <td>cf-networking</td><td>2.12.0</td>
+ </tr><tr>
+   <td>cflinuxfs2</td><td>1.235.0</td>
+ </tr><tr>
+   <td>cflinuxfs3</td><td>0.19.0</td>
+ </tr><tr>
+   <td>consul</td><td>195</td>
+ </tr><tr>
+   <td>diego</td><td>2.17.0</td>
+ </tr><tr>
+   <td>garden-runc</td><td>1.16.1</td>
+ </tr><tr>
+   <td>haproxy</td><td>8.9.0</td>
+ </tr><tr>
+   <td>loggregator</td><td>103.0</td>
+ </tr><tr>
+   <td>mapfs</td><td>1.0.1</td>
+ </tr><tr>
+   <td>nfs-volume</td><td>1.5.3</td>
+ </tr><tr>
+   <td>routing</td><td>0.179.2</td>
+ </tr><tr>
+   <td>silk</td><td>2.12.0</td>
+ </tr>
+   <td>syslog</td><td>11.3.2</td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+ </tr>
+ </tfoot>
+ </table>
+
 ### <a id='2.3.0-rc.1'></a>2.3.0-rc.1
 
 * **[Feature]** Add mutual TLS route integrity option
@@ -312,7 +369,18 @@ To install a PCF Isolation Segment, you must first install PCF v2.3.
 
 ## <a id='2.3.0'></a> New Features in PCF Isolation Segment v2.3
 
-TODO
+### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
+
+In new installations of PCF v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers.
+This configuration improves resiliency and consistency for application routes.
+Find this setting in the Isolation Segment tile > **Application Containers** pane.
+
+For more information,
+see [Increased Resiliency, Consistency, and Security for HTTP
+Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/segment-rn.html#route-consistency)
+in the Isolation Segment v2.1 release notes.
+
+If you upgrade to PCF v2.3, each Isolation Segment tile retains its previous setting for HTTP communication to apps. TLS is not the default setting.
 
 ## <a id='adv-features'></a> About Advanced Features
 
