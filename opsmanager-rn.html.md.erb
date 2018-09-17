@@ -464,6 +464,12 @@ For new Ops Manager installations, operators can configure LDAP authentication f
 For existing Ops Manager installations, operators can configure LDAP authentication through the Ops Manager **Settings** page. For more information, see the [Settings Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings) section of the Understanding the Ops Manager Interface topic.
 
 
+### <a id="vsphere-ssh"></a> Ops Manager on vSphere Supports SSH Key Authentication
+
+You can now use an SSH key in addition to or instead of an admin password to boot Ops Manager on vSphere. Set the SSH key during vSphere environment configuration, in the same panel where you can set an admin password and custom hostname.
+
+After uploading an OVF template to vSphere, set an admin password or SSH key in the *Customize template* section of the *Deploy OVF Template* panel. For more information, see [Deploying BOSH and Ops Manager to vSphere](https://docs.pivotal.io/pivotalcf/2-3/customizing/deploying-vm.html). 
+
 
 ### <a id="cinder"></a> Virtual Machines Running on OpenStack Can Boot From Cinder Volumes
 
