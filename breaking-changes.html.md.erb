@@ -20,7 +20,7 @@ Alternately, to avoid app downtime, you can temporarily rebind your apps as read
 
 When you enable the **Router and applications use mutual TLS to verify each other's identity** option in PAS v2.3, app containers accept incoming communication only from the Gorouter. This disables `cf ssh` and TCP routing.
 
-### <a id="backup-restore-name-change"></a> Backup-Prepare Instance Group Has Been Renamed to Backup_Restore
+### <a id="backup-restore-name-change"></a> backup-prepare Instance Group Has Been Renamed to backup_restore
 
 The name of the `backup-prepare` instance group has been changed to `backup_restore`. This may break some external tools that were setting the properties for this instance group through the Ops Manager API. See the article [PAS backup-prepare job renamed to backup-restore may cause automation failures](https://pivotal.lightning.force.com/lightning/r/KnowledgeArticle__kav/ka00e0000009loEAAQ/view) in the Pivotal Knowledge Base for details.
 
@@ -40,12 +40,25 @@ You must apply these updates before you deploy any tiles that use the Xenial ste
 1. Verify that any tiles that you have installed in your current foundation, either from Pivotal or a partner, are compatible with PCF v2.3. For more information on checking PCF and stemcell compatibility, see [Tile Compatibility](https://docs.pivotal.io/pivotalcf/2-3/upgrading/checklist.html#compatibility) in the Upgrade Checklist.<br/><br/>
   In some cases, you may need to download and import a new Xenial stemcell into Ops Manager v2.2 to upgrade your tiles. To download a Xenial stemcell from Pivotal Network, visit [Stemcells for PCF (Ubuntu Xenial)](https://network.pivotal.io/products/stemcells-ubuntu-xenial).
 
-###<a id='bosh-dns'></a> BOSH DNS Must be Enabled
+### <a id='bosh-dns'></a> BOSH DNS Must be Enabled
 
 In PCF v2.3, you cannot opt out of BOSH DNS. Upgrades to PCF v2.3 will fail if BOSH DNS is disabled in PCF v2.2.
 
 <%= image_tag("bosh-dns-error.png") %>
 
+### <a id="om-api-secrets"></a> Ops Manager API Does Not Return Secret Properties
+
+For security, Ops Manager API responses from the `/api/v0/staged/director/properties` endpoint no longer include the following properties:
+
+* GCS blobstore service key `service_account_key` (on Google Cloud Services)
+* Health Monitor emailer SMTP password `smtp_password`
+* Health Monitor PagerDuty service key `service_key`
+
+This change may break any code that relies on retrieving these properties from a `GET /api/v0/staged/director/properties` call.
+
+For more information, see the [Ops Manager API v2.3 documentation](https://docs.pivotal.io/pivotalcf/2-3/opsman-api/#fetching-director-iaas-and-security-properties-experimental).
+
+
 ## <a id='ist'></a> PCF Isolation Segment
 
-TODO
+There are no breaking changes for PCF Isolation Segment at this time.
