@@ -1,5 +1,5 @@
 ---
-title: PAS for Windows v2.3 Release Notes
+title: PAS for Windows v2.4 Release Notes
 owner: Garden Windows
 ---
 
@@ -7,200 +7,17 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.3.0-beta.1'></a>2.3.0-beta.1
-
-* Add known issues:
-  * Default DNS configuration on AWS does not work
-  * Intermittent deploy failure on Azure with compilation timeout
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>1803.0</td>
-  </tr><tr>
-    <td>consul</td><td>195</td>
-  </tr><tr>
-    <td>diego</td><td>2.14.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.7.0</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.16.1</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.19</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.0</td>
-  </tr><tr>
-    <td>winc</td><td>1.4.0</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.10.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='2.3.0-alpha.3'></a>2.3.0-alpha.3
-
-* Bump diego to version `2.14.0`
-* Bump garden-runc to version `1.16.1`
-* Bump hwc-offline-buildpack to version `2.3.19`
-* Bump winc to version `1.4.0`
-* Bump stemcell to version `1803.0`
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>1803.0</td>
-  </tr><tr>
-    <td>consul</td><td>195</td>
-  </tr><tr>
-    <td>diego</td><td>2.14.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.7.0</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.16.1</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.19</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.0</td>
-  </tr><tr>
-    <td>winc</td><td>1.4.0</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.10.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='2.3.0-alpha.2'></a>2.3.0-alpha.2
-
-* Bump diego to version `2.13.0`
-* Bump hwc-offline-buildpack to version `2.3.18`
-* Bump loggregator to version `103.0`
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>1709.10</td>
-  </tr><tr>
-    <td>consul</td><td>195</td>
-  </tr><tr>
-    <td>diego</td><td>2.13.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.7.0</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.15.1</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.18</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.0</td>
-  </tr><tr>
-    <td>winc</td><td>1.3.0</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.10.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='2.3.0-alpha.1'></a>2.3.0-alpha.1
-
-* Bump diego to version `2.12.0`
-* Bump garden-runc to version `1.15.1`
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>1709.10</td>
-  </tr><tr>
-    <td>consul</td><td>195</td>
-  </tr><tr>
-    <td>diego</td><td>2.12.0</td>
-  </tr><tr>
-    <td>event_log</td><td>0.7.0</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.15.1</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>2.3.17</td>
-  </tr><tr>
-    <td>loggregator</td><td>102.3</td>
-  </tr><tr>
-    <td>winc</td><td>1.3.0</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.10.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows v2.3 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.3. To use the PAS for Windows tile, you need Ops Manager v2.3 or later and PAS v2.3 or later.
+The Pivotal Application Service (PAS) for Windows v2.4 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.4. To use the PAS for Windows tile, you need Ops Manager v2.4 or later and PAS v2.4 or later.
 
 [//]: # (For how to migrate your apps with no downtime from PAS for Windows 2012R2 cells to PAS for Windows cells, see [Migrating Apps to PAS for Windows](https://docs.pivotal.io/pivotalcf/windows/migrating.html). )
 
 
-## <a id='new-features'></a> New Features in PAS for Windows v2.3
+## <a id='new-features'></a> New Features in PAS for Windows v2.4
 
-PAS for Windows v2.3 includes the following major features:
-
-### <a id='multi-buildpacks'></a>Support for Multiple Buildpacks
-
-PAS for Windows v2.3 introduces support for pushing a .NET app with multiple buildpacks.
-
-For more information, see [Pushing an Application with Multiple Buildpacks](https://docs.pivotal.io/pivotalcf/buildpacks/use-multiple-buildpacks.html).
-
-### <a id='ephemeral-disk'></a>Ephemeral Disk Configuration Options
-
-Operators can now use ephemeral disk configuration options for Windows Server cells.
-
-### <a id='compression'></a>HTTP Compression in the HWC Buildpack
-
-PAS for Windows v2.3 enables the HTTP compression module from Internet Information Services (IIS), which enables gzip compression for static assets and dynamic content in the HWC buildpack.
-
-### <a id='windows-v1803'></a>Windows Server version 1803
-
-PAS for Windows v2.3 includes the latest version of Windows Server (version 1803).
-The container image for Windows Server version 1803 is 30% smaller than the previous release (version 1709), reducing the memory footprint required for .NET apps.
-The release also includes optimizations for containers, improved compatibility, and enhanced debugging tools.
-
-For more information, see [What's New in Windows Server version 1803](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1803) in the Microsoft documentation.
+PAS for Windows v2.4 includes the following major features:
 
 ## <a id='adv-features'></a> About Advanced Features
 
@@ -210,12 +27,4 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
-This section includes known issues with PAS for Windows v2.3.
-
-### <a id="aws-dns-configuration"></a> Default DNS configuration on AWS does not work
-
-On AWS, the default DNS configuration of `169.254.169.253` does not work.  DNS should be configured to use another address [as documented](https://docs.pivotal.io/pivotalcf/2-2/customizing/aws-om-config-terraform.html#om-networks) like `10.0.0.2`.
-
-### <a id="azure-compilations-timeout"></a> Intermittent deploy failure on Azure with compilation timeout
-
-When deploying on Azure, BOSH compilation of some releases has been observed to time out and cause the deploy to fail
+This section includes known issues with PAS for Windows v2.4.
