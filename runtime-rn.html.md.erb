@@ -1063,7 +1063,7 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.2 to successfully upgrade to PAS v2.3.
 
-* You must enable GrootFS before upgrading to PAS v2.3. To enable GrootFS, go to **Application Containers** in PAS and select **Enable the GrootFS container image plugin for Garden RunC**. Pivotal recommends recreating all VMs when enabling GrootFS. To recreate all VMs, go to **Director Config** in the BOSH Director tile and select **Recreate all VMs**. 
+* You must enable GrootFS before upgrading to PAS v2.3. To enable GrootFS, go to **Application Containers** in PAS and select **Enable the GrootFS container image plugin for Garden RunC**. Pivotal recommends recreating all VMs when enabling GrootFS. To recreate all VMs, go to **Director Config** in the BOSH Director tile and select **Recreate all VMs**.
 
 * Some partner service tiles may be incompatible with PCF v2.3. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.3, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
@@ -1076,29 +1076,29 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 
 ### <a id="xenial"></a> Xenial Stemcells
 
-PAS v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus). 
+PAS v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
 
-The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates. 
+The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
-Using Xenial stemcells in v2.3 ensures that PAS users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical. 
+Using Xenial stemcells in v2.3 ensures that PAS users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
 
 For more information on the impact of using Xenial stemcells in PCF, see [Updates for Xenial Stemcell Support](breaking-changes.html#xenial).
 
 ### <a id="cflinuxfs3"></a> cflinuxfs3 Stack and Compatible Buildpacks
 
-See the following sections to learn more about `cflinuxfs3` and compatible buildpacks: 
+See the following sections to learn more about `cflinuxfs3` and compatible buildpacks:
 
-* [Overview](#cflinuxfs3-overview) 
-* [Guidance for Operators](#cflinuxfs3-guidance-operator) 
+* [Overview](#cflinuxfs3-overview)
+* [Guidance for Operators](#cflinuxfs3-guidance-operator)
 * [Guidance for Tile Developers](#cflinuxfs3-guidance-tiledev)
 
 
 
-#### <a id="cflinuxfs3-overview"></a> Overview 
+#### <a id="cflinuxfs3-overview"></a> Overview
 
 * **What's new?**
   * PAS v2.3 adds the following:
-      * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver) 
+      * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver)
       * A new set of buildpacks that are compatible with `cflinuxfs3`
   * cf [CLI v6.39.0](https://github.com/cloudfoundry/cli/releases/tag/v6.39.0) adds the following to support the association between stacks and buildpacks:
     <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>. See <a href="https://docs.pivotal.io/pivotalcf/2-3/buildpacks/stack-association.html">Stack Association</a> for more information.</p>
@@ -1109,15 +1109,15 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 
 #### <a id="cflinuxfs3-guidance-operator"></a> Guidance for Operators
 
-* **Scale Cloud Controller if necessary**: 
-  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is high, you may need to increase the persistent disk of the **Cloud Controller** VM to accommodate the new buildpacks. 
-* **Migrate apps to cflinuxfs3**: 
-  * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries and must update their app accordingly. 
-* **Assign a stack to custom buildpacks**: 
-  * Associate custom buildpacks in your PAS deployment with a stack so they do not have a missing stack record. To do this, ensure your buildpack specifies a stack as a top level property in its manifest and then update it with the `cf update-buildpack` command. See [Creating Custom Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/buildpacks/custom.html). Buildpacks with a missing stack record will continue to work, but they are more manageable when associated with a stack. 
-* **Modify custom buildpacks for cflinuxfs3**: 
-  * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` option provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command. 
-  * Ensure that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead. 
+* **Scale Cloud Controller if necessary**:
+  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is high, you may need to increase the persistent disk of the **Cloud Controller** VM to accommodate the new buildpacks.
+* **Migrate apps to cflinuxfs3**:
+  * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries and must update their app accordingly.
+* **Assign a stack to custom buildpacks**:
+  * Associate custom buildpacks in your PAS deployment with a stack so they do not have a missing stack record. To do this, ensure your buildpack specifies a stack as a top level property in its manifest and then update it with the `cf update-buildpack` command. See [Creating Custom Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/buildpacks/custom.html). Buildpacks with a missing stack record will continue to work, but they are more manageable when associated with a stack.
+* **Modify custom buildpacks for cflinuxfs3**:
+  * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` option provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command.
+  * Ensure that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead.
 
 
 
@@ -1127,15 +1127,15 @@ See [Tile Authors Must Manually Migrate Apps to cflinuxfs3](https://docs.pivotal
 
 
 
-### <a id="bpm"></a> BOSH Process Manager 
+### <a id="bpm"></a> BOSH Process Manager
 
-Starting in v2.3, most PAS components use BOSH Process Manager (BPM).  
+Starting in v2.3, most PAS components use BOSH Process Manager (BPM).
 
 BPM is a layer between BOSH and the jobs running on PAS component VMs. It improves the way processes run on VMs by isolating colocated jobs. With the exception of networking, BPM namespaces operating system resources so a job cannot view or interact with the processes of another job. This provides a security barrier such that if a job on a VM is compromised, the incident is limited to just that job rather than all jobs on the same machine.
 
-BPM also includes resource limiting capability. This prevents any one job from using too much operating system resources and impacting colocated jobs. 
+BPM also includes resource limiting capability. This prevents any one job from using too much operating system resources and impacting colocated jobs.
 
-For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.  
+For more information about BPM, see the [bpm-release](https://github.com/cloudfoundry-incubator/bpm-release) repository.
 
 
 
@@ -1143,8 +1143,8 @@ For more information about BPM, see the [bpm-release](https://github.com/cloudfo
 
 PAS v2.3 includes the following updates to app service discovery:
 
-* App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane. 
-* You can now configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`. 
+* App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane.
+* You can now configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`.
 
 For more information, see [Configure Application Developer Controls](https://docs.pivotal.io/2-3/customizing/gcp-er-config-terraform.html#er-appdevctrl-config) in _Deploying PAS on GCP Using Terraform_ as an example.
 
@@ -1171,7 +1171,7 @@ If you upgrade to PAS v2.3, PAS retains its previous setting for HTTP communicat
 
 Garden creates app containers in PAS and includes an image plugin that prepares the filesystem for the container. PCF v1.12 introduced GrootFS as the default image plugin to replace the previous built-in functionality, garden-shed, which used an obsolete layer filesystem (AUFS) that lacked support from the Linux Kernel community.
 
-Though GrootFS is the default image plugin in v1.12 through v2.2, PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is now deprecated and PAS v2.3 removes the option to use it. 
+Though GrootFS is the default image plugin in v1.12 through v2.2, PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is now deprecated and PAS v2.3 removes the option to use it.
 
 For more information about GrootFS in PCF, see the following topics:
 
@@ -1182,7 +1182,7 @@ For more information about GrootFS in PCF, see the following topics:
 
 ### <a id="networking-tab"></a> Create Container-to-Container Networking Policies in Apps Manager
 
-Operators and Developers can click **Networking** in Apps Manager to set container-to-container networking polices. To set container-to-container networking polices you must have the `network.admin` or `network.write` UAA scope. 
+Operators and Developers can click **Networking** in Apps Manager to set container-to-container networking polices. To set container-to-container networking polices you must have the `network.admin` or `network.write` UAA scope.
 
 For more information, see [Create Container-to-Container Networking Policies](http://docs-pcf-staging.cfapps.io//pivotalcf/2-3/console/manage-apps.html#networking).
 
@@ -1204,9 +1204,9 @@ With the **Router uses TLS to verify application identity** option, the Gorouter
 
 ### <a id="nfs"></a> Experimental NFS Volume Service Supports NFSv4
 
-PAS includes `nfs` and `nfs-experimental` services for mounting apps to NFS volumes. `nfs-experimental` mounts use a different mounting strategy that increases performance with faster read/write speeds and asynchronous communication. 
+PAS includes `nfs` and `nfs-experimental` services for mounting apps to NFS volumes. `nfs-experimental` mounts use a different mounting strategy that increases performance with faster read/write speeds and asynchronous communication.
 
-The `nfs-experimental` service now supports mounting apps to NFSv4 volumes. You can specify your desired NFS protocol using the `version` parameter when creating a service instance. 
+The `nfs-experimental` service now supports mounting apps to NFSv4 volumes. You can specify your desired NFS protocol using the `version` parameter when creating a service instance.
 
 For instructions on using `nfs-experimental`, see [NFS Volume Service](https://docs.pivotal.io/pivotalcf/2-3/devguide/services/using-vol-services.html#nfs).
 
@@ -1217,7 +1217,7 @@ For instructions on using `nfs-experimental`, see [NFS Volume Service](https://d
 The LDAP configuration for NFS in the PAS **Application Containers** pane includes the following updates:
 
 * You can optionally enter a **LDAP Server CA Cert** if your LDAP server supports TLS and you want to enable secure connections from the NFS driver to your LDAP server.
-* The **LDAP User Fully-Qualified Domain Name** has been renamed to **LDAP User Search Base** for clarity and consistency with LDAP UAA configuration in the **Authentication and Enterprise SSO** pane. 
+* The **LDAP User Fully-Qualified Domain Name** has been renamed to **LDAP User Search Base** for clarity and consistency with LDAP UAA configuration in the **Authentication and Enterprise SSO** pane.
 
 See [Enable Volume Services](https://docs.pivotal.io/pivotalcf/2-3/opsguide/enable-vol-services.html#enable).
 
@@ -1264,6 +1264,17 @@ PAS v2.3 removes the following:
 * The `resources_backup_bucket` property from the tile configuration
 * The **Backup Resources Bucket Name** field
 in the **External S3-Compatible Filestore** section of the **File Storage** pane from the PAS UI
+
+### <a id='enable-azure-bbr'></a>Enable Backup and Restore for External Azure Blobstores
+
+PAS v2.3 introduces support for backing up and restoring external Azure blobstores.
+When you select the **External Azure Storage** option in the PAS tile,
+you can now enable backup and restore by selecting the **Enable backup and
+restore** checkbox.
+Before you can enable backup and restore for external Azure blobstores,
+you must enable Soft Delete.
+
+For more information, see the [External Azure Storage](https://docs-pcf-staging.cfapps.io/pivotalcf/2-3/customizing/azure-er-config.html#external_azure) section of <em>Deploying PAS on Azure</em>.
 
 ### <a id='restore-blobstore'></a> Azure Blobstore Can Be Restored to a Separate Storage Account
 
@@ -1319,7 +1330,7 @@ Neither TLS nor mTLS app identity verification is available for Windows cells at
 
 ### <a id='tcp-port-config'></a> Configuring a List of TCP Routing Ports
 
-This section describes an issue and workaround related to configuring a list of TCP Routing Ports in the PAS tile UI. 
+This section describes an issue and workaround related to configuring a list of TCP Routing Ports in the PAS tile UI.
 
 #### Issue
 
