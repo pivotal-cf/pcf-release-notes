@@ -7,6 +7,46 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.0-rc.3'></a>2.3.0-rc.3
+
+* **[Bug Fix]** Rollback Diego from 2.17.0 to 2.16.0 to fix incompatibility with NSX-T
+
+* Bump diego to version `2.16.0`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>1803.1</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>diego</td><td>2.16.0</td>
+  </tr><tr>
+    <td>event_log</td><td>0.7.0</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.16.1</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>3.0.0</td>
+  </tr><tr>
+    <td>loggregator</td><td>103.0</td>
+  </tr><tr>
+    <td>winc</td><td>1.5.0</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.10.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
 ### <a id='2.3.0-rc.2'></a>2.3.0-rc.2
 
 * **[Feature]** Add multi-buildpack support for to the HWC Buildpack, enabling "extension buildpacks" for .NET developer use cases
