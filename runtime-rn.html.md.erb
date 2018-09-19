@@ -1476,3 +1476,15 @@ If you want to configure a list of ports, do the following:
 1. Deploy PAS.
 
 1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports.
+
+
+
+### <a id="containers-live"></a>Containers live briefly after apps are deleted or downsized
+
+When you delete or scale down an app, the container instance may continue running briefly even after `cf apps` and other CLI commands indicate that the instance no longer exists. 
+
+This may cause the following errors:
+
+* After deletion, the container may appear in the IaaS dashboard briefly.
+* Resource usage data may be inaccurate briefly.
+* Acceptance tests that check for immediate container deletion may fail.

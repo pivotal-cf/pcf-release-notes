@@ -527,3 +527,13 @@ For more information, see [Advanced Features for Ops Manager](https://docs.pivot
 
 
 ## <a id='known-issues'></a> Known Issues
+
+### <a id="containers-live"></a>Containers live briefly after apps are deleted or downsized
+
+When you delete or scale down an app, the container instance may continue running briefly even after `cf apps` and other CLI commands indicate that the instance no longer exists. 
+
+This may cause the following errors:
+
+* After deletion, the container may appear in the IaaS dashboard briefly.
+* Resource usage data may be inaccurate briefly.
+* Acceptance tests that check for immediate container deletion may fail.
