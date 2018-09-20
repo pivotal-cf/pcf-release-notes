@@ -1428,7 +1428,7 @@ You can change the **Max Valid Packages per App** and **Max Staged Droplets per 
 
 ### <a id="syslog-drain"></a> Bind all Apps in a Space to a Syslog Drain
 
-You can now use the CF Drain CLI to bind a syslog drain to all apps in a space. Previously, you had to bind each app to the drain individually. 
+The `cf drain-space` command, enabled by the CF Drain CLI Plugin, binds a syslog drain to all apps in a space. Previously, you could only run `cf drain` to bind each app to the drain individually. 
 
 This feature provides the following:
 
