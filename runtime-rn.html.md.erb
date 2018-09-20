@@ -1426,6 +1426,19 @@ Pivotal recommends leaving the default values of `5`. However, you may want to l
 
 You can change the **Max Valid Packages per App** and **Max Staged Droplets per App** values in the **File Storage** pane of the PAS tile.
 
+### <a id="syslog-drain"></a> Bind all Apps in a Space to a Syslog Drain
+
+You can now use the CF Drain CLI to bind a syslog drain to all apps in a space. Previously, you had to bind each app to the drain individually. 
+
+This feature provides the following:
+
+* Backwards compatibility for all supported PAS tiles
+* App, space, and org names in the drain
+* Automatic binding of new apps pushed to the space
+* Support for logs and metrics from apps
+
+See the [cf-drain-cli](https://github.com/cloudfoundry/cf-drain-cli) repository for more information. 
+
 ## <a id='known-issues'></a> Known Issues
 
 
