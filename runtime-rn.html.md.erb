@@ -130,6 +130,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.0-rc.3'></a> 2.3.0-rc.3
 
+* **[Feature Improvement]** All errands use the cflinuxfs3 stack
 * **[Bug Fix]** Fix race condition during buildpack installation<Paste>
 
 * Bump capi to version `1.66.1`
@@ -248,6 +249,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.0-rc.2'></a> 2.3.0-rc.2
 
+* **[Feature Improvement]** Enable route-integrity by default for new tile deployments
+* **[Feature Improvement]** Do not back up resources bucket as it is not restored
 * **[Bug Fix]** Fix issues with failing autoscaling smoke tests
 * **[Bug Fix]** Add label to checkbox to enable backups for Azure blobstores
 
@@ -369,7 +372,16 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.0-rc.1'></a> 2.3.0-rc.1
 
-
+* **[Feature Improvement]** Default route integrity option is now "Router uses TLS to verify application identity"
+  * With this option enabled, the Router verifies the identity of the application instance backends, but the application does not verify the identity of the router.
+  * This is the recommended option for most use cases
+* **[Feature Improvement]** Improve description for the Frontend Idle Timeout setting
+  * This setting must be tuned according to the IAAS load balancer.
+  * See [the documentation](https://docs.pivotal.io/pivotalcf/2-2/customizing/frontend-idle-timeout.html) for more details.
+* **[Feature Improvement]** CloudController is configured to accept TLS traffic from Router
+* **[Feature Improvement]** Usage Service migration with large task count backfill is now much faster
+* **[Feature Improvement]** The following system applications all use the new cflinuxfs3 stack:
+  * Apps Manager, Autoscaling, NFS Broker, Usage Service
 * **[Bug Fix]** Fix an issue where some BOSH metrics could stop appearing in the firehose due to idle connections being killed
 
 * **[Bug Fix]** Fixed these known issues in beta.2:
@@ -497,6 +509,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </table>
 
 ### <a id='2.3.0-beta.2'></a> 2.3.0-beta.2
+
+* **[Feature Improvment]** The CF CLI is installed as a BOSH release on VMs which require it (e.g. those that run errands)
+* **[Feature Improvement]** NFS volume broker supports LDAP id resolution from servers with blank "gidNumber" fields
+* **[Feature Improvement]** Fix NFS LDAP configuration UI to more closely resemble UAA LDAP config
 
 * **[Bug Fix]** Fixed these known issues in beta.1:
   * On deployments configured to use an AWS S3 blobstore, BOSH Backup and Restore (BBR) may fail.
@@ -747,6 +763,12 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.0-alpha.3'></a> 2.3.0-alpha.3
 
+* **[Feature Improvment]** GrootFS is always enabled. The option to disable it has been removed.
+* **[Feature Improvment]** UAA processes are isolated with the [BOSH Process Manager (bpm)](https://github.com/cloudfoundry-incubator/bpm-release)
+* **[Feature Improvment]** Diego processes are isolated with by the [BOSH Process Manager (bpm)]https://github.com/cloudfoundry-incubator/bpm-release)
+* **[Feature Improvement]** Add new UAA scopes so Apps Manager needs networking administration features
+* **[Feature Improvement]** Use BOSH DNS for all internal service discovery; Remove consul agents from all instances.
+
 * **[Bug Fix]** Fixed these known issues in alpha.2:
   * The nfsbrokerpush errand may fails if the service broker has already been created. You may need to disable the errand in order to successfully deploy PAS.
   * PAS fails to deploy with latest Ops Manager v2.3 as of this time (2.3-alpha.1 and 2.3-alpha.2). The tile was last tested successfully with Ops Manager v2.2.0.
@@ -890,6 +912,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.0-alpha.2'></a> 2.3.0-alpha.2
 
+* **[Feature Improvement]** Use stemcell based on Ubuntu Xenial
+* **[Feature Improvement]** `capi` `/v2/info` endpoint returns additional metadata for `name`, `build` and `description`
+* **[Feature Improvement]** Allows PCF Metrics to be installed with both v1.5 and v1.4 versions to prevent dataloss.
 * **[Bug fix]** Apps using a Docker image from an insecure registry configured in the Private Docker Insecure Registry Whitelist can now be staged successfully.
 
 * Bump bpm to version `0.9.0`
@@ -1013,6 +1038,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.0-alpha.1'></a> 2.3.0-alpha.1
 
+* Remove ability to opt-out of GrootFS
 * Bump backup-and-restore-sdk to version `1.8.1`
 * Bump bpm to version `0.8.0`
 * Bump capi to version `1.61.0`
