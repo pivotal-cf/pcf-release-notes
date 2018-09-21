@@ -60,6 +60,16 @@ This change may break any code that relies on retrieving these properties from a
 
 For more information, see the [Ops Manager API v2.3 documentation](https://docs.pivotal.io/pivotalcf/2-3/opsman-api/#fetching-director-iaas-and-security-properties-experimental).
 
+## <a id='pasw'></a> Pivotal Application Service for Windows (PASW)
+
+### <a id="clamav"></a> ClamAV Does Not Protect Windows VMs
+
+If you are using the ClamAV Add-on for PCF, you must update your runtime config before upgrading to Pivotal Application Service for Windows (PASW) v2.3.
+
+If you upgrade to PASW v2.3 without first updating the runtime config, then your Windows VMs will not be protected by ClamAV.
+
+For more information about how to update your runtime config, see [Updating ClamAV Add-on for PCF to Run with PAS for Windows v2.3
+](https://docs.pivotal.io/addon-antivirus/1-4/updating-for-pasw.html) in the ClamAV documentation.
 
 ## <a id='ist'></a> PCF Isolation Segment
 

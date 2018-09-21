@@ -1297,7 +1297,14 @@ Operators and Developers can click **Networking** in Apps Manager to set contain
 
 For more information, see [Create Container-to-Container Networking Policies](http://docs-pcf-staging.cfapps.io//pivotalcf/2-3/console/manage-apps.html#networking).
 
+### <a id="autoscaling-rules"></a> Create Custom and Compare Rules for Autoscaling in Apps Manager
 
+Apps Manager includes two new options when adding a scaling rule in the **Manage Autoscaling** pane:
+
+* **Custom**: Scale based on a custom metric.
+* **Compare**: Scale based on the result of dividing one custom metric by another. 
+
+For more information, see [Scaling Rules](https://docs.pivotal.io/pivotalcf/2-3/appsman-services/autoscaler/using-autoscaler.html#metric) in _Scaling an Application Using App Autoscaler_.
 
 ### <a id="encyrpt-traffic"></a> Gorouter to Cloud Controller Traffic is Encrypted
 
@@ -1420,14 +1427,37 @@ Pivotal recommends leaving the default values of `5`. However, you may want to l
 
 You can change the **Max Valid Packages per App** and **Max Staged Droplets per App** values in the **File Storage** pane of the PAS tile.
 
+<p class="note"><strong>Note</strong>: This feature has also been backported to PAS v2.1 and v2.2.</p>
+
+## <a id='known-issues'></a> Known Issues
+
+### <a id="syslog-drain"></a> Bind all Apps in a Space to a Syslog Drain
+
+The `cf drain-space` command, enabled by the CF Drain CLI Plugin, binds a syslog drain to all apps in a space. Previously, you could only run `cf drain` to bind each app to the drain individually. 
+
+This feature provides the following:
+
+* Backwards compatibility for all supported PAS tiles
+* App, space, and org names in the drain
+* Automatic binding of new apps pushed to the space
+* Support for logs and metrics from apps
+
+See the [cf-drain-cli](https://github.com/cloudfoundry/cf-drain-cli) repository for more information. 
+
+### <a id="apps-manager-polling"></a> Apps Manager Polling Interval Configuration
+
+In addition to the **Apps Manager Polling Interval** field introduced in a PAS v2.2 patch release, PAS v2.3 includes an **App Details Polling Interval** field. This field controls the rate at which Apps Manager polls for data when a user views the **Overview** page of an app.
+
+PAS provides these fields as a way to temporarily reduce load on the Cloud Controller API. Pivotal recommends that you do not keep these fields modified as a long term fix because it can degrade Apps Manager performance.
+
+For more information, see [Apps Manager Config Page](https://docs.pivotal.io/pivotalcf/2-3/opsguide/custom-branding.html#apps-man). 
 
 ## <a id='known-issues'></a> Known Issues
 
 
 ### <a id='nfs-broker'></a> PAS Upgrades Fail on NFS Broker Errand
 
-PAS upgrades may fail on the NFS Broker errand. This issue can occur regardless of whether or not the NFS Broker errand is enabled.
-
+PAS upgrades may fail on the NFS Broker errand. This issue can occur regardless of whether or not the NFS Broker errand is enabled. 
 
 
 ### <a id='autoscaling-smoke-test-failure'></a> Autoscaling Smoke Test Failure
@@ -1472,12 +1502,12 @@ If you want to configure a list of ports, do the following:
 
 
 
-### <a id="containers-live"></a>Containers live briefly after apps are deleted or downsized
+### <a id="containers-live"></a>Containers Live Briefly after Apps are Deleted or Downsized
 
-When you delete or scale down an app, the container instance may continue running briefly even after `cf apps` and other CLI commands indicate that the instance no longer exists. 
+When you delete or scale down an app, the container instance may continue running for a couple of minutes after `cf apps` and other CLI commands indicate that the instance no longer exists. 
 
-This may cause the following errors:
+This may cause the following:
 
-* After deletion, the container may appear in the IaaS dashboard briefly.
-* Resource usage data may be inaccurate briefly.
+* After deletion, the container may briefly continue to appear in the IaaS dashboard.
+* Resource usage may go down to reflect container deletion only after a brief delay.
 * Acceptance tests that check for immediate container deletion may fail.
