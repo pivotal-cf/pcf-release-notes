@@ -171,9 +171,6 @@ owner: Release Engineering
 
 ### <a id='2.3.0-rc.1'></a>2.3.0-rc.1
 
-* **[Feature]** Add mutual TLS route integrity option
-  * With this option enabled, Router and applications use mutual TLS to verify each other's identity. Note: this is incompatible with TCP Routing and SSH access to app containers.
-  * The default non-mutual TLS option is recommended for most use cases.
 * **[Feature Improvement]** Default route integrity option is now "Router uses TLS to verify application identity"
   * With this option enabled, the Router verifies the identity of the application instance backends, but the application does not verify the identity of the router.
   * This is the recommended option for most use cases
@@ -229,8 +226,6 @@ owner: Release Engineering
 
 ### <a id='2.3.0-beta.1'></a>2.3.0-beta.1
 
-* **[Feature]** Add support for TLS connections to the LDAP server used by NFS volume services
-* **[Feature]** Operators can configure an internal domain for service discovery in PAS
 * **[Feature Improvement]** IST inherits `frontend_idle_timeout` value from PAS, which are configured to account for different IAAS load balancer timeouts
 * **[Feature Improvment]** UAA processes are isolated with the [BOSH Process Manager (bpm)](https://github.com/cloudfoundry-incubator/bpm-release)
 * **[Feature Improvment]** Diego processes are isolated with by the [BOSH Process Manager (bpm)]https://github.com/cloudfoundry-incubator/bpm-release)
@@ -488,6 +483,19 @@ Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/segment-rn.html
 in the Isolation Segment v2.1 release notes.
 
 If you upgrade to PCF v2.3, each Isolation Segment tile retains its previous setting for HTTP communication to apps. TLS is not the default setting.
+
+### <a id="nfs-ldap"></a>NFS LDAP Configuration Updates
+
+The LDAP configuration for NFS in the **Application Containers** pane includes the following updates:
+
+* You can optionally enter a **LDAP Server CA Cert** if your LDAP server supports TLS and you want to enable secure connections from the NFS driver to your LDAP server.
+* The **LDAP User Fully-Qualified Domain Name** has been renamed to **LDAP User Search Base** for clarity and consistency with LDAP UAA configuration in the **Authentication and Enterprise SSO** pane.
+
+### <a id='service-discovery'></a> App Service Discovery Updates
+
+App service discovery is enabled by default and no longer configurable. The **Enable app service discovery** checkbox no longer appears in the **Application Developer Controls** pane.
+
+You can also configure the internal domain used for service discovery using the **Internal Domain** field in the **Application Developer Controls** pane. This field defaults to `apps.internal`.
 
 ## <a id='adv-features'></a> About Advanced Features
 
