@@ -1193,9 +1193,9 @@ When upgrading to v2.3, be aware of the following upgrade considerations:
 
 ### <a id="xenial"></a> Xenial Stemcells
 
-PAS v2.3 uses a Xenial stemcell based on Ubuntu 16.04 (Xenial Xerus).
+PAS v2.3 uses a stemcell based on Ubuntu 16.04 (Xenial Xerus).
 
-The previously supported Trusty stemcells were based on Ubuntu 14.04 (Trusty Tahr). This distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
+Earlier versions' stemcells were based on Ubuntu 14.04 (Trusty Tahr). The Trusty distribution will reach end of general support (EOGS) in April 2019 and will no longer receive security updates.
 
 Using Xenial stemcells in v2.3 ensures that PAS users continue to have access to secure stemcells based on a Ubuntu distribution maintained by Canonical.
 
@@ -1213,36 +1213,34 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
 
 #### <a id="cflinuxfs3-overview"></a> Overview
 
-* **What's new?**
+* **What's new in 2.3?**
   * PAS v2.3 adds the following:
-      * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver)
-      * A new set of buildpacks that are compatible with `cflinuxfs3`
+      * A new stack, `cflinuxfs3`, based on Ubuntu 18.04 (Bionic Beaver).
+      * A new set of buildpacks that are compatible with `cflinuxfs3`.
   * cf [CLI v6.39.0](https://github.com/cloudfoundry/cli/releases/tag/v6.39.0) adds the following to support the association between stacks and buildpacks:
     <p class="note"><strong>Note:</strong> PCF v2.2.0 added support for buildpack and stack association provided by <a href="https://github.com/cloudfoundry/capi-release/releases/tag/1.58.0">CAPI v1.58.0</a>. See <a href="https://docs.pivotal.io/pivotalcf/2-3/buildpacks/stack-association.html">Stack Association</a> for more information.</p>
       * The output of the `cf buildpacks` command has a `stacks` column.
       * The following commands now accept a `-s` flag for specifying a stack:  `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`.<br> This is useful if there are two buildpacks of the same name that use a different stack.
-* **What about cflinuxfs2?**
-  * PAS v2.3 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019 and will no longer receive security updates. Using `cflinuxfs3` in v2.3 ensures that PAS users continue to have access to a secure stack based on a Ubuntu distribution maintained by Canonical.
+* **Changes to cflinuxfs2**
+  * PAS v2.3 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019. After that date, it will no longer receive security updates. 
+
+  Using `cflinuxfs3` in v2.3 ensures that PAS users continue to have access to a secure stack based on a Ubuntu distribution maintained by Canonical.
 
 #### <a id="cflinuxfs3-guidance-operator"></a> Guidance for Operators
 
 * **Scale Cloud Controller if necessary**:
-  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is high, you may need to increase the persistent disk of the **Cloud Controller** VM to accommodate the new buildpacks.
+  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is already high, you may need to increase the persistent disk of the **Cloud Controller** VM to accommodate the new buildpacks.
 * **Migrate apps to cflinuxfs3**:
-  * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries and must update their app accordingly.
+  * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries. If they do, they must update their app accordingly.
 * **Assign a stack to custom buildpacks**:
-  * Associate custom buildpacks in your PAS deployment with a stack so they do not have a missing stack record. To do this, ensure your buildpack specifies a stack as a top level property in its manifest and then update it with the `cf update-buildpack` command. See [Creating Custom Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/buildpacks/custom.html). Buildpacks with a missing stack record will continue to work, but they are more manageable when associated with a stack.
+  * Associate custom buildpacks in your PAS deployment with a stack to prevent them from having a missing stack record. To do this, ensure that your buildpack specifies a stack as a top level property in its manifest and then update it with the `cf update-buildpack` command. See [Creating Custom Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/buildpacks/custom.html). Buildpacks with a missing stack record will continue to work, but they are more manageable when associated with a stack.
 * **Modify custom buildpacks for cflinuxfs3**:
   * Modify any custom buildpacks that are compatible with `cflinuxfs2` to be compatible with `cflinuxfs3`, and package them with the  `—stack cflinuxfs3` option provided by the [buildpack packager](https://github.com/cloudfoundry/libbuildpack/tree/master/packager). Upload the new `cflinuxfs3` compatible buildpack using the `cf create-buildpack` command.
-  * Ensure that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead.
-
-
+  * Confirm that you do not create any new custom buildpacks that depend on `cflinuxfs2`. Use `cflinuxfs3` instead.
 
 #### <a id="cflinuxfs3-guidance-tiledev"></a> Guidance for Tile Developers
 
 See [Tile Authors Must Manually Migrate Apps to cflinuxfs3](https://docs.pivotal.io/tiledev/2-3/release-notes.html#cflinuxfs3).
-
-
 
 ### <a id="bpm"></a> BOSH Process Manager
 
@@ -1269,17 +1267,13 @@ For more information, see [Configure Application Developer Controls](https://doc
 
 ### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
 
-In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers.
-This configuration improves resiliency and consistency for application routes.
-Find this setting in the PAS tile > **Application Containers** pane.
+In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers. This configuration improves resiliency and consistency for application routes. If you are upgrading to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is not the default setting.
 
-For more information,
-see [Increased Resiliency, Consistency, and Security for HTTP
+Configure this setting in the PAS tile > **Application Containers** pane.
+
+For more information, see [Increased Resiliency, Consistency, and Security for HTTP
 Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency)
 in the PAS v2.1 release notes.
-
-If you upgrade to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is not the default setting.
-
 
 
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
@@ -1288,7 +1282,7 @@ If you upgrade to PAS v2.3, PAS retains its previous setting for HTTP communicat
 
 Garden creates app containers in PAS and includes an image plugin that prepares the filesystem for the container. PCF v1.12 introduced GrootFS as the default image plugin to replace the previous built-in functionality, garden-shed, which used an obsolete layer filesystem (AUFS) that lacked support from the Linux Kernel community.
 
-Though GrootFS is the default image plugin in v1.12 through v2.2, PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is now deprecated and PAS v2.3 removes the option to use it.
+Though GrootFS is the default image plugin in v1.12 through v2.2, at one time PAS provided an option in the **Application Containers** pane for operators to disable GrootFS and use garden-shed. However, garden-shed is deprecated and PAS v2.3 removes the option to use it.
 
 For more information about GrootFS in PCF, see the following topics:
 
@@ -1426,13 +1420,14 @@ Pivotal recommends leaving the default values of `5`. However, you may want to l
 
 You can change the **Max Valid Packages per App** and **Max Staged Droplets per App** values in the **File Storage** pane of the PAS tile.
 
-## <a id='known-issues'></a> Known Issues
 
+## <a id='known-issues'></a> Known Issues
 
 
 ### <a id='nfs-broker'></a> PAS Upgrades Fail on NFS Broker Errand
 
 PAS upgrades may fail on the NFS Broker errand. This issue can occur regardless of whether or not the NFS Broker errand is enabled.
+
 
 
 ### <a id='autoscaling-smoke-test-failure'></a> Autoscaling Smoke Test Failure
@@ -1460,8 +1455,6 @@ You cannot enter a comma-separated list of ports in the **TCP Routing Ports** fi
 
 * A single value, such as `1234`
 * A range of values, such as `1234-5678`
-
-
 
 #### Workaround
 
