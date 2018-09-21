@@ -48,6 +48,14 @@ In PCF v2.3, you cannot opt out of BOSH DNS. Upgrades to PCF v2.3 will fail if B
 
 <%= image_tag("bosh-dns-error.png") %>
 
+### <a id='nsx-load-balancer'></a> Downtime when Upgrading on vSphere with NSX-T
+
+If your PCF deployment is on vSphere and uses NSX-T load balancers, upgrading from PCF v2.2 to PCF v2.3 may cause downtime. 
+
+This is due to a new feature in the [vSphere CPI](https://github.com/cloudfoundry-incubator/bosh-vsphere-cpi-release/releases/tag/v48) that Ops Manager uses, which introduces the capability to manage the full lifecycle of the membership of the NSX-T load balancer. 
+
+For more information, see [Safely Upgrading PAS 2.2 → 2.3 with NSX-T Load Balancers](https://pivotal-cf-blog-staging.cfapps.io/post/upgrade_2.2-2.3_on_nsx-t/). 
+
 ### <a id="om-api-secrets"></a> Ops Manager API Does Not Return Secret Properties
 
 For security, Ops Manager API responses from the `/api/v0/staged/director/properties` endpoint no longer include the following properties:
