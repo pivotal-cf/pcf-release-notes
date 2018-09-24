@@ -243,6 +243,8 @@ Ops Manager v2.2.3 uses the following component versions:
 
 ###  <a id="2-2-2"></a>2.2.2
 
+* **[Bug Fix]**: Fixes Xenial stemcell upload issue. This resolves [Error When Importing Xenial Stemcell](#xenial-upload).
+
 Ops Manager v2.2.2 uses the following component versions:
 
  <table border="1" class="nice">
@@ -592,7 +594,6 @@ Ops Manager no longer includes a **When Changed** option for tile errands. In th
 ## <a id="known-issues"></a> Known Issues
 
 
-
 ### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
 
 With BOSH DNS, every BOSH-deployed VM has a DNS server. In large PCF installations, this DNS server may hang or DNS lookups may fail when the VM experiences too many DNS lookups in a short amount of time.
@@ -601,7 +602,13 @@ This error is caused by a race condition and deadlock in the VM's DNS server.
 
 To fix this problem, run `monit` on the VM with failing DNS to restart its `bosh-dns` process.
 
+### <a id="xenial-upload"></a>Error When Importing Xenial Stemcell
 
+Ops Manager v2.2.0 and later support Xenial stemcells. However, the Ops Manager UI returns an error when you attempt to import a Xenial stemcell.   
+
+As a workaround, you can upload the stemcell and assign it to a product using the [Ops Manager API](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#stemcells).
+
+This issue is fixed in Ops Manager v2.2.2.
 
 ### <a id="ki-opsmanager-tls-error"></a>Ops Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore
 
