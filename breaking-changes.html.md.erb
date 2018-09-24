@@ -20,9 +20,22 @@ Alternately, to avoid app downtime, you can temporarily rebind your apps as read
 
 When you enable the **Router and applications use mutual TLS to verify each other's identity** option in PAS v2.3, app containers accept incoming communication only from the Gorouter. This disables `cf ssh` and TCP routing.
 
+
+### <a id='downtime-pre-2.2.4'></a> App Downtime When Upgrading from v2.2.3 or Earlier
+
+In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To prevent app downtime while upgrading from v2.2 to v2.3, you must be running PAS v2.2.4 or later. These versions of PAS v2.2 contain the configuration <code>router.backends.enable_tls: true</code> in the Gorouter manifest.
+
+
 ### <a id="backup-restore-name-change"></a> backup-prepare Instance Group Has Been Renamed to backup_restore
 
 The name of the `backup-prepare` instance group has been changed to `backup_restore`. This may break some external tools that were setting the properties for this instance group through the Ops Manager API. See the article [PAS backup-prepare job renamed to backup-restore may cause automation failures](https://pivotal.lightning.force.com/lightning/r/KnowledgeArticle__kav/ka00e0000009loEAAQ/view) in the Pivotal Knowledge Base for details.
+
+
+### <a id='grootfs'></a> Newly-Enabled GrootFS May Require Higher Disk Quotas for Docker Apps
+
+In PCF v2.3, you cannot opt out of GrootFS. Upgrades to PCF v2.3 will fail if GrootFS is disabled in PCF v2.2.
+
+If you did not enable GrootFS prior to PAS v2.3, you may encounter issues with apps deployed with a Docker image. GrootFS fixes a bug in which disk quotas were not accurately calculated. However, this bug fix may cause Docker images that previously adhered to a quota to now exceed the same quota size. See <a href="https://github.com/cloudfoundry/garden-runc-release/blob/master/docs/migrating-from-garden-shed-to-grootfs.md#disk-quota-calculation">Disk quota calculation</a> in the <code>garden-runc-release</code> repository.
 
 
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
