@@ -342,3 +342,11 @@ For more information, see [Step 5: Create Networks Page](https://docs.pivotal.io
 ### <a id="azure-compilations-timeout"></a> Intermittent Deploy Failure on Azure with Compilation Timeout
 
 When deploying on Azure, the BOSH compilation of some releases has been observed to time out and cause the deploy to fail.
+
+To resolve this issue, perform the following steps:
+
+1. Navigate to the Ops Manager Installation Dashboard and log in.
+2. Click the **BOSH Director for Azure** tile.
+3. Click **Resource Config**.
+4. Select a larger **VM Type** for the **BOSH Director** job, such as **DS5_v2**.
+1. Return to the Ops Manager Installation Dashboard and click **Review Pending Changes** and then **Apply Changes** to redeploy.
