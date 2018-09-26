@@ -74,7 +74,7 @@ Ops Manager v2.1.16 uses the following component versions:
 ### <a id="2-1-15"></a> 2.1.15
 
 * **[Security Fix]**: `clients.admin` is no longer a default scope under `user.authorities`.
-* **[Bug Fix]**: You can now import Xenial stemcells when you are upgrading to a tile that requires Xenial. 
+* **[Bug Fix]**: You can now import Xenial stemcells when you are upgrading to a tile that requires Xenial. For more information, see [Unable to import Xenial stemcell when upgrading to tile that requires Xenial](https://community.pivotal.io/s/article/unable-to-import-xenial-stemcell-when-upgrading-to-tile-that-requires-xenial) in the Pivotal Knowledge Base.
 * **[Bug Fix]**: Ops Manager now sets the storage account type and ephemeral disk correctly for Azure deployments.
 * **[Bug Fix]**: Ops Manager no longer saves a DBinstance snapshot after cleaning up an AWS environment.
 * **[UI Enhancement]**: A 500 error appears when Ops Manager fails to import an installation.
@@ -1026,7 +1026,12 @@ From the **Resource Config** pane of an AWS installation, you can associate an A
 
 Ops Manager 2.1.6 and later support Xenial stemcells. However, the Ops Manager UI returns an error when you attempt to import a Xenial stemcell.   
 
-As a workaround, you can upload the stemcell and assign it to a product using the [Ops Manager API](https://docs.pivotal.io/pivotalcf/2-1/opsman-api/#stemcells).
+As a workaround, you can upload the stemcell and assign it to a product using the [Ops Manager API](https://docs.pivotal.io/pivotalcf/2-1/opsman-api/#stemcells). 
+
+For more information about this workaround, see <a href="https://community.pivotal.io/s/article/Unable-to-import-Xenial-stemcell-when-upgrading-to-tile-that-requires-Xenial">Unable to import Xenial stemcell when upgrading to tile that requires Xenial
+</a> in the Pivotal Knowledge Base.
+
+<p class="note"><strong>Note</strong>: This issue is resolved in Ops Manager 2.1.15 and later. 
 
 ### <a id="ki-bosh-dns-hangs"></a>DNS Server Hangs or DNS Lookups Fail
 
