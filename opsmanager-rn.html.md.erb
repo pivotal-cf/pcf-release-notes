@@ -20,6 +20,10 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### <a id="2-1-16"></a> 2.1.16
 
+* **[Bug Fix]**: You are now only prompted to unlock Ops Manager once when enabling [Rescue Mode](https://community.pivotal.io/s/article/How-to-put-Ops-Manager-into-Rescue-Mode).
+* Bumps stemcell to 3541.49
+* Bumps BOSH DNS to 1.10.0
+* Bumps Azure CPI to 35.4.0
 
 Ops Manager v2.1.16 uses the following component versions:
 
@@ -32,16 +36,16 @@ Ops Manager v2.1.16 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Ops Manager</td><td>2.1-build.</td>
+    <td>Ops Manager</td><td>2.1-build.277*</td>
   </tr>
   <tr>
-    <td>Stemcell</td><td>3541.48</td>
+    <td>Stemcell</td><td>3541.49*</td>
   </tr><tr>
     <td>BBR SDK</td><td>1.4.4</td>
   </tr><tr>
     <td>BOSH Director</td><td>265.11.0</td>
   </tr><tr>
-    <td>BOSH DNS</td><td>1.8.0</td>
+    <td>BOSH DNS</td><td>1.10.0*</td>
   </tr><tr>
     <td>Metrics Server</td><td>0.0.21</td>
   </tr><tr>
@@ -51,7 +55,7 @@ Ops Manager v2.1.16 uses the following component versions:
   </tr><tr>
     <td>AWS CPI</td><td>69</td>
 </tr><tr>
-    <td>Azure CPI</td><td>35</td>
+    <td>Azure CPI</td><td>35.4.0*</td>
   </tr><tr>
     <td>GCP CPI</td><td>27.0.1</td>
   </tr><tr>
@@ -70,7 +74,7 @@ Ops Manager v2.1.16 uses the following component versions:
 ### <a id="2-1-15"></a> 2.1.15
 
 * **[Security Fix]**: `clients.admin` is no longer a default scope under `user.authorities`.
-* **[Bug Fix]**: You can now import Xenial stemcells when you are upgrading to a tile that requires Xenial.
+* **[Bug Fix]**: You can now import Xenial stemcells when you are upgrading to a tile that requires Xenial. 
 * **[Bug Fix]**: Ops Manager now sets the storage account type and ephemeral disk correctly for Azure deployments.
 * **[Bug Fix]**: Ops Manager no longer saves a DBinstance snapshot after cleaning up an AWS environment.
 * **[UI Enhancement]**: A 500 error appears when Ops Manager fails to import an installation.
