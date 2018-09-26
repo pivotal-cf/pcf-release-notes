@@ -19,11 +19,63 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/cust
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-0-23"></a> 2.0.24
+
+
+* **[Feature Improvement]**: Ops Manager now displays a useful error message when a file downloaded from PivNet is corrupt.
+* **[Feature Improvement]**: Ops Manager now displays a 500 error when it fails to import an installation.
+* **[Bug Fix]**: Ops Manager verifiers now work when Ops Manager is configured with a proxy.
+* **[Bug Fix]**: Ops Manager now sets the storage account type and Director ephemeral disk correctly on Azure deployments.
+
+
+Ops Manager v2.0.24 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td>build.365*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3468</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.4</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.7</td>
+  </tr><tr>
+    <td>UAA</td><td>52.10</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
 
 
 ### <a id="2-0-23"></a> 2.0.23
 
-* **[Security Fix]** Bumps Stemcell to 3468.67
+* **[Security Fix]**: Bumps Stemcell to 3468.67
 * Bumps BOSH Director to v264.17
 
 Ops Manager v2.0.23 uses the following component versions:
@@ -74,7 +126,7 @@ Ops Manager v2.0.23 uses the following component versions:
 
 ### <a id="2-0-22"></a> 2.0.22
 
-* **[Bug Fix]** Pivotal Network integrates successfully with Pivotal Application Service (PAS) tile and Small Footprint PAS.
+* **[Bug Fix]**: Pivotal Network integrates successfully with Pivotal Application Service (PAS) tile and Small Footprint PAS.
 
 Ops Manager v2.0.22 uses the following component versions:
 
