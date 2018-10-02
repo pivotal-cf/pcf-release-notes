@@ -316,6 +316,10 @@ Platform components like CAPI and Diego will use TLS to communicate with the dat
 This happens automatically when using the Internal Database, for external databases like RDS you can provide the CA Certificate in the PAS Databases form.
 Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components will be moved over to TLS in subsequent pre-release versions.
 
+### <a id="nfs-experimental-graduation"></a> NFS-Experimental Service Graduation
+
+The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
