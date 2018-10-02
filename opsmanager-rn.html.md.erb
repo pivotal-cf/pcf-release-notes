@@ -21,9 +21,6 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 ### <a id="2-1-16"></a> 2.1.16
 
 * **[Bug Fix]**: You are now only prompted to unlock Ops Manager once when enabling [Rescue Mode](https://community.pivotal.io/s/article/How-to-put-Ops-Manager-into-Rescue-Mode).
-* Bumps stemcell to 3541.49.
-* Bumps BOSH DNS to 1.10.0.
-* Bumps Azure CPI to 35.4.0.
 
 Ops Manager v2.1.16 uses the following component versions:
 
@@ -130,7 +127,6 @@ Ops Manager v2.1.15 uses the following component versions:
 * **[Security Fix]**: Operators get new certificate authorities (CAs) for BOSH DNS healthiness and the DNS API that are valid for four years. Operators can rotate existing CAs to longer-lived CAs. New installations generate leaf certificates from that CA. Use `POST /api/v0/certificate_authorities/active/regenerate` to rotate DNS healthiness leaf certificates.
 * **[Bug Fix]**: Ops Manager verifiers no longer time out when Ops Manager is configured with a proxy.
 * **[UI Enhancement]**: An error message appears when a file downloaded from Pivotal Network is invalid or corrupt.
-* Bumps BOSH Director to 265.11.0.
 
 Ops Manager v2.1.14 uses the following component versions:
 
@@ -184,8 +180,6 @@ Ops Manager v2.1.14 uses the following component versions:
 
 * **[Security Fix]** Bumps stemcell to 3541.46
 * **[Bug Fix]** Pivotal Network integrates successfully with Pivotal Application Service (PAS) tile and Small Footprint PAS.
-* Bumps Bosh Director to v265.10
-* Bumps Metrics Server to v0.0.21
 
 Ops Manager v2.1.13 uses the following component versions:
 
@@ -238,10 +232,6 @@ Ops Manager v2.1.13 uses the following component versions:
 ### <a id="2-1-12"></a> 2.1.12
 
 * **[Security Fix]** Bumps stemcell to 3541.44
-* Bumps BOSH Director to v265.9
-* Bumps BOSH DNS to v1.8
-* Bumps GCP CPI to v27.0.1
-
 
 Ops Manager v2.1.12 uses the following component versions:
 
@@ -295,8 +285,6 @@ Ops Manager v2.1.12 uses the following component versions:
 ### <a id="2-1-11"></a> 2.1.11
 
 * **[Security Fix]** Bumps stemcell to 3541.37
-* Bumps BOSH Director to v265.7
-* Bumps BOSH DNS to v265.9
 * **[Bug Fix]** Private key is not returned when you GET the `/iaas_configurations` API endpoint.
 * **[Bug Fix]** UAA config remains mounted in RAM disk when image is recreated.
 * **[Bug Fix]** You can edit an Availability Zone (AZ) if it is unassociated with a product.
@@ -351,7 +339,6 @@ Ops Manager v2.1.11 uses the following component versions:
 ### <a id="2-1-10"></a> 2.1.10
 
 * **[Security Fix]** Bumps stemcell to 3541.35
-* Bumps BOSH Director to v265.4
 * **[Bug Fix]**: Fixes an error reading `Unknown CPI error 'Unknown' with message 'execution expired' in 'create_vm' CPI method` for deployments on Azure.
 
 Ops Manager v2.1.10 uses the following component versions:
@@ -583,7 +570,6 @@ Ops Manager v2.1.6 uses the following component versions:
 
 * **[Bug Fix]** Changes vSphere to v45.1
 * **[Security Fix]** Bumps stemcell to 3541.30
-* Bumps CredHub to v1.7.5
 
 Ops Manager v2.1.5 uses the following component versions:
 
@@ -635,7 +621,6 @@ Ops Manager v2.1.5 uses the following component versions:
 
 <p class="note warning"><strong>WARNING:</strong> If you use a vSphere environment, Pivotal recommends that you skip v2.1.4 due to a major bug. </p>
 
-* Bumps vSphere to v49
 * **[Feature Improvement]** Upgrades BOSH System Metrics Server Release to v0.0.17. PAS for Windows 2012R2 now emits BOSH VM metrics.
 * **[Feature Improvement]** Decrease upload time for large tiles and stemcells.
 * **[Bug Fix]** Helps alleviate Ruby's susceptibility to high memory usage. May prevent the Ops Manager VM from running out of memory during a long VM lifecycle.
@@ -696,7 +681,6 @@ Ops Manager v2.1.4 uses the following component versions:
 ### <a id="2-1-3"></a> 2.1.3
 
 * **[Security]** Bumps stemcell to 3541.25
-* Bumps BOSH DNS to 1.6.0
 * **[Bug Fix]** The credentials API endpoints for deployed products do not include secrets. For more information about these API endpoints, see [Viewing available credentials](https://opsman-dev-api-docs.cfapps.io/#viewing-available-credentials) and [Fetching credentials](https://opsman-dev-api-docs.cfapps.io/#fetching-credentials) in the Ops Manager API documentation.
 * Installation Dashboard includes new Azure logo when you have an Azure installation.
 
@@ -804,7 +788,6 @@ Ops Manager v2.1.2 uses the following component versions:
 * **[Feature]** The BOSH CLI is now upgraded to v3 in Ops Manager. You can split cloud configs and other configurations into multiple files. This change allows you to manage and evolve configurations separately. For more information on configuration management in BOSH, see [Configs](http://bosh.io/docs/configs.html) in the BOSH documentation.
 * **[Feature]** In the **Director Config** pane, you can now enter **Excluded Recursors** as a comma-separated list. This list specifies which IPs and ports you want to exclude from the DNS server. For more information, see [Director Config Page](http://docs.pivotal.io/pivotalcf/2-1/customizing/gcp-om-config.html#director-config).
 * **[Bug Fix]** Ops Manager sets a consistent entity ID in both SAML and non-SAML cases.
-* Bumps BOSH Director to v265.2
 
 Ops Manager v2.1.1 uses the following component versions:
 
@@ -902,7 +885,6 @@ Ops Manager v2.1.0 uses the following component versions:
 
 
 ## <a id='major-features'></a> New Features in Ops Manager v2.1
-
 
 
 ### <a id="stemcell-manager"></a> Stemcell Library
