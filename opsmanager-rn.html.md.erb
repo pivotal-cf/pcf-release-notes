@@ -1102,7 +1102,13 @@ This known issue does not affect you if you enable **Encrypt EBS Volumes** durin
 
 For more information about the AWS KMS feature, see [AWS KMS Encryption Available for BOSH and Ops Manager VMs](#custom-kms).
 
+### <a id="vsphere-failure">Ops Manager "Required Datacenter privileges" Error on vSphere
 
+Ops Manager on vSphere 6.7 fails with an error message: "Could not log in: Required Datacenter privileges could not be verified: SystemError: A general system error occurred: Authorize Exception"
+
+You can ignore this error message. Click "Ignore errors and start the install" to authenticate.
+
+This issue is fixed in Ops Manager 2.3 and above.
 
 ## <a id="bug-fixes"></a> Bug Fixes
 
