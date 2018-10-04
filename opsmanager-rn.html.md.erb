@@ -737,3 +737,11 @@ Additionally, when you SSH into a VM and run `monit summary`, monit reports jobs
 To remediate this issue, use monit to restart the affected processes.
 
 For more information, see the Knowledge Base article [Deployment Fails Because Monit Reports Job as Failed](https://community.pivotal.io/s/article/Deployment-fails-because-monit-reports-job-as-failed).
+
+### <a id="vsphere-failure">Ops Manager "Required Datacenter privileges" Error on vSphere
+
+Ops Manager on vSphere 6.7 fails with an error message: "Could not log in: Required Datacenter privileges could not be verified: SystemError: A general system error occurred: Authorize Exception"
+
+You can ignore this error message. Click "Ignore errors and start the install" to authenticate.
+
+This issue is fixed in Ops Manager 2.3 and above.
