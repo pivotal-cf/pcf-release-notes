@@ -11,6 +11,137 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.1.15'></a> 2.1.15
+
+* **[Security Fix]** Bump garden-runc to prevent malicious users from causing a denial of service for other apps
+* **[Feature Improvement]** Improve nfs blobstore pre-start performance
+* **[Bug Fix]** space and org managers can now view app logs in apps manager
+* **[Bug Fix]** Fix unsafe logic in NFS unmount and drain code that may lead to deletion of files on remote NFS shares.
+* **[Bug Fix]** PAS 2.1.14 upgrade fails with `Error: release 'cf-networking/1.10.2' has already been uploaded`
+* **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail 
+* **[Bug Fix]** Fix issue where the PAS tile could be incorrectly downloaded when upgrading SF-PAS via PivNet
+
+* Bump binary-offline-buildpack-lts to version `1.0.27`
+* Bump capi to version `1.49.11`
+* Bump cf-cli to version `1.5.0`
+* Bump cf-networking to version `1.10.3`
+* Bump cf-smoke-tests to version `40.0.9`
+* Bump cf-syslog-drain to version `5.3`
+* Bump cflinuxfs2 to version `1.238.0`
+* Bump dotnet-core-offline-buildpack-lts to version `2.1.5`
+* Bump garden-runc to version `1.16.1`
+* Bump go-offline-buildpack-lts to version `1.8.27`
+* Bump java-offline-buildpack-lts to version `4.15.1`
+* Bump loggregator to version `101.16`
+* Bump mysql-backup to version `2.8.0`
+* Bump nfs-volume to version `1.2.3`
+* Bump nodejs-offline-buildpack-lts to version `1.6.32`
+* Bump php-offline-buildpack-lts to version `4.3.61`
+* Bump push-apps-manager-release to version `664.0.20`
+* Bump python-offline-buildpack-lts to version `1.6.21`
+* Bump ruby-offline-buildpack-lts to version `1.7.23`
+* Bump staticfile-offline-buildpack-lts to version `1.4.32`
+* Bump stemcell ubuntu-trusty to version `3541.49`
+
+  <table border="1" class="nice">
+  <thead> <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>stemcell</td><td>3541.49</td>
+  </tr><tr>
+    <td>backup-and-restore-sdk</td><td>1.5.3</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.27</td>
+  </tr><tr>
+    <td>bosh-dns-aliases</td><td>0.0.1</td>
+  </tr><tr>
+    <td>bosh-system-metrics-forwarder</td><td>0.0.11</td>
+  </tr><tr>
+    <td>capi</td><td>1.49.11</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>118.5</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.10</td>
+  </tr><tr>
+    <td>cf-cli</td><td>1.5.0</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.11.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.10.3</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>40.0.9</td>
+  </tr><tr>
+    <td>cf-syslog-drain</td><td>5.3</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.238.0</td>
+  </tr><tr>
+    <td>consul</td><td>195</td>
+  </tr><tr>
+    <td>credhub</td><td>1.7.5</td>
+  </tr><tr>
+    <td>diego</td><td>1.35.10</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>2.1.5</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.16.1</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.27</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.6.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.15.1</td>
+  </tr><tr>
+    <td>loggregator</td><td>101.16</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>2.8.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.20.0</td>
+  </tr><tr>
+    <td>nats</td><td>24</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.2.3</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.32</td>
+  </tr><tr>
+    <td>notifications</td><td>44</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>33</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.61</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.8.8</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>664.0.20</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>666.0.11</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.6.21</td>
+  </tr><tr>
+    <td>routing</td><td>0.174.6</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.7.23</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.32</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.1.0</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>11.1.1</td>
+  </tr><tr>
+    <td>uaa</td><td>55.2</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table>
+
+
 ### <a id='2.1.14'></a> 2.1.14
 
 * **[Security Fix]** Prevent app developers from registering an NFS service broker that issues service bindings with uid and gid specified when LDAP is enabled
