@@ -14,6 +14,9 @@ Operators can install Pivotal Application Service (PAS) for Windows on vSphere, 
 
 ### <a id='2.0.10'></a> 2.0.10
 
+* **[Breaking Change]** The `install-hwc-buildpack` errand is now called `install-hwc-buildpack-lts`
+  * If you have scripts which programmatically change the errand state, you'll have to update the scripts to use the new name
+
 * Bump diego to version `1.32.7`
 * Bump hwc-offline-buildpack to version `3.0.2`
 * Bump loggregator to version `99.3`
