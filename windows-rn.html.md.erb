@@ -9,6 +9,9 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ### <a id='2-1-10'></a> 2.1.10
 
+* **[Breaking Change]** The `install-hwc-buildpack` errand is now called `install-hwc-buildpack-lts`
+  * If you have scripts which programmatically change the errand state, you'll have to update the scripts to use the new name
+
 * **[Security Fix]** Bump garden-runc to prevent malicious users from causing a denial of service for other apps
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail 
 

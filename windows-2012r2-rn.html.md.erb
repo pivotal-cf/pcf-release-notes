@@ -9,6 +9,9 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ### <a id='2-1-8'></a> 2.1.8
 
+* **[Breaking Change]** The `install-hwc-buildpack` errand is now called `install-hwc-buildpack-lts`
+  * If you have scripts which programmatically change the errand state, you'll have to update the scripts to use the new name
+
 * Bump hwc-offline-buildpack to version `3.0.2`
 * Bump diego to version `1.35.10`
 * Bump loggregator to version `101.13`
