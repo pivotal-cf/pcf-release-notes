@@ -80,6 +80,16 @@ To fix this condition, customers should unbind the service, rebind it, and then 
 
 Alternately, customers wishing to avoid application down time can temporarily re-bind their applications as read/write before upgrading, and then swtich to read-only afterwards.
 
+### <a id='garden-healthcheck'></a> Diego Cell Garden Healthcheck Fails and Becomes Unhealthy
+
+You may observe the following error in the Diego Cell Garden logs:
+
+```
+cfnetworking: cni up failed: add network list failed: initialize net out: creating chain: iptables call: running [/var/vcap/packages/iptables/sbin/iptables -t filter -N netout--executor-healthcheck --wait]: exit status 1: iptables: Chain already exists.
+```
+
+This is a symptom of a failed Diego healthcheck, which can cause the Diego cell to become unhealthy. If you encounter this error, see the following Pivotal Knowledge Base article to understand and resolve the issue: [Diego Cell Garden healthcheck fails and becomes unhealthy](https://community.pivotal.io/s/article/diego-cell-garden-healthcheck-fails-and-becomes-unhealthy). 
+
 ## <a id='opsman'></a> Ops Manager
 
 ### <a id="inventory-service"></a> Additional vSphere Permission Validation
