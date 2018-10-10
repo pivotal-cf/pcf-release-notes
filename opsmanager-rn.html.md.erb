@@ -179,7 +179,7 @@ Ops Manager v2.2.6 uses the following component versions:
 * **[Feature]**: All DNS healthiness certificates are signed by a Credhub CA.
 * **[Feature]**: Operators can rotate DNS healthiness certificates using `POST/api/v0/certificate_authorities/active/regenerate`.
 * **[Feature Improvement]**: Ops Manager API warns you when you attempt to regenerate certificates without first applying changes to propagate CA changes.
-* **[Bug Fix]**: Verifiers work in vCenter v6.7.
+* **[Bug Fix]**: Verifiers work in vCenter v6.7. Fixes the [Ops Manager "Required Datacenter privileges" Error on vSphere](#vsphere-failure) known issue.
 
 Ops Manager v2.2.5 uses the following component versions:
 
@@ -724,7 +724,6 @@ This indicates the new certificate has been installed.
 For more information, see the Knowledge Base article [Operations Manager Validation Returns TLS Error When Configuring BOSH Director S3 Blobstore](https://community.pivotal.io/s/article/Operations-Manager-Validation-returns-TLS-error-when-configuring-Bosh-Director-S3-blobstore).
 
 
-
 ### <a id="ki-deployment-fails-jobs-not-running"></a> Ops Manager Deployment Fails Because Monit Reports Job as Failed
 
 This issue causes Ops Manager deployments to fail with an error indicating one or more jobs are not running after an update. 
@@ -740,8 +739,8 @@ For more information, see the Knowledge Base article [Deployment Fails Because M
 
 ### <a id="vsphere-failure"></a> Ops Manager "Required Datacenter privileges" Error on vSphere
 
-Ops Manager on vSphere 6.7 fails with an error message: "Could not log in: Required Datacenter privileges could not be verified: SystemError: A general system error occurred: Authorize Exception"
+Ops Manager on vSphere v6.7 fails with an error message: "Could not log in: Required Datacenter privileges could not be verified: SystemError: A general system error occurred: Authorize Exception"
 
 You can ignore this error message. Click "Ignore errors and start the install" to authenticate.
 
-This issue is fixed in Ops Manager 2.3 and above.
+This issue is fixed in Ops Manager v2.2.5 and v2.3.0 or later.
