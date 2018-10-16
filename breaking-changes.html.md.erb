@@ -3,14 +3,46 @@ title: PCF v2.4 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.4. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to
+Pivotal Cloud Foundry (PCF) v2.4. For more information about important preparation steps
+you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud
+Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
+
+
 
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
+See the following PAS breaking changes:
 
-## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
+None currently.
+
+
+
+
+## <a id='opsman'></a> PCF Ops Manager
+
+See the following PCF Ops Manager breaking changes:
+
+
+
+
+### <a id=""></a> Excluded Recursors Field Is Moved In Ops Manager API
+
+The `excluded_recursors` field is now grouped under `dns_configuration` instead of `director_configuration`
+when you use the `GET /api/v0/staged/director/properties` API endpoint. This API endpoint
+fetches BOSH Director, IaaS, and security properties. The moved field may break scripts if
+they rely on the `GET` output.
+
+For more information about the API endpoint, see [Staged BOSH
+Director](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) in the
+Ops Manager API documentation.
+
 
 
 ## <a id='ist'></a> PCF Isolation Segment
 
+
+See the following PCF Isolation Segment breaking changes:
+
+None currently.
