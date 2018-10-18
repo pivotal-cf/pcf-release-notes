@@ -23,12 +23,12 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 
 * **[Security Fix]**: Bumps stemcell to 3586.48 to address [USN-3777-2](https://usn.ubuntu.com/3777-2/).
 * **[New Feature]**: Operators can tune the swap size as a percent of total memory size per instance group.
-* **[Bug Fix]**: Bumps azure CPI up to 35.4 to fix LockTimeoutError issues.
+* **[Bug Fix]**: Bumps Azure CPI up to 35.4 to fix `LockTimeoutError` issues.
 * **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs. 
-* **[Bug Fix]**: Stemcells no longer accidentally downgrade in rare cases when upgrading to a new OpsManager. This happened when a product had a newer stemcell patch than OpsManager included during the upgrade.
+* **[Bug Fix]**: Stemcells no longer accidentally downgrade in rare cases when upgrading to a new Ops Manager. This happened previously when a product had a newer stemcell patch than Ops Manager included during the upgrade.
 * **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
 * **[Feature Improvement]**: The expiring certificates endpoint (`/api/v0/deployed/certificates`) now includes information about the SAML service provider cert.
-* **[Feature Improvement]**: Importing products that use the future Unified Syslog feature give operators a warning that product syslog features will not be active in this version of OpsManager.
+* **[Feature Improvement]**: Importing products that use the future Unified Syslog feature warns operators that product syslog features will not be active in this version of Ops Manager.
 * **[Bug Fix]**: Dynamic JS pages now show the message from server-side errors instead of alert boxes with Javascript errors (such as `[Object object]` or `t.filter()`).
 * **[New Feature]**: You can now configure custom DNS handlers via the Ops Manager API.
 * **[New Feature]**: You can now configure recursor timeouts via the Ops Manager API.
