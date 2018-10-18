@@ -21,11 +21,11 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/cust
 ### <a id="2-0-25"></a> 2.0.26
 
 * **[Security Fix]**: Bumps stemcell to 3468.75 for periodic lower-severity security updates.
-* **[Bug Fix]**: Bumps azure CPI up to 35.4 to fix LockTimeoutError issues.
+* **[Bug Fix]**: Bumps Azure CPI to 35.4 to fix `LockTimeoutError` issues.
 * **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs. 
 * **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
-* **[Feature Improvement]**: The expiring certificates endpoint (`/api/v0/deployed/certificates`) now includes information about the SAML service provider cert.
-* **[Feature Improvement]**: Importing products that use the future Unified Syslog feature give operators a warning that product syslog features will not be active in this version of OpsManager.
+* **[Feature Improvement]**: The expiring certificates endpoint (`/api/v0/deployed/certificates`) includes information about the SAML service provider cert.
+* **[Feature Improvement]**: Importing products that use the future Unified Syslog feature warns operators that product syslog features will not be active in this version of Ops Manager.
 
 Ops Manager v2.0.26 uses the following component versions:
 
