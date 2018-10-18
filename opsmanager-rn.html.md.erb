@@ -18,6 +18,59 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/cust
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-0-25"></a> 2.0.26
+
+* **[Security Fix]**: Bumps stemcell to 3468.75 for periodic lower-severity security updates.
+* **[Bug Fix]**: Bumps azure CPI up to 35.4 to fix LockTimeoutError issues.
+* **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs. 
+* **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
+* **[Feature Improvement]**: The expiring certificates endpoint (`/api/v0/deployed/certificates`) now includes information about the SAML service provider cert.
+* **[Feature Improvement]**: Importing products that use the future Unified Syslog feature give operators a warning that product syslog features will not be active in this version of OpsManager.
+
+Ops Manager v2.0.26 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td>build.375*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3468.75*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264.17</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.4</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.7</td>
+  </tr><tr>
+    <td>UAA</td><td>52.10</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.4*</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id="2-0-25"></a> 2.0.25
 
 * **[Security Fix]**: Bumps stemcell to 3468.73 to address [USN-3777-2](https://usn.ubuntu.com/3777-2/).
@@ -65,7 +118,6 @@ Ops Manager v2.0.25 uses the following component versions:
   </tr>
   </tfoot>
 </table>
-
 
 ### <a id="2-0-24"></a> 2.0.24
 
