@@ -16,6 +16,64 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-1-18"></a> 2.1.18
+
+* **[Security Fix]**: Bumps stemcell to 3541.54 for periodic lower-severity security updates.
+* **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs. 
+* **[Bug Fix]**: Stemcells no longer accidentally downgrade in rare cases when upgrading to a new OpsManager. This happened when a product had a newer stemcell patch than OpsManager included during the upgrade.
+* **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
+* **[Feature Improvement]**: The expiring certificates endpoint (`/api/v0/deployed/certificates`) now includes information about the SAML service provider cert.
+* **[Feature Improvement]**: Importing products that use the future Unified Syslog feature give operators a warning that product syslog features will not be active in this version of OpsManager.
+* **[Bug Fix]**: Dynamic JS pages now show the message from server-side errors instead of alert boxes with Javascript errors (such as `[Object object]` or `t.filter()`).
+
+Ops Manager v2.1.18 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.1-build.389*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3541.54*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.4.4</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>265.11.0</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.10.0</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.21</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.7.7</td>
+  </tr><tr>
+    <td>UAA</td><td>55.2</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+</tr><tr>
+    <td>Azure CPI</td><td>35.4.0</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27.0.1</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>37</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
+
+
 ### <a id="2-1-17"></a> 2.1.17
 
 * **[Security Fix]**: Bumps stemcell to 3541.52 to address [USN-3777-2](https://usn.ubuntu.com/3777-2/).
