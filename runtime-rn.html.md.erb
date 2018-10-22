@@ -11,6 +11,117 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
+
+* **[Feature]** Remove configuration for internal MySQL Load Balancer
+* **[Feature]** Co-locate BPM on all VMs in PAS and IST
+* **[Feature]** Add `tile_installer` UAA client intended for use by service tiles during installation to create their own long-term operational client credentials
+* **[Feature Improvement]** The notification release uses the shared CF CLI which can be updated independently
+* **[Feature Improvement]** The notification ui release uses the shared CF CLI which can be updated independently
+* **[Feature Improvement]** Loggregator can be updated without rolling every VM
+* **[Feature Improvement]** Change default HAProxy instance count to 0
+* **[Feature Improvement]** Routing-API job connects to MySQL using TLS
+* **[Feature Improvement]** All errands use the CF CLI that is distributed as a BOSH release
+* **[Feature Improvement]** Update name of the Small Footprint PAS tile shown on the tile in Ops Manager UI
+* **[Feature Improvement]** clock_global now defaults to 2 instances to be highly available
+* **[Feature Improvement]** Allow disabling connection pooling for autoscaler API & escape special characters in external database passwords
+* **[Bug Fix]** Fix issue where the PAS tile could be incorrectly downloaded when upgrading SF-PAS via PivNet
+* **[Bug Fix]** Fix parse error for syslog rules when iptables logging is enabled
+* **[Bug Fix]** Remove two empty Credhub VMs from SF-PAS deployment
+
+* Bump ubuntu-xenial stemcell to version `97.19`
+* Bump binary-offline-buildpack to version `1.0.27`
+* Bump bpm to version `0.13.0`
+* Bump capi to version `1.70.0`
+* Bump cf-autoscaling to version `212`
+* Bump cf-cli to version `1.9.0`
+* Bump cf-networking to version `2.17.0`
+* Bump cf-smoke-tests to version `40.0.10`
+* Bump cflinuxfs2 to version `1.242.0`
+* Bump cflinuxfs3 to version `0.29.0`
+* Bump consul to version `198`
+* Bump credhub to version `2.1.1`
+* Bump diego to version `2.19.0`
+* Bump dotnet-core-offline-buildpack to version `2.1.5`
+* Bump garden-runc to version `1.16.6`
+* Bump go-offline-buildpack to version `1.8.28`
+* Bump java-offline-buildpack to version `4.16`
+* Bump log-cache to version `1.4.7`
+* Add new release loggregator-agent at version `2.2`
+* Bump loggregator to version `103.3`
+* Bump mapfs to version `1.1.1`
+* Bump mysql-monitoring to version `9.1.0`
+* Bump nfs-volume to version `1.6.0`
+* Bump nodejs-offline-buildpack to version `1.6.32`
+* Bump notifications-ui to version `35`
+* Bump notifications to version `53`
+* Bump php-offline-buildpack to version `4.3.61`
+* Bump push-apps-manager-release to version `666.0.12`
+* Bump push-usage-service-release to version `667.0.10`
+* Bump python-offline-buildpack to version `1.6.21`
+* Bump ruby-offline-buildpack to version `1.7.24`
+* Bump silk to version `2.17.0`
+* Bump staticfile-offline-buildpack to version `1.4.32`
+* Bump statsd-injector to version `1.4.0`
+* Bump syslog to version `11.4.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>97.19</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
+    <tr><td>bpm</td><td>0.13.0</td></tr>
+    <tr><td>capi</td><td>1.70.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>212</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.9.0</td></tr>
+    <tr><td>cf-mysql</td><td>36.15.0</td></tr>
+    <tr><td>cf-networking</td><td>2.17.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.10</td></tr>
+    <tr><td>cf-syslog-drain</td><td>7.1</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.242.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.29.0</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.1</td></tr>
+    <tr><td>diego</td><td>2.19.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.1.5</td></tr>
+    <tr><td>garden-runc</td><td>1.16.6</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.28</td></tr>
+    <tr><td>haproxy</td><td>9.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.16</td></tr>
+    <tr><td>log-cache</td><td>1.4.7</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.6.0</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.32</td></tr>
+    <tr><td>notifications-ui</td><td>35</td></tr>
+    <tr><td>notifications</td><td>53</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.61</td></tr>
+    <tr><td>push-apps-manager-release</td><td>666.0.12</td></tr>
+    <tr><td>push-usage-service-release</td><td>667.0.10</td></tr>
+    <tr><td>pxc</td><td>0.14.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.21</td></tr>
+    <tr><td>routing</td><td>0.182.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.24</td></tr>
+    <tr><td>silk</td><td>2.17.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.32</td></tr>
+    <tr><td>statsd-injector</td><td>1.4.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>60.2</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
 
 * **[Feature]** Support restore from different Azure storage account

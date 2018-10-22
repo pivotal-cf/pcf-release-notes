@@ -9,6 +9,36 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.0-alpha.1'></a> 2.4.0-alpha.1
+
+* **[Feature Improvement]** Review diego configuration and remove any cruft that is no longer needed
+* **[Bug Fix]** Metron emitted product_version format is inconsistent
+* Bump windows2012R2 stemcell to version `1200.25`
+* Bump diego to version `2.19.0`
+* Bump loggregator to version `103.3`
+* Add new release loggregator-agent at version `2.2`
+* Bump windows-utilities to version `0.11.0`
+* Removed consul release
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows2012R2 stemcell</td><td>1200.25</td></tr>
+    <tr><td>diego</td><td>2.19.0</td></tr>
+    <tr><td>event-log</td><td>0.7.0</td></tr>
+    <tr><td>garden-windows</td><td>0.14.0</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.0.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
+  </tbody>
+</table>
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The Pivotal Application Service (PAS) for Windows 2012R2 v2.4 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.4. To use the PAS for Windows 2012R2 tile, you
