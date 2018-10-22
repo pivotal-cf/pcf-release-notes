@@ -38,15 +38,15 @@ Enabling the checkbox selects all available products to deploy with the next **A
 
 For more information, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/review-pending-changes.html#review-pending-changes).
 
-### <a id="historical-diffs"></a> Historical Diffs Are Available for Cloud Config and Runtime Config
+### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available for Cloud Config and Runtime Config
+
+You can view the files affected between one deployment and another for cloud and runtime configs.
 
 ### <a id="upgrade-config"></a> Config Details Are Available During Upgrade
 
-You can now use the API to access various aspects of your deployment during an upgrade, when the rest of your deployment is unavailable.
+You can now use the API to access various aspects of your deployment during an upgrade, when the rest of your deployment is unavailable. The CPI configs, runtime configs, cloud config, and manifest are all available during upgrade via the Ops Manager API.
 
-The CPI configs, runtime configs, cloud config, and manifest are all available during upgrade via the Ops Manager API.
-
-Use `GET /api/v0/installations/10/products/[guid]/runtime_configs` or `GET /api/v0/installations/10/products/{director,director_guid}/runtime_configs` to access JSONs with config information.
+Use `/api/v0/installations/10/products/[guid]/runtime_configs` or `/api/v0/installations/10/products/{director,director_guid}/runtime_configs` to access JSONs with config information.
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
