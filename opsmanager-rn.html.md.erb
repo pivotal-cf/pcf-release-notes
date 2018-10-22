@@ -27,7 +27,7 @@ Multiple Ops Manager administrators can use Ops Manager at the same time, to rec
 
 Ops Manager now uses CredHub v2.0. For more information about how CredHub works, see [CredHub](https://docs.pivotal.io/pivotalcf/2-4/credhub/index.html).
 
-### <a id="aws-china"></a> Ops Manager Supports AWS China
+### <a id="aws-china"></a> Pivotal Images Publish to AWS China
 
 Users on AWS China accounts can now access downloads from Pivotal Network on their AWS China console. Find specific Ops Manager images in your AWS China console by searching for the AMI IDs for those images.
 
@@ -38,6 +38,55 @@ Enabling the checkbox selects all available products to deploy with the next **A
 
 For more information, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/review-pending-changes.html#review-pending-changes).
 
+### <a id="historical-diffs"></a> Historical Diffs Are Available for Cloud Config and Runtime Config
+
+### <a id="upgrade-config"></a> Config Details Are Available During Upgrade
+
+You can now use the API to access various aspects of your deployment during an upgrade, when the rest of your deployment is unavailable.
+
+The CPI configs, runtime configs, cloud config, and manifest are all available during upgrade via the Ops Manager API.
+
+Use `GET /api/v0/installations/10/products/[guid]/runtime_configs` or `GET /api/v0/installations/10/products/{director,director_guid}/runtime_configs` to access JSONs with config information.
+
+### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
+
+Tile authors can insert a templatized Syslog form into their tiles by editing `metadata.yml`. This form is identical to the Syslog form in Ops Manager and the BOSH Director. This form template is an opportunity to make tile users' experience more consistent and secure. 
+
+For more information about modifying `metadata.yml`, see [Property Template References](https://docs.pivotal.io/tiledev/2-4/property-template-references.html).
+
+### <a id="multiple-bosh-releases"></a> Associate Multiple BOSH Releases with the BOSH Director Simultaneously
+
+You can add multiple BOSH releases to a BOSH Director by . Additional releases can enhance antivirus capabilities, add security features, or support monitoring features. Custom and standard BOSH releases are supported, but all additional releases must be available at an HTTP address. You cannot upload a second BOSH release directly to Ops Manager.
+
+<p class="note"><strong>Note</strong>: If a hosted BOSH release is no longer available but not removed from Ops Manager, it may cause the Director not to boot or <strong>Apply Changes</strong> to fail.</p>
+
+### <a id="dns-form"></a> BOSH DNS Config Form Available In the BOSH Director
+
+The BOSH Director has a new form allowing you to configure BOSH DNS. The **BOSH DNS Config** form lets you specify recursor addresses the DNS server should not use, enforce a recursor timeout, and add custom DNS handlers.
+
+### <a id="multiple-networks"> Associate an Instance Group with Multiple Networks Simultaneously
+
+You can use the `resource_config` API endpoint to add multiple networks to Diego cells or instance groups. Define the networks as usual with the Ops Manager UI or API and then reference the networks with the `additional_network` key in the API.
+
+For more information, see [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
+
+### <a id="swap-size"></a> Swap Partition Size Is Configurable Via the API
+
+You can customize the size of the swap partition of their VM memory as a percent of total memory size per instance group. 
+
+For more information, see the [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
+
+### <a id="expiring-certificates"></a>SAML Certificate Expiration Information Is Available Via the API
+
+You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint. 
+
+For more information, see [Getting Information About Certificates from Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
+
+### <a id="additional-cpi-settings"></a>Global CPI Settings Are Configurable Via the API
+
+yoU can provide additional Global CPI properties via the `additiona;_cloud_properties` field in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies based on your IaaS. 
+
+For more information, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental).
 
 ## <a id='known-issues'></a> Known Issues
 
