@@ -370,13 +370,3 @@ For more information, see [Advanced Features for Ops Manager](https://docs.pivot
 ### <a id="pks-upgrade"></a>PKS Compatibility with v2.3.0 
 
 If you have a PCF deployment with Ops Manager v2.2.x and PKS 1.2.x or earlier installed, you must upgrade to Ops Manager v2.3.1 or later. There is no compatible PKS version for Ops Manager v2.3.0. Also, ensure that you upgrade to PKS v1.2 before upgrading Ops Manager. For Ops Manager 2.2, PKS v1.2 is compatible with Ops Manager v2.2.2 and later.
-
-### <a id="containers-live"></a>Containers live briefly after apps are deleted or downsized
-
-When you delete or scale down an app, the container instance may continue running briefly even after `cf apps` and other CLI commands indicate that the instance no longer exists. 
-
-This may cause the following errors:
-
-* After deletion, the container may appear in the IaaS dashboard briefly.
-* Resource usage data may be inaccurate briefly.
-* Acceptance tests that check for immediate container deletion may fail.
