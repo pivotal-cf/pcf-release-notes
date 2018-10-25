@@ -28,8 +28,7 @@ See the following PCF Ops Manager breaking changes:
 
 The `excluded_recursors` field is now grouped under `dns_configuration` instead of `director_configuration`
 when you use the `GET /api/v0/staged/director/properties` API endpoint. This API endpoint
-fetches BOSH Director, IaaS, and security properties. The moved field may break scripts if
-they rely on the `GET` output.
+fetches BOSH Director, IaaS, and security properties. The moved field may break scripts that rely on the `GET` output.
 
 For more information about the API endpoint, see [Staged BOSH
 Director](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) in the
@@ -39,7 +38,7 @@ Ops Manager API documentation.
 
 Reliable Event Logging Protocols (RELPs) are not in common use by PCF customers. Ops Manager v2.4 removes RELP support to refine engineering focus and streamline future development. 
 
-Current RELP users should switch to TCP.
+Pivotal recommends that RELP users switch to TCP.
 
 ## <a id='ist'></a> PCF Isolation Segment
 
