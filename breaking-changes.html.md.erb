@@ -24,11 +24,11 @@ None currently.
 
 See the following PCF Ops Manager breaking changes:
 
-### <a id="excluded-recursors"></a> Excluded Recursors Field Is Moved in API
+### <a id="excluded-recursors"></a> Excluded Recursors API Field Has Moved
 
-The `excluded_recursors` field is now grouped under `dns_configuration` instead of `director_configuration`
-when you use the `GET /api/v0/staged/director/properties` API endpoint. This API endpoint
-fetches BOSH Director, IaaS, and security properties. The moved field may break scripts that rely on the `GET` output.
+The `excluded_recursors` field is now grouped under `dns_configuration` instead of `director_configuration` when you use the `GET /api/v0/staged/director/properties` API endpoint. 
+
+This API endpoint fetches the BOSH Director, IaaS, and security properties. If you have scripts that rely on the `GET` output of this endpoint, they may break because of this moved field.
 
 For more information about the API endpoint, see [Staged BOSH
 Director](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) in the
