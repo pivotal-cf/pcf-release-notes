@@ -431,6 +431,15 @@ Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components 
 
 The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
 
+### <a id="share-service-instance"> Share Service Instances with Apps Manager
+
+Through the **Overview** tab of a service instance, you can now share your service
+instance across the spaces you specify. With space developer permissions, you
+can view, add, and remove service instance sharing.
+
+For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
+
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
