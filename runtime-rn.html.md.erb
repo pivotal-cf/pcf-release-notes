@@ -431,6 +431,23 @@ Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components 
 
 The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
 
+
+
+### <a id="restage-apps"></a> Restage Apps with Apps Manager
+
+Apps Manager now includes a restage button. The button is in addition to the stop and
+start buttons on the app management page. Restaging your application stops your
+app and restages it by compiling a new droplet and starting it.
+
+Restage your app if you changed the environment in a way that affects your
+staging process. For example, you might set an environment variable that the buildpack
+consumes.
+
+For more information about the restage button in the Apps Manager UI, see [Start, Stop, or Restage an App
+](https://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#start-stop).
+
+
+
 ### <a id="share-service-instance"></a> Share Service Instances with Apps Manager
 
 Through the **Overview** tab of a service instance, you can now share your service
