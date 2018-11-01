@@ -1193,6 +1193,8 @@ For more information about Log Cache, see [Enable Log Cache](https://docs.pivota
 
 <p class="note breaking"><strong>Breaking Change:</strong> If you use Pivotal Application Service's App Autoscaler, Pivotal strongly recommends enabling Log Cache. App Autoscaler relies on Log Cache's API endpoints to function properly. If you disable Log Cache, App Autoscaler will fail</a>.</p>
 
+<p class="note breaking"><strong>Breaking Change:</strong> Because of the addition of the log-cache process to the Doppler VM, the memory requirment for the Doppler VM has been increased to 4GB.</p>
+
 ### <a id="syslog-drains"></a> Syslog Draining for Service Instances (Beta)
 
 The `cf-drain-cli` plugin now enables app developers to bind user-provided syslog drains to service instances.
