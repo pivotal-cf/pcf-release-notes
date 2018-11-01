@@ -15,7 +15,18 @@ Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
 
 See the following PAS breaking changes:
 
-None currently.
+### <a id="metrics-prefix"></a>Metrics Prefix in PAS Deployments
+
+If you have scripts that rely on the `cf` prefix in your metrics,
+your scripts may break. In PAS v2.4, the `cf` prefix in metrics is removed
+and replaced with a tile GUID.
+
+To resolve this issue, you can re-enable the prefix by selecting **Use "cf" as deployment
+name in emitted metrics instead of unique name** in the **Advanced Features** pane of your
+PAS tile.
+
+Pivotal does not recommend re-enabling the `cf` prefix as a permanent solution. If you
+can resolve script dependencies, resolve them and leave the default setting.
 
 
 

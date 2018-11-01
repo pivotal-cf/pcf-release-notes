@@ -432,6 +432,16 @@ Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components 
 The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
 
 
+### <a id="metrics-prefix"></a> Uniquely Identify Metrics by Tile
+
+Metrics are prefixed with the GUID for each PAS tile. With a GUID prefix, you can uniquely
+identify your metrics by tile. In PAS v2.3 and earlier, metrics have a prefix of `cf`.
+
+<p class="breaking note"><strong>Breaking Change:</strong> If you have scripts that
+rely on the <code>cf</code> prefix, your scripts may break. For more information, see
+<a href="./breaking-changes.html#metrics-prefix">Metrics Prefix in PAS Deployments</a>.</p>
+
+
 
 ### <a id="restage-apps"></a> Restage Apps in Apps Manager
 
