@@ -16,10 +16,10 @@ Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
 See the following PAS breaking changes:
 
 
-### <a id="metrics-prefix"></a> Changed Deployment Value for PAS Metrics
+### <a id="metrics-prefix"></a> Changed "deployment" Field Value for PAS Metrics
 
 If you have scripts that rely on metrics with `cf` as the value for `deployment`,
-your scripts may break. In PAS v2.4, the `cf` value in metrics is replaced with `cf-` and then
+your scripts may break. PAS v2.4 replaces the `cf` value in metrics with `cf-` followed by
 the GUID for your PAS tile.
 
 To resolve this issue, you can re-enable the `cf` value by selecting **Use "cf" as deployment
