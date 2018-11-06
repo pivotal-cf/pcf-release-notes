@@ -398,11 +398,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.4 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-4/customizing/upgrading-pcf.html) topic.
 
-When upgrading to v2.4, be aware of the following upgrade considerations:
+When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.3 to successfully upgrade to PAS v2.4.
 
 * You must enable route integity before upgrading to PAS v2.4. To enable route integrity, go to **Application Containers** in PAS and select **Router uses TLS to verify application identity**. This option does use approximately 32MB more memory per application.
+
+* You must migrate your internal MySQL databases to a Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](../../opsguide/migrate-percona-mysql.html).
 
 * Some partner service tiles may be incompatible with PCF v2.4. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.4, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
@@ -412,10 +414,6 @@ When upgrading to v2.4, be aware of the following upgrade considerations:
 ### <a id="credhub-v2"></a> Credhub v2
 
 Credhub is now v2.x and is on by default...
-
-### <a id="route-integrity"></a> Route integrity can no longer be disabled
-
-By default, you the router will use TLS to verify application identity. If upgrading from PAS 2.3, this option must be turned on before upgrading.
 
 ### <a id="consul-server-removed"></a> Consul Server VMs are removed from PAS
 
@@ -430,7 +428,6 @@ Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components 
 ### <a id="nfs-experimental-graduation"></a> NFS-Experimental Service Graduation
 
 The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
-
 
 ### <a id="app-identity"></a> Gorouter Always Verifies Application Identity
 
@@ -449,18 +446,12 @@ Security for HTTP
 Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the PAS v2.1
 release notes.
 
-
-
 ### <a id="metrics-prefix"></a> Uniquely Identify Metrics by Tile
 
 As the value for `deployment`, metrics use `cf-` and then the GUID for your PAS tile. With a GUID, you can uniquely
 identify your metrics by tile. In PAS v2.3 and earlier, metrics have a `deployment` value of `cf`.
 
-<p class="breaking note"><strong>Breaking Change:</strong> If you have scripts that
-rely on <code>cf</code> as the value for <code>deployment</code>, your scripts may break. For more information, see
-<a href="./breaking-changes.html#metrics-prefix">Changed Deployment Value for PAS Metrics</a>.</p>
-
-
+<p class="breaking note"><strong>Breaking Change:</strong> If you have scripts that rely on <code>cf</code> as the value for <code>deployment</code>, your scripts may break. For more information, see <a href="./breaking-changes.html#metrics-prefix">Changed Deployment Value for PAS Metrics</a>.</p>
 
 ### <a id="restage-apps"></a> Restage Apps in Apps Manager
 
@@ -474,8 +465,6 @@ consumes.
 
 For more information about the restage button in the Apps Manager UI, see [Start, Stop, or Restage an App
 ](https://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#start-stop).
-
-
 
 ### <a id="share-service-instance"></a> Share Service Instances in Apps Manager
 
@@ -513,7 +502,7 @@ If you want to configure multiple ports, do the following:
 
 1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports.
 
-### <a id='cf-networking-downtime'></a> API downtime during rolling deploys
+### <a id='cf-networking-downtime'></a> API Downtime During Rolling Deploys
 
 Operators will intermittently receive errors when pushing apps during a rolling upgrade due to https://www.pivotaltracker.com/story/show/160774116.
 This will be fixed in a subsequent pre-release version of PAS.
