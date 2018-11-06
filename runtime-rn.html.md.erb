@@ -404,7 +404,7 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 * You must enable route integity before upgrading to PAS v2.4. To enable route integrity, go to **Application Containers** in PAS and select **Router uses TLS to verify application identity**. This option does use approximately 32MB more memory per application.
 
-* You must migrate your internal MySQL databases to a Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](../../opsguide/migrate-percona-mysql.html).
+* You must migrate your internal MySQL databases to a Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
 
 * Some partner service tiles may be incompatible with PCF v2.4. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.4, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
@@ -419,7 +419,7 @@ Credhub is now v2.x and is on by default...
 
 Consul Server VMs are now removed from PAS, saving VM resources and reducing maintenance around managing a clustered component.
 
-### <a id="tls-to-db"></a> Components communicate to Database using TLS
+### <a id="tls-to-db"></a> Components Communicate to Database using TLS
 
 Platform components like CAPI and Diego will use TLS to communicate with the database.
 This happens automatically when using the Internal Database, for external databases like RDS you can provide the CA Certificate in the PAS Databases form.
