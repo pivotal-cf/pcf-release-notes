@@ -429,15 +429,14 @@ Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components 
 
 The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
 
-### <a id="app-identity"></a> Gorouter Always Verifies Application Identity
+### <a id="app-identity"></a> Gorouter Always Verifies App Identity
 
 For all PAS v2.4 foundations, the Gorouter always uses TLS to verify app identity. Verifying app identity
 improves resiliency and consistency for app routes. It also increases
 security by encrypting data in flight from the Gorouter.
 
-In PAS v2.3 and earlier, you can have insecure routing without TLS. When you upgrade
-to v2.4, you must have secure routing with TLS enabled. For more information about
-configuring secure routing before upgrading to v2.4, see [Upgrade
+In PAS v2.3 and earlier, you can have insecure routing without TLS. Before you upgrade
+to v2.4, you must have secure routing with TLS enabled. For more information, see [Upgrade
 Preparation Checklist for PCF
 v2.4](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html).
 
