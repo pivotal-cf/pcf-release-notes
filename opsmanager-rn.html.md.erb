@@ -18,6 +18,55 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/cust
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-0-27"></a> 2.0.27
+
+* **[Security Fix]**: Bump Nokogiri to address [CVE-2018-14404](https://nvd.nist.gov/vuln/detail/CVE-2018-14404).
+* **[Security Fix]**: Bump UAA to 52.12 to address [CVE-2018-15761](https://www.cloudfoundry.org/blog/cve-2018-15761/).
+
+Ops Manager v2.0.27 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td>build.381*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3468.78*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264.17</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.4</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.7</td>
+  </tr><tr>
+    <td>UAA</td><td>52.12*</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.4</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id="2-0-26"></a> 2.0.26
 
 * **[Security Fix]**: Bumps stemcell to 3468.75 for periodic lower-severity security updates.
