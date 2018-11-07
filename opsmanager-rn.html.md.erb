@@ -71,6 +71,7 @@ Ops Manager v2.1.19 uses the following component versions:
 ### <a id="2-1-18"></a> 2.1.18
 
 * **[Security Fix]**: Bumps stemcell to 3541.54 for periodic lower-severity security updates.
+* **[Bug Fix]**: Temporary NGINX uploads are now deleted from `/var/tempest/tmp` after stemcell upload completes.
 * **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs. 
 * **[Bug Fix]**: Stemcells no longer accidentally downgrade in rare cases when upgrading to a new OpsManager. This happened previously when a product had a newer stemcell patch than Ops Manager included during the upgrade.
 * **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
