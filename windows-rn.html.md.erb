@@ -7,6 +7,41 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
+
+* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
+* **[Feature Improvement]** Operators can specify the Diego executor properties for memory usage and disk capacity in order to enable finer grained resource usage strategies.
+* **[Bug Fix]** Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
+* Remove consul-release from PAS tiles that are not exporting a consul-link
+* Bump windows1803 stemcell to version `1803.3`
+* Add new release cf-windows-smoke-tests at version `40.0.15`
+* Bump garden-runc to version `1.16.7`
+* Bump hwc-offline-buildpack to version `3.0.3`
+* Bump winc to version `1.7.0`
+* Removed consul release
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows1803 stemcell</td><td>1803.3</td></tr>
+    <tr><td>cf-windows-smoke-tests</td><td>40.0.15</td></tr>
+    <tr><td>diego</td><td>2.19.0</td></tr>
+    <tr><td>event-log</td><td>0.7.0</td></tr>
+    <tr><td>garden-runc</td><td>1.16.7</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.0.3</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>winc</td><td>1.7.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
+    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
 
 * **[Bug Fix]** Metron emitted product_version format is inconsistent
