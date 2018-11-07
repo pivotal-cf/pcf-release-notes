@@ -425,9 +425,15 @@ Platform components like CAPI and Diego will use TLS to communicate with the dat
 This happens automatically when using the Internal Database, for external databases like RDS you can provide the CA Certificate in the PAS Databases form.
 Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components will be moved over to TLS in subsequent pre-release versions.
 
+### <a id='percona'></a> Internal MySQL Databases Now Run on Percona
+
+In earlier versions of PAS, internal MySQL databases ran on MariaDB, with the ability to migrate to a Percona server in PAS v2.2 and PAS v2.3. MariaDB is now deprecated, and you must migrate your databases to Percona and redeploy PAS v2.3 before upgrading to PAS v2.4.
+
+To migrate your databases to Percona, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
+
 ### <a id="nfs-experimental-graduation"></a> NFS-Experimental Service Graduation
 
-The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
+The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`. Existing `nfs` service bindings will now be listed as `nfs-legacy`. To switch-over we recommend that you re-create and re-bind to the `nfs` service.
 
 ### <a id="app-identity"></a> Gorouter Always Verifies App Identity
 
