@@ -582,6 +582,17 @@ For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivo
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
+
+If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select
+**Internal** for both your system databases and CredHub database. 
+
+CredHub is not compatible with the external database option on GCP. 
+GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
+
+
+
+
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
 This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI. 
