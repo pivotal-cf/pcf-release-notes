@@ -504,7 +504,7 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 * You must enable route integity before upgrading to PAS v2.4. To enable route integrity, go to **Application Containers** in PAS and select **Router uses TLS to verify application identity**. This option does use approximately 32MB more memory per application.
 
-* You must migrate your internal MySQL databases to a Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
+* If you are running internal MySQL databases on MariaDB, you must migrate them to Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
 
 * Some partner service tiles may be incompatible with PCF v2.4. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.4, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
@@ -525,9 +525,9 @@ Platform components like CAPI and Diego will use TLS to communicate with the dat
 This happens automatically when using the Internal Database, for external databases like RDS you can provide the CA Certificate in the PAS Databases form.
 Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components will be moved over to TLS in subsequent pre-release versions.
 
-### <a id='percona'></a> Internal MySQL Databases Now Run on Percona
+### <a id='percona'></a> Internal MySQL Databases Run Only on Percona
 
-In earlier versions of PAS, internal MySQL databases ran on MariaDB, with the ability to migrate to a Percona server in PAS v2.2 and PAS v2.3. PAS v2.4 no longer uses MariaDB, so you must migrate your databases to Percona and redeploy PAS v2.3 before upgrading to PAS v2.4.
+In PAS v2.2 and v2.3, internal MySQL databases could run on either MariaDB or Percona servers. PAS v2.4 no longer uses MariaDB, so you must migrate internal MariaDB databases to Percona and redeploy PAS v2.3 before upgrading to PAS v2.4.
 
 To migrate your databases to Percona, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
 
