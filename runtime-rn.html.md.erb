@@ -11,6 +11,106 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.0-alpha.4'></a> 2.4.0-alpha.4
+
+* **[Known Issue]** Usage service errand fails when using an external DB
+    * Will be fixed in https://www.pivotaltracker.com/story/show/161629538
+* **[Breaking Change]** Bump log-cache API to version 2.x which moves `/v1` endpoints to `/api/v1`
+* **[Breaking Change]** Internal MySQL always uses Percona XtraDB Cluster
+* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
+* **[Security Fix]** Bump UAA for CVEs
+* **[Feature]** Add smb-volume-release to PAS
+* **[Feature]** Users in `usage_service.audit` group can access the Usage Service API using their CF OAuth token
+* **[Feature]** Apps manager includes new home page and allows users to search for apps, spaces, orgs and service instances
+* **[Feature]** Add metric-registrar to enable App Developers to output custom application metrics that can be monitored by platform-provided tooling
+* **[Beta Feature]** Networking administrators can configure egress networking policies dynamically to IP ranges instead of ASGs
+* **[Feature Improvement]** Credhub connects to MySQL using TLS
+* **[Feature Improvement]** The usage-service uses the shared CF CLI which can be updated independently
+* **[Feature Improvement]** Operators can configure the default root filesystem for new applications created the platform
+* **[Bug Fix]** Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
+* **[Bug Fix]** Fix manual configuration of load balancers for SSH to application containers on Small Footprint PAS (SF-PAS)
+* **[Bug Fix]** Update log-cache client in Autoscaler for backward compatibility when upgrading PAS
+* **[Bug Fix]** Fix monit scripting bug in nfsv3driver job that could cause the process to continue running after a monit stop
+* **[Bug Fix]** UAA incorrectly require TLS when legacy Internal MySQL - MariaDB is selected
+* Bump ubuntu-xenial stemcell to version `97.28`
+* Bump capi to version `1.71.0`
+* Bump cf-autoscaling to version `214`
+* Bump cf-smoke-tests to version `40.0.13`
+* Bump cf-syslog-drain to version `8.0`
+* Bump cflinuxfs2 to version `1.245.0`
+* Bump cflinuxfs3 to version `0.34.0`
+* Bump garden-runc to version `1.16.7`
+* Bump java-offline-buildpack to version `4.16.1`
+* Bump log-cache to version `2.0.1`
+* Add new release metric-registrar at version `1.0.1`
+* Bump nfs-volume to version `1.7.1`
+* Bump notifications-ui to version `36`
+* Bump notifications to version `54`
+* Bump push-apps-manager-release to version `667.0.0`
+* Bump push-usage-service-release to version `668.0.6`
+* Add new release smb-volume at version `0.2.2`
+* Bump statsd-injector to version `1.5.0`
+* Bump uaa to version `64.0`
+* Removed cf-mysql release
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>97.28</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
+    <tr><td>bpm</td><td>0.13.0</td></tr>
+    <tr><td>capi</td><td>1.71.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>214</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.9.0</td></tr>
+    <tr><td>cf-networking</td><td>2.17.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.13</td></tr>
+    <tr><td>cf-syslog-drain</td><td>8.0</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.245.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.34.0</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.1</td></tr>
+    <tr><td>diego</td><td>2.19.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.1.5</td></tr>
+    <tr><td>garden-runc</td><td>1.16.7</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.28</td></tr>
+    <tr><td>haproxy</td><td>9.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
+    <tr><td>log-cache</td><td>2.0.1</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.1</td></tr>
+    <tr><td>metric-registrar</td><td>1.0.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.1</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.32</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>54</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.61</td></tr>
+    <tr><td>push-apps-manager-release</td><td>667.0.0</td></tr>
+    <tr><td>push-usage-service-release</td><td>668.0.6</td></tr>
+    <tr><td>pxc</td><td>0.14.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.21</td></tr>
+    <tr><td>routing</td><td>0.182.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.24</td></tr>
+    <tr><td>silk</td><td>2.17.0</td></tr>
+    <tr><td>smb-volume</td><td>0.2.2</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.32</td></tr>
+    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>64.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
 
 * **[Feature]** Remove configuration for internal MySQL Load Balancer
@@ -404,7 +504,7 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 * You must enable route integity before upgrading to PAS v2.4. To enable route integrity, go to **Application Containers** in PAS and select **Router uses TLS to verify application identity**. This option does use approximately 32MB more memory per application.
 
-* You must migrate your internal MySQL databases to a Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
+* If you are running internal MySQL databases on MariaDB, you must migrate them to Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
 
 * Some partner service tiles may be incompatible with PCF v2.4. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.4, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
@@ -425,9 +525,15 @@ Platform components like CAPI and Diego will use TLS to communicate with the dat
 This happens automatically when using the Internal Database, for external databases like RDS you can provide the CA Certificate in the PAS Databases form.
 Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components will be moved over to TLS in subsequent pre-release versions.
 
+### <a id='percona'></a> Internal MySQL Databases Run Only on Percona
+
+In PAS v2.2 and v2.3, internal MySQL databases could run on either MariaDB or Percona servers. PAS v2.4 no longer uses MariaDB, so you must migrate internal MariaDB databases to Percona and redeploy PAS v2.3 before upgrading to PAS v2.4.
+
+To migrate your databases to Percona, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
+
 ### <a id="nfs-experimental-graduation"></a> NFS-Experimental Service Graduation
 
-The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`.  Existing `nfs` service bindings will now be listed as `nfs-legacy`.  To switch-over we recommend that you re-create and re-bind to the `nfs` service.
+The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`. Existing `nfs` service bindings will now be listed as `nfs-legacy`. To switch-over we recommend that you re-create and re-bind to the `nfs` service.
 
 ### <a id="app-identity"></a> Gorouter Always Verifies App Identity
 
@@ -475,6 +581,14 @@ For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivo
 
 
 ## <a id='known-issues'></a> Known Issues
+
+### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
+
+If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select
+**Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
+
+CredHub is not compatible with the external database option on GCP. 
+GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
