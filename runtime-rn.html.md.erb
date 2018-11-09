@@ -3066,6 +3066,14 @@ Operators can now enable self-service network policies for Space Developers. Pri
 
 ## <a id='knownissues'></a> Known Issues
 
+### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
+
+If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select
+**Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
+
+CredHub is not compatible with the external database option on GCP. 
+GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
+
 ### <a id='disabling-gorouter-http'></a> Disabling HTTP for Routers Causes Failures for Routes Bound to Internal Route Services
    
 In all versions of PAS v2.0, disabling the HTTP listener for the Gorouter and HAProxy will cause clients to receive 502 responses for requests to routes that are bound to a route services that are run as apps on the platform. Route services that are run externally are not impacted.
