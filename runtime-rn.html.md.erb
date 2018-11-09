@@ -675,6 +675,13 @@ For more information, see [Apps Manager Config Page](https://docs.pivotal.io/piv
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
+
+If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select
+**Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
+
+CredHub is not compatible with the external database option on GCP. 
+GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
 
 ### <a id='mutual-tls-id-limitations'></a> Limitations with Mutual TLS App Identity Verification
 
