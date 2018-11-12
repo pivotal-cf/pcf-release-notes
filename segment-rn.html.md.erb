@@ -1,5 +1,5 @@
 ---
-title: PCF Isolation Segment v2.4 Release Notes
+title: PCF Isolation Segment v2.5 Release Notes
 owner: Release Engineering
 ---
 
@@ -9,222 +9,9 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.4.0-alpha.4'></a> 2.4.0-alpha.4
-
-* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Feature]** Add smb-volume-release to PAS
-* **[Bug Fix]** Logs marked as "DEBUG" are no longer forwarded by default
-* **[Bug Fix]** Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
-* **[Bug Fix]** Fix monit scripting bug in nfsv3driver job that could cause the process to continue running after a monit stop
-* Bump ubuntu-xenial stemcell to version `97.28`
-* Bump bpm to version `0.13.0`
-* Bump cflinuxfs2 to version `1.245.0`
-* Bump cflinuxfs3 to version `0.34.0`
-* Bump garden-runc to version `1.16.7`
-* Bump nfs-volume to version `1.7.1`
-* Add new release smb-volume at version `0.2.2`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>97.28</td></tr>
-    <tr><td>bpm</td><td>0.13.0</td></tr>
-    <tr><td>cf-networking</td><td>2.17.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.245.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.34.0</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>garden-runc</td><td>1.16.7</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.1</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.1</td></tr>
-    <tr><td>routing</td><td>0.182.0</td></tr>
-    <tr><td>silk</td><td>2.17.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.2</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
-
-* **[Feature]** co-locate BPM on all VMs in PAS and IST
-* **[Feature Improvement]** Change default HAProxy instance count to 0
-* **[Bug Fix]** Fix parse error for syslog rules when iptables logging is enabled
-* **[Bug Fix]** Metron emitted product_version format is inconsistent
-* Bump ubuntu-xenial stemcell to version `97.19`
-* Bump cf-networking to version `2.17.0`
-* Bump cflinuxfs2 to version `1.242.0`
-* Bump cflinuxfs3 to version `0.29.0`
-* Bump diego to version `2.19.0`
-* Bump garden-runc to version `1.16.6`
-* Bump loggregator to version `103.3`
-* Add new release loggregator-agent at version `2.2`
-* Bump mapfs to version `1.1.1`
-* Bump nfs-volume to version `1.6.0`
-* Bump silk to version `2.17.0`
-* Bump syslog to version `11.4.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>97.19</td></tr>
-    <tr><td>bpm</td><td>0.12.3</td></tr>
-    <tr><td>cf-networking</td><td>2.17.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.242.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.29.0</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>garden-runc</td><td>1.16.6</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>mapfs</td><td>1.1.1</td></tr>
-    <tr><td>nfs-volume</td><td>1.6.0</td></tr>
-    <tr><td>routing</td><td>0.182.0</td></tr>
-    <tr><td>silk</td><td>2.17.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
-
-* **[Feautre Improvement]** Improve UI for route integrity options
-* **[Feature Improvement]** Remove option to disable route integrity
-* **[Feature Improvement]** Metrics emitted from each deployment are tagged with additional metadata
-
-* Bump stemcell to Xenial version `97.17`
-* Bump bpm to version 0.12.3
-* Bump cf-networking to version 2.16.0
-* Bump cflinuxfs2 to version 1.238.0
-* Bump cflinuxfs3 to version 0.25.0
-* Bump consul to version 196
-* Bump diego to version 2.18.0
-* Bump garden-runc to version 1.16.4
-* Bump haproxy to version 9.3.0
-* Bump loggregator to version 103.2
-* Bump routing to version 0.182.0
-* Bump silk to version 2.16.0
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>97.17</td>
-  </tr><tr>
-    <td>bpm</td><td>0.12.3</td>
-  </tr><tr>
-    <td>cf-networking</td><td>2.16.0</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.238.0</td>
-  </tr><tr>
-    <td>cflinuxfs3</td><td>0.25.0</td>
-  </tr><tr>
-    <td>consul</td><td>196</td>
-  </tr><tr>
-    <td>diego</td><td>2.18.0</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.16.4</td>
-  </tr><tr>
-    <td>haproxy</td><td>9.3.0</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.2</td>
-  </tr><tr>
-    <td>mapfs</td><td>1.1.0</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.5.3</td>
-  </tr><tr>
-    <td>routing</td><td>0.182.0</td>
-  </tr><tr>
-    <td>silk</td><td>2.16.0</td>
-  </tr><tr>
-    <td>syslog</td><td>11.3.2</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='2.4.0-alpha.1'></a>2.4.0-alpha.1
-
-* Bump bpm to version `0.12.2`
-* Bump cf-networking to version `2.14.0`
-* Bump cflinuxfs2 to version `1.234.0`
-* Bump cflinuxfs3 to version `0.17.0`
-* Bump diego to version `2.16.0`
-* Bump garden-runc to version `1.16.3`
-* Bump haproxy to version `9.1.0`
-* Bump loggregator to version `103.1`
-* Bump mapfs to version `1.1.0`
-* Bump routing to version `0.180.0`
-* Bump silk to version `2.14.0`
-* Bump stemcell ubuntu-xenial to version `97.15`
-
- <table border="1" class="nice">
- <thead> <tr>
-   <th>Component</th>
-   <th>Version</th>
- </tr>
- </thead>
- <tbody>
- <tr>
-   <td>stemcell</td><td>97.15</td>
- </tr><tr>
-   <td>bpm</td><td>0.12.2</td>
- </tr><tr>
-   <td>cf-networking</td><td>2.14.0</td>
- </tr><tr>
-   <td>cflinuxfs2</td><td>1.234.0</td>
- </tr><tr>
-   <td>cflinuxfs3</td><td>0.17.0</td>
- </tr><tr>
-   <td>consul</td><td>195</td>
- </tr><tr>
-   <td>diego</td><td>2.16.0</td>
- </tr><tr>
-   <td>garden-runc</td><td>1.16.3</td>
- </tr><tr>
-   <td>haproxy</td><td>9.1.0</td>
- </tr><tr>
-   <td>loggregator</td><td>103.1</td>
- </tr><tr>
-   <td>mapfs</td><td>1.1.0</td>
- </tr><tr>
-   <td>nfs-volume</td><td>1.5.3</td>
- </tr><tr>
-   <td>routing</td><td>0.180.0</td>
- </tr><tr>
-   <td>silk</td><td>2.14.0</td>
- </tr><tr>
-   <td>syslog</td><td>11.3.2</td>
- </tr>
- </tbody>
- <tfoot>
- <tr>
-   <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
- </tr>
- </tfoot>
- </table>
-
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.4 tile is available for installation with PCF v2.4.
+The PCF Isolation Segment v2.5 tile is available for installation with PCF v2.5.
 
 [Isolation segments](http://docs.pivotal.io/pivotalcf/2-3/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
@@ -233,17 +20,17 @@ For more information about using isolation segments in your deployment, see the 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.4 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-3/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v2.5 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-3/customizing/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v2.4.
+To install a PCF Isolation Segment, you must first install PCF v2.5.
 
-## <a id='2.4.0'></a> New Features in PCF Isolation Segment v2.4
+## <a id='2.5.0'></a> New Features in PCF Isolation Segment v2.5
 
 TODO
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment v2.4 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the PCF Isolation Segment v2.5 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 

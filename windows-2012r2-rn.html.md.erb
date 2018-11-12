@@ -1,78 +1,23 @@
 ---
-title: PAS for Windows 2012R2 v2.4 Release Notes
+title: PAS for Windows 2012R2 v2.5 Release Notes
 owner: Release Engineering
 ---
 
 Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vSphere, Amazon Web Services
-(AWS), Google Cloud Platform (GCP), or Azure. For more information, see [Installing PAS for Windows](https://docs.pivotal.io/pivotalcf/2-4/windows2012r2/deploy-windows.html).
+(AWS), Google Cloud Platform (GCP), or Azure. For more information, see [Installing PAS for Windows](https://docs.pivotal.io/pivotalcf/2-5/windows2012r2/deploy-windows.html).
 
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
-
-* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Bug Fix]** Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
-* Bump hwc-offline-buildpack to version `3.0.3`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2012R2 stemcell</td><td>1200.25</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-windows</td><td>0.14.0</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.0.3</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.1'></a> 2.4.0-alpha.1
-
-* **[Feature Improvement]** Review diego configuration and remove any cruft that is no longer needed
-* **[Bug Fix]** Metron emitted product_version format is inconsistent
-* Bump windows2012R2 stemcell to version `1200.25`
-* Bump diego to version `2.19.0`
-* Bump loggregator to version `103.3`
-* Add new release loggregator-agent at version `2.2`
-* Bump windows-utilities to version `0.11.0`
-* Removed consul release
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2012R2 stemcell</td><td>1200.25</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-windows</td><td>0.14.0</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.0.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-  </tbody>
-</table>
-
 ## <a id='upgrade'></a> How to Upgrade
 
-The Pivotal Application Service (PAS) for Windows 2012R2 v2.4 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.4. To use the PAS for Windows 2012R2 tile, you
-need Ops Manager v2.4 or later and PAS v2.4 or later.
+The Pivotal Application Service (PAS) for Windows 2012R2 v2.5 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.5. To use the PAS for Windows 2012R2 tile, you
+need Ops Manager v2.5 or later and PAS v2.5 or later.
 
-For information about upgrading to PAS for Windows 2012R2 v2.4.0, see the
-[Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/2-4/windows2012R2/upgrading.html) topic in the PAS for Windows documentation.
+For information about upgrading to PAS for Windows 2012R2 v2.5.0, see the
+[Upgrading Windows Cells](https://docs.pivotal.io/pivotalcf/2-5/windows2012R2/upgrading.html) topic in the PAS for Windows documentation.
 
 
-## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.4
+## <a id='new-features'></a> New Features in PAS for Windows 2012R2 v2.5
 
 ## <a id='known-issues'></a> Known Issues

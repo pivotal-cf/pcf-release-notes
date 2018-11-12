@@ -15,45 +15,11 @@ Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
 
 See the following PAS breaking changes:
 
-
-### <a id="metrics-prefix"></a> Changed "deployment" Field Value for PAS Metrics
-
-If you have scripts that rely on metrics with `cf` as the value for `deployment`,
-your scripts may break. PAS v2.4 replaces the `cf` value in metrics with `cf-` followed by
-the GUID for your PAS tile.
-
-To resolve this issue, you can re-enable the `cf` value by selecting **Use "cf" as deployment
-name in emitted metrics instead of unique name** in the **Advanced Features** pane of your
-PAS tile.
-
-Pivotal does not recommend re-enabling the `cf` value as a permanent solution. If you
-can resolve script dependencies, resolve them and leave the default setting.
-
-
-
-
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
 
-### <a id="excluded-recursors"></a> Excluded Recursors API Field Has Moved
-
-The `excluded_recursors` field is now grouped under `dns_configuration` instead of `director_configuration` when you use the `GET /api/v0/staged/director/properties` API endpoint. 
-
-This API endpoint fetches the BOSH Director, IaaS, and security properties. If you have scripts that rely on the `GET` output of this endpoint, they may break because of this moved field.
-
-For more information about the API endpoint, see [Staged BOSH
-Director](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) in the
-Ops Manager API documentation.
-
-### <a id="relp"></a> Ops Manager Removes Support for RELP
-
-Reliable Event Logging Protocols (RELPs) are not in common use by PCF customers. Ops Manager v2.4 removes RELP support to refine engineering focus and streamline future development. 
-
-Pivotal recommends that RELP users switch to TCP.
-
 ## <a id='ist'></a> PCF Isolation Segment
-
 
 See the following PCF Isolation Segment breaking changes:
 
