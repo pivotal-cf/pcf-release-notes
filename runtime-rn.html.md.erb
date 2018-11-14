@@ -225,7 +225,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
 
 * **[Feature]** Support restore from different Azure storage account
-* **[Feautre Improvement]** Improve UI for route integrity options
+* **[Feature Improvement]** Improve UI for route integrity options
 * **[Feature Improvement]** Credhub is GA and on by default
 * **[Feature Improvement]** Scale Consul Server down to 0
 * **[Feature Improvement]** Remove option to disable route integrity
@@ -514,6 +514,12 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 ### <a id="credhub-v2"></a> Credhub v2
 
 Credhub is now v2.x and is on by default...
+
+### <a id="cflinuxfs3"> PAS Uses cflinuxfs3 by Default
+
+PAS v2.4 uses `cflinuxfs3` stack and related buildpacks by default on new installs. Buildpacks have the same name but with a different stack.
+
+You can also switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Foundry Command Line Interface). For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/stacks.html).
 
 ### <a id="consul-server-removed"></a> Consul Server VMs are removed from PAS
 
