@@ -291,11 +291,11 @@ You can add multiple BOSH releases to a BOSH Director by . Additional releases c
 
 <p class="note"><strong>Note</strong>: If a hosted BOSH release is no longer available but not removed from Ops Manager, it may cause the Director not to boot or <strong>Apply Changes</strong> to fail.</p>
 
-### <a id="dns-form"></a> BOSH DNS Config Form Available In the BOSH Director
+### <a id="dns-form"></a> BOSH DNS Config Pane in the BOSH Director Tile
 
-The BOSH Director has a new form allowing you to configure BOSH DNS. The **BOSH DNS Config** form lets you specify recursor addresses the DNS server should not use, enforce a recursor timeout, and add custom DNS handlers.
+The BOSH Director tile has a new pane for configuring BOSH DNS. The **BOSH DNS Config** pane lets you specify recursor addresses the DNS server should not use, enforce a recursor timeout, and add custom DNS handlers.
 
-This change completes the deprecation of Consul that began in PCF 2.3. Consul DNS has caused stability issues in extant deployments and is being replaced by BOSH DNS. For more information, see the [Pivotal Application Service v2.3 Release Notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#remove-consul-agent).
+BOSH DNS replaces Consul DNS, which had caused stability issues in some deployments. PCF v2.0 through v2.3 progressively phased out Consul DNS, and v2.4 completes its removal. For more information, see the [Pivotal Application Service v2.3 Release Notes](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#remove-consul-agent).
 
 ### <a id="multiple-networks"></a> Associate an Instance Group with Multiple Networks Simultaneously
 
