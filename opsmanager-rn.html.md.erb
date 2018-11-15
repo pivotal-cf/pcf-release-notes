@@ -14,7 +14,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.4.
 
-## <a id="releases"></a>Releases
+## <a id="releases"></a> Releases
 
 ### <a id="beta-1"></a> 2.4 Beta 1
 
@@ -309,13 +309,19 @@ You can customize the size of the swap partition of their VM memory as a percent
 
 For more information, see the [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
 
-### <a id="expiring-certificates"></a>SAML Certificate Expiration Information Is Available Via the API
+### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available Via the API
 
 You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint. 
 
 For more information, see [Getting Information About Certificates from Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
 
-### <a id="additional-cpi-settings"></a>IaaS-Specific Global CPI Properties Are Configurable Via the API
+### <a id='om-root-ca'></a> BOSH Director Can Include Ops Manager Root Certificate Authority
+
+You can enable BOSH Director to include the Ops Manager root certificate authority certificate in the trust store of every VM it deploys.
+
+For more information, see the [Security](https://docs.pivotal.io/pivotalcf/2-3/om/gcp/config-manual.html#security) section of the BOSH Director configuration topic for your IaaS.
+
+### <a id="additional-cpi-settings"></a> IaaS-Specific Global CPI Properties Are Configurable Via the API
 
 You can provide additional global CPI properties via the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS. 
 
