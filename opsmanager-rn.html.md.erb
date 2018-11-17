@@ -20,14 +20,14 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/cus
 
 * **[Security Fix]**: Upgrades Loofah to 2.2.3 to address a CVE.
 * **[Security Fix]**: Upgrades Rack to 2.0.6 to address a CVE.
-* **[New Feature]**: You can now access the last successfully deployed CPI Config for a deployment.
-* **[New Feature]**: You can now access the staged CPI Config for a deployment via the API.
-* **[New Feature]**: You can now access the staged Runtime Config for the Director via the API.
-* **[New Feature]**: You can now access the deployed Runtime Config for the Director via the API.
-* **[New Feature]**: You can now access the staged Runtime Config for a product via the API.
-* **[New Feature]**: You can now access the deployed Runtime Config for a product via the API.
-* **[Bug Fix]**: Now Application Load Balancers (ALBs) also apply to the Director VM for AWS deployments.
-* **[Bug Fix]**: Temporary nginx uploads are now deleted from `/var/tempest/tmp` after stemcell upload completes.
+* **[New Feature]**: You can access the staged CPI Config via the API.
+* **[New Feature]**: You can access the deployed CPI Config via the API.
+* **[New Feature]**: You can access the staged Runtime Config for the Director via the API.
+* **[New Feature]**: You can access the deployed Runtime Config for the Director via the API.
+* **[New Feature]**: You can access the staged Runtime Config for a product via the API.
+* **[New Feature]**: You can access the deployed Runtime Config for a product via the API.
+* **[Bug Fix]**: Application Load Balancers (ALBs) also apply to the Director VM for AWS deployments.
+* **[Bug Fix]**: Temporary nginx uploads are deleted from `/var/tempest/tmp` after stemcell upload completes.
 * **[Bug Fix]**: You are no longer required to enter the `opsmanager_root_ca_trusted_certs` in the staged director properties API.
 
 Ops Manager v2.4 Beta 1 uses the following component versions:
