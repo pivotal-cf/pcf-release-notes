@@ -7,6 +7,35 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.0-beta.1'></a> 2.4.0-beta.1
+
+* **[Feature Improvement]** Smoke tests for PASW are run as a post-deploy errand
+    * Currently this errand is off by default as it fails in internetless envs
+* Bump cf-windows-smoke-tests to version `40.0.17`
+* Bump diego to version `2.22.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows1803 stemcell</td><td>1803.3</td></tr>
+    <tr><td>cf-windows-smoke-tests</td><td>40.0.17</td></tr>
+    <tr><td>diego</td><td>2.22.0</td></tr>
+    <tr><td>event-log</td><td>0.7.0</td></tr>
+    <tr><td>garden-runc</td><td>1.16.7</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.0.3</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>winc</td><td>1.7.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
+    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
 
 * **[Known Issue]** PASW 2016 smoke-tests fail with timeout in internetless environments
