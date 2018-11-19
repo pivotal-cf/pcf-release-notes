@@ -126,7 +126,7 @@ Ops Manager v2.4 Beta 1 uses the following component versions:
 ### <a id="alpha-3"></a> 2.4 Alpha 3
 
 * **[Security Fix]**: Bumps Nokogiri to 1.8.5 to address a CVE.
-* **[New Feature]**: Ops Manager images are available on Pivotal Network for [AWS China](#aws-china) users.
+* **[New Feature]**: Ops Manager images are available on Pivotal Network for AWS China users. For more information, see [Pivotal Images Publish to AWS China](#aws-china) below.
 * **[New Feature]**: A banner notification appears in the UI when certain certificates are nearing their expiration date.
 * **[New Feature]**: You can now download the Director manifest for your last successful deployment.
 * **[New Feature]**: You can now download the Cloud Config for your last successful deployment.
@@ -183,15 +183,15 @@ Ops Manager v2.4 Alpha 3 uses the following component versions:
 
 ### <a id="alpha-2"></a> 2.4 Alpha 2
 
-* **[New Feature]**: The redesigned [Syslog form](#syslog) appears in Ops Manager.
+* **[New Feature]**: The redesigned Syslog form appears in Ops Manager. For more information, see [Syslog Form Template Available for Tile Authors](#syslog) below.
 * **[New Feature]**: You can now download the product manifest for your last successful deployment.
 * **[New Feature]**: You can save, export, and import CPI Configs during an upgrade. CPI Configs are accessible via an API endpoint.
 * **[New Feature]**: You can save, export, and import Runtime Configs during an upgrade. Runtime Configs are accessible via an API endpoint.
 * **[New Feature]**: You can now add networks to an instance group via the API.
-* **[New Feature]**: You can now configure the size of the [swap partition](#swap-size) on a VM on a per-job basis.
-* **[New Feature]**: The SAML service provider certificate's [expiration date](#expiring-certificates) appears in the response from the `/certificates` API endpoint. 
+* **[New Feature]**: You can now configure the size of the swap partition on a VM on a per-job basis. For more information, see [Swap Partition Size Is Configurable Via the API](#swap-size) below.
+* **[New Feature]**: The SAML service provider certificate's expiration date appears in the response from the `/certificates` API endpoint. For more information, see [SAML Certificate Expiration Information Is Available Via the API](#expiring-certificates) below.
 * **[New Feature]**: Tile Developers can now use the CLI to get a rendered BOSH manifest.
-* **[New Feature]**: You can now configure [global CPI proprerties](#additional-cpi-settings) via the API.
+* **[New Feature]**: You can now configure global CPI proprerties via the API. For more information, see [IaaS-Specific Global CPI Properties Are Configurable Via the API](#additional-cpi-settings) below. 
 * **[New Feature]**: You can now configure custom DNS handlers via the API.
 **[New Feature]**: You can now include the Ops Manager root CA certificate in the trusted certificates field via the Ops Manager UI and the API.
 * **[Bug Fix]**: The Cloud Config API endpoint now returns JSON, not YAML.
@@ -245,7 +245,7 @@ Ops Manager v2.4 Alpha 2 uses the following component versions:
 
 ### <a id="alpha-1"></a> 2.4 Alpha 1
 
-* **[New Feature]**: The [Syslog form template](#syslog) is available for tile authors.
+* **[New Feature]**: You can now include the Syslog form as a template in tiles. For more information, see [Syslog Form Template Available for Tile Authors](#syslog) below.
 * **[New Feature]**: You can now configure queue size for Syslog forwarding.
 * **[New Feature]**: You can now enable TLS for Syslog forwarding.
 * **[New Feature]**: You can save, export, and import Cloud Configs during an upgrade. Cloud Configs are accessible via an API endpoint.
