@@ -598,6 +598,7 @@ You can switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Fou
 
 The `cflinuxfs3` stack was introduced in PAS v2.3. For more information, see [cflinuxfs3 Stack and Compatible Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3) in the PAS v2.3 release notes.
 
+
 ### <a id="consul-server-removed"></a> Consul Server VMs are removed from PAS
 
 Consul Server VMs are now removed from PAS, saving VM resources and reducing maintenance around managing a clustered component.
@@ -698,9 +699,29 @@ can view, add, and remove service instance sharing.
 
 For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
 
+### <a id="log-api"></a> Loggregator v2 API is Readable Through gRPC Gateway
+
+As a nozzle developer, you can access the Loggregator v2 API through a gRPC gateway. You
+do not need to manage mutual TLS to access the v2 API. The CF auth proxy and the gRPC gateway are
+in Loggregator's Reverse Log Proxy (RLP) component. For more information about the component, see [Reverse Log Proxy (RLP)](https://docs.pivotal.io/pivotalcf/2-4/loggregator/architecture.html#rlp).
+
+The Loggregator v2 API supports additional features, including selector-based subscription
+models. For more information about that feature, see [Selector-Based Subscripton Model and
+Reference
+Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
+in the PAS v2.2 release notes.
+
+For more information about the Loggregator
+API, see [loggregator-api](https://github.com/cloudfoundry/loggregator-api) in GitHub.
+
 ### <a id="metric-registrar"></a> Emit Custom App Metrics to the Metric Registrar
 
-PAS v2.4 includes a new component, the Metric Registrar. The Metric Registrar allows app developers to export custom app metrics and events in a format that [Loggregator](https://docs.pivotal.io/pivotalcf/loggregator/architecture.html) can consume. App developers can then use the custom metrics to monitor apps with [PCF Metrics](https://docs.pivotal.io/pcf-metrics) and configure autoscaling rules with [PCF Autoscaler](https://docs.pivotal.io/pivotalcf/appsman-services/autoscaler/using-autoscaler.html). 
+PAS v2.4 includes a new component, the Metric Registrar. The Metric Registrar allows app
+developers to export custom app metrics and events in a format that
+[Loggregator](https://docs.pivotal.io/pivotalcf/loggregator/architecture.html) can
+consume. App developers can then use the custom metrics to monitor apps with [PCF
+Metrics](https://docs.pivotal.io/pcf-metrics) and configure autoscaling rules with [PCF
+Autoscaler](https://docs.pivotal.io/pivotalcf/appsman-services/autoscaler/using-autoscaler.html). 
 
 For more information, see the following topics: 
 
