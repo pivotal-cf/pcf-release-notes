@@ -71,11 +71,11 @@ Ops Manager v2.4 Beta 2 uses the following component versions:
 * **[Security Fix]**: Upgrades Rack to 2.0.6 to address a CVE.
 * **[New Feature]**: You can access the staged CPI Config via the API.
 * **[New Feature]**: You can access the deployed CPI Config via the API.
-* **[New Feature]**: You can access the staged Runtime Config for the Director via the API.
-* **[New Feature]**: You can access the deployed Runtime Config for the Director via the API.
+* **[New Feature]**: You can access the staged Runtime Config for the BOSH Director via the API.
+* **[New Feature]**: You can access the deployed Runtime Config for the BOSH Director via the API.
 * **[New Feature]**: You can access the staged Runtime Config for a product via the API.
 * **[New Feature]**: You can access the deployed Runtime Config for a product via the API.
-* **[Bug Fix]**: Application Load Balancers (ALBs) also apply to the Director VM for AWS deployments.
+* **[Bug Fix]**: Application Load Balancers (ALBs) also apply to the BOSH Director VM for AWS deployments.
 * **[Bug Fix]**: Temporary nginx uploads are deleted from `/var/tempest/tmp` after stemcell upload completes.
 * **[Bug Fix]**: You are no longer required to enter the `opsmanager_root_ca_trusted_certs` in the staged director properties API.
 
@@ -128,12 +128,12 @@ Ops Manager v2.4 Beta 1 uses the following component versions:
 * **[Security Fix]**: Bumps Nokogiri to 1.8.5 to address a CVE.
 * **[New Feature]**: Ops Manager images are available on Pivotal Network for AWS China users. For more information, see [Pivotal Images Publish to AWS China](#aws-china) below.
 * **[New Feature]**: A banner notification appears in the UI when certain certificates are nearing their expiration date.
-* **[New Feature]**: You can now download the Director manifest for your last successful deployment.
+* **[New Feature]**: You can now download the BOSH Director manifest for your last successful deployment.
 * **[New Feature]**: You can now download the Cloud Config for your last successful deployment.
 * **[New Feature]**: You can now see the Cloud Config for a staged deployment via the API.
-* **[New Feature]**: You can now stage a new job to be added to the Director via the API.
-* **[New Feature]**: You can now view jobs staged to be added to the Director via the API.
-* **[New Feature]**: You can now remove a staged job before it is added to the Director via the API.
+* **[New Feature]**: You can now stage a new job to be added to the BOSH Director via the API.
+* **[New Feature]**: You can now view jobs staged to be added to the BOSH Director via the API.
+* **[New Feature]**: You can now remove a staged job before it is added to the BOSH Director via the API.
 * **[Bug Fix]**: You can now redeploy a tile with only a runtime config by clicking **Apply Changes**.
 * **[Deprecation]**: Ops Manager no longer supports RELP.
 
@@ -197,7 +197,7 @@ Ops Manager v2.4 Alpha 3 uses the following component versions:
 * **[Bug Fix]**: The Cloud Config API endpoint now returns JSON, not YAML.
 * **[Bug Fix]**: Stemcell patch versions no longer roll back to earlier versions during upgrade.
 * **[Bug Fix]**: **Advanced Databse Connection Options** is now configurable.
-* **[Bug Fix]**: The NATS CA certificate does not rotate after a change to the Director's hostname.
+* **[Bug Fix]**: The NATS CA certificate does not rotate after a change to the BOSH Director's hostname.
 
 Ops Manager v2.4 Alpha 2 uses the following component versions:
 
@@ -337,7 +337,7 @@ For more information about modifying `metadata.yml`, see [Property Template Refe
 
 You can add multiple BOSH releases to a BOSH Director by . Additional releases can enhance antivirus capabilities, add security features, or support monitoring features. Custom and standard BOSH releases are supported, but all additional releases must be available at an HTTP address. You cannot upload a second BOSH release directly to Ops Manager.
 
-<p class="note"><strong>Note</strong>: If a hosted BOSH release is no longer available but not removed from Ops Manager, it may cause the Director not to boot or <strong>Apply Changes</strong> to fail.</p>
+<p class="note"><strong>Note</strong>: If a hosted BOSH release is no longer available but not removed from Ops Manager, it may cause the BOSH Director not to boot or <strong>Apply Changes</strong> to fail.</p>
 
 ### <a id="dns-form"></a> BOSH DNS Config Pane in the BOSH Director Tile
 
