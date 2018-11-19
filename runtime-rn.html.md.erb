@@ -638,7 +638,7 @@ release notes.
 ### <a id="metrics-prefix"></a> Uniquely Identify Metrics by Tile
 
 As the value for `deployment`, metrics use `cf-` and then the GUID for your PAS tile. With a GUID, you can uniquely
-identify your metrics by tile. In PAS v2.3 and earlier, metrics have a `deployment` value of `cf`.
+identify your metrics by tile. This `cf-GUID` corresponds to the BOSH deployment name of your PAS tile. to the In PAS v2.3 and earlier, metrics have a `deployment` value of `cf`.
 
 <p class="breaking note"><strong>Breaking Change:</strong> If you have scripts that rely on <code>cf</code> as the value for <code>deployment</code>, your scripts may break. For more information, see <a href="./breaking-changes.html#metrics-prefix">Changed Deployment Value for PAS Metrics</a>.</p>
 
