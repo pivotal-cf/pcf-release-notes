@@ -19,8 +19,7 @@ See the following PAS breaking changes:
 ### <a id="metrics-prefix"></a> Changed "deployment" Field Value for PAS Metrics
 
 If you have scripts that rely on metrics with `cf` as the value for `deployment`,
-your scripts may break. PAS v2.4 replaces the `cf` value in metrics with `cf-` followed by
-the GUID for your PAS tile. This `cf-GUID` corresponds to the BOSH deployment name of your PAS tile.
+your scripts may break. PAS v2.4 replaces the `cf` value in metrics with `cf-GUID`, which corresponds to the BOSH deployment name of your PAS tile. This feature is enabled by default in new deployments of PAS 2.4, but disabled by default for PAS deployments upgrading to PAS 2.4.
 
 To resolve this issue, you can re-enable the `cf` value by selecting **Use "cf" as deployment
 name in emitted metrics instead of unique name** in the **Advanced Features** pane of your
