@@ -163,9 +163,30 @@ PAS for Windows v2.4 includes the following major features:
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PAS for Windows 2012R2 tile includes new functionality that may have certain constraints.
+The **Advanced Features** section of the PAS for Windows tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
+
+### <a id="metrics-prefix"></a> Uniquely Identify Metrics from PAS for Windows
+
+Metrics emitted from PAS for Windows are now tagged with the BOSH deployment name of your PAS for Windows tile.
+For example, `pas-windows-GUID`.
+With a GUID, you can uniquely identify your metrics by tile.
+In PAS for Windows v2.3 and earlier, metrics use the `cf` tag as the deployment name.
+
+This feature is enabled by default in new deployments of PAS for Windows v2.4.
+For upgrades to PAS for Windows v2.4, the feature is disabled by default.
+You can configure this setting in the **Advanced features** pane of the PAS for Windows tile:
+
+* If the **Use “cf” as deployment name in emitted metrics instead of unique name** checkbox is disabled,
+PAS for Windows metrics are tagged with the BOSH deployment name of your PAS for Windows tile.
+* If the **Use “cf” as deployment name in emitted metrics instead of unique name** checkbox is enabled,
+PAS for Windows metrics are tagged with `cf` as the deployment name.
+
+<p class='note'><strong>Note:</strong> Enable the <code>cf</code> value
+only if it is required for backward compatibility with previous versions of PCF
+or if you have scripts that rely on metrics with <code>cf</code> as the value for <code>deployment</code>.
+Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
 
 ## <a id='known-issues'></a> Known Issues
 
