@@ -701,17 +701,17 @@ can view, add, and remove service instance sharing.
 
 For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
 
-### <a id="log-api"></a> Loggregator v2 API is Readable Through gRPC Gateway
+### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
 
-As a nozzle developer, you can access the Loggregator v2 API through a gRPC gateway. You
-do not need to manage mutual TLS to access the v2 API. The CF auth proxy and the gRPC gateway are
-in Loggregator's Reverse Log Proxy (RLP) component. For more information about the component, see [Reverse Log Proxy (RLP)](https://docs.pivotal.io/pivotalcf/2-4/loggregator/architecture.html#rlp).
+As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy
+(RLP) gateway. The RLP gateway provides an HTTP API to access the RLP. With
+the RLP gateway, you do not need to manage mutual TLS to access the Loggregator v2 API. 
 
-The Loggregator v2 API supports additional features, including selector-based subscription
-models. For more information about that feature, see [Selector-Based Subscripton Model and
-Reference
-Nozzles](https://docs.pivotal.io/pivotalcf/2-2/pcf-release-notes/runtime-rn.html#selector-based)
-in the PAS v2.2 release notes.
+By default, the  RLP communicates with clients
+using gRPC over mutual TLS. To enable HTTP
+access instead, deploy the RLP Gateway. For more information about the RLP
+Gateway, see [Reverse Log Proxy (RLP) Gateway](https://github.com/cloudfoundry/loggregator/blob/master/docs/rlp_gateway.md) in
+the Loggregator GitHub.
 
 For more information about the Loggregator
 API, see [loggregator-api](https://github.com/cloudfoundry/loggregator-api) in GitHub.
