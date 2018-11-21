@@ -739,6 +739,14 @@ PAS v2.4 includes an experimental feature that allows you to create dynamic egre
 
 For more information, see [Administering Dynamic Egress Policies (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/devguide/egress-policies.html).
 
+### <a id="smb"></a> SMB Volume Services
+
+PAS v2.4 adds support for SMB volume services, allowing developers to bind existing SMB shares to their apps. The SMB protocol has native password authentication, which means you can control access to file shares without the overhead of configuring an LDAP server.
+
+This feature is disabled by default. To enable this feature, see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable). 
+
+For information about how to bind a volume service to an app, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html). 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
