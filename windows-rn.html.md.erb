@@ -163,9 +163,21 @@ PAS for Windows v2.4 includes the following major features:
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The **Advanced Features** section of the PAS for Windows tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
+
+### <a id="overcommit"></a> Memory and Disk Overcommit for Diego Cells
+
+You can now enable memory and disk overcommit for Diego cells.
+If you want to configure this feature, use the **Cell Memory Capacity** and **Cell Disk Capacity** fields
+on the **Advanced Features** pane of the PAS for Windows tile.
+
+<p class='note'><strong>Note:</strong> Due to the risk of app failure and the deployment-specific nature of disk and memory use,
+Pivotal has no recommendation about how much, if any, memory or disk space to overcommit.</p>
+
+For more information, see the
+[Configure the Tile](https://docs.pivotal.io/pivotalcf/2-4/windows/installing.html#config) section of _Installing and Configuring PAS for Windows_.
 
 ### <a id="metrics-prefix"></a> Uniquely Identify Metrics from PAS for Windows
 
@@ -176,7 +188,7 @@ In PAS for Windows v2.3 and earlier, metrics use the `cf` tag as the deployment 
 
 This feature is enabled by default in new deployments of PAS for Windows v2.4.
 For upgrades to PAS for Windows v2.4, the feature is disabled by default.
-You can configure this setting in the **Advanced features** pane of the PAS for Windows tile:
+You can configure this setting in the **Advanced Features** pane of the PAS for Windows tile:
 
 * If the **Use “cf” as deployment name in emitted metrics instead of unique name** checkbox is disabled,
 PAS for Windows metrics are tagged with the BOSH deployment name of your PAS for Windows tile.
