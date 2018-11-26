@@ -51,6 +51,27 @@ Reliable Event Logging Protocols (RELPs) are not in common use by PCF customers.
 
 Pivotal recommends that RELP users switch to TCP.
 
+## <a id='pasw'></a> PAS for Windows
+
+See the following PAS for Windows breaking changes:
+
+### <a id="pasw-metrics"></a> Changed "deployment" Field Value in PAS for Windows Metrics
+
+In new installations of v2.4,
+metrics emitted from PAS for Windows are now tagged
+with the BOSH deployment name of your PAS for Windows tile.
+Previously, the `cf` tag was used as the deployment name in PAS for Windows metrics.
+For more information, see [Uniquely Identify Metrics from PAS for Windows](windows-rn.html#metrics-prefix)
+in _PAS for Windows v2.4 Release Notes_.
+
+If you have scripts that rely on metrics with `cf` as the value for `deployment`,
+your scripts may break.
+To resolve this issue, you can re-enable the `cf` value in the **Advanced Features** pane of your
+PAS for Windows tile.
+Pivotal does not recommend re-enabling the `cf` value as a permanent solution.
+
+For upgrades to PAS for Windows v2.4, the `cf` value is enabled by default.
+
 ## <a id='ist'></a> PCF Isolation Segment
 
 
