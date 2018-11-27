@@ -787,3 +787,7 @@ If you want to configure multiple ports, do the following:
 
 Operators will intermittently receive errors when pushing apps during a rolling upgrade due to https://www.pivotaltracker.com/story/show/160774116.
 This will be fixed in a subsequent pre-release version of PAS.
+
+### <a id="loggregator-scaling"></a> Loggregator Component Horizontal Scaling Thresholds
+
+At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.
