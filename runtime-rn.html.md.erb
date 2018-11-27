@@ -722,8 +722,6 @@ If you want to configure a list of ports, do the following:
 
 1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports.
 
-
-
 ### <a id="containers-live"></a>Containers Live Briefly after Apps are Deleted or Downsized
 
 When you delete or scale down an app, the container instance may continue running for a couple of minutes after `cf apps` and other CLI commands indicate that the instance no longer exists. 
@@ -733,3 +731,7 @@ This may cause the following:
 * After deletion, the container may briefly continue to appear in the IaaS dashboard.
 * Resource usage may go down to reflect container deletion only after a brief delay.
 * Acceptance tests that check for immediate container deletion may fail.
+
+### <a id="loggregator-scaling"></a> Loggregator Component Horizontal Scaling Thresholds
+
+At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.
