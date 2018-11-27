@@ -587,9 +587,14 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.4
 
-### <a id="credhub-v2"></a> Credhub v2
+### <a id="credhub-ga"></a> Runtime Credhub Is GA and Enabled by Default
 
-Credhub is now v2.x and is on by default...
+Credhub is now enabled by default in the PAS tile.
+You can scale the number of CredHub instances in the **Resource Config** pane.
+In PAS v2.4, the number of CredHub instances defaults to `2`.
+
+For upgrades to v2.4, PAS populates the CredHub row in the **Resource Config** pane
+with the value specified in your previous version of the tile.
 
 ### <a id="cflinuxfs3"></a> PAS Uses cflinuxfs3 by Default
 
