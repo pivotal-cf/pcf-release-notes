@@ -598,11 +598,20 @@ with the value set in your previous version of the tile.
 
 ### <a id="cflinuxfs3"></a> PAS Uses cflinuxfs3 by Default
 
-PAS v2.4 uses `cflinuxfs3` stack and related buildpacks by default on new installs. Buildpacks have the same name but with a different stack.
+PAS v2.4 uses `cflinuxfs3` stack and related buildpacks by default on new installs.
+Buildpacks have the same name but with a different stack.
 
-You can switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Foundry Command Line Interface). For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/stacks.html).
+You can switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Foundry
+Command Line Interface). For more information, see [Changing
+Stacks](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/stacks.html).
 
-The `cflinuxfs3` stack was introduced in PAS v2.3. For more information, see [cflinuxfs3 Stack and Compatible Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3) in the PAS v2.3 release notes.
+You can also set your default stack in the **Cloud Controller** pane of the PAS tile.
+For more information, see [Cloud Controller](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas-config.html#config-cc).
+
+The `cflinuxfs3` stack was introduced in PAS v2.3. For more information, see [cflinuxfs3
+Stack and Compatible
+Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3)
+in the PAS v2.3 release notes.
 
 
 ### <a id="consul-server-removed"></a> Consul Server VMs are removed from PAS
