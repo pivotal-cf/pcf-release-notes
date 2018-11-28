@@ -306,6 +306,23 @@ Multiple Ops Manager administrators can use Ops Manager at the same time, to rec
 
 Ops Manager now uses CredHub v2.0. For more information about how CredHub works, see [CredHub](https://docs.pivotal.io/pivotalcf/2-4/credhub/index.html).
 
+### <a id='certs-expiration'></a> Operators Can Search for Certificates by Expiration Date in CredHub
+
+The `find` command in the CredHub CLI supports filtering searches by their expiration date. This command returns any certificate values visible to the requester, including  certificates that have already expired.
+
+To search for certificates by their expiration date, run the `find` command with the following parameter:
+
+```
+credhub find expires_within_days=NUMBER-OF-DAYS
+```
+
+Where `NUMBER-OF-DAYS` is an integer representing the upper limit of days you are searching within for expiring certificates.
+
+For example:
+
+<pre class="terminal">$ credhub find expires_within_days=5</pre>
+
+
 ### <a id="aws-china"></a> Pivotal Images Publish to AWS China
 
 Users on AWS China accounts can now access downloads from Pivotal Network on their AWS China console. Find specific Ops Manager images in your AWS China console by searching for the AMI IDs for those images.
