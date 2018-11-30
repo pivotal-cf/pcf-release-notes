@@ -304,7 +304,15 @@ Multiple Ops Manager administrators can use Ops Manager at the same time, to rec
 
 ### <a id='credhub-2.0'></a> Ops Manager Uses CredHub v2.0
 
-Ops Manager now uses CredHub v2.0. For more information about how CredHub works, see [CredHub](https://docs.pivotal.io/pivotalcf/2-4/credhub/index.html).
+BOSH CredHub, the instance that manages credentials on the Ops Manager VM, now
+uses CredHub v2.0. For more information about where your credentials are
+stored, see [BOSH CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
+
+CredHub v2.0 includes bug fixes, improved security, and new options for
+managing credential permissions. These updates are not directly visible to PCF
+operators, but CredHub v2.0 introduces breaking changes for tile and service
+authors. For more information, see the [PCF v2.4 Partners Release Notice](https://docs.pivotal.io/tiledev/release-notes.html)
+in the PCF Tile Developer Guide.
 
 ### <a id='certs-expiration'></a> Operators Can Search for Certificates by Expiration Date in CredHub
 
