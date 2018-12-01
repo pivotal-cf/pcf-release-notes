@@ -683,44 +683,31 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 ### <a id="credhub-ga"></a> Runtime CredHub is GA and Enabled by Default
 
-Runtime CredHub, the instance that manages credentials for PAS, enabled by default in the PAS tile. For more information about where your credentials are
-stored, see [Runtime CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#runtime).
+Runtime CredHub is enabled by default in the PAS tile. For more information about where your credentials are stored, see [Runtime CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#runtime).
 
 CredHub v2.1.1 is generally available and includes bug fixes, security updates, and improvements to the `find` command in the CredHub CLI.
 
-You can scale the number of CredHub instances in the **Resource Config** pane.
-In PAS v2.4, the number of CredHub instances defaults to `2`.
+You can scale the number of CredHub instances in the **Resource Config** pane. In PAS v2.4, the number of CredHub instances defaults to `2`.
 
-For upgrades to v2.4, PAS populates the CredHub row in the **Resource Config** pane
-with the value set in your previous version of the tile.
+For upgrades to v2.4, PAS populates the CredHub row in the **Resource Config** pane with the value set in your previous version of the tile.
 
 ### <a id="cflinuxfs3"></a> PAS Uses cflinuxfs3 by Default
 
-PAS v2.4 uses `cflinuxfs3` stack and related buildpacks by default on new installs.
-Buildpacks have the same name but with a different stack.
+PAS v2.4 uses the `cflinuxfs3` stack and related buildpacks by default on new installs. Buildpacks have the same name but use a different stack.
 
-You can switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Foundry
-Command Line Interface). For more information, see [Changing
-Stacks](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/stacks.html).
+You can switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Foundry Command Line Interface). For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/stacks.html).
 
-You can also set your default stack in the **Cloud Controller** pane of the PAS tile.
-For more information, see [Cloud Controller](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas-config.html#config-cc).
+You can also set your default stack in the **Cloud Controller** pane of the PAS tile. For more information, see [Cloud Controller](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas-config.html#config-cc).
 
-The `cflinuxfs3` stack was introduced in PAS v2.3. For more information, see [cflinuxfs3
-Stack and Compatible
-Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3)
-in the PAS v2.3 release notes.
+The `cflinuxfs3` stack was introduced in PAS v2.3. For more information, see [cflinuxfs3 Stack and Compatible Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3) in the PAS v2.3 release notes.
 
-
-### <a id="consul-server-removed"></a> Consul Server VMs are removed from PAS
+### <a id="consul-server-removed"></a> Consul Server VMs Are Removed from PAS
 
 Consul Server VMs are now removed from PAS, saving VM resources and reducing maintenance around managing a clustered component.
 
-### <a id="tls-to-db"></a> Components Communicate to Database using TLS
+### <a id="tls-to-db"></a> Components Communicate to Database Using TLS
 
-Platform components like CAPI and Diego will use TLS to communicate with the database.
-This happens automatically when using the Internal Database, for external databases like RDS you can provide the CA Certificate in the PAS Databases form.
-Note: As of PAS 2.4.0-alpha.2 this is a work-in-progress, additional components will be moved over to TLS in subsequent pre-release versions.
+Platform components like CAPI and Diego use TLS to communicate with the database. This happens automatically when using the internal database. For external databases like RDS, you can provide the CA certificate in the **Databases** pane of the PAS tile.
 
 ### <a id='percona'></a> Internal MySQL Databases Run Only on Percona
 
@@ -730,113 +717,85 @@ To migrate your databases to Percona, see [Migrating to Internal Percona MySQL](
 
 ### <a id="nfs-experimental-graduation"></a> NFS-Experimental Service Graduation
 
-The existing `nfs-experimental` service is promoted from "experimental" to "production" also deprecating the original fuse-based `nfs` service to `nfs-legacy`. Existing `nfs` service bindings will now be listed as `nfs-legacy`. To switch-over we recommend that you re-create and re-bind to the `nfs` service.
+The existing `nfs-experimental` service is promoted from "experimental" to "production". The original fuse-based `nfs` service and existing `nfs` service bindings are now called `nfs-legacy`.
+
+To switch over to the new `nfs` service, you must re-create and re-bind your existing service bindings to the `nfs` service.
 
 ### <a id="app-identity"></a> Gorouter Always Verifies App Identity
 
-For all PAS v2.4 foundations, the Gorouter always uses TLS to verify app identity. Verifying app identity
-improves resiliency and consistency for app routes. It also increases
-security by encrypting data in flight from the Gorouter.
+For all PAS v2.4 foundations, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter.
 
-In PAS v2.3 and earlier, you can have insecure routing without TLS. Before you upgrade
-to v2.4, you must have secure routing with TLS enabled. For more information, see [Upgrade
-Preparation Checklist for PCF
-v2.4](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html).
+In PAS v2.3 and earlier, you can have insecure routing without TLS. Before you upgrade to v2.4, you must have secure routing with TLS enabled. For more information, see [Upgrade Preparation Checklist for PCF v2.4](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html).
 
-For more information about the verifying app identity feature, see [Increased Resiliency, Consistency, and
-Security for HTTP
-Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the PAS v2.1
-release notes.
+For more information about the verifying app identity feature, see [Increased Resiliency, Consistency, and Security for HTTP Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the PAS v2.1 release notes.
 
 ### <a id="metrics-prefix"></a> Uniquely Identify Metrics by Tile
 
-As the value for `deployment`, metrics use `cf-GUID`, which corresponds to the BOSH deployment name of your PAS tile. With a GUID, you can uniquely
-identify your metrics by tile. to the In PAS v2.3 and earlier, metrics have a `deployment` value of `cf`.
+As the value for `deployment`, metrics use `cf-GUID`, which corresponds to the BOSH deployment name of your PAS tile. With a GUID, you can uniquely identify your metrics by tile. In PAS v2.3 and earlier, metrics have a `deployment` value of `cf`.
 
-This feature is enabled by default in new deployments of PAS 2.4, but disabled by default for PAS deployments upgrading to PAS 2.4. 
+This feature is enabled by default in new deployments of PAS v2.4, but disabled by default for PAS deployments upgrading to PAS v2.4. 
 
 <p class="breaking note"><strong>Breaking Change:</strong> If you have scripts that rely on <code>cf</code> as the value for <code>deployment</code>, your scripts may break. For more information, see <a href="./breaking-changes.html#metrics-prefix">Changed Deployment Value for PAS Metrics</a>.</p>
 
-### <a id="human-friendly-metric-tags"></a> See Human-friendly Metadata for Metrics
+### <a id="human-friendly-metric-tags"></a> See Human-Friendly Metadata for Metrics
 
 PAS now tags metrics with additional metadata to help operators better parse the metrics coming from their different deployments. These metadata tags also enable downstream monitoring products, such as PCF Healthwatch, to easily display human-readable names. 
 
 The tags are as follows:
 
-* `product`: The value of this tag is always `Pivotal Application Service` for the PAS tile. The tags for other products are: `PCF Isolation Segment`, `PCF Small Footprint`, `Pivotal Application Service for Windows 2012R2`, and `Pivotal Application Service for Windows`.
-* `system_domain`: The value of this tag corresponds to what you set in the **System Domain** field in the **Domains** tab of the PAS tile. 
+* `product`: The value of this tag is always `Pivotal Application Service` for the PAS tile. The tags for other products are `PCF Isolation Segment`, `PCF Small Footprint`, `Pivotal Application Service for Windows 2012R2`, and `Pivotal Application Service for Windows`.
+
+* `system_domain`: The value of this tag corresponds to what you set in the **System Domain** field in the **Domains** tab of the PAS tile.
+
 * `placement_tag`: The value of this tag is always `null` for PAS. However, for PAS for Windows and PCF Isolation Segment tiles, you can configure this value using the **Segment Name** field in the **Application Containers** pane. 
 
-Previously, you could not easily know the deployment that a metric from an Isolation Segment was emitted from. Now, an Operator can display capacity and other relevant metrics using the `placement_tag` name. This makes it easier to reason about the importance of a given segment when issues arise.
+Previously, you could not easily know the deployment that a metric from an Isolation Segment was emitted from. Now, an operator can display capacity and other relevant metrics using the `placement_tag` name. This makes it easier to reason the importance of a given segment when issues arise.
 
-These tags are properties of the [metron](https://docs.pivotal.io/pivotalcf/2-4/loggregator/architecture.html#metron) agent running on each VM in a deployment. 
-
+These tags are properties of the [metron](https://docs.pivotal.io/pivotalcf/2-4/loggregator/architecture.html#metron) agent running on each VM in a deployment.
 
 ### <a id="global-search"></a> Global Search in Apps Manager
 
-Apps Manager has a global searchbar persistent on every Apps Manager page. With the global
-searchbar, you can search org name, space name, service instance name, and app names without
-leaving the page.
+Apps Manager has a global searchbar on every Apps Manager page. With the global searchbar, you can search for an org name, space name, service instance name, and app name without leaving the page.
 
-Search results populate with each keypress and display below the searchbar. When
-the global searchbar is selected but empty, recently-accessed apps, services,
-spaces, and orgs display below the searchbar.
+Search results populate with each keypress and display below the searchbar. When the global searchbar is selected but empty, recently-accessed apps, services, spaces, and orgs display below the searchbar.
 
 This feature does not have an equivalent in the cf CLI.
 
 ### <a id="apps-man-ui"></a> Navigation Updates in Apps Manager
 
 To improve navigation, Apps Manager v2.4 includes the following UI changes:
+
 - New home page that shows the following:
-   - Up-to ten of the most-recently accessed apps with status, name, org and space,  instances, and time since last push
+   - Up to ten of the most-recently accessed apps with status, name, org and space, instances, and time since last push
    - All orgs in your PCF deployment
 - Simplified sidebar navigation with **Home** and **Marketplace** only
 - Breadcrumbs to help you navigate to previous screens
 
 ### <a id="restage-apps"></a> Restage Apps in Apps Manager
 
-Apps Manager includes a restage button. The button is in addition to the stop and
-start buttons on the app management page. Restaging your application stops your
-app and restages it by compiling a new droplet and starting it.
+Apps Manager includes a restage button. The button is in addition to the stop and start buttons on the app management page. Restaging your application stops your app and restages it by compiling a new droplet and starting it.
 
-Restage your app if you changed the environment in a way that affects your
-staging process. For example, you might set an environment variable that the buildpack
-consumes.
+Restage your app if you changed the environment in a way that affects your staging process. For example, you might set an environment variable that the buildpack consumes.
 
-For more information about the restage button in the Apps Manager UI, see [Start, Stop, or Restage an App
-](https://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#start-stop).
+For more information about the restage button in the Apps Manager UI, see [Start, Stop, or Restage an App](https://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#start-stop).
 
 ### <a id="share-service-instance"></a> Share Service Instances in Apps Manager
 
-From the **Overview** tab of a service instance, you can share the service
-instance to make it available in multiple spaces you specify. With Space Developer permissions, you
-can view, add, and remove service instance sharing.
+From the **Overview** tab of a service instance, you can share the service instance to make it available in multiple spaces you specify. With Space Developer permissions, you can view, add, and remove service instance sharing.
 
 For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
 
 ### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
 
-As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy
-(RLP) gateway. The RLP gateway provides an HTTP API to access the RLP. With
-the RLP gateway, you do not need to manage mutual TLS to access the Loggregator v2 API. 
+As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. The RLP gateway provides an HTTP API to access the RLP. With the RLP gateway, you do not need to manage mutual TLS to access the Loggregator v2 API. 
 
-By default, the  RLP communicates with clients
-using gRPC over mutual TLS. To enable HTTP
-access instead, use the RLP Gateway. For more information about the RLP
-Gateway, see [Reverse Log Proxy (RLP) Gateway](https://github.com/cloudfoundry/loggregator/blob/master/docs/rlp_gateway.md) in
-the Loggregator GitHub.
+By default, the  RLP communicates with clients using gRPC over mutual TLS. To enable HTTP access instead, use the RLP Gateway. For more information about the RLP Gateway, see [Reverse Log Proxy (RLP) Gateway](https://github.com/cloudfoundry/loggregator/blob/master/docs/rlp_gateway.md) in the Loggregator GitHub repository.
 
-For more information about the Loggregator
-API, see [loggregator-api](https://github.com/cloudfoundry/loggregator-api) in GitHub.
+For more information about the Loggregator API, see [loggregator-api](https://github.com/cloudfoundry/loggregator-api) in GitHub.
 
 ### <a id="metric-registrar"></a> Emit Custom App Metrics to the Metric Registrar
 
-PAS v2.4 includes a new component: the Metric Registrar. The Metric Registrar allows app
-developers to export custom app metrics and events in a format that
-Loggregator can
-consume. App developers can then use the custom metrics to monitor apps with PCF
-Metrics and configure autoscaling rules with PCF
-Autoscaler. 
+PAS v2.4 includes a new component: the Metric Registrar. The Metric Registrar allows app developers to export custom app metrics and events in a format that Loggregator can consume. App developers can then use the custom metrics to monitor apps with PCF Metrics and configure autoscaling rules with PCF Autoscaler. 
 
 For more information, see the following topics: 
 
@@ -845,7 +804,7 @@ For more information, see the following topics:
 
 ### <a id="dynamic-egress"></a> Create Dynamic Egress Policies (Beta)
 
-PAS v2.4 includes an beta feature that allows you to create dynamic egress policies so your apps can communicate with external services. These policies are similar to Application Security Groups (ASGs) but include the following advantages:
+PAS v2.4 includes a beta feature that allows you to create dynamic egress policies so your apps can communicate with external services. These policies are similar to Application Security Groups (ASGs) but include the following advantages:
 
 * You do not have to restart your apps when applying these policies, so there is no downtime. 
 * The policies include an additional level of granularity: you can apply them to specific apps. 
@@ -860,21 +819,24 @@ This feature is disabled by default. To enable this feature, see [Enable SMB Vol
 
 For information about how to bind a volume service to an app, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html).
 
+### <a id='enable-tls'></a> TLS for Internal System Database
+
+PAS v2.4 supports enabling TLS for clients of the internal system database. This feature is in beta and disabled by default. To enable this feature, see the _Advanced Features_ section of the [PAS deployment topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas.html).
+
 ### <a id="zdt-deploy"></a> Zero Downtime App Deployments (Experimental)
 
-PAS v2.4 includes support for native zero downtime app deployments using experimental cf CLI commands. For more information about using this feature see the [Deploying Apps with Zero Downtime (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html) topic.
+PAS v2.4 includes support for native zero downtime app deployments using experimental cf CLI commands. For more information about using this feature, see the [Deploying Apps with Zero Downtime (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/zero-downtime.html) topic.
 
 This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
 
+
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
+### <a id="external-credhub"></a> CredHub Database Cannot Be External on GCP
 
-If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select
-**Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
+If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select **Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
 
-CredHub is not compatible with the external database option on GCP. 
-GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
+CredHub is not compatible with the external database option on GCP. GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
@@ -903,8 +865,7 @@ If you want to configure multiple ports, do the following:
 
 ### <a id='cf-networking-downtime'></a> API Downtime During Rolling Deploys
 
-Operators will intermittently receive errors when pushing apps during a rolling upgrade due to https://www.pivotaltracker.com/story/show/160774116.
-This will be fixed in a subsequent pre-release version of PAS.
+Operators intermittently receive errors when pushing apps during a rolling upgrade.
 
 ### <a id="loggregator-scaling"></a> Loggregator Component Horizontal Scaling Thresholds
 
