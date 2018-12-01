@@ -37,6 +37,11 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
     * [PCF 1.12 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-12/pcf-release-notes/index.html)
     * [PCF 2.0 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-0/pcf-release-notes/index.html)
     * [PCF 2.1 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/pcf-release-notes/index.html)
+    * [PCF 2.2 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-2/pcf-release-notes/index.html)
+    * [PCF 2.3 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-3/pcf-release-notes/index.html)
+    * [PCF 2.4 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/index.html)
+    * [PCF 2.5 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/index.html)
+    
 3. Open the appropriate tab in Concourse, click the **production** box, then click the **+** button in the top right to start a production build.
 
     * [PCF 1.10](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-1-10)
@@ -44,5 +49,9 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
     * [PCF 1.12](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-1-12)
     * [PCF 2.0](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-0)
     * [PCF 2.1](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-1)
+    * [PCF 2.2](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-2)
+    * [PCF 2.3](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-3)
+    * [PCF 2.4](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-4)
+    * [PCF 2.5](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-5)
     
 
