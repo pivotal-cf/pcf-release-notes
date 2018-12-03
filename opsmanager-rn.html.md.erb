@@ -9,7 +9,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <hr>
 
-
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.4.
@@ -394,6 +393,12 @@ The Ops Manager **Review Pending Changes** page has a **Select All Products** ch
 Enabling the checkbox selects all available products to deploy with the next **Apply Changes**. Disabling the checkbox deselects all products from deploying.
 
 For more information, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/review-pending-changes.html#review-pending-changes).
+
+### <a id="consistent-syslog"></a> Consistent Syslog Forms are Available in Ops Manager and BOSH Director
+
+The syslog form in Ops Manager's Settings menu and in the BOSH Director are now identical. The syslog form in the Settings menu allows syslog configuration for a PCF deployment, and the syslog form in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
+
+Both of these forms use the new syslog template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
 
 ### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available for Cloud Config and Runtime Config
 
