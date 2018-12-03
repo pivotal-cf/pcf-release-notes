@@ -16,10 +16,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Breaking change]** Increase default and minimum CPU core count from 1 to 2 for internal blobstore VMs to improve reliability
 * **[Feature Improvement]** Add new endpoint in CredHub to find permissions given actor and path
 * **[Feature Improvement]** `cf ssh` is now compatible with mutual-TLS-based verification of ingress traffic from gorouters to application instances
-* **[Feature Improvement]** UAA BBR scripts connects to MySQL using TLS
 * **[Bug Fix]** Fix issue where some CAPI components would fail to start if bosh-dns was slow to start
 * **[Bug Fix]** Continue emitting `mysql` as the mysql metrics `origin` to prevent breaking consumers like Healthwatch
-* **[Bug Fix]** Fix issue preventing tiles that depend on the deprecated consul BOSH link from being deployed successfully with PAS
 * Bump capi to version `1.72.2`
 * Bump cf-smoke-tests to version `40.0.25`
 * Bump cflinuxfs2 to version `1.251.0`
