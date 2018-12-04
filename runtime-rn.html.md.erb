@@ -713,6 +713,27 @@ You can scale the number of CredHub instances in the **Resource Config** pane. I
 
 For upgrades to v2.4, PAS populates the CredHub row in the **Resource Config** pane with the value set in your previous version of the tile.
 
+### <a id="credhub-db"></a>CredHub Can Use the Same External Database as Other PAS Components
+
+In the PAS v2.4 tile, you can configure CredHub to use the same external database
+as other PAS components. If you select **External Databases - (e.g. AWS RDS)** on
+the **Databases** pane of the PAS tile, select **PAS database** on the **CredHub**
+pane for CredHub to use the same external database.
+
+To use a separate external database for CredHub, select **Other external database**
+on the **CredHub** pane of the PAS tile.
+
+For more information, see the PAS topic that corresponds to your IaaS:
+
+* [Deploying PAS on AWS](http://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#credhub)
+* [Deploying PAS on AWS Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/aws-er-config-terraform.html#credhub)
+* [Deploying PAS on Azure](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#credhub)
+* [Deploying PAS on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config-terraform.html#credhub)
+* [Deploying PAS on GCP](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#credhub)
+* [Deploying PAS on GCP Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config-terraform.html#credhub)
+* [Deploying PAS on OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#credhub)
+* [Deploying PAS on vSphere](http://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#credhub)
+
 ### <a id="cflinuxfs3"></a> PAS Uses cflinuxfs3 by Default
 
 PAS v2.4 uses the `cflinuxfs3` stack and related buildpacks by default on new installs. Buildpacks have the same name but use a different stack.
