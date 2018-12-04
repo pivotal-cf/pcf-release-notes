@@ -434,7 +434,7 @@ For more information, see [BOSH DNS Config Page](https://docs-pcf-staging.cfapps
 
 ### <a id="multiple-networks"></a> Associate an Instance Group with Multiple Networks Simultaneously
 
-You can use the `resource_config` API endpoint to add multiple networks to Diego cells or instance groups. Define the networks as usual with the Ops Manager UI or API and then reference the networks with the `additional_network` key in the API.
+You can use the `resource_config` API endpoint to add multiple networks to Diego cells or instance groups. Define the networks as usual with the Ops Manager UI or API and then reference the networks with the `additional_networks` key in the API. This workflow supports complex container networking integrations, including precise management of per-instance group network settings for sets of VMs.
 
 For more information, see [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
 
