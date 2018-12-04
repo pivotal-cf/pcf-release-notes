@@ -707,7 +707,7 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 Runtime CredHub is enabled by default in the PAS tile. For more information about where your credentials are stored, see [Runtime CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#runtime).
 
-CredHub v2.1.1 is generally available and includes bug fixes, security updates, and improvements to the `find` command in the CredHub CLI.
+CredHub is generally available and includes bug fixes, security updates, and improvements to the `find` command in the CredHub CLI.
 
 You can scale the number of CredHub instances in the **Resource Config** pane. In PAS v2.4, the number of CredHub instances defaults to `2`.
 
@@ -721,7 +721,9 @@ the **Databases** pane of the PAS tile, select **PAS database** on the **CredHub
 pane for CredHub to use the same external database.
 
 To use a separate external database for CredHub, select **Other external database**
-on the **CredHub** pane of the PAS tile.
+on the **CredHub** pane of the PAS tile. If you use GCP, you cannot use an external
+database for CredHub. For more information, see [CredHub Database Cannot Be External
+on GCP](#external-credhub) below.
 
 For more information, see the PAS topic that corresponds to your IaaS:
 
@@ -877,7 +879,7 @@ This feature is enabled by default. You can optionally disable it in the **Advan
 
 ### <a id="external-credhub"></a> CredHub Database Cannot Be External on GCP
 
-If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select **Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
+If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select **PAS database** for your CredHub database and **Internal** for your system database. If you are using external system databases, you cannot use CredHub.
 
 CredHub is not compatible with the external database option on GCP. GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
 
