@@ -694,7 +694,7 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.3 to successfully upgrade to PAS v2.4.
 
-* You must enable route integity before upgrading to PAS v2.4. To enable route integrity, go to **Application Containers** in PAS and select **Router uses TLS to verify application identity**. This option does use approximately 32MB more memory per application.
+* You must enable route integity before upgrading to PAS v2.4. To enable route integrity, go to **Application Containers** in PAS and select **Router uses TLS to verify application identity**. This option does use approximately 32MB more memory per app.
 
 * If you are running internal MySQL databases on MariaDB, you must migrate them to Percona server before upgrading to PAS v2.4. For more information, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
 
@@ -795,7 +795,7 @@ To improve navigation, Apps Manager v2.4 includes the following UI changes:
 
 ### <a id="restage-apps"></a> Restage Apps in Apps Manager
 
-Apps Manager includes a restage button. The button is in addition to the stop and start buttons on the app management page. Restaging your application stops your app and restages it by compiling a new droplet and starting it.
+Apps Manager includes a restage button. The button is in addition to the stop and start buttons on the app management page. Restaging your app stops your app and restages it by compiling a new droplet and starting it.
 
 Restage your app if you changed the environment in a way that affects your staging process. For example, you might set an environment variable that the buildpack consumes.
 
