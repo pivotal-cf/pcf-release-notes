@@ -7,7 +7,7 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.4.0-rc.1'></a> 2.4.0-rc.1
+### <a id='2.4.0'></a> 2.4.0
 
 * **[Security Fix]** Rotate diego intermediate CA before current certificate expires
 * **[Feature]** Enable fetching logs and metrics via gRPC
@@ -36,149 +36,6 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
     <tr><td>windowsfs-release</td><td>1.6.0</td></tr>
   </tbody>
 </table>
-
-### <a id='2.4.0-beta.1'></a> 2.4.0-beta.1
-
-* **[Feature Improvement]** Smoke tests for PASW are run as a post-deploy errand
-    * Currently this errand is off by default as it fails in internetless envs
-* Bump cf-windows-smoke-tests to version `40.0.17`
-* Bump diego to version `2.22.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.3</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.17</td></tr>
-    <tr><td>diego</td><td>2.22.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.16.7</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.0.3</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
-
-* **[Known Issue]** PASW 2016 smoke-tests fail with timeout in internetless environments
-    * This will be fixed in https://www.pivotaltracker.com/story/show/161793888
-* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Feature Improvement]** Operators can specify the Diego executor properties for memory usage and disk capacity in order to enable finer grained resource usage strategies.
-* **[Bug Fix]** Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
-* Remove consul-release from PAS tiles that are not exporting a consul-link
-* Bump windows1803 stemcell to version `1803.3`
-* Add new release cf-windows-smoke-tests at version `40.0.15`
-* Bump garden-runc to version `1.16.7`
-* Bump hwc-offline-buildpack to version `3.0.3`
-* Bump winc to version `1.7.0`
-* Removed consul release
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.3</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.15</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.16.7</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.0.3</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
-
-* **[Bug Fix]** Metron emitted product_version format is inconsistent
-* Bump consul to version `198`
-* Bump diego to version `2.19.0`
-* Bump garden-runc to version `1.16.6`
-* Add new release loggregator-agent at version `2.2`
-* Bump loggregator to version `103.3`
-* Bump winc to version `1.6.0`
-* Bump windowsfs-release to version `1.5.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.2</td></tr>
-    <tr><td>consul</td><td>198</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.16.6</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.0.2</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.6.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.1'></a> 2.4.0-alpha.1
-
-* **[Feature Improvement]** Operators can distinguish among metrics being emitted from different PAS tile deployments
-* **[Feature Improvement]** Metrics emitted from each deployment are tagged with additional metadata
-
-* Bump consul version `196`
-* Bump garden-runc to version `1.16.4`
-* Bump loggregator to version `103.2`
-* Bump windows-utilities to version `0.11.0`
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>1803.2</td>
-  </tr><tr>
-    <td>consul</td><td>196</td>
-  </tr><tr>
-    <td>diego</td><td>2.18.0</td>
-  </tr><tr>
-    <td>event-log</td><td>0.7.0</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.16.4</td>
-  </tr><tr>
-    <td>hwc-offline-buildpack</td><td>3.0.2</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.2</td>
-  </tr><tr>
-    <td>winc</td><td>1.5.0</td>
-  </tr><tr>
-    <td>windows-utilities</td><td>0.11.0</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
 
 ## <a id='upgrade'></a> How to Upgrade
 
@@ -229,6 +86,12 @@ PAS for Windows metrics are tagged with `cf` as the deployment name.
 only if it is required for backward compatibility with previous versions of PCF
 or if you have scripts that rely on metrics with <code>cf</code> as the value for <code>deployment</code>.
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
+
+### <a id='smoke-tests'></a> Smoke Tests are Available
+
+Smoke Tests are available for PAS for Windows v2.4. You have the option of choosing a temporary or specified organization and space for smoke tests. The **Smoke Test Errand** can be configured within the PAS for Windows Tile.
+ 
+For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in Installing and Configuring PAS for Windows.
 
 ## <a id='known-issues'></a> Known Issues
 
