@@ -394,11 +394,11 @@ Enabling the checkbox selects all available products to deploy with the next **A
 
 For more information, see [Review Pending Changes Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/review-pending-changes.html#review-pending-changes).
 
-### <a id="consistent-syslog"></a> Consistent Syslog Forms Are Available in Ops Manager and BOSH Director
+### <a id="consistent-syslog"></a> Consistent Syslog Panes in Ops Manager and BOSH Director
 
-The **Syslog** form in Ops Manager's **Settings** menu and in the BOSH Director are now identical. The **Syslog** form in the **Settings** menu allows syslog configuration for a PCF deployment, and the **Syslog** form in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
+The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director are now identical. The **Syslog** pane in the **Settings** menu allows syslog configuration for a PCF deployment, and the **Syslog** pane in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
 
-Both of these forms use the new syslog template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
+Both of these panes use the new Syslog form template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
 
 ### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available for Cloud Config and Runtime Config
 
@@ -412,7 +412,7 @@ Use `/api/v0/installations/10/products/[guid]/runtime_configs` or `/api/v0/insta
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
-Tile authors can insert a templatized Syslog form into their tiles by editing `metadata.yml`. This form is identical to the Syslog form in Ops Manager and the BOSH Director. This form template is an opportunity to make tile users' experience more consistent and secure. 
+Tile authors can insert a templatized Syslog form into their tiles by editing `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director. The form template is an opportunity to make tile users' experience more consistent and secure. 
 
 For more information about modifying `metadata.yml`, see [Property Template References](https://docs.pivotal.io/tiledev/2-4/property-template-references.html).
 
