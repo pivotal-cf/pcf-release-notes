@@ -897,6 +897,16 @@ From the **Overview** tab of a service instance, you can share the service insta
 
 For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
 
+### <a id=‘app-automator’></a> App Automator for PCF (Beta)
+
+App Automator for PCF combines the functionality of App Scheduler and App Autoscaler by enabling flexible workload scheduling with an easy-to-use manifest, so you can run workloads based on demand or a schedule. Developers can express when and what workloads should run with triggers and actions. These parameters are in an App Automator manifest that is kept within the app code.
+
+PAS v2.4 will include predefined triggers and actions based on common scenarios:
+    - **Triggers:** `schedule/cron`, `event`, and `metric`
+    - **Actions:** `scale`, `curl`, `task`
+
+App Autoscaler does not need a database or service broker to operate. Just install App Autoscaler via the cf CLI, and it is is available in the app space.
+
 ### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
 
 As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. The RLP gateway provides an HTTP API to access the RLP. With the RLP gateway, you do not need to manage mutual TLS to access the Loggregator v2 API. 
@@ -949,7 +959,9 @@ Operators enable mTLS by selecting the **Router and applications use mutual TLS 
 
 This removes the `cf ssh` known issue described in the [Limitations with Mutual TLS App Identity Verification](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#mutual-tls-id-limitations) section of the _PAS v2.3 Release Notes_.
 
+
 ## <a id='bug-fixes'></a> Bug Fixes
+
 
 ## <a id='known-issues'></a> Known Issues
 
