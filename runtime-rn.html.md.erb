@@ -845,13 +845,13 @@ For more information about the verifying app identity feature, see [Increased Re
 
 As the value for `deployment`, metrics use `cf-GUID`, which corresponds to the BOSH deployment name of your PAS tile. With a GUID, you can uniquely identify your metrics by tile. In PAS v2.3 and earlier, metrics have a `deployment` value of `cf`.
 
-This feature is enabled by default in new deployments of PAS v2.4, but disabled by default for PAS deployments upgrading to PAS v2.4. 
+This feature is enabled by default in new deployments of PAS v2.4, but disabled by default for PAS deployments upgrading to PAS v2.4.
 
 <p class="breaking note"><strong>Breaking Change:</strong> If you have scripts that rely on <code>cf</code> as the value for <code>deployment</code>, your scripts may break. For more information, see <a href="./breaking-changes.html#metrics-prefix">Changed Deployment Value for PAS Metrics</a>.</p>
 
 ### <a id="human-friendly-metric-tags"></a> See Human-Friendly Metadata for Metrics
 
-PAS now tags metrics with additional metadata to help operators better parse the metrics coming from their different deployments. These metadata tags also enable downstream monitoring products, such as PCF Healthwatch, to easily display human-readable names. 
+PAS now tags metrics with additional metadata to help operators better parse the metrics coming from their different deployments. These metadata tags also enable downstream monitoring products, such as PCF Healthwatch, to easily display human-readable names.
 
 The tags are as follows:
 
@@ -859,7 +859,7 @@ The tags are as follows:
 
 * `system_domain`: The value of this tag corresponds to what you set in the **System Domain** field in the **Domains** tab of the PAS tile.
 
-* `placement_tag`: The value of this tag is always `null` for PAS. However, for PAS for Windows and PCF Isolation Segment tiles, you can configure this value using the **Segment Name** field in the **Application Containers** pane. 
+* `placement_tag`: The value of this tag is always `null` for PAS. However, for PAS for Windows and PCF Isolation Segment tiles, you can configure this value using the **Segment Name** field in the **Application Containers** pane.
 
 Previously, you could not easily know the deployment that a metric from an Isolation Segment was emitted from. Now, an operator can display capacity and other relevant metrics using the `placement_tag` name. This makes it easier to reason the importance of a given segment when issues arise.
 
@@ -909,7 +909,7 @@ App Autoscaler does not need a database or service broker to operate. Just insta
 
 ### <a id="log-api"></a> Loggregator v2 API is Readable Through RLP Gateway
 
-As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. The RLP gateway provides an HTTP API to access the RLP. With the RLP gateway, you do not need to manage mutual TLS to access the Loggregator v2 API. 
+As a nozzle developer, you can access the Loggregator v2 API through a Reverse Log Proxy (RLP) gateway. The RLP gateway provides an HTTP API to access the RLP. With the RLP gateway, you do not need to manage mutual TLS to access the Loggregator v2 API.
 
 By default, the  RLP communicates with clients using gRPC over mutual TLS. To enable HTTP access instead, use the RLP Gateway. For more information about the RLP Gateway, see [Reverse Log Proxy (RLP) Gateway](https://github.com/cloudfoundry/loggregator/blob/master/docs/rlp_gateway.md) in the Loggregator GitHub repository.
 
@@ -917,9 +917,9 @@ For more information about the Loggregator API, see [loggregator-api](https://gi
 
 ### <a id="metric-registrar"></a> Emit Custom App Metrics to the Metric Registrar
 
-PAS v2.4 includes a new component: the Metric Registrar. The Metric Registrar allows app developers to export custom app metrics and events in a format that Loggregator can consume. App developers can then use the custom metrics to monitor apps with PCF Metrics and configure autoscaling rules with PCF Autoscaler. 
+PAS v2.4 includes a new component: the Metric Registrar. The Metric Registrar allows app developers to export custom app metrics and events in a format that Loggregator can consume. App developers can then use the custom metrics to monitor apps with PCF Metrics and configure autoscaling rules with PCF Autoscaler.
 
-For more information, see the following topics: 
+For more information, see the following topics:
 
 * [Configuring the Metric Registrar](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/index.html)
 * [Registering Custom App Metrics](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/using.html)
@@ -928,8 +928,8 @@ For more information, see the following topics:
 
 PAS v2.4 includes a beta feature that allows you to create dynamic egress policies so your apps can communicate with external services. These policies are similar to Application Security Groups (ASGs) but include the following advantages:
 
-* You do not have to restart your apps when applying these policies, so there is no downtime. 
-* The policies include an additional level of granularity: you can apply them to specific apps. 
+* You do not have to restart your apps when applying these policies, so there is no downtime.
+* The policies include an additional level of granularity: you can apply them to specific apps.
 
 For more information, see [Administering Dynamic Egress Policies (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/egress-policies.html).
 
@@ -937,7 +937,7 @@ For more information, see [Administering Dynamic Egress Policies (Beta)](https:/
 
 PAS v2.4 adds support for SMB volume services, allowing developers to bind existing SMB shares to their apps. The SMB protocol has native password authentication, which means you can control access to file shares without the overhead of configuring an LDAP server.
 
-This feature is disabled by default. To enable this feature, see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable). 
+This feature is disabled by default. To enable this feature, see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable).
 
 For information about how to bind a volume service to an app, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html).
 
@@ -959,6 +959,25 @@ Operators enable mTLS by selecting the **Router and applications use mutual TLS 
 
 This removes the `cf ssh` known issue described in the [Limitations with Mutual TLS App Identity Verification](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#mutual-tls-id-limitations) section of the _PAS v2.3 Release Notes_.
 
+### <a id="haproxy-zero"></a> HAProxy Defaults to Zero Instances
+
+PAS v2.4 does not deploy the optional HAProxy component by default. Previous versions of PAS deployed three instances of HAProxy by default.
+
+<p class="breaking note"><strong>Breaking Change:</strong> This is a breaking change if you are using HAProxy with the <strong>Automatic</strong> setting for your instance count. On upgrading to PAS v2.4, you will have zero HAProxy instances unless you specify an instance count other than the <strong>Automatic</strong> setting. For example, if you have the instance count set to <strong>Automatic: 3</strong>, modify the instance count to <strong>3</strong> in the <strong>Resource Config</strong> pane before you upgrade.</p>
+
+<p class="note"><strong>Note</strong>: PAS still deploys one HAProxy instance for vSphere environments by default.</p>
+
+### <a id="improved-garbage-collection"></a> Improved Garbage Collection
+
+Operators can configure container filesystem garbage collection based on the disk usage of other jobs in their deployment rather than a garbage collection threshold.
+
+PAS v2.4 replaces the **Clean up disk-space once threshold is reached** option with **Clean up disk-space once usage fills disk** in the **Application Containers** pane.
+
+For information about configuring garbage collection values, see [Configuring Cell Disk Cleanup Scheduling](http://docs.pivotal.io/pivotalcf/2-4/opsguide/config-cell-cleanup.html).
+
+### <a id="bpm"></a> All Components Use BOSH Process Manager
+
+Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, all components use BPM. For more information, see [BOSH Process Manager](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#bpm) in the _Pivotal Application Service v2.3 Release Notes_.
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
@@ -969,11 +988,11 @@ This removes the `cf ssh` known issue described in the [Limitations with Mutual 
 
 If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select **PAS database** for your CredHub database and **Internal** for your system database. If you are using external system databases, you cannot use CredHub.
 
-CredHub is not compatible with the external database option on GCP. GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
+CredHub is not compatible with the external database option on GCP. GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it.
 
 ### <a id='tcp-port-config'></a> Configuring Multiple TCP Routing Ports
 
-This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI. 
+This section describes an issue and workaround related to configuring multiple TCP Routing Ports in the PAS tile UI.
 
 #### Issue
 
