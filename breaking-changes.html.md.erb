@@ -15,6 +15,19 @@ Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
 
 See the following PAS breaking changes:
 
+### <a id='percona'></a> Internal MySQL Databases Run Only on Percona
+
+In PAS v2.2 and v2.3, internal MySQL databases could run on either MariaDB or Percona servers. PAS v2.4 no longer uses MariaDB, so you must migrate internal MariaDB databases to Percona and redeploy PAS v2.3 before upgrading to PAS v2.4.
+
+To migrate your databases to Percona, see [Migrating to Internal Percona MySQL](https://docs.pivotal.io/pivotalcf/2-4/opsguide/migrate-percona-mysql.html).
+
+### <a id='remove-mysql-lb'></a> Removed Configuration for Internal MySQL Load Balancer
+
+In PAS 2.3 and earlier, Operators who wanted a HA internal MySQL database for PAS platform apps could configure an internal load balancer in front of the MySQL proxies. This option was configured with the **MySQL Proxy IPs** and **MySQL Service Hostname** fields in the **Internal MySQL** pane of the PAS tile. 
+
+Starting in PAS v2.4, platform apps connect to the internal MySQL DB using BOSH DNS instead. Operators are no longer required to specify an LB in the **Internal MySQL** pane. 
+
+After upgrading to PAS 2.4 and re-run the PAS errands that push apps, you can delete the internal MySQL load balancer as PAS no longer uses it.
 
 ### <a id="metrics-prefix"></a> Changed "deployment" Field Value for PAS Metrics
 
@@ -28,8 +41,76 @@ PAS tile.
 Pivotal does not recommend re-enabling the `cf` value as a permanent solution. If you
 can resolve script dependencies, resolve them and leave the default setting.
 
+### <a id="haproxy-zero"></a> HAProxy Defaults to Zero Instances
 
+PAS and PCF Isolation Segment (IST) v2.4 do not deploy the optional HAProxy component by default. Previously, IST deployed three instances of HAProxy by default and PAS deployed one. 
 
+This is a breaking change if you are using HAProxy with the <strong>Automatic</strong> setting for your instance count. On upgrading to PAS or IST v2.4, you will have zero HAProxy instances unless you specify an instance count other than the <strong>Automatic</strong> setting. For example, if you have the instance count set to <strong>Automatic: 3</strong> in IST, modify the instance count to <strong>3</strong> in the <strong>Resource Config</strong> pane before you upgrade.
+
+### <a id='uaa-credhub-dbs'></a> Updated Configuration for UAA and CredHub Databases
+
+If your PAS v2.3 tile is configured to use **Internal MySQL** for its UAA or CredHub databases, PAS modifies this configuration to **PAS database** when upgrading to v2.4. 
+
+In the PAS v2.4 tile, you can configure CredHub and UAA to use the same external database
+as other PAS components. If you select **External Databases - (e.g. AWS RDS)** on
+the **Databases** pane of the PAS tile, select **PAS database** on the **CredHub** or **UAA** 
+panes for to use the same external database.
+
+To use a separate external database for CredHub or UAA, select **Other external database**
+on the **CredHub** or **UAA** pane of the PAS tile. 
+
+<p class="note"><strong>Note</strong>: If you use GCP, you cannot use an external
+database for CredHub. For more information, see <a href="https://docs.pivotal.io#external-credhub">CredHub Database Cannot Be External
+on GCP</a> below.</p>
+
+### <a id='cflinuxfs3'></a> cflinuxfs3 is the Default Stack
+
+PAS v2.3 introduced the cflinuxfs3 stack alongside the cflinuxfs2 default. In PAS v2.4, cflinuxfs3 is the default stack. This means that any newly created app automatically uses cflinuxfs3 as its stack instead of cflinuxfs2. However, existing apps continue to use their current stack. 
+
+You can modify your default stack in the **Cloud Controller** pane of the PAS tile. For more information, see [Cloud Controller](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas-config.html#config-cc).
+
+If you have not already, Pivotal recommends migrating your apps to cflinuxfs3 as cflinuxfs2 is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019. After that date, it will no longer receive security updates. For more information, see [cflinuxfs3 Stack and Compatible Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#cflinuxfs3) in the PAS v2.3 release notes.
+
+### <a id='grootfs-gc'></a> Improved Grootfs Garbage Collection
+
+Operators can configure container filesystem garbage collection based on the disk usage of other jobs in their deployment rather than a garbage collection threshold. PAS and IST v2.4 replace the **Clean up disk-space once threshold is reached** option with **Clean up disk-space once usage fills disk** in the **Application Containers** pane. 
+
+To understand how this field is handled during upgrade, see the following table:
+
+<table>
+	<tr>
+		<th style="width: 25%">
+			Field Selected in v2.3
+		</th>
+		<th>
+			Upgrade Notes
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<b>Never clean up Cell disk-space</b>
+		</td>
+		<td>
+			When you upgrade to v2.4, this setting remains the same. 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Routinely clean up Cell disk-space</b>
+		</td>
+		<td>
+			When you upgrade to v2.4, this setting remains the same.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Clean up disk-space once threshold is reached</b>
+		</td>
+		<td>
+			If this field is set to the default value in v2.3, it will be migrated to the default value of the new <b>Clean up disk-space once usage fills disk</b> field upon upgrade to v2.4. If this field has another value besides the default, you must either enter the default or select one of the other options to proceed with your upgrade.
+		</td>
+	</tr>
+</table>
 
 ## <a id='opsman'></a> PCF Ops Manager
 
