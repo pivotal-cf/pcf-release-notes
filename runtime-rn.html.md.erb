@@ -941,9 +941,13 @@ This feature is disabled by default. To enable this feature, see [Enable SMB Vol
 
 For information about how to bind a volume service to an app, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html).
 
-### <a id='enable-tls'></a> TLS for Internal System Database (Beta)
+### <a id='enable-int-tls'></a> TLS for Internal System Database (Beta)
 
 PAS v2.4 supports enabling TLS for clients of the internal system database. This feature is in beta and disabled by default. To enable this feature, see the _Advanced Features_ section of the [PAS deployment topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas.html).
+
+### <a id='enable-ext-tls'></a> TLS for External Databases in GCP
+
+With GCP, you can configure PAS v2.4 to use TLS for all components' connections to an external MySQL database by providing a Certificate Authority (CA) certificate. For more information, see the [External Database Configuration](https://docs.pivotal.io/pivotalcf/2-4/customizing/gcp-er-config.html#create-dbs) section of the _Deploying PAS on GCP_ topic.
 
 ### <a id="zdt-deploy"></a> Zero Downtime App Deployments (Beta)
 
