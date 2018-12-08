@@ -112,6 +112,18 @@ To understand how this field is handled during upgrade, see the following table:
 	</tr>
 </table>
 
+### <a id='file-storage-vm'></a> Increased CPU on File Storage VM
+
+PAS v2.4 increases the default and minimum CPU core count from one to two for the optional internal File Storage VM to improve reliability. 
+
+If you are using the internal File Storage VM with a VM type that has a single CPU core, PAS will migrate it to a VM type with two CPU cores during the upgrade. 
+
+### <a id='log-cache-autoscaler'></a> Log Cache API Changes and Autoscaler Downtime
+
+PAS v2.4 uses log-cache API v2, which moves `/v1` endpoints to `/api/v1`. 
+
+One of the apps that depends on the log-cache API is Autoscaler. If you are upgrading from PAS v2.3.1, Autoscaler will be intermittently unusable during the upgrade. However, v2.3.2 includes the log-cache API v2, so there is no downtime when upgrading from v2.3.2 or later. 
+
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
