@@ -22,17 +22,17 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/cus
 * **[Security Fix]**: Bumps active-job to 5.0.4 to resolve [CVE-2018-16476](https://nvd.nist.gov/vuln/detail/CVE-2018-16476).
 * **[Security Fix]**: Bumps Loofah to 2.2.3 to address a CVE.
 * **[Security Fix]**: Bumps Rack to 2.0.6 to address a CVE.
-* **[New Feature]**: A Pivotal-specific GUID now appears in the global CPI options for Azure deployments. View this key/value pair in the CPI configururation of the BOSH Director manifest.
-* **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can now send a GET to director/properties, director/iaas_configurations/guid, director/iaas_configurations, or products/guid/properties with the redact=false parameter to see an API response that includes credentials.
-* **[New Feature]**: `GET /api/v0/pivotal_network/stemcell_updates` now works on both Windows and Xenial stemcells.
-* **[New Feature]**: You can now download the product manifest for your last successful deployment.
-* **[Bug Fix]**: The API docs now show `instance_groups` in some locations where they previously referenced jobs.
+* **[New Feature]**: A Pivotal-specific GUID appears in the global CPI options for Azure deployments. View this key/value pair in the CPI configururation of the BOSH Director manifest.
+* **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can send a GET to director/properties, director/iaas_configurations/guid, director/iaas_configurations, or products/guid/properties with the redact=false parameter to see an API response that includes credentials.
+* **[New Feature]**: `GET /api/v0/pivotal_network/stemcell_updates` works on both Windows and Xenial stemcells.
+* **[New Feature]**: You can download the product manifest for your last successful deployment.
+* **[Bug Fix]**: The API docs show `instance_groups` in some locations where they previously referenced jobs.
 * **[Bug Fix]**: Internal IDP metadata no longer changes when authentication protocols switch between internal authentication and SAML. Specifically, the `ds:DigestValue` and `ds:SignatureValue` values no longer change.
-* **[Bug Fix]**: The SAML certificate now regenerates when authentication method changes from SAML to internal, rather than when SAML is enabled. This facilitates a greater number of authentication method workflows, including those which change Ops Manager metadata.
-* **[Bug Fix]**: Ops Manager now captures changes to the database, including reversions to old passwords, more completely.
-* **[Bug Fix]**: The link to Pivotal Network from the API docs is now correct.
+* **[Bug Fix]**: The SAML certificate regenerates when authentication method changes from SAML to internal, rather than when SAML is enabled. This facilitates a greater number of authentication method workflows, including those which change Ops Manager metadata.
+* **[Bug Fix]**: Ops Manager captures changes to the database, including reversions to old passwords, more completely.
+* **[Bug Fix]**: Corrects the link to Pivotal Network from the API docs.
 * **[Feature Improvement]**: When a user who has not logged into Ops Manager is prompted to log in to view a page, logging in returns them to the page they tried to access, rather than the Installation Dashboard.
-* **[Feature Improvement]**: There are now API docs for the GET and PUT `ssh_banner_contents` endpoints.
+* **[Feature Improvement]**: Adds API docs for GET and PUT to the `ssh_banner_contents` endpoint.
 
 
 Ops Manager v2.3.6 uses the following component versions:
