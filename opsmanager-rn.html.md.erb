@@ -448,13 +448,13 @@ For more information, see the [Retrieving resources for a job](http://docs.pivot
 
 ### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available From the API
 
-You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint. 
+You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint, as well as rotate the certificates. 
 
 For more information, see [Getting Information About Certificates from Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
 
-### <a id='om-root-ca'></a> BOSH Director Can Include Ops Manager Root Certificate Authority
+### <a id='om-root-ca'></a> BOSH Director Can Require All Deployments To Trust Ops Manager Root Certificate Authority
 
-You can enable BOSH Director to include the Ops Manager root certificate authority certificate in the trust store of every VM it deploys.
+You can enable BOSH Director to include the Ops Manager root certificate authority certificate in the trust store of every VM it deploys. This forces each VM to trust the Ops Manager root CA certificate by default.
 
 For more information, see the **Security** section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-4/customizing/deploy-bosh-om.html#contents).
 
