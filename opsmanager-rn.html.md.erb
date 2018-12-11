@@ -400,15 +400,17 @@ The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director 
 
 Both of these panes use the new Syslog form template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
 
-### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available from the API
+### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available From the API
 
-You can view the files affected between one deployment and another for cloud and runtime configs.
+You can now view the details from previous deployments for manifests and cloud, runtime, and CPI configs, from new API endpoints. This can be useful for troubleshooting or duplicating historical configurations for a deployment.
 
-### <a id="upgrade-config"></a> Config Details Are Available During Upgrade
+For more information, see [Getting BOSH manifests from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-manifests-from-historical-installations) in the Ops Manager API documentation.
 
-You can now use the API to access various aspects of your deployment during an upgrade, when the rest of your deployment is unavailable. The CPI configs, runtime configs, cloud config, and manifest are all available during upgrade via the Ops Manager API.
+### <a id="upgrade-config"></a> Staged and Current Config Details Are Available During Upgrade From the API
 
-Use `/api/v0/installations/10/products/[guid]/runtime_configs` or `/api/v0/installations/10/products/{director,director_guid}/runtime_configs` to access JSONs with config information.
+You can now use the API to access various aspects of your deployment during an upgrade, when the rest of your deployment is unavailable. The CPI configs, runtime configs, cloud config, and manifest are all available during upgrade from the Ops Manager API.
+
+For more information, see [Staged BOSH Director](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) and [Staged Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-products) in the Ops Manager API documentation.
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
