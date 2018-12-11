@@ -1491,4 +1491,6 @@ If you want to configure a list of ports, Pivotal recommends following these ste
 
 ### <a id="loggregator-scaling"></a> Loggregator Component Horizontal Scaling Thresholds
 
-Above approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, increase CPU resources for the existing Doppler and Traffic Controller instances to add vertical scale.
+Above approximately 40 Doppler instances and 25 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, increase CPU resources for the existing Doppler and Traffic Controller instances to add vertical scale.
+
+The Syslog Adapter now enforces a hard limit on how many application syslog drains it can service, therefore it is important to follow the [scaling recommendations](https://docs.pivotal.io/pivotalcf/2-2/monitoring/key-cap-scaling.html#scalable-syslog) to ensure that all syslog drains can be serviced.
