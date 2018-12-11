@@ -27,7 +27,7 @@ In PAS 2.3 and earlier, Operators who wanted a HA internal MySQL database for PA
 
 Starting in PAS v2.4, platform apps connect to the internal MySQL DB using BOSH DNS instead. Operators are no longer required to specify an LB in the **Internal MySQL** pane. 
 
-After upgrading to PAS 2.4 and re-run the PAS errands that push apps, you can delete the internal MySQL load balancer as PAS no longer uses it.
+After upgrading to PAS 2.4 and re-running the PAS errands that push apps, you can delete the internal MySQL load balancer as PAS no longer uses it.
 
 ### <a id="metrics-prefix"></a> Changed "deployment" Field Value for PAS Metrics
 
@@ -123,6 +123,14 @@ If you are using the internal File Storage VM with a VM type that has a single C
 PAS v2.4 uses log-cache API v2, which moves `/v1` endpoints to `/api/v1`. 
 
 One of the apps that depends on the log-cache API is Autoscaler. If you are upgrading from PAS v2.3.1, Autoscaler will be intermittently unusable during the upgrade. However, v2.3.2 includes the log-cache API v2, so there is no downtime when upgrading from v2.3.2 or later. 
+
+### <a id='consul-server'></a> Consul Server Removed
+
+The instance count for the Consul server is zero. This value cannot be configured. The `.consul_server.instances` resource configuration is also removed.
+
+As a result, you must update any automations that rely on the `.consul_server.instances` resource configuration. 
+
+PAS tiles that depend on the Consul BOSH link should continue to function properly. However, Pivotal recommends removing any dependencies on the Consul BOSH link from PAS tiles. 
 
 ## <a id='opsman'></a> PCF Ops Manager
 
