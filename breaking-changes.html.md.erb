@@ -36,7 +36,8 @@ your scripts may break. PAS v2.4 replaces the `cf` value in metrics with `cf-GUI
 
 To resolve this issue, you can re-enable the `cf` value by selecting **Use "cf" as deployment
 name in emitted metrics instead of unique name** in the **Advanced Features** pane of your
-PAS tile.
+PAS tile. If this option is toggled and PCF Healthwatch is installed, enable the PCF Healthwatch
+_Push Monitoring Components_ Errand to ensure correct PCF Healthwatch configuration.
 
 Pivotal does not recommend re-enabling the `cf` value as a permanent solution. If you
 can resolve script dependencies, resolve them and leave the default setting.
