@@ -396,7 +396,7 @@ For more information, see [Review Pending Changes Page](https://docs.pivotal.io/
 
 ### <a id="consistent-syslog"></a> Consistent Syslog Panes in Ops Manager and BOSH Director
 
-The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director are now identical. The **Syslog** pane in the **Settings** menu allows syslog configuration for a PCF deployment, and the **Syslog** pane in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
+The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director tile are now identical. The **Syslog** pane in the **Settings** menu allows syslog configuration for a PCF deployment, and the **Syslog** pane in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
 
 Both of these panes use the new Syslog form template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
 
@@ -414,7 +414,7 @@ For more information, see [Staged BOSH Director](http://docs.pivotal.io/pivotalc
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
-Tile authors can insert a templatized Syslog form into their tiles by editing `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director. The form template is an opportunity to make tile users' experience more consistent and secure. 
+Tile authors can insert a templatized Syslog form into their tiles by editing `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director tile. The form template is an opportunity to make tile users' experience more consistent and secure. 
 
 For more information about modifying `metadata.yml`, see [Property Template References](https://docs.pivotal.io/tiledev/2-4/property-template-references.html).
 
@@ -434,7 +434,7 @@ For more information, see [BOSH DNS Config Page](https://docs.pivotal.io/pivotal
 
 <p class="note"><strong>Note</strong>: BOSH DNS replaces Consul DNS, which had caused stability issues in some deployments. PCF v2.0 through v2.3 progressively phased out Consul DNS, and v2.4 completes its removal. For more information, see the <a href="https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#remove-consul-agent">Pivotal Application Service v2.3 Release Notes</a>.</p>
 
-### <a id="multiple-networks"></a> Associate an Instance Group with Multiple Networks Simultaneously
+### <a id="multiple-networks"></a> Associate an Instance Group with Multiple Networks or Diego Cells Simultaneously
 
 You can use the `resource_config` API endpoint to associate multiple networks to Diego cells or instance groups. Define the networks as usual with the Ops Manager UI or API, and then set the networks for a job with the `additional_networks` key in the API. This workflow supports complex container networking integrations, including precise management of per-instance group network settings for sets of VMs.
 
@@ -442,9 +442,9 @@ For more information, see [Retrieving resources for a job](http://docs.pivotal.i
 
 ### <a id="swap-size"></a> Swap Partition Size Is Configurable From the API
 
-You can customize the size of the swap partition of their VM memory as a percent of total memory size per instance group. 
+You can customize the size of the swap partition of a VM's memory as a percent of total memory size per instance group. This allows more refined control of memory allocation across a deployment.
 
-For more information, see the [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
+For more information, see [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product) in the Ops Manager API documentation.
 
 ### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available From the API
 
