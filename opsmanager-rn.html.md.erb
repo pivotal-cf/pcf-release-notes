@@ -400,7 +400,7 @@ The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director 
 
 Both of these panes use the new Syslog form template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
 
-### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available for Cloud Config and Runtime Config
+### <a id="historical-diffs"></a> Files Used During Previous Deployments Are Available from the API
 
 You can view the files affected between one deployment and another for cloud and runtime configs.
 
@@ -438,13 +438,13 @@ You can use the `resource_config` API endpoint to associate multiple networks to
 
 For more information, see [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
 
-### <a id="swap-size"></a> Swap Partition Size Is Configurable Via the API
+### <a id="swap-size"></a> Swap Partition Size Is Configurable From the API
 
 You can customize the size of the swap partition of their VM memory as a percent of total memory size per instance group. 
 
 For more information, see the [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
 
-### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available Via the API
+### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available From the API
 
 You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint. 
 
@@ -456,7 +456,7 @@ You can enable BOSH Director to include the Ops Manager root certificate authori
 
 For more information, see the **Security** section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-4/customizing/deploy-bosh-om.html#contents).
 
-### <a id="additional-cpi-settings"></a> IaaS-Specific Global CPI Properties Are Configurable Via the API
+### <a id="additional-cpi-settings"></a> IaaS-Specific Global CPI Properties Are Configurable From the API
 
 You can provide additional global CPI properties via the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS. 
 
