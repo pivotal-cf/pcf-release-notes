@@ -458,6 +458,10 @@ You can enable BOSH Director to include the Ops Manager root certificate authori
 
 For more information, see the **Security** section of the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-4/customizing/deploy-bosh-om.html#contents).
 
+### <a id='certificate-banner'></a> Notification Banner Appears When A Certificate Nears Expiration
+
+Now a notification banner appears in the Ops Manager UI when a certificate needs to be rotated or replaced.  
+
 ### <a id="additional-cpi-settings"></a> IaaS-Specific Global CPI Properties Are Configurable From the API
 
 You can provide additional global CPI properties via the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS. 
