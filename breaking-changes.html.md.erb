@@ -51,17 +51,19 @@ This is a breaking change if you are using HAProxy with the <strong>Automatic</s
 
 If your PAS v2.3 tile is configured to use **Internal MySQL** for its UAA or CredHub databases, PAS modifies this configuration to **PAS database** when upgrading to v2.4. 
 
-In the PAS v2.4 tile, you can configure CredHub and UAA to use the same external database
-as other PAS components. If you select **External Databases - (e.g. AWS RDS)** on
-the **Databases** pane of the PAS tile, select **PAS database** on the **CredHub** or **UAA** 
-panes to use the same external database.
+In the PAS v2.4 tile, you can configure CredHub and UAA to use the same external database as other PAS components. If you select **External Databases - (e.g., AWS RDS)** on the **Databases** pane of the PAS tile, select **PAS database** on the **CredHub** or **UAA** panes to use the same external database.
 
-To use a separate external database for CredHub or UAA, select **Other external database**
-on the **CredHub** or **UAA** pane of the PAS tile. 
+To use a separate external database for CredHub or UAA, select **Other external database** on the **CredHub** or **UAA** pane of the PAS tile and provide a username and password for the database. 
 
 <p class="note"><strong>Note</strong>: If you use GCP, you cannot use an external
 database for CredHub. For more information, see <a href="https://docs.pivotal.io#external-credhub">CredHub Database Cannot Be External
 on GCP</a> below.</p>
+
+### <a id='credhub-two-instances'></a>Credhub Scaled to Two Instances by Default
+
+By default, the Credhub instance count is two. Previously, the default instance count was zero. To deploy PAS without Credhub, set the CredHub instance count to zero after staging the PAS tile and before applying any PAS configuration changes.
+
+ <p class="note"><strong>Note</strong>: To use the default CredHub instance count of two, select a database for CredHub in the **CredHub** pane of the PAS tile. For more information about selecting a database for CredHub, see the [Updated Configuration for UAA and CredHub Databases](#uaa-credhub-dbs) breaking change above.</p>
 
 ### <a id='cflinuxfs3'></a> cflinuxfs3 is the Default Stack
 
