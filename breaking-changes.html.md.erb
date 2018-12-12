@@ -65,7 +65,7 @@ on GCP</a> below.</p>
 
 ### <a id='cflinuxfs3'></a> cflinuxfs3 is the Default Stack
 
-PAS v2.3 introduced the cflinuxfs3 stack alongside the cflinuxfs2 default. In PAS v2.4, cflinuxfs3 is the default stack. This means that any newly created app automatically uses cflinuxfs3 as its stack instead of cflinuxfs2. However, existing apps continue to use their current stack. 
+PAS v2.3 introduced the cflinuxfs3 stack alongside the cflinuxfs2 default. In PAS v2.4, cflinuxfs3 is the default stack. This means that newly-created Linux apps use the cflinuxfs3 stack instead of cflinuxfs2, unless specified otherwise with the `-s` flag. Existing apps continue to use their current stack. 
 
 You can modify your default stack in the **Cloud Controller** pane of the PAS tile. For more information, see [Cloud Controller](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas-config.html#config-cc).
 
