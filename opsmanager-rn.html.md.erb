@@ -23,7 +23,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/cus
 * **[Security Fix]**: Bumps Loofah to 2.2.3 to address a CVE.
 * **[Security Fix]**: Bumps Rack to 2.0.6 to address a CVE.
 * **[New Feature]**: A Pivotal-specific GUID appears in the global CPI options for Azure deployments. View this key/value pair in the CPI configururation of the BOSH Director manifest.
-* **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can send a GET to director/properties, director/iaas_configurations/guid, director/iaas_configurations, or products/guid/properties with the redact=false parameter to see an API response that includes credentials.
+* **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can send a GET to `director/properties`, `director/iaas_configurations/guid`, `director/iaas_configurations`, or `products/guid/properties` with the `redact=false` parameter to see an API response that includes credentials.
 * **[New Feature]**: `GET /api/v0/pivotal_network/stemcell_updates` works on both Windows and Xenial stemcells.
 * **[New Feature]**: You can download the product manifest for your last successful deployment.
 * **[Bug Fix]**: The API docs show `instance_groups` in some locations where they previously referenced jobs.
