@@ -16,6 +16,75 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-1-19"></a> 2.1.19
+
+* **[Security Fix]**: Bumps active-job to 5.0.4 to resolve [CVE-2018-16476](https://nvd.nist.gov/vuln/detail/CVE-2018-16476).
+* **[Security Fix]**: Bumps Loofah to 2.2.3 to address a CVE.
+* **[Security Fix]**: Bumps Rack to 2.0.6 to address a CVE.
+* **[Security Fix]**: Bumps Nokogiri to address a CVE.
+* **[New Feature]**: You can download the product manifest for your last successful deployment.
+* **[New Feature]**: The expiring certificates endpoint, `/api/v0/deployed/certificates`, will now indicate when the `saml_service_provider_cert` certificate is about to expire.
+* **[Feature Improvement]**: When you import products that use the future Unified Syslog feature, you are warned that some syslog features will not be active in this version of Ops Manager.
+* **[Feature Improvement]**: Adds API docs for GET and PUT to the `ssh_banner_contents` endpoint.
+* **[Feature Improvement]**: When a user who has not logged into Ops Manager is prompted to log in to view a page, logging in returns them to the page they tried to access, rather than the Installation Dashboard.
+* **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
+* **[Bug Fix]**: Temporary nginx uploads are deleted from `/var/tempest/tmp` after stemcell upload completes. 
+* **[Bug Fix]**: The Director Availability Zone (AZ) form now displays when there are deployed runtime config tiles. 
+* **[Bug Fix]**: Stemcells no longer accidentally downgrade when upgrading to a new Ops Manager. This rare bug occurred when a product had a newer stemcell patch than Ops Manager included during the upgrade. 
+* **[Bug Fix]**: Now Application Load Balancers (ALBs) also apply to the Director VM for AWS deployments. 
+* **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs.
+* **[Bug Fix]**: The API docs show `instance_groups` in some locations where they previously referenced jobs.
+* **[Bug Fix]**: The SAML certificate regenerates when authentication method changes from SAML to internal, rather than when SAML is enabled. This facilitates a greater number of authentication method workflows, including those which change Ops Manager metadata.
+* **[Bug Fix]**: Ops Manager captures changes to the database, including reversions to old passwords, more completely.
+* **[Bug Fix]**: Corrects the link to Pivotal Network from the API docs.
+
+
+Ops Manager v2.1.19 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.1-build.413*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3541.65*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.4.4</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>265.11.0</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.10.0</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.21</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.7.7</td>
+  </tr><tr>
+    <td>UAA</td><td>55.4*</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+</tr><tr>
+    <td>Azure CPI</td><td>35.4.0</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27.0.1</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>37</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id="2-1-18"></a> 2.1.18
 
 * **[Security Fix]**: Bumps Nokogiri to 1.8.5 to address [CVE-2018-14404](https://nvd.nist.gov/vuln/detail/CVE-2018-14404).
