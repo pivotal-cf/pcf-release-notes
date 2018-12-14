@@ -56,14 +56,20 @@ In the PAS v2.4 tile, you can configure CredHub and UAA to use the same external
 To use a separate external database for runtime CredHub or UAA, select **Other external database** on the **CredHub** or **UAA** pane of the PAS tile and provide a username and password for the database. 
 
 <p class="note"><strong>Note</strong>: If you use GCP, you cannot use an external
-database for CredHub. For more information, see <a href="https://docs.pivotal.io#external-credhub">CredHub Database Cannot Be External
-on GCP</a> below.</p>
+database for CredHub. For more information, see <a href="https://docs.pivotal.io#external-credhub">CredHub Database Cannot Be External on GCP</a> below.</p>
 
-### <a id='credhub-two-instances'></a>Credhub Scaled to Two Instances by Default
+### <a id='credhub-two-instances'></a>CredHub Scaled to Two Instances by Default
 
-By default, the runtime Credhub instance count is two. Previously, the default instance count was zero. To deploy PAS without Credhub, set the CredHub instance count to zero after staging the PAS tile and before applying any PAS configuration changes.
+By default, the runtime CredHub instance count is two. Previously, its default instance count was zero.
 
- <p class="note"><strong>Note</strong>: To use the default CredHub instance count of two, select a database for CredHub in the **CredHub** pane of the PAS tile. For more information about selecting a database for CredHub, see the [Updated Configuration for UAA and CredHub Databases](#uaa-credhub-dbs) breaking change above.</p>
+On GCP, this causes deploy errors when your PAS system databases are external and CredHub is configured to use the system database location. Deploying PAS on GCP generates an `Unable to render jobs for instance group 'credhub'` when it tries to create an external CredHub database, because the [CredHub database cannot be external on GCP](#external-credhub).
+
+To avoid this error on GCP while retaining external PAS system databases, include the following PAS configuration changes before you click **Apply Changes** to deploy:
+
+  - Set the CredHub instance count in the PAS tile **Resource Config** pane to zero.
+  - Paste dummy values into the **CredHub** pane > **Encryption Keys** > **Name** and **Key** fields.
+
+To use the default CredHub instance count of two, select a database for CredHub in the **CredHub** pane of the PAS tile. For more information about selecting a database for CredHub, see the [Updated Configuration for UAA and CredHub Databases](#uaa-credhub-dbs) breaking change.
 
 ### <a id='cflinuxfs3'></a> cflinuxfs3 is the Default Stack
 
