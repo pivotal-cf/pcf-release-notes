@@ -574,12 +574,11 @@ For more information, see [Updating Director and IaaS Properties](http://docs.pi
 
 Ops Manager v2.4 includes the following updates to the API. Some of these updates are referenced in the [New Features](#major-features) section.
 
-* [Getting BOSH CPI Config from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-cpi-config-from-historical-installations): This section is new.
-* [Getting BOSH runtime configs from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-runtime-configs-from-historical-installations): This section is new.
-* [Fetching the deployed director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/
-opsman-api/#fetching-the-deployed-director-runtime-configs): This section is new.
-* [DNS Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)* 
-: This section includes a new parameter:
+### <a id="updated-sections"></a> Updated Sections
+
+The following existing sections of the API documentation have been updated in v2.4:
+
+* [DNS Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes a new parameter:
   * `excluded_recursors`
 * [Security Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes the following new parameters:
   * `trusted_certificates`
@@ -587,15 +586,10 @@ opsman-api/#fetching-the-deployed-director-runtime-configs): This section is new
   * `opsmanager_root_ca_trusted_certs`
 * [Iaas Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)* : This section includes a new parameter:
   * `additional_cloud_properties`
-* [Fetching the staged director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-the-staged-director-runtime-configs): This section is new.
-* [Retrieving syslog configuration for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#list-jobs-for-a-given-product): This section is new.
-* [Fetching deployed product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-deployed-product-runtime-configs): This section is new.
 * [Retrieving resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
   * `additional_networks`
 * [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
   * `additional_networks`
-* [Retrieving syslog configuration for a product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-syslog-configuration-for-a-product): This section is new.
-* [Configuring product syslog](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-product-syslog): This section is new.
 * [Fetching staged product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-staged-product-runtime-configs): This section is new.
 * [Setting the Custom Banners](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#setting-the-custom-banners): This section includes a new parameter:
   * `ssh_banner_contents`
@@ -603,10 +597,26 @@ opsman-api/#fetching-the-deployed-director-runtime-configs): This section is new
   * `transport_protocol`
 * [Retrieving manifest for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-manifest-for-a-deployed-product): This section includes a new parameter:
   * `mode`
-* [Custom Manifest Operations (EXPERIMENTAL)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#custom-manifest-operations-experimental): This section is new and designated as experimental.
-* [Getting a List of All Manifest Operations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-a-list-of-all-manifest-operations): This section is new.
-* [Deleting a Manifest Operation](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#deleting-a-manifest-operation): This section is new.
-* [Adding a Job to the Director VM](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#adding-a-job-to-the-director-vm): This section is new.
+
+<p class="note"><strong>Note</strong>: In the v2.4 version of the Ops Manager API, <code>excluded_recursors</code> API endpoints have moved. This could cause some scripts to break. For more information, see <a href="https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html#excluded-recursors">Excluded Recursors API Field Has Moved</a>.</p>
+
+### <a id="new-sections"></a> New Sections
+
+The following sections are new in v2.4:
+
+* [Custom Manifest Operations (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#custom-manifest-operations-experimental)
+* [Getting a List of All Manifest Operations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-a-list-of-all-manifest-operations)
+* [Deleting a Manifest Operation](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#deleting-a-manifest-operation)
+* [Adding a Job to the Director VM](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#adding-a-job-to-the-director-vm)
+* [Retrieving syslog configuration for a product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-syslog-configuration-for-a-product)
+* [Configuring product syslog](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-product-syslog)
+* [Fetching the staged director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-the-staged-director-runtime-configs)
+* [Retrieving syslog configuration for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#list-jobs-for-a-given-product)
+* [Fetching deployed product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-deployed-product-runtime-configs)
+* [Getting BOSH CPI Config from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-cpi-config-from-historical-installations)
+* [Getting BOSH runtime configs from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-runtime-configs-from-historical-installations)
+* [Fetching the deployed director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/
+opsman-api/#fetching-the-deployed-director-runtime-configs)
 
 ## <a id='known-issues'></a> Known Issues
 
