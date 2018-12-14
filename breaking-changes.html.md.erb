@@ -56,20 +56,20 @@ In the PAS v2.4 tile, you can configure CredHub and UAA to use the same external
 To use a separate external database for runtime CredHub or UAA, select **Other external database** on the **CredHub** or **UAA** pane of the PAS tile and provide a username and password for the database. 
 
 <p class="note"><strong>Note</strong>: If you use GCP, you cannot use an external
-database for CredHub. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#external-credhub">CredHub Database Cannot Be External on GCP</a> below.</p>
+database for CredHub. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#external-credhub">CredHub Database Cannot Be External on GCP</a>.</p>
 
 ### <a id='credhub-two-instances'></a>CredHub Scaled to Two Instances by Default
 
-By default, the runtime CredHub instance count is two. Previously, its default instance count was zero.
+By default, the Runtime CredHub instance count is two. Previously, its default instance count was zero.
 
-On GCP, this causes deploy errors when your PAS system databases are external and CredHub is configured to use the system database location. Deploying PAS on GCP generates an `Unable to render jobs for instance group 'credhub'` when it tries to create an external CredHub database, because the [CredHub database cannot be external on GCP](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#external-credhub).
+To deploy PAS with zero CredHub instances, set the CredHub instance count in the PAS tile **Resource Config** pane to zero. Alternatively, to use the default instance count of two, select a database for CredHub in the PAS tile **CredHub** pane. For more information about selecting a database for CredHub, see the [Updated Configuration for UAA and CredHub Databases](#uaa-credhub-dbs) breaking change.
 
-To avoid this error on GCP while retaining external PAS system databases, include the following PAS configuration changes before you click **Apply Changes** to deploy:
+On GCP, a CredHub instance count greater than zero causes a deploy error when your PAS system databases are external and CredHub is configured to use the system database location. Deploying PAS on GCP generates an `Unable to render jobs for instance group 'credhub'` error because the CredHub database cannot be external on GCP. For more information, see [CredHub Database Cannot Be External on GCP](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#external-credhub).
+
+To avoid this error on GCP while using external PAS system databases, include the following PAS configuration changes before you click **Apply Changes** to deploy:
 
   - Set the CredHub instance count in the PAS tile **Resource Config** pane to zero.
   - Paste dummy values into the **CredHub** pane > **Encryption Keys** > **Name** and **Key** fields.
-
-To use the default CredHub instance count of two, select a database for CredHub in the **CredHub** pane of the PAS tile. For more information about selecting a database for CredHub, see the [Updated Configuration for UAA and CredHub Databases](#uaa-credhub-dbs) breaking change.
 
 ### <a id='cflinuxfs3'></a> cflinuxfs3 is the Default Stack
 
