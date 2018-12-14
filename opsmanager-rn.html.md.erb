@@ -20,10 +20,10 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 ## <a id="releases"></a> Releases
 ###<a id="2-2-13"></a> 2.2.13
 
-* **[New Feature]**: A UI banner appears on the Dashboard when some certificates are about to expire.
-* **[New Feature]**: The Ops Manager API now has a selected option identifier for a selector property. For example, `properties.SELECTOR_NAME.SELECTOR_OPTION.OPTION-NAME`. This helps identify what properties are associated with the selected option on a selector.
-* **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can send a GET to `director/properties`, `director/iaas_configurations/guid`, `director/iaas_configurations`, or `products/guid/properties` with the `redact=false` parameter to see an API response that includes credentials.
-* **[Bug Fix]**: The API docs now depict `PUT /api/v0/settings/ssl_certificate` details correctly.
+* **[New Feature]**: A banner appears on the Dashboard when certificates are about to expire.
+* **[New Feature]**: The Ops Manager API has a selected option identifier for a selector property. For example, `properties.SELECTOR_NAME.SELECTOR_OPTION.OPTION-NAME`. This helps identify what properties are associated with the selected option on a selector.
+* **[New Feature]**: Ops Manager operators with permissions to see credentials can send a `GET` to `director/properties`, `director/iaas_configurations/guid`, `director/iaas_configurations`, or `products/guid/properties` with the `redact=false` parameter to see an API response that includes credentials.
+* **[Bug Fix]**: The API docs corrected `PUT /api/v0/settings/ssl_certificate` details.
 
 
 Ops Manager v2.2.13 uses the following component versions:
