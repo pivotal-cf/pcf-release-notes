@@ -496,7 +496,7 @@ For more information, see [Review Pending Changes Page](https://docs.pivotal.io/
 
 ### <a id="consistent-syslog"></a> Consistent Syslog Panes in Ops Manager and BOSH Director
 
-The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director tile are now identical. The **Syslog** pane in the **Settings** menu allows syslog configuration for a PCF deployment, and the **Syslog** pane in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
+The **Syslog** pane in Ops Manager's **Settings** menu and in the BOSH Director tile are now identical. The **Syslog** pane in the **Settings** menu allows syslog configuration for Ops Manager, and the **Syslog** pane in the BOSH Director tile allows configuration for the BOSH Director exclusively. For more information, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html#settings).
 
 Both of these panes use the new Syslog form template available to all tile authors. For more information about the template, see [Syslog Form Template Available for Tile Authors](#syslog).
 
@@ -514,7 +514,7 @@ For more information, see [Staged BOSH Director](http://docs.pivotal.io/pivotalc
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
-Tile authors can insert a templatized Syslog form into their tiles by editing `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director tile. The form template is an opportunity to make tile users' experience more consistent and secure. 
+Tile authors can insert a templatized Syslog form into their tiles by using the `opsmanager_syslog` key in their tile's `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director tile. The form template is an opportunity to make tile users' experience more consistent and secure. 
 
 For more information about modifying `metadata.yml`, see [Property Template References](https://docs.pivotal.io/tiledev/2-4/property-template-references.html).
 
@@ -548,7 +548,7 @@ For more information, see [Retrieving resources for a job](http://docs.pivotal.i
 
 ### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available From the API
 
-You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint, as well as rotate the certificates. 
+You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint, or use a different endpoint to rotate the certificates. 
 
 For more information, see [Getting Information About Certificates from Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
 
