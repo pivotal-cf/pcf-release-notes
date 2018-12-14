@@ -23,15 +23,15 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 * **[Security Fix]**: Bumps Rack to 2.0.6 to address a CVE.
 * **[Security Fix]**: Bumps Nokogiri to address a CVE.
 * **[New Feature]**: You can download the product manifest for your last successful deployment.
-* **[New Feature]**: The expiring certificates endpoint, `/api/v0/deployed/certificates`, will now indicate when the `saml_service_provider_cert` certificate is about to expire.
+* **[New Feature]**: The expiring certificates endpoint, `/api/v0/deployed/certificates`, indicates when the `saml_service_provider_cert` certificate is about to expire.
 * **[Feature Improvement]**: When you import products that use the future Unified Syslog feature, you are warned that some syslog features will not be active in this version of Ops Manager.
 * **[Feature Improvement]**: Adds API docs for GET and PUT to the `ssh_banner_contents` endpoint.
 * **[Feature Improvement]**: When a user who has not logged into Ops Manager is prompted to log in to view a page, logging in returns them to the page they tried to access, rather than the Installation Dashboard.
 * **[Bug Fix]**: Operators can work around an expired SAML service provider cert by disabling and enabling SAML.
 * **[Bug Fix]**: Temporary nginx uploads are deleted from `/var/tempest/tmp` after stemcell upload completes. 
-* **[Bug Fix]**: The Director Availability Zone (AZ) form now displays when there are deployed runtime config tiles. 
+* **[Bug Fix]**: The Director Availability Zone (AZ) form displays when there are deployed runtime config tiles. 
 * **[Bug Fix]**: Stemcells no longer accidentally downgrade when upgrading to a new Ops Manager. This rare bug occurred when a product had a newer stemcell patch than Ops Manager included during the upgrade. 
-* **[Bug Fix]**: Now Application Load Balancers (ALBs) also apply to the Director VM for AWS deployments. 
+* **[Bug Fix]**: Application Load Balancers (ALBs) apply to the Director VM for AWS deployments. 
 * **[Bug Fix]**: Operators can change the Director Hostname without losing connection between BOSH Director and VMs.
 * **[Bug Fix]**: The API docs show `instance_groups` in some locations where they previously referenced jobs.
 * **[Bug Fix]**: The SAML certificate regenerates when authentication method changes from SAML to internal, rather than when SAML is enabled. This facilitates a greater number of authentication method workflows, including those which change Ops Manager metadata.
