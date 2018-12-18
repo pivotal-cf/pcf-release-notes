@@ -570,6 +570,12 @@ After adding new global CPI properties, you can view the global CPI properties i
 
 For more information, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental).
 
+## <a id='known-issues'></a> Known Issues
+
+### <a id="custom-banner"></a> Custom Banner Does Not Display On All Ops Manager Pages
+
+You can set a custom banner to display on Ops Manager. Due to a visualization issue in Ops Manager, the custom banner does not display on the Stemcell library, Review Pending Changes, Change Log, and Previous Installation History pages.
+
 ## <a id="api-updates"></a> API Documentation Updates
 
 Ops Manager v2.4 includes the following updates to the API. Some of these updates are referenced in the [New Features](#major-features) section.
@@ -590,7 +596,6 @@ The following existing sections of the API documentation have been updated in Op
   * `additional_networks`
 * [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
   * `additional_networks`
-* [Fetching staged product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-staged-product-runtime-configs): This section is new.
 * [Setting the Custom Banners](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#setting-the-custom-banners): This section includes a new parameter:
   * `ssh_banner_contents`
 * [Updating the Syslog configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-the-syslog-configuration): This section includes a new parameter:
@@ -611,16 +616,10 @@ The following sections are new in Ops Manager v2.4:
 * [Retrieving syslog configuration for a product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-syslog-configuration-for-a-product)
 * [Configuring product syslog](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-product-syslog)
 * [Fetching the staged director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-the-staged-director-runtime-configs)
+* [Fetching staged product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-staged-product-runtime-configs)
 * [Retrieving syslog configuration for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#list-jobs-for-a-given-product)
 * [Fetching deployed product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-deployed-product-runtime-configs)
 * [Getting BOSH CPI Config from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-cpi-config-from-historical-installations)
 * [Getting BOSH runtime configs from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-runtime-configs-from-historical-installations)
 * [Fetching the deployed director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/
 opsman-api/#fetching-the-deployed-director-runtime-configs)
-
-## <a id='known-issues'></a> Known Issues
-
-### <a id="custom-banner"></a> Custom Banner Does Not Display On All Ops Manager Pages
-
-You can set a custom banner to display on Ops Manager. Due to a visualization issue in Ops Manager, the custom banner does not display on the Stemcell library, Review Pending Changes, Change Log, and Previous Installation History pages.
-
