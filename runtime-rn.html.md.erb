@@ -11,13 +11,113 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.4.0-rc.3'></a> 2.4.0-rc.3
+### <a id='2.4.0'></a> 2.4.0
 
-* **[Bug Fix]** Fix issue preventing tiles that depend on the deprecated consul BOSH link from being deployed successfully with PAS
+See also:
+
+- [Breaking Changes](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html)
+- [New Features](#new-features)
+
+* **[Breaking change]** Increase default and minimum CPU core count from 1 to 2 for internal blobstore VMs to improve reliability
+* **[Breaking Change]** Improve GrootFS garbage collection
+* **[Breaking Change]** Bump log-cache API to version 2.x which moves `/v1` endpoints to `/api/v1`
+* **[Breaking Change]** Internal MySQL always uses Percona XtraDB Cluster
+* **[Beta Feature]** Users can now discover organization level usage durations across a foundation
+* **[Beta Feature]** Networking administrators can configure egress networking policies dynamically to IP ranges instead of ASGs
+* **[Feature]** Add cloud controller deployment-updater job to enable zero-downtime pushes with `cf v3-zdt-push`
+* **[Feature]** Enable fetching logs and metrics via gRPC
+* **[Feature]** Add smb-volume-release to PAS
+* **[Feature]** Users in `usage_service.audit` group can access the Usage Service API using their CF OAuth token
+* **[Feature]** Apps manager includes new home page and allows users to search for apps, spaces, orgs and service instances
+* **[Feature]** Add metric-registrar to enable App Developers to output custom application metrics that can be monitored by platform-provided tooling
+* **[Feature]** Remove configuration for internal MySQL Load Balancer
+* **[Feature]** Co-locate BPM on all VMs in PAS and IST
+* **[Feature]** Add `tile_installer` UAA client intended for use by service tiles during installation to create their own long-term operational client credentials
+* **[Feature]** Support restore from different Azure storage account
+* **[Feature Improvement]** Operators can opt-in to enable TLS for clients of the internal PXC database
+* **[Feature Improvement]** Allow TLS between usage-service and mysql to be turned off
+* **[Feature Improvement]** Improve performance of the system_report/service_usages endpoint in the `usages-service` to prevent potential 502 or 504 responses on larger deployments
+* **[Feature Improvement]** Update version number in link to docs page for Apps Manager
+* **[Feature Improvement]** Add new endpoint in CredHub to find permissions given actor and path
+* **[Feature Improvement]** `cf ssh` is now compatible with mutual-TLS-based verification of ingress traffic from gorouters to application instances
+* **[Feature Improvement]** Notifications component talks TLS to database
+* **[Feature Improvement]** NFS Broker connects to its database using TLS
+* **[Feature Improvement]** Credhub can be configured to use the same external database as other components configured in PAS tile
+* **[Feature Improvement]** UAA connects using TLS to internal database default & external databases when a CA cert is provided
+* **[Feature Improvement]** UAA can be configured to use the same external database as other components configured in PAS tile
+* **[Feature Improvement]** Credhub connects to MySQL using TLS
+* **[Feature Improvement]** The usage-service uses the shared CF CLI which can be updated independently
+* **[Feature Improvement]** Operators can configure the default root filesystem for new applications created the platform
+* **[Feature Improvement]** The notification release uses the shared CF CLI which can be updated independently
+* **[Feature Improvement]** The notification ui release uses the shared CF CLI which can be updated independently
+* **[Feature Improvement]** Loggregator can be updated without rolling every VM
+* **[Feature Improvement]** Change default HAProxy instance count to 0
+* **[Feature Improvement]** Routing-API job connects to MySQL using TLS
+* **[Feature Improvement]** All errands use the CF CLI that is distributed as a BOSH release
+* **[Feature Improvement]** Update name of the Small Footprint PAS tile shown on the tile in Ops Manager UI
+* **[Feature Improvement]** clock_global now defaults to 2 instances to be highly available
+* **[Feature Improvement]** Allow disabling connection pooling for autoscaler API & escape special characters in external database passwords
+* **[Feature Improvement]** Improve UI for route integrity options
+* **[Feature Improvement]** Credhub is GA and on by default
+* **[Feature Improvement]** Scale Consul Server down to 0
+* **[Feature Improvement]** Remove option to disable route integrity
+* **[Feature Improvement]** network policy server connects to MySQL using TLS
+* **[Feature Improvement]** Operators can distinguish among metrics being emitted from different PAS tile deployments
+* **[Feature Improvement]** credhub connects to MySQL using TLS
+* **[Feature Improvement]** Diego connects to MySQL using TLS
+* **[Feature Improvement]** CAPI connects to MySQL using TLS
+* **[Feature Improvement]** PAS can be configured with a CA certificate for TLS connections to an external MySQL database
+* **[Feature Improvement]** Metrics emitted from each deployment are tagged with additional metadata
+
+* Add new release loggregator-agent at version `2.2`
+* Add new release metric-registrar at version `1.0.4`
+* Add new release smb-volume at version `0.2.2`
+* Removed cf-mysql release
+
+* Bump backup-and-restore-sdk to version `1.10.0`
+* Bump binary-offline-buildpack to version `1.0.27`
+* Bump bosh-dns-aliases to version `0.0.3`
+* Bump bosh-system-metrics-forwarder to version 0.0.16
+* Bump bpm to version `0.13.0`
+* Bump cf-cli to version `1.9.0`
 * Bump cf-smoke-tests to version `40.0.40`
 * Bump cflinuxfs2 to version `1.253.0`
 * Bump cflinuxfs3 to version `0.44.0`
+* Bump consul to version `198`
 * Bump consul-drain to version `0.0.3`
+* Bump capi to version `1.72.2`
+* Bump credhub to version `2.1.2`
+* Bump diego to version `2.22.0`
+* Bump dotnet-core-offline-buildpack to version `2.2.0`
+* Bump garden-runc to version `1.16.7`
+* Bump go-offline-buildpack to version `1.8.29`
+* Bump haproxy to version 9.3.0
+* Bump java-offline-buildpack to version `4.16.1`
+* Bump log-cache to version `2.0.1`
+* Bump loggregator to version `103.3`
+* Bump mysql-monitoring to version `9.1.0`
+* Bump nats to version 26
+* Bump nodejs-offline-buildpack to version `1.6.34`
+* Bump php-offline-buildpack to version `4.3.64`
+* Bump pxc to version 0.14.0
+* Bump python-offline-buildpack to version `1.6.23`
+* Bump routing to version 0.182.0
+* Bump ruby-offline-buildpack to version `1.7.27`
+* Bump silk to version `2.17.0`
+* Bump staticfile-offline-buildpack to version `1.4.35`
+* Bump syslog to version `11.4.0`
+* Bump ubuntu-xenial stemcell to version `170.9`
+* Bump cf-autoscaling to version `215`
+* Bump cf-networking to version `2.18.2`
+* Bump cf-syslog-drain to version `8.0`
+* Bump mapfs to version `1.1.2`
+* Bump nfs-volume to version `1.7.4`
+* Bump notifications-ui to version `36`
+* Bump notifications to version `54`
+* Bump push-apps-manager-release to version `667.0.2`
+* Bump push-usage-service-release to version `668.0.10`
+* Bump statsd-injector to version `1.5.0`
+* Bump uaa to version `66.0`
 
 <table border="1" class="nice">
   <thead>
@@ -77,682 +177,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>66.0</td></tr>
   </tbody>
 </table>
-
-### <a id='2.4.0-rc.2'></a> 2.4.0-rc.2
-
-* **[Feature Improvement]** Notifications component talks TLS to database
-* **[Breaking change]** Increase default and minimum CPU core count from 1 to 2 for internal blobstore VMs to improve reliability
-* **[Feature Improvement]** Add new endpoint in CredHub to find permissions given actor and path
-* **[Feature Improvement]** `cf ssh` is now compatible with mutual-TLS-based verification of ingress traffic from gorouters to application instances
-* **[Bug Fix]** Fix issue where some CAPI components would fail to start if bosh-dns was slow to start
-* **[Bug Fix]** Continue emitting `mysql` as the mysql metrics `origin` to prevent breaking consumers like Healthwatch
-* Bump capi to version `1.72.2`
-* Bump cf-smoke-tests to version `40.0.25`
-* Bump cflinuxfs2 to version `1.251.0`
-* Bump cflinuxfs3 to version `0.42.0`
-* Add new release consul-drain at version `0.0.1`
-* Bump credhub to version `2.1.2`
-* Bump dotnet-core-offline-buildpack to version `2.2.0`
-* Bump go-offline-buildpack to version `1.8.29`
-* Bump metric-registrar to version `1.0.4`
-* Bump nodejs-offline-buildpack to version `1.6.34`
-* Bump php-offline-buildpack to version `4.3.64`
-* Bump python-offline-buildpack to version `1.6.23`
-* Bump ruby-offline-buildpack to version `1.7.27`
-* Bump staticfile-offline-buildpack to version `1.4.35`
-
-### <a id='2.4.0-rc.1'></a> 2.4.0-rc.1
-
-* **[Known Issue]** `deploy-notifications` errand fails when TLS is enabled to external database
-* **[Known Issue]** `metrics-registrar` smoke test fails unless "Include OpsManager Root CA in Trusted Certs" is checked
-* **[Breaking Change]** Improve GrootFS garbage collection
-* **[Security Fix]** Update JDK to latest patch release for Autoscaler
-* **[Security Fix]** Address leak of CF admin credentials into NFS broker bosh errand logs
-* **[Security Fix]** Fix issue where policy server API responses did not contain X-Frame-Options and Content-Security-Policy
-* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Feature]** Add cloud controller deployment-updater job to enable zero-downtime pushes with `cf v3-zdt-push`
-* **[Feature]** Enable fetching logs and metrics via gRPC
-* **[Feature Improvement]** Operators can opt-in to enable TLS for clients of the internal PXC database
-* **[Feature Improvement]** Allow TLS between usage-service and mysql to be turned off
-* **[Feature Improvement]** Improve performance of the system_report/service_usages endpoint in the `usages-service` to prevent potential 502 or 504 responses on larger deployments
-* **[Feature Improvement]** Update version number in link to docs page for Apps Manager
-* **[Bug Fix]** Fix issue in Policy Server where a large number of spaces could cause policy cleaner to fail to clean stale policies
-* **[Bug Fix]** Fix TLS hostname error when Metric Registrar is enabled
-* **[Bug Fix]** Show more helpful error message in Apps Manager when toggling on Autoscaler fails
-* **[Bug Fix]** Allow scaling of individual processes in multiprocess app when some processes are scaled to zero
-* **[Bug Fix]** Fix issue in usage service where database passwords and usernames were not properly escaped causing push-usage-service errand to fail
-* **[Bug Fix]** Fix issue with `cty` parameter in the JWT header not being propagated in the tokens issued by UAA which in particular could cause problems for Spring Boot app integrations.
-* **[Bug Fix]** `push-usage-service` does not support databases that do not support TLS
-* **[Bug Fix]** Fix issue where the CAPI sync job fails when TCP routes are being used
-* **[Bug Fix]** Fix issue where configured database connection timeout for silk was not applied when using an external database
-* Bump ubuntu-xenial stemcell to version `170.9`
-* Bump cf-autoscaling to version `215`
-* Bump cf-networking to version `2.18.2`
-* Bump cflinuxfs2 to version `1.249.0`
-* Bump cflinuxfs3 to version `0.40.0`
-* Bump mapfs to version `1.1.2`
-* Bump metric-registrar to version `1.0.2`
-* Bump nfs-volume to version `1.7.4`
-* Bump push-apps-manager-release to version `667.0.2`
-* Bump push-usage-service-release to version `668.0.10`
-* Bump uaa to version `66.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.9</td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
-    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
-    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
-    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
-    <tr><td>bpm</td><td>0.13.0</td></tr>
-    <tr><td>capi</td><td>1.71.2</td></tr>
-    <tr><td>cf-autoscaling</td><td>215</td></tr>
-    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
-    <tr><td>cf-cli</td><td>1.9.0</td></tr>
-    <tr><td>cf-networking</td><td>2.18.2</td></tr>
-    <tr><td>cf-smoke-tests</td><td>40.0.17</td></tr>
-    <tr><td>cf-syslog-drain</td><td>8.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.249.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.40.0</td></tr>
-    <tr><td>consul</td><td>198</td></tr>
-    <tr><td>credhub</td><td>2.1.1</td></tr>
-    <tr><td>diego</td><td>2.22.0</td></tr>
-    <tr><td>dotnet-core-offline-buildpack</td><td>2.1.5</td></tr>
-    <tr><td>garden-runc</td><td>1.16.7</td></tr>
-    <tr><td>go-offline-buildpack</td><td>1.8.28</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
-    <tr><td>log-cache</td><td>2.0.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
-    <tr><td>metric-registrar</td><td>1.0.2</td></tr>
-    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
-    <tr><td>nats</td><td>26</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.4</td></tr>
-    <tr><td>nodejs-offline-buildpack</td><td>1.6.32</td></tr>
-    <tr><td>notifications-ui</td><td>36</td></tr>
-    <tr><td>notifications</td><td>54</td></tr>
-    <tr><td>php-offline-buildpack</td><td>4.3.61</td></tr>
-    <tr><td>push-apps-manager-release</td><td>667.0.2</td></tr>
-    <tr><td>push-usage-service-release</td><td>668.0.10</td></tr>
-    <tr><td>pxc</td><td>0.14.0</td></tr>
-    <tr><td>python-offline-buildpack</td><td>1.6.21</td></tr>
-    <tr><td>routing</td><td>0.182.0</td></tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.7.24</td></tr>
-    <tr><td>silk</td><td>2.17.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.2</td></tr>
-    <tr><td>staticfile-offline-buildpack</td><td>1.4.32</td></tr>
-    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-    <tr><td>uaa</td><td>66.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-beta.1'></a> 2.4.0-beta.1
-
-* **[Feature Improvement]** NFS Broker connects to its database using TLS
-* **[Feature Improvement]** Credhub can be configured to use the same external database as other components configured in PAS tile
-* **[Feature Improvement]** UAA connects using TLS to internal database default & external databases when a CA cert is provided
-* **[Feature Improvement]** UAA can be configured to use the same external database as other components configured in PAS tile
-* **[Bug Fix]** Improve app/task placement reliability when apps are configured to receive TLS traffic from gorouters
-* **[Bug Fix]** Fixes TLS hostname error when Metric Registrar is enabled
-* Bump ubuntu-xenial stemcell to version `97.32`
-* Bump capi to version `1.71.2`
-* Bump cf-networking to version `2.18.0`
-* Bump cf-smoke-tests to version `40.0.17`
-* Bump cflinuxfs2 to version `1.247.0`
-* Bump cflinuxfs3 to version `0.37.0`
-* Bump diego to version `2.22.0`
-* Bump push-usage-service-release to version `668.0.7`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>97.32</td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
-    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
-    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
-    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
-    <tr><td>bpm</td><td>0.13.0</td></tr>
-    <tr><td>capi</td><td>1.71.2</td></tr>
-    <tr><td>cf-autoscaling</td><td>214</td></tr>
-    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
-    <tr><td>cf-cli</td><td>1.9.0</td></tr>
-    <tr><td>cf-networking</td><td>2.18.0</td></tr>
-    <tr><td>cf-smoke-tests</td><td>40.0.17</td></tr>
-    <tr><td>cf-syslog-drain</td><td>8.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.247.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.37.0</td></tr>
-    <tr><td>consul</td><td>198</td></tr>
-    <tr><td>credhub</td><td>2.1.1</td></tr>
-    <tr><td>diego</td><td>2.22.0</td></tr>
-    <tr><td>dotnet-core-offline-buildpack</td><td>2.1.5</td></tr>
-    <tr><td>garden-runc</td><td>1.16.7</td></tr>
-    <tr><td>go-offline-buildpack</td><td>1.8.28</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
-    <tr><td>log-cache</td><td>2.0.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.1</td></tr>
-    <tr><td>metric-registrar</td><td>1.0.1</td></tr>
-    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
-    <tr><td>nats</td><td>26</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.1</td></tr>
-    <tr><td>nodejs-offline-buildpack</td><td>1.6.32</td></tr>
-    <tr><td>notifications-ui</td><td>36</td></tr>
-    <tr><td>notifications</td><td>54</td></tr>
-    <tr><td>php-offline-buildpack</td><td>4.3.61</td></tr>
-    <tr><td>push-apps-manager-release</td><td>667.0.0</td></tr>
-    <tr><td>push-usage-service-release</td><td>668.0.7</td></tr>
-    <tr><td>pxc</td><td>0.14.0</td></tr>
-    <tr><td>python-offline-buildpack</td><td>1.6.21</td></tr>
-    <tr><td>routing</td><td>0.182.0</td></tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.7.24</td></tr>
-    <tr><td>silk</td><td>2.17.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.2</td></tr>
-    <tr><td>staticfile-offline-buildpack</td><td>1.4.32</td></tr>
-    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-    <tr><td>uaa</td><td>64.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.4'></a> 2.4.0-alpha.4
-
-* **[Known Issue]** Usage service errand fails when using an external DB
-    * Will be fixed in https://www.pivotaltracker.com/story/show/161629538
-* **[Breaking Change]** Bump log-cache API to version 2.x which moves `/v1` endpoints to `/api/v1`
-* **[Breaking Change]** Internal MySQL always uses Percona XtraDB Cluster
-* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Security Fix]** Bump UAA for CVEs
-* **[Feature]** Add smb-volume-release to PAS
-* **[Feature]** Users in `usage_service.audit` group can access the Usage Service API using their CF OAuth token
-* **[Feature]** Apps manager includes new home page and allows users to search for apps, spaces, orgs and service instances
-* **[Feature]** Add metric-registrar to enable App Developers to output custom application metrics that can be monitored by platform-provided tooling
-* **[Beta Feature]** Users can now discover organization level usage durations across a foundation
-* **[Beta Feature]** Networking administrators can configure egress networking policies dynamically to IP ranges instead of ASGs
-* **[Feature Improvement]** Credhub connects to MySQL using TLS
-* **[Feature Improvement]** The usage-service uses the shared CF CLI which can be updated independently
-* **[Feature Improvement]** Operators can configure the default root filesystem for new applications created the platform
-* **[Bug Fix]** Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
-* **[Bug Fix]** Fix manual configuration of load balancers for SSH to application containers on Small Footprint PAS (SF-PAS)
-* **[Bug Fix]** Update log-cache client in Autoscaler for backward compatibility when upgrading PAS
-* **[Bug Fix]** Fix monit scripting bug in nfsv3driver job that could cause the process to continue running after a monit stop
-* **[Bug Fix]** UAA incorrectly require TLS when legacy Internal MySQL - MariaDB is selected
-* Bump ubuntu-xenial stemcell to version `97.28`
-* Bump capi to version `1.71.0`
-* Bump cf-autoscaling to version `214`
-* Bump cf-smoke-tests to version `40.0.13`
-* Bump cf-syslog-drain to version `8.0`
-* Bump cflinuxfs2 to version `1.245.0`
-* Bump cflinuxfs3 to version `0.34.0`
-* Bump garden-runc to version `1.16.7`
-* Bump java-offline-buildpack to version `4.16.1`
-* Bump log-cache to version `2.0.1`
-* Add new release metric-registrar at version `1.0.1`
-* Bump nfs-volume to version `1.7.1`
-* Bump notifications-ui to version `36`
-* Bump notifications to version `54`
-* Bump push-apps-manager-release to version `667.0.0`
-* Bump push-usage-service-release to version `668.0.6`
-* Add new release smb-volume at version `0.2.2`
-* Bump statsd-injector to version `1.5.0`
-* Bump uaa to version `64.0`
-* Removed cf-mysql release
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>97.28</td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
-    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
-    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
-    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
-    <tr><td>bpm</td><td>0.13.0</td></tr>
-    <tr><td>capi</td><td>1.71.0</td></tr>
-    <tr><td>cf-autoscaling</td><td>214</td></tr>
-    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
-    <tr><td>cf-cli</td><td>1.9.0</td></tr>
-    <tr><td>cf-networking</td><td>2.17.0</td></tr>
-    <tr><td>cf-smoke-tests</td><td>40.0.13</td></tr>
-    <tr><td>cf-syslog-drain</td><td>8.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.245.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.34.0</td></tr>
-    <tr><td>consul</td><td>198</td></tr>
-    <tr><td>credhub</td><td>2.1.1</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>dotnet-core-offline-buildpack</td><td>2.1.5</td></tr>
-    <tr><td>garden-runc</td><td>1.16.7</td></tr>
-    <tr><td>go-offline-buildpack</td><td>1.8.28</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
-    <tr><td>log-cache</td><td>2.0.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.1</td></tr>
-    <tr><td>metric-registrar</td><td>1.0.1</td></tr>
-    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
-    <tr><td>nats</td><td>26</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.1</td></tr>
-    <tr><td>nodejs-offline-buildpack</td><td>1.6.32</td></tr>
-    <tr><td>notifications-ui</td><td>36</td></tr>
-    <tr><td>notifications</td><td>54</td></tr>
-    <tr><td>php-offline-buildpack</td><td>4.3.61</td></tr>
-    <tr><td>push-apps-manager-release</td><td>667.0.0</td></tr>
-    <tr><td>push-usage-service-release</td><td>668.0.6</td></tr>
-    <tr><td>pxc</td><td>0.14.0</td></tr>
-    <tr><td>python-offline-buildpack</td><td>1.6.21</td></tr>
-    <tr><td>routing</td><td>0.182.0</td></tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.7.24</td></tr>
-    <tr><td>silk</td><td>2.17.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.2</td></tr>
-    <tr><td>staticfile-offline-buildpack</td><td>1.4.32</td></tr>
-    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-    <tr><td>uaa</td><td>64.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.3'></a> 2.4.0-alpha.3
-
-* **[Feature]** Remove configuration for internal MySQL Load Balancer
-* **[Feature]** Co-locate BPM on all VMs in PAS and IST
-* **[Feature]** Add `tile_installer` UAA client intended for use by service tiles during installation to create their own long-term operational client credentials
-* **[Feature Improvement]** The notification release uses the shared CF CLI which can be updated independently
-* **[Feature Improvement]** The notification ui release uses the shared CF CLI which can be updated independently
-* **[Feature Improvement]** Loggregator can be updated without rolling every VM
-* **[Feature Improvement]** Change default HAProxy instance count to 0
-* **[Feature Improvement]** Routing-API job connects to MySQL using TLS
-* **[Feature Improvement]** All errands use the CF CLI that is distributed as a BOSH release
-* **[Feature Improvement]** Update name of the Small Footprint PAS tile shown on the tile in Ops Manager UI
-* **[Feature Improvement]** clock_global now defaults to 2 instances to be highly available
-* **[Feature Improvement]** Allow disabling connection pooling for autoscaler API & escape special characters in external database passwords
-* **[Bug Fix]** Fix issue where the PAS tile could be incorrectly downloaded when upgrading SF-PAS via PivNet
-* **[Bug Fix]** Fix parse error for syslog rules when iptables logging is enabled
-* **[Bug Fix]** Remove two empty Credhub VMs from SF-PAS deployment
-
-* Bump ubuntu-xenial stemcell to version `97.19`
-* Bump binary-offline-buildpack to version `1.0.27`
-* Bump bpm to version `0.13.0`
-* Bump capi to version `1.70.0`
-* Bump cf-autoscaling to version `212`
-* Bump cf-cli to version `1.9.0`
-* Bump cf-networking to version `2.17.0`
-* Bump cf-smoke-tests to version `40.0.10`
-* Bump cflinuxfs2 to version `1.242.0`
-* Bump cflinuxfs3 to version `0.29.0`
-* Bump consul to version `198`
-* Bump credhub to version `2.1.1`
-* Bump diego to version `2.19.0`
-* Bump dotnet-core-offline-buildpack to version `2.1.5`
-* Bump garden-runc to version `1.16.6`
-* Bump go-offline-buildpack to version `1.8.28`
-* Bump java-offline-buildpack to version `4.16`
-* Bump log-cache to version `1.4.7`
-* Add new release loggregator-agent at version `2.2`
-* Bump loggregator to version `103.3`
-* Bump mapfs to version `1.1.1`
-* Bump mysql-monitoring to version `9.1.0`
-* Bump nfs-volume to version `1.6.0`
-* Bump nodejs-offline-buildpack to version `1.6.32`
-* Bump notifications-ui to version `35`
-* Bump notifications to version `53`
-* Bump php-offline-buildpack to version `4.3.61`
-* Bump push-apps-manager-release to version `666.0.12`
-* Bump push-usage-service-release to version `667.0.10`
-* Bump python-offline-buildpack to version `1.6.21`
-* Bump ruby-offline-buildpack to version `1.7.24`
-* Bump silk to version `2.17.0`
-* Bump staticfile-offline-buildpack to version `1.4.32`
-* Bump statsd-injector to version `1.4.0`
-* Bump syslog to version `11.4.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>97.19</td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
-    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
-    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
-    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
-    <tr><td>bpm</td><td>0.13.0</td></tr>
-    <tr><td>capi</td><td>1.70.0</td></tr>
-    <tr><td>cf-autoscaling</td><td>212</td></tr>
-    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
-    <tr><td>cf-cli</td><td>1.9.0</td></tr>
-    <tr><td>cf-mysql</td><td>36.15.0</td></tr>
-    <tr><td>cf-networking</td><td>2.17.0</td></tr>
-    <tr><td>cf-smoke-tests</td><td>40.0.10</td></tr>
-    <tr><td>cf-syslog-drain</td><td>7.1</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.242.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.29.0</td></tr>
-    <tr><td>consul</td><td>198</td></tr>
-    <tr><td>credhub</td><td>2.1.1</td></tr>
-    <tr><td>diego</td><td>2.19.0</td></tr>
-    <tr><td>dotnet-core-offline-buildpack</td><td>2.1.5</td></tr>
-    <tr><td>garden-runc</td><td>1.16.6</td></tr>
-    <tr><td>go-offline-buildpack</td><td>1.8.28</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>java-offline-buildpack</td><td>4.16</td></tr>
-    <tr><td>log-cache</td><td>1.4.7</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.1</td></tr>
-    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
-    <tr><td>nats</td><td>26</td></tr>
-    <tr><td>nfs-volume</td><td>1.6.0</td></tr>
-    <tr><td>nodejs-offline-buildpack</td><td>1.6.32</td></tr>
-    <tr><td>notifications-ui</td><td>35</td></tr>
-    <tr><td>notifications</td><td>53</td></tr>
-    <tr><td>php-offline-buildpack</td><td>4.3.61</td></tr>
-    <tr><td>push-apps-manager-release</td><td>666.0.12</td></tr>
-    <tr><td>push-usage-service-release</td><td>667.0.10</td></tr>
-    <tr><td>pxc</td><td>0.14.0</td></tr>
-    <tr><td>python-offline-buildpack</td><td>1.6.21</td></tr>
-    <tr><td>routing</td><td>0.182.0</td></tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.7.24</td></tr>
-    <tr><td>silk</td><td>2.17.0</td></tr>
-    <tr><td>staticfile-offline-buildpack</td><td>1.4.32</td></tr>
-    <tr><td>statsd-injector</td><td>1.4.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-    <tr><td>uaa</td><td>60.2</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.4.0-alpha.2'></a> 2.4.0-alpha.2
-
-* **[Feature]** Support restore from different Azure storage account
-* **[Feature Improvement]** Improve UI for route integrity options
-* **[Feature Improvement]** Credhub is GA and on by default
-* **[Feature Improvement]** Scale Consul Server down to 0
-* **[Feature Improvement]** Remove option to disable route integrity
-* **[Feature Improvement]** network policy server connects to MySQL using TLS
-* **[Feature Improvement]** Operators can distinguish among metrics being emitted from different PAS tile deployments
-* **[Feature Improvement]** credhub connects to MySQL using TLS
-* **[Feature Improvement]** Diego connects to MySQL using TLS
-* **[Feature Improvement]** CAPI connects to MySQL using TLS
-* **[Feature Improvement]** PAS can be configured with a CA certificate for TLS connections to an external MySQL database
-* **[Feature Improvement]** Metrics emitted from each deployment are tagged with additional metadata
-
-* Bump stemcell to Xenial version `97.17`
-* Bump backup-and-restore-sdk to version `1.10.0`
-* Bump binary-offline-buildpack to version 1.0.26
-* Bump bosh-system-metrics-forwarder to version 0.0.16
-* Bump bpm to version 0.12.3
-* Bump capi to version 1.69.0
-* Bump cf-autoscaling to version 210
-* Bump cf-cli to version 1.8.0
-* Bump cf-networking to version 2.16.0
-* Bump cf-smoke-tests to version 40.0.9
-* Bump cf-syslog-drain to version 7.1
-* Bump cflinuxfs2 to version 1.238.0
-* Bump cflinuxfs3 to version 0.25.0
-* Bump consul to version 196
-* Bump diego to version 2.18.0
-* Bump garden-runc to version 1.16.4
-* Bump haproxy to version 9.3.0
-* Bump log-cache to version 1.4.6
-* Bump loggregator to version 103.2
-* Bump nats to version 26
-* Bump notifications to version 52
-* Bump notifications-ui to version 34
-* Bump pxc to version 0.14.0
-* Bump routing to version 0.182.0
-* Bump silk to version 2.16.0
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>97.17</td>
-  </tr><tr>
-    <td>backup-and-restore-sdk</td><td>1.10.0</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.26</td>
-  </tr><tr>
-    <td>bosh-dns-aliases</td><td>0.0.3</td>
-  </tr><tr>
-    <td>bosh-system-metrics-forwarder</td><td>0.0.16</td>
-  </tr><tr>
-    <td>bpm</td><td>0.12.3</td>
-  </tr><tr>
-    <td>capi</td><td>1.69.0</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>210</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.11</td>
-  </tr><tr>
-    <td>cf-cli</td><td>1.8.0</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36.15.0</td>
-  </tr><tr>
-    <td>cf-networking</td><td>2.16.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>40.0.9</td>
-  </tr><tr>
-    <td>cf-syslog-drain</td><td>7.1</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.238.0</td>
-  </tr><tr>
-    <td>cflinuxfs3</td><td>0.25.0</td>
-  </tr><tr>
-    <td>consul</td><td>196</td>
-  </tr><tr>
-    <td>credhub</td><td>2.0.2</td>
-  </tr><tr>
-    <td>diego</td><td>2.18.0</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>2.1.4</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.16.4</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.26</td>
-  </tr><tr>
-    <td>haproxy</td><td>9.3.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>4.15</td>
-  </tr><tr>
-    <td>log-cache</td><td>1.4.6</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.2</td>
-  </tr><tr>
-    <td>mapfs</td><td>1.1.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.20.0</td>
-  </tr><tr>
-    <td>nats</td><td>26</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.5.3</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.30</td>
-  </tr><tr>
-    <td>notifications</td><td>52</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>34</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.59</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>666.0.0</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>667.0.1</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.6.20</td>
-  </tr><tr>
-    <td>pxc</td><td>0.14.0</td>
-  </tr><tr>
-    <td>routing</td><td>0.182.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.7.22</td>
-  </tr><tr>
-    <td>silk</td><td>2.16.0</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.31</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.3.0</td>
-  </tr><tr>
-    <td>syslog</td><td>11.3.2</td>
-  </tr><tr>
-    <td>uaa</td><td>60.2</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
-
-### <a id='2.4.0-alpha.1'></a> 2.4.0-alpha.1
-
-* Bump bosh-dns-aliases to version `0.0.3`
-* Bump bpm to version `0.12.2`
-* Bump capi to version `1.67.0`
-* Bump cf-cli to version `1.6.0`
-* Bump cf-networking to version `2.14.0`
-* Bump credhub to version `2.0.2`
-* Bump diego to version `2.16.0`
-* Bump garden-runc to version `1.16.3`
-* Bump haproxy to version `9.1.0`
-* Bump log-cache to version `1.4.1`
-* Bump loggregator to version `103.1`
-* Bump mapfs to version `1.1.0`
-* Bump push-apps-manager-release to version `666.0.0`
-* Bump push-usage-service-release to version `667.0.1`
-* Bump routing to version `0.180.0`
-* Bump silk to version `2.14.0`
-
-  <table border="1" class="nice">
-  <thead> <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>stemcell</td><td>97.15</td>
-  </tr><tr>
-    <td>backup-and-restore-sdk</td><td>1.9.0</td>
-  </tr><tr>
-    <td>binary-offline-buildpack</td><td>1.0.25</td>
-  </tr><tr>
-    <td>bosh-dns-aliases</td><td>0.0.3</td>
-  </tr><tr>
-    <td>bosh-system-metrics-forwarder</td><td>0.0.15</td>
-  </tr><tr>
-    <td>bpm</td><td>0.12.2</td>
-  </tr><tr>
-    <td>capi</td><td>1.67.0</td>
-  </tr><tr>
-    <td>cf-autoscaling</td><td>208</td>
-  </tr><tr>
-    <td>cf-backup-and-restore</td><td>0.0.11</td>
-  </tr><tr>
-    <td>cf-cli</td><td>1.6.0</td>
-  </tr><tr>
-    <td>cf-mysql</td><td>36.15.0</td>
-  </tr><tr>
-    <td>cf-networking</td><td>2.14.0</td>
-  </tr><tr>
-    <td>cf-smoke-tests</td><td>40.0.6</td>
-  </tr><tr>
-    <td>cf-syslog-drain</td><td>7.0</td>
-  </tr><tr>
-    <td>cflinuxfs2</td><td>1.234.0</td>
-  </tr><tr>
-    <td>cflinuxfs3</td><td>0.17.0</td>
-  </tr><tr>
-    <td>consul</td><td>195</td>
-  </tr><tr>
-    <td>credhub</td><td>2.0.2</td>
-  </tr><tr>
-    <td>diego</td><td>2.16.0</td>
-  </tr><tr>
-    <td>dotnet-core-offline-buildpack</td><td>2.1.4</td>
-  </tr><tr>
-    <td>garden-runc</td><td>1.16.3</td>
-  </tr><tr>
-    <td>go-offline-buildpack</td><td>1.8.26</td>
-  </tr><tr>
-    <td>haproxy</td><td>9.1.0</td>
-  </tr><tr>
-    <td>java-offline-buildpack</td><td>4.15</td>
-  </tr><tr>
-    <td>log-cache</td><td>1.4.1</td>
-  </tr><tr>
-    <td>loggregator</td><td>103.1</td>
-  </tr><tr>
-    <td>mapfs</td><td>1.1.0</td>
-  </tr><tr>
-    <td>mysql-monitoring</td><td>8.20.0</td>
-  </tr><tr>
-    <td>nats</td><td>25</td>
-  </tr><tr>
-    <td>nfs-volume</td><td>1.5.3</td>
-  </tr><tr>
-    <td>nodejs-offline-buildpack</td><td>1.6.30</td>
-  </tr><tr>
-    <td>notifications</td><td>51</td>
-  </tr><tr>
-    <td>notifications-ui</td><td>33</td>
-  </tr><tr>
-    <td>php-offline-buildpack</td><td>4.3.59</td>
-  </tr><tr>
-    <td>push-apps-manager-release</td><td>666.0.0</td>
-  </tr><tr>
-    <td>push-usage-service-release</td><td>667.0.1</td>
-  </tr><tr>
-    <td>python-offline-buildpack</td><td>1.6.20</td>
-  </tr><tr>
-    <td>pxc</td><td>0.13.0</td>
-  </tr><tr>
-    <td>routing</td><td>0.180.0</td>
-  </tr><tr>
-    <td>ruby-offline-buildpack</td><td>1.7.22</td>
-  </tr><tr>
-    <td>silk</td><td>2.14.0</td>
-  </tr><tr>
-    <td>staticfile-offline-buildpack</td><td>1.4.31</td>
-  </tr><tr>
-    <td>statsd-injector</td><td>1.3.0</td>
-  </tr><tr>
-    <td>syslog</td><td>11.3.2</td>
-  </tr><tr>
-    <td>uaa</td><td>60.2</td>
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-    <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-  </tr>
-  </tfoot>
-  </table>
 
 ## <a id='upgrade'></a> How to Upgrade
 
