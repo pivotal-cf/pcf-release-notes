@@ -17,7 +17,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/cus
 
 ### <a id="2-4-1"></a> 2.4.1
 
-* **[Security Fix]**: GETs to any Ops Manager or UAA API endpoint no longer returns any information about the web server, including version numbers.
+* **[Security Fix]**: GETs to any Ops Manager or UAA API endpoint no longer return any information about the web server, including version numbers.
 * **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can send a GET to `director/properties`, `director/iaas_configurations/guid`, `director/iaas_configurations`, or `products/guid/properties` with the `redact=false` parameter to see an API response that includes credentials.
 * **[New Feature]**: You can use a checkbox on the Director Settings page to opt-in to running the `drain` lifecycle when deploying the BOSH Director. Alternatively, in the API, send a GET to `/api/v0/staged/director/properties` to see a new property under `director_configuration` called `skip_director_drain` to see the status of this checkbox.
 * **[Feature Improvement]**: In the Ops Manager API, `selected_value` for selectors without default values specified will return `null` when you visit `/api/v0/staged/products/product-guid/properties`.
