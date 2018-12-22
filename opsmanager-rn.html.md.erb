@@ -16,6 +16,58 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/cus
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-3-7"></a> 2.3.7
+
+* **[Security Fix]**: GETs to any Ops Manager or UAA API endpoint no longer return any information about the web server, including version numbers.
+* **[New Feature]**: Ops Manager operators with sufficient permissions to see credentials can send a GET to `director/properties`, `director/iaas_configurations/guid`, `director/iaas_configurations`, or `products/guid/properties` with the `redact=false` parameter to see an API response that includes credentials.
+* **[New Feature]**: You can use a checkbox on the Director Settings page to opt-in to running the `drain` lifecycle when deploying the BOSH Director. Alternatively, in the API, send a GET to `/api/v0/staged/director/properties` to see a new property under `director_configuration` called `skip_director_drain` to see the status of this checkbox.
+* **[Feature Improvement]**: More detailed selector properties are now available from the API through a new field called `selected_value`. This field returns the selected machine-readable option name.
+* **[Bug Fix]**: The PUT `/api/v0/settings/ssl_certificate` API docs are now correct.
+
+Ops Manager v2.3.7 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.3-build.224*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>97.42 (Xenial)*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.7</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>267.8</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.10</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.21</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.9.5</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.3</td>
+  </tr><tr>
+    <td>UAA</td><td>60.8</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>72</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.5*</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27.0.1</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>39</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>50.0.4*</td>
+  </tr>
+  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
 ### <a id="2-3-6"></a> 2.3.6
 
 * **[Security Fix]**: Bumps stemcell to 97.34 to resolve [USN-3820-2](https://www.cloudfoundry.org/blog/usn-3820-2/).
