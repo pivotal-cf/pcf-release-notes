@@ -16,7 +16,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix memory allocated to be multiplied by number of instances for each process on space page app tab
 * **[Bug Fix]** Ensure that the encoding used by Credhub is UTF-8
 * **[Bug Fix]** Fix help text for TCP router ports because comma separated lists of ports are not supported
-* **[Bug Fix]** Ensure logs and metrics are forwarded from every VM in deployment
+* **[Bug Fix]** Ensure logs and metrics are forwarded by adding syslog_forwarder and loggregator_agent to VMs missing them
 * Bump ubuntu-trusty stemcell to version `3541.65`
 * Bump cf-smoke-tests to version `40.0.40`
 * Bump cflinuxfs2 to version `1.255.0`
