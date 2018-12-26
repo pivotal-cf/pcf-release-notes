@@ -11,6 +11,82 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.1'></a> 2.4.1
+
+* **[Feature Improvement]** Improved logging and error handling for Diego Sync job
+* **[Feature Improvement]** Add note to description for "cf deployment name" option in PAS Config to ensure Healthwatch is correctly configured
+* **[Bug Fix]** Fix memory allocated to be multiplied by number of instances for each process on space page app tab
+* **[Bug Fix]** Update MySQL driver so `allowNativePasswords` no longer defaults to `false` to fix incompatibility with Autoscaler and some hosted MySQL services
+* **[Bug Fix]** VXLAN-policy-agent now opens ports in non-ephemeral port range
+* **[Bug Fix]** Fix help text for TCP router ports because comma separated lists of ports are not supported
+* **[Bug Fix]** Update a few docs links to more recent versions
+* **[Bug Fix]** Ensure logs and metrics are forwarded from every VM in deployment
+* Bump ubuntu-xenial stemcell to version `170.14`
+* Bump cf-autoscaling to version `216`
+* Bump cflinuxfs2 to version `1.255.0`
+* Bump cflinuxfs3 to version `0.46.0`
+* Bump push-apps-manager-release to version `667.0.3`
+* Bump silk to version `2.18.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>170.14</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.10.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.27</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
+    <tr><td>bpm</td><td>0.13.0</td></tr>
+    <tr><td>capi</td><td>1.71.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>216</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.9.0</td></tr>
+    <tr><td>cf-networking</td><td>2.18.2</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>cf-syslog-drain</td><td>8.0</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.255.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.46.0</td></tr>
+    <tr><td>consul-drain</td><td>0.0.3</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.2</td></tr>
+    <tr><td>diego</td><td>2.22.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.2.0</td></tr>
+    <tr><td>garden-runc</td><td>1.16.7</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.29</td></tr>
+    <tr><td>haproxy</td><td>9.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
+    <tr><td>log-cache</td><td>2.0.1</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.2</td></tr>
+    <tr><td>metric-registrar</td><td>1.0.4</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.4</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.34</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>54</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.64</td></tr>
+    <tr><td>push-apps-manager-release</td><td>667.0.3</td></tr>
+    <tr><td>push-usage-service-release</td><td>668.0.10</td></tr>
+    <tr><td>pxc</td><td>0.14.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.23</td></tr>
+    <tr><td>routing</td><td>0.182.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.27</td></tr>
+    <tr><td>silk</td><td>2.18.1</td></tr>
+    <tr><td>smb-volume</td><td>0.2.2</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.35</td></tr>
+    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>66.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.0'></a> 2.4.0
 
 See also:
