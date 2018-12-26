@@ -13,7 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.5'></a> 2.3.5
 
-* **[Security Fix]** Bump UAA
+* **[Security Fix]** Upgrade UAA to 60.9 to address CVE-2018-15754
 * **[Feature Improvement]** Improved logging and error handling for Diego Sync job
 * **[Feature Improvement]** Blobstore pre-start performance enhancement
 * **[Bug Fix]** Fix memory allocated to be multiplied by number of instances for each process on space page app tab
@@ -22,8 +22,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Bump Diego to v2.20.0 to resolve DNS timeouts from Golang components
 * **[Bug Fix]** VXLAN-policy-agent now opens ports in non-ephemeral port range
 * **[Bug Fix]** Fix help text for TCP router ports because comma separated lists of ports are not supported
-* **[Bug Fix]** Update a few docs links to more recent versions
-* **[Bug Fix]** Ensure logs and metrics are forwarded from every VM in deployment
+* **[Bug Fix]** Fix some docs links to correct product versions
+* **[Bug Fix]** Ensure logs and metrics are forwarded by adding syslog_forwarder and loggregator_agent to VMs missing them
 * Bump ubuntu-xenial stemcell to version `97.41`
 * Bump capi to version `1.66.5`
 * Bump cf-autoscaling to version `216`
