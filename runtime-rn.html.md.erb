@@ -13,7 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.2.11'></a> 2.2.11
 
-* **[Security Fix]** Bump UAA
+* **[Security Fix]** Upgrade UAA to 60.9 to address CVE-2018-15754
 * **[Feature Improvement]** Improved logging and error handling for Diego Sync job
 * **[Feature Improvement]** Blobstore pre-start performance enhancement
 * **[Bug Fix]** Remove log noise from Reverse Log Proxy and TrafficController
@@ -21,7 +21,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Ensure that the encoding used by Credhub is UTF-8
 * **[Bug Fix]** VXLAN-policy-agent now opens ports in non-ephemeral port range
 * **[Bug Fix]** Fix help text for TCP router ports because comma separated lists of ports are not supported
-* **[Bug Fix]** Ensure logs and metrics are forwarded from every VM in deployment
+* **[Bug Fix]** Ensure logs and metrics are forwarded by adding syslog_forwarder and loggregator_agent to VMs missing them
 * Bump ubuntu-trusty stemcell to version `3586.60`
 * Bump capi to version `1.58.10`
 * Bump cf-smoke-tests to version `40.0.40`
