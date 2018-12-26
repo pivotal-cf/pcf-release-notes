@@ -16,8 +16,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Add note to description for "cf deployment name" option in PAS Config to ensure Healthwatch is correctly configured
 * **[Bug Fix]** Update MySQL driver so `allowNativePasswords` no longer defaults to `false` to fix incompatibility with Autoscaler and some hosted MySQL services
 * **[Bug Fix]** Fix help text for TCP router ports because comma separated lists of ports are not supported
-* **[Bug Fix]** Update a few docs links to more recent versions
-* **[Bug Fix]** Ensure logs and metrics are forwarded from every VM in deployment
+* **[Bug Fix]** Fix some docs links to correct product versions
+* **[Bug Fix]** Ensure logs and metrics are forwarded by adding syslog_forwarder and loggregator_agent to VMs missing them
 * Bump ubuntu-xenial stemcell to version `170.13`
 * Bump cf-networking to version `2.20.0`
 * Bump cflinuxfs2 to version `1.255.0`
