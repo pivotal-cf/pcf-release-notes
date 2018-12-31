@@ -7,7 +7,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
-### <a id='2-1-9'></a> 2.1.9
+### <a id='2.1.9'></a> 2.1.9
 
 * Bump windows2012R2 stemcell to version `1200.26`
 * Bump diego to version `1.35.12`
@@ -33,7 +33,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tbody>
 </table>
 
-### <a id='2-1-8'></a> 2.1.8
+### <a id='2.1.8'></a> 2.1.8
 
 * **[Breaking Change]** The `install-hwc-buildpack` errand is now called `install-hwc-buildpack-lts`
   * If you have scripts which programmatically change the errand state, you'll have to update the scripts to use the new name
@@ -75,7 +75,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
 </table>
 
-### <a id='2-1-7'></a> 2.1.7
+### <a id='2.1.7'></a> 2.1.7
 
 * **[Bug Fix]** bump consul to v195
   * Includes golang 1.9.7, removes golang 1.8.*.
@@ -117,7 +117,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2-1-6'></a> 2.1.6
+### <a id='2.1.6'></a> 2.1.6
 
 * **[Security Fix]** Bump diego to version `1.35.5`
   * [CVE-2018-1265](https://www.cloudfoundry.org/blog/cve-2018-1265/)
@@ -157,7 +157,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2-1-5'></a> 2.1.5
+### <a id='2.1.5'></a> 2.1.5
 
 * **[Security Fix]** Bump loggregator to version `101.11`
   * Add strict application ID validation to TrafficController (CVE-2018-1268 CVE-2018-1269)
@@ -199,7 +199,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2-1-4'></a> 2.1.4
+### <a id='2.1.4'></a> 2.1.4
 
 * **[Security Fix]** Bump stemcell to v1200.17. See [release notes](https://docs.pivotal.io/pivotalcf/2-1/stemcells/windows-stemcell-v1200x.html).
 * **[Feature Improvement]** Bump event-log-release to v0.3.0:
@@ -240,7 +240,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </table>
 
 
-### <a id='2-1-3'></a> 2.1.3
+### <a id='2.1.3'></a> 2.1.3
 
 * **[Bug Fix]** Updated console agent `node_name` to include BOSH id, to prevent two Diego cell instance groups with the same instance group name and index in different deployments from colliding.
 * **[Bug Fix]** Prevent apps from writing logs to metron_agent_windows by disabling the UDP endpoint. The metron_windows_agent is now configured to only support the Loggregator v2 gRPC API.
@@ -279,7 +279,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2-1-2'></a> 2.1.2
+### <a id='2.1.2'></a> 2.1.2
 
 * **[Bug Fix]** Bumps windows-utilities-release to v0.7.0 to fix issue where drain scripts fails if OpenSSH is not installed.
 * **[Bug Fix]** In the **VM Options** tab, **Manage Administrator Password**, the **Use random administrator password** option has been changed to **Use random password** to be consistent with the Pivotal Application Service for Windows v2.1 tile.
@@ -316,7 +316,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2-1-1'></a> 2.1.1
+### <a id='2.1.1'></a> 2.1.1
 
 * Bumps stemcell to v1200.16. [Release Notes](https://docs.pivotal.io/pivotalcf/2-1/stemcells/windows-stemcell-v1200x.html#1200.16)
 * Removes Hakim job from the Windows Diego cell, as it is now providing minimal value.
@@ -353,7 +353,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
   </tfoot>
   </table>
 
-### <a id='2-1-0'></a> 2.1.0
+### <a id='2.1.0'></a> 2.1.0
 
   <table border="1" class="nice">
   <thead> <tr>
