@@ -476,9 +476,13 @@ The option to disable BOSH DNS is no longer available in the Ops Manager UI or A
 
 ### <a id="bosh-dns-certs"></a> BOSH DNS Certificate Authority Upgrades
 
-BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when upgrading to v2.3.
+BOSH DNS now comes with CAs that are valid for four years. These CAs will apply automatically when you upgrade to v2.3.
 
-To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. Follow the procedure below to rotate your certificates:
+To apply the CAs completely, you must upgrade to PCF v2.3 and then rotate all certificates in your installation. 
+
+<p class="note"><strong>Note</strong>: The following procedure instructs you to <strong>Apply Changes</strong> after upgrading to v2.3. It is not mandatory that you perform this procedure immediately after upgrade. However, you will not be able to regenerate certificates until the first time you <strong>Apply Changes</strong> successfully after upgrading to v2.3.</p>
+
+Follow the procedure below to rotate your certificates:
 
 1. Upgrade Ops Manager to v2.3.
 
