@@ -19,6 +19,11 @@ To find out which stemcell version is used by a product tile version, check the 
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
+### <a id="upgrade-failure"></a> Downtime when Upgrading from v2.1 to v2.2.11 
+
+Upgrading directly from PAS v2.1.x to v2.2.11 may cause significant app downtime. 
+If you are upgrading from v2.1.x, Pivotal recommends that you upgrade to v2.2.10 or an earlier patch release of v2.2.x. Once you are on v2.2.10 or an earlier patch release of v2.2.x, you can then upgrade to v2.2.11. 
+
 ### <a id="timestamp"></a> Log Aggregation Systems May Parse Diego Timestamps Incorrectly
 
 The timestamps in the Diego component logs are now in a format compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339).
