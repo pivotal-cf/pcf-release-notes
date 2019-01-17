@@ -7,6 +7,10 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='general'></a> Pivotal Cloud Foundry
 
+### <a id="pks"> PKS v1.3 Does Not Support Ops Manager v2.2
+
+PKS v1.3 only supports Ops Manager v2.3 and v2.4. Do not use PKS v1.3 with any other version of Ops Manager. 
+
 ### <a id="xenial"></a> Tile Patch Releases Use Xenial Stemcells
 
 Ubuntu 14.04 LTS (Trusty) stemcells are reaching end-of-support in April 2019. Starting in September 2018, Pivotal and its partners will begin releasing product tile versions for PCF that require Ubuntu 16.04 LTS (Xenial) stemcells instead of Trusty stemcells. Using Xenial stemcells is necessary to avoid exposure to security vulnerabilities. A PCF deployment may include some products running on Trusty stemcells and others running on Xenial.
