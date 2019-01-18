@@ -17,7 +17,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ### <a id="alpha-2"></a> 2.5 Alpha 2
 
-* **[Security Fix]**: Information about the web server (NGINX) no longer appears in server response headers.
+* **[Security Fix]**: Information about the NGINX web server no longer appears in server response headers.
 * **[New Feature]**: You can now view changes for individual tiles on the **Pending Changes** page. In the **Review Pending Changes** page, click **See Changes**. The **Pending Changes** page for a tile shows the most recent set of modifications you made to the manifest, runtime configs, CPI configs, and cloud config. 
 * **[New Feature]**: Debug log forwarding and custom Syslog configuration are now configurable via the API. Send a GET or a PUT with `forward_debug_logs` or `custom_rsyslog_configuration` to `api/v0/staged/director/properties`.
 * **[New Feature]**: You can now opt in to forwarding debug logs via the UI. In the "Syslog" form, choose the "Forward Debug Logs" checkbox.
@@ -34,8 +34,8 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 * **[UI Improvement]**: Notification messages now appear when a tile staged for installation or deletion has no manifest or there is an error returning the manifest.
 * **[Bug Fix]**: The "Applying Changes" banner now appears consistently throughout the UI. 
 * **[Bug Fix]**: The request body now appears in the PUT section of the `/api/v0/settings/ssl_certificate` API docs.
-* **[Deprecation]**: The NATS username and password have been removed from the BOSH Director manifest. It no longer appears as an API endpoint or in the Credentials tab.
-* **[Deprecation]**: Ops Manager no longer allows legacy agents in stemcells. 
+* **[Unsupported]**: The NATS username and password have been removed from the BOSH Director manifest. It no longer appears as an API endpoint or in the Credentials tab.
+* **[Unsupported]**: Ops Manager no longer allows legacy agents in stemcells. 
 
 Ops Manager v2.5 Alpha 2 uses the following component versions:
 
@@ -63,7 +63,7 @@ Ops Manager v2.5 Alpha 2 uses the following component versions:
   </tr><tr>
     <td>CredHub</td><td>2.0.2</td>
   </tr><tr>
-    <td>Syslog</td><td>11.3</td>
+    <td>Syslog</td><td>11.4*</td>
   </tr><tr>
     <td>UAA</td><td>64</td>
   </tr><tr>
@@ -131,5 +131,9 @@ Ops Manager v2.5 Alpha 1 uses the following component versions:
 
 Ops Manager v2.5 includes the following major features:
 
+* Feature descriptions to come as features are implemented in v2.5 release candidates.
+
 ## <a id='known-issues'></a> Known Issues
+
+* Known issues to come as features and dependencies are implemented in v2.5 release candidates.
 
