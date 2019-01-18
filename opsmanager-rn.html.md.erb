@@ -18,22 +18,22 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 ### <a id="alpha-2"></a> 2.5 Alpha 2
 
 * **[Security Fix]**: Information about the NGINX web server no longer appears in server response headers.
-* **[New Feature]**: You can now view changes for individual tiles on the **Pending Changes** page. In the **Review Pending Changes** page, click **See Changes**. The **Pending Changes** page for a tile shows the most recent set of modifications you made to the manifest, runtime configs, CPI configs, and cloud config. 
-* **[New Feature]**: Debug log forwarding and custom Syslog configuration are now configurable via the API. Send a GET or a PUT with `forward_debug_logs` or `custom_rsyslog_configuration` to `api/v0/staged/director/properties`.
-* **[New Feature]**: You can now opt in to forwarding debug logs via the UI. In the **Syslog** form, choose the "Forward Debug Logs" checkbox.
-* **[New Feature]**: Tile authors can now access a catalog of available VM types via the `(($ops_manager.instance_types_catalog))` accessor.
-* **[New Feature]**: You can now provide custom rsyslog configurations in the **Syslog** form.
-* **[New Feature]**: Tile authors can now write and apply JS migrations to migrate data from their existing syslog configurations to Ops Manager's template syslog form. For more information, see [opsmanager_syslog](https://docs.pivotal.io/tiledev/2-4/property-template-references.html#syslog-flag) in the Tile Developer docs. 
-* **[New Feature]**: You can now use the BOSH drain to gracefully shut down the BOSH Director when it redeploys. This allows for a more complete cleanup of existing VMs during a redeploy. Use the **Skip Director Drain Lifecycle** checkbox in the **Settings** page to configure this feature, or send a PUT to `/api/v0/staged/director/properties` with `skip_director_drain` specified as either `true` or `false`.
-* **[New Feature]**: Credentials now return in some API calls. If you have sufficient permissions, sending a GET to `director/properties` or `director/iaas_configurations/guid` or `products/guid/properties` with the `redact=false` parameter will return all keys and values, including credentials.
-* **[Feature Improvement]**: A selected option identifier now appears in the `/api/v0/staged/products/:product_guid/properties` API endpoint. This identifier helps you see more detail about various selectors.
+* **[New Feature]**: You can view changes for individual tiles on the **Pending Changes** page. In the **Review Pending Changes** page, click **See Changes**. The **Pending Changes** page for a tile shows the most recent set of modifications you made to the manifest, runtime configs, CPI configs, and cloud config. 
+* **[New Feature]**: Debug log forwarding and custom Syslog configuration are configurable via the API. Send a GET or a PUT with `forward_debug_logs` or `custom_rsyslog_configuration` to `api/v0/staged/director/properties`.
+* **[New Feature]**: You can opt in to forwarding debug logs via the UI. In the **Syslog** form, choose the "Forward Debug Logs" checkbox.
+* **[New Feature]**: Tile authors can access a catalog of available VM types via the `(($ops_manager.instance_types_catalog))` accessor.
+* **[New Feature]**: You can provide custom rsyslog configurations in the **Syslog** form.
+* **[New Feature]**: Tile authors can write and apply JS migrations to migrate data from their existing syslog configurations to Ops Manager's template syslog form. For more information, see [opsmanager_syslog](https://docs.pivotal.io/tiledev/2-4/property-template-references.html#syslog-flag) in the Tile Developer docs. 
+* **[New Feature]**: You can use the BOSH drain to gracefully shut down the BOSH Director when it redeploys. This allows for a more complete cleanup of existing VMs during a redeploy. Use the **Skip Director Drain Lifecycle** checkbox in the **Settings** page to configure this feature, or send a PUT to `/api/v0/staged/director/properties` with `skip_director_drain` specified as either `true` or `false`.
+* **[New Feature]**: Credentials return in some API calls. If you have sufficient permissions, sending a GET to `director/properties` or `director/iaas_configurations/guid` or `products/guid/properties` with the `redact=false` parameter will return all keys and values, including credentials.
+* **[Feature Improvement]**: A selected option identifier appears in the `/api/v0/staged/products/:product_guid/properties` API endpoint. This identifier helps you see more detail about various selectors.
 * **[Feature Improvement]**: Windows tile logs no longer contain multiple duplicate lines.
-* **[UI Improvement]**: A notification banner now appears in the Ops Manager UI when a certificate needs to be rotated or replaced.
-* **[UI Improvement]**: When you are on the **Pending Changes** page and a tile is staged for installation or deletion, a message now appears telling you changes to that tile are not available to view.
-* **[UI Improvement]**: You can now see the status of new, staged, or pre-deletion tiles on the "Review Pending Changes" page.
-* **[UI Improvement]**: Notification messages now appear when a tile staged for installation or deletion has no manifest or there is an error returning the manifest.
-* **[Bug Fix]**: The "Applying Changes" banner now appears consistently throughout the UI. 
-* **[Bug Fix]**: The request body now appears in the PUT section of the `/api/v0/settings/ssl_certificate` API docs.
+* **[UI Improvement]**: A notification banner appears in the Ops Manager UI when a certificate needs to be rotated or replaced.
+* **[UI Improvement]**: When you are on the **Pending Changes** page and a tile is staged for installation or deletion, a message appears telling you changes to that tile are not available to view.
+* **[UI Improvement]**: You can see the status of new, staged, or pre-deletion tiles on the "Review Pending Changes" page.
+* **[UI Improvement]**: Notification messages appear when a tile staged for installation or deletion has no manifest or there is an error returning the manifest.
+* **[Bug Fix]**: The "Applying Changes" banner appears consistently throughout the UI. 
+* **[Bug Fix]**: The request body appears in the PUT section of the `/api/v0/settings/ssl_certificate` API docs.
 * **[Unsupported Feature]**: The NATS username and password have been removed from the BOSH Director manifest. They no longer appear at an API endpoint or in the Credentials tab.
 * **[Unsupported Feature]**: Ops Manager no longer allows legacy agents in stemcells. 
 
