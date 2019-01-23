@@ -17,6 +17,22 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ### <a id="alpha-3"></a> 2.5 Alpha 3
 
+* **[New Feature]**: You can now create Availability Zones (AZs) with host groups for deployments on vSphere. Use the **Create Availability Zones** form to configure this feature. 
+* **[New Feature]**: You can now use the API to set the `host_group` in a vSphere cluster. For more information, see [Creating availability zones](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#creating-availability-zones).
+* **[New Feature]**: You can now use the API to GET the `host_group` in a vSphere cluster. For more information, see [Fetching availability zones](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-availability-zones).
+* **[New Feature]**: Ops Manager now generates the vSphere CPI config using the designated `host_group` property if a host group is specified in the AZ. 
+* **[New Feature]**: Setting an invalid vSphere host group via the API now returns a verifier warning.
+* **[New Feature]**: Tile authors can now use the `impact_warning` key to add warning messages to specific errands. For more information, see [Installations](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#installations).
+* **[New Feature]**: Tile authors can now use the `option_value` property in the Ops Manager API to set properties with machine-readable keys. For more information, see [Updating a selector property](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-a-selector-property).
+* **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
+* **[Bug Fix]**: LDAP authentication is now more reliable.
+* **[Bug Fix]**: You can no longer export via the API without having deployed anything.
+* **[Bug Fix]**: The AWS verifier now fails gracefully, rather than crashing on failure.
+* **[Bug Fix]**: Installation Change records now have a deployment status other than `null`.
+* **[UI Improvement]**: In the Ops Manager API, some malformed properties now return more reader-friendly error messages.
+* **[UI Improvement]**: The UI of the Review Pending Changes page is now more adherent to the Ops Manager style.
+* **[UI Improvement]**: The UI of the Manifest Changes page is now more adherent to the Ops Manager style.
+
 Ops Manager v2.5 Alpha 3 uses the following component versions:
 
 <table border="1" class="nice">
