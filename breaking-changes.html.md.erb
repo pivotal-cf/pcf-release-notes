@@ -25,6 +25,22 @@ When you enable the **Router and applications use mutual TLS to verify each othe
 
 In PAS v2.3, traffic between the Gorouter and Cloud Controller is encrypted. To prevent app downtime while upgrading from v2.2 to v2.3, you must be running PAS v2.2.4 or later. These versions of PAS v2.2 contain the configuration <code>router.backends.enable_tls: true</code> in the Gorouter manifest.
 
+### <a id="cipher-downtime"></a> Removing Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4
+
+In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. 
+
+CAPI is hardcoded to use certain cipher suites, such as the following:
+
+```
+DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
+```
+
+For Gorouter, you can configure with the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. 
+
+If you change the default cipher suites in the **TLS Cipher Suites for Router** field and do not include any one of the cipher suites supported by CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime; users will not be able to do things such as push apps and create routes. 
+
+To resolve this issue, add the cipher suite back to the **TLS Cipher Suites for Router** field.
+
 
 ### <a id="backup-restore-name-change"></a> backup-prepare Instance Group Has Been Renamed to backup_restore
 
