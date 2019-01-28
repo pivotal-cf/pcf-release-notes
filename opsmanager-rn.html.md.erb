@@ -21,7 +21,6 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 
 * **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated.
 * **[New Feature]**: NATS certificate information, including expiration dates, is now available via the API. Use the `api/v0/deployed/certificates` endpoint to view this information.
-* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
 * **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
 
