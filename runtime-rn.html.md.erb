@@ -11,6 +11,107 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.5.0-alpha.5'></a> 2.5.0-alpha.5
+
+* **[Breaking Change]** Remove unused `enable_log_cache` property
+* **[Breaking Change]** Remove inactive DNS server configuration that only applied to older deployments without BOSH DNS
+* **[Breaking Change]** Remove unused Apps Manager UAA client and refresh token property
+* **[Breaking Change]** Remove option to override deployment name to CF
+* **[Breaking Change]** Remove unused jobs `mysql-restore` and `mysql-backup`
+* **[Feature]** Add ability to disable network policy enforcement between applications
+* **[Feature]** Add optional Istio based routing tier (BETA)
+* **[Feature Improvement]** Add support for "windows" stack
+* **[Feature Improvement]** Remove `Enable log-cache` checkbox
+* **[Feature Improvement]** Increase the maximum number of connections for internal MySQL to 3500
+* **[Feature Improvement]** Change default lifetime of Apps Manager client UAA token to 1 hour
+* **[Feature Improvement]** BPM is enabled for Credhub
+* **[Bug Fix]** Fix an issue in nfsbroker causing new nfs service bindings to use the nfs-legacy mounter, potentially causing slower performance and failures when the file server only supports nfs v4.
+* **[Bug Fix]** Volume service broker deployment errands use unique CF_HOME directories to avoid login conflicts
+* **[Bug Fix]** Bump NFS release to avoid possible golang 1.11.0 DNS resolution bugs
+* Bump ubuntu-xenial stemcell to version `170.15`
+* Bump binary-offline-buildpack to version `1.0.28`
+* Bump capi to version `1.75.0`
+* Bump cf-cli to version `1.12.0`
+* Bump cf-syslog-drain to version `8.2`
+* Bump cflinuxfs2 to version `1.259.0`
+* Bump cflinuxfs3 to version `0.50.0`
+* Bump diego to version `2.25.0`
+* Bump dotnet-core-offline-buildpack to version `2.2.3`
+* Bump garden-runc to version `1.17.2`
+* Bump go-offline-buildpack to version `1.8.30`
+* Bump haproxy to version `9.4.0`
+* Add new release istio at version `v1.0.1`
+* Bump nfs-volume to version `1.7.6`
+* Bump nodejs-offline-buildpack to version `1.6.38`
+* Bump php-offline-buildpack to version `4.3.67`
+* Bump python-offline-buildpack to version `1.6.25`
+* Bump routing to version `0.185.0`
+* Bump ruby-offline-buildpack to version `1.7.29`
+* Bump smb-volume to version `1.0.0`
+* Bump staticfile-offline-buildpack to version `1.4.37`
+* Bump statsd-injector to version `1.6.0`
+* Bump uaa to version `68.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>170.15</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.11.1</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.28</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.0.0</td></tr>
+    <tr><td>capi</td><td>1.75.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>216</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.12.0</td></tr>
+    <tr><td>cf-networking</td><td>2.20.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>cf-syslog-drain</td><td>8.2</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.259.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.50.0</td></tr>
+    <tr><td>consul-drain</td><td>0.0.3</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.2</td></tr>
+    <tr><td>diego</td><td>2.25.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.2.3</td></tr>
+    <tr><td>garden-runc</td><td>1.17.2</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.30</td></tr>
+    <tr><td>haproxy</td><td>9.4.0</td></tr>
+    <tr><td>istio</td><td>v1.0.1</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
+    <tr><td>log-cache</td><td>2.0.2</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.2</td></tr>
+    <tr><td>metric-registrar</td><td>1.0.4</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.2.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.6</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.38</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>54</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.67</td></tr>
+    <tr><td>push-apps-manager-release</td><td>667.0.2</td></tr>
+    <tr><td>push-usage-service-release</td><td>669.0.7</td></tr>
+    <tr><td>pxc</td><td>0.14.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.25</td></tr>
+    <tr><td>routing</td><td>0.185.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.29</td></tr>
+    <tr><td>silk</td><td>2.20.0</td></tr>
+    <tr><td>smb-volume</td><td>1.0.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.37</td></tr>
+    <tr><td>statsd-injector</td><td>1.6.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>68.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.5.0-alpha.4'></a> 2.5.0-alpha.4
 
 * **[Feature Improvement]** Add note to description for "cf deployment name" option in PAS Config to ensure Healthwatch is correctly configured
