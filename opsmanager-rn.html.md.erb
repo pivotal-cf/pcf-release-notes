@@ -17,6 +17,59 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 
 ## <a id="releases"></a> Releases
 
+###<a id="2-2-16"></a> 2.2.16
+
+* **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated.
+* **[New Feature]**: NATS certificate information, including expiration dates, is now available via the API. Use the `api/v0/deployed/certificates` endpoint to view this information.
+* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning.
+* **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
+* **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
+
+Ops Manager v2.2.16 uses the following component versions:
+
+ <table border="1" class="nice">
+ <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td>2.2-build.406*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3586.70*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.6.0</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>266.15*</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.10.0</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.22*</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.9.3</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.4*</td>
+  </tr><tr>
+    <td>UAA</td><td>57.7*</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>70</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.5</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>27.0.1</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>38</td>
+  </tr>
+  <tr>
+    <td>vSphere CPI</td><td>50.0.4</td>
+  </tr>
+  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+  </table>
+
 ###<a id="2-2-15"></a> 2.2.15
 
 * **[Security Fix]**: Information about the web server (NGINX) no longer appears in server response headers.
