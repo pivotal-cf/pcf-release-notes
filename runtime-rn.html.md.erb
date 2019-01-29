@@ -270,7 +270,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id='2.5.0-alpha.2'></a> 2.5.0-alpha.2
 
 * **[Feature]** Apps manager includes new home page and allows users to search for apps, spaces, orgs, and service instances
-* **[Feature]** Add ability to disable network policy enforcement between applications
+* **[Feature]** Add ability to disable network policy enforcement between applications ([more info](#disable-policy-enforcement))
 * Bump ubuntu-xenial stemcell to version `170.9`
 * Bump bosh-system-metrics-forwarder to version `0.0.18`
 * Bump bpm to version `1.0.0`
@@ -458,7 +458,7 @@ When upgrading to PAS v2.5, be aware of the following upgrade considerations:
 
 
 
-### <a id="disable-policy-enforcment"></a> Disable Network Policy Enforcement Between Apps
+### <a id="disable-policy-enforcement"></a> Disable Network Policy Enforcement Between Apps
 
 You can now disable Silk network policy enforcement between apps in the **Networking** pane of the PAS tile. 
 Disabling network policy enforcement allows all apps to send network traffic to all other apps in the
