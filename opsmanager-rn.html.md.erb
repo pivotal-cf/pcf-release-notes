@@ -15,6 +15,58 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ## <a id="releases"></a>Releases
 
+### <a id="alpha-4"></a> 2.5 Alpha 4
+
+* **[New Feature]**: You can now pre-create a client for automating Ops Manager end-to-end. Optionally, specify a `precreated_client_secret` field in `POST /api/v0/setup`. Then, when operators attempt to get a client UAA token against Ops Manager using the the client name `precreated-client`, after providing the `precreated_client_secret`, they will get an access token to OpsManager with the scopes `opsman.admin` and `uaa.admin`. 
+* **[New Feature]**: Ops Manager now supports keystone v3 for OpenStack deployments, including adding support for project names to the existing support for tenant names.
+* **[New Feature]**: BOSH now uses postgres 10.x. To confirm what version of BOSH you're running, `ssh` onto the BOSH Director and run `/var/vcap/packages/postgres-10/bin/psql --user postgres -h 127.0.0.1`. 
+* **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
+* **[UI Improvement]**: When an Ops Manager operator stages a tile for deletion, a warning appears if the tile has staged changes that will be lost when the tile is deleted.
+
+Ops Manager v2.5 Alpha 4 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.5-build.103*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>170.21</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.7.0</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>268.5.0</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.10</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.21</td>
+  </tr><tr>
+    <td>CredHub</td><td>2.0.2</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.4</td>
+  </tr><tr>
+    <td>UAA</td><td>68</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>73</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.5</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>29.0.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>41</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>52.0.0</td>
+  </tr>
+  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
 ### <a id="alpha-3"></a> 2.5 Alpha 3
 
 * **[New Feature]**: You can now create Availability Zones (AZs) with host groups for deployments on vSphere. Use the **Create Availability Zones** form to configure this feature. 
