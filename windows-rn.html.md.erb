@@ -527,13 +527,6 @@ Previously, health checks during app startup increased system load because they 
 
 PAS for Windows v2.1 resolves these issues through a new implementation that does not invoke a new process on every health check. The health check now runs as a long-lived process in the app container. Developers may see these processes if they access an app container using the `cf ssh` command and list the processes.
 
-
-## <a id='adv-features'></a> About Advanced Features
-
-The Advanced Features section of the PAS for Windows 2012R2 tile includes new functionality that may have certain constraints.
-
-Although these features are fully supported, Pivotal recommends caution when using them in production.
-
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="aws-dns-configuration"></a> Default DNS configuration on AWS does not work
