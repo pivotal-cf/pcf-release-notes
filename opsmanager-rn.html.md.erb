@@ -18,9 +18,13 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 ### <a id="alpha-4"></a> 2.5 Alpha 4
 
 * **[New Feature]**: You can now pre-create a client for automating Ops Manager end-to-end. Optionally, specify a `precreated_client_secret` field in `POST /api/v0/setup`. Then, when operators attempt to get a client UAA token against Ops Manager using the the client name `precreated-client`, after providing the `precreated_client_secret`, they will get an access token to OpsManager with the scopes `opsman.admin` and `uaa.admin`. 
+* **[New Feature]**: You can now store credentials in memory by checking the **Enable BOSH to store job credentials on a tmpFS** checkbox in the Director Config page.
 * **[New Feature]**: Ops Manager now supports keystone v3 for OpenStack deployments, including adding support for project names to the existing support for tenant names.
 * **[New Feature]**: BOSH now uses postgres 10.x. To confirm what version of BOSH you're running, `ssh` onto the BOSH Director and run `/var/vcap/packages/postgres-10/bin/psql --user postgres -h 127.0.0.1`. 
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
+* **[New Feature]**: Tile authors can now use a double-parens accessor to pull information from Ops Manager. Use the `(($ops_manager.restricted_view_api_access_credentials))` accessor to make read-only, non-credential requests to Ops Manager.
+* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning. The warning displays in the Review Pending Changes pane when `impact_warning` is enabled.
+* **[Bug Fix]**: You can now upgrade service broker tiles from v2.4 to v2.5 on deployments using Azure.
 * **[UI Improvement]**: When an Ops Manager operator stages a tile for deletion, a warning appears if the tile has staged changes that will be lost when the tile is deleted.
 
 Ops Manager v2.5 Alpha 4 uses the following component versions:
@@ -34,10 +38,10 @@ Ops Manager v2.5 Alpha 4 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Ops Manager</td><td>2.5-build.111*</td>
+    <td>Ops Manager</td><td>2.5-build.112*</td>
   </tr>
   <tr>
-    <td>Stemcell</td><td>170.24*</td>
+    <td>Stemcell</td><td>250.4*</td>
   </tr><tr>
     <td>BBR SDK</td><td>1.7.0</td>
   </tr><tr>
@@ -47,7 +51,7 @@ Ops Manager v2.5 Alpha 4 uses the following component versions:
   </tr><tr>
     <td>Metrics Server</td><td>0.0.22*</td>
   </tr><tr>
-    <td>CredHub</td><td>2.2*</td>
+    <td>CredHub</td><td>2.2.1*</td>
   </tr><tr>
     <td>Syslog</td><td>11.4</td>
   </tr><tr>
@@ -59,7 +63,7 @@ Ops Manager v2.5 Alpha 4 uses the following component versions:
   </tr><tr>
     <td>GCP CPI</td><td>29.0.0</td>
   </tr><tr>
-    <td>OpenStack CPI</td><td>41</td>
+    <td>OpenStack CPI</td><td>42*</td>
   </tr><tr>
     <td>vSphere CPI</td><td>52.0.0</td>
   </tr>
