@@ -3,7 +3,12 @@ title: PAS for Windows v2.3 Release Notes
 owner: Garden Windows
 ---
 
-This topic contains release notes for Pivotal Application Service for Windows (PASW) v2.3.x.
+This topic contains release notes for Pivotal Application Service (PAS) for Windows v2.3.
+
+## <a id='upgrade'></a> How to Upgrade
+
+The PAS for Windows v2.3 tile is available with the release of Pivotal Cloud Foundry (PCF) v2.3. To
+use the PAS for Windows v2.3 tile, you must install Ops Manager v2.3 or later and PAS v2.3 or later.
 
 ## <a id='releases'></a> Releases
 
@@ -40,7 +45,7 @@ This topic contains release notes for Pivotal Application Service for Windows (P
 ### <a id='2.3.4'></a>2.3.4
 
 * **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Feature Improvement]** Smoke tests for PASW are run as a post-deploy errand
+* **[Feature Improvement]** Smoke tests for PAS for Windows are run as a post-deploy errand
 * Bump hwc-offline-buildpack to version `3.1.1`
 * Bump windowsfs-release to version `1.6.0`
 
@@ -129,39 +134,24 @@ This topic contains release notes for Pivotal Application Service for Windows (P
 * Bump stemcell windows1803 to version `1803.2`
 
 <table border="1" class="nice">
-<thead> <tr>
-  <th>Component</th>
-  <th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>stemcell</td><td>1803.2</td>
-</tr><tr>
-  <td>consul</td><td>195</td>
-</tr><tr>
-  <td>diego</td><td>2.18.0</td>
-</tr><tr>
-  <td>event_log</td><td>0.7.0</td>
-</tr><tr>
-  <td>garden-runc</td><td>1.16.1</td>
-</tr><tr>
-  <td>hwc-offline-buildpack</td><td>3.0.2</td>
-</tr><tr>
-  <td>loggregator</td><td>103.0</td>
-</tr><tr>
-  <td>winc</td><td>1.5.0</td>
-</tr><tr>
-  <td>windows1803fs</td><td>1.4.0</td>
-</tr><tr>
-  <td>windows-utilities</td><td>0.10.0</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-  <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-</tr>
-</tfoot>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>stemcell</td><td>1803.2</td></tr>
+    <tr><td>consul</td><td>195</td></tr>
+    <tr><td>diego</td><td>2.18.0</td></tr>
+    <tr><td>event_log</td><td>0.7.0</td></tr>
+    <tr><td>garden-runc</td><td>1.16.1</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.0.2</td></tr>
+    <tr><td>loggregator</td><td>103.0</td></tr>
+    <tr><td>winc</td><td>1.5.0</td></tr>
+    <tr><td>windows1803fs</td><td>1.4.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.10.0</td></tr>
+  </tbody>
 </table>
 
 ### <a id='2.3.0'></a>2.3.0
@@ -169,52 +159,34 @@ This topic contains release notes for Pivotal Application Service for Windows (P
 * See [New Features](#new-features) below.
 
 <table border="1" class="nice">
-<thead> <tr>
-  <th>Component</th>
-  <th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>stemcell</td><td>1803.1</td>
-</tr><tr>
-  <td>consul</td><td>195</td>
-</tr><tr>
-  <td>diego</td><td>2.16.0</td>
-</tr><tr>
-  <td>event_log</td><td>0.7.0</td>
-</tr><tr>
-  <td>garden-runc</td><td>1.16.1</td>
-</tr><tr>
-  <td>hwc-offline-buildpack</td><td>3.0.0</td>
-</tr><tr>
-  <td>loggregator</td><td>103.0</td>
-</tr><tr>
-  <td>winc</td><td>1.5.0</td>
-</tr><tr>
-  <td>windows-utilities</td><td>0.10.0</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-  <td colspan="2"><em>\* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
-</tr>
-</tfoot>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>stemcell</td><td>1803.1</td></tr>
+    <tr><td>consul</td><td>195</td></tr>
+    <tr><td>diego</td><td>2.16.0</td></tr>
+    <tr><td>event_log</td><td>0.7.0</td></tr>
+    <tr><td>garden-runc</td><td>1.16.1</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.0.0</td></tr>
+    <tr><td>loggregator</td><td>103.0</td></tr>
+    <tr><td>winc</td><td>1.5.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.10.0</td></tr>
+  </tbody>
 </table>
 
-## <a id='upgrade'></a> How to Upgrade
+## <a id='new-features'></a> New Features in PAS for Windows v2.3
 
-The PASW v2.3 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.3. To use the PASW tile, you need Ops Manager v2.3 or later and PAS v2.3 or later.
-
-## <a id='new-features'></a> New Features in PASW v2.3
-
-PASW v2.3 includes the following major features:
+PAS for Windows v2.3 includes the following major features:
 
 ### <a id='multi-buildpacks'></a>Support for Multiple Buildpacks
 
-PASW v2.3 introduces support for pushing a .NET app with multiple buildpacks.
+PAS for Windows v2.3 introduces support for pushing a .NET app with multiple buildpacks.
 
-For more information, see [Pushing an Application with Multiple Buildpacks](https://docs.pivotal.io/pivotalcf/buildpacks/use-multiple-buildpacks.html).
+For more information, see [Pushing an Application with Multiple Buildpacks](https://docs.pivotal.io/pivotalcf/2-3/buildpacks/use-multiple-buildpacks.html).
 
 ### <a id='ephemeral-disk'></a>Ephemeral Disk Configuration Options
 
@@ -222,11 +194,12 @@ Operators can now use ephemeral disk configuration options for Windows Server ce
 
 ### <a id='compression'></a>HTTP Compression in the HWC Buildpack
 
-PASW v2.3 enables the HTTP compression module from Internet Information Services (IIS), which enables gzip compression for static assets and dynamic content in the HWC buildpack.
+PAS for Windows v2.3 enables the HTTP compression module from Internet Information Services (IIS),
+which enables gzip compression for static assets and dynamic content in the HWC buildpack.
 
 ### <a id='windows-v1803'></a>Windows Server version 1803
 
-PASW v2.3 includes the latest version of Windows Server (version 1803).
+PAS for Windows v2.3 includes the latest version of Windows Server (version 1803).
 The container image for Windows Server version 1803 is 30% smaller than the previous release (version 1709), reducing the memory footprint required for .NET apps.
 The release also includes optimizations for containers, improved compatibility, and enhanced debugging tools.
 
@@ -234,23 +207,26 @@ For more information, see [What's New in Windows Server version 1803](https://do
 
 ## <a id='known-issues'></a> Known Issues
 
-This section includes known issues with PASW v2.3.
+This section includes known issues with PAS for Windows v2.3.
 
 ### <a id="clamav"></a> Update Runtime Config of ClamAV
 
-If you are using the ClamAV Add-on for PCF, you must update your runtime config before upgrading to PASW v2.3.
+If you use the ClamAV Add-on for PCF, you must update your runtime config before upgrading to PAS
+for Windows v2.3.
 
-If you upgrade to PASW v2.3 without first updating the runtime config, then your Windows VMs will not be protected by ClamAV.
+If you upgrade to PAS for Windows v2.3 without first updating the runtime config, then your Windows
+VMs will not be protected by ClamAV.
 
-For more information about how to update your runtime config, see [Updating ClamAV Add-on for PCF to Run with PAS for Windows v2.3
-](https://docs.pivotal.io/addon-antivirus/1-4/updating-for-pasw.html) in the ClamAV documentation.
+For more information about updating your runtime config, see [Updating ClamAV Add-on for PCF to Run with PAS for Windows v2.3](https://docs.pivotal.io/addon-antivirus/1-4/updating-for-pasw.html) in
+the ClamAV documentation.
 
 ### <a id="aws-dns-configuration"></a> Default DNS Configuration on AWS Does Not Work
 
 On AWS, the default DNS configuration of `169.254.169.253` does not work.  
 
-You must configure DNS to use another address, such as `10.0.0.2`. 
-For more information, see [Step 5: Create Networks Page](https://docs.pivotal.io/pivotalcf/customizing/aws-om-config-terraform.html#om-networks) of <em>Configuring BOSH Director on AWS Using Terraform</em>. 
+You must configure DNS to use another address, such as `10.0.0.2`.
+For more information, see [Create Networks Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/aws-om-config-terraform.html#om-networks) in
+_Configuring BOSH Director on AWS Using Terraform_.
 
 ### <a id="azure-compilations-timeout"></a> Intermittent Deploy Failure on Azure with Compilation Timeout
 
