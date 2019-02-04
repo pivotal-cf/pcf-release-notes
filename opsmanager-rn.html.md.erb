@@ -18,7 +18,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/cus
 
 ### <a id="2-3-9"></a> 2.3.9
 
-* **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated.
+* **[Security Fix]**: A potential [XXS](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)) vulnerability in the `resource_config` API endpoint has been mitigated.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
 * **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
 
