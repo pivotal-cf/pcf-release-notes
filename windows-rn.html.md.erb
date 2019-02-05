@@ -116,9 +116,33 @@ Pivotal does not recommend enabling the <code>cf</code> value as a permanent sol
 
 ### <a id='smoke-tests'></a> Smoke Tests are Available
 
-Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time. You have the option of choosing a temporary or specified organization and space for smoke tests. The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
+Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time.
+You have the option of choosing a temporary or specified organization and space for smoke tests.
+The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
  
-For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in _Installing and Configuring PAS for Windows_.
+For more information on Smoke Tests,
+see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config)
+in _Installing and Configuring PAS for Windows_.
+
+#### PASW Smoke Test Errand in internetless environments with OCSP configured
+
+If a Cloud Foundry environment does not have internet access and the
+load balancer certificates have been configured to use the Online
+Certificate Status Protocol (OCSP), the PASW Smoke Test errand will
+fail due to timeouts if OCSP has not been configured correctly.
+OCSP is a protocol for verifying the validity of an x509 certificate.
+Included in the certificate data is the location of the OCSP “responder”
+which can return the status of the certificate; if a responder is
+not provided, the Windows OS will attempt to verify the certificate
+with a call to Microsoft servers on the public internet, which will
+timeout in internetless environments. Therefore, in internetless
+environments the errand will fail when attempting to run `cf login`
+because the login command will timeout while it waits for the OCSP
+request to timeout.
+
+To configure certificates to work in internetless environments:
+* Option 1: configure the certificate to use an OCSP responder that is reachable from the local network
+* Option 2: configure the certificate to use a Certificate Revocation List (CRL) that is reachable from the local network
 
 ### <a id='stack'></a> Developers Can Push with Default Windows Stack
 
