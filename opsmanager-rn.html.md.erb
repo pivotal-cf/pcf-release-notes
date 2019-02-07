@@ -18,6 +18,64 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-0/cust
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-0-28"></a> 2.0.28
+
+* **[Security Fix]**: Bumps nokogiri to fix a CVE.
+* **[Security Fix]**: Bumps UAA to 52.12 to fix a CVE.
+* **[Security Fix]**: Bumps loofah to 2.2.2 to fix a CVE.
+* **[Security Fix]**: Bumps rack to 2.0.6 to fix a CVE.
+* **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
+* **[Feature Improvement]**: When you attempt to upload a tile with Ops Manager's syslog template in use, the upload fails with a warning.
+* **[Bug Fix]**: Corrects the link to Pivotal Network from the API docs.
+* **[Bug Fix]**: The SAML certificate regenerates when authentication method changes from SAML to internal, rather than when SAML is enabled. This facilitates a greater number of authentication method workflows, including those which change Ops Manager metadata.
+* **[Bug Fix]**: Bumps Azure to 35.4 to resolve a customer issue.
+* **[Bug Fix]**: Ops Manager now does not rotate the NATS CA and certificates, even if the Director hostname changes.
+* **[Bug Fix]**: Selectors without default values now return `null` in the Ops Manager API when you visit `/api/v0/staged/products/PRODUCT-GUID/properties`.
+
+Ops Manager v2.0.28 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Ops Manager</td><td>build.408*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>3468.96*</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.2.1</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>264.17</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>0.1.4</td>
+  </tr><tr>
+    <td>CredHub</td><td>1.6.10*</td>
+  </tr><tr>
+    <td>UAA</td><td>52.12</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>69</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.5*</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>25.10.0</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>35</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>45.1.0</td>
+  </tr><tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+</table>
+
 ### <a id="2-0-27"></a> 2.0.27
 
 * **[Security Fix]**: Bump Nokogiri to address [CVE-2018-14404](https://nvd.nist.gov/vuln/detail/CVE-2018-14404).
