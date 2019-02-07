@@ -565,6 +565,29 @@ Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, 
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id="cipher-downtime"></a> Removing Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4
+
+In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. 
+
+CAPI is hardcoded to support the following cipher suites:
+
+```
+DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
+```
+
+For Gorouter, you can configure the cipher suites supported using the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. By default, this field includes the two cipher suites supported by both Gorouter and CAPI:
+
+```
+ECDHE-RSA-AES128-GCM-SHA256:ECDHE_RSA_WITH_AES_256_GCM_SHA384
+```
+
+If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime; users will not be able to do things such as push apps and create routes. 
+
+To resolve this issue, ensure one of the recommended cipher suites is always in the **TLS Cipher Suites for Router** field:
+
+* `ECDHE-RSA-AES128-GCM-SHA256` or
+* `ECDHE-RSA-AES256-GCM-SHA384`
+
 ### <a id="external-credhub"></a> CredHub Database Cannot Be External on GCP
 
 If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select **PAS database** for your CredHub database and **Internal** for your system database. If you are using external system databases, you cannot use CredHub.
