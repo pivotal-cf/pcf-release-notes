@@ -15,7 +15,9 @@ See the following PAS breaking changes:
 
 ### <a id="app-identity"></a> Gorouter Always Verifies App Identity
 
-Before upgrading to PAS v2.4, you must secure the Gorouter with TLS or mutual TLS for PAS and Isolation Segment tiles. 
+Before upgrading to PAS v2.4, you must secure the Gorouter with TLS or mutual TLS for PAS and Isolation Segment tiles. See the following sections that describe different aspects of this breaking change. 
+
+#### <a id="config-change"></a> Configuration Change Required
 
 In PAS v2.3 and earlier, you can have insecure routing without TLS. The options for **Router application identity verification** include the following:
 
@@ -32,11 +34,18 @@ If you do not select either the TLS or mTLS option in PAS v2.3 before upgrading 
 
 For further instructions about configuring PAS prior to upgrading, see [Configure Gorouter with TLS](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html) in the _Upgrade Preparation Checklist for PCF 2.4_. 
 
-For more information about the operational impact of this feature on capacity and memory usage, see [Increased Resiliency, Consistency, and Security for HTTP Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the _PAS v2.1 Release Notes_. 
+#### <a id="operational-impact"></a> Post-Upgrade Operational Impact
 
-<p class="warning note"><strong>WARNING</strong>: TLS and mTLS do not work if the <b>Disable SSL certificate verification for this environment</b> checkbox is selected.</p>
+For information about the operational impact of this feature on capacity and memory usage, see [Increased Resiliency, Consistency, and Security for HTTP Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the _PAS v2.1 Release Notes_. 
 
-<p class="warning note"><strong>WARNING</strong>: If you have mutual TLS app identity verification enabled, app containers accept incoming communication only from the Gorouter. This disables TCP routing.</p>
+#### <a id="featre-impact"></a> Impact on Other Features
+
+App identity verification impacts other features in the following ways:
+
+* **Toggling SSL certificate verification** 
+	* TLS and mTLS do not work if the <b>Disable SSL certificate verification for this environment</b> checkbox is selected.
+* **TCP Routing**
+	* If you have mutual TLS app identity verification enabled, app containers accept incoming communication only from the Gorouter. This disables TCP routing.
 
 ### <a id='percona'></a> Internal MySQL Databases Run Only on Percona
 
