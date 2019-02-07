@@ -15,6 +15,12 @@ Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
 
 See the following PAS breaking changes:
 
+### <a id='log-cache'></a> Removed Log Cache Property
+
+PAS v2.4 removed the **Enable log-cache** checkbox from the **Advanced Features** section of the PAS tile. 
+
+PAS v2.5 removes the underlying property, `enable_log_cache`. If you have any scripts that reference this property, they may fail now that it is removed. 
+
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
