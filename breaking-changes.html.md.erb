@@ -9,11 +9,34 @@ you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud
 Foundry](http://docs.pivotal.io/2-4/customizing/upgrading-pcf.html).
 
 
-
-
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
 See the following PAS breaking changes:
+
+### <a id="app-identity"></a> Gorouter Always Verifies App Identity
+
+Before upgrading to PAS v2.4, you must secure the Gorouter with TLS or mutual TLS for PAS and Isolation Segment tiles. 
+
+In PAS v2.3 and earlier, you can have insecure routing without TLS. The options for **Router application identity verification** include the following:
+
+* **Router does not verify application identity**
+* **Router uses TLS to verify application identity (Default)**
+* **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing and SSH access to app containers)** 
+
+In PAS v2.4, the options are only as follows:
+
+* **Router uses TLS to verify application identity (Default)**
+* **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing and SSH access to app containers)**
+
+If you do not select either the TLS or mTLS option in PAS v2.3 before upgrading to PAS v2.4, your upgrade will fail. 
+
+For further instructions about configuring PAS prior to upgrading, see [Configure Gorouter with TLS](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html) in the _Upgrade Preparation Checklist for PCF 2.4_. 
+
+For more information about the operational impact of this feature on capacity and memory usage, see [Increased Resiliency, Consistency, and Security for HTTP Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the _PAS v2.1 Release Notes_. 
+
+<p class="warning note"><strong>WARNING</strong>: TLS and mTLS do not work if the <b>Disable SSL certificate verification for this environment</b> checkbox is selected.</p>
+
+<p class="warning note"><strong>WARNING</strong>: If you have mutual TLS app identity verification enabled, app containers accept incoming communication only from the Gorouter. This disables TCP routing.</p>
 
 ### <a id='percona'></a> Internal MySQL Databases Run Only on Percona
 
