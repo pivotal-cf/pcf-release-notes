@@ -74,7 +74,32 @@ use the PAS for Windows v2.4 tile, you must install Ops Manager v2.4 or later an
   </tbody>
 </table>
 
-## <a id='new-features'></a> New Advanced Features in PAS for Windows v2.4
+## <a id='new-features'></a> New Features in PAS for Windows v2.4
+
+PAS for Windows v2.4 includes the following major features:
+
+### <a id='smoke-tests'></a> Smoke Tests are Available
+
+Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time. You have the option of choosing a temporary or specified organization and space for smoke tests. The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
+ 
+For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in _Installing and Configuring PAS for Windows_.
+
+### <a id='stack'></a> Developers Can Push with Default Windows Stack
+
+Developers can push apps using `cf push -s windows`. Pushing apps with this command ensures that you are pushing with the Windows stack with the latest `rootfs`.
+
+For more information, see [Step 2: Push App to PAS for Windows Cells](https://docs.pivotal.io/pivotalcf/2-4/windows/migrating.html) in _Migrating Apps to PAS for Windows_.
+
+### <a id='smb'></a> SMB Support for Windows Containers (Beta)
+
+SMB mounting allows developers to bind existing SMB shares to their containerized apps. 
+Previously, SMB shares were only accessible by using the SharpCIFS library. PASW v2.4.0 natively supports SMB mounting.
+
+This enables usage of the `net use` command. This is currently limited to IP address-based UNC paths.
+
+For more information, see [SMB (WINDOWS) FILE SHARES](https://dotnet-cookbook.cfapps.io/3rdparty/smb_file_shares/) in the _.NET on Pivotal Cloud Foundry_ cookbook.
+
+## <a id='advanced-features'></a> New Advanced Features in PAS for Windows v2.4
 
 The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have
 certain constraints.
@@ -113,24 +138,3 @@ PAS for Windows metrics are tagged with `cf` as the deployment name.
 only if it is required for backward compatibility with previous versions of PCF
 or if you have scripts that rely on metrics with <code>cf</code> as the value for <code>deployment</code>.
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
-
-### <a id='smoke-tests'></a> Smoke Tests are Available
-
-Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time. You have the option of choosing a temporary or specified organization and space for smoke tests. The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
- 
-For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in _Installing and Configuring PAS for Windows_.
-
-### <a id='stack'></a> Developers Can Push with Default Windows Stack
-
-Developers can push apps using `cf push -s windows`. Pushing apps with this command ensures that you are pushing with the Windows stack with the latest `rootfs`.
-
-For more information, see [Step 2: Push App to PAS for Windows Cells](https://docs.pivotal.io/pivotalcf/2-4/windows/migrating.html) in _Migrating Apps to PAS for Windows_.
-
-### <a id='smb'></a> SMB Support for Windows Containers (Beta)
-
-SMB mounting allows developers to bind existing SMB shares to their containerized apps. 
-Previously, SMB shares were only accessible by using the SharpCIFS library. PASW v2.4.0 natively supports SMB mounting.
-
-This enables usage of the `net use` command. This is currently limited to IP address-based UNC paths.
-
-For more information, see [SMB (WINDOWS) FILE SHARES](https://dotnet-cookbook.cfapps.io/3rdparty/smb_file_shares/) in the _.NET on Pivotal Cloud Foundry_ cookbook.
