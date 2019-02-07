@@ -80,8 +80,12 @@ PAS for Windows v2.4 includes the following major features:
 
 ### <a id='smoke-tests'></a> Smoke Tests are Available
 
-Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time. You have the option of choosing a temporary or specified organization and space for smoke tests. The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
- 
+Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time.
+You have the option of choosing a temporary or specified organization and space for smoke tests.
+The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
+
+<p class='note-warning'><strong>Warning:</strong> Before enabling Smoke Tests, please review [Known Issues](#known-issues).</p>
+
 For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in _Installing and Configuring PAS for Windows_.
 
 ### <a id='stack'></a> Developers Can Push with Default Windows Stack
@@ -138,3 +142,38 @@ PAS for Windows metrics are tagged with `cf` as the deployment name.
 only if it is required for backward compatibility with previous versions of PCF
 or if you have scripts that rely on metrics with <code>cf</code> as the value for <code>deployment</code>.
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
+
+## <a id='known-issues'></a> Known Issues
+
+### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout on login
+
+Under certain configurations the PASW Smoke Test Errand fails when attempting to run `cf login`.
+This may be caused by certificate validation timeout.
+
+For information about resolving this issue, see [PASW Smoke Test Errand timeout on login](.html) in the Pivotal Support knowledge base.
+ <!---
+  ## <a id='known-issues'></a> Known Issues
+
+### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout on login
+
+Under certain configurations the PASW Smoke Test Errand will timeout and fail when attempting to run `cf login`.
+
+**Description**
+Login is known to fail when both of the following conditions are true:
+* The Cloud Foundry environment does not have internet access.
+* The load balancer certificates have been configured to validate over the internet.
+In internetless environments the PASW Smoke Test Errand will fail at login while awaiting certificate validation via the internet.
+
+Online Certificate Status Protocol (OCSP) is a protocol for verifying the validity of an x509 certificate. 
+On Windows, OCSP validates an x509 certificate by contacting one of two validation authorities:
+* The certificate's designated OCSP "responder".
+* A Microsoft certificate validation server. If a certificate lacks a designated OCSP responder, Windows verifies the certificate by contacting a Microsoft server over the public internet.  
+
+If certificate validation requires the public internet and the internet is not available, login will timeout.
+
+**Solution**
+To work around this, the x509 certificate must be re-configured to validate against the reachable local network.
+There are two valid certificate configurations for internetless Windows environments:
+* Configure the certificate to use an OCSP responder that is reachable from the local network
+* Configure the certificate to use a Certificate Revocation List (CRL) that is reachable from the local network
+ --->
