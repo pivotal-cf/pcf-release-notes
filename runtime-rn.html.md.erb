@@ -421,6 +421,8 @@ To switch over to the new `nfs` service, you must re-create and re-bind your exi
 
 ### <a id="app-identity"></a> Gorouter Always Verifies App Identity
 
+<p class="breaking note"><strong>Breaking Change:</strong> Your upgrade may fail if you do not take action. Additionally, this feature has operational impact and can affect other features. For more information, see the corresponding item in the <a href="./breaking-changes.html#app-identity">Breaking Changes</a> topic.</p>
+
 For all PAS v2.4 foundations, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter.
 
 In PAS v2.3 and earlier, you can have insecure routing without TLS. Before you upgrade to v2.4, you must have secure routing with TLS enabled. For more information, see [Upgrade Preparation Checklist for PCF v2.4](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html).
