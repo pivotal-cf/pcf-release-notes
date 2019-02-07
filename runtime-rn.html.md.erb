@@ -869,7 +869,7 @@ ECDHE-RSA-AES128-GCM-SHA256:ECDHE_RSA_WITH_AES_256_GCM_SHA384
 
 If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime; users will not be able to do things such as push apps and create routes. 
 
-To resolve this issue, add one of the recommended cipher suites back to the **TLS Cipher Suites for Router** field:
+To resolve this issue, ensure one of the recommended cipher suites is always in the **TLS Cipher Suites for Router** field:
 
 * `ECDHE-RSA-AES128-GCM-SHA256` or
 * `ECDHE-RSA-AES256-GCM-SHA384`
