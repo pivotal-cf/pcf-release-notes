@@ -21,6 +21,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/cus
 * **[New Feature]**: Tile authors can now use a double-parens accessor to pull information from Ops Manager. Use the `(($ops_manager.restricted_view_api_access_credentials))` to make read-only, non-credential requests to Ops Manager.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
 * **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
+* **[Bug Fix]**: Ops Manager now uses GCP images that are located in the United States. This should prevent image object generation problems sometimes seen in images based in Europe and Asia.
 
 Ops Manager v2.4.3 uses the following component versions:
 
