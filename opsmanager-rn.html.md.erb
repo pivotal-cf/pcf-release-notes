@@ -19,7 +19,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 ###<a id="2-2-17"></a> 2.2.17
 
 * **[New Feature]**: You can now upgrade from the most recent version of v2.2, which may use multiple NATS certificate authorities (CAs) to a version of v2.3 that only supports one NATS CA and was released prior to the version of v2.2 from which you are upgrading. 
-* **[New Feature]**: You can now change a selected option of a selector via the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:guid/properties` with a `selected_option` key. The `POST` API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value.
+* **[New Feature]**: You can now change a selected option of a selector through the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:guid/properties` with a `selected_option` key. The `POST` API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value.
 * **[Bug Fix]**: When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now an error message, rather than a 500 error. 
 * **[Bug Fix]**: Ops Manager now uses GCP images that are located in the United States. This should prevent image object generation problems sometimes seen in images based in Europe and Asia.
 * **[Bug Fix]**: The Azure CPI has been reverted to 35.4 to resolve a customer issue.
@@ -72,7 +72,7 @@ Ops Manager v2.2.17 uses the following component versions:
 ###<a id="2-2-16"></a> 2.2.16
 
 * **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated.
-* **[New Feature]**: NATS certificate information, including expiration dates, is now available via the API. Use the `api/v0/deployed/certificates` endpoint to view this information.
+* **[New Feature]**: NATS certificate information, including expiration dates, is now available through the API. Use the `api/v0/deployed/certificates` endpoint to view this information.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
 * **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
 
@@ -127,7 +127,7 @@ Ops Manager v2.2.16 uses the following component versions:
 * **[New Feature]**: Credentials now return in some API calls. If you have sufficient permissions, sending a GET to `director/properties` or `director/iaas_configurations/guid` or `products/guid/properties` with the `redact=false parameter` will return all keys and values, including credentials.
 * **[Feature Improvement]**: Selectors without a default option display in the list of `/api/v0/staged/products/product-guid/properties` as `null`.
 * **[Feature Improvement]**: Some error messages that appear in the API are more reader-friendly.
-* **[Bug Fix]**: You can no longer export via the API without deploying.
+* **[Bug Fix]**: You can no longer export using the API without deploying.
 * **[Bug Fix]**: `/api/v0/deployed/director/manifest` now works when upgrading from 2.1 to 2.2.
 * **[Bug Fix]**: Installation Change records now have a deployment status other than `null`.
 
@@ -499,8 +499,8 @@ Ops Manager v2.2.9 uses the following component versions:
 * **[Feature Improvement]**: The expiring certificates endpoint (`/api/v0/deployed/certificates`) now includes information about the SAML service provider cert.
 * **[Feature Improvement]**: When you import products that use the future Unified Syslog feature, you are warned that some syslog features will not be active in this version of Ops Manager.
 * **[Bug Fix]**: Dynamic JS pages now show the message from server-side errors instead of alert boxes with JavaScript errors (such as `[Object object]` or `t.filter()`).
-* **[New Feature]**: You can now configure custom DNS handlers via the Ops Manager API.
-* **[New Feature]**: You can now configure recursor timeouts via the Ops Manager API.
+* **[New Feature]**: You can now configure custom DNS handlers using the Ops Manager API.
+* **[New Feature]**: You can now configure recursor timeouts using the Ops Manager API.
 
 
 Ops Manager v2.2.8 uses the following component versions:
@@ -976,13 +976,13 @@ You can add additional data centers in the **vSphere Config** pane of your vSphe
 
 
 
-### <a id="selective-deploy"></a> Selectively Deploy Tiles in Ops Manager or via an API Endpoint
+### <a id="selective-deploy"></a> Selectively Deploy Tiles in Ops Manager or by an API Endpoint
 
 You can now choose to deploy a selection of tiles rather than all tiles in Ops Manager. If you choose to selectively deploy your environment, you can drastically reduce the time to **Apply Changes**. This feature is ideal to limit updates to one or more tiles, which reduces the amount of change in any given deployment.
 
 To access this feature, click **Review Pending Changes** underneath the **Apply Changes** button in the Ops Manager Installation Dashboard. For more information, see [Reviewing Pending Changes with Ops Manager](https://docs.pivotal.io/pivotalcf/2-2/customizing/review-pending-changes.html).
 
-In the Ops Manager UI, this feature is in beta. It is generally available as an API endpoint. To selectively deploy tiles via the API, send a POST to `/api/v0/installations`. For more information, see [Triggering an install process](http://docs.pivotal.io/pivotalcf/2-2/opsman-api/#triggering-an-install-process) in the Ops Manager API documentation.
+In the Ops Manager UI, this feature is in beta. It is generally available as an API endpoint. To selectively deploy tiles using the API, send a POST to `/api/v0/installations`. For more information, see [Triggering an install process](http://docs.pivotal.io/pivotalcf/2-2/opsman-api/#triggering-an-install-process) in the Ops Manager API documentation.
 
 <p class="note warning"><strong>WARNING:</strong> Do not selectively deploy tiles when upgrading to PCF v2.2. Instead, redeploy all product tiles using <strong>Apply Changes</strong> on the Ops Manager Installation Dashboard. For more information, see <a href="./breaking-changes.html#bosh-dns">Redeploy All Products After Upgrading to Ops Manager v2.2</a>.</p>
 
@@ -1125,7 +1125,7 @@ The [Change Log](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-interface
 
 
 
-### <a id="staged-products-api"></a> More Detail Available Via Ops Manager API Endpoint
+### <a id="staged-products-api"></a> More Detail Available By Ops Manager API Endpoint
 
 A new API endpoint is available for Ops Manager. Send a `GET` to `/v0/staged/pending_changes` to see details about your Ops Manager installation, including tile names, errand names, build version, and deployment status. The API response will show information on all tiles, whether they are deployed or have pending changes.
 
