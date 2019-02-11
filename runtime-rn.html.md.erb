@@ -569,7 +569,7 @@ Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, 
 
 This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue. 
 
-In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. CAPI uses hardcoded cipher suites for this communication and Gorouter uses cipher suites configured by the operator in the **TLS Cipher Suites for Router** field the PAS **Networking** pane. By default, this field contains the cipher suites required for communication with CAPI. 
+In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. CAPI uses hardcoded cipher suites for this communication and Gorouter uses cipher suites configured by the operator in the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. By default, this field contains the cipher suites required for communication with CAPI. 
 
 If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime, during which users cannot do things such as push apps and create routes. 
 
