@@ -21,6 +21,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/cus
 * **[New Feature]**: All NATS CA public keys and their expiration dates now appear in the UI and API. Create a new root certificate, deploy the BOSH Director, and visit `/api/v0/deployed/certificates` or the credentials tab of the BOSH Director to view them.
 * **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning.
 * **[Bug Fix]**: When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now an error message, rather than a 500 error.
+* **[Bug Fix]**: Reverts the Azure CPI to 34.4 to resolve a customer issue.
 
 Ops Manager v2.4.4 uses the following component versions:
 
