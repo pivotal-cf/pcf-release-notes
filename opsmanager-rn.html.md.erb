@@ -19,7 +19,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-2/cus
 ###<a id="2-2-17"></a> 2.2.17
 
 * **[New Feature]**: You can now upgrade from the most recent version of v2.2, which may use multiple NATS certificate authorities (CAs) to a version of v2.3 that only supports one NATS CA and was released prior to the version of v2.2 from which you are upgrading. 
-* **[New Feature]**: You can now change a selected option of a selector through the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:guid/properties` with a `selected_option` key. The `POST` API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value.
+* **[New Feature]**: You can now change a selected option of a selector through the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:guid/properties` with a `selected_option` key. The `PUT` API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value.
 * **[Bug Fix]**: When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now an error message, rather than a 500 error. 
 * **[Bug Fix]**: Ops Manager now uses GCP images that are located in the United States. This should prevent image object generation problems sometimes seen in images based in Europe and Asia.
 * **[Bug Fix]**: The Azure CPI has been reverted to 35.4 to resolve a customer issue.
