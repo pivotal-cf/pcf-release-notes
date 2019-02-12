@@ -563,6 +563,12 @@ For information about configuring garbage collection values, see [Configuring Ce
 
 Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, all components use BPM. For more information, see [BOSH Process Manager](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#bpm) in the _Pivotal Application Service v2.3 Release Notes_.
 
+### <a id="usage-service-audit"></a>Access Usage Service API with OAuth 
+
+Users in the `usage_service.audit` group can access the Usage Service API with their CF OAuth token. Previously, only users of the `cloud_controller.admin` group could access the Usage Service API with CF OAuth. 
+
+This update allows `usage_service.audit` users to quickly generate reports on historical system- and org-level usage for apps, tasks, and service instances. For more information about accessing the Usage Service API to view app, task, and service instance usage, see [Reporting App, Task, and Service Instance Usage](../opsguide/accounting-report.html).   
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="cipher-downtime"></a> Removing Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4
