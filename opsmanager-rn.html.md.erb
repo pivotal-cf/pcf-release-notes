@@ -17,16 +17,18 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ### <a id="beta-1"></a> 2.5 Beta 1
 
-* **[Security Fix]**:  A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated. 
+* **[Breaking Change]**: The filenames for Ops Manager downloads on Pivotal Network have changed. New filenames are formatted in the following way: `ops-manager-aws-2.5.0-build.128.yml`. If you have automation tools or scripts that use the filename, update them to breakages or downtime. 
+* **[Breaking Change]**: New installations of Ops Manager on Azure will use Availability Zones by default, not Availability Sets. You must assign products to an Availability Zone, or choose to use Availability Sets, to deploy any tiles on Azure-based deployments.
+* **[Security Fix]**: A potential XSS vulnerability in the `resource_config` API endpoint has been mitigated. 
 * **[New Feature]**: You can now rotate the NATS CA and NATS leaf certificates using the same workflow as you would to rotate the Ops Manager root CA. The NATS CA's public keys and expiration dates are now available via the API at `/api/v0/deployed/certificates`.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
 * **[New Feature]**: You can now define custom VM extensions for the BOSH Director VM. We allow operators to create custom VM extensions via the API and then apply them to an instance group using the API `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director's jobs and product tiles. 
 * **[New Feature]**: You can now opt in to having jobs deployed by BOSH store credentials in local memory. To enable this feature, go to the **Director Config** form, select the `Enable BOSH to store job credentials on a tmpFS` checkbox, and click **Save**.
-* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning.
+* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre-delete or post-deploy errand is implemented. Use the `impact_warning` key in `pre_delete_errands` or `post_deploy_errands` to specify a warning.
 * **[New Feature]**: You can now change a selected option of a selector via the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:GUID/properties` with a `selected_option` key. The PUT API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value. 
 * **[New Feature]**: You can now use `((cpu))` as a double-parens job accessor to interpolate the CPU value in a manifest.
 * **[UI Improvement]**: The UI text has been updated for clarity and consistency throughout Ops Manager.
-* **[Bug Fix]**:  When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now an error message, rather than a 500 error.
+* **[Bug Fix]**:  When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now see an error message, rather than a 500 error.
 * **[Bug Fix]**: Ops Manager now uses GCP images that are located in the United States. This should prevent image object generation problems sometimes seen in images based in Europe and Asia.
 
 Ops Manager v2.5 Beta 1 uses the following component versions:
