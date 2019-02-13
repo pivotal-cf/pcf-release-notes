@@ -14,58 +14,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.4.
 
 ## <a id="releases"></a> Releases
-### <a id="2-4-4"></a> 2.4.4
-
-* **[New Feature]**: Operators can now rotate the NATS Certificate Authority (CA).
-* **[New Feature]**: You can now change a selected option of a selector via the API using the human-readable name of the option. Send a PUT to `/api/v0/staged/products/:guid/properties` with a `selected_option` key. The `PUT` API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value.
-* **[New Feature]**: All NATS CA public keys and their expiration dates now appear in the UI and API. Create a new root certificate, deploy the BOSH Director, and visit `/api/v0/deployed/certificates` or the credentials tab of the BOSH Director to view them.
-* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre-delete or post-deploy errand is implemented. Use the `impact_warning` key in `pre_delete_errands` or `post_deploy_errands` to specify a warning.
-* **[Bug Fix]**: When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now see an error message, rather than a 500 error.
-* **[Bug Fix]**: Reverts the Azure CPI to 34.4 to resolve a customer issue.
-
-Ops Manager v2.4.4 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.4-build.152*</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>170.24 (Xenial)</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.7.0</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.2.2</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.22</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.1.2*</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.4</td>
-  </tr><tr>
-    <td>UAA</td><td>60.9</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>72</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.4*</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>27.0.1</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>39</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>51.1*</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  </tbody>
-</table>
 
 ### <a id="2-4-3"></a> 2.4.3
 
