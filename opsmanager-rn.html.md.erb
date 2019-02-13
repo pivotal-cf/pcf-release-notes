@@ -18,14 +18,14 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 ### <a id="beta-1"></a> 2.5 Beta 1
 
 * **[Breaking Change]**: The filenames for Ops Manager downloads on Pivotal Network have changed. New filenames are formatted in the following way: `ops-manager-aws-2.5.0-build.128.yml`. If you have automation tools or scripts that use the filename, update them to breakages or downtime. 
-* **[Breaking Change]**: New installations of Ops Manager on Azure will use Availability Zones by default, not Availability Sets. You must assign products to an Availability Zone, or choose to use Availability Sets, to deploy any tiles on Azure-based deployments.
+* **[Breaking Change]**: New installations of Ops Manager on Azure uses Availability Zones by default, not Availability Sets. You must assign products to an Availability Zone, or choose to use Availability Sets, to deploy any tiles on Azure-based deployments.
 * **[Security Fix]**: A potential XSS vulnerability in the `resource_config` API endpoint has been mitigated. 
-* **[New Feature]**: You can now rotate the NATS CA and NATS leaf certificates using the same workflow as you would to rotate the Ops Manager root CA. The NATS CA's public keys and expiration dates are now available via the API at `/api/v0/deployed/certificates`.
+* **[New Feature]**: You can now rotate the NATS CA and NATS leaf certificates using the same workflow as you would to rotate the Ops Manager root CA. The NATS CA's public keys and expiration dates are now available with the API at `/api/v0/deployed/certificates`.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
-* **[New Feature]**: You can now define custom VM extensions for the BOSH Director VM. We allow operators to create custom VM extensions via the API and then apply them to an instance group using the API `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director's jobs and product tiles. 
+* **[New Feature]**: You can now define custom VM extensions for the BOSH Director VM. We allow operators to create custom VM extensions with the API and then apply them to an instance group using the API `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director's jobs and product tiles. 
 * **[New Feature]**: You can now opt in to having jobs deployed by BOSH store credentials in local memory. To enable this feature, go to the **Director Config** form, select the `Enable BOSH to store job credentials on a tmpFS` checkbox, and click **Save**.
 * **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre-delete or post-deploy errand is implemented. Use the `impact_warning` key in `pre_delete_errands` or `post_deploy_errands` to specify a warning.
-* **[New Feature]**: You can now change a selected option of a selector via the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:GUID/properties` with a `selected_option` key. The PUT API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value. 
+* **[New Feature]**: You can now change a selected option of a selector with the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:GUID/properties` with a `selected_option` key. The PUT API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value. 
 * **[New Feature]**: You can now use `((cpu))` as a double-parens job accessor to interpolate the CPU value in a manifest.
 * **[UI Improvement]**: The UI text has been updated for clarity and consistency throughout Ops Manager.
 * **[Bug Fix]**:  When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now see an error message, rather than a 500 error.
@@ -77,7 +77,7 @@ Ops Manager v2.5 Beta 1 uses the following component versions:
 
 ### <a id="alpha-4"></a> 2.5 Alpha 4
 
-* **[New Feature]**: You can now pre-create a client for automating Ops Manager end-to-end. Optionally, specify a `precreated_client_secret` field in `POST /api/v0/setup`. Then, when operators attempt to get a client UAA token against Ops Manager using the the client name `precreated-client`, after providing the `precreated_client_secret`, they will get an access token to OpsManager with the scopes `opsman.admin` and `uaa.admin`. 
+* **[New Feature]**: You can now pre-create a client for automating Ops Manager end-to-end. Optionally, specify a `precreated_client_secret` field in `POST /api/v0/setup`. Then, when operators attempt to get a client UAA token against Ops Manager using the the client name `precreated-client`, after providing the `precreated_client_secret`, they get an access token to OpsManager with the scopes `opsman.admin` and `uaa.admin`. 
 * **[New Feature]**: You can now store credentials in memory by checking the **Enable BOSH to store job credentials on a tmpFS** checkbox in the Director Config page.
 * **[New Feature]**: Ops Manager now supports keystone v3 for OpenStack deployments, including adding support for project names to the existing support for tenant names.
 * **[New Feature]**: BOSH now uses postgres 10.x. To confirm what version of BOSH you're running, `ssh` onto the BOSH Director and run `/var/vcap/packages/postgres-10/bin/psql --user postgres -h 127.0.0.1`. 
@@ -85,7 +85,7 @@ Ops Manager v2.5 Beta 1 uses the following component versions:
 * **[New Feature]**: Tile authors can now use a double-parens accessor to pull information from Ops Manager. Use the `(($ops_manager.restricted_view_api_access_credentials))` accessor to make read-only, non-credential requests to Ops Manager.
 * **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning. The warning displays in the Review Pending Changes pane when `impact_warning` is enabled.
 * **[Bug Fix]**: You can now upgrade service broker tiles from v2.4 to v2.5 on deployments using Azure.
-* **[UI Improvement]**: When an Ops Manager operator stages a tile for deletion, a warning appears if the tile has staged changes that will be lost when the tile is deleted.
+* **[UI Improvement]**: When an Ops Manager operator stages a tile for deletion, a warning appears if the tile has staged changes that are lost when the tile is deleted.
 
 Ops Manager v2.5 Alpha 4 uses the following component versions:
 
@@ -137,12 +137,12 @@ Ops Manager v2.5 Alpha 4 uses the following component versions:
 * **[New Feature]**: You can now use the API to set the `host_group` in a vSphere cluster. For more information, see [Creating availability zones](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#creating-availability-zones).
 * **[New Feature]**: You can now use the API to GET the `host_group` in a vSphere cluster. For more information, see [Fetching availability zones](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-availability-zones).
 * **[New Feature]**: Ops Manager now generates the vSphere CPI config using the designated `host_group` property if a host group is specified in the AZ. 
-* **[New Feature]**: Setting an invalid vSphere host group via the API now returns a verifier warning.
+* **[New Feature]**: Setting an invalid vSphere host group with the API now returns a verifier warning.
 * **[New Feature]**: Tile authors can now use the `impact_warning` key to add warning messages to specific errands. For more information, see [Installations](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#installations).
 * **[New Feature]**: Tile authors can now use the `option_value` property in the Ops Manager API to set properties with machine-readable keys. For more information, see [Updating a selector property](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-a-selector-property).
 * **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
 * **[Bug Fix]**: LDAP authentication is now more reliable.
-* **[Bug Fix]**: You can no longer export via the API without having deployed anything.
+* **[Bug Fix]**: You can no longer export using the API without having deployed anything.
 * **[Bug Fix]**: The AWS verifier now fails gracefully, rather than crashing on failure.
 * **[Bug Fix]**: Installation Change records now have a deployment status other than `null`.
 * **[UI Improvement]**: In the Ops Manager API, some malformed properties now return more reader-friendly error messages.
@@ -197,13 +197,13 @@ Ops Manager v2.5 Alpha 3 uses the following component versions:
 
 * **[Security Fix]**: Information about the NGINX web server no longer appears in server response headers.
 * **[New Feature]**: You can view changes for individual tiles on the **Pending Changes** page. In the **Review Pending Changes** page, click **See Changes**. The **Pending Changes** page for a tile shows the most recent set of modifications you made to the manifest, runtime configs, CPI configs, and cloud config. 
-* **[New Feature]**: Debug log forwarding and custom Syslog configuration are configurable via the API. Send a GET or a PUT with `forward_debug_logs` or `custom_rsyslog_configuration` to `api/v0/staged/director/properties`.
-* **[New Feature]**: You can opt in to forwarding debug logs via the UI. In the **Syslog** form, choose the "Forward Debug Logs" checkbox.
-* **[New Feature]**: Tile authors can access a catalog of available VM types via the `(($ops_manager.instance_types_catalog))` accessor.
+* **[New Feature]**: Debug log forwarding and custom Syslog configuration are configurable with the API. Send a GET or a PUT with `forward_debug_logs` or `custom_rsyslog_configuration` to `api/v0/staged/director/properties`.
+* **[New Feature]**: You can opt in to forwarding debug logs with the UI. In the **Syslog** form, choose the "Forward Debug Logs" checkbox.
+* **[New Feature]**: Tile authors can access a catalog of available VM types with the `(($ops_manager.instance_types_catalog))` accessor.
 * **[New Feature]**: You can provide custom rsyslog configurations in the **Syslog** form.
 * **[New Feature]**: Tile authors can write and apply JS migrations to migrate data from their existing syslog configurations to Ops Manager's template syslog form. For more information, see [opsmanager_syslog](https://docs.pivotal.io/tiledev/2-4/property-template-references.html#syslog-flag) in the Tile Developer docs. 
 * **[New Feature]**: You can use the BOSH drain to gracefully shut down the BOSH Director when it redeploys. This allows for a more complete cleanup of existing VMs during a redeploy. Use the **Skip Director Drain Lifecycle** checkbox in the **Settings** page to configure this feature, or send a PUT to `/api/v0/staged/director/properties` with `skip_director_drain` specified as either `true` or `false`.
-* **[New Feature]**: Credentials return in some API calls. If you have sufficient permissions, sending a GET to `director/properties` or `director/iaas_configurations/guid` or `products/guid/properties` with the `redact=false` parameter will return all keys and values, including credentials.
+* **[New Feature]**: Credentials return in some API calls. If you have sufficient permissions, sending a GET to `director/properties` or `director/iaas_configurations/guid` or `products/guid/properties` with the `redact=false` parameter returns all keys and values, including credentials.
 * **[Feature Improvement]**: A selected option identifier appears in the `/api/v0/staged/products/:product_guid/properties` API endpoint. This identifier helps you see more detail about various selectors.
 * **[Feature Improvement]**: Windows tile logs no longer contain multiple duplicate lines.
 * **[UI Improvement]**: A notification banner appears in the Ops Manager UI when a certificate needs to be rotated or replaced.
