@@ -18,7 +18,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-1/custo
 
 ### <a id="2-1-20"></a> 2.1.20
 
-* **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated.
+* **[Security Fix]**: A potential XSS vulnerability in the `resource_config` API endpoint has been mitigated.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM. 
 * **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning.
 * **[Bug Fix]**: Selectors without default values now return `null` in the Ops Manager API when you visit `/api/v0/staged/products/PRODUCT-GUID/properties`.
