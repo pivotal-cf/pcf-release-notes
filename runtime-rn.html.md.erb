@@ -479,6 +479,12 @@ To deploy the Istio router, navigate to the **Networking - Service Mesh** pane o
 
 <p class="note"><strong>Note</strong>: Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
 
+### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
+
+Some services implement asynchronous responses and must complete certain operations before returning a successful bind response. In this case, the service may take longer to bind and Apps Manager displays the status of the service while the bind is still pending.
+
+For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation. 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='extended-cf-logs-downtime'></a> Extended CF Logs Downtime
