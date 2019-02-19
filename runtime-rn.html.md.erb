@@ -11,6 +11,95 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.2.12'></a> 2.2.12
+
+* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies
+* **[Feature Improvement]** Increase the maximum number of connections for internal MySQL to 3500
+* **[Feature Improvement]** Change default lifetime of Apps Manager client UAA token to 1 hour
+* **[Feature Improvement]** Improve auctioneer cell-state logs in Diego Auctioneer
+* **[Feature Improvement]** Increase Tomcat max http header size to 14K
+* **[Bug Fix]** Fix BBR failures when backing up large blobs to unversioned S3 blobstores
+* **[Bug Fix]** Fix binding route services to apps
+* **[Bug Fix]** Fix concurrency bug in the Router's route pool, which could manifest as a fatal error: "Unlock of unlocked RWMutex"
+* **[Bug Fix]** Fix bug in Apps Manager where space page, services tab shows a 500 error if the last operation of a service is null
+* **[Bug Fix]** Make header tabs focusable and clickable via keyboard navigation in Apps Manager
+* **[Bug Fix]** Improve garden init process to avoid edge cases that can lead to zombies
+* **[Bug Fix]** Add back Consul registration in PXC Proxy to fix issue that can cause API and Application downtime when upgrading from PAS 2.1.x.
+* **[Bug Fix]** Fix failure to bind service to app with custom parameters in Apps Manager
+* opsmanager failed to upgrade srt 2.1 to 2.2
+* Bump ubuntu-trusty stemcell to version `3586.71`
+* Bump backup-and-restore-sdk to version `1.12.0`
+* Bump binary-offline-buildpack-lts to version `1.0.30`
+* Bump capi to version `1.58.11`
+* Bump cflinuxfs2 to version `1.260.0`
+* Bump diego to version `2.8.7`
+* Bump dotnet-core-offline-buildpack-lts to version `2.2.5`
+* Bump garden-runc to version `1.16.8`
+* Bump go-offline-buildpack-lts to version `1.8.33`
+* Bump nodejs-offline-buildpack-lts to version `1.6.43`
+* Bump php-offline-buildpack-lts to version `4.3.70`
+* Bump push-apps-manager-release to version `665.0.27`
+* Bump pxc to version `0.14.1`
+* Bump python-offline-buildpack-lts to version `1.6.28`
+* Bump routing to version `0.178.5`
+* Bump ruby-offline-buildpack-lts to version `1.7.31`
+* Bump staticfile-offline-buildpack-lts to version `1.4.39`
+* Bump uaa to version `60.11`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-trusty stemcell</td><td>3586.71</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.12.0</td></tr>
+    <tr><td>binary-offline-buildpack-lts</td><td>1.0.30</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.2</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.15</td></tr>
+    <tr><td>capi</td><td>1.58.11</td></tr>
+    <tr><td>cf-autoscaling</td><td>201.9</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.5.0</td></tr>
+    <tr><td>cf-mysql</td><td>36.16.0</td></tr>
+    <tr><td>cf-networking</td><td>2.3.3</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>cf-syslog-drain</td><td>6.6</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.260.0</td></tr>
+    <tr><td>consul</td><td>195</td></tr>
+    <tr><td>credhub</td><td>1.9.9</td></tr>
+    <tr><td>diego</td><td>2.8.7</td></tr>
+    <tr><td>dotnet-core-offline-buildpack-lts</td><td>2.2.5</td></tr>
+    <tr><td>garden-runc</td><td>1.16.8</td></tr>
+    <tr><td>go-offline-buildpack-lts</td><td>1.8.33</td></tr>
+    <tr><td>haproxy</td><td>8.7.0</td></tr>
+    <tr><td>java-offline-buildpack-lts</td><td>4.16.1</td></tr>
+    <tr><td>log-cache</td><td>1.4.7</td></tr>
+    <tr><td>loggregator</td><td>102.8</td></tr>
+    <tr><td>mysql-monitoring</td><td>8.20.0</td></tr>
+    <tr><td>nats</td><td>24</td></tr>
+    <tr><td>nfs-volume</td><td>1.2.6</td></tr>
+    <tr><td>nodejs-offline-buildpack-lts</td><td>1.6.43</td></tr>
+    <tr><td>notifications-ui</td><td>33</td></tr>
+    <tr><td>notifications</td><td>46</td></tr>
+    <tr><td>php-offline-buildpack-lts</td><td>4.3.70</td></tr>
+    <tr><td>pivotal-account</td><td>1.9.1</td></tr>
+    <tr><td>push-apps-manager-release</td><td>665.0.27</td></tr>
+    <tr><td>push-usage-service-release</td><td>666.0.12</td></tr>
+    <tr><td>pxc</td><td>0.14.1</td></tr>
+    <tr><td>python-offline-buildpack-lts</td><td>1.6.28</td></tr>
+    <tr><td>routing</td><td>0.178.5</td></tr>
+    <tr><td>ruby-offline-buildpack-lts</td><td>1.7.31</td></tr>
+    <tr><td>silk</td><td>2.3.4</td></tr>
+    <tr><td>staticfile-offline-buildpack-lts</td><td>1.4.39</td></tr>
+    <tr><td>statsd-injector</td><td>1.3.0</td></tr>
+    <tr><td>syslog</td><td>11.3.2</td></tr>
+    <tr><td>uaa</td><td>60.11</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.2.11'></a> 2.2.11
 
 <p class="note warning"><strong>WARNING:</strong> Do not upgrade directly to this release from PAS v2.1.x. For more information, see <a href="#upgrade-failure">Downtime when Upgrading from v2.1 to v2.2.7 or Later</a>.</p>
