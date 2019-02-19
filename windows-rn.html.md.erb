@@ -80,8 +80,12 @@ PAS for Windows v2.4 includes the following major features:
 
 ### <a id='smoke-tests'></a> Smoke Tests are Available
 
-Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time. You have the option of choosing a temporary or specified organization and space for smoke tests. The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
- 
+Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app routability at deploy time.
+You have the option of choosing a temporary or specified organization and space for smoke tests.
+The **Smoke Test Errand** can be configured within the PAS for Windows Tile. Smoke Tests are turned off by default.
+
+<p class='note-warning'><strong>Warning:</strong> Before enabling Smoke Tests, please review [Known Issues](#known-issues).</p>
+
 For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in _Installing and Configuring PAS for Windows_.
 
 ### <a id='stack'></a> Developers Can Push with Default Windows Stack
@@ -138,3 +142,12 @@ PAS for Windows metrics are tagged with `cf` as the deployment name.
 only if it is required for backward compatibility with previous versions of PCF
 or if you have scripts that rely on metrics with <code>cf</code> as the value for <code>deployment</code>.
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
+
+## <a id='known-issues'></a> Known Issues
+
+### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout on login
+
+When attempting to run `cf login`, the PASW Smoke Test Errand may fail due to certificate validation timeout. 
+For more information, see 
+[PASW Smoke Test Errand will timeout and fail when attempting to run 'cf login'](https://community.pivotal.io/s/article/pasw-smoke-test-errand-will-timeout-and-fail-when-attempting-to-run-cf-login) 
+in the Pivotal Support knowledge base.
