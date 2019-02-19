@@ -11,6 +11,96 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.3'></a> 2.4.3
+
+* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies
+* **[Feature]** Include garden debug tooling alongside garden
+* **[Feature Improvement]** Add support for "windows" stack
+* **[Bug Fix]** Fix accumulating TCP Router HAProxy <defunct> instances
+* **[Bug Fix]** Show recent apps breadcrumbs in correct order in Apps Manager
+* **[Bug Fix]** Add scrollbar to search results in smaller windows in Apps Manager
+* **[Bug Fix]** Fix concurrency bug in the Router's route pool, which could manifest as a fatal error: "Unlock of unlocked RWMutex"
+* **[Bug Fix]** Fix bug in Apps Manager where space page, services tab shows a 500 error if the last operation of a service is null
+* **[Bug Fix]** Make header tabs focusable and clickable via keyboard navigation in Apps Manager
+* **[Bug Fix]** Fix usage service migrations when running on MySQL 5.7 configured with `NO_ZERO_IN_DATE, NO_ZERO_DATE`
+* **[Bug Fix]** Fix `allowNativePassword` error when using external IaaS MySql as a system database
+* **[Bug Fix]** Fix failure to bind service to app with custom parameters in Apps Manager
+* Bump ubuntu-xenial stemcell to version `170.25`
+* Bump binary-offline-buildpack to version `1.0.30`
+* Bump cflinuxfs2 to version `1.260.0`
+* Bump cflinuxfs3 to version `0.51.0`
+* Bump dotnet-core-offline-buildpack to version `2.2.5`
+* Bump garden-runc to version `1.18.0`
+* Bump go-offline-buildpack to version `1.8.33`
+* Bump nfs-volume to version `1.7.7`
+* Bump nodejs-offline-buildpack to version `1.6.43`
+* Bump php-offline-buildpack to version `4.3.70`
+* Bump push-apps-manager-release to version `667.0.6`
+* Bump push-usage-service-release to version `668.0.11`
+* Bump python-offline-buildpack to version `1.6.28`
+* Bump routing to version `0.182.2`
+* Bump ruby-offline-buildpack to version `1.7.31`
+* Bump staticfile-offline-buildpack to version `1.4.39`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>170.25</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.12.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.30</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
+    <tr><td>bpm</td><td>0.13.0</td></tr>
+    <tr><td>capi</td><td>1.71.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>216</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.9.0</td></tr>
+    <tr><td>cf-networking</td><td>2.18.2</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>cf-syslog-drain</td><td>8.0</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.260.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.51.0</td></tr>
+    <tr><td>consul-drain</td><td>0.0.3</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.2</td></tr>
+    <tr><td>diego</td><td>2.22.1</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.2.5</td></tr>
+    <tr><td>garden-runc</td><td>1.18.0</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.33</td></tr>
+    <tr><td>haproxy</td><td>9.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
+    <tr><td>log-cache</td><td>2.0.1</td></tr>
+    <tr><td>loggregator-agent</td><td>2.2</td></tr>
+    <tr><td>loggregator</td><td>103.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.2</td></tr>
+    <tr><td>metric-registrar</td><td>1.0.4</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.7</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.43</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>54</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.70</td></tr>
+    <tr><td>push-apps-manager-release</td><td>667.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>668.0.11</td></tr>
+    <tr><td>pxc</td><td>0.14.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.28</td></tr>
+    <tr><td>routing</td><td>0.182.2</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.31</td></tr>
+    <tr><td>silk</td><td>2.18.1</td></tr>
+    <tr><td>smb-volume</td><td>0.2.6</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.39</td></tr>
+    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>66.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.2'></a> 2.4.2
 
 * **[Feature Improvement]** Add support for "windows" stack
