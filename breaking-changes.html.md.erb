@@ -1,12 +1,12 @@
 ---
-title: PCF v2.5 Breaking Changes
+title: PCF v2.6 Breaking Changes
 owner: Release Engineering
 ---
 
 This topic describes the breaking changes you need to be aware of when upgrading to
-Pivotal Cloud Foundry (PCF) v2.5. For more information about important preparation steps
+Pivotal Cloud Foundry (PCF) v2.6. For more information about important preparation steps
 you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud
-Foundry](http://docs.pivotal.io/2-5/customizing/upgrading-pcf.html).
+Foundry](http://docs.pivotal.io/2-6/customizing/upgrading-pcf.html).
 
 
 
@@ -14,30 +14,6 @@ Foundry](http://docs.pivotal.io/2-5/customizing/upgrading-pcf.html).
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
 See the following PAS breaking changes:
-
-### <a id='log-cache'></a> Removed Log Cache Property
-
-PAS v2.4 removed the **Enable log-cache** checkbox from the **Advanced Features** section of the PAS tile. 
-
-PAS v2.5 removes the underlying property, `enable_log_cache`. If you have any scripts that reference this property, they may fail now that it is removed. 
-
-### <a id='deployment-name'></a> Removed Option to Override Deployment Name to CF 
-
-PAS v2.4 introduced the use of `cf-GUID` as the value for the `deployment` in metrics. For more information, see [Uniquely Identify Metrics by Tile](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes.html#metrics-prefix).
-
-PAS v2.4 also included the option to override this value back to `cf`, which was used in previous versions. However, PAS v2.5 removes this override option. 
-
-To upgrade successfully, the **Use "cf" as deployment name in emitted metrics instead of unique name** option in the **Advanced Features** pane of the PAS tile must be deselected.  
-
-If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS v2.5. 
-
-Additionally, if you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS, you must run the **Push Monitoring Components** errand for Healthwatch to detect the change. 
-
-### <a id="apps-man"></a> Removed Unused Apps Manager UAA Client and Property
-
-PAS v2.5 removes an unused Apps Manager UAA client identified as `portal` and an unused refresh token property `uaa.apps_manager_refresh_token_lifetime`. 
-
-If you have platform automation scripts, you may need to update them if they reference these properties. 
 
 ## <a id='opsman'></a> PCF Ops Manager
 
