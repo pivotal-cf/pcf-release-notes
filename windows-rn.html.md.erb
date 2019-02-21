@@ -175,7 +175,7 @@ or if you have scripts that rely on metrics with <code>cf</code> as the value fo
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
 
 ## <a id='known-issues'></a> Known Issues
-### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout in environments without Internet access
+### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout in environments lacking Internet access
 
 The PASW Smoke Test Errand may fail when running `cf login` due to certificate validation timeout. 
 Certificate validation timeout is known to occur if an environment lacks Internet access and its load balancer certificates are configured to validate over the Internet. 
