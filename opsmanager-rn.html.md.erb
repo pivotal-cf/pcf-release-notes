@@ -15,6 +15,56 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ## <a id="releases"></a>Releases
 
+### <a id="beta-1"></a> 2.5 Beta 2
+
+* **[New Feature]**: Ops Manager now allows you to rotate the NATS CA. The NATS CA is now an active CA on the certificates table in the Ops Manager database. NATS certificate rotation follows the same workflow as rotating an existing CA and its leaf certificates. A new NATS CA is created when a new OM root CA is created. This pairs the lifecycle of the NATS CA with the OM root CA. When you use the `regenerate` endpoint in the Ops Manager API, new leaf certs are generated for each client using the NATS CA. These new certs are using the active NATS CA in the database. The NATS CA's public keys and expiration dates are also now visible at `/api/v0/deployed/certificates`.
+* **[New Feature]**: You can now upgrade from the most recent version of Ops Manager using multiple NATS certificate authorities (CAs) to a version that only supports one NATS CA.
+* **[Bug Fix]**: Now only one stemcell errors appears at a time in the Review Pending Changes page.
+
+Ops Manager v2.5 Beta 2 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.5.0-build.135*</td>
+  </tr>
+  <tr>
+    <td>Stemcell</td><td>250.4</td>
+  </tr><tr>
+    <td>BBR SDK</td><td>1.14.0*</td>
+  </tr><tr>
+    <td>BOSH Director</td><td>268.6.0</td>
+  </tr><tr>
+    <td>BOSH DNS</td><td>1.10</td>
+  </tr><tr>
+    <td>Metrics Server</td><td>0.0.22</td>
+  </tr><tr>
+    <td>CredHub</td><td>2.1.2</td>
+  </tr><tr>
+    <td>Syslog</td><td>11.4</td>
+  </tr><tr>
+    <td>UAA</td><td>69</td>
+  </tr><tr>
+    <td>AWS CPI</td><td>73</td>
+  </tr><tr>
+    <td>Azure CPI</td><td>35.4</td>
+  </tr><tr>
+    <td>GCP CPI</td><td>29.0.1</td>
+  </tr><tr>
+    <td>OpenStack CPI</td><td>42</td>
+  </tr><tr>
+    <td>vSphere CPI</td><td>52.1.08*</td>
+  </tr>
+  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
 ### <a id="beta-1"></a> 2.5 Beta 1
 
 * **[Breaking Change]**: The filenames for Ops Manager downloads on Pivotal Network have changed. New filenames are formatted in the following way: `ops-manager-aws-2.5.0-build.128.yml`. If you have automation tools or scripts that use the filename, update them to breakages or downtime. 
