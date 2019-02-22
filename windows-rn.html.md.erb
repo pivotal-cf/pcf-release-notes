@@ -115,7 +115,7 @@ Smoke Tests are available in PAS for Windows v2.4 to verify `cf push` and app ro
 The **Smoke Test Errand**, disabled by default, can be enabled and configured within the PAS for Windows Tile. 
 You have the option of choosing a temporary or specified organization and space for smoke tests.
 
-<p class='note'><strong>Note:</strong> Before enabling Smoke Tests in an environment lacking Internet access, please review <a href="#known-issues">Known Issues</a>.</p>
+<p class='note'><strong>Note:</strong> Before enabling Smoke Tests in an environment lacking internet access, please review <a href="#known-issues">Known Issues</a>.</p>
 
 For more information on Smoke Tests, see [Step 3: Configure the Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/windows/installing.html#config) in _Installing and Configuring PAS for Windows_.
 
@@ -175,10 +175,10 @@ or if you have scripts that rely on metrics with <code>cf</code> as the value fo
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
 
 ## <a id='known-issues'></a> Known Issues
-### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout in environments lacking Internet access
+### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout in environments lacking internet access
 
 The PASW Smoke Test Errand may fail when running `cf login` due to certificate validation timeout. 
-Certificate validation timeout is known to occur if an environment lacks Internet access and its load balancer certificates are configured to validate over the Internet. 
+Certificate validation timeout is known to occur if an environment lacks internet access and its load balancer certificates are configured to validate over the internet. 
 For more information, see 
 [PASW Smoke Test Errand will timeout and fail when attempting to run 'cf login'](https://community.pivotal.io/s/article/pasw-smoke-test-errand-will-timeout-and-fail-when-attempting-to-run-cf-login) 
 in the Pivotal Support knowledge base.
