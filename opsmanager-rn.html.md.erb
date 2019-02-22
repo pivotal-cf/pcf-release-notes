@@ -15,7 +15,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ## <a id="releases"></a>Releases
 
-### <a id="beta-1"></a> 2.5 Beta 2
+### <a id="beta-2"></a> 2.5 Beta 2
 
 * **[New Feature]**: Ops Manager now allows you to rotate the NATS CA. The NATS CA is now an active CA on the certificates table in the Ops Manager database. NATS certificate rotation follows the same workflow as rotating an existing CA and its leaf certificates. A new NATS CA is created when a new OM root CA is created. This pairs the lifecycle of the NATS CA with the OM root CA. When you use the `regenerate` endpoint in the Ops Manager API, new leaf certs are generated for each client using the NATS CA. These new certs are using the active NATS CA in the database. The NATS CA's public keys and expiration dates are also now visible at `/api/v0/deployed/certificates`.
 * **[New Feature]**: You can now upgrade from the most recent version of Ops Manager using multiple NATS certificate authorities (CAs) to a version that only supports one NATS CA.
