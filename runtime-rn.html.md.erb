@@ -13,7 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.3.7'></a> 2.3.7
 
-* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. See [the steps for adding a trusted certificate authority to the BOSH Director](https://docs.pivotal.io/pivotalcf/2-3/om/aws/config-manual.html#security).
+* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. To resolve this issue, add the certificate authority using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile.
 * **[Feature Improvement]** Increase Tomcat max http header size to 14K
 * **[Bug Fix]** Fix concurrency bug in the Router's route pool, which could manifest as a fatal error: "Unlock of unlocked RWMutex"
 * **[Bug Fix]** Fix bug in Apps Manager where space page, services tab shows a 500 error if the last operation of a service is null
