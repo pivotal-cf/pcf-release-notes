@@ -444,6 +444,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Breaking Change]** Bump log-cache API to version 2.x which moves `/v1` endpoints to `/api/v1`
 * **[Breaking Change]** Internal MySQL always uses Percona XtraDB Cluster
 * **[Security Fix]** Rotate diego intermediate CA before current certificate expires
+* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. See [the steps for adding a trusted certificate authority to the BOSH Director](https://docs.pivotal.io/pivotalcf/2-4/om/aws/config-manual.html#security).
 * **[Feature]** Apps manager includes new home page and allows users to search for apps, spaces, orgs and service instances
 * **[Feature]** Add metric-registrar to enable App Developers to output custom application metrics that can be monitored by platform-provided tooling
 * **[Feature]** Users in `usage_service.audit` group can access the Usage Service API using their CF OAuth token
