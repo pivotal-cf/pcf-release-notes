@@ -13,7 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.2.12'></a> 2.2.12
 
-* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. See [the steps for adding a trusted certificate authority to the BOSH Director](https://docs.pivotal.io/pivotalcf/2-2/om/aws/config-manual.html#security).
+* **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. To resolve this issue, add the certificate authority using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile.
 * **[Feature Improvement]** Increase the maximum number of connections for internal MySQL to 3500
 * **[Feature Improvement]** Change default lifetime of Apps Manager client UAA token to 1 hour
 * **[Feature Improvement]** Improve auctioneer cell-state logs in Diego Auctioneer
