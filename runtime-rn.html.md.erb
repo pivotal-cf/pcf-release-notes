@@ -565,7 +565,9 @@ To deploy the Istio router, navigate to the **Networking - Service Mesh** pane o
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
-Some services implement asynchronous responses and must complete certain operations before returning a successful bind response. In this case, the service may take longer to bind and Apps Manager displays the status of the service while the bind is still pending.
+Apps Manager now supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help services brokers avoid the time-out for synchronous operations in PAS. 
+
+When you bind and app to a service that uses asynchronous bindings, Apps Manager displays the status of the service while the bind is still pending.
 
 For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation. 
 
