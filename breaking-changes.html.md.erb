@@ -39,6 +39,12 @@ PAS v2.5 removes an unused Apps Manager UAA client identified as `portal` and an
 
 If you have platform automation scripts, you may need to update them if they reference these properties. 
 
+### <a id="ssl-apps-manager"></a> Apps Manager Verifies SSL
+
+Starting in PAS v2.4.3, Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. 
+
+If you are upgrading to PAS v2.5 from PAS v2.4.2 or earlier, do the following to prevent this issue: Add the certificate authority using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile.
+
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
