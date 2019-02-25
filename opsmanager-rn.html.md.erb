@@ -375,11 +375,11 @@ Use the output on this page to verify accuracy and comprehensiveness before rede
 
 For more information, see [Reviewing Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
 
-### <a id="nats-ca"></a> NATS Certificate Rotatation Available in the Ops Manager API
+### <a id="nats-ca"></a> NATS Certificate Rotation Available in the Ops Manager API
 
-Ops Manager now allows you to regenerate and rotate the NATS certificate authority (CA). The NATS CA's public keys and expiration dates are now visible at `/api/v0/deployed/certificates`. The certificate itself is listed as an active CA on the certificates table in the Ops Manager database.
+Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA). The public keys and expiration dates for the NATS CA are visible at `/api/v0/deployed/certificates`. The certificate itself is listed as an active CA on the certificates table in the Ops Manager database.
 
-A new NATS CA is created when a new OM root CA is created. This pairs the lifecycle of the NATS CA with the OM root CA. The two CAs are created, activated, and deleted in unison. When an operator hits the `regenerate` endpoint in the Ops Manager API, new leaf certificates are generated for each client using the NATS CA. The new certificates use the active NATS CA in the database.
+A new NATS CA is created every time a new Ops Manager root CA is created. This pairs the lifecycle of the NATS CA with the Ops Manager root CA. The two CAs are created, activated, and deleted in unison. When an operator uses the `regenerate` endpoint in the Ops Manager API, new leaf certificates are generated for each client using the NATS CA. The new certificates use the active NATS CA in the database.
 
 For more information about regenerating and rotating certificates, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/2-5/security/pcf-infrastructure/api-cert-rotation.html).
 
