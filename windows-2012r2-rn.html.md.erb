@@ -9,6 +9,33 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.3'></a> 2.4.3
+
+* **[Bug Fix]** Fix app push failures caused by inability to interpolate Credhub references by configuring `containers.trusted_ca_certificates` on `rep_windows` job
+* Bump windows2012R2 stemcell to version `1200.29`
+* Bump hwc-offline-buildpack to version `3.1.5`
+* Bump loggregator-agent to version `2.3`
+* Bump loggregator to version `103.4`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows2012R2 stemcell</td><td>1200.29</td></tr>
+    <tr><td>diego</td><td>2.22.1</td></tr>
+    <tr><td>event-log</td><td>0.7.0</td></tr>
+    <tr><td>garden-windows</td><td>0.14.0</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.1.5</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.4.2'></a> 2.4.2
 
 * **[Bug Fix]** Bump `buildpackapplifecycle` in Diego to avoid filling up the disk on Windows2012R2

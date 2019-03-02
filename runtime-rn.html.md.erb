@@ -11,6 +11,87 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.4.4'></a> 2.4.4
+
+* **[Security Fix]** Bump BPM to v1.0.3 for RunC CVE
+* **[Feature]** Operator can specify headers to be stripped from the response by the router
+* **[Feature Improvement]** Operators can configure API Batch Size for the CF Syslog Drain Release
+* **[Feature Improvement]** Increase performance for internal MySQL by setting the setting for innodb_flush_log_at_trx_commit from 1 to 2.  This increases performance safely for clustered deployments.  Single node might need to scale up to avoid the possibility of 1 second of data loss during deploys.
+* **[Feature Improvement]** Add options to configure polling interval and idle connection limits for networking components to reduce resource contention on database
+* **[Bug Fix]** Fix MySQL proxy connection limitation caused by incompatibility between Xenial stemcells and the call to set the open file descriptor in the component's control script
+* **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
+* **[Bug Fix]** Fixes access issue for NFS shares with `root_squash` enabled and no world read permissions.
+* **[Bug Fix]** Fix potential `routing-api` failure to start due to DNS query issue in golang 1.11
+* Bump ubuntu-xenial stemcell to version `170.30`
+* Bump bpm to version `1.0.3`
+* Bump cf-syslog-drain to version `8.1`
+* Bump cflinuxfs2 to version `1.267.0`
+* Bump cflinuxfs3 to version `0.62.0`
+* Bump loggregator-agent to version `2.3`
+* Bump loggregator to version `103.4`
+* Bump mapfs to version `1.1.4`
+* Bump pxc to version `0.14.2`
+* Bump routing to version `0.182.3`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>170.30</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.12.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.30</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.16</td></tr>
+    <tr><td>bpm</td><td>1.0.3</td></tr>
+    <tr><td>capi</td><td>1.71.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>216</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.9.0</td></tr>
+    <tr><td>cf-networking</td><td>2.18.2</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>cf-syslog-drain</td><td>8.1</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.267.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.62.0</td></tr>
+    <tr><td>consul-drain</td><td>0.0.3</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.2</td></tr>
+    <tr><td>diego</td><td>2.22.1</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.2.5</td></tr>
+    <tr><td>garden-runc</td><td>1.18.0</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.33</td></tr>
+    <tr><td>haproxy</td><td>9.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.16.1</td></tr>
+    <tr><td>log-cache</td><td>2.0.1</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.0.4</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.1.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.7</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.43</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>54</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.70</td></tr>
+    <tr><td>push-apps-manager-release</td><td>667.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>668.0.11</td></tr>
+    <tr><td>pxc</td><td>0.14.2</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.28</td></tr>
+    <tr><td>routing</td><td>0.182.3</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.31</td></tr>
+    <tr><td>silk</td><td>2.18.1</td></tr>
+    <tr><td>smb-volume</td><td>0.2.6</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.39</td></tr>
+    <tr><td>statsd-injector</td><td>1.5.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>66.0</td></tr>
+  </tbody>
+  </table>
+
 ### <a id='2.4.3'></a> 2.4.3
 
 * **[Security Fix]** Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. To resolve this issue, add the certificate authority using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile.
