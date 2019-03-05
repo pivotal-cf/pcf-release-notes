@@ -538,9 +538,8 @@ When upgrading to PAS v2.5, be aware of the following upgrade considerations:
 
 * Some partner service tiles may be incompatible with PCF v2.5. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.5, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
+
 ## <a id='new-features'></a> New Features in PAS v2.5
-
-
 
 ### <a id="disable-policy-enforcement"></a> Disable Network Policy Enforcement Between Apps
 
@@ -561,22 +560,20 @@ The Istio routing tier deploys three new VMs when enabled: `istio-control`, `ist
 
 To deploy the Istio router, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**. 
 
-<p class="note"><strong>Note</strong>: Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
+<p class="note"><strong>Note:</strong> Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
+
+### <a id='routability'></a> Diego BBS Increases Routing Stability
+
+Diego BBS has been upgraded to improve routability for application instances running on cells with unstable presences. Previously, these instances were immediately replaced, and routability was cut off when running on a cell that missed a heartbeat. This feature ensures that routing to these "suspect" application instances is maintained in case a flaky cell is able to regain its presence. A replacement is scheduled for each "suspect" instance in case the flaky cell does not regain presence quickly.
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
-Apps Manager now supports services that take advantage of the flexibility of asynchronous
-bindings. Asynchronous bindings provide service brokers more time to perform the
-operations required to complete a bind. This can help service brokers avoid timing out 
+Apps Manager now supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out 
 for synchronous operations in PAS. 
 
-When you bind an app to a service that uses asynchronous bindings, Apps Manager displays
-the status of the service while the bind is still pending.
+When you bind an app to a service that uses asynchronous bindings, Apps Manager displays the status of the service while the bind is still pending.
 
-For more information about asynchronous operations in services, see the [Open Service
-Broker
-API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations)
-documentation. 
+For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation. 
 
 ### <a id="metadata"></a> Specify Metadata for Apps, Orgs, and Spaces
 
@@ -585,6 +582,7 @@ You can now specify metadata to provide additional information about apps, orgs,
 You can specify two types of metadata: labels and annotations. You can query objects based on labels but not annotations. 
 
 For more information about metadata and how to add, update, and view metadata, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
+
 
 ## <a id='known-issues'></a> Known Issues
 
