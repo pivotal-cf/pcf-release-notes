@@ -90,7 +90,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>syslog</td><td>11.4.0</td></tr>
     <tr><td>uaa</td><td>66.0</td></tr>
   </tbody>
-  </table>
+</table>
 
 ### <a id='2.4.3'></a> 2.4.3
 
@@ -736,21 +736,21 @@ For information about configuring garbage collection values, see [Configuring Ce
 
 Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, all components use BPM. For more information, see [BOSH Process Manager](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#bpm) in the _Pivotal Application Service v2.3 Release Notes_.
 
-### <a id="usage-service-audit"></a>Access Usage Service API with OAuth 
+### <a id="usage-service-audit"></a>Access Usage Service API with OAuth
 
-Users in the `usage_service.audit` group can access the Usage Service API with their CF OAuth token. Previously, only users of the `cloud_controller.admin` group could access the Usage Service API with CF OAuth. 
+Users in the `usage_service.audit` group can access the Usage Service API with their CF OAuth token. Previously, only users of the `cloud_controller.admin` group could access the Usage Service API with CF OAuth.
 
-This update allows `usage_service.audit` users to quickly generate reports on historical system- and org-level usage for apps, tasks, and service instances. For more information about accessing the Usage Service API to view app, task, and service instance usage, see [Reporting App, Task, and Service Instance Usage](https://docs.pivotal.io/pivotalcf/2-4/opsguide/accounting-report.html).   
+This update allows `usage_service.audit` users to quickly generate reports on historical system- and org-level usage for apps, tasks, and service instances. For more information about accessing the Usage Service API to view app, task, and service instance usage, see [Reporting App, Task, and Service Instance Usage](https://docs.pivotal.io/pivotalcf/2-4/opsguide/accounting-report.html).
 
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4
 
-This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue. 
+This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue.
 
-In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. CAPI uses hardcoded cipher suites for this communication and Gorouter uses cipher suites configured by the operator in the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. By default, this field contains the cipher suites required for communication with CAPI. 
+In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. CAPI uses hardcoded cipher suites for this communication and Gorouter uses cipher suites configured by the operator in the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. By default, this field contains the cipher suites required for communication with CAPI.
 
-If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime, during which users cannot do things such as push apps and create routes. 
+If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime, during which users cannot do things such as push apps and create routes.
 
 To resolve this issue, ensure one of the recommended cipher suites is always in the **TLS Cipher Suites for Router** field:
 
@@ -798,7 +798,7 @@ Above approximately 40 Doppler instances and 20 Traffic Controller instances, ho
 
 ### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in 2.4.3
 
-The 2.4.3 patch release included a security fix that resulted in Apps Manager validating SSL certificates for backend services including the Cloud Controller API. For environments using SSL certificates that are signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content. 
+The 2.4.3 patch release included a security fix that resulted in Apps Manager validating SSL certificates for backend services including the Cloud Controller API. For environments using SSL certificates that are signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
 
 To resolve this issue and any other PAS issues related to using an untrusted certificate, add the CA using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile. You must add the CA certificate that signed the SSL certificate that PCF uses for SSL termination. This is not the SSL certificate itself.
 
