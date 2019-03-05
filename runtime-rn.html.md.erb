@@ -541,9 +541,11 @@ When upgrading to PAS v2.5, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.5
 
-### <a id='cflinuxfs3'></a> PAS No Longer Supports cflinuxfs2
+### <a id='cflinuxfs3'></a> PAS Only Supports cflinuxfs3
 
-In PAS v2.4, cflinuxfs3 was the default stack, but cflinuxfs2 was still supported. PAS v2.5 does not support cflinuxfs2 and uses only cflinuxfs3.
+`cflinuxfs3` is the only stack supported in PAS v2.5. All apps using `cflinuxfs2` must be restaged with `cflinuxfs3` before upgrading to PAS v2.5.
+
+For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/stacks.html).
 
 ### <a id="disable-policy-enforcement"></a> Disable Network Policy Enforcement Between Apps
 
