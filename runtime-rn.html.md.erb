@@ -567,7 +567,15 @@ To deploy the Istio router, navigate to the **Networking - Service Mesh** pane o
 
 ### <a id='routability'></a> Diego BBS Increases Routing Stability
 
-Diego BBS has been upgraded to improve routability for application instances running on cells with unstable presences. Previously, these instances were immediately replaced, and routability was cut off when running on a cell that missed a heartbeat. This feature ensures that routing to these "suspect" application instances is maintained in case a flaky cell is able to regain its presence. A replacement is scheduled for each "suspect" instance in case the flaky cell does not regain presence quickly.
+Diego Bulletin Board System (BBS) improves routability for application instances running on
+cells with unstable presences.
+
+Previously, when the cell missed a heartbeat,
+application instances to unstable cells were immediately replaced and 
+routability was terminated. 
+Now, when the cell misses a heartbeat, the routing to the application instance is maintained
+in case the cell is able to regain its presence. 
+A replacement app is scheduled in case the cell does not regain its presence. 
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
