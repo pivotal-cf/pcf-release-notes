@@ -551,7 +551,7 @@ The `cflinuxfs3` stack is derived from Ubuntu Bionic 18.04. The `cflinuxfs2` sta
 
 ### <a id="disable-policy-enforcement"></a> Disable Network Policy Enforcement Between Apps
 
-You can now disable Silk network policy enforcement between apps in the **Networking** pane of the PAS tile. Disabling network policy enforcement allows all apps to send network traffic to all other apps in the foundation despite no policy specifically allowing it.
+You can disable Silk network policy enforcement between apps in the **Networking** pane of the PAS tile. Disabling network policy enforcement allows all apps to send network traffic to all other apps in the foundation despite no policy specifically allowing it.
 
 Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
@@ -569,11 +569,19 @@ To deploy the Istio router, navigate to the **Networking - Service Mesh** pane o
 
 ### <a id='routability'></a> Diego BBS Increases Routing Stability
 
-Diego BBS has been upgraded to improve routability for application instances running on cells with unstable presences. Previously, these instances were immediately replaced, and routability was cut off when running on a cell that missed a heartbeat. This feature ensures that routing to these "suspect" application instances is maintained in case a flaky cell is able to regain its presence. A replacement is scheduled for each "suspect" instance in case the flaky cell does not regain presence quickly.
+Diego Bulletin Board System (BBS) improves routability for application instances running on
+cells with unstable presences.
+
+Previously, when the cell missed a heartbeat,
+application instances on unstable cells were immediately replaced and 
+routability was terminated. 
+Now, when the cell misses a heartbeat, the routing to the application instance is maintained
+in case the cell is able to regain its presence. 
+A replacement app is scheduled in case the cell does not regain its presence. 
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
-Apps Manager now supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out 
+Apps Manager supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out 
 for synchronous operations in PAS. 
 
 When you bind an app to a service that uses asynchronous bindings, Apps Manager displays the status of the service while the bind is still pending.
@@ -582,12 +590,17 @@ For more information about asynchronous operations in services, see the [Open Se
 
 ### <a id="metadata"></a> Specify Metadata for Apps, Orgs, and Spaces
 
-You can now specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk. 
+You can specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk. 
 
 You can specify two types of metadata: labels and annotations. You can query objects based on labels but not annotations. 
 
 For more information about metadata and how to add, update, and view metadata, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
 
+### <a id='garden-debug'></a> Generate Garden Component Logs with Binary File
+
+Garden, the component that PCF uses to create and manage isolated environments called containers, includes a binary file called `dontpanic`. Operators can run `/var/vcap/packages/garden/bin/dontpanic` to generate a tar file of Garden component logs for use in troubleshooting or reporting an issue.
+
+For more information about Garden, see [Garden](https://docs.pivotal.io/pivotalcf/concepts/architecture/garden.html).
 
 ## <a id='known-issues'></a> Known Issues
 
