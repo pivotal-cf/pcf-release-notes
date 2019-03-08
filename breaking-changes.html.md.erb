@@ -9,8 +9,6 @@ you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud
 Foundry](http://docs.pivotal.io/2-5/customizing/upgrading-pcf.html).
 
 
-
-
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
 See the following PAS breaking changes:
@@ -51,27 +49,30 @@ See the following PCF Ops Manager breaking changes:
 
 ### <a id="rename"></a> Ops Manager Release Artifacts Renamed on Pivotal Network
 
-Starting in Ops Manager v2.5.0, the filenames for Ops Manager release artifacts on Pivotal Network have been renamed. 
+Starting in Ops Manager v2.5, the filenames for Ops Manager release artifacts on Pivotal Network are restructured. 
 
 For example:
 
 <table class="nice">
 	<th>Ops Manager version</th>
-	<th>Release artifact naming patterns</th>
+	<th>Release artifact name structure</th>
+	<th>Example release artifact name</th>
 	<th>Details</th>
 	<tr>
-		<td>v2.5.0</td>
+		<td>v2.5</td>
+		<td>ops-manager-IAAS-VERSION-build.BUILD-NUMBER.pdf</td>
 		<td>ops-manager-aws-2.5.0-build.123.pdf</td>
 		<td>The filename lists the IaaS type after the product name and includes a patch version designator after the major and minor versions.</td>
 	</tr>
 	<tr>
-		<td>v2.4.x</td>
+		<td>v2.4 and earlier</td>
+		<td>ops-managerVERSION-build.BUILD-NUMBER-on-IAAS.pdf</td>
 		<td>OpsManager2.4-build.122onAWS.pdf</td>
 		<td>The filename does not include a patch version designator and lists the IaaS type after the build number.</td>
 	</tr>
 </table>
 
-If you use automation scripts or other tools to consume release artifacts, you may need to update them to match the new filename scheme.
+If you use automation scripts or other tools to access release artifacts, you may need to update them to match the new filename scheme. If your automation tools use precisely typed filenames or structures from previous versions of Ops Manager, you must update the tools to reflect the new filename structures or the tools will break.
 
 For more information, see [Ops Manager 2.5 changing the file naming scheme might break the pipeline jobs](https://community.pivotal.io/s/article/ops-manager-2-5-changing-the-file-naming-scheme-might-break-the-pipeline-jobs) in the Pivotal Knowledge Base.
 
