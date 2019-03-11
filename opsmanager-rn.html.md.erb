@@ -431,6 +431,14 @@ For more information about regenerating and rotating certificates, see [Managing
 
 ### <a id="pre-create"></a> Pre-Created Clients Available in the Ops Manager API
 
+You can now configure a pre-created client account to manage automation tasks and scripts for Ops Manager. To do this, you will need access to the UAA Command Line Client (UAAC) and Ops Manager API. 
+
+Pivotal recommends using client accounts for automated tasks because client accounts are not bound to the same authentication protocols as user accounts. A user account that controls automated components can cause those components to fail if the account experiences inconsistent availability due to permission or authentication issues.
+
+You can configure a pre-created client for Ops Manager either before you deploy Ops Manager for the first time, or by adding it to an existing deployment.
+
+For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in v2.5 release candidates.
