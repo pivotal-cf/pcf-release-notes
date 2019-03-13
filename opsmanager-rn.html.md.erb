@@ -50,7 +50,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-4/cus
   <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
   <tr><td>Credhub CLI</td><td>2.2.1</td></tr>
   <tr><td>BBR CLI</td><td>1.4.0*</td></tr>
-    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+    <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
   </tbody>
 </table>
 
@@ -103,13 +103,13 @@ Ops Manager v2.4.4 uses the following component versions:
   </tr><tr>
     <td>vSphere CPI</td><td>51.1*</td>
   </tr>
-  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
   </tbody>
 </table>
 
 ### <a id="2-4-3"></a> 2.4.3
 
-* **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint has been mitigated.
+* **[Security Fix]**: A potential XXS vulnerability in the `resource_config` API endpoint is mitigated.
 * **[New Feature]**: Tile authors can now use a double-parens accessor to pull information from Ops Manager. Use the `(($ops_manager.restricted_view_api_access_credentials))` to make read-only, non-credential requests to Ops Manager.
 * **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
 * **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
@@ -155,7 +155,7 @@ Ops Manager v2.4.3 uses the following component versions:
   </tr><tr>
     <td>vSphere CPI</td><td>51.0.4</td>
   </tr>
-  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
   </tbody>
 </table>
 
@@ -209,7 +209,7 @@ Ops Manager v2.4.2 uses the following component versions:
   </tr><tr>
     <td>vSphere CPI</td><td>51.0.4</td>
   </tr>
-  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
   </tbody>
 </table>
 
@@ -261,7 +261,7 @@ Ops Manager v2.4.1 uses the following component versions:
   </tr><tr>
     <td>vSphere CPI</td><td>51.0.4*</td>
   </tr>
-  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
   </tbody>
 </table>
 
@@ -307,7 +307,7 @@ Ops Manager v2.4.0 uses the following component versions:
   </tr><tr>
     <td>vSphere CPI</td><td>51.0.2</td>
   </tr>
-  <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
   </tbody>
 </table>
 
@@ -447,7 +447,7 @@ Ops Manager v2.4 includes the following updates to the API. Some of these update
 
 ### <a id="updated-sections"></a> Updated Sections
 
-The following existing sections of the API documentation have been updated in Ops Manager v2.4:
+The following existing sections of the API documentation are updated in Ops Manager v2.4:
 
 * [DNS Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes a new parameter:
   * `excluded_recursors`
