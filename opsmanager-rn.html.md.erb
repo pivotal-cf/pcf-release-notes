@@ -17,9 +17,17 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ### <a id="rc-2"></a> 2.5 Release Candidate 2
 
-* There are no additional features or bug fixes in this release candidate.
+* **[Breaking Change]**: The naming convention for Azure Availability Zones (AZs) is updated. You cannot upgrade from any previous version of v2.5 to v2.5 Release Candidate 2 if you are using Azure AZs. To continue using Azure AZs and upgrade to RC 2, you must do a clean install of RC 2. If you are using Azure AZs and also using automation to do a clean install, update your automation tools to ensure they choose zone names with the new AZ naming convention.
 
-Ops Manager v2.5 Release Candidate 2 uses the following component versions:
+ In all previous v2.5 Ops Managers, Azure AZs included a space between the zone name and number. 
+
+ For example: `Zone 1`
+
+ Ops Manager v2.5 Release Candidate 2 uses a new structure for AZ names. There is a dash between the zone name and number, and the entire name is in lower case.
+
+ For example: `zone-2`
+
+ Ops Manager v2.5 Release Candidate 2 uses the following component versions:
 
 <table border="1" class="nice">
   <thead>
