@@ -19,9 +19,13 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 <ul>
 <li><strong>[Breaking Change]</strong>: The naming convention for Azure Availability Zones (AZs) is updated. You cannot upgrade from any previous version of v2.5 to v2.5 Release Candidate 2 if you are using Azure AZs. To continue using Azure AZs and upgrade to RC 2, you must do a clean install of RC 2. If you are using Azure AZs and also using automation to do a clean install, update your automation tools to ensure they choose zone names with the new AZ naming convention.<br/> 
+<br/> 
 In all previous v2.5 Ops Managers, Azure AZs included a space between the zone name and number.<br/>
+<br/> 
 For example: <code>Zone 1</code><br/>
+<br/> 
 Ops Manager v2.5 Release Candidate 2 uses a new structure for AZ names. There is a dash between the zone name and number, and the entire name is in lower case.<br/>
+<br/> 
 For example: <code>zone-2</code>
 </li>
 </ul>
