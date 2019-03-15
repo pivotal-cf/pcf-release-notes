@@ -162,21 +162,23 @@ or later.
   </tbody>
 </table>
 
-
 ## <a id='new-features'></a> New Features in PAS for Windows v2.5
 
 PAS for Windows v2.5 includes the following major features:
 
 ###<a id="windows-2019"></a> Support for Windows Server 2019 Container Images
 
-PASW v2.5 supports Windows Server 2019 container images, which means 
-developers can deploy .NET apps on Windows Server 2019 in PCF.
+PAS for Windows v2.5 supports Windows Server 2019 container images. 
+This means developers can deploy .NET apps on Windows Server 2019 in PCF.
 
-Windows Server 2019 stabilizes and enhances a number of container APIs 
-used in the Garden Windows implementation (winc) of PASW.
+Moving to Windows Server 2019 adds stability and enhances a number of container APIs 
+used in the Garden Windows implementation (`winc`) of PAS for Windows.
 
-Windows Server 2019 stemcells are available on Pivotal Network and bosh.io 
-for all IaaS targets except vSphere.
+Windows Server 2019 stemcells are available for download on [Pivotal Network](https://network.pivotal.io) 
+and [bosh.io](https://www.bosh.io) for all IaaS targets except vSphere.
+
+<p class="note"><strong>Note:</strong> PAS for Windows v2.5 no longer supports Windows Server 1803 stemcells.
+  If you require a Windows Server 1803 stemcell, use PAS for Windows v2.4 instead.</p>
 
 ### <a id='trusted-certificates'></a> .NET Apps Trust CA Certificates Configured in BOSH Director
 
