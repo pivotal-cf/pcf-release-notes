@@ -17,7 +17,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** Operator can specify headers to be stripped from the response by the router
 * **[Feature Improvement]** Operators can configure API Batch Size for the CF Syslog Drain Release
 * **[Feature Improvement]** Increase performance for internal MySQL by setting the setting for innodb_flush_log_at_trx_commit from 1 to 2.  This increases performance safely for clustered deployments.  Single node might need to scale up to avoid the possibility of 1 second of data loss during deploys.
-* **[Feature Improvement]** Add options to configure polling interval and idle connection limits for networking components to reduce resource contention on database
 * **[Bug Fix]** Fix MySQL proxy connection limitation caused by incompatibility between Xenial stemcells and the call to set the open file descriptor in the component's control script
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fixes access issue for NFS shares with `root_squash` enabled and no world read permissions.
