@@ -96,12 +96,12 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.5.0-alpha.5'></a> 2.5.0-alpha.5
 
-* **[Breaking Change]** Remove unused `enable_log_cache` property. See [Removed Log Cache Property](./breaking-changes.html#log-cache). 
+* **[Breaking Change]** Remove unused `enable_log_cache` property. See [Removed Log Cache Property](./breaking-changes.html#log-cache).
 * **[Breaking Change]** Remove inactive DNS server configuration that only applied to older deployments without BOSH DNS
 * **[Breaking Change]** Remove unused Apps Manager UAA client and refresh token property. See [Removed Unused Apps Manager UAA Client and Property](./breaking-changes.html#apps-man).
 * **[Breaking Change]** Remove option to override deployment name to CF. See [Removed Option to Override Deployment Name to CF](./breaking-changes.html#deployment-name).
 * **[Breaking Change]** Remove unused jobs `mysql-restore` and `mysql-backup`
-* **[Feature]** Add ability to disable network policy enforcement between applications. See [Disable Network Policy Enforcement Between Apps](#disable-policy-enforcement). 
+* **[Feature]** Add ability to disable network policy enforcement between applications. See [Disable Network Policy Enforcement Between Apps](#disable-policy-enforcement).
 * **[Feature]** Add optional Istio based routing tier (BETA). See [Optional Istio-Based Routing Tier (BETA)](#istio).
 * **[Feature Improvement]** Add support for "windows" stack
 * **[Feature Improvement]** Remove `Enable log-cache` checkbox
@@ -559,11 +559,11 @@ Silk is a network fabric for containers designed for Cloud Foundry. For more inf
 
 Operators have the option to deploy an Istio router in addition to the existing HTTP and TCP routers. This router is based on [cloudfoundry/istio-release](https://github.com/cloudfoundry/istio-release).
 
-The Istio router currently only supports ingress routing to apps. It offers new features, such as weighted routing. 
+The Istio router currently only supports ingress routing to apps. It offers new features, such as weighted routing.
 
-The Istio routing tier deploys three new VMs when enabled: `istio-control`, `istio-router`, and `route_syncer`. 
+The Istio routing tier deploys three new VMs when enabled: `istio-control`, `istio-router`, and `route_syncer`.
 
-To deploy the Istio router, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**. 
+To deploy the Istio router, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**.
 
 <p class="note"><strong>Note:</strong> Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
 
@@ -573,26 +573,26 @@ Diego Bulletin Board System (BBS) improves routability for application instances
 cells with unstable presences.
 
 Previously, when the cell missed a heartbeat,
-application instances on unstable cells were immediately replaced and 
-routability was terminated. 
+application instances on unstable cells were immediately replaced and
+routability was terminated.
 Now, when the cell misses a heartbeat, the routing to the application instance is maintained
-in case the cell is able to regain its presence. 
-A replacement app is scheduled in case the cell does not regain its presence. 
+in case the cell is able to regain its presence.
+A replacement app is scheduled in case the cell does not regain its presence.
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
-Apps Manager supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out 
-for synchronous operations in PAS. 
+Apps Manager supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out
+for synchronous operations in PAS.
 
 When you bind an app to a service that uses asynchronous bindings, Apps Manager displays the status of the service while the bind is still pending.
 
-For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation. 
+For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation.
 
 ### <a id="metadata"></a> Specify Metadata for Apps, Orgs, and Spaces
 
-You can specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk. 
+You can specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk.
 
-You can specify two types of metadata: labels and annotations. You can query objects based on labels but not annotations. 
+You can specify two types of metadata: labels and annotations. You can query objects based on labels but not annotations.
 
 For more information about metadata and how to add, update, and view metadata, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
 
@@ -604,11 +604,19 @@ For more information about Garden, see [Garden](https://docs.pivotal.io/pivotalc
 
 ### <a id="mysql-performance"></a> Improved Performance for Internal MySQL
 
-PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush_log_at_trx_commit` property to `2`. This significantly reduces the amount of IO required by the cluster, as the database writes to disks once every second instead of on every commit. Previously, the value for this property was `1`. 
+PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush_log_at_trx_commit` property to `2`. This significantly reduces the amount of IO required by the cluster, as the database writes to disks once every second instead of on every commit. Previously, the value for this property was `1`.
 
 <p class="note"><strong>Note</strong>: For single node deployments, this setting can result in losing data from transactions that happened in the one-second time-frame before the node crashed. In clustered deployments, you can recover the data from another node, assuming the nodes did not all crash simultaneously.</p>
 
-For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.  
+For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.
+
+### <a id=‘container-metrics’></a> Cloud Controller Retrieves Container Metrics from Log Cache
+
+In PAS v2.5, Cloud Controller supports retrieving container metrics both from Traffic Controller and directly from Log Cache. When Cloud Controller retrieves container metrics directly from Log Cache, it can use the new Diego metric tags with these metric envelopes.
+
+As for Traffic Controller, the `containermetrics/app-guid` endpoint no longer exists.
+
+For more information about Log Cache and Traffic Controller, see [Configuring Logging in PAS](../../opsguide/logging-config-opsman.html), [Loggregator Architecture](../../loggregator/architecture.html), and [Overview of Logging and Metrics](../../loggregator/data-sources.html).
 
 
 ## <a id='known-issues'></a> Known Issues
