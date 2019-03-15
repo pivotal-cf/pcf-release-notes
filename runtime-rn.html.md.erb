@@ -1174,6 +1174,13 @@ To resolve this issue and any other PAS issues related to using an untrusted cer
 
 As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.3.7 and v2.3.8 patch releases Apps Manager does not honor this setting for its backend service certificate validation.
 
-### <a id="cert-rotation-with-mutual-tls-route-integrity"></a>Certificate Authority Rotation is not working in some PAS configurations
+### <a id="cert-rotation-with-mutual-tls-route-integrity"></a>Certificate Authority Rotation is Not Working in Some PAS Configurations
 
-You should not attempt to rotate certificate authorities if you're using mutual TLS for route integrity. You can check your settings by opening the "Application Settings" tab in OpsManager under the PAS product and looking for the option called "Router application identity verification". If the option is set to "Router and applications use mutual TLS to verify each other's identity" then you cannot currently rotate CAs, or applications will not be reachable from the router. We're working to correct this issue.
+Do not attempt to rotate certificate authorities (CAs) if you use mutual TLS for route integrity. To verify whether or not you are using mutual TLS, do the following:
+
+1. Log in to Ops Manager.
+1. Select the PAS tile.
+1. Select the **Application Settings** tab.
+1. View the settings in **Router application identity verification**. 
+
+If **Router application identity verification** is set to `Router and applications use mutual TLS to verify each other's identity`, then you cannot rotate CAs. If you try to rotate CAs, applications will not be reachable from the router.
