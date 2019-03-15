@@ -801,4 +801,15 @@ The v2.4.3 patch release included a security fix that resulted in Apps Manager v
 
 To resolve this issue and any other PAS issues related to using an untrusted certificate, add the CA using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile. You must add the CA certificate that signed the SSL certificate that PCF uses for SSL termination. This is not the SSL certificate itself.
 
-As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.4.3 and v2.4.4 patch releases Apps Manager does not honor this setting for its backend service certificate validation.
+As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.3.7 and v2.3.8 patch releases Apps Manager does not honor this setting for its backend service certificate validation.
+
+### <a id="cert-rotation-with-mutual-tls-route-integrity"></a>Certificate Authority Rotation is Not Working in Some PAS Configurations
+
+Do not attempt to rotate certificate authorities (CAs) if you use mutual TLS for route integrity. To verify whether or not you are using mutual TLS, do the following:
+
+1. Log in to Ops Manager.
+1. Select the PAS tile.
+1. Select the **Application Settings** tab.
+1. View the settings in **Router application identity verification**. 
+
+If **Router application identity verification** is set to `Router and applications use mutual TLS to verify each other's identity`, then you cannot rotate CAs. If you try to rotate CAs, the router will not be able to reach applications.
