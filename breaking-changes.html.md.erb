@@ -49,6 +49,14 @@ Starting in PAS v2.4.3, Apps Manager verifies SSL certificates for endpoints to 
 
 If you are upgrading to PAS v2.5 from PAS v2.4.2 or earlier, do the following to prevent this issue: Add the certificate authority using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile.
 
+### <a id='metrics-endpoint'></a> Removed Traffic Controller Container Metrics Endpoint
+
+PAS v2.5 removes the Traffic Controller `containermetrics/app-guid` endpoint. Any scripts that reference the `containermetrics/app-guid` endpoint may fail.
+
+The `containermetrics/app-guid` endpoint provided access to container metrics from Traffic Controller for a specific app. In PAS v2.5, you can access container metrics through Log Cache. Log Cache includes API endpoints and a CLI plugin to query and filter logs and metrics. 
+
+To download the Log Cache Cloud Foundry Command Line Interface (cf CLI) plugin, see [cf CLI Plugins](https://plugins.cloudfoundry.org/#log-cache). For information about using the Log Cache API, see [Log Cache](https://github.com/cloudfoundry/log-cache#restful-api-via-gateway) on GitHub.
+
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
