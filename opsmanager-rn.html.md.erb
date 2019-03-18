@@ -493,7 +493,11 @@ For more information about Ops Manager users and clients, see [Creating and Mana
 
 ## <a id='known-issues'></a> Known Issues
 
-* Known issues to come as features and dependencies are implemented in v2.5 release candidates.
+### <a id="service-broker-syslog"></a> Ops Manager's Syslog Template is Not Supported for Service Broker Tiles
+
+Ops Manager's Syslog template does not propagate to service broker tiles. Tile developers with service broker tiles should continue to use their own Syslog configurations. Service broker tiles with template Syslog configured will not display template Syslog.
+
+For more information about the Syslog template, see [Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/opsmanager-rn.html#syslog).
 
 ## <a id="api-updates"></a> API Documentation Updates
 
