@@ -457,6 +457,14 @@ Ops Manager v2.5 Alpha 1 uses the following component versions:
 
 Ops Manager v2.5 includes the following major features:
 
+### <a id="pending-tile-changes"></a> Pending Changes Page Displays Staged Changes 
+
+If you have changed the configuration of a tile in your deployment, use the Pending Changes page to review the changes to the existing manifest or configs line-by-line. Access a tile's pending changes by clicking the **See Changes** button on the Review Pending Changes page.
+
+Use the output on this page to verify accuracy and comprehensiveness before redeploying Ops Manager. This page is especially useful for deployments with more than one operator or administrator, or deployments that change due to both API and UI modifications.
+
+For more information, see [Reviewing Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
+
 ### <a id="azure-azs"></a> Microsoft Azure Availability Zones Available in Ops Manager
 
 Ops Manager operators and administrators can now configure Availability Zones (AZs). AZs provide high availability, minimal latency, and efficient resource management for deployments around the world. 
@@ -464,14 +472,6 @@ Ops Manager operators and administrators can now configure Availability Zones (A
 AZs are only available for new installations of Ops Manager. Existing installations that are being upgraded from v2.4 must use Availability Sets. 
 
 For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
-
-### <a id="pending-tile-changes"></a> Pending Changes Page Displays Staged Changes to Tile Manifests and Configs
-
-If you have changed the configuration of a tile in your deployment, use the Pending Changes page to review the changes to the existing manifest or configs line-by-line. Access a tile's pending changes by clicking the **See Changes** button on the Review Pending Changes page.
-
-Use the output on this page to verify accuracy and comprehensiveness before redeploying Ops Manager. This page is especially useful for deployments with more than one operator or administrator, or deployments that change due to both API and UI modifications.
-
-For more information, see [Reviewing Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
 
 ### <a id="nats-ca"></a> NATS Certificate Rotation Available in the Ops Manager API
 
