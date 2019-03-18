@@ -249,6 +249,7 @@ owner: Release Engineering
   </tbody>
 </table>
 
+
 ## <a id='intro'></a> About PCF Isolation Segment
 
 The PCF Isolation Segment v2.5 tile is available for installation with PCF v2.5.
@@ -264,19 +265,23 @@ The procedure for installing PCF Isolation Segment v2.5 is documented in the [In
 
 To install a PCF Isolation Segment, you must first install PCF v2.5.
 
+
 ## <a id='2.5.0'></a> New Features in PCF Isolation Segment v2.5
 
 ### <a id="disable-policy-enforcment"></a> Disable Network Policy Enforcement Between Apps
 
-
-
-You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile. 
+You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile.
 Disabling network policy enforcement allows all apps to send network traffic to all other apps in the
 foundation despite no policy specifically allowing it.
 
 Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, 
 see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
+### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
+
+PAS v2.5 does not use the `mysql-restore` and `mysql-backup` jobs to back up MySQL internally. Instead, each BOSH job is backed up separately with the BBR. `mysql-restore` and `mysql-backup` have therefore been removed.
+
+For more information, see [Backing Up and Restoring Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-5/customizing/backup-restore/).
 
 
 ## <a id='adv-features'></a> About Advanced Features
@@ -284,5 +289,6 @@ see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 The Advanced Features section of the PCF Isolation Segment v2.5 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
+
 
 ## <a id='known-issues'></a> Known Issues
