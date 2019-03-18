@@ -602,13 +602,17 @@ Garden, the component that PCF uses to create and manage isolated environments c
 
 For more information about Garden, see [Garden](https://docs.pivotal.io/pivotalcf/concepts/architecture/garden.html).
 
-### <a id="mysql-performance"></a> Improved Performance for Internal MySQL
+### <a id="custom-ports"></a> Configure PAS to Route Traffic to Apps on Custom Ports (Beta)
 
-PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush_log_at_trx_commit` property to `2`. This significantly reduces the amount of IO required by the cluster, as the database writes to disks once every second instead of on every commit. Previously, the value for this property was `1`.
+PAS v2.5 allows you to route traffic to your apps listening on custom ports. 
 
-<p class="note"><strong>Note</strong>: For single node deployments, this setting can result in losing data from transactions that happened in the one-second time-frame before the node crashed. In clustered deployments, you can recover the data from another node, assuming the nodes did not all crash simultaneously.</p>
+By default, apps only receive requests on port 8080 for both HTTP and TCP routing, and must be hard coded to listen on this port. Configuring custom app ports allows developers to bring workloads onto PAS that listen on ports other than 8080. Here are some example use cases:
 
-For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.
+* Serving web client requests on one port and offering stats/debug on another
+* Using TCP protocols that require multiple ports
+* Running Docker images on PAS
+
+For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html). 
 
 ### <a id=‘container-metrics’></a> Cloud Controller Retrieves Container Metrics from Log Cache
 
