@@ -610,7 +610,7 @@ PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush
 
 For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.
 
-### <a id=‘’></a> mysql-restore and mysql-backup Jobs Are Removed
+### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
 
 PAS v2.5 does not use the `mysql-restore` and `mysql-backup` jobs to back up MySQL internally. Instead, each BOSH job is backed up separately with the BBR. `mysql-restore` and `mysql-backup` have therefore been removed.
 
@@ -627,6 +627,14 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='extended-cf-logs-downtime'></a> Extended CF Logs Downtime
+### <a id='extended-cf-logs-downtime'></a> Extended cf logs Downtime
 
-We've observed that when upgrading from PAS 2.4 there is extended `cf logs` downtime. This causes the Smoke Test Errand to fail during upgrade.
+When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
+
+### <a id=‘scheduler’></a> Scheduler Fails to Deploy
+
+Scheduler for PCF v2 has a dependency on MySQL and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF is configured to require TLS connection to the database, Scheduler will fail to install.
+
+Pivotal recommends configuring Scheduler to allow **Optional TLS**. This approach can be applied to other use cases, such as Spring Cloud Services, or for developer applications.
+
+For more information, see [PAS Scheduler fails to deploy in 2.5](https://community.pivotal.io/s/article/pas-scheduler-fails-to-deploy-in-2-5) in the Pivotal Knowledge Base.
