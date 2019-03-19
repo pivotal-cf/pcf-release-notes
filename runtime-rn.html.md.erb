@@ -638,3 +638,9 @@ Scheduler for PCF v2 has a dependency on MySQL and currently does not support co
 Pivotal recommends configuring Scheduler to allow **Optional TLS**. This approach can be applied to other use cases, such as Spring Cloud Services, or for developer applications.
 
 For more information, see [PAS Scheduler fails to deploy in 2.5](https://community.pivotal.io/s/article/pas-scheduler-fails-to-deploy-in-2-5) in the Pivotal Knowledge Base.
+
+### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
+
+With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
+
+For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
