@@ -741,9 +741,10 @@ Users in the `usage_service.audit` group can access the Usage Service API with t
 
 This update allows `usage_service.audit` users to quickly generate reports on historical system- and org-level usage for apps, tasks, and service instances. For more information about accessing the Usage Service API to view app, task, and service instance usage, see [Reporting App, Task, and Service Instance Usage](https://docs.pivotal.io/pivotalcf/2-4/opsguide/accounting-report.html).
 
+
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4
+### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from v2.2 to v2.3 and from v2.3 to v2.4
 
 This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue.
 
@@ -813,3 +814,9 @@ Do not attempt to rotate certificate authorities (CAs) if you use mutual TLS for
 1. View the settings in **Router application identity verification**. 
 
 If **Router application identity verification** is set to `Router and applications use mutual TLS to verify each other's identity`, then you cannot rotate CAs. If you try to rotate CAs, the router will not be able to reach applications.
+  
+### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
+
+With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
+
+For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
