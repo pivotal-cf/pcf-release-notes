@@ -1754,3 +1754,9 @@ The v2.2.12 patch release included a security fix that resulted in Apps Manager 
 To resolve this issue and any other PAS issues related to using an untrusted certificate, add the CA using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile. You must add the CA certificate that signed the SSL certificate that PCF uses for SSL termination. This is not the SSL certificate itself.
 
 As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.2.12 and v2.2.13 patch releases Apps Manager does not honor this setting for its backend service certificate validation.
+
+### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
+
+With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
+
+For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
