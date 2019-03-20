@@ -627,6 +627,10 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
+
+The **Remove Specified HTTP Response Headers** field is in the PAS tile as of v2.5.0 but is not yet functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 
+
 ### <a id='extended-cf-logs-downtime'></a> Extended cf logs Downtime
 
 When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
