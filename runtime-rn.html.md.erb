@@ -744,6 +744,10 @@ This update allows `usage_service.audit` users to quickly generate reports on hi
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
+
+The **Remove Specified HTTP Response Headers** field is in the PAS tile as of v2.4.4 but is not yet functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 
+
 ### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from v2.2 to v2.3 and from v2.3 to v2.4
 
 This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue.
