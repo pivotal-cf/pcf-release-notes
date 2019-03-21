@@ -627,7 +627,7 @@ The **Remove Specified HTTP Response Headers** field is in the PAS tile as of v2
 
 When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
 
-### <a id=‘scheduler’></a> Scheduler Fails to Deploy
+### <a id='scheduler'></a> Scheduler Fails to Deploy
 
 Scheduler for PCF v2 has a dependency on MySQL and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF is configured to require TLS connection to the database, Scheduler will fail to install.
 
@@ -635,7 +635,7 @@ Pivotal recommends configuring Scheduler to allow **Optional TLS**. This appro
 
 For more information, see [PAS Scheduler fails to deploy in 2.5](https://community.pivotal.io/s/article/pas-scheduler-fails-to-deploy-in-2-5) in the Pivotal Knowledge Base.
 
-### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
+### <a id='cc-error'></a> Cloud Controller Error Causes PCF Upgrade to Fail
 
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
