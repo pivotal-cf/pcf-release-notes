@@ -474,6 +474,12 @@ AZs are only available for new installations of Ops Manager. Existing installati
 
 For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
 
+### <a id="host-groups"></a> vSphere Clusters Available in Ops Manager
+
+You can now enable vSphere clusters, which are sometimes called host groups, for deployments on vSphere. Cluster configuration can help you manage your deployment on vSphere more precisely. Enable vSphere host groups from the **Create Availability Zones** page in the BOSH Director tile. 
+
+For more information, see [Create Availability Zones Page](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#create-az) in *Configuring BOSH Director on vSphere*.
+
 ### <a id="nats-ca"></a> NATS Certificate Rotation Available in the Ops Manager API
 
 Ops Manager allows you to regenerate and rotate the NATS certificate authority (CA). The public keys and expiration dates for the NATS CA are visible at `/api/v0/deployed/certificates`. The certificate itself is listed as an active CA on the certificates table in the Ops Manager database.
