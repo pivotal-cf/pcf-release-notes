@@ -555,15 +555,15 @@ You can disable Silk network policy enforcement between apps in the **Networking
 
 Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
-### <a id="istio"></a> Service Mesh Routing Plane (Beta)
+### <a id="istio"></a> Optional Istio-Based Routing Tier (Beta)
 
-Operators have the option to deploy a service mesh in addition to the existing HTTP and TCP routers. This routing plane is based on [cloudfoundry/istio-release](https://github.com/cloudfoundry/istio-release).
+Operators have the option to deploy an Istio router in addition to the existing HTTP and TCP routers. This router is based on [cloudfoundry/istio-release](https://github.com/cloudfoundry/istio-release).
 
-Service mesh currently only supports ingress routing to apps. It offers new features, such as weighted routing.
+The Istio router currently only supports ingress routing to apps. It offers new features, such as weighted routing.
 
-Service mesh deploys three new VMs when enabled: `istio-control`, `istio-router`, and `route_syncer`.
+The Istio routing tier deploys three new VMs when enabled: `istio-control`, `istio-router`, and `route_syncer`.
 
-To deploy service mesh, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**.
+To deploy the Istio router, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**.
 
 <p class="note"><strong>Note:</strong> Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
 
@@ -579,6 +579,16 @@ Now, when the cell misses a heartbeat, the routing to the application instance i
 in case the cell is able to regain its presence.
 A replacement app is scheduled in case the cell does not regain its presence.
 
+### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports (Beta)
+
+PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
+
+For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
+
+### <a id='app-policies'></a> Configure App Policies in the cf CLI
+
+You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the API.
+
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
 Apps Manager supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out
@@ -588,6 +598,10 @@ When you bind an app to a service that uses asynchronous bindings, Apps Manager 
 
 For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation.
 
+### <a id='multi-foundation'></a> Apps Manager Supports Multiple-Foundation Deployments (Beta)
+
+Apps Manager includes support for deployments with multiple PCF foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
+
 ### <a id="metadata"></a> Specify Metadata for Apps, Orgs, and Spaces
 
 You can specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk.
@@ -596,11 +610,25 @@ You can specify two types of metadata: labels and annotations. You can query obj
 
 For more information about metadata and how to add, update, and view metadata, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-5/adminguide/metadata.html).
 
+### <a id='platform-automation-ga'></a> Platform Automation for PCF is Generally Available
+
+Platform Automation for PCF uses `om` commands, Concourse tasks, and example pipelines to enable teams to create an automated pipeline for upgrading and installing their PCF foundations.
+
+For more information about Platform Automation for PCF, see the [Platform Automation for PCF](http://docs.pivotal.io/platform-automation/v2.1/) documentation.
+
 ### <a id='garden-debug'></a> Generate Garden Component Logs with Binary File
 
 Garden, the component that PCF uses to create and manage isolated environments called containers, includes a binary file called `dontpanic`. Operators can run `/var/vcap/packages/garden/bin/dontpanic` to generate a tar file of Garden component logs for use in troubleshooting or reporting an issue.
 
 For more information about Garden, see [Garden](https://docs.pivotal.io/pivotalcf/concepts/architecture/garden.html).
+
+### <a id="mysql-performance"></a> Improved Performance for Internal MySQL
+
+PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush_log_at_trx_commit` property to `2`. This significantly reduces the amount of IO required by the cluster, as the database writes to disks once every second instead of on every commit. Previously, the value for this property was `1`.
+
+<p class="note"><strong>Note</strong>: For single node deployments, this setting can result in losing data from transactions that happened in the one-second time-frame before the node crashed. In clustered deployments, you can recover the data from another node, assuming the nodes did not all crash simultaneously.</p>
+
+For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.
 
 ### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
 
@@ -619,15 +647,11 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
-
-The **Remove Specified HTTP Response Headers** field is in the PAS tile as of v2.5.0 but is not yet functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 
-
 ### <a id='extended-cf-logs-downtime'></a> Extended cf logs Downtime
 
 When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
 
-### <a id='scheduler'></a> Scheduler Fails to Deploy
+### <a id=‘scheduler’></a> Scheduler Fails to Deploy
 
 Scheduler for PCF v2 has a dependency on MySQL and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF is configured to require TLS connection to the database, Scheduler will fail to install.
 
@@ -635,27 +659,8 @@ Pivotal recommends configuring Scheduler to allow **Optional TLS**. This appro
 
 For more information, see [PAS Scheduler fails to deploy in 2.5](https://community.pivotal.io/s/article/pas-scheduler-fails-to-deploy-in-2-5) in the Pivotal Knowledge Base.
 
-### <a id='cc-error'></a> Cloud Controller Error Causes PCF Upgrade to Fail
+### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
 
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
-
-### <a id='usage-errand'></a> Apps Usage Service Errand Fails on Foundations With Self-Signed Certificates
-
-The Apps Usage Service errand fails to deploy in PAS on foundations that use a self-signed or private certificate for Transport Layer Security (TLS). The Apps Usage Service errand fails with the following `curl` SSL error: 
-
-```
-curl: (60) server certificate verification failed. 
-CAfile: /etc/ssl/certs/ca-certificates.crt 
-CRLfile: none 
-More details here: http://curl.haxx.se/docs/sslcerts.html 
-curl performs SSL certificate verification by default, using a "bundle" of Certificate Authority (CA) public keys (CA certs). 
-If the default bundle file isn't adequate, you can specify an alternate file using the --cacert option. 
-If this HTTPS server uses a certificate signed by a CA represented in the bundle, the certificate verification probably failed due to a problem with the certificate (it might be expired, or the name might not match the domain name in the URL). 
-If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)
-```
-
-This error occurs because the Apps Usage Service errand uses native `curl` instead of `cf curl` to query an API endpoint.  The native `curl` command fails SSL verification in the PAS deployment. 
-
-For more information and instructions for resolving this error, see [Apps Usage errand fails in PAS 2.5 with curl SSL error](https://community.pivotal.io/s/article/apps-usage-errand-fails-in-pas-2-5-with-curl-ssl-error).
