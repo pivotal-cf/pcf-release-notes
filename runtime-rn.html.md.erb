@@ -598,10 +598,6 @@ When you bind an app to a service that uses asynchronous bindings, Apps Manager 
 
 For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation.
 
-### <a id='multi-foundation'></a> Apps Manager Supports Multiple-Foundation Deployments (Beta)
-
-Apps Manager includes support for deployments with multiple PCF foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
-
 ### <a id="metadata"></a> Specify Metadata for Apps, Orgs, and Spaces
 
 You can specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk.
@@ -621,14 +617,6 @@ For more information about Platform Automation for PCF, see the [Platform Automa
 Garden, the component that PCF uses to create and manage isolated environments called containers, includes a binary file called `dontpanic`. Operators can run `/var/vcap/packages/garden/bin/dontpanic` to generate a tar file of Garden component logs for use in troubleshooting or reporting an issue.
 
 For more information about Garden, see [Garden](https://docs.pivotal.io/pivotalcf/concepts/architecture/garden.html).
-
-### <a id="mysql-performance"></a> Improved Performance for Internal MySQL
-
-PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush_log_at_trx_commit` property to `2`. This significantly reduces the amount of IO required by the cluster, as the database writes to disks once every second instead of on every commit. Previously, the value for this property was `1`.
-
-For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.
-
-<p class="note"><strong>Note</strong>: For single node deployments, this setting can result in losing data from transactions that happened in the one-second timeframe before the node crashed. In clustered deployments, you can recover the data from another node if the nodes did not all crash simultaneously.</p>
 
 ### <a id='jobs-removed'></a> mysql-restore and mysql-backup Jobs Are Removed
 
