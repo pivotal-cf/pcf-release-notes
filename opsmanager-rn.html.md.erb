@@ -515,11 +515,11 @@ This update does not impact Ops Manager product tiles or the BOSH Director. For 
 
 ### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs 
 
-You can choose to store credentials for BOSH jobs on temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk.
+You can choose to store credentials for BOSH jobs in temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk. Choosing to store credentials in tmpfs may impact your BOSH deployment's availability if the tmpfs is refreshed or loses access to the deployment. You must recreate all VMs for this change to take effect. 
 
-In the Ops Manager UI, choose your IaaS's **Director Config** tile and find the **Store BOSH Job Credentials on tmpfs (beta)** checkbox. 
+To enable this feature, navigate to the **Director Config** section of the **BOSH Director** tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox. 
 
-You must recreate all VMs for this change to take effect. For more information on the Director Config forms, see the topic titled *Configuring BOSH Director...* for your IaaS.
+For more information on the Director Config forms, see [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-5/customizing/deploy-bosh-om.html#contents).
 
 ### <a id="log-forwarding"></a> Forward Ops Manager Debug Logs to An External Store in the Syslog Form
 
