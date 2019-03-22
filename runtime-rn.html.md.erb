@@ -555,17 +555,11 @@ You can disable Silk network policy enforcement between apps in the **Networking
 
 Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
-### <a id="istio"></a> Optional Istio-Based Routing Tier (Beta)
+### <a id="istio"></a> Service Mesh Routing Plane (Beta)
 
-Operators have the option to deploy an Istio router in addition to the existing HTTP and TCP routers. This router is based on [cloudfoundry/istio-release](https://github.com/cloudfoundry/istio-release).
+Operators have the option to deploy a service mesh routing plane in addition to the existing HTTP and TCP routers. The first new feature provided by service mesh is weighted routing. 
 
-The Istio router currently only supports ingress routing to apps. It offers new features, such as weighted routing.
-
-The Istio routing tier deploys three new VMs when enabled: `istio-control`, `istio-router`, and `route_syncer`.
-
-To deploy the Istio router, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**.
-
-<p class="note"><strong>Note:</strong> Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
+For more information, see [Service Mesh (Beta)](https://docs.pivotal.io/pivotalcf/adminguide/service-mesh.html). 
 
 ### <a id="weighted routing"></a> Weighted Routing (Beta)
 
