@@ -567,6 +567,12 @@ To deploy the Istio router, navigate to the **Networking - Service Mesh** pane o
 
 <p class="note"><strong>Note:</strong> Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
 
+### <a id="weighted routing"></a> Weighted Routing (Beta)
+
+In deployments with service mesh configured, developers can configure routing weights for apps. Weighted routing allows you to map multiple apps to the same route and control the amount of traffic sent to each of them. Some use cases include include A/B testing, canary releases, or rolling out features over time to incremental user-bases.
+
+For more information, see [Using Weighted Routing (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/weighted-routing.html). 
+
 ### <a id='routability'></a> Diego BBS Increases Routing Stability
 
 Diego Bulletin Board System (BBS) improves routability for application instances running on
