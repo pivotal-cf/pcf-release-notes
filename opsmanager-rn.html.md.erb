@@ -498,11 +498,11 @@ You can configure a pre-created client for Ops Manager either before you deploy 
 
 For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
 
-### <a id="vm-extensions"></a> BOSH Director Supports Custom VM Extensions in the Ops Manager API
+### <a id="vm-extensions"></a> Apply Custom VM Extensions to the BOSH Director in the Ops Manager API
 
-You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. 
+You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director’s jobs and product tiles.
 
-This endpoint works for both the BOSH Director’s jobs and product tiles.
+Use this endpoint to configure custom behavior for the BOSH Director VM, such as allowing the Director to read or write directly to a blobstore.
 
 For more information about custom VM extensions, see [Staged VM Extensions](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#staged-vm-extensions) in the Ops Manager API documentation.
 
