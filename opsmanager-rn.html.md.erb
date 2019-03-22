@@ -531,9 +531,11 @@ For more information about the Ops Manager Syslog pane, see [Settings Page](http
 
 ### <a id="rsyslog"></a> Custom Rsyslog Configuration Available in Ops Manager Syslog Template
 
-You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the Ops Manager UI.
+You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the standard settings available in the Ops Manager UI.
 
-If you configure custom rules and also choose the [**Forward Debug Logs** checkbox](#log-forwarding), the rules apply before log forwarding takes place. 
+If you configure custom rules and also choose the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place. 
+
+For more information about forwarding debug logs, see [Forward Ops Manager Debug Logs to An External Store in the Syslog Form](#log-forwarding).
 
 For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
 
