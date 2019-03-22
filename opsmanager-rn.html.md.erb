@@ -15,7 +15,47 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivoAztalcf/2-3/cus
 
 ## <a id="releases"></a> Releases
 
-### <a id="2-3-12"></a> 2.3.13
+### <a id="2-3-14"></a> 2.3.14
+
+* **[Security Fix]**: This patch addresses [CVE-2019-5418](https://nvd.nist.gov/vuln/detail/CVE-2019-5418), a Rails file content disclosure vulnerability.
+* **[Security Fix]**: This patch addresses [CVE-2019-5419](https://nvd.nist.gov/vuln/detail/CVE-2019-5419), a Rails vulnerability that could lead to denial of service (DoS) attacks.
+* **[Bug Fix]**: When a redeploy is triggered by **Apply Changes** and that redeploy last multiple days, logs are generated for that entire time. 
+
+Ops Manager v2.3.14 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>Ops Manager</td><td>2.3-build.281*</td></tr>
+  <tr><td>Stemcell</td><td>97.66*</td></tr>
+  <tr><td>BBR SDK</td><td>1.7.1</td></tr>
+  <tr><td>BOSH Director</td><td>267.11.0</td></tr>
+  <tr><td>BOSH DNS</td><td>1.10.0</td></tr>
+  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
+  <tr><td>CredHub</td><td>1.9.9</td></tr>
+  <tr><td>Syslog</td><td>11.4.0</td></tr>
+  <tr><td>UAA</td><td>60.13*</td></tr>
+  <tr><td>BPM</td><td>0.12.3</td></tr>
+  <tr><td>Networking</td><td>8</td></tr>
+  <tr><td>OS Conf</td><td>20.0.0</td></tr>
+  <tr><td>AWS CPI</td><td>72</td></tr>
+  <tr><td>Azure CPI</td><td>35.4.0</td></tr>
+  <tr><td>Google CPI</td><td>27.0.1</td></tr>
+  <tr><td>OpenStack CPI</td><td>39</td></tr>
+  <tr><td>vSphere CPI</td><td>50.0.4</td></tr>
+  <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
+  <tr><td>Credhub CLI</td><td>1.7.7</td></tr>
+  <tr><td>BBR CLI</td><td>1.4.0</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
+### <a id="2-3-13"></a> 2.3.13
 
 * **[Security Fix]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the `must_match_regex` parameter.
 * **[UI Improvement]**: The banner notifying you that certificates in your deployment will expire in the next three months is edited for improved clarity and usefulness.
