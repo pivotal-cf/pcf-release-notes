@@ -108,7 +108,7 @@ owner: Release Engineering
 * **[Security Fix]** Bump garden-runc to prevent malicious users from causing a denial of service for other apps
 * **[Bug Fix]** Fix unsafe logic in NFS unmount and drain code that may lead to deletion of files on remote NFS shares.
 * **[Bug Fix]** PAS 2.1.14 upgrade fails with `Error: release 'cf-networking/1.10.2' has already been uploaded`
-* **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail 
+* **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 
 * Bump cf-networking to version `1.10.3`
 * Bump cflinuxfs2 to version `1.238.0`
@@ -209,7 +209,7 @@ owner: Release Engineering
 ### <a id='2.1.11'></a> 2.1.11
 
 * **[Bug Fix]** Prune router backends when they return a 502 and do not retry for 30 seconds
-* **[Bug Fix]** Prevent requests from timing out by setting`Router Timeout to Backends` per request instead of per connection 
+* **[Bug Fix]** Prevent requests from timing out by setting`Router Timeout to Backends` per request instead of per connection
 
 * Bump cflinuxfs2 to version `1.235.0`
 * Bump routing to version `0.174.6`
@@ -829,7 +829,7 @@ For more information, see [Keepalive Connections](https://docs.pivotal.io/pivota
 
 ### <a id='hsts-haproxy'></a> HSTS Support for HAProxy
 
-You can now enable HTTP Strict Transport Security (HSTS) for HAProxy. HSTS headers force browsers to use HTTPS exclusively to contact HAProxy for a period of time you specify. 
+You can now enable HTTP Strict Transport Security (HSTS) for HAProxy. HSTS headers force browsers to use HTTPS exclusively to contact HAProxy for a period of time you specify.
 
 For more information, see [Secure Apps Domain with HAProxy](https://docs.pivotal.io/pivotalcf/2-1/opsguide/securing-endpoints.html#load-balancer).
 
@@ -852,6 +852,15 @@ This release changes how PCF Isolation Segment runs app health checks to improve
 Previously, health checks during app startup increased system load because they ran as a Garden process every two seconds. In addition, apps that started successfully could fail if slow system performance caused the app health check to time out. In some severe cases, such app failures caused additional resource consumption and a chain-reaction of app failures.
 
 PCF Isolation Segment v2.1 resolves these issues through a new implementation that does not invoke a new process on every health check. The health check now runs as a long-lived process in the app container. Developers may see these processes if they access an app container using the `cf ssh` command and list the processes.
+
+
+## <a id='known-issues'></a> Known Issues
+
+### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
+
+The NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+
+NSX-T v2.3.2 and later give access to the Gorouters in an Isolation Segment, and thus are compatible with PCF Isolation Segment.
 
 
 ## <a id='adv-features'></a> About Advanced Features
