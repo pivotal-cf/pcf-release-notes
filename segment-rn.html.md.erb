@@ -234,11 +234,12 @@ The procedure for installing PCF Isolation Segment v2.4 is documented in the [In
 
 To install a PCF Isolation Segment, you must first install PCF v2.4.
 
+
 ## <a id='2.4.0'></a> New Features in PCF Isolation Segment v2.4
 
 ### <a id="haproxy-zero"></a> HAProxy Defaults to Zero Instances
 
-IST v2.4 does not deploy the optional HAProxy component by default. Previous versions of IST deployed three instances of HAProxy by default. 
+IST v2.4 does not deploy the optional HAProxy component by default. Previous versions of IST deployed three instances of HAProxy by default.
 
 <p class="breaking note"><strong>Breaking Change:</strong> This is a breaking change if you are using HAProxy with the <strong>Automatic</strong> setting for your instance count. On upgrading to IST v2.4, you will have zero HAProxy instances unless you specify an instance count other than the <strong>Automatic</strong> setting. For example, if you have the instance count set to <strong>Automatic: 3</strong>, modify the instance count to <strong>3</strong> in the <strong>Resource Config</strong> pane before you upgrade.</p>
 
@@ -256,13 +257,13 @@ This removes the `cf ssh` known issue described in the [Limitations with Mutual 
 
 IST v2.4 adds support for SMB volume services, allowing developers to bind existing SMB shares to their apps. The SMB protocol has native password authentication, which means you can control access to file shares without the overhead of configuring an LDAP server.
 
-This feature is disabled by default. To enable this feature, see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable). 
+This feature is disabled by default. To enable this feature, see [Enable SMB Volume Services](https://docs.pivotal.io/pivotalcf/2-4/opsguide/enable-vol-services.html#smb-enable).
 
 For information about how to bind a volume service to an app, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-4/devguide/services/using-vol-services.html).
 
 ### <a id="human-friendly-metric-tags"></a> See Human-Friendly Metadata for Metrics
 
-IST now tags metrics with additional metadata to help operators better parse the metrics coming from their different deployments. These metadata tags also enable downstream monitoring products, such as PCF Healthwatch, to easily display human-readable names. 
+IST now tags metrics with additional metadata to help operators better parse the metrics coming from their different deployments. These metadata tags also enable downstream monitoring products, such as PCF Healthwatch, to easily display human-readable names.
 
 The tags are as follows:
 
@@ -270,7 +271,7 @@ The tags are as follows:
 
 * `system_domain`: The value of this tag corresponds to what you set in the **System Domain** field in the **Domains** tab of IST.
 
-* `placement_tag`: The value of this tag is always `null` for PAS. However, for PAS for Windows and PCF Isolation Segment tiles, you can configure this value using the **Segment Name** field in the **Application Containers** pane. 
+* `placement_tag`: The value of this tag is always `null` for PAS. However, for PAS for Windows and PCF Isolation Segment tiles, you can configure this value using the **Segment Name** field in the **Application Containers** pane.
 
 Previously, you could not easily know the deployment that a metric from an Isolation Segment was emitted from. Now, an operator can display capacity and other relevant metrics using the `placement_tag` name. This makes it easier to reason the importance of a given segment when issues arise.
 
@@ -288,13 +289,14 @@ For more information about the verifying app identity feature, see [Increased Re
 
 Operators can configure container filesystem garbage collection based on the disk usage of other jobs in their deployment rather than a garbage collection threshold.
 
-IST v2.4 replaces the **Clean up disk-space once threshold is reached** option with **Clean up disk-space once usage fills disk** in the **Application Containers** pane. 
+IST v2.4 replaces the **Clean up disk-space once threshold is reached** option with **Clean up disk-space once usage fills disk** in the **Application Containers** pane.
 
 For information about configuring garbage collection values, see [Configuring Cell Disk Cleanup Scheduling](http://docs.pivotal.io/pivotalcf/2-4/opsguide/config-cell-cleanup.html).
 
 ### <a id="bpm"></a> All Components Use BOSH Process Manager
 
-Starting in v2.3, some IST components used BOSH Process Manager (BPM). In v2.4, all components use BPM. For more information, see [BOSH Process Manager](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/segment-rn.html#bpm) in the _PCF Isolation Segment v2.3 Release Notes_. 
+Starting in v2.3, some IST components used BOSH Process Manager (BPM). In v2.4, all components use BPM. For more information, see [BOSH Process Manager](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/segment-rn.html#bpm) in the _PCF Isolation Segment v2.3 Release Notes_.
+
 
 ## <a id='bug-fixes'></a> Bug Fixes
 
@@ -304,16 +306,20 @@ IST v2.4.0 includes the following bug fixes:
 * Metron emitted product_version format is inconsistent
 * Logs marked as "DEBUG" are no longer forwarded by default
 * Stop emitting product version in logging agent metrics to prevent rolling VMs unnecessarily on upgrades
-* Fix monit scripting bug in nfsv3driver job that could cause the process 
+* Fix monit scripting bug in nfsv3driver job that could cause the process
 * Improve app/task placement reliability when apps are configured to receive TLS traffic from gorouters
 * **[Security Fix]** Rotate diego intermediate CA before current certificate expires
 to continue running after a monit stop
 
+
 ## <a id='known-issues'></a> Known Issues
 
-### <a id="nsxt-version"></a> NSX-T Version Compatibility
+### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
 
-The NSX-T tile versions 2.3.1 and earlier are not compatible with IST v2.4. The upcoming release of NSX-T 2.3.2 will address this issue.
+The NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+
+NSX-T v2.3.2 and later give access to the Gorouters in an Isolation Segment, and thus are compatible with PCF Isolation Segment.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
