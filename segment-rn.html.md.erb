@@ -232,7 +232,7 @@ owner: Release Engineering
 
 * **[Security Fix]** Bump garden-runc to prevent malicious users from causing a denial of service for other apps
 * **[Bug Fix]** Fix unsafe logic in NFS unmount and drain code that may lead to deletion of files on remote NFS shares.
-* **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail 
+* **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix parse error for syslog rules when iptables logging is enabled
 
 * Bump cflinuxfs2 to version `1.238.0`
@@ -614,6 +614,15 @@ For more information, see the **Configure Application Containers** section of an
 PCF Isolation Segment allows you to configure the DNS search domains used in containers by entering a comma-separated list.
 
 For more information, see the **DNS Search Domains** configuration described in the **Container Networking** section of any IaaS-specific PAS configuration topic, such as [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/2-2/customizing/pcf-aws-manual-er-config.html#networking).
+
+
+## <a id='known-issues'></a> Known issues
+
+### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
+
+The NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+
+NSX-T v2.3.2 and later give access to the Gorouters in an Isolation Segment, and thus are compatible with PCF Isolation Segment.
 
 
 ## <a id='adv-features'></a> About Advanced Features
