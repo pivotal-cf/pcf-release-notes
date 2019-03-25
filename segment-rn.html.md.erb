@@ -383,6 +383,7 @@ The procedure for installing PCF Isolation Segment v2.3 is documented in the [In
 
 To install a PCF Isolation Segment, you must first install PCF v2.3.
 
+
 ## <a id='new-features'></a> New Features in PCF Isolation Segment v2.3
 
 ### <a id="xenial"></a> Xenial Stemcells
@@ -444,7 +445,7 @@ For more information about GrootFS in PCF, see the following topics:
 * [Understanding Container Security](https://docs.pivotal.io/pivotalcf/2-3/concepts/container-security.html#mechanics)
 * [Garden](https://docs.pivotal.io/pivotalcf/2-3/concepts/architecture/garden.html#garden-rootfs)
 
-### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments 
+### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
 In new installations of IST v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers. This configuration improves resiliency and consistency for application routes. If you are upgrading to IST v2.3, IST retains its previous setting for HTTP communication to apps. TLS is now the default setting.
 
 Configure this setting in the PAS tile > **Application Containers** pane.
@@ -466,6 +467,16 @@ In IST v2.3, IST component VMs no longer include the `consul_agent` job. IST com
 However, the `consul_server` VM continues to exist in PAS deployments to support any service or partner tiles that still require communication with Consul.
 
 <p class='note breaking'><strong>Breaking Change:</strong> Enabling mTLS creates certain limitations. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#mutual-tls-id-limitations">Limitations with Mutual TLS App Identity Verification</a> in the <em>Known Issues</em> section.</p>
+
+
+## <a id='known-issues'></a> Known issues
+
+### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
+
+The NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+
+NSX-T v2.3.2 and later give access to the Gorouters in an Isolation Segment, and thus are compatible with PCF Isolation Segment.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
