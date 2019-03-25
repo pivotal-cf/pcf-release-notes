@@ -555,17 +555,17 @@ You can disable Silk network policy enforcement between apps in the **Networking
 
 Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
-### <a id="istio"></a> Optional Istio-Based Routing Tier (Beta)
+### <a id="istio"></a> Service Mesh Routing Plane (Beta)
 
-Operators have the option to deploy an Istio router in addition to the existing HTTP and TCP routers. This router is based on [cloudfoundry/istio-release](https://github.com/cloudfoundry/istio-release).
+Operators have the option to deploy a service mesh routing plane in addition to the existing HTTP and TCP routers. The first new feature provided by service mesh is weighted routing. 
 
-The Istio router currently only supports ingress routing to apps. It offers new features, such as weighted routing.
+For more information, see [Service Mesh (Beta)](https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html). 
 
-The Istio routing tier deploys three new VMs when enabled: `istio-control`, `istio-router`, and `route_syncer`.
+### <a id="weighted routing"></a> Weighted Routing (Beta)
 
-To deploy the Istio router, navigate to the **Networking - Service Mesh** pane of the PAS tile and select **Enable** under **Service Mesh (Beta)**. You can also specify **Ingress Router TLS Keypairs**.
+In deployments with service mesh configured, developers can configure routing weights for apps. Weighted routing allows you to map multiple apps to the same route and control the amount of traffic sent to each of them. Some use cases include include A/B testing, canary releases, or rolling out features over time to incremental user-bases.
 
-<p class="note"><strong>Note:</strong> Enable this only for deployments with fewer than 20,000 routes. At a larger scale, this feature impacts core platform components.</p>
+For more information, see [Using Weighted Routing (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/weighted-routing.html). 
 
 ### <a id='routability'></a> Diego BBS Increases Routing Stability
 
@@ -598,10 +598,6 @@ When you bind an app to a service that uses asynchronous bindings, Apps Manager 
 
 For more information about asynchronous operations in services, see the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker/blob/v2.13/spec.md#synchronous-and-asynchronous-operations) documentation.
 
-### <a id='multi-foundation'></a> Apps Manager Supports Multiple-Foundation Deployments (Beta)
-
-Apps Manager includes support for deployments with multiple PCF foundations. This allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface in Apps Manager.
-
 ### <a id="metadata"></a> Specify Metadata for Apps, Orgs, and Spaces
 
 You can specify metadata to provide additional information about apps, orgs, and spaces. Metadata can help with operating, monitoring, and auditing your PAS deployment. Example uses of metadata include environment information, billing codes, points of contact, and information about security or risk.
@@ -622,21 +618,13 @@ Garden, the component that PCF uses to create and manage isolated environments c
 
 For more information about Garden, see [Garden](https://docs.pivotal.io/pivotalcf/concepts/architecture/garden.html).
 
-### <a id="mysql-performance"></a> Improved Performance for Internal MySQL
-
-PAS v2.5 improves the performance of internal MySQL by setting the `innodb_flush_log_at_trx_commit` property to `2`. This significantly reduces the amount of IO required by the cluster, as the database writes to disks once every second instead of on every commit. Previously, the value for this property was `1`.
-
-<p class="note"><strong>Note</strong>: For single node deployments, this setting can result in losing data from transactions that happened in the one-second time-frame before the node crashed. In clustered deployments, you can recover the data from another node, assuming the nodes did not all crash simultaneously.</p>
-
-For more information about this property, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) in the _InnoDB Startup Options and System Variables_ section of the _MySQL Reference Manual_.
-
-### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
+### <a id='jobs-removed'></a> mysql-restore and mysql-backup Jobs Are Removed
 
 PAS v2.5 does not use the `mysql-restore` and `mysql-backup` jobs to back up MySQL internally. Instead, each BOSH job is backed up separately with the BBR. `mysql-restore` and `mysql-backup` have therefore been removed.
 
 For more information, see [Backing Up and Restoring Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-5/customizing/backup-restore/).
 
-### <a id=‘container-metrics’></a> Cloud Controller Retrieves Container Metrics from Log Cache
+### <a id='container-metrics'></a> Cloud Controller Retrieves Container Metrics from Log Cache
 
 In PAS v2.5, Cloud Controller supports retrieving container metrics both from Traffic Controller and directly from Log Cache. When Cloud Controller retrieves container metrics directly from Log Cache, it can use the new Diego metric tags with these metric envelopes.
 
@@ -644,6 +632,13 @@ As for Traffic Controller, the `containermetrics/app-guid` endpoint no longer ex
 
 For more information about Log Cache and Traffic Controller, see [Configuring Logging in PAS](https://docs.pivotal.io/pivotalcf/2-5/opsguide/logging-config-opsman.html), [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-5/loggregator/architecture.html), and [Overview of Logging and Metrics](https://docs.pivotal.io/pivotalcf/2-5/loggregator/data-sources.html).
 
+### <a id='syslog-drain'></a> Loggregator Syslog Agent Increases Scale For Syslog Drains
+
+The Loggregator architecture in PAS v2.5 includes Syslog Agents. Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
+
+This update resolves a known issue where app log loss occurs at 10,000 syslog drain service bindings. For more information about the known issue, see the [Known Loggregator Scaling Issues](https://community.pivotal.io/s/article/known-loggregator-scaling-issues) knowledge base article.
+
+For more information about Syslog Agents, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-5/loggregator/architecture.html).
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -651,7 +646,7 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 
 When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
 
-### <a id=‘scheduler’></a> Scheduler Fails to Deploy
+### <a id='scheduler'></a> Scheduler Fails to Deploy
 
 Scheduler for PCF v2 has a dependency on MySQL and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF is configured to require TLS connection to the database, Scheduler will fail to install.
 
@@ -659,8 +654,31 @@ Pivotal recommends configuring Scheduler to allow **Optional TLS**. This appro
 
 For more information, see [PAS Scheduler fails to deploy in 2.5](https://community.pivotal.io/s/article/pas-scheduler-fails-to-deploy-in-2-5) in the Pivotal Knowledge Base.
 
-### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
+### <a id='cc-error'></a> Cloud Controller Error Causes PCF Upgrade to Fail
 
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
+
+### <a id='usage-errand'></a> Apps Usage Service Errand Fails on Foundations With Self-Signed Certificates  
+
+The Apps Usage Service errand fails to deploy in PAS on foundations that use a self-signed or private certificate for Transport Layer Security (TLS). The Apps Usage Service errand fails with the following `curl` SSL error:     
+
+```    
+curl: (60) server certificate verification failed.  
+CAfile: /etc/ssl/certs/ca-certificates.crt  
+CRLfile: none   
+More details here: http://curl.haxx.se/docs/sslcerts.html   
+curl performs SSL certificate verification by default, using a "bundle" of Certificate Authority (CA) public keys (CA certs).   
+If the default bundle file isn't adequate, you can specify an alternate file using the --cacert option.     
+If this HTTPS server uses a certificate signed by a CA represented in the bundle, the certificate verification probably failed due to a problem with the certificate (it might be expired, or the name might not match the domain name in the URL).     
+If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)    
+``` 
+
+This error occurs because the Apps Usage Service errand uses native `curl` instead of `cf curl` to query an API endpoint.  The native `curl` command fails SSL verification in the PAS deployment.     
+
+For more information and instructions for resolving this error, see [Apps Usage errand fails in PAS 2.5 with curl SSL error](https://community.pivotal.io/s/article/apps-usage-errand-fails-in-pas-2-5-with-curl-ssl-error).
+
+### <a id='http-headers'></a> HTTP Response Headers Field Not Functional    
+
+The **Remove Specified HTTP Response Headers** field is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 

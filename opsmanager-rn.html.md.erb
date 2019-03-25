@@ -466,7 +466,7 @@ Use the output on this page to verify accuracy and comprehensiveness before rede
 
 For more information, see [Reviewing Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
 
-### <a id="azure-azs"></a> Microsoft Azure Availability Zones Available in Ops Manager
+### <a id="azure-azs"></a> Microsoft Azure Availability Zones Available
 
 Ops Manager operators and administrators can now configure Availability Zones (AZs). AZs provide high availability, minimal latency, and efficient resource management for deployments around the world.
 
@@ -474,9 +474,9 @@ AZs are only available for new installations of Ops Manager. Existing installati
 
 For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
 
-### <a id="host-groups"></a> vSphere Clusters Available in Ops Manager
+### <a id="host-groups"></a> Host Group Configuration Available for vSphere Availability Zones
 
-You can now enable vSphere clusters, which are sometimes called host groups, for deployments on vSphere. Cluster configuration can help you manage your deployment on vSphere more precisely. Enable vSphere host groups from the **Create Availability Zones** page in the BOSH Director tile. 
+You can associate an Availability Zone (AZ) with a host group for Ops Manager deployments on vSphere. Host groups are subsets of vSphere clusters. Since you must associate a cluster with an AZ in vSphere deployments, host group configuration can help you manage deployment resources more precisely. Enable vSphere host groups from the **Create Availability Zones** pane in the BOSH Director tile. 
 
 For more information, see [Create Availability Zones Page](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#create-az) in *Configuring BOSH Director on vSphere*.
 
@@ -498,11 +498,11 @@ You can configure a pre-created client for Ops Manager either before you deploy 
 
 For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
 
-### <a id="vm-extensions"></a> BOSH Director Supports Custom VM Extensions in the Ops Manager API
+### <a id="vm-extensions"></a> Apply Custom VM Extensions to the BOSH Director in the Ops Manager API
 
-You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. 
+You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director’s jobs and product tiles.
 
-This endpoint works for both the BOSH Director’s jobs and product tiles.
+Use this endpoint to configure custom behavior for the BOSH Director VM, such as allowing the Director to read or write directly to a blobstore.
 
 For more information about custom VM extensions, see [Staged VM Extensions](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#staged-vm-extensions) in the Ops Manager API documentation.
 
@@ -515,27 +515,29 @@ This update does not impact Ops Manager product tiles or the BOSH Director. For 
 
 ### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs 
 
-You can choose to store credentials for BOSH jobs on temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk.
+You can choose to store credentials for BOSH jobs in temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk. Choosing to store credentials in tmpfs may impact your BOSH deployment's availability if the tmpfs is refreshed or loses access to the deployment. You must recreate all VMs for this change to take effect. 
 
-In the Ops Manager UI, choose your IaaS's **Director Config** tile and find the **Store BOSH Job Credentials on tmpfs (beta)** checkbox. 
+To enable this feature, navigate to the **Director Config** section of the **BOSH Director** tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox. 
 
-You must recreate all VMs for this change to take effect. For more information on the Director Config forms, see the topic titled *Configuring BOSH Director...* for your IaaS.
+For more information on the Director Config forms, see [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-5/customizing/deploy-bosh-om.html#contents).
 
 ### <a id="log-forwarding"></a> Forward Ops Manager Debug Logs to An External Store in the Syslog Form
 
-You can choose to forward logs generated by debugging processes to an external source by selecting a checkbox in the Syslog form of the Ops Manager **Settings** page. Forwarded logs are delivered to whatever external location you choose to receive other types of logs from Ops Manager.
+You can choose to forward logs generated by debugging processes to an external source by selecting a checkbox in the Syslog pane of the Ops Manager **Settings** page. Forwarded logs are delivered to whatever external location you choose to receive other types of logs from Ops Manager.
 
-To forward logs, select the **Forward Debug Logs** checkbox in the Syslog form. This checkbox is deselected by default, because debug logs can be excessive and require a great deal of storage capacity. If you choose to use this option, ensure you have sufficient storage to contain the generated logs.
+To forward logs, select the **Forward Debug Logs** checkbox in the Syslog pane. This checkbox is deselected by default, because debug logs can be excessive and require a great deal of storage capacity. If you choose to use this option, ensure you have sufficient storage to contain the generated logs.
 
-For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
+For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
 
 ### <a id="rsyslog"></a> Custom Rsyslog Configuration Available in Ops Manager Syslog Template
 
-You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the Ops Manager UI.
+You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the standard settings available in the Ops Manager UI.
 
-If you configure custom rules and also choose the [**Forward Debug Logs** checkbox](#log-forwarding), the rules apply before log forwarding takes place. 
+If you configure custom rules and also choose the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place. 
 
-For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
+For more information about forwarding debug logs, see [Forward Ops Manager Debug Logs to An External Store in the Syslog Form](#log-forwarding).
+
+For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
 
 ## <a id='known-issues'></a> Known Issues
 
