@@ -8,7 +8,7 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 
 ## <a id='releases'></a> Releases
 
-<p class='note breaking'><strong>Breaking Change</strong>: You must upgrade to PAS 2.3.5 or greater prior to installing PAS for Windows 2012R2 2.3.4 or higher.</p>
+<p class='note breaking'><strong>Breaking Change</strong>: You must upgrade to PAS v2.3.5 or later before upgrading to PAS for Windows 2012R2 v2.3.4 or later.</p>
 
 ### <a id='2.3.6'></a>2.3.6
 
@@ -63,6 +63,8 @@ Operators can install Pivotal Application Service (PAS) for Windows 2012R2 on vS
 </table>
 
 ### <a id='2.3.4'></a>2.3.4
+
+<p class='note breaking'><strong>Breaking Change:</strong> You must upgrade to PAS v2.3.5 or later before upgrading to Windows 2012R2 v2.3.4 or later. See <a href="#apps-do-not-stage">Apps Do Not Stage After Upgrading to v2.3.4 or Later</a>.</p>
 
 * **[Bug Fix]** Bump Diego to v2.20.0 to resolve DNS timeouts from Golang components
 * Bump windows2012R2 stemcell to version `1200.26`
@@ -222,3 +224,7 @@ For information about upgrading to PAS for Windows 2012R2 v2.3.0, see the
 ## <a id='known-issues'></a> Known Issues
 
 Diego release v2.12.0 has a known issue running on Windows cells on Azure.
+
+### <a id='apps-do-not-stage'></a> Apps Do Not Stage After Upgrading to v2.3.4 or Later
+
+You must upgrade to PAS v2.3.5 or later before upgrading to PAS for Windows 2012R2 v2.3.4 or later. If you upgrade to PAS for Windows 2012R2 v2.3.4 or later or later before upgrading to PAS v2.3.5 or later, apps do not stage when pushed to the `windows2012R2` stack. For more information, see the following article in the Pivotal Knowledge Base: [Diego releases out of sync while upgrading PASW to version 2.3.5 or above](https://community.pivotal.io/s/article/diego-releases-out-of-sync-while-upgrading-pasw). 

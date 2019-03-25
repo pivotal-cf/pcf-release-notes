@@ -12,7 +12,7 @@ use the PAS for Windows v2.3 tile, you must install Ops Manager v2.3 or later an
 
 ## <a id='releases'></a> Releases
 
-<p class='note breaking'><strong>Breaking Change</strong>: You must upgrade to PAS 2.3.5 or greater prior to installing PAS for Windows 2.3.5 or higher.</p>
+<p class='note breaking'><strong>Breaking Change</strong>: You must upgrade to PAS v2.3.5 or later before installing PAS for Windows v2.3.5 or later.</p>
 
 ### <a id='2.3.7'></a>2.3.7
 
@@ -72,6 +72,8 @@ use the PAS for Windows v2.3 tile, you must install Ops Manager v2.3 or later an
 </table>
 
 ### <a id='2.3.5'></a>2.3.5
+
+<p class='note breaking'><strong>Breaking Change:</strong> You must upgrade to PAS v2.3.5 or later before upgrading to Windows v2.3.5 or later. See <a href="#apps-do-not-stage">Apps Do Not Stage After Upgrading to v2.3.5 or Later</a>.</p>
 
 * **[Feature Improvement]** Enable SMB `net use`-style mounting for IP-address based UNC paths on Windows 2016 cells
 * **[Bug Fix]** Bump Diego to v2.20.0 to resolve DNS timeouts from Golang components
@@ -267,6 +269,10 @@ For more information, see [What's New in Windows Server version 1803](https://do
 ## <a id='known-issues'></a> Known Issues
 
 This section includes known issues with PAS for Windows v2.3.
+
+### <a id='apps-do-not-stage'></a> Apps Do Not Stage After Upgrading to v2.3.5 or Later
+
+You must upgrade to PAS v2.3.5 or later before upgrading to PAS for Windows  v2.3.5 or later. If you upgrade to PAS for Windows v2.3.5 or later or later before upgrading to PAS v2.3.5 or later, apps do not stage when pushed to the `windows2016` stack. For more information, see the following article in the Pivotal Knowledge Base: [Diego releases out of sync while upgrading PASW to version 2.3.5 or above](https://community.pivotal.io/s/article/diego-releases-out-of-sync-while-upgrading-pasw).
 
 ### <a id="clamav"></a> Update Runtime Config of ClamAV
 
