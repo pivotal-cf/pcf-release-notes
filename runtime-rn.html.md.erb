@@ -573,15 +573,15 @@ Diego Bulletin Board System (BBS) improves routability for application instances
 
 Previously, when the cell missed a heartbeat, application instances on unstable cells were immediately replaced and routability was terminated. Now, when the cell misses a heartbeat, the routing to the application instance is maintained in case the cell is able to regain its presence. A replacement app is scheduled in case the cell does not regain its presence.
 
-### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports (Beta)
+### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports
 
 PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
 
-For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
+For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
 
-### <a id='app-policies'></a> Configure App Policies in the cf CLI
+### <a id='app-policies'></a> Configure Networking Policies Across Spaces Using the cf CLI
 
-You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the API.
+You can use the Cloud Foundry Command Line Interface (cf CLI) to configure networking policies across spaces in your PCF foundation. This allows you to quickly manage and configure networking policies without using the API.
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
