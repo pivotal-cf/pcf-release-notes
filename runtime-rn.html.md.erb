@@ -11,7 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.5.0'></a> 2.5.0
+### <a id='2.5.0-rc.1'></a> 2.5.0-rc.1
 
 * **[Security Fix]** Bump BPM to v1.0.3 for RunC CVE
 * **[Breaking Change]** Users must acknowledge having migrated apps off of cflinuxfs2 prior to upgrading to PAS 2.5
@@ -27,7 +27,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix BBR failures when backing up large blobs to unversioned S3 blobstores
 * **[Bug Fix]** Fix failure to bind service to app with custom parameters in Apps Manager
-* **[Bug Fix]** Fix MySQL proxy connection limitation caused by incompatibility between Xenial stemcells and the call to set the open file descriptor in the component's control script
+* **[Bug Fix]** Fix MySQL proxy connection limitation caused by incompatibilities between Xenial stemcells and the call to set the open file descriptor in the component's control script
 * **[Bug Fix]** Fixes access issue for NFS shares with `root_squash` enabled and no world read permissions
 * **[Bug Fix]** Fix for gorouter incorrectly reporting as unhealthy and never recovering
 * **[Bug Fix]** Disable v2 scaling of apps during `cf v3-zdt-push` rolling deployments to prevent autoscaler from interfering with deployments
