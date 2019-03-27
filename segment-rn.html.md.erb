@@ -3,10 +3,6 @@ title: PCF Isolation Segment v2.5 Release Notes
 owner: Release Engineering
 ---
 
-## <a id='known-issues'></a> Known Issues
-
-* **[Known Issue]** The NSX-T tile versions 2.3.1 and lower are not compatible with IST. Upcoming release NSX-T 2.3.2 will address this issue.
-
 ## <a id='releases'></a> Releases
 
 ### <a id='2.5.0-beta.1'></a> 2.5.0-beta.1
@@ -274,7 +270,7 @@ You can now disable Silk network policy enforcement between apps in the **Networ
 Disabling network policy enforcement allows all apps to send network traffic to all other apps in the
 foundation despite no policy specifically allowing it.
 
-Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, 
+Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk,
 see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
 ### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
@@ -292,3 +288,9 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 
 ## <a id='known-issues'></a> Known Issues
+
+### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
+
+NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+
+NSX-T tiles v2.3.2 and later give access to the Gorouters in an Isolation Segment and are compatible with PCF Isolation Segment.

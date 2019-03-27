@@ -557,37 +557,31 @@ Silk is a network fabric for containers designed for Cloud Foundry. For more inf
 
 ### <a id="istio"></a> Service Mesh Routing Plane (Beta)
 
-Operators have the option to deploy a service mesh routing plane in addition to the existing HTTP and TCP routers. The first new feature provided by service mesh is weighted routing. 
+Operators have the option to deploy a service mesh routing plane in addition to the existing HTTP and TCP routers. The first new feature provided by service mesh is weighted routing.
 
-For more information, see [Service Mesh (Beta)](https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html). 
+For more information, see [Service Mesh (Beta)](https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html).
 
 ### <a id="weighted routing"></a> Weighted Routing (Beta)
 
 In deployments with service mesh configured, developers can configure routing weights for apps. Weighted routing allows you to map multiple apps to the same route and control the amount of traffic sent to each of them. Some use cases include include A/B testing, canary releases, or rolling out features over time to incremental user-bases.
 
-For more information, see [Using Weighted Routing (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/weighted-routing.html). 
+For more information, see [Using Weighted Routing (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/weighted-routing.html).
 
 ### <a id='routability'></a> Diego BBS Increases Routing Stability
 
-Diego Bulletin Board System (BBS) improves routability for application instances running on
-cells with unstable presences.
+Diego Bulletin Board System (BBS) improves routability for application instances running on cells with unstable presences.
 
-Previously, when the cell missed a heartbeat,
-application instances on unstable cells were immediately replaced and
-routability was terminated.
-Now, when the cell misses a heartbeat, the routing to the application instance is maintained
-in case the cell is able to regain its presence.
-A replacement app is scheduled in case the cell does not regain its presence.
+Previously, when the cell missed a heartbeat, application instances on unstable cells were immediately replaced and routability was terminated. Now, when the cell misses a heartbeat, the routing to the application instance is maintained in case the cell is able to regain its presence. A replacement app is scheduled in case the cell does not regain its presence.
 
-### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports (Beta)
+### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports
 
 PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
 
-For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports (Beta)](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
+For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
 
-### <a id='app-policies'></a> Configure App Policies in the cf CLI
+### <a id='app-policies'></a> Configure Networking Policies Across Spaces Using the cf CLI
 
-You can use the Cloud Foundry Command Line Interface (cf CLI) to configure app policies across spaces in your PCF foundation. This allows you to quickly manage and configure app policies without using the API.
+You can use the Cloud Foundry Command Line Interface (cf CLI) to configure networking policies across spaces in your PCF foundation. This allows you to quickly manage and configure networking policies without using the API.
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
@@ -650,27 +644,35 @@ For more information, see [PAS Scheduler fails to deploy in 2.5](https://communi
 
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
-For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
+For more information and instructions for resolving this issue, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
 
-### <a id='usage-errand'></a> Apps Usage Service Errand Fails on Foundations With Self-Signed Certificates  
+### <a id='usage-errand'></a> Apps Usage Service Errand Fails on Foundations With Self-Signed Certificates
 
-The Apps Usage Service errand fails to deploy in PAS on foundations that use a self-signed or private certificate for Transport Layer Security (TLS). The Apps Usage Service errand fails with the following `curl` SSL error:     
+The Apps Usage Service errand fails to deploy in PAS on foundations that use a self-signed or private certificate for Transport Layer Security (TLS). The Apps Usage Service errand fails with the following `curl` SSL error:
 
-```    
-curl: (60) server certificate verification failed.  
-CAfile: /etc/ssl/certs/ca-certificates.crt  
-CRLfile: none   
-More details here: http://curl.haxx.se/docs/sslcerts.html   
-curl performs SSL certificate verification by default, using a "bundle" of Certificate Authority (CA) public keys (CA certs).   
-If the default bundle file isn't adequate, you can specify an alternate file using the --cacert option.     
-If this HTTPS server uses a certificate signed by a CA represented in the bundle, the certificate verification probably failed due to a problem with the certificate (it might be expired, or the name might not match the domain name in the URL).     
-If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)    
-``` 
+```
+curl: (60) server certificate verification failed.
+CAfile: /etc/ssl/certs/ca-certificates.crt
+CRLfile: none
+More details here: http://curl.haxx.se/docs/sslcerts.html
+curl performs SSL certificate verification by default, using a "bundle" of Certificate Authority (CA) public keys (CA certs).
+If the default bundle file isn't adequate, you can specify an alternate file using the --cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in the bundle, the certificate verification probably failed due to a problem with the certificate (it might be expired, or the name might not match the domain name in the URL).
+If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)
+```
 
-This error occurs because the Apps Usage Service errand uses native `curl` instead of `cf curl` to query an API endpoint.  The native `curl` command fails SSL verification in the PAS deployment.     
+This error occurs because the Apps Usage Service errand uses native `curl` instead of `cf curl` to query an API endpoint.  The native `curl` command fails SSL verification in the PAS deployment.
 
-For more information and instructions for resolving this error, see [Apps Usage errand fails in PAS 2.5 with curl SSL error](https://community.pivotal.io/s/article/apps-usage-errand-fails-in-pas-2-5-with-curl-ssl-error).
+For more information and instructions for resolving this issue, see [Apps Usage errand fails in PAS 2.5 with curl SSL error](https://community.pivotal.io/s/article/apps-usage-errand-fails-in-pas-2-5-with-curl-ssl-error).
 
-### <a id='http-headers'></a> HTTP Response Headers Field Not Functional    
+### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
 
-The **Remove Specified HTTP Response Headers** field is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 
+The **Remove Specified HTTP Response Headers** field is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job.
+
+For more information, see [Remove Specified HTTP Response Headers in PCF does not work](https://community.pivotal.io/s/article/remove-specified-http-response-headers-in-pcf-does-not-work) in the Pivotal Knowledge Base.
+
+### <a id=''></a> Azure Availability Zones Not Compatible with Diego
+
+While PAS v2.5 supports Azure availability zones (AZs), enabling this feature is not recommended for production workloads. With Azure AZs, Diego cannot detect which zone the cells are in. This means PAS cannot distribute app instances across different AZs, causing PCF not to run in high availability mode.
+
+For more information, see [Azure Availability Zones are not compatible with Diego in PAS 2.5](https://community.pivotal.io/s/article/azure-availability-zones-are-not-compatible-with-deigo) in the Pivotal Knowledge Base.
