@@ -5,8 +5,42 @@ owner: Garden Windows
 
 This topic contains release notes for Pivotal Application Service (PAS) for Windows.
 
-<p class="note"><strong>Note</strong>: 
-The PAS for Windows v2.5 tile is not yet generally available. 
-To use PAS for Windows on Pivotal Cloud Foundry (PCF) v2.5, you must install PAS for Windows v2.4.4 or later. 
-For more information, see the 
+<p class="note"><strong>Note</strong>:
+The PAS for Windows v2.5 tile is not yet generally available.
+To use PAS for Windows on Pivotal Cloud Foundry (PCF) v2.5, you must install PAS for Windows v2.4.4 or later.
+For more information, see the
 <a href="https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/windows-rn.html">PAS for Windows v2.4 Release Notes</a>.</p>
+
+## <a id='releases'></a> Releases
+
+### <a id='2.5.0-rc.1'></a> 2.5.0-rc.1
+
+* **[Breaking Change]** Option to override deployment name to CF is removed
+* **[Feature]** Operators can provide trusted certs in OpsMgr for .NET apps to use automatically
+* Update stemcell OS to windows2019 at version `2019.2`
+* Bump hwc-offline-buildpack to version `3.1.6`
+* Bump loggregator-agent to version `2.3`
+* Bump loggregator to version `103.4`
+* Bump winc to version `1.9.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows2019 stemcell</td><td>2019.2</td></tr>
+    <tr><td>cf-windows-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>diego</td><td>2.27.0</td></tr>
+    <tr><td>event-log</td><td>0.7.0</td></tr>
+    <tr><td>garden-runc</td><td>1.18.0</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.1.6</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>winc</td><td>1.9.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
+    <tr><td>windowsfs-release</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
