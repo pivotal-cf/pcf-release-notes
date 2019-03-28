@@ -189,9 +189,11 @@ For more information, see [Step 2: Push App to PAS for Windows Cells](https://do
 SMB mounting allows developers to bind existing SMB shares to their containerized apps. 
 Previously, SMB shares were only accessible by using the SharpCIFS library. PASW v2.4.0 natively supports SMB mounting.
 
-This enables usage of the `net use` command. This is currently limited to IP address-based UNC paths.
+SMB Mounting is enabled by default when you upgrade to PASW v2.4.0.
 
-For more information, see [SMB (WINDOWS) FILE SHARES](https://dotnet-cookbook.cfapps.io/3rdparty/smb_file_shares/) in the _.NET on Pivotal Cloud Foundry_ cookbook.
+SMB Mounting can be utilized with or without Steeltoe. Enabling SMB mounting without Steeltoe requires running the `net use` command.
+
+For more information, see [Using SMB Volumes in .NET Apps](https://docs.pivotal.io/pivotalcf/2-4/windows/smb-volumes-apps.html) in the _.NET on Pivotal Cloud Foundry_ cookbook.
 
 ## <a id='advanced-features'></a> New Advanced Features in PAS for Windows v2.4
 
