@@ -68,9 +68,9 @@ See the following PCF Ops Manager breaking changes:
 
 ### <a id="azure-azs"></a> New Installations of Ops Manager v2.5 Use Azure Availability Zones by Default
 
-New installations of Ops Manager v2.5 on Azure use Availability Zones (AZs) by default, not Availability Sets. You must assign products to an Availability Zone, or choose to use Availability Sets, to deploy any tiles on Azure-based deployments.
+New installations of Ops Manager v2.5 on Azure use Availability Zones (AZs) by default, not Availability Sets. Before deploying, you can choose either AZs or Availability Sets as your desired availability mode. If you choose AZs, you must also assign specific zones to each product. You cannot switch from AZs to Availability Sets after a successful deployment.
 
-If you are using third-party automation tools to upgrade, you may have to change the behavior of those tools to accommodate for the addition of AZs to your Azure deployment. 
+If you use automation tools to install Ops Manager, you may have to change the behavior of those tools to accommodate for the addition of AZs to your Azure deployment. If you are upgrading from 2.4, however, the availability mode is set to Availability Sets and cannot be changed. In that case, your automation tools may continue to work without modification.
 
 For more information about Azure AZs, see [Microsoft Azure Availability Zones Available](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/opsmanager-rn.html#azure-azs).
 
