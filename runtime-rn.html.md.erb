@@ -717,9 +717,9 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 
 When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
 
-### <a id='scheduler'></a> Scheduler Fails to Deploy
+### <a id='scheduler'></a> Scheduler Fails to Deploy If Connecting to MySQL Over TLS
 
-Scheduler for PCF v2 has a dependency on MySQL and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF is configured to require TLS connection to the database, Scheduler will fail to install.
+Scheduler for PCF has a dependency on MySQL for PCF v2.x and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF v2.x is configured to require TLS connection to the database, Scheduler fails to install.
 
 Pivotal recommends configuring Scheduler to allow **Optional TLS**. This approach can be applied to other use cases, such as Spring Cloud Services, or for developer applications.
 
