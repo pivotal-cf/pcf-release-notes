@@ -61,6 +61,25 @@ To download the Log Cache Cloud Foundry Command Line Interface (cf CLI) plugin, 
 
 In PAS v2.4, the **DNS Servers** field was removed from the PAS UI, but the `dns_servers` property was not removed so as not to break Platform Automation scripts. In PAS v2.5, the `dns_servers` property is removed, which breaks Platform Automation scripts if that parameter is still configured for your tiles.
 
+## <a id='pas-windows'></a> Pivotal Application Service (PAS) for Windows
+
+### <a id='deployment-name'></a> Removed Option to Override Deployment Name
+
+Beginning with PAS for Windows v2.4, metrics emitted by the tile are tagged with a GUID. This
+allows you to identify the source tile of the metrics.
+
+For compatibility with older versions of PAS for Windows, PAS v2.4 included the option to override
+this value with `cf`.
+
+PAS for Windows v2.5 removes this override option.
+
+To upgrade from PAS for Windows v2.4 to v2.5 successfully, you must deselect the **Use "cf" as
+deployment name in emitted metrics instead of unique name** option in the **Advanced Features**
+pane of the PAS for Windows v2.4 tile.
+
+If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS for Windows v2.5.
+
+If you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS for Windows, you must run the **Push Monitoring Components** errand to allow Healthwatch to detect this change.
 
 ## <a id='opsman'></a> PCF Ops Manager
 
