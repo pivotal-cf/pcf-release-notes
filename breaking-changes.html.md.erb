@@ -15,6 +15,7 @@ Review the critical breaking changes for PCF v2.5 before installing or upgrading
 See the following critical breaking changes before installing or upgrading to PCF v2.5:
 
 - [Deprecation of cflinuxfs2](#cflinuxfs2-unsupported)
+- [Filenames for Ops Manager Release Components Have Changed on Pivotal Network](#om-filename-breaks)
 
 ### <a id="cflinuxfs2-unsupported"></a> cflinuxfs2 is Unsupported
 Operators cannot upgrade the platform to PAS 2.5 until all AIs are using cflinuxfs3.
@@ -25,7 +26,7 @@ Pivotal recommends that you communicate the change of stack to your development 
 
 For more information about this change, see [PAS Only Supports cflinux3](https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/runtime-rn.html#cflinuxfs3).
 
-### Filenames for Ops Manager Release Components Have Changed on Pivotal Network
+### <a id="om-filename-breaks"></a> Filenames for Ops Manager Release Components Have Changed on Pivotal Network
 
 All PCF pipelines, or tools similar to them, must be updated with the new naming patterns or the tools do not detect the new versions and no upgrade appears available.
 
