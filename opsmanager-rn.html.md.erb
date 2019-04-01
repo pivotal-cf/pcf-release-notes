@@ -17,13 +17,11 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/custo
 
 ### <a id="alpha-1"></a> 2.6 Alpha 1
 
-* **[Security Fix]**: You can no longer ssh into a VM on a vSphere Ops Manager without a private key.
+* **[Breaking Change]**: (vSphere only) You can no longer ssh into a VM on a vSphere Ops Manager without a private key.
 * **[New Feature]**: `GET /api/v0/installations` now displays the start and end time for a deployment of each product. Products that are upgraded from earlier versions of Ops Manager will display `null` for their start and end times.
-* **[New Feature]**: `/api/v0/stages/products/:PRODUCT_GUID/pre_deploy_check` indicates the assignment status of networks and availability zones. If both have been assigned, the API indicates the product is complete.
-* **[New Feature]**: `api/v0/staged/products/:PRODUCT_GUID/pre_deploy_check` indicates the assignment status of required stemcells. If a required stemcell is assigned, the endpoint returns `true`, and if it is not assigned, it returns `false`.
-* **[New Feature]**: You can upload a Windows 2019 stemcell to Ops Manager.
 * **[New Feature]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the must_match_regex parameter.
 * **[New Feature]**: Ops Manager supports 5th generation AWS Instance Types. 5th generation Instance Types are the default when a v2.6 Ops Manager boots.
+* **[New Feature]**: You can now specify a monitor port when defining a NSX load balancer. Send a PUT to `/api/v0/staged/products/:guid/properties/jobs/:job_id/resource_config` with a  `monitor_port` key. This features helps to support NSX load balancer compatibility with Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.  
 * **[UI Improvement]**: The banner notifying you that certificates in your deployment will expire in the next three months is edited for improved clarity and usefulness.
 
 Ops Manager v2.6 Alpha 1 uses the following component versions:
