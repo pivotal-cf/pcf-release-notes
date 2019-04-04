@@ -433,7 +433,6 @@ For example:
 
 <pre class="terminal">$ credhub find expires_within_days=5</pre>
 
-
 ### <a id="aws-china"></a> Pivotal Images Publish to AWS China
 
 Users on AWS China accounts can now access downloads from Pivotal Network on their AWS China console. Find specific Ops Manager images in your AWS China console by searching for the AMI IDs for those images.
@@ -521,11 +520,24 @@ After adding new global CPI properties, you can view the global CPI properties i
 
 For more information, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental).
 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id="custom-banner"></a> Custom Banner Does Not Display On All Ops Manager Pages
 
 You can set a custom banner to display on Ops Manager. Due to a visualization issue in Ops Manager, the custom banner does not display on the Stemcell library, Review Pending Changes, Change Log, and Previous Installation History pages.
+
+### <a i='bpm'></a> BOSH Process Manager Fails to Start Job Process with Exit Status 1
+
+Some Monit processes fail to start, and the `bpm.log` shows an exit status of 1 with no other cause for the failure.
+
+BOSH Process Manager (BPM) calls runC to create a new container and launch a job process. However, runC cannot start the container because there is a stale `state.json` in `/var/vcap/bpm/runc/CONTAINER-ID/state.json`, where `state.json` is a zero-byte file. When running runC manually to start the job process, runC has an EOF error and the exit status is 1. runC fails to read the `state.json` and exits.
+
+To resolve this issue, delete the zero-byte `state.json` file by deleting its parent directory with the following command: `rm -rf /var/vcap/data/bpm/runc/MJRHG---`<br>
+Then run `monit start JOB` to start the job process and review the job logs to check if there are any further failures.
+
+For more information, see [BPM fails to start job process with exit status 1](https://community.pivotal.io/s/article/bpm-fails-to-start-job-process-with-exit-status-1) in the Pivotal Knowledge Base.
+
 
 ## <a id="api-updates"></a> API Documentation Updates
 
@@ -554,7 +566,7 @@ The following existing sections of the API documentation are updated in Ops Mana
 * [Retrieving manifest for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-manifest-for-a-deployed-product): This section includes a new parameter:
   * `mode`
 
-<p class="note"><strong>Note</strong>: In Ops Manager v2.4, the <code>excluded_recursors</code> API endpoints have moved. This could cause some scripts to break. For more information, see <a href="https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html#excluded-recursors">Excluded Recursors API Field Has Moved</a>.</p>
+<p class="note"><strong>Note:</strong> In Ops Manager v2.4, the <code>excluded_recursors</code> API endpoints have moved. This could cause some scripts to break. For more information, see <a href="https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html#excluded-recursors">Excluded Recursors API Field Has Moved</a>.</p>
 
 ### <a id="new-sections"></a> New Sections
 
