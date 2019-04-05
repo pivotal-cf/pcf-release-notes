@@ -203,6 +203,17 @@ To fix this, run `monit restart uaa` to restart UAA after Postgres is running.
 
 For more information, see [Monit reports UAA running on BOSH Director when it is actually unhealthy](https://community.pivotal.io/s/article/monit-reports-uaa-running-on-bosh-director-when-it-is-actually-unhealthy) in the Pivotal Knowledge Base.
 
+### <a id='bpm'></a> BOSH Process Manager Fails to Start Job Process with Exit Status 1
+
+Some Monit processes fail to start, and the `bpm.log` shows an exit status of 1 with no other cause for the failure.
+
+BOSH Process Manager (BPM) calls runC to create a new container and launch a job process. However, runC cannot start the container because there is a stale `state.json` in `/var/vcap/bpm/runc/CONTAINER-ID/state.json`, where `state.json` is a zero-byte file. When running runC manually to start the job process, runC has an EOF error and the exit status is 1. runC fails to read the `state.json` and exits.
+
+To resolve this issue, delete the zero-byte `state.json` file by deleting its parent directory with the following command: `rm -rf /var/vcap/data/bpm/runc/MJRHG---`<br>
+Then run `monit start JOB` to start the job process and review the job logs to check if there are any further failures.
+
+For more information, see [BPM fails to start job process with exit status 1](https://community.pivotal.io/s/article/bpm-fails-to-start-job-process-with-exit-status-1) in the Pivotal Knowledge Base.
+
 
 ## <a id="api-updates"></a> API Documentation Updates
 
