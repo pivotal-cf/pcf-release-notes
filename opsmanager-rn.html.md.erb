@@ -23,7 +23,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 * **[Security Fix]**: This patch addresses [CVE-2019-5419](https://nvd.nist.gov/vuln/detail/CVE-2019-5419), a Rails vulnerability that could lead to denial of service (DoS) attacks.
 * **[Security Fix]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the `must_match_regex` parameter.
 * **[Bug Fix]**: When a redeploy is triggered by Apply Changes and that redeploy lasts multiple days, logs are generated for that entire time.
-* **[UI Improvement]**: The Pending Changes page for an on-demand service broker tile now warns you explicitly that changes made applies only to the broker and not to service instances.
+* **[UI Improvement]**: The Pending Changes page for an on-demand service broker tile now warns you explicitly that changes made applies only to the broker andt p: not to service instances.
 * **[UI Improvement]**: The notification banner that appears when a certificate in your deployment is about to expire is updated for clarity.
 
 Ops Manager v2.5.1 uses the following component versions:
@@ -203,11 +203,11 @@ To fix this, run `monit restart uaa` to restart UAA after Postgres is running.
 
 For more information, see [Monit reports UAA running on BOSH Director when it is actually unhealthy](https://community.pivotal.io/s/article/monit-reports-uaa-running-on-bosh-director-when-it-is-actually-unhealthy) in the Pivotal Knowledge Base.
 
-### <a id='bpm'></a> BOSH Process Manager Fails to Start Job Process with Exit Status 1
+### <a id='bpm'></a> BPM Fails to Start Job Process
 
-Some Monit processes fail to start, and the `bpm.log` shows an exit status of 1 with no other cause for the failure.
+Some Monit processes fail to start. The `bpm.log` shows an exit status of `1` with no other cause for the failure.
 
-BOSH Process Manager (BPM) calls runC to create a new container and launch a job process. However, runC cannot start the container because there is a stale `state.json` in `/var/vcap/bpm/runc/CONTAINER-ID/state.json`, where `state.json` is a zero-byte file. When running runC manually to start the job process, runC has an EOF error and the exit status is 1. runC fails to read the `state.json` and exits.
+BOSH Process Manager (BPM) calls runC to create a new container and launch a job process. However, runC cannot start the container because there is a stale `state.json` in `/var/vcap/bpm/runc/CONTAINER-ID/state.json`, where `state.json` is a zero-byte file. When running runC manually to start the job process, runC has an EOF error and the exit status is `1`. runC fails to read the `state.json` and exits.
 
 To resolve this issue, delete the zero-byte `state.json` file by deleting its parent directory with the following command: `rm -rf /var/vcap/data/bpm/runc/MJRHG---`<br>
 Then run `monit start JOB` to start the job process and review the job logs to check if there are any further failures.
