@@ -19,7 +19,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Auto bump the CF CLI release included with PAS for use by errands
 * **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning
 * **[Bug Fix]** Specify buildpack for Apps Manager and related microservice applications to remove conflicts with custom buildpacks
-* **[Bug Fix]** Fix issue in which space and organization members without usernames, such as UAA clients, would show `Invalid` User as the username
+* **[Bug Fix]** Fix issue in which space and organization members without usernames, such as UAA clients, would show `Invalid User` as the username
+* **[Bug Fix]** When deleting an organization, the user is now redirected to the home page instead of another organization page
 * **[Bug Fix]** Fix failed access checks on mount for NFS volume service with some Windows NFS servers
 * **[Bug Fix]** Fix issue that can cause the Spring Boot actuator integration with Apps Manger to stop working after a rolling deployment by ensuring `VCAP_APPLICATION.application_id` environment variable matches the application guid
 * **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
