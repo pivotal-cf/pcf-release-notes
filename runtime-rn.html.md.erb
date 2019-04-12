@@ -17,8 +17,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Add support for TCP hitless reloads in haproxy to avoid connection reset errors
 * **[Feature Improvement]** Auto bump the CF CLI release included with PAS for use by errands
 * **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning
+* **[Security Fix]** Invitations app rejects insecure HTTP requests
 * **[Bug Fix]** Specify buildpack for Apps Manager and related microservice applications to remove conflicts with custom buildpacks
-* **[Bug Fix]** Fix issue in which space and organization members without usernames, such as UAA clients, would show `Invalid` User as the username
+* **[Bug Fix]** Show error message when binding a service to an app fails in Apps Manager
+* **[Bug Fix]** Fix bug where app changes pushed with --no-start would not take effect when the app was started via Apps Manager
+* **[Bug Fix]** Fix bug where starting app from Apps Manager would show success message before app actually started
+* **[Bug Fix]** Fix Apps Manager's Nginx proxy SSL validation to honor the "Disable SSL certificate verification for this environment" setting from Ops Manager
+* **[Bug Fix]** Fix issue in which space and organization members without usernames, such as UAA clients, would show `Invalid User` as the username
 * **[Bug Fix]** Improved clean up logic for stuck or unreachable NFS mounts to prevent cells' `rep` and `nfsv3driver` jobs from hanging during unmount and drain
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
