@@ -18,9 +18,19 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Add support for TCP hitless reloads in haproxy to avoid connection reset errors
 * **[Feature Improvement]** Auto bump the CF CLI release included with PAS for use by errands
 * **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning
+* **[Security Fix]** Invitations app rejects insecure HTTP requests
 * **[Bug Fix]** Specify buildpack for Apps Manager and related microservice applications to remove conflicts with custom buildpacks
 * **[Bug Fix]** Fix issue in which space and organization members without usernames, such as UAA clients, would show `Invalid User` as the username
 * **[Bug Fix]** When deleting an organization, the user is now redirected to the home page instead of another organization page
+* **[Bug Fix]** Fix bug where Apps Manager crash errors were not displayed
+* **[Bug Fix]** Fix error message that incorrectly assumed that an SSL validation error occurred on any failed connection to Apps Manager's search server
+* **[Bug Fix]** Remove external link icon from dropdown items on Apps Manager's Tools page
+* **[Bug Fix]** Fix bug preventing Apps Manager from polling for new data (only affects 668.0.0)
+* **[Bug Fix]** Fix bug where app changes pushes with --no-start would not take effect when the app was started via Apps Manager
+* **[Bug Fix]** Fix bug where Apps Manager would not detect UAA session expiration and redirect to log-in page (only affects 668.0.0)
+* **[Bug Fix]** Fix Apps Manager's Nginx proxy SSL validation to honor the "Disable SScertificate verification for this environment" setting from Ops Manager
+* **[Bug Fix]** Specify buildpack for Apps Manager and related microservice applications to remove conflicts with custom buildpacks
+* **[Bug Fix]** Fix alignment of search results in Apps Manager
 * **[Bug Fix]** Fix failed access checks on mount for NFS volume service with some Windows NFS servers
 * **[Bug Fix]** Fix issue that can cause the Spring Boot actuator integration with Apps Manger to stop working after a rolling deployment by ensuring `VCAP_APPLICATION.application_id` environment variable matches the application guid
 * **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
