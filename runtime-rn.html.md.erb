@@ -1824,7 +1824,13 @@ The v2.2.12 patch release included a security fix that resulted in Apps Manager 
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
 
-As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.2.12 and v2.2.13 patch releases Apps Manager does not honor this setting for its backend service certificate validation.
+As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.2.12 and v2.2.13 patch releases Apps Manager does not honor this setting for its backend service certificate validation. Apps Manager honors this setting in v2.2.14 and later.
+
+### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.2.12--v2.2.14
+
+In v2.2.12, v2.2.13, and v2.2.14, Apps Manager will not accept SSL certificates from backend services including the Cloud Controller API that have a signing chain that includes more than one intermediate certificate authority between the SSL certificate and the root certificate authority. Under this condition Apps Manager will show no content, and the logs for Apps Manager will include the text `certificate chain too long`.
+
+If an SSL certificate chain with more than one intermediate certificate authority must be used in your environment, please contact support to discuss options for working around this issue.
 
 ### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
 
