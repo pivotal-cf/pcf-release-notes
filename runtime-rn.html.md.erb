@@ -945,3 +945,11 @@ If **Router application identity verification** is set to `Router and applicatio
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
+
+### <a id="diego-cell-memory"></a> Diego Cell Requires Additional Memory and CPU for TLS Routing
+
+In PAS v2.4, the Gorouter always uses TLS routing to verify app identity and communicate with app containers. TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. 
+
+Before you upgrade to PAS v2.4, Pivotal recommends increasing the RAM and CPU capacity of Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale the Diego cells.
+
+For more information about configuring the Gorouter with TLS, see [Configure Gorouter with TLS](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html#route-integrity) in _Upgrade Preparation Checklist for PCF v2.4_. 
