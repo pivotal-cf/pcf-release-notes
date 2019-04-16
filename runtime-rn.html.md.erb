@@ -916,7 +916,7 @@ The v2.4.3 patch release included a security fix that resulted in Apps Manager v
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
 
-As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox, but in the v2.4.3 and v2.4.4 patch releases Apps Manager does not honor this setting for its backend service certificate validation. Apps Manager honors this setting in v2.4.5 and later.
+As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox. In the v2.4.3 and v2.4.4 patch releases, Apps Manager ignores this setting for its backend service certificate validation. Apps Manager adheres to this setting in v2.4.5 and later.
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.4.3--v2.4.5
 
