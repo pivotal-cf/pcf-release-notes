@@ -347,12 +347,14 @@ For more information, see [Azure Availability Zones are not compatible with Dieg
 
 ### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.5.0
 
-In v2.5.0, Apps Manager does not honor the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates that are signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.  Versions 2.5.1 and later are not affected.
+In v2.5.0, Apps Manager does not honor the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.  Versions 2.5.1 and later are not affected.
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.5.0 and v2.5.1
 
-In v2.5.0 and v2.5.1, Apps Manager will not accept SSL certificates from backend services including the Cloud Controller API that have a signing chain that includes more than one intermediate certificate authority between the SSL certificate and the root certificate authority. Under this condition Apps Manager will show no content, and the logs for Apps Manager will include the text `certificate chain too long`.
+In v2.5.0 and v2.5.1, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
 
-If an SSL certificate chain with more than one intermediate certificate authority must be used in your environment, please contact support to discuss options for working around this issue.
+If there is more than one certificate authority, Apps Manager does not show content, and the logs for Apps Manager include the text `certificate chain too long`.
+
+If you must use an SSL certificate chain with more than one intermediate certificate authority in your environment, contact Pivotal Support to discuss options for working around this issue.
