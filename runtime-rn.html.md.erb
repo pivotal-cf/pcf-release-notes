@@ -18,7 +18,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Increase performance for internal MySQL by setting the setting for `innodb_flush_log_at_trx_commit` from 1 to 2.  This increases performance safely for clustered deployments.  Single node might need to scale up to avoid the possibility of 1 second of data loss during deploys.
 * **[Feature Improvement]** Add support for tcp hitless reloads in haproxy to avoid connection reset errors
 * **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning
-* **[Bug Fix]** Fix issue in which Apps Manager would show `Invalid User` as the username for space and organization members without usernames, such as UAA clients
+* **[Bug Fix]** Fix issue in which Apps Manager shows `Invalid User` as the username for space and organization members without usernames, such as UAA clients
 * Bump ubuntu-trusty stemcell to version `3586.93`
 * Bump capi to version `1.58.15`
 * Bump cf-autoscaling to version `201.10`
@@ -694,10 +694,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix issue where the SF-PAS tile could be incorrectly downloaded when upgrading PAS via PivNet
 * **[Bug Fix]** Improve performance to reduce chance of failed database migrations during upgrades of usage service
 * **[Bug Fix]** Fixes and improvements for Apps Manager
-  * When the Autoscaler is not installed, prevent a crash that would occur on the app page
+  * When the Autoscaler is not installed, prevent a crash that occurs on the app page
   * When creating a space as admin, make the admin a member of the corresponding organization
   * Improved the display of service plan costs when costs are not integers as expected
-  * Prevent a page crash that would occur when there are no upcoming scheduled limit changes
+  * Prevent a page crash that occurs when there are no upcoming scheduled limit changes
 
 * Bump binary-offline-buildpack to version `1.0.25`
 * Bump push-apps-manager-release to version `665.0.18`
