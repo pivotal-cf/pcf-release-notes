@@ -20,10 +20,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Invitations app rejects insecure HTTP requests
 * **[Bug Fix]** Specify buildpack for Apps Manager and related microservice applications to remove conflicts with custom buildpacks
 * **[Bug Fix]** Show error message when binding a service to an app fails in Apps Manager
-* **[Bug Fix]** Fix bug where app changes pushed with --no-start would not take effect when the app was started via Apps Manager
-* **[Bug Fix]** Fix bug where starting app from Apps Manager would show success message before app actually started
+* **[Bug Fix]** Fix bug where app changes pushed with --no-start does not take effect when the app was started via Apps Manager
+* **[Bug Fix]** Fix bug where starting app from Apps Manager shows success message before app actually started
 * **[Bug Fix]** Fix Apps Manager's Nginx proxy SSL validation to honor the "Disable SSL certificate verification for this environment" setting from Ops Manager
-* **[Bug Fix]** Fix issue in which Apps Manager would show `Invalid User` as the username for space and organization members without usernames, such as UAA clients
+* **[Bug Fix]** Fix issue in which Apps Manager shows `Invalid User` as the username for space and organization members without usernames, such as UAA clients
 * **[Bug Fix]** Improved clean up logic for stuck or unreachable NFS mounts to prevent cells' `rep` and `nfsv3driver` jobs from hanging during unmount and drain
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
