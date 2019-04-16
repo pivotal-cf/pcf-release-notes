@@ -1842,3 +1842,9 @@ If you must use an SSL certificate chain with more than one intermediate certifi
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
+
+### <a id="diego-cell-memory"></a> Diego Cells Require Additional Memory and CPU for TLS Routing
+
+In PAS v2.2, you can configure the Gorouter to use TLS routing to verify app identity and communicate with app containers. TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. 
+
+If you enable TLS routing, Pivotal recommends increasing the RAM and CPU capacity of Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale the Diego cells.
