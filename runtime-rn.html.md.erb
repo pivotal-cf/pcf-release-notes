@@ -705,11 +705,9 @@ To switch over to the new `nfs` service, you must re-create and re-bind your exi
 
 <p class="breaking note"><strong>Breaking Change:</strong> Your upgrade may fail if you do not take action. Additionally, this feature has operational impact and can affect other features. For more information, see the corresponding item in the <a href="./breaking-changes.html#app-identity">Breaking Changes</a> topic.</p>
 
-For all PAS v2.4 foundations, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter.
+In PAS v2.4, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter. Before you upgrade to v2.4, you must have secure routing with TLS enabled. 
 
-In PAS v2.3 and earlier, you can have insecure routing without TLS. Before you upgrade to v2.4, you must have secure routing with TLS enabled. For more information, see [Upgrade Preparation Checklist for PCF v2.4](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html).
-
-For more information about the verifying app identity feature, see [Increased Resiliency, Consistency, and Security for HTTP Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency) in the PAS v2.1 release notes.
+TLS routing requires additional RAM capacity on your Diego cells per app instance. It also requires additional CPU capacity on Diego cells. For more information, see [Configure Gorouter with TLS](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html#pas) in _Upgrade Preparation Checklist for PCF v2.4_.
 
 ### <a id="metrics-prefix"></a> Uniquely Identify Metrics by Tile
 
