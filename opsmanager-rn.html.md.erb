@@ -19,17 +19,17 @@ Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
 ### <a id="alpha-2"></a> 2.6 Alpha 2
 
+* **[Breaking Change]**: API users can use `GET /api/v0/diagnostic_report` to show stemcells for all staged and deployed products. The `stemcells` key replaces the `stemcell` key. `Stemcells` lists information for all stemcells assigned to a product. 
+* **[Breaking Change]**: API users can use `GET /api/v0/staged/pending_changes` to see the staged, deployed, and last successfully deployed stemcell information for all stemcells associated with a product. Multiple keys in this endpoint have changed. The `stemcell` key has changed to `stemcells` and the output of the endpoint has been reformatted to display details, including the OS and version keys, more specifically for deployments with multiple stemcells.
 * **[New Feature]**: Operators using AWS-based deployments can choose between even more AWS regions in the AWS Config form. Deployments upgraded from v2.5 will default to the AWS region you chose for that deployment.
 * **[New Feature]**: After a deployment fails, API users can use `POST /api/v0/installations` to see which products are not fully configured.
 * **[New Feature]**: The Stemcell Library page now supports uploading and assigning multiple stemcells.
-* **[New Feature]**: API users can assign one or multiple stemcells to a product using the multi-stemcell API, `PATCH api/v0/stemcells_assignments`. `GET api/v0/stemcells_assignments` returns information on all the stemcells assigned to products.
-* **[New Feature]**: API users can use `api/v0/staged/pending_changes` to see the staged, deployed, and last successfully deployed stemcell information for all stemcells associated with a product.
-* **[New Feature]**: API users can use `GET /api/v0/diagnostic_report` to show stemcells for all staged and deployed products.
+* **[New Feature]**: API users can assign one or multiple stemcells to a product using the multi-stemcell API, `PATCH /api/v0/stemcells_assignments`. `GET /api/v0/stemcells_assignments` returns information on all the stemcells assigned to products.
 * **[New Feature]**: The Change Log page has an improved UI, including a new column specifying build duration and a new footer row summarizing the installation details.
 * **[New Feature]**: API users can use `GET /api/v0/staged/director/pre_deploy_check` to see details about the Director's configuration before deployment.
 * **[New Feature]**: After a deployment fails, API users can use `/api/v0/staged/products/:PRODUCT-GUID/pre_deploy_check` to see which form verifiers in a product are causing the failure.
-* **[New Feature]**: Tile authors can use a form and install time verifier to verify vSphere IaaS properties. 
-* **[New Feature]**: Tile authors can upload tiles that support multiple stemcells. Use the `additional_stemcells_criteria` key to specify an array of additional stemcells available to tile operators. Choose a stemcell with the `stemcell_selector` property key included in `PUT api/v0/staged/products/:PRODUCT-GUID/properties`.
+* **[New Feature]**: Tile authors can use a form and install time verifier to verify vSphere IaaS properties.
+* **[New Feature]**: Tile authors can upload tiles that support multiple stemcells. Use the `additional_stemcells_criteria` key to specify an array of additional stemcells for operators to use. Choose a stemcell with the `stemcell_selector` property key included in `PUT /api/v0/staged/products/:PRODUCT-GUID/properties`.
 * **[New Feature]**: Tile authors can create and deploy their own manifests using non-default stemcells. Use a `stemcells` block in the manifest to specify an alias, OS, and version for a stemcell. Additionally, you can use the following double-parens accessors to see further details about stemcells: `(( my_stemcell_selector.os ))`, `(( my_stemcell_selector.version ))`, `(( my_stemcell_selector.assigned? ))`, `(( my_stemcell_selector.value ))`, (( my_stemcell_selector.value_present? ))`.
 * **[Bug Fix]**: Ops Manager operators can no longer upload a duplicate stemcell to the Stemcell Library.
 * **[Bug Fix]**: Ops Manager operators on vSphere-based deployments can now use spaces in the folder names for their vCenter config information.
