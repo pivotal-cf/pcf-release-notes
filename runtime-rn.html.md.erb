@@ -1035,11 +1035,13 @@ For more information, see [Configure Application Developer Controls](https://doc
 
 In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers. This configuration improves resiliency and consistency for application routes. If you are upgrading to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is the default setting.
 
+<p class="note warning"><b>Warning:</b> TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale your Diego cells before configuring the Gorouter with TLS.</p>
+
+<p class='note warning'><b>Warning:</b> You may see an increase of memory and CPU usage for your Gorouters after enabling TLS routing. If the total amount of memory and CPU usage of the Gorouters in your environment are close to the size limit, scale your Gorouters before enabling TLS routing.</p>
+
 Configure the TLS routing setting in the **Application Containers** pane of the PAS tile.
 
 For more information about configuring the Gorouter with TLS, see the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-3/customizing/pas.html).
-
-<p class="note warning"><b>Warning:</b> TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale your Diego cells before configuring the Gorouter with TLS.</p>
 
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
