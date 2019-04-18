@@ -705,8 +705,6 @@ To switch over to the new `nfs` service, you must re-create and re-bind your exi
 
 <p class="breaking note"><strong>Breaking Change:</strong> Your upgrade may fail if you do not take action. Additionally, this feature has operational impact and can affect other features. For more information, see the corresponding item in the <a href="./breaking-changes.html#app-identity">Breaking Changes</a> topic.</p>
 
-<p class= "note warning"><b>Warning:</b> TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale your Diego cells before configuring the Gorouter with TLS.</p>
-
 In PAS v2.4, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter. Before you upgrade to v2.4, you must have secure routing with TLS enabled. 
 
 For more information, see [Configure Gorouter with TLS](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html#pas) in _Upgrade Preparation Checklist for PCF v2.4_.
