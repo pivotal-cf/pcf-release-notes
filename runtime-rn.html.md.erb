@@ -11,6 +11,78 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.3.10'></a> 2.3.10
+
+* **[Feature Improvement]** Add support for staging Docker images from repositories using schema version 2 manifests
+* **[Feature Improvement]** Reduce load on autoscaling database by adding indices to improve query efficiency
+* **[Bug Fix]** Increase TLS Certificate verification depth in Apps Manager to allow for longer certificate chains
+* **[Bug Fix]** Prevent potential BPM configuration corruption after a VM restarts which could cause some jobs to fail to start. [Knowledge Article 6606](https://community.pivotal.io/s/article/bpm-fails-to-start-job-process-with-exit-status-1)
+* **[Bug Fix]** Apps Manager correctly displays footer text when not set in Ops Manager
+* Bump ubuntu-xenial stemcell to version `97.74`
+* Bump bpm to version `1.0.4`
+* Bump capi to version `1.66.10`
+* Bump cf-autoscaling to version `218`
+* Bump cflinuxfs2 to version `1.281.0`
+* Bump cflinuxfs3 to version `0.81.0`
+* Bump diego to version `2.20.8`
+* Bump push-apps-manager-release to version `666.0.25`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>97.74</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.12.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.30</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.2</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.15</td></tr>
+    <tr><td>bpm</td><td>1.0.4</td></tr>
+    <tr><td>capi</td><td>1.66.10</td></tr>
+    <tr><td>cf-autoscaling</td><td>218</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.13.0</td></tr>
+    <tr><td>cf-mysql</td><td>36.16.0</td></tr>
+    <tr><td>cf-networking</td><td>2.12.3</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>cf-syslog-drain</td><td>7.3</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.281.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.81.0</td></tr>
+    <tr><td>consul</td><td>195</td></tr>
+    <tr><td>credhub</td><td>1.9.9</td></tr>
+    <tr><td>diego</td><td>2.20.8</td></tr>
+    <tr><td>dotnet-core-offline-buildpack-lts</td><td>2.2.7</td></tr>
+    <tr><td>garden-runc</td><td>1.16.8</td></tr>
+    <tr><td>go-offline-buildpack-lts</td><td>1.8.35</td></tr>
+    <tr><td>haproxy</td><td>8.9.0</td></tr>
+    <tr><td>java-offline-buildpack-lts</td><td>4.18</td></tr>
+    <tr><td>log-cache</td><td>1.4.7</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
+    <tr><td>mysql-monitoring</td><td>8.20.0</td></tr>
+    <tr><td>nats</td><td>25</td></tr>
+    <tr><td>nfs-volume</td><td>1.5.6</td></tr>
+    <tr><td>nodejs-offline-buildpack-lts</td><td>1.6.45</td></tr>
+    <tr><td>notifications-ui</td><td>34</td></tr>
+    <tr><td>notifications</td><td>52</td></tr>
+    <tr><td>php-offline-buildpack-lts</td><td>4.3.72</td></tr>
+    <tr><td>push-apps-manager-release</td><td>666.0.25</td></tr>
+    <tr><td>push-usage-service-release</td><td>667.0.14</td></tr>
+    <tr><td>pxc</td><td>0.14.2</td></tr>
+    <tr><td>python-offline-buildpack-lts</td><td>1.6.29</td></tr>
+    <tr><td>routing</td><td>0.179.6</td></tr>
+    <tr><td>ruby-offline-buildpack-lts</td><td>1.7.34</td></tr>
+    <tr><td>silk</td><td>2.12.2</td></tr>
+    <tr><td>staticfile-offline-buildpack-lts</td><td>1.4.40</td></tr>
+    <tr><td>statsd-injector</td><td>1.3.0</td></tr>
+    <tr><td>syslog</td><td>11.3.2</td></tr>
+    <tr><td>uaa</td><td>60.13</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.3.9'></a> 2.3.9
 
 * **[Feature Improvement]** Improve error messages when installing buildpacks
@@ -1032,20 +1104,20 @@ For more information, see [Configure Application Developer Controls](https://doc
 
 
 ### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments 
-In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers. This configuration improves resiliency and consistency for application routes. If you are upgrading to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is now the default setting.
 
-To use TLS routing for the Gorouter, you must increase the memory and CPU of the Diego cells. For more information, see the [Diego Cells Require Additional Memory and CPU for TLS Routing](#diego-cell-memory) known issue.
+In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers. This configuration improves resiliency and consistency for application routes. If you are upgrading to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is the default setting.
+
+<p class="note warning"><b>Warning:</b> TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale your Diego cells before configuring the Gorouter with TLS.</p>
+
+<p class='note warning'><b>Warning:</b> You may see an increase of memory and CPU usage for your Gorouters after enabling TLS routing. If the total amount of memory and CPU usage of the Gorouters in your environment are close to the size limit, scale your Gorouters before enabling TLS routing.</p>
 
 Configure the TLS routing setting in the **Application Containers** pane of the PAS tile.
 
-For more information about using TLS for HTTP routing, see [Increased Resiliency, Consistency, and Security for HTTP
-Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency)
-in the PAS v2.1 release notes.
-
+For more information about configuring the Gorouter with TLS, see the [PAS installation topic for your IaaS](https://docs.pivotal.io/pivotalcf/2-3/customizing/pas.html).
 
 ### <a id="groot"></a> Remove Deprecated Garden Image Plugin Option
 
-<p class="warning note"><strong>WARNING:</strong> If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
+<p class="warning note"><strong>Warning:</strong> If you do not have GrootFS enabled, you must enable it before upgrading to PAS v2.3. See <a href="#upgrade">How to Upgrade</a> above.</p>
 
 Garden creates app containers in PAS and includes an image plugin that prepares the filesystem for the container. PCF v1.12 introduced GrootFS as the default image plugin to replace the previous built-in functionality, garden-shed, which used an obsolete layer filesystem (AUFS) that lacked support from the Linux Kernel community.
 
@@ -1325,15 +1397,3 @@ If **Router application identity verification** is set to `Router and applicatio
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
-
-### <a id="diego-cell-memory"></a> Diego Cells Require Additional Memory and CPU for TLS Routing
-
-In PAS v2.3, the Gorouter uses TLS routing to verify app identity and communicate with app containers by default. See [HTTP Router Uses TLS By Default in New Deployments](#routing-resiliency).
-
-TLS routing requires an additional 32 MB of RAM capacity on Diego cells per app instance. It also requires additional CPU capacity on Diego cells. 
-
-If you do not disable TLS routing, Pivotal recommends increasing the RAM and CPU capacity of Diego cells. If the total amount of Diego cell memory available is less than 32 MB times the number of running app instances, scale the Diego cells.
-
-For more information, see [Increased Resiliency, Consistency, and Security for HTTP
-Routing](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/runtime-rn.html#route-consistency)
-in the PAS v2.1 release notes.
