@@ -218,6 +218,14 @@ PAS for Windows includes them in the system trust store of Windows containers.
 For instructions on configuring trusted certificates in the BOSH Director tile,
 see [Setting Trusted Certificates](https://docs.pivotal.io//pivotalcf/2-5/customizing/trusted-certificates.html).
 
+### <a id='windows2016'></a> Deprecation of the `windows2016` Stack
+
+The `windows2016` stack is deprecated in favor of the `windows` stack.
+PAS for Windows v2.6 may remove support for `windows2016`.
+
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/2-5/adminguide/stack-auditor.html).
+
 ## <a id='adv-features'></a> New Advanced Features
 
 The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have
