@@ -1350,13 +1350,15 @@ If you want to configure a list of ports, do the following:
 
 ### <a id="containers-live"></a>Containers Live Briefly after Apps are Deleted or Downsized
 
-When you delete or scale down an app, the container instance may continue running for a couple of minutes after `cf apps` and other CLI commands indicate that the instance no longer exists. 
+In v2.3.0, when you delete or scale down an app, the container instance may continue running for a couple of minutes after `cf apps` and other CLI commands indicate that the instance no longer exists. 
 
 This may cause the following:
 
 * After deletion, the container may briefly continue to appear in the IaaS dashboard.
 * Resource usage may go down to reflect container deletion only after a brief delay.
 * Acceptance tests that check for immediate container deletion may fail.
+
+This issue has been fixed in the v2.3.1 patch release.
 
 ### <a id="loggregator-scaling"></a> Loggregator Component Horizontal Scaling Thresholds
 
