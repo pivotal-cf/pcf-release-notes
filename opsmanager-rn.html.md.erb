@@ -33,9 +33,9 @@ Ops Manager v2.4.9 uses the following component versions:
     <td>Ops Manager</td><td>2.4-build.180*</td>
   </tr>
   <tr><td>Stemcell</td><td>170.48*</td></tr><tr><td>BBR SDK</td><td>1.7.1</td></tr><tr><td>BOSH Director</td><td>268.2.2</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.5*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>60.13</td></tr><tr><td>BPM</td><td>0.12.3</td></tr><tr><td>Networking</td><td>8</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>72</td></tr><tr><td>Azure CPI</td><td>35.4.0</td></tr><tr><td>Google CPI</td><td>27.0.1</td></tr><tr><td>OpenStack CPI</td><td>39</td></tr><tr><td>vSphere CPI</td><td>51.1.0</td></tr><tr><td>BOSH CLI</td><td>5.4.0</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.0</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -527,7 +527,7 @@ For more information, see [Staged BOSH Director](http://docs.pivotal.io/pivotalc
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
-Tile authors can insert a templatized Syslog form into their tiles by using the `opsmanager_syslog` key in their tile's `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director tile. The form template is an opportunity to make tile users' experience more consistent and secure. 
+Tile authors can insert a templatized Syslog form into their tiles by using the `opsmanager_syslog` key in their tile's `metadata.yml`. The pane that the form creates is identical to the Syslog pane in Ops Manager and the BOSH Director tile. The form template is an opportunity to make tile users' experience more consistent and secure.
 
 For more information about modifying `metadata.yml`, see [Property Template References](https://docs.pivotal.io/tiledev/2-4/property-template-references.html#syslog-flag).
 
@@ -561,7 +561,7 @@ For more information, see [Retrieving resources for a job](http://docs.pivotal.i
 
 ### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available From the API
 
-You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint, or use a different endpoint to rotate the certificates. 
+You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint, or use a different endpoint to rotate the certificates.
 
 For more information, see [Getting Information About Certificates from Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
 
@@ -573,11 +573,11 @@ For more information, see the **Security** section of the [BOSH Director configu
 
 ### <a id='certificate-banner'></a> Notification Banner Appears When A Certificate Nears Expiration
 
-Now a notification banner appears in the Ops Manager UI when a certificate needs to be rotated or replaced.  
+Now a notification banner appears in the Ops Manager UI when a certificate needs to be rotated or replaced.
 
 ### <a id="additional-cpi-settings"></a> IaaS-Specific Global CPI Properties Are Configurable From the API
 
-You can provide additional global CPI properties via the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS. 
+You can provide additional global CPI properties via the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS.
 
 After adding new global CPI properties, you can view the global CPI properties in use by sending a GET to `/api/v0/staged/director/iaas_configurations`.
 
@@ -629,7 +629,7 @@ The following existing sections of the API documentation are updated in Ops Mana
 * [Retrieving manifest for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-manifest-for-a-deployed-product): This section includes a new parameter:
   * `mode`
 
-<p class="note"><strong>Note:</strong> In Ops Manager v2.4, the <code>excluded_recursors</code> API endpoints have moved. This could cause some scripts to break. For more information, see <a href="https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html#excluded-recursors">Excluded Recursors API Field Has Moved</a>.</p>
+<p class="note"><strong>Note:</strong> In Ops Manager v2.4, the <code>excluded_recursors</code> API endpoints have moved. This could cause some scripts to break. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html#excluded-recursors">Excluded Recursors API Field Has Moved</a>.</p>
 
 ### <a id="new-sections"></a> New Sections
 
