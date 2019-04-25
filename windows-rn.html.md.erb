@@ -218,7 +218,7 @@ PAS for Windows includes them in the system trust store of Windows containers.
 For instructions on configuring trusted certificates in the BOSH Director tile,
 see [Setting Trusted Certificates](https://docs.pivotal.io//pivotalcf/2-5/customizing/trusted-certificates.html).
 
-### <a id='windows2016'></a> Deprecation of the `windows2016` Stack
+### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
 The `windows2016` stack is deprecated in favor of the `windows` stack.
 PAS for Windows v2.6 may remove support for `windows2016`.
@@ -233,3 +233,29 @@ This section includes known issues with PAS for Windows v2.5.
 ### <a id='no-mutual-verification'></a> No Mutual TLS App Identity Verification
 
 PAS for Windows does not support mutual TLS app identity verification. Mutual TLS app identity verification does not work for Windows containers.
+
+### <a id='cf-push-aws'></a>Pushing to Windows Cells on AWS Fails
+
+**Symptom**
+
+`cf push` to Windows cells on Amazon Web Services (AWS) fails with the following error:
+
+```
+ERR: Downloading failed
+```
+
+**Explanation**
+
+Windows Server 2019 stemcells (version v2019.2) on AWS are missing the root CA certificate that is used to sign Amazon's CloudFront CDN certificate. The missing
+root CA certificate is the VeriSign Class 3 Public Primary Certification Authority.
+
+If you deploy PAS with a blobstore that is fronted by CloudFront, there is an x509
+certificate error when downloading the app droplet from the blobstore. As a result,
+`cf push` fails.
+
+**Workaround**
+
+Add the missing VeriSign root CA certificate to **Trusted Certificates** in Ops
+Manager to ensure that the certificate presented by CloudFront is trusted on Windows
+cells, allowing the droplet to be successfully downloaded from the blobstore.
+For more information, see [Setting Trusted Certificates](https://docs.pivotal.io/pivotalcf/customizing/trusted-certificates.html).
