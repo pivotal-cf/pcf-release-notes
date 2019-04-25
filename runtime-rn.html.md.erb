@@ -1019,3 +1019,9 @@ If **Router application identity verification** is set to `Router and applicatio
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
+
+### <a id='log-error'></a> Metric Registrar App Log Error Message
+
+In PAS v2.5, an `invalid log drain` error message may appear in app logs on foundations where the Metric Registrar is enabled. This error message indicates that the current version of Loggregator cannot parse the scheme used by the Metric Registrar. 
+
+This error message does not indicate that the app logs are incorrect or incomplete. There is no action required.
