@@ -15,22 +15,98 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 ## <a id="releases"></a>Releases
 
-### <a id="rc-2"></a> 2.5 Release Candidate 2
+<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to Ops Manager v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
 
-<ul>
-<li><strong>[Breaking Change]</strong>: The naming convention for Azure Availability Zones (AZs) is updated. You cannot upgrade from any previous version of v2.5 to v2.5 Release Candidate 2 if you are using Azure AZs. To continue using Azure AZs and upgrade to RC 2, you must do a clean install of RC 2. If you are using Azure AZs and also using automation to do a clean install, update your automation tools to ensure they choose zone names with the new AZ naming convention.<br/> 
-<br/> 
-In all previous v2.5 Ops Managers, Azure AZs included a space between the zone name and number.<br/>
-<br/> 
-For example: <code>Zone 1</code><br/>
-<br/> 
-Ops Manager v2.5 Release Candidate 2 uses a new structure for AZ names. There is a dash between the zone name and number, and the entire name is in lower case.<br/>
-<br/> 
-For example: <code>zone-2</code>
-</li>
-</ul>
+### <a id="2-5-2"></a> 2.5.2
 
- Ops Manager v2.5 Release Candidate 2 uses the following component versions:
+* **This patch contains no new features or fixes.** It updates Ops Manager components to address dependency requirements for other products.
+
+Ops Manager v2.5.2 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.5.2-build.172*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>250.17</td></tr>
+  <tr><td>BBR SDK</td><td>1.14.0</td></tr>
+  <tr><td>BOSH Director</td><td>268.6.0</td></tr>
+  <tr><td>BOSH DNS</td><td>1.10.0</td></tr>
+  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
+  <tr><td>CredHub</td><td>2.1.5*</td></tr>
+  <tr><td>Syslog</td><td>11.4.0</td></tr>
+  <tr><td>Windows Syslog</td><td>1.0.3</td></tr>
+  <tr><td>UAA</td><td>71.0</td></tr>
+  <tr><td>BPM</td><td>1.0.4</td></tr>
+  <tr><td>Networking</td><td>9</td></tr>
+  <tr><td>OS Conf</td><td>20.0.0</td></tr>
+  <tr><td>AWS CPI</td><td>73</td></tr>
+  <tr><td>Azure CPI</td><td>35.4.0</td></tr>
+  <tr><td>Google CPI</td><td>29.0.1</td></tr>
+  <tr><td>OpenStack CPI</td><td>42</td></tr>
+  <tr><td>vSphere CPI</td><td>52.1.0</td></tr>
+  <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
+  <tr><td>Credhub CLI</td><td>2.4.0</td></tr>
+  <tr><td>BBR CLI</td><td>1.5.0</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
+### <a id="2-5-1"></a> 2.5.1 
+
+* **[Security Fix]**: This patch addresses [CVE-2019-5418](https://nvd.nist.gov/vuln/detail/CVE-2019-5418), a Rails file content disclosure vulnerability.
+* **[Security Fix]**: This patch addresses [CVE-2019-5419](https://nvd.nist.gov/vuln/detail/CVE-2019-5419), a Rails vulnerability that could lead to denial of service (DoS) attacks.
+* **[Security Fix]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the `must_match_regex` parameter.
+* **[Bug Fix]**: When a redeploy is triggered by Apply Changes and that redeploy lasts multiple days, logs are generated for that entire time.
+* **[UI Improvement]**: The Pending Changes page for an on-demand service broker tile now warns you explicitly that changes made applies only to the broker andt p: not to service instances.
+* **[UI Improvement]**: The notification banner that appears when a certificate in your deployment is about to expire is updated for clarity.
+
+Ops Manager v2.5.1 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.5.1-build.169*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>250.17</td></tr>
+  <tr><td>BBR SDK</td><td>1.14.0</td></tr>
+  <tr><td>BOSH Director</td><td>268.6.0</td></tr>
+  <tr><td>BOSH DNS</td><td>1.10.0</td></tr>
+  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
+  <tr><td>CredHub</td><td>2.1.2</td></tr>
+  <tr><td>Syslog</td><td>11.4.0</td></tr>
+  <tr><td>Windows Syslog</td><td>1.0.3</td></tr>
+  <tr><td>UAA</td><td>71.0*</td></tr>
+  <tr><td>BPM</td><td>1.0.4*</td></tr>
+  <tr><td>Networking</td><td>9</td></tr>
+  <tr><td>OS Conf</td><td>20.0.0</td></tr>
+  <tr><td>AWS CPI</td><td>73</td></tr>
+  <tr><td>Azure CPI</td><td>35.4.0</td></tr>
+  <tr><td>Google CPI</td><td>29.0.1</td></tr>
+  <tr><td>OpenStack CPI</td><td>42</td></tr>
+  <tr><td>vSphere CPI</td><td>52.1.0</td></tr>
+  <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
+  <tr><td>Credhub CLI</td><td>2.4.0*</td></tr>
+  <tr><td>BBR CLI</td><td>1.5.0*</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
+### <a id="2-5-0"></a> 2.5.0 
+
+Ops Manager v2.5.0 uses the following component versions:
 
 <table border="1" class="nice">
   <thead>
@@ -67,411 +143,31 @@ For example: <code>zone-2</code>
   </tbody>
 </table>
 
-### <a id="rc-1"></a> 2.5 Release Candidate 1
-
-* **[Security Fix]**: Updates bootstrap from 3.4.0 to 3.4.1.
-* **[Feature]**: Operators can now import `windows2019` stemcells for PAS for Windows (PASW) tiles.
-* **[UI Improvement]**: The error message that appears when a stemcell cannot be used by staged products is updated for clarity.
-* **[UI Improvement]**: The UI text is updated throughout Ops Manager.
-* **[Bug Fix]**: The API documentation now displays the Ops Manager version number correctly.
-
-Ops Manager v2.5 Release Candidate 1 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5.0-build.156*</td></tr>
-  <tr><td>Stemcell</td><td>250.9*</td></tr>
-  <tr><td>BBR SDK</td><td>1.14.0</td></tr>
-  <tr><td>BOSH Director</td><td>268.6.0</td></tr>
-  <tr><td>BOSH DNS</td><td>1.10.0</td></tr>
-  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
-  <tr><td>CredHub</td><td>2.1.2</td></tr>
-  <tr><td>Syslog</td><td>11.4.0</td></tr>
-  <tr><td>Windows Syslog</td><td>1.0.3</td></tr>
-  <tr><td>UAA</td><td>69.0</td></tr>
-  <tr><td>BPM</td><td>1.0.3</td></tr>
-  <tr><td>Networking</td><td>9</td></tr>
-  <tr><td>OS Conf</td><td>20.0.0</td></tr>
-  <tr><td>AWS CPI</td><td>73</td></tr>
-  <tr><td>Azure CPI</td><td>35.4.0</td></tr>
-  <tr><td>Google CPI</td><td>29.0.1</td></tr>
-  <tr><td>OpenStack CPI</td><td>42</td></tr>
-  <tr><td>vSphere CPI</td><td>52.1.0</td></tr>
-  <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
-  <tr><td>Credhub CLI</td><td>2.2.1</td></tr>
-  <tr><td>BBR CLI</td><td>1.4.0*</td></tr>
-  
-    <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  
-  </tbody>
-</table>
-
-### <a id="beta-2"></a> 2.5 Beta 2
-
-* **[New Feature]**: Ops Manager now allows you to rotate the NATS CA. The NATS CA is now an active CA on the certificates table in the Ops Manager database. NATS certificate rotation follows the same workflow as rotating an existing CA and its leaf certificates. A new NATS CA is created when a new OM root CA is created. This pairs the lifecycle of the NATS CA with the OM root CA. When you use the `regenerate` endpoint in the Ops Manager API, new leaf certs are generated for each client using the NATS CA. These new certs are using the active NATS CA in the database. The NATS CA's public keys and expiration dates are also now visible at `/api/v0/deployed/certificates`. For more information, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/2-5/security/pcf-infrastructure/api-cert-rotation.html).
-* **[New Feature]**: You can now upgrade from the most recent version of Ops Manager using multiple NATS certificate authorities (CAs) to a version that only supports one NATS CA.
-* **[Bug Fix]**: Now only one stemcell error appears at a time in the Review Pending Changes page.
-
-Ops Manager v2.5 Beta 2 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5.0-build.135*</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>250.4</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.14.0*</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.6.0</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.22</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.1.2</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.4</td>
-  </tr><tr>
-    <td>UAA</td><td>69</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>73</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.4</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>29.0.1</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>42</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>52.1*</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  </tbody>
-</table>
-
-### <a id="beta-1"></a> 2.5 Beta 1
-
-* **[Breaking Change]**: The filenames for Ops Manager downloads on Pivotal Network have changed. New filenames are formatted in the following way: `ops-manager-aws-2.5.0-build.128.yml`. If you have automation tools or scripts that use the filename, update them to breakages or downtime. 
-* **[Breaking Change]**: New installations of Ops Manager on Azure uses Availability Zones by default, not Availability Sets. You must assign products to an Availability Zone, or choose to use Availability Sets, to deploy any tiles on Azure-based deployments.
-* **[Security Fix]**: A potential XSS vulnerability in the `resource_config` API endpoint is mitigated. 
-* **[New Feature]**: You can now rotate the NATS CA and NATS leaf certificates using the same workflow as you would to rotate the Ops Manager root CA. The NATS CA's public keys and expiration dates are now available with the API at `/api/v0/deployed/certificates`.
-* **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
-* **[New Feature]**: You can now define custom VM extensions for the BOSH Director VM. We allow operators to create custom VM extensions with the API and then apply them to an instance group using the API `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director's jobs and product tiles. 
-* **[New Feature]**: You can now opt in to having jobs deployed by BOSH store credentials in local memory. To enable this feature, go to the **Director Config** form, select the `Enable BOSH to store job credentials on a tmpFS` checkbox, and click **Save**.
-* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre-delete or post-deploy errand is implemented. Use the `impact_warning` key in `pre_delete_errands` or `post_deploy_errands` to specify a warning.
-* **[New Feature]**: You can now change a selected option of a selector with the API using the human-readable name of the option. Send a `PUT` to `/api/v0/staged/products/:GUID/properties` with a `selected_option` key. The PUT API endpoint can also parse both `value`, for the human-readable value, and `option_value`, for the machine-readable value. 
-* **[New Feature]**: You can now use `((cpu))` as a double-parens job accessor to interpolate the CPU value in a manifest.
-* **[UI Improvement]**: The UI text is updated for clarity and consistency throughout Ops Manager.
-* **[Bug Fix]**:  When an Azure-based Ops Manager Director is configured with invalid Azure account credentials (such as a subscription ID, tenant, or other credentials) and you try to create a network, you now see an error message, rather than a 500 error.
-* **[Bug Fix]**: Ops Manager now uses GCP images that are located in the United States. This should prevent image object generation problems sometimes seen in images based in Europe and Asia.
-
-Ops Manager v2.5 Beta 1 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5.0-build.128*</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>250.4</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.7.0</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.6.0*</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.22</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.1.2*</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.4</td>
-  </tr><tr>
-    <td>UAA</td><td>69*</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>73</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.4*</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>29.0.1*</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>42</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>52.0.0</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  </tbody>
-</table>
-
-### <a id="alpha-4"></a> 2.5 Alpha 4
-
-* **[New Feature]**: You can now pre-create a client for automating Ops Manager end-to-end. Optionally, specify a `precreated_client_secret` field in `POST /api/v0/setup`. Then, when operators attempt to get a client UAA token against Ops Manager using the the client name `precreated-client`, after providing the `precreated_client_secret`, they get an access token to OpsManager with the scopes `opsman.admin` and `uaa.admin`. 
-* **[New Feature]**: You can now store credentials in memory by checking the **Enable BOSH to store job credentials on a tmpFS** checkbox in the Director Config page.
-* **[New Feature]**: Ops Manager now supports keystone v3 for OpenStack deployments, including adding support for project names to the existing support for tenant names.
-* **[New Feature]**: BOSH now uses postgres 10.x. To confirm what version of BOSH you're running, `ssh` onto the BOSH Director and run `/var/vcap/packages/postgres-10/bin/psql --user postgres -h 127.0.0.1`. 
-* **[New Feature]**: You can now use the BOSH Backup and Restore (BBR) CLI from the Ops Manager VM. This means you no longer have to download or upgrade BBR when you upgrade the Ops Manager VM.
-* **[New Feature]**: Tile authors can now use a double-parens accessor to pull information from Ops Manager. Use the `(($ops_manager.restricted_view_api_access_credentials))` accessor to make read-only, non-credential requests to Ops Manager.
-* **[New Feature]**: Tile authors can now implement user-facing warnings that display when a pre- or post-deploy errand is implemented. Use the `impact_warning` key in `pre_deploy_errands` or `post_deploy_errands` to specify a warning. The warning displays in the Review Pending Changes pane when `impact_warning` is enabled.
-* **[Bug Fix]**: You can now upgrade service broker tiles from v2.4 to v2.5 on deployments using Azure.
-* **[UI Improvement]**: When an Ops Manager operator stages a tile for deletion, a warning appears if the tile has staged changes that are lost when the tile is deleted.
-
-Ops Manager v2.5 Alpha 4 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5-build.112*</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>250.4*</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.7.0</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.5.0</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.22*</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.2.1*</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.4</td>
-  </tr><tr>
-    <td>UAA</td><td>69*</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>73</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.5</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>29.0.0</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>42*</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>52.0.0</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  </tbody>
-</table>
-
-### <a id="alpha-3"></a> 2.5 Alpha 3
-
-* **[New Feature]**: You can now create Availability Zones (AZs) with host groups for deployments on vSphere. Use the **Create Availability Zones** form to configure this feature. 
-* **[New Feature]**: You can now use the API to set the `host_group` in a vSphere cluster. For more information, see [Creating availability zones](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#creating-availability-zones).
-* **[New Feature]**: You can now use the API to GET the `host_group` in a vSphere cluster. For more information, see [Fetching availability zones](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-availability-zones).
-* **[New Feature]**: Ops Manager now generates the vSphere CPI config using the designated `host_group` property if a host group is specified in the AZ. 
-* **[New Feature]**: Setting an invalid vSphere host group with the API now returns a verifier warning.
-* **[New Feature]**: Tile authors can now use the `impact_warning` key to add warning messages to specific errands. For more information, see [Installations](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#installations).
-* **[New Feature]**: Tile authors can now use the `option_value` property in the Ops Manager API to set properties with machine-readable keys. For more information, see [Updating a selector property](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-a-selector-property).
-* **[Bug Fix]**: Ops Manager now reloads NGINX when the configuration is updated. Previously, Ops Manager would restart NGINX, which could cause temporary downtime. NGINX now serves traffic consistently when it is updating.
-* **[Bug Fix]**: LDAP authentication is now more reliable.
-* **[Bug Fix]**: You can no longer export using the API without having deployed anything.
-* **[Bug Fix]**: The AWS verifier now fails gracefully, rather than crashing on failure.
-* **[Bug Fix]**: Installation Change records now have a deployment status other than `null`.
-* **[UI Improvement]**: In the Ops Manager API, some malformed properties now return more reader-friendly error messages.
-* **[UI Improvement]**: The UI of the Review Pending Changes page is now more adherent to the Ops Manager style.
-* **[UI Improvement]**: The UI of the Manifest Changes page is now more adherent to the Ops Manager style.
-
-Ops Manager v2.5 Alpha 3 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5-build.96*</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>170.21*</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.7.0</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.5.0*</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.21</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.0.2</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.4</td>
-  </tr><tr>
-    <td>UAA</td><td>68*</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>73</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.5</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>29.0.0</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>41</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>52.0.0</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  </tbody>
-</table>
-
-### <a id="alpha-2"></a> 2.5 Alpha 2
-
-* **[Security Fix]**: Information about the NGINX web server no longer appears in server response headers.
-* **[New Feature]**: You can view changes for individual tiles on the **Pending Changes** page. In the **Review Pending Changes** page, click **See Changes**. The **Pending Changes** page for a tile shows the most recent set of modifications you made to the manifest, runtime configs, CPI configs, and cloud config. 
-* **[New Feature]**: Debug log forwarding and custom Syslog configuration are configurable with the API. Send a GET or a PUT with `forward_debug_logs` or `custom_rsyslog_configuration` to `api/v0/staged/director/properties`.
-* **[New Feature]**: You can opt in to forwarding debug logs with the UI. In the **Syslog** form, choose the "Forward Debug Logs" checkbox.
-* **[New Feature]**: Tile authors can access a catalog of available VM types with the `(($ops_manager.instance_types_catalog))` accessor.
-* **[New Feature]**: You can provide custom rsyslog configurations in the **Syslog** form.
-* **[New Feature]**: Tile authors can write and apply JS migrations to migrate data from their existing syslog configurations to Ops Manager's template syslog form. For more information, see [opsmanager_syslog](https://docs.pivotal.io/tiledev/2-4/property-template-references.html#syslog-flag) in the Tile Developer docs. 
-* **[New Feature]**: You can use the BOSH drain to gracefully shut down the BOSH Director when it redeploys. This allows for a more complete cleanup of existing VMs during a redeploy. Use the **Skip Director Drain Lifecycle** checkbox in the **Settings** page to configure this feature, or send a PUT to `/api/v0/staged/director/properties` with `skip_director_drain` specified as either `true` or `false`.
-* **[New Feature]**: Credentials return in some API calls. If you have sufficient permissions, sending a GET to `director/properties` or `director/iaas_configurations/guid` or `products/guid/properties` with the `redact=false` parameter returns all keys and values, including credentials.
-* **[Feature Improvement]**: A selected option identifier appears in the `/api/v0/staged/products/:product_guid/properties` API endpoint. This identifier helps you see more detail about various selectors.
-* **[Feature Improvement]**: Windows tile logs no longer contain multiple duplicate lines.
-* **[UI Improvement]**: A notification banner appears in the Ops Manager UI when a certificate needs to be rotated or replaced.
-* **[UI Improvement]**: When you are on the **Pending Changes** page and a tile is staged for installation or deletion, a message appears telling you changes to that tile are not available to view.
-* **[UI Improvement]**: You can see the status of new, staged, or pre-deletion tiles on the "Review Pending Changes" page.
-* **[UI Improvement]**: Notification messages appear when a tile staged for installation or deletion has no manifest or there is an error returning the manifest.
-* **[Bug Fix]**: The "Applying Changes" banner appears consistently throughout the UI. 
-* **[Bug Fix]**: The request body appears in the PUT section of the `/api/v0/settings/ssl_certificate` API docs.
-* **[Unsupported Feature]**: The NATS username and password are removed from the BOSH Director manifest. They no longer appear at an API endpoint or in the Credentials tab.
-* **[Unsupported Feature]**: Ops Manager no longer allows legacy agents in stemcells. 
-
-Ops Manager v2.5 Alpha 2 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5-build.75*</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>170.16*</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.7.0</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.4.0*</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.21</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.0.2</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.4*</td>
-  </tr><tr>
-    <td>UAA</td><td>64</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>73*</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.5</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>29.0.0*</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>41*</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>52.0.0*</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  </tbody>
-</table>
-
-### <a id="alpha-1"></a> 2.5 Alpha 1
-
-Ops Manager v2.5 Alpha 1 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.5-build.43</td>
-  </tr>
-  <tr>
-    <td>Stemcell</td><td>170.12</td>
-  </tr><tr>
-    <td>BBR SDK</td><td>1.7.0</td>
-  </tr><tr>
-    <td>BOSH Director</td><td>268.3.0</td>
-  </tr><tr>
-    <td>BOSH DNS</td><td>1.10</td>
-  </tr><tr>
-    <td>Metrics Server</td><td>0.0.21</td>
-  </tr><tr>
-    <td>CredHub</td><td>2.0.2</td>
-  </tr><tr>
-    <td>Syslog</td><td>11.3</td>
-  </tr><tr>
-    <td>UAA</td><td>64</td>
-  </tr><tr>
-    <td>AWS CPI</td><td>72</td>
-  </tr><tr>
-    <td>Azure CPI</td><td>35.5</td>
-  </tr><tr>
-    <td>GCP CPI</td><td>27.0.1</td>
-  </tr><tr>
-    <td>OpenStack CPI</td><td>39</td>
-  </tr><tr>
-    <td>vSphere CPI</td><td>51.0.2</td>
-  </tr>
-  <td colspan="2"><em>* Components marked with an asterisk are updated.</em></td>
-  </tbody>
-</table>
-
 ## <a id='major-features'></a> New Features in Ops Manager v2.5
 
 Ops Manager v2.5 includes the following major features:
 
-### <a id="azure-azs"></a> Microsoft Azure Availability Zones Available in Ops Manager
-
-Ops Manager operators and administrators can now configure Availability Zones (AZs). AZs provide high availability, minimal latency, and efficient resource management for deployments around the world. 
-
-AZs are only available for new installations of Ops Manager. Existing installations that are being upgraded from v2.4 must use Availability Sets. 
-
-For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
-
-### <a id="pending-tile-changes"></a> Pending Changes Page Displays Staged Changes to Tile Manifests and Configs
+### <a id="pending-tile-changes"></a> Pending Changes Page Displays Staged Changes
 
 If you have changed the configuration of a tile in your deployment, use the Pending Changes page to review the changes to the existing manifest or configs line-by-line. Access a tile's pending changes by clicking the **See Changes** button on the Review Pending Changes page.
 
 Use the output on this page to verify accuracy and comprehensiveness before redeploying Ops Manager. This page is especially useful for deployments with more than one operator or administrator, or deployments that change due to both API and UI modifications.
 
-For more information, see [Reviewing Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
+For more information, see [About Pending Changes for a Specific Tile](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
+
+### <a id="azure-azs"></a> Microsoft Azure Availability Zones Available
+
+Ops Manager operators and administrators can now configure Availability Zones (AZs). AZs provide high availability, minimal latency, and efficient resource management for deployments around the world.
+
+AZs are only available for new installations of Ops Manager. Existing installations that are being upgraded from v2.4 must use Availability Sets.
+
+For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
+
+### <a id="host-groups"></a> Host Group Configuration Available for vSphere Availability Zones
+
+You can associate an Availability Zone (AZ) with a host group for Ops Manager deployments on vSphere. Host groups are subsets of vSphere clusters. Since you must associate a cluster with an AZ in vSphere deployments, host group configuration can help you manage deployment resources more precisely. Enable vSphere host groups from the **Create Availability Zones** pane in the BOSH Director tile. 
+
+For more information, see [Create Availability Zones Page](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#create-az) in *Configuring BOSH Director on vSphere*.
 
 ### <a id="nats-ca"></a> NATS Certificate Rotation Available in the Ops Manager API
 
@@ -479,11 +175,11 @@ Ops Manager allows you to regenerate and rotate the NATS certificate authority (
 
 A new NATS CA is created every time a new Ops Manager root CA is created. This pairs the lifecycle of the NATS CA with the Ops Manager root CA. The two CAs are created, activated, and deleted in unison. When an operator uses the `regenerate` endpoint in the Ops Manager API, new leaf certificates are generated for each client using the NATS CA. The new certificates use the active NATS CA in the database.
 
-For more information about regenerating and rotating certificates, see [Managing Certificates](https://docs.pivotal.io/pivotalcf/2-5/security/pcf-infrastructure/api-cert-rotation.html).
+For more information about regenerating and rotating certificates, see [Rotating Certificates](https://docs.pivotal.io/pivotalcf/2-5/security/pcf-infrastructure/api-cert-rotation.html).
 
 ### <a id="pre-create"></a> Pre-Created Clients Available in the Ops Manager API
 
-You can now configure a pre-created client account to manage automation tasks and scripts for Ops Manager. To do this, you will need access to the UAA Command Line Client (UAAC) and Ops Manager API. 
+You can now configure a pre-created client account to manage automation tasks and scripts for Ops Manager. To do this, you will need access to the UAA Command Line Client (UAAC) and Ops Manager API.
 
 Pivotal recommends using client accounts for automated tasks because client accounts are not bound to the same authentication protocols as user accounts. A user account that controls automated components can cause those components to fail if the account experiences inconsistent availability due to permission or authentication issues.
 
@@ -491,9 +187,74 @@ You can configure a pre-created client for Ops Manager either before you deploy 
 
 For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
 
+### <a id="vm-extensions"></a> Apply Custom VM Extensions to the BOSH Director in the Ops Manager API
+
+You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director’s jobs and product tiles.
+
+Use this endpoint to configure custom behavior for the BOSH Director VM, such as allowing the Director to read or write directly to a blobstore.
+
+For more information about custom VM extensions, see [Staged VM Extensions](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#staged-vm-extensions) in the Ops Manager API documentation.
+
+
+### <a id="ui-text"></a> Ops Manager User Interface Text is Updated
+
+The field names, button text, error messaging, and other textual UI elements in Ops Manager are updated. This is part of an ongoing effort to improve clarity, utility, and the user experience.
+
+This update does not impact Ops Manager product tiles or the BOSH Director. For more information about the Ops Manager UI, see [Using the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html).
+
+### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs 
+
+You can choose to store credentials for BOSH jobs in temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk. Choosing to store credentials in tmpfs may impact your BOSH deployment's availability if the tmpfs is refreshed or loses access to the deployment. You must recreate all VMs for this change to take effect. 
+
+To enable this feature, navigate to the **Director Config** section of the **BOSH Director** tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox. 
+
+For more information on the Director Config forms, see [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-5/customizing/deploy-bosh-om.html#contents).
+
+### <a id="log-forwarding"></a> Forward Ops Manager Debug Logs to An External Store in the Syslog Form
+
+You can choose to forward logs generated by debugging processes to an external source by selecting a checkbox in the Syslog pane of the Ops Manager **Settings** page. Forwarded logs are delivered to whatever external location you choose to receive other types of logs from Ops Manager.
+
+To forward logs, select the **Forward Debug Logs** checkbox in the Syslog pane. This checkbox is deselected by default, because debug logs can be excessive and require a great deal of storage capacity. If you choose to use this option, ensure you have sufficient storage to contain the generated logs.
+
+For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
+
+### <a id="rsyslog"></a> Custom Rsyslog Configuration Available in Ops Manager Syslog Template
+
+You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the standard settings available in the Ops Manager UI.
+
+If you configure custom rules and also choose the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place. 
+
+For more information about forwarding debug logs, see [Forward Ops Manager Debug Logs to An External Store in the Syslog Form](#log-forwarding).
+
+For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
+
 ## <a id='known-issues'></a> Known Issues
 
-* Known issues to come as features and dependencies are implemented in v2.5 release candidates.
+### <a id="service-broker-syslog"></a> Ops Manager's Syslog Template is Not Supported for Service Broker Tiles
+
+Ops Manager's Syslog template does not propagate to service broker tiles. Tile developers with service broker tiles should continue to use their own Syslog configurations. Service broker tiles with the Syslog template configured will not display the Syslog template.
+
+For more information about the Syslog template, see [Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/opsmanager-rn.html#syslog).
+
+### <a id="monit"></a> Monit Inaccurately Reports Health of UAA
+
+When BOSH Director reboots, Monit may report UAA as running, even though its process state is unhealthy. The Monit start scripts for UAA use the UAA `/healthz` endpoint to verify UAA is running, but the `/healthz` endpoint does not know there is a database requirement. Monit detects UAA is healthy, even though UAA is stuck, and never restarts it.
+
+To fix this, run `monit restart uaa` to restart UAA after Postgres is running.
+
+For more information, see [Monit reports UAA running on BOSH Director when it is actually unhealthy](https://community.pivotal.io/s/article/monit-reports-uaa-running-on-bosh-director-when-it-is-actually-unhealthy) in the Pivotal Knowledge Base.
+
+### <a id='bpm'></a> BPM Fails to Start Job Process
+
+Some Monit processes fail to start. The `bpm.log` shows an exit status of `1` with no other cause for the failure.
+
+BOSH Process Manager (BPM) calls runC to create a new container and launch a job process. However, runC cannot start the container because there is a stale `state.json` in `/var/vcap/bpm/runc/CONTAINER-ID/state.json`, where `state.json` is a zero-byte file. When running runC manually to start the job process, runC has an EOF error and the exit status is `1`. runC fails to read the `state.json` and exits.
+
+To resolve this issue, delete the zero-byte `state.json` file by deleting its parent directory with the following command: `rm -rf /var/vcap/data/bpm/runc/MJRHG---`<br>
+Then run `monit start JOB` to start the job process and review the job logs to check if there are any further failures.
+
+For more information, see [BPM fails to start job process with exit status 1](https://community.pivotal.io/s/article/bpm-fails-to-start-job-process-with-exit-status-1) in the Pivotal Knowledge Base.
+
 
 ## <a id="api-updates"></a> API Documentation Updates
 
@@ -510,10 +271,10 @@ The following sections of the API documentation are updated in Ops Manager v2.5:
 * [Setting up with LDAP](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-ldap) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
 * [Updating director and Iaas properties (Experimental)]
-(http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in *Setup*: This section includes a new parameter: 
- * `job_configuration_on_tmpfs` 
+(http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in *Setup*: This section includes a new parameter:
+ * `job_configuration_on_tmpfs`
 * [Retrieving a list of install time verifiers for the director](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-a-list-of-install-time-verifiers-for-the-director) in *Staged BOSH Director*: This section is renamed.
-* [Deployed BOSH Director (Advanced)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#deployed-bosh-director-advanced): This section is designated "advanced." 
+* [Deployed BOSH Director (Advanced)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#deployed-bosh-director-advanced): This section is designated "advanced."
 * [Fetching a deployed manifest](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-manifest) in *Deployed BOSH Director (Advanced)*: This section is renamed.
 * [Fetching a deployed cloud config](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-cloud-config) in *Deployed BOSH Director (Advanced)*: This section is renamed.
 
@@ -529,5 +290,3 @@ The following sections are new in Ops Manager v2.5:
 * [Diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs): This section also includes new subsections:
   * [Fetching the BOSH Director diff](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-the-bosh-director-diff)
   * [Fetching a product diff](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-product-diff)
-
-

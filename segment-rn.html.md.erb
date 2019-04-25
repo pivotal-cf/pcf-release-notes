@@ -3,23 +3,16 @@ title: PCF Isolation Segment v2.5 Release Notes
 owner: Release Engineering
 ---
 
-## <a id='known-issues'></a> Known Issues
-
-* **[Known Issue]** The NSX-T tile versions 2.3.1 and lower are not compatible with IST. Upcoming release NSX-T 2.3.2 will address this issue.
-
 ## <a id='releases'></a> Releases
 
-### <a id='2.5.0-beta.1'></a> 2.5.0-beta.1
+### <a id='2.5.2'></a> 2.5.2
 
-* **[Feature]** Include garden debug tooling alongside garden
-* Bump ubuntu-xenial stemcell to version `170.25`
-* Bump bpm to version `1.0.2`
-* Bump cflinuxfs2 to version `1.260.0`
-* Bump cflinuxfs3 to version `0.51.0`
-* Bump diego to version `2.27.0`
-* Bump garden-runc to version `1.18.0`
-* Bump haproxy to version `9.4.1`
-* Bump nfs-volume to version `1.7.7`
+* **[Feature Improvement]** Configure Diego LRP zones in Azure to point to BOSH AZs Zone
+* **[Feature Improvement]** Add support for staging Docker images from repositories using schema version 2 manifests
+* Bump ubuntu-xenial stemcell to version `250.29`
+* Bump bpm to version `1.0.4`
+* Bump cflinuxfs3 to version `0.80.0`
+* Bump diego to version `2.27.6`
 
 <table border="1" class="nice">
   <thead>
@@ -29,225 +22,102 @@ owner: Release Engineering
     </tr>
   </thead>
   <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.25</td></tr>
-    <tr><td>bpm</td><td>1.0.2</td></tr>
+    <tr><td>ubuntu-xenial stemcell</td><td>250.29</td></tr>
+    <tr><td>bpm</td><td>1.0.4</td></tr>
     <tr><td>cf-networking</td><td>2.20.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.260.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.51.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.80.0</td></tr>
+    <tr><td>diego</td><td>2.27.6</td></tr>
+    <tr><td>garden-runc</td><td>1.19.0</td></tr>
+    <tr><td>haproxy</td><td>9.4.1</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.8</td></tr>
+    <tr><td>routing</td><td>0.187.1</td></tr>
+    <tr><td>silk</td><td>2.20.0</td></tr>
+    <tr><td>smb-volume</td><td>1.0.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.5.1'></a> 2.5.1
+
+* **[Feature Improvement]** Add support for TCP hitless reloads in haproxy to avoid connection reset errors
+* **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning
+* **[Bug Fix]** Fix failed access checks on mount for NFS volume service with some Windows NFS servers
+* **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
+* **[Bug Fix]** Fix diego rep to always clean up temporary download cache directory
+* Bump ubuntu-xenial stemcell to version `250.25`
+* Bump cflinuxfs3 to version `0.76.0`
+* Bump diego to version `2.27.4`
+* Bump garden-runc to version `1.19.0`
+* Bump nfs-volume to version `1.7.8`
+* Bump routing to version `0.187.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>250.25</td></tr>
+    <tr><td>bpm</td><td>1.0.3</td></tr>
+    <tr><td>cf-networking</td><td>2.20.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.76.0</td></tr>
+    <tr><td>diego</td><td>2.27.4</td></tr>
+    <tr><td>garden-runc</td><td>1.19.0</td></tr>
+    <tr><td>haproxy</td><td>9.4.1</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.8</td></tr>
+    <tr><td>routing</td><td>0.187.1</td></tr>
+    <tr><td>silk</td><td>2.20.0</td></tr>
+    <tr><td>smb-volume</td><td>1.0.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.5.0'></a> 2.5.0
+
+See also:
+
+- [Breaking Changes](https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/breaking-changes.html)
+- [New Features](#new-features)
+
+* **[Breaking Change]** Remove `cflinuxfs2` root filesystem and buildpacks
+* **[Breaking Change]** Remove inactive DNS server configuration that only applied to older deployments without BOSH DNS
+* **[Feature]** Add ability to disable network policy enforcement between applications. See [Disable Network Policy Enforcement Between Apps](#disable-policy-enforcement).
+* **[Feature]** Include garden debug tooling alongside garden
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>250.21</td></tr>
+    <tr><td>bpm</td><td>1.0.3</td></tr>
+    <tr><td>cf-networking</td><td>2.20.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.72.0</td></tr>
     <tr><td>diego</td><td>2.27.0</td></tr>
     <tr><td>garden-runc</td><td>1.18.0</td></tr>
     <tr><td>haproxy</td><td>9.4.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
     <tr><td>nfs-volume</td><td>1.7.7</td></tr>
-    <tr><td>routing</td><td>0.185.0</td></tr>
+    <tr><td>routing</td><td>0.186.0</td></tr>
     <tr><td>silk</td><td>2.20.0</td></tr>
     <tr><td>smb-volume</td><td>1.0.0</td></tr>
     <tr><td>syslog</td><td>11.4.0</td></tr>
   </tbody>
 </table>
 
-### <a id='2.5.0-alpha.5'></a> 2.5.0-alpha.5
-
-* **[Breaking Change]** Remove inactive DNS server configuration that only applied to older deployments without BOSH DNS
-* **[Feature]** Add ability to disable network policy enforcement between applications. See [Disable Network Policy Enforcement Between Apps](#disable-policy-enforcement).
-* **[Bug Fix]** Volume service broker deployment errands use unique CF_HOME directories to avoid login conflicts
-* **[Bug Fix]** Bump NFS release to avoid possible golang 1.11.0 DNS resolution bugs
-* Bump ubuntu-xenial stemcell to version `170.19`
-* Bump cflinuxfs2 to version `1.259.0`
-* Bump cflinuxfs3 to version `0.50.0`
-* Bump diego to version `2.26.0`
-* Bump garden-runc to version `1.17.2`
-* Bump haproxy to version `9.4.0`
-* Bump nfs-volume to version `1.7.6`
-* Bump routing to version `0.185.0`
-* Bump smb-volume to version `1.0.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.19</td></tr>
-    <tr><td>bpm</td><td>1.0.0</td></tr>
-    <tr><td>cf-networking</td><td>2.20.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.259.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.50.0</td></tr>
-    <tr><td>diego</td><td>2.26.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.2</td></tr>
-    <tr><td>haproxy</td><td>9.4.0</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.6</td></tr>
-    <tr><td>routing</td><td>0.185.0</td></tr>
-    <tr><td>silk</td><td>2.20.0</td></tr>
-    <tr><td>smb-volume</td><td>1.0.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.5.0-alpha.4'></a> 2.5.0-alpha.4
-
-* Bump ubuntu-xenial stemcell to version `170.14`
-* Bump cf-networking to version `2.20.0`
-* Bump cflinuxfs2 to version `1.255.0`
-* Bump cflinuxfs3 to version `0.46.0`
-* Bump diego to version `2.24.0`
-* Bump nfs-volume to version `1.7.5`
-* Bump routing to version `0.184.0`
-* Bump silk to version `2.20.0`
-* Bump smb-volume to version `0.2.6`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.14</td></tr>
-    <tr><td>bpm</td><td>1.0.0</td></tr>
-    <tr><td>cf-networking</td><td>2.20.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.255.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.46.0</td></tr>
-    <tr><td>diego</td><td>2.24.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.1</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.5</td></tr>
-    <tr><td>routing</td><td>0.184.0</td></tr>
-    <tr><td>silk</td><td>2.20.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.6</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.5.0-alpha.3'></a> 2.5.0-alpha.3
-
-* **[Feature Improvement]** `cf ssh` is now compatible with mutual-TLS-based verification of ingress traffic from gorouters to application instances'
-* Bump cflinuxfs2 to version `1.253.0`
-* Bump cflinuxfs3 to version `0.44.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.9</td></tr>
-    <tr><td>bpm</td><td>1.0.0</td></tr>
-    <tr><td>cf-networking</td><td>2.19.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.253.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.44.0</td></tr>
-    <tr><td>diego</td><td>2.23.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.1</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.4</td></tr>
-    <tr><td>routing</td><td>0.183.0</td></tr>
-    <tr><td>silk</td><td>2.19.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.5</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.5.0-alpha.2'></a> 2.5.0-alpha.2
-
-* **[Feature]** Add ability to disable network policy enforcement between applications
-* Bump ubuntu-xenial stemcell to version `170.9`
-* Bump bpm to version `1.0.0`
-* Bump cf-networking to version `2.19.0`
-* Bump cflinuxfs2 to version `1.251.0`
-* Bump cflinuxfs3 to version `0.42.0`
-* Bump diego to version `2.23.0`
-* Bump garden-runc to version `1.17.1`
-* Bump mapfs to version `1.1.2`
-* Bump nfs-volume to version `1.7.4`
-* Bump silk to version `2.19.0`
-* Bump smb-volume to version `0.2.5`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.9</td></tr>
-    <tr><td>bpm</td><td>1.0.0</td></tr>
-    <tr><td>cf-networking</td><td>2.19.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.251.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.42.0</td></tr>
-    <tr><td>diego</td><td>2.23.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.1</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.4</td></tr>
-    <tr><td>routing</td><td>0.183.0</td></tr>
-    <tr><td>silk</td><td>2.19.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.5</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-
-### <a id='2.5.0-alpha.1'></a> 2.5.0-alpha.1
-
-* **[Security Fix]** Rotate diego intermediate CA before current certificate expires
-* **[Feature]** Add smb-volume-release to PAS
-* **[Bug Fix]** Fix monit scripting bug in nfsv3driver job that could cause the process to continue running after a monit stop
-* Bump ubuntu-xenial stemcell to version `170.5`
-* Bump cf-networking to version `2.18.0`
-* Bump cflinuxfs2 to version `1.247.0`
-* Bump cflinuxfs3 to version `0.38.0`
-* Bump diego to version `2.22.0`
-* Bump garden-runc to version `1.17.0`
-* Bump nfs-volume to version `1.7.2`
-* Bump routing to version `0.183.0`
-* Bump silk to version `2.18.0`
-* Bump smb-volume to version `0.2.3`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>170.5</td></tr>
-    <tr><td>bpm</td><td>0.13.0</td></tr>
-    <tr><td>cf-networking</td><td>2.18.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.247.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.38.0</td></tr>
-    <tr><td>diego</td><td>2.22.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.0</td></tr>
-    <tr><td>haproxy</td><td>9.3.0</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.1</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.2</td></tr>
-    <tr><td>routing</td><td>0.183.0</td></tr>
-    <tr><td>silk</td><td>2.18.0</td></tr>
-    <tr><td>smb-volume</td><td>0.2.3</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
@@ -264,19 +134,23 @@ The procedure for installing PCF Isolation Segment v2.5 is documented in the [In
 
 To install a PCF Isolation Segment, you must first install PCF v2.5.
 
-## <a id='2.5.0'></a> New Features in PCF Isolation Segment v2.5
+
+## <a id='new-features'></a> New Features in PCF Isolation Segment v2.5
 
 ### <a id="disable-policy-enforcment"></a> Disable Network Policy Enforcement Between Apps
 
-
-
-You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile. 
+You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile.
 Disabling network policy enforcement allows all apps to send network traffic to all other apps in the
 foundation despite no policy specifically allowing it.
 
-Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, 
+Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk,
 see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
+### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
+
+PAS v2.5 does not use the `mysql-restore` and `mysql-backup` jobs to back up MySQL internally. Instead, each BOSH job is backed up separately with the BBR. `mysql-restore` and `mysql-backup` have therefore been removed.
+
+For more information, see [Backing Up and Restoring Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-5/customizing/backup-restore/).
 
 
 ## <a id='adv-features'></a> About Advanced Features
@@ -285,4 +159,11 @@ The Advanced Features section of the PCF Isolation Segment v2.5 tile includes ne
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
+
 ## <a id='known-issues'></a> Known Issues
+
+### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
+
+NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+
+NSX-T tiles v2.3.2 and later give access to the Gorouters in an Isolation Segment and are compatible with PCF Isolation Segment.

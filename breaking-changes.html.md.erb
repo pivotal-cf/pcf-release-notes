@@ -8,6 +8,32 @@ Pivotal Cloud Foundry (PCF) v2.5. For more information about important preparati
 you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud
 Foundry](http://docs.pivotal.io/2-5/customizing/upgrading-pcf.html).
 
+## <a id="critical-breaking"></a> Critical Breaking Changes in PCF v2.5
+
+
+See the following critical breaking changes before installing or upgrading to PCF v2.5:
+
+- [Deprecation of cflinuxfs2](#cflinuxfs2-unsupported)
+- [Filenames for Ops Manager Release Components Have Changed on Pivotal Network](#om-filename-breaks)
+
+### <a id="cflinuxfs2-unsupported"></a> cflinuxfs2 is Unsupported
+Operators cannot upgrade the platform to PAS 2.5 until all app instances (AIs) are using cflinuxfs3.
+
+During upgrade, you must check a box to verify that all AIs have been migrated. If you check the box and the AIs have not been migrated, the upgrade causes all AIs to fail.
+
+Pivotal recommends that you communicate the change of stack to your development teams and have them migrate to cflinux3 before upgrading to v2.5.
+
+For more information about this change, see [PAS Only Supports cflinux3](https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/runtime-rn.html#cflinuxfs3).
+
+### <a id="om-filename-breaks"></a> Filenames for Ops Manager Release Components Have Changed on Pivotal Network
+
+All PCF pipelines, or tools similar to them, must be updated with the new naming patterns or the tools do not detect the new versions and no upgrade appears available.
+
+Pivotal recommends updating the naming patterns in PCF pipelines or any similar pipeline tools that affect upgrades.
+
+For more information about this change, see [Ops Manager Release Artifacts Renamed on Pivotal Network](#rename).
+
+
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
@@ -15,47 +41,87 @@ See the following PAS breaking changes:
 
 ### <a id='log-system'></a> Removed Logging System Property
 
-PAS v2.5 removes the **Syslog Drain Buffer Size** checkbox from the **Logging System** pane of the PAS tile. This field corresponds to a deprecated property that does not have any affect on the logging system when configured. 
+PAS v2.5 removes the **Syslog Drain Buffer Size** checkbox from the **Logging System** pane of the PAS tile. This field corresponds to a deprecated property that does not have any affect on the logging system when configured.
 
-It also removes the underlying property, `doppler.message_drain_buffer_size`. If you have any scripts that reference this property, they may fail. 
+It also removes the underlying property, `doppler.message_drain_buffer_size`. If you have any scripts that reference this property, they may fail.
 
 ### <a id='log-cache'></a> Removed Log Cache Property
 
-PAS v2.4 removed the **Enable log-cache** checkbox from the **Advanced Features** section of the PAS tile. 
+PAS v2.4 removed the **Enable log-cache** checkbox from the **Advanced Features** section of the PAS tile.
 
-PAS v2.5 removes the underlying property, `enable_log_cache`. If you have any scripts that reference this property, they may fail. 
+PAS v2.5 removes the underlying property, `enable_log_cache`. If you have any scripts that reference this property, they may fail.
 
-### <a id='deployment-name'></a> Removed Option to Override Deployment Name to CF 
+### <a id='deployment-name'></a> Removed Option to Override Deployment Name to CF
 
-PAS v2.4 introduced the use of `cf-GUID` as the value for the `deployment` in metrics. For more information, see [Uniquely Identify Metrics by Tile](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes.html#metrics-prefix).
+PAS v2.4 introduced the use of `cf-GUID` as the value for the `deployment` in metrics. For more information, see [Uniquely Identify Metrics by Tile](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#metrics-prefix).
 
-PAS v2.4 also included the option to override this value back to `cf`, which was used in previous versions. However, PAS v2.5 removes this override option. 
+PAS v2.4 also included the option to override this value back to `cf`, which was used in previous versions. However, PAS v2.5 removes this override option.
 
-To upgrade successfully, the **Use "cf" as deployment name in emitted metrics instead of unique name** option in the **Advanced Features** pane of the PAS tile must be deselected.  
+To upgrade successfully, the **Use "cf" as deployment name in emitted metrics instead of unique name** option in the **Advanced Features** pane of the PAS tile must be deselected.
 
-If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS v2.5. 
+If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS v2.5.
 
-Additionally, if you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS, you must run the **Push Monitoring Components** errand for Healthwatch to detect the change. 
+Additionally, if you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS, you must run the **Push Monitoring Components** errand for Healthwatch to detect the change.
 
 ### <a id="apps-man"></a> Removed Unused Apps Manager UAA Client and Property
 
-PAS v2.5 removes an unused Apps Manager UAA client identified as `portal` and an unused refresh token property `uaa.apps_manager_refresh_token_lifetime`. 
+PAS v2.5 removes an unused Apps Manager UAA client identified as `portal` and an unused refresh token property `uaa.apps_manager_refresh_token_lifetime`.
 
-If you have platform automation scripts, you may need to update them if they reference these properties. 
+If you have platform automation scripts, you may need to update them if they reference these properties.
 
 ### <a id="ssl-apps-manager"></a> Apps Manager Verifies SSL
 
-Starting in PAS v2.4.3, Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content. 
+Starting in PAS v2.4.3, Apps Manager verifies SSL certificates for endpoints to which it proxies. For environments using self-signed certificates or certificates that are signed by a certificate authority that is not trusted by the BOSH Director, this may cause Apps Manager to show no content.
 
-If you are upgrading to PAS v2.5 from PAS v2.4.2 or earlier, do the following to prevent this issue: Add the certificate authority using the **Trusted Certificates** field in the **Security** pane of the BOSH Director tile.
+If you are upgrading to PAS v2.5 from PAS v2.4.2 or earlier, you can avoid this issue using the instructions in the following article from the Pivotal Knowledge Base: [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
+
+### <a id='metrics-endpoint'></a> Removed Traffic Controller Container Metrics Endpoint
+
+PAS v2.5 removes the Traffic Controller `containermetrics/app-guid` endpoint. Any scripts that reference the `containermetrics/app-guid` endpoint may fail.
+
+The `containermetrics/app-guid` endpoint provided access to container metrics from Traffic Controller for a specific app. In PAS v2.5, you can access container metrics through Log Cache. Log Cache includes API endpoints and a CLI plugin to query and filter logs and metrics.
+
+To download the Log Cache Cloud Foundry Command Line Interface (cf CLI) plugin, see [cf CLI Plugins](https://plugins.cloudfoundry.org/#log-cache). For information about using the Log Cache API, see [Log Cache](https://github.com/cloudfoundry/log-cache#restful-api-via-gateway) on GitHub.
+
+### <a id=‘’></a> Removed dns_servers Property Breaks Platform Automation Scripts
+
+In PAS v2.4, the **DNS Servers** field was removed from the PAS UI, but the `dns_servers` property was not removed so as not to break Platform Automation scripts. In PAS v2.5, the `dns_servers` property is removed, which breaks Platform Automation scripts if that parameter is still configured for your tiles.
+
+## <a id='pas-windows'></a> Pivotal Application Service (PAS) for Windows
+
+### <a id='deployment-name'></a> Removed Option to Override Deployment Name
+
+Beginning with PAS for Windows v2.4, metrics emitted by the tile are tagged with a GUID. This
+allows you to identify the source tile of the metrics.
+
+For compatibility with older versions of PAS for Windows, PAS v2.4 included the option to override
+this value with `cf`.
+
+PAS for Windows v2.5 removes this override option.
+
+To upgrade from PAS for Windows v2.4 to v2.5 successfully, you must deselect the **Use "cf" as
+deployment name in emitted metrics instead of unique name** option in the **Advanced Features**
+pane of the PAS for Windows v2.4 tile.
+
+If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS for Windows v2.5.
+
+If you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS for Windows, you must run the **Push Monitoring Components** errand to allow Healthwatch to detect this change.
 
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
 
+### <a id="azure-azs"></a> New Installations of Ops Manager v2.5 Use Azure Availability Zones by Default
+
+New installations of Ops Manager v2.5 on Azure use Availability Zones (AZs) by default, not Availability Sets. Before deploying, you can choose either AZs or Availability Sets as your desired availability mode. If you choose AZs, you must also assign specific zones to each product. You cannot switch from AZs to Availability Sets after a successful deployment.
+
+If you use automation tools to install Ops Manager, you may have to change the behavior of those tools to accommodate for the addition of AZs to your Azure deployment. If you are upgrading from 2.4, however, the availability mode is set to Availability Sets and cannot be changed. In that case, your automation tools may continue to work without modification.
+
+For more information about Azure AZs, see [Microsoft Azure Availability Zones Available](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/opsmanager-rn.html#azure-azs).
+
 ### <a id="rename"></a> Ops Manager Release Artifacts Renamed on Pivotal Network
 
-Starting in Ops Manager v2.5, the filenames for Ops Manager release artifacts on Pivotal Network are restructured. 
+Starting in Ops Manager v2.5, the filenames for Ops Manager release artifacts on Pivotal Network are restructured.
 
 For example:
 
@@ -82,8 +148,11 @@ If you use automation scripts or other tools to access release artifacts, you ma
 
 For more information, see [Ops Manager 2.5 changing the file naming scheme might break the pipeline jobs](https://community.pivotal.io/s/article/ops-manager-2-5-changing-the-file-naming-scheme-might-break-the-pipeline-jobs) in the Pivotal Knowledge Base.
 
+
 ## <a id='ist'></a> PCF Isolation Segment
 
 See the following PCF Isolation Segment breaking changes:
 
-None currently.
+### <a id=‘’></a> Removed dns_servers Property Breaks Platform Automation Scripts
+
+In PAS v2.4, the **DNS Servers** field was removed from the PAS UI, but the `dns_servers` property was not removed so as not to break Platform Automation scripts. In PAS v2.5, the `dns_servers` property is removed, which breaks Platform Automation scripts if that parameter is still configured for your tiles.
