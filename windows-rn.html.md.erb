@@ -13,11 +13,15 @@ or later.
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.5.0-rc.1'></a> 2.5.0-rc.1
+### <a id='2.5.0'></a> 2.5.0
 
 * **[Breaking Change]** Option to override deployment name to CF is removed. For more information,
   see [Pivotal Application Service (PAS) for Windows](breaking-changes.html#pas-windows) in _PCF v2.5 Breaking Changes_.
 * **[Feature]** Operators can provide trusted certs in OpsMgr for .NET apps to use automatically
+* **[Feature Improvement]** Add support for "windows" stack
+* **[Feature Improvement]** Enable SMB `net use`-style mounting for IP-address based UNC paths on Windows 2016 cells
+* **[Security Fix]** Rotate Diego intermediate CA before current certificate expires
+* **[Feature Improvement]** Operators can specify the Diego executor properties for memory usage and disk capacity to enable finer-grained resource usage strategies
 
 <table border="1" class="nice">
   <thead>
@@ -41,154 +45,9 @@ or later.
   </tbody>
 </table>
 
-### <a id='2.5.0-beta.1'></a> 2.5.0-beta.1
 
-* **[Feature Improvement]** Add support for "windows" stack
-* Bump windows1803 stemcell to version `1803.6`
-* Bump diego to version `2.27.0`
-* Bump garden-runc to version `1.18.0`
-* Bump hwc-offline-buildpack to version `3.1.4`
-* Bump windowsfs-release to version `2.0.0`
 
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.6</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.40</td></tr>
-    <tr><td>diego</td><td>2.27.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.18.0</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.4</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.0.0</td></tr>
-  </tbody>
-</table>
 
-### <a id='2.5.0-alpha.4'></a> 2.5.0-alpha.4
-
-* **[Feature Improvement]** Enable SMB `net use`-style mounting for IP-address based UNC paths on Windows 2016 cells
-* Bump diego to version `2.24.0`
-* Bump hwc-offline-buildpack to version `3.1.2`
-* Bump windowsfs-release to version `1.8.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.4</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.40</td></tr>
-    <tr><td>diego</td><td>2.24.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.2</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.8.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.5.0-alpha.3'></a> 2.5.0-alpha.3
-
-* Bump cf-windows-smoke-tests to version `40.0.40`
-* Bump windowsfs-release to version `1.7.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.4</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.40</td></tr>
-    <tr><td>diego</td><td>2.23.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.7.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.5.0-alpha.2'></a> 2.5.0-alpha.2
-
-* **[Security Fix]** Rotate Diego intermediate CA before current certificate expires
-* Bump windows1803 stemcell to version `1803.4`
-* Bump cf-windows-smoke-tests to version `40.0.20`
-* Bump diego to version `2.23.0`
-* Bump garden-runc to version `1.17.1`
-* Bump hwc-offline-buildpack to version `3.1.1`
-* Bump windowsfs-release to version `1.6.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.4</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.20</td></tr>
-    <tr><td>diego</td><td>2.23.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.6.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.5.0-alpha.1'></a> 2.5.0-alpha.1
-
-* **[Security Fix]** Rotate Diego intermediate CA before current certificate expires
-* **[Feature Improvement]** Operators can specify the Diego executor properties for memory usage and disk capacity to enable finer-grained resource usage strategies
-* Bump cf-windows-smoke-tests to version `40.0.17`
-* Bump diego to version `2.22.0`
-* Bump garden-runc to version `1.17.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows1803 stemcell</td><td>1803.3</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.17</td></tr>
-    <tr><td>diego</td><td>2.22.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.17.0</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.0.3</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.7.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
-  </tbody>
-</table>
 
 ## <a id='new-features'></a> New Features in PAS for Windows v2.5
 
@@ -247,7 +106,7 @@ ERR: Downloading failed
 **Explanation**
 
 Windows Server 2019 stemcells (version v2019.2) on AWS are missing the root CA certificate that is used to sign Amazon's CloudFront CDN certificate. The missing
-root CA certificate is the VeriSign Class 3 Public Primary Certification Authority.
+root CA certificate is the VeriSign Class 3 Public Primary Certification Authority. 
 
 If you deploy PAS with a blobstore that is fronted by CloudFront, there is an x509
 certificate error when downloading the app droplet from the blobstore. As a result,
