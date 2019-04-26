@@ -107,6 +107,14 @@ If you have scripts that rely on metrics with `cf` as the value for `deployment`
 
 If you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS for Windows, you must run the **Push Monitoring Components** errand to allow Healthwatch to detect this change.
 
+### <a id='windows2016'></a> Deprecation of the windows2016 Stack
+
+The `windows2016` stack is deprecated in favor of the `windows` stack. 
+
+PAS for Windows v2.6 will remove support entirely for the `windows2016` stack. 
+
+You will need to change your apps to use the `windows` stack before upgrading to PAS for Windows v2.6.
+
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:

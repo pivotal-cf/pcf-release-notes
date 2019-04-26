@@ -7,9 +7,111 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='upgrade'></a> How to Upgrade
 
-<p class="note"><strong>Note</strong>:
-The PAS for Windows v2.5 tile is not yet generally available.
-To use PAS for Windows on Pivotal Cloud Foundry (PCF) v2.5, you must install PAS for Windows v2.4.4 or later.
-For instructions on installing PAS for Windows v2.4.4 or later, see <a href="https://docs.pivotal.io/pivotalcf/2-4/windows/installing.html">Installing and Configuring PASW</a> in the PCF v2.4 documentation.
-For more information about PAS for Windows v2.4.4, see
-<a href="https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/windows-rn.html#2.4.4">PAS for Windows v2.4 Release Notes</a>.</p>
+The PAS for Windows v2.5 tile is available with the release of Pivotal Cloud Foundry (PCF) version
+v2.5. To use the PAS for Windows v2.5 tile, you must install Ops Manager v2.5 or later and PAS v2.5
+or later.
+
+## <a id='releases'></a> Releases
+
+### <a id='2.5.0'></a> 2.5.0
+
+* **[Feature Improvement]** Enable SMB `net use`-style mounting with FQDN paths on Windows 2016 cells
+* **[Security Fix]** Rotate Diego intermediate CA before current certificate expires
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows2019 stemcell</td><td>2019.3</td></tr>
+    <tr><td>cf-windows-smoke-tests</td><td>40.0.40</td></tr>
+    <tr><td>diego</td><td>2.27.0</td></tr>
+    <tr><td>event-log</td><td>0.7.0</td></tr>
+    <tr><td>garden-runc</td><td>1.18.0</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.1.6</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>loggregator</td><td>103.4</td></tr>
+    <tr><td>winc</td><td>1.9.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
+    <tr><td>windowsfs-release</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+## <a id='new-features'></a> New Features in PAS for Windows v2.5
+
+PAS for Windows v2.5 includes the following major features:
+
+### <a id="windows-2019"></a> Support for Windows Server 2019
+
+PAS for Windows v2.5 requires Windows Server 2019. This means developers can deploy
+.NET and Windows applications on Windows Server 2019 in PAS. Moving to Windows Server
+2019 adds stability and enhances a number of container APIs used in the Garden Windows implementation (`winc`) of PAS for Windows.
+
+Windows Server 2019 stemcells for supported public cloud providers are available for
+download on [Pivotal Network](https://network.pivotal.io). For vSphere stemcells, see
+the documentation on producing them from a Windows image provided by your Microsoft
+VLSC account. For more information, see [Creating a vSphere Windows Stemcell](https://docs.pivotal.io/pivotalcf/windows/create-vsphere-stemcell.html).
+
+<p class="note"><strong>Note:</strong> PAS for Windows v2.5 supports Windows Server 2019-based stemcells only.</p>
+
+### <a id='trusted-certificates'></a> .NET Apps Trust CA Certificates Configured in BOSH Director
+
+Applications deployed on PAS for Windows now automatically trust your certificate
+authority (CA) certificates configured in the **Security** pane of the BOSH Director
+tile. To enable .NET apps to trust these CA certificates, PAS for Windows includes
+them in the system trust store of Windows containers.
+
+For instructions on configuring trusted certificates in the BOSH Director tile,
+see [Setting Trusted Certificates](https://docs.pivotal.io/pivotalcf/customizing/trusted-certificates.html).
+
+### <a id='windows2016'></a> Deprecation of the windows2016 Stack
+
+The `windows2016` stack is deprecated in favor of the `windows` stack.
+PAS for Windows v2.6 removes support for `windows2016`.
+
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/2-5/adminguide/stack-auditor.html).
+
+## <a id='known-issues'></a> Known Issues
+
+This section includes known issues with PAS for Windows v2.5.
+
+### <a id='deployment-name'></a> Removed Option to Override Deployment Name to CF
+
+PAS v2.4 introduced the use of `cf-GUID` as the value for the `deployment` in metrics. For more information, see [Uniquely Identify Metrics by Tile](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#metrics-prefix).
+
+PAS v2.4 also included the option to override this value back to `cf`, which was used in previous versions. However, PAS v2.5 removes this override option.
+
+To upgrade successfully, the **Use "cf" as deployment name in emitted metrics instead of unique name** option in the **Advanced Features** pane of the PAS tile must be deselected.
+
+If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS v2.5.
+
+Additionally, if you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS, you must run the **Push Monitoring Components** errand for Healthwatch to detect the change.
+
+### <a id='cf-push-aws'></a>AWS Deployments Using CloudFront-Enabled Blobstores May Result in cf push Failing Due to Untrusted Root Certificates
+
+**Symptom**
+
+`cf push` to Windows cells on Amazon Web Services (AWS) fails with the following error:
+
+```
+ERR: Downloading failed
+```
+
+**Explanation**
+
+Windows Server 2019 stemcells (version v2019.2) on AWS are missing the root CA certificate that is used to sign Amazon's CloudFront CDN certificate. The missing
+root CA certificate is the VeriSign Class 3 Public Primary Certification Authority. 
+
+If you deploy PAS with a blobstore that is fronted by CloudFront, there is an x509
+certificate error when downloading the app droplet from the blobstore. As a result,
+`cf push` fails.
+
+**Workaround**
+
+Add the missing VeriSign root CA certificate to **Trusted Certificates** in Ops
+Manager to ensure that the certificate presented by CloudFront is trusted on Windows
+cells, allowing the droplet to be successfully downloaded from the blobstore.
