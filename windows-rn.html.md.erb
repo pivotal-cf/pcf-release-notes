@@ -15,13 +15,8 @@ or later.
 
 ### <a id='2.5.0'></a> 2.5.0
 
-* **[Breaking Change]** Option to override deployment name to CF is removed. For more information,
-  see [Pivotal Application Service (PAS) for Windows](breaking-changes.html#pas-windows) in _PCF v2.5 Breaking Changes_.
-* **[Feature]** Operators can provide trusted certs in OpsMgr for .NET apps to use automatically
-* **[Feature Improvement]** Add support for "windows" stack
-* **[Feature Improvement]** Enable SMB `net use`-style mounting for IP-address based UNC paths on Windows 2016 cells
+* **[Feature Improvement]** Enable SMB `net use`-style mounting with FQDN paths on Windows 2016 cells
 * **[Security Fix]** Rotate Diego intermediate CA before current certificate expires
-* **[Feature Improvement]** Operators can specify the Diego executor properties for memory usage and disk capacity to enable finer-grained resource usage strategies
 
 <table border="1" class="nice">
   <thead>
@@ -45,37 +40,32 @@ or later.
   </tbody>
 </table>
 
-
-
-
-
 ## <a id='new-features'></a> New Features in PAS for Windows v2.5
 
 PAS for Windows v2.5 includes the following major features:
 
-###<a id="windows-2019"></a> Support for Windows Server 2019 Container Images
+### <a id="windows-2019"></a> Support for Windows Server 2019
 
-PAS for Windows v2.5 supports Windows Server 2019 container images. 
-This means developers can deploy .NET apps on Windows Server 2019 in PCF.
+PAS for Windows v2.5 requires Windows Server 2019. This means developers can deploy
+.NET and Windows applications on Windows Server 2019 in PAS. Moving to Windows Server
+2019 adds stability and enhances a number of container APIs used in the Garden Windows implementation (`winc`) of PAS for Windows.
 
-Moving to Windows Server 2019 adds stability and enhances a number of container APIs 
-used in the Garden Windows implementation (`winc`) of PAS for Windows.
+Windows Server 2019 stemcells for supported public cloud providers are available for
+download on [Pivotal Network](https://network.pivotal.io). For vSphere stemcells, see
+the documentation on producing them from a Windows image provided by your Microsoft
+VLSC account. For more information, see [Creating a vSphere Windows Stemcell](https://docs.pivotal.io/pivotalcf/windows/create-vsphere-stemcell.html).
 
-Windows Server 2019 stemcells are available for download on [Pivotal Network](https://network.pivotal.io) 
-and [bosh.io](https://www.bosh.io) for all IaaS targets except vSphere.
-
-<p class="note"><strong>Note:</strong> PAS for Windows v2.5 no longer supports Windows Server 1803 stemcells.
-  If you require a Windows Server 1803 stemcell, use PAS for Windows v2.4 instead.</p>
+<p class="note"><strong>Note:</strong> PAS for Windows v2.5 supports Windows Server 2019-based stemcells only.</p>
 
 ### <a id='trusted-certificates'></a> .NET Apps Trust CA Certificates Configured in BOSH Director
 
-.NET apps deployed on PAS for Windows now automatically trust your certificate authority (CA) certificates
-configured in the **Security** pane of the BOSH Director tile.
-To enable .NET apps to trust these CA certificates,
-PAS for Windows includes them in the system trust store of Windows containers.
+Applications deployed on PAS for Windows now automatically trust your certificate
+authority (CA) certificates configured in the **Security** pane of the BOSH Director
+tile. To enable .NET apps to trust these CA certificates, PAS for Windows includes
+them in the system trust store of Windows containers.
 
 For instructions on configuring trusted certificates in the BOSH Director tile,
-see [Setting Trusted Certificates](https://docs.pivotal.io//pivotalcf/2-5/customizing/trusted-certificates.html).
+see [Setting Trusted Certificates](https://docs.pivotal.io/pivotalcf/customizing/trusted-certificates.html).
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
@@ -89,11 +79,19 @@ For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.
 
 This section includes known issues with PAS for Windows v2.5.
 
-### <a id='no-mutual-verification'></a> No Mutual TLS App Identity Verification
+### <a id='deployment-name'></a> Removed Option to Override Deployment Name to CF
 
-PAS for Windows does not support mutual TLS app identity verification. Mutual TLS app identity verification does not work for Windows containers.
+PAS v2.4 introduced the use of `cf-GUID` as the value for the `deployment` in metrics. For more information, see [Uniquely Identify Metrics by Tile](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#metrics-prefix).
 
-### <a id='cf-push-aws'></a>Pushing to Windows Cells on AWS Fails
+PAS v2.4 also included the option to override this value back to `cf`, which was used in previous versions. However, PAS v2.5 removes this override option.
+
+To upgrade successfully, the **Use "cf" as deployment name in emitted metrics instead of unique name** option in the **Advanced Features** pane of the PAS tile must be deselected.
+
+If you have scripts that rely on metrics with `cf` as the value for `deployment`, your scripts may break when upgrading to PAS v2.5.
+
+Additionally, if you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS, you must run the **Push Monitoring Components** errand for Healthwatch to detect the change.
+
+### <a id='cf-push-aws'></a>AWS Deployments Using CloudFront-Enabled Blobstores May Result in cf push Failing Due to Untrusted Root Certificates
 
 **Symptom**
 
