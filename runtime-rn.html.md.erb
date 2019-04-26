@@ -1883,13 +1883,11 @@ Above approximately 40 Doppler instances and 25 Traffic Controller instances, ho
 
 The Syslog Adapter now enforces a hard limit on how many application syslog drains it can service, therefore it is important to follow the [scaling recommendations](https://docs.pivotal.io/pivotalcf/2-2/monitoring/key-cap-scaling.html#scalable-syslog) to ensure that all syslog drains can be serviced.
 
-### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.2.12 or v2.2.13
+### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.2.12--v2.2.15
 
-The v2.2.12 patch release included a security fix that resulted in Apps Manager validating SSL certificates for backend services including the Cloud Controller API. For environments using SSL certificates that are signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content. 
+In v2.2.12--v2.2.15, Apps Manager does not honor the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
-
-As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox. In the v2.2.12 and v2.2.13 patch releases, Apps Manager ignores this setting for its backend service certificate validation. Apps Manager adheres to this setting in v2.2.14 and later.
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.2.12--v2.2.14
 
