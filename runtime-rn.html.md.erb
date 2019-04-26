@@ -100,7 +100,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix bug where Apps Manager crash errors were not displayed
 * **[Bug Fix]** Fix bug where app changes pushed with --no-start would not take effect when the app was started via Apps Manager
 * **[Bug Fix]** Fix bug where starting app from Apps Manager would show success message before app actually started
-* **[Bug Fix]** Fix Apps Manager's Nginx proxy SSL validation to honor the "Disable SSL certificate verification for this environment" setting from Ops Manager
 * **[Bug Fix]** Fix alignment of search results in Apps Manager
 * **[Bug Fix]** Fix policy pruning when there are more than 50 spaces
 * **[Bug Fix]** Fix failed access checks on mount for NFS volume service with some Windows NFS servers
@@ -984,13 +983,11 @@ Operators intermittently receive errors when pushing apps during a rolling upgra
 
 Above approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, increase CPU resources for the existing Doppler and Traffic Controller instances to add vertical scale.
 
-### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.4.3 or v2.4.4
+### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.4.3--v2.4.6
 
-The v2.4.3 patch release included a security fix that resulted in Apps Manager validating SSL certificates for backend services including the Cloud Controller API. For environments using SSL certificates that are signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
+In v2.4.3--v2.4.6, Apps Manager does not honor the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
-
-As a workaround, you can disable SSL certificate validation across the PAS tile using the **Disable SSL certificate verification for this environment** checkbox. In the v2.4.3 and v2.4.4 patch releases, Apps Manager ignores this setting for its backend service certificate validation. Apps Manager adheres to this setting in v2.4.5 and later.
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.4.3--v2.4.5
 
