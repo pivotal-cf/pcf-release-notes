@@ -124,6 +124,12 @@ vSphere's vCenter allows you to designate folder names with multiple words separ
 
 For an example of folder names with spaces, see [Using the Cisco Nexus 1000v Switch with Ops Manager](http://docs.pivotal.io/pivotalcf/2-6/customizing/nexus-switch.html).
 
+## <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
+
+An operator configuring a product tile on a vSphere deployment must configure vSphere properties. Incorrect configuration can cause deployment failures, and can be difficult to troubleshoot effectively. An optional form verifier is available that notifies tile operators when they have configured vSphere properties incorectly.
+
+For more information about this form verifier, see the [*install\_time\_verifiers*](PLACEHOLDER) section in *Property and Template References* in the tile developer documentation.
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
