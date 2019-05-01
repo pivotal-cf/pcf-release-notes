@@ -1,5 +1,5 @@
 ---
-title: PCF Isolation Segment v2.6 Release Notes
+title: PCF Isolation Segment v2.7 Release Notes
 owner: Release Engineering
 ---
 
@@ -7,147 +7,27 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.6.0-alpha.3'></a> 2.6.0-alpha.3
-
-* Bump ubuntu-xenial stemcell to version `250.29`
-* Bump bpm to version `1.0.4`
-* Bump cflinuxfs3 to version `0.81.0`
-* Bump diego to version `2.30.0`
-* Bump haproxy to version `9.5.0`
-* Bump nfs-volume to version `2.0.3`
-* Bump routing to version `0.188.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>250.29</td></tr>
-    <tr><td>bpm</td><td>1.0.4</td></tr>
-    <tr><td>cf-networking</td><td>2.22.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.81.0</td></tr>
-    <tr><td>diego</td><td>2.30.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>haproxy</td><td>9.5.0</td></tr>
-    <tr><td>loggregator-agent</td><td>3.9</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.4</td></tr>
-    <tr><td>nfs-volume</td><td>2.0.3</td></tr>
-    <tr><td>routing</td><td>0.188.0</td></tr>
-    <tr><td>silk</td><td>2.22.0</td></tr>
-    <tr><td>smb-volume</td><td>1.0.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.6.0-alpha.2'></a> 2.6.0-alpha.2
-
-* **[Security Fix]** Bump BPM to v1.0.3 for RunC CVE
-* **[Breaking Change]** Remove `cflinuxfs2` root filesystem and buildpacks
-* **[Bug Fix]** Fixes access issue for NFS shares with `root_squash` enabled and no world read permissions
-* Bump ubuntu-xenial stemcell to version `250.21`
-* Bump bpm to version `1.0.3`
-* Bump cf-networking to version `2.22.0`
-* Bump cflinuxfs3 to version `0.72.0`
-* Bump diego to version `2.29.0`
-* Bump garden-runc to version `1.19.1`
-* Bump haproxy to version `9.4.2`
-* Bump loggregator-agent to version `3.9`
-* Bump mapfs to version `1.1.4`
-* Bump nfs-volume to version `2.0.2`
-* Bump routing to version `0.187.0`
-* Bump silk to version `2.22.0`
-* Removed cflinuxfs2 release
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>250.21</td></tr>
-    <tr><td>bpm</td><td>1.0.3</td></tr>
-    <tr><td>cf-networking</td><td>2.22.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.72.0</td></tr>
-    <tr><td>diego</td><td>2.29.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>haproxy</td><td>9.4.2</td></tr>
-    <tr><td>loggregator-agent</td><td>3.9</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.4</td></tr>
-    <tr><td>nfs-volume</td><td>2.0.2</td></tr>
-    <tr><td>routing</td><td>0.187.0</td></tr>
-    <tr><td>silk</td><td>2.22.0</td></tr>
-    <tr><td>smb-volume</td><td>1.0.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.6.0-alpha.1'></a> 2.6.0-alpha.1
-
-* **[Feature]** Include garden debug tooling alongside garden
-* Bump ubuntu-xenial stemcell to version `250.4`
-* Bump bpm to version `1.0.2`
-* Bump cflinuxfs2 to version `1.261.0`
-* Bump cflinuxfs3 to version `0.52.0`
-* Bump diego to version `2.27.0`
-* Bump garden-runc to version `1.18.0`
-* Bump haproxy to version `9.4.1`
-* Bump nfs-volume to version `1.7.7`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>250.4</td></tr>
-    <tr><td>bpm</td><td>1.0.2</td></tr>
-    <tr><td>cf-networking</td><td>2.20.0</td></tr>
-    <tr><td>cflinuxfs2</td><td>1.261.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.52.0</td></tr>
-    <tr><td>diego</td><td>2.27.0</td></tr>
-    <tr><td>garden-runc</td><td>1.18.0</td></tr>
-    <tr><td>haproxy</td><td>9.4.1</td></tr>
-    <tr><td>loggregator-agent</td><td>2.2</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.2</td></tr>
-    <tr><td>nfs-volume</td><td>1.7.7</td></tr>
-    <tr><td>routing</td><td>0.185.0</td></tr>
-    <tr><td>silk</td><td>2.20.0</td></tr>
-    <tr><td>smb-volume</td><td>1.0.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.6 tile is available for installation with PCF v2.6.
+The PCF Isolation Segment v2.7 tile is available for installation with PCF v2.7.
 
-[Isolation segments](http://docs.pivotal.io/pivotalcf/2-6/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+[Isolation segments](http://docs.pivotal.io/pivotalcf/2-7/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-6/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-7/adminguide/isolation-segments.html) topic.
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.6 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-6/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v2.7 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-7/customizing/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v2.6.
+To install a PCF Isolation Segment, you must first install PCF v2.7.
 
-## <a id='2.6.0'></a> New Features in PCF Isolation Segment v2.6
+## <a id='2.7.0'></a> New Features in PCF Isolation Segment v2.7
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment v2.6 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the PCF Isolation Segment v2.7 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 

@@ -1,5 +1,5 @@
 ---
-title: PCF Ops Manager v2.6 Release Notes
+title: PCF Ops Manager v2.7 Release Notes
 owner: Ops Manager
 ---
 
@@ -11,124 +11,14 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager <%= vars.v_major_version %>.
+The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager <%= vars.v_major_version %>.
 
-## <a id="releases"></a>Releases
-
-Ops Manager <%= vars.v_major_version %> includes the following minor releases:
-
-### <a id="alpha-2"></a> 2.6 Alpha 2
-
-* **[Breaking Change]**: API users can use `GET /api/v0/diagnostic_report` to show stemcells for all staged and deployed products. The `stemcells` key replaces the `stemcell` key. `Stemcells` lists information for all stemcells assigned to a product. 
-* **[Breaking Change]**: API users can use `GET /api/v0/staged/pending_changes` to see the staged, deployed, and last successfully deployed stemcell information for all stemcells associated with a product. Multiple keys in this endpoint have changed. The `stemcell` key has changed to `stemcells` and the output of the endpoint has been reformatted to display details, including the OS and version keys, more specifically for deployments with multiple stemcells.
-* **[New Feature]**: Operators using AWS-based deployments can choose between even more AWS regions in the AWS Config form. Deployments upgraded from v2.5 will default to the AWS region you chose for that deployment.
-* **[New Feature]**: After a deployment fails, API users can use `POST /api/v0/installations` to see which products are not fully configured.
-* **[New Feature]**: The Stemcell Library page now supports uploading and assigning multiple stemcells.
-* **[New Feature]**: API users can assign one or multiple stemcells to a product using the multi-stemcell API, `PATCH /api/v0/stemcells_assignments`. `GET /api/v0/stemcells_assignments` returns information on all the stemcells assigned to products.
-* **[New Feature]**: The Change Log page has an improved UI, including a new column specifying build duration and a new footer row summarizing the installation details.
-* **[New Feature]**: API users can use `GET /api/v0/staged/director/pre_deploy_check` to see details about the Director's configuration before deployment.
-* **[New Feature]**: After a deployment fails, API users can use `/api/v0/staged/products/:PRODUCT-GUID/pre_deploy_check` to see which form verifiers in a product are causing the failure.
-* **[New Feature]**: Tile authors can use a form and install time verifier to verify vSphere IaaS properties.
-* **[New Feature]**: Tile authors can upload tiles that support multiple stemcells. Use the `additional_stemcells_criteria` key to specify an array of additional stemcells for operators to use. Choose a stemcell with the `stemcell_selector` property key included in `PUT /api/v0/staged/products/:PRODUCT-GUID/properties`.
-* **[New Feature]**: Tile authors can create and deploy their own manifests using non-default stemcells. Use a `stemcells` block in the manifest to specify an alias, OS, and version for a stemcell. Additionally, you can use the following double-parens accessors to see further details about stemcells: `(( my_stemcell_selector.os ))`, `(( my_stemcell_selector.version ))`, `(( my_stemcell_selector.assigned? ))`, `(( my_stemcell_selector.value ))`, (( my_stemcell_selector.value_present? ))`.
-* **[Bug Fix]**: Ops Manager operators can no longer upload a duplicate stemcell to the Stemcell Library.
-* **[Bug Fix]**: Ops Manager operators on vSphere-based deployments can now use spaces in the folder names for their vCenter config information.
-
-Ops Manager v2.6 Alpha 2 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.6.0-build.77*</td>
-  </tr>
-  <tr><td>Stemcell</td><td>250.29*</td></tr>
-  <tr><td>BBR SDK</td><td>1.15.0*</td></tr>
-  <tr><td>BOSH Director</td><td>268.7.0</td></tr>
-  <tr><td>BOSH DNS</td><td>1.10.0</td></tr>
-  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
-  <tr><td>CredHub</td><td>2.2.0*</td></tr>
-  <tr><td>Syslog</td><td>11.4.0</td></tr>
-  <tr><td>Windows Syslog</td><td>1.0.3</td></tr>
-  <tr><td>UAA</td><td>72.0</td></tr>
-  <tr><td>BPM</td><td>1.0.4*</td></tr>
-  <tr><td>Networking</td><td>9</td></tr>
-  <tr><td>OS Conf</td><td>20.0.0</td></tr>
-  <tr><td>AWS CPI</td><td>74</td></tr>
-  <tr><td>Azure CPI</td><td>35.5.0</td></tr>
-  <tr><td>Google CPI</td><td>29.0.1</td></tr>
-  <tr><td>OpenStack CPI</td><td>42</td></tr>
-  <tr><td>vSphere CPI</td><td>52.1.0</td></tr>
-  <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
-  <tr><td>Credhub CLI</td><td>2.4.0*</td></tr>
-  <tr><td>BBR CLI</td><td>1.5.0</td></tr>
-    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  </tbody>
-</table>
-
-### <a id="alpha-1"></a> 2.6 Alpha 1
-
-* **[Breaking Change]**: (vSphere only) You can no longer ssh into a VM on a vSphere Ops Manager without a private key.
-* **[New Feature]**: `GET /api/v0/installations` now displays the start and end time for a deployment of each product. Products that are upgraded from earlier versions of Ops Manager will display `null` for their start and end times.
-* **[New Feature]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the must_match_regex parameter.
-* **[New Feature]**: Ops Manager supports 5th generation AWS Instance Types. 5th generation Instance Types are the default when a v2.6 Ops Manager boots.
-* **[New Feature]**: You can now specify a monitor port when defining a NSX load balancer. Send a PUT to `/api/v0/staged/products/:guid/properties/jobs/:job_id/resource_config` with a  `monitor_port` key. This features helps to support NSX load balancer compatibility with Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.  
-* **[UI Improvement]**: The banner notifying you that certificates in your deployment will expire in the next three months is edited for improved clarity and usefulness.
-
-Ops Manager v2.6 Alpha 1 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr><td>Ops Manager</td><td>2.6.0-build.54</td></tr>
-  <tr><td>Stemcell</td><td>250.25</td></tr>
-  <tr><td>BBR SDK</td><td>1.14.0</td></tr>
-  <tr><td>BOSH Director</td><td>268.7.0</td></tr>
-  <tr><td>BOSH DNS</td><td>1.10.0</td></tr>
-  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
-  <tr><td>CredHub</td><td>2.1.4</td></tr>
-  <tr><td>Syslog</td><td>11.4.0</td></tr>
-  <tr><td>Windows Syslog</td><td>1.0.3</td></tr>
-  <tr><td>UAA</td><td>72.0</td></tr>
-  <tr><td>BPM</td><td>1.0.3</td></tr>
-  <tr><td>Networking</td><td>9</td></tr>
-  <tr><td>OS Conf</td><td>20.0.0</td></tr>
-  <tr><td>AWS CPI</td><td>74</td></tr>
-  <tr><td>Azure CPI</td><td>35.5.0</td></tr>
-  <tr><td>Google CPI</td><td>29.0.1</td></tr>
-  <tr><td>OpenStack CPI</td><td>42</td></tr>
-  <tr><td>vSphere CPI</td><td>52.1.0</td></tr>
-  <tr><td>BOSH CLI</td><td>5.4.0</td></tr>
-  <tr><td>Credhub CLI</td><td>2.3.0</td></tr>
-  <tr><td>BBR CLI</td><td>1.5.0</td></tr>
-  </tbody>
 </table>
 
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
-## <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
-
-vSphere's vCenter allows you to designate folder names with multiple words separated by spaces. That ability is reflected in Ops Manager. You can specify folder names in vCenter using spaces between words and Ops Manager will accept them as valid.
-
-For an example of folder names with spaces, see [Using the Cisco Nexus 1000v Switch with Ops Manager](http://docs.pivotal.io/pivotalcf/2-6/customizing/nexus-switch.html).
-
-## <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
-
-An operator configuring a product tile on a vSphere deployment must configure vSphere properties. Incorrect configuration can cause deployment failures, and can be difficult to troubleshoot effectively. An optional form verifier is available that notifies tile operators when they have configured vSphere properties incorectly.
-
-For more information about this form verifier, see the [*install\_time\_verifiers*](http://www.example.com) section in *Property and Template References* in the tile developer documentation.
 
 ## <a id='known-issues'></a> Known Issues
 
