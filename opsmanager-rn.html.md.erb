@@ -17,6 +17,64 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/custo
 
 Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
+### <a id="beta-1"></a> 2.6 Beta 1
+
+* **[Breaking Change]**: The `stemcells_assignments` endpoint has been renamed `stemcell_associations`.
+* **[New Feature]**: An error appears when you use `PATCH /api/v0/stemcell_assignments` to assign stemcells to any product that requires multiple stemcells. 
+* **[New Feature]**: Operators can back up the Director S3 blobstore for versioned and un-versioned buckets. To configure backup, select an S3 external blobstore for the Director and choose your preference for backup with the **Backup Strategy** radio button.
+* **[New Feature]**: The Review Pending Changes page shows stemcells that you have added to a deployment in the "Changes" column.
+* **[New Feature]**: The Review Pending Changes page shows information for multiple stemcells, where applicable.
+* **[New Feature]**: The Stemcell Library UI has been enhanced. 
+* **[New Feature]**: The Change Log table UI has been enhanced.
+* **[New Feature]**: Ops Manager's template syslog form is available for service broker tiles. When tile developers use the `opsmanager_syslog` key in tile metadata, an option to upload a new runtime config appears after an operator triggers **Apply Changes**. The service broker and any service instances created afterward will have a `syslog_forwarder` job to allow them to use Ops Manager's syslog.
+* **[New Feature]**: vSphere operators are no longer required to specify a `port` key for NSX load balancers. Setting the port number as `null` allows the TCP router to rely on default ports specified by other system components.
+* **[New Feature]**: `ops-manifest` now supports `$runtime` expressions in addition to `$self`, `$director`, and `$ops_manager`. 
+* **[New Feature]**: Tile authors can specify a new job-level key called `use_stemcell`, the value of which is the full name of the operating system. This allows authors to specify which stemcell they wish to use for a given job.
+* **[Bug Fix]**: Operators can no longer assign a stemcell with the incorrect infrastructure type on the Stemcell Library page.
+* **[Bug Fix]**: When you delete an unused product, all the stemcells associated with it are also deleted.
+* **[Bug Fix]**: **Apply Changes** no longer fails if copying credentials to CredHub takes longer than ten minutes.
+* **[Bug Fix]**: Ops Manager saves the start time for the `InstallationChange` object for runtime config-only tiles.
+* **[Bug Fix]**: Exporting installation settings no longer causes the BOSH Director to incorrectly show that it has staged changes.
+* **[Bug Fix]**: Harbour now installs successfully on deployments that already have PKS installed.
+* **[Bug Fix]**: Operators can no longer change persistent disk size to custom values.
+* **[Bug Fix]**: All product stemcells display a notification when it is out of date, even when there are multiple stemcells associated with a product.
+
+Ops Manager v2.6 Beta 1 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>Ops Manager</td><td>2.6.0-build.99*</td></tr>
+  <tr><td>Stemcell</td><td>315.13*</td></tr>
+  <tr><td>BBR SDK</td><td>1.15.0</td></tr>
+  <tr><td>BOSH Director</td><td>269.0.0*</td></tr>
+  <tr><td>BOSH DNS</td><td>1.11.0*</td></tr>
+  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
+  <tr><td>CredHub</td><td>2.3.0*</td></tr>
+  <tr><td>Syslog</td><td>11.4.0</td></tr>
+  <tr><td>Windows Syslog</td><td>1.0.3</td></tr>
+  <tr><td>UAA</td><td>71.0*</td></tr>
+  <tr><td>BPM</td><td>1.0.4</td></tr>
+  <tr><td>Networking</td><td>9</td></tr>
+  <tr><td>OS Conf</td><td>20.0.0</td></tr>
+  <tr><td>AWS CPI</td><td>74</td></tr>
+  <tr><td>Azure CPI</td><td>35.5.0</td></tr>
+  <tr><td>Google CPI</td><td>29.0.1</td></tr>
+  <tr><td>OpenStack CPI</td><td>42</td></tr>
+  <tr><td>vSphere CPI</td><td>52.1.0</td></tr>
+  <tr><td>BOSH CLI</td><td>5.5.0*</td></tr>
+  <tr><td>Credhub CLI</td><td>2.4.0</td></tr>
+  <tr><td>BBR CLI</td><td>1.5.0</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
 ### <a id="alpha-2"></a> 2.6 Alpha 2
 
 * **[Breaking Change]**: API users can use `GET /api/v0/diagnostic_report` to show stemcells for all staged and deployed products. The `stemcells` key replaces the `stemcell` key. `Stemcells` lists information for all stemcells assigned to a product. 
