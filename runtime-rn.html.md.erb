@@ -16,8 +16,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** Task pruning age can be configured to allow PAS users with very high numbers of tasks to reduce load on the Cloud Controller database.
 * **[Feature Improvement]** Add support for staging Docker images from repositories using schema version 2 manifests
 * **[Bug Fix]** Fix issue where empty or malformed certificates would cause CredHub to fail to start.
-* **[Bug Fix]** Increase TLS Certificate verification depth in Apps Manager to allow for longer certificate chains
-* **[Bug Fix]** Apps Manager correctly displays footer text when not set in Ops Manager
+* **[Bug Fix]** Increase the TLS certificate chain verify depth when proxying requests to CF internal services.
+* **[Bug Fix]** Improve performance when loading the home page on a foundation with many organizations
+* **[Bug Fix]** Remove clear input icon that was overlaid on content from search bar on IE
+* **[Bug Fix]** Fix issue where footer appears at the top of the marketplace page
 * Bump ubuntu-xenial stemcell to version `170.48`
 * Bump bpm to version `1.0.4`
 * Bump capi to version `1.71.10`
