@@ -15,6 +15,34 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/cust
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-4-10"></a> 2.4.10
+
+* **[Bug Fix]**: The LDAP certificate chain now appears in the UAA truststore when 
+* **[Bug Fix]**: Apply Changes no longer fails if copying credentials to CredHub takes longer than ten minutes.
+* **[Bug Fix]**: Exporting installation settings no longer causes the BOSH Director to incorrectly show that it has staged changes.
+* **[Bug Fix]**: Harbor now installs successfully on deployments that already have PKS installed. For more information about Harbor, see VMware Harbor Registry.
+* **[Bug Fix]**: Operators can no longer change persistent disk size to custom values.
+
+Ops Manager v2.4.10 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.4-build.192*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>170.51*</td></tr><tr><td>BBR SDK</td><td>1.7.1</td></tr><tr><td>BOSH Director</td><td>268.2.3*</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>60.13</td></tr><tr><td>BPM</td><td>0.12.3</td></tr><tr><td>Networking</td><td>8</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>72</td></tr><tr><td>Azure CPI</td><td>35.4.0</td></tr><tr><td>Google CPI</td><td>27.0.1</td></tr><tr><td>OpenStack CPI</td><td>39</td></tr><tr><td>vSphere CPI</td><td>51.1.0</td></tr><tr><td>BOSH CLI</td><td>5.5.0*</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.0</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
 ### <a id="2-4-9"></a> 2.4.9
 
 * **This patch contains no new features or fixes.** It updates Ops Manager components to address dependency requirements for other products.
