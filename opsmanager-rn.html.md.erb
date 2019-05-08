@@ -19,6 +19,7 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-3/cust
 
 * **[New Feature]**: You can use the API to set a custom max payload for NATS. The `director_configuration` object has a new key called `nats_max_payload_mb` that you can configure with a maximum size, such as `3` or `10`. The default payload size is 1 MB. If you configure it for a larger size, you can include certificates up to the size you specify. 
 * **[Bug Fix]**: Ops Manager now logs you out after its browser session expires.
+* **[Bug Fix]**: You can now log in to Ops Manager when you have set up Ops Manager with LDAP over SSL.
 
 Ops Manager v2.3.17 uses the following component versions:
 
