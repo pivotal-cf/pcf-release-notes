@@ -299,6 +299,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.6 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html) topic.
@@ -310,6 +311,21 @@ When upgrading to PAS v2.6, be aware of the following upgrade considerations:
 * Some partner service tiles may be incompatible with PCF v2.6. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.6, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 ## <a id='new-features'></a> New Features in PAS v2.6
+
+See the following new feature for PAS v2.6:
+
+
+### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
+
+System Metrics Agent allows you to more easily correlate VM metrics with BOSH jobs. These
+VM metrics help with troubleshooting and diagnosing issues for potential infrastructure
+problems.
+
+For a list of the VM metrics that the System Metric Agent emits, see [VM
+Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
+
+To enable the System Metric Agent, go to the **System Logging** pane in the PAS tile and select **Enable System Metrics**.
+
 
 ### <a id='revisions'></a> Enable, View, and Rollback Revisions for Apps
 
