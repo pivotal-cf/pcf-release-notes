@@ -402,27 +402,30 @@ When upgrading to PAS v2.6, be aware of the following upgrade considerations:
 
 * Some partner service tiles may be incompatible with PCF v2.6. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.6, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
+
 ## <a id='new-features'></a> New Features in PAS v2.6
 
 See the following new features for PAS v2.6:
 
-
 ### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
 
-System Metrics Agent allows you to more easily correlate VM metrics with BOSH jobs. These
-VM metrics help with troubleshooting and diagnosing issues for potential infrastructure
-problems.
+System Metrics Agent allows you to more easily correlate VM metrics with BOSH jobs. These VM metrics help with troubleshooting and diagnosing issues for potential infrastructure problems.
 
-For a list of the VM metrics that the System Metric Agent emits, see [VM
-Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
+For a list of the VM metrics that the System Metric Agent emits, see [VM Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
 
 To enable the System Metric Agent, go to the **System Logging** pane in the PAS tile and select **Enable System Metrics**.
 
+### <a id='metric-registrar'></a> Metric Registrar Is Enabled by Default
+
+In PAS v2.6, Metric Registrar is enabled by default. This allows you to output custom application metrics that can be monitored by platform-provided tooling.
+
+For information about how to disable Metric Registrar, see the [(Optional) Configure Metric Registrar](https://docs.pivotal.io/pivotalcf/2-6/customizing/configure-pas.html#metric-registrar) section of the _Configuring PAS_ topic.
 
 ### <a id='revisions'></a> Enable, View, and Rollback Revisions for Apps
 
 PAS supports revisions for apps. A revision is an object that represents code and configuration used by an app at a specific time. Some uses cases for revisions include rolling back your app to a previous version and viewing changes in your app over time. You can also add metadata to revisions. 
 
 For more information, see [App Revisions](https://docs.pivotal.io/pivotalcf/2-6/devguide/revisions.html).
+
 
 ## <a id='known-issues'></a> Known Issues
