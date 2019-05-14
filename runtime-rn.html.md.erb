@@ -144,7 +144,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Improve error messages when installing buildpacks
 * **[Feature Improvement]** Increase performance for internal MySQL by setting the setting for `innodb_flush_log_at_trx_commit` from 1 to 2.  This increases performance safely for clustered deployments.  Single node might need to scale up to avoid the possibility of 1 second of data loss during deploys.
 * **[Feature Improvement]** Add support for tcp hitless reloads in haproxy to avoid connection reset errors
-* **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning with **Bypass security checks for route service lookup**. This feature has potential security concerns, but may be needed for backwards compatibility. See the Route Service Internal Lookup Considerations section of [Route Services](https://docs.pivotal.io/pivotalcf/2-5/services/route-services.html) for details.
+* **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning with **Bypass security checks for route service lookup**. This feature has potential security concerns, but may be needed for backwards compatibility. See [Configuring Route Service Lookup](https://docs.pivotal.io/pivotalcf/2-2/customizing/route-service-lookup.html).
 * **[Bug Fix]** Fix issue in which Apps Manager shows `Invalid User` as the username for space and organization members without usernames, such as UAA clients
 * Bump ubuntu-trusty stemcell to version `3586.93`
 * Bump capi to version `1.58.15`
