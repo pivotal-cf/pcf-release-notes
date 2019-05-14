@@ -185,7 +185,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Improve error messages when installing buildpacks
 * **[Feature Improvement]** Add support for TCP hitless reloads in haproxy to avoid connection reset errors
 * **[Feature Improvement]** Auto bump the CF CLI release included with PAS for use by errands
-* **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning with **Bypass security checks for route service lookup**. This feature has potential security concerns, but may be needed for backwards compatibility. See the Route Service Internal Lookup Considerations section of [Route Services](https://docs.pivotal.io/pivotalcf/2-5/services/route-services.html) for details.
+* **[Feature Improvement]** Add ability to enable/disable gorouter hairpinning with **Bypass security checks for route service lookup**. This feature has potential security concerns, but may be needed for backwards compatibility. See [Configuring Route Service Lookup](https://docs.pivotal.io/pivotalcf/2-4/customizing/route-service-lookup.html).
 * **[Security Fix]** Invitations app rejects insecure HTTP requests
 * **[Bug Fix]** Specify buildpack for Apps Manager and related microservice applications to remove conflicts with custom buildpacks
 * **[Bug Fix]** Fix issue in which Apps Manager would show `Invalid User` as the username for space and organization members without usernames, such as UAA clients
