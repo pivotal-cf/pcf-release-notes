@@ -185,12 +185,13 @@ See the following new features for PCF Isolation Segment v2.6:
 
 ### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
 
-System Metrics Agent allows you to more easily correlate VM metrics with BOSH jobs. These
-VM metrics help with troubleshooting and diagnosing issues for potential infrastructure
-problems.
+### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
 
-For a list of the VM metrics that the System Metric Agent emits, see [VM
-Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
+System Metrics Agent provides more visibility into VM compute, network, and storage metrics. These VM metrics help with troubleshooting and diagnosing issues for potential infrastructure problems.
+
+When enabled, the metrics are emitted through Loggregator. For more information about viewing logs and metrics, see the _Platform components_ row of [Viewing Logs and Metrics](../loggregator/data-sources.html#viewing).
+
+For a list of the VM metrics that the System Metric Agent emits, see [VM Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
 
 To enable the System Metric Agent, go to the **System Logging** pane in the PCF Isolation Segment tile and select **Enable System Metrics**.
 
