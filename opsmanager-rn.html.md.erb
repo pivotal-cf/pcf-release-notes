@@ -17,6 +17,58 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/custo
 
 Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
+### <a id="rc-1"></a> 2.6.0 Release Candidate 1
+
+- **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+- **[Bug Fix]** The `pre_deploy_check` is a top-level key at the `/api/v0/staged/director/pre_deploy_check` endpoint. For more information, see [Running a pre-deploy check for the staged BOSH Director](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation.
+- **[Bug Fix]** The Changelog page in the Ops Manager UI shows version numbers of products.
+- **[Bug Fix]** Ops Manager does not fail to upload a tile with no releases.
+- **[Bug Fix]** The product dependency Ops Manager verify uses the full verifier interface expected by the system.
+- **[Bug Fix]** Cloud config does not show up in the sidebar or in the main column of product diffs.
+- **[Bug Fix]** Dropdowns for certain VM types are easier to use.
+- **[Bug Fix]** The Changelog page shows the status of `DELETED` when a product is deleted.
+- **[Bug Fix]** Ops Manager saves the installation change start time.
+- **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
+
+Ops Manager v2.6.0 Release Candidate 1 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.6.0-build.126*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>315.13</td></tr>
+  <tr><td>BBR SDK</td><td>1.15.0</td></tr>
+  <tr><td>BOSH Director</td><td>269.0.1*</td></tr>
+  <tr><td>BOSH DNS</td><td>1.11.0</td></tr>
+  <tr><td>Metrics Server</td><td>0.0.22</td></tr>
+  <tr><td>CredHub</td><td>2.4.0</td></tr><tr>
+  <td>Syslog</td><td>11.4.0</td></tr><tr>
+  <td>Windows Syslog</td><td>1.0.3</td></tr>
+  <tr><td>UAA</td><td>71.0</td></tr>
+  <tr><td>BPM</td><td>1.0.4</td></tr>
+  <tr><td>Networking</td><td>9</td></tr>
+  <tr><td>OS Conf</td><td>20.0.0</td></tr>
+  <tr><td>AWS CPI</td><td>74</td></tr>
+  <tr><td>Azure CPI</td><td>35.5.0</td></tr>
+  <tr><td>Google CPI</td><td>29.0.1</td></tr>
+  <tr><td>OpenStack CPI</td><td>42</td></tr>
+  <tr><td>vSphere CPI</td><td>52.1.1*</td></tr>
+  <tr><td>BOSH CLI</td><td>5.5.0</td></tr>
+  <tr><td>Credhub CLI</td><td>2.4.0</td></tr>
+  <tr><td>BBR CLI</td><td>1.5.1*</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
 ### <a id="beta-2"></a> 2.6 Beta 2
 
 * **[New Feature]**: You can back up the Director's S3 blobstore to AWS buckets. Use the "Backup Strategy" section in the AWS config form to choose a versioned or unversioned bucket and back up the Director blobstore.
