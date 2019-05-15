@@ -13,7 +13,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager <%= vars.v_major_version %>.
 
-## <a id="releases"></a>Releases
+
+## <a id="releases"></a> Releases
 
 Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
@@ -271,21 +272,29 @@ Ops Manager v2.6 Alpha 1 uses the following component versions:
   </tbody>
 </table>
 
+
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
-## <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
+### <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
 
 vSphere's vCenter allows you to designate folder names with multiple words separated by spaces. That ability is reflected in Ops Manager. You can specify folder names in vCenter using spaces between words and Ops Manager will accept them as valid.
 
 For an example of folder names with spaces, see [Using the Cisco Nexus 1000v Switch with Ops Manager](http://docs.pivotal.io/pivotalcf/2-6/customizing/nexus-switch.html).
 
-## <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
+### <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
 
 An operator configuring a product tile on a vSphere deployment must configure vSphere properties. Incorrect configuration can cause deployment failures, and can be difficult to troubleshoot effectively. An optional form verifier is available that notifies tile operators when they have configured vSphere properties incorectly.
 
 For more information about this form verifier, see the [*install\_time\_verifiers*](http://www.example.com) section in *Property and Template References* in the tile developer documentation.
+
+### <a id='gcs-backups'></a> BOSH Director GCS Blobstores Are Backed Up Automatically
+
+When BOSH Director is configured to use a Google Cloud Storage (GCS) external blobstore, BBR creates backups of the blobstore automatically. This feature cannot be disabled.
+
+For more information about configuring BOSH Director to use a GCS external blobstore, see the _Director Config Page_ section of the [BOSH Director configuration topic for your IaaS](http://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html).
+
 
 ## <a id='known-issues'></a> Known Issues
 
