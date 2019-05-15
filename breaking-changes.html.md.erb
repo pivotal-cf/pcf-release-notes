@@ -19,6 +19,15 @@ See the following PAS breaking changes:
 
 See the following PCF Ops Manager breaking changes:
 
+### <a id='ssh-private-key'></a> Passwords Not Supported for Ops Manager VM on vSphere
+
+You can only SSH onto the Ops Manager VM in a vSphere deployment with a private SSH key. You cannot SSH onto the Ops Manager VM with a password.
+
+To avoid errors when authenticating, add a public key to the OVF template for the Ops Manager VM. Then, use the private key to SSH onto the Ops Manager VM. 
+
+For more information about adding a public key to the OVF template, see [Deploy Ops Manager](https://docs.pivotal.io/pivotalcf/2-6/om/vsphere/deploy.html#deploy) in _Deploying Ops Manager on vSphere_.  
+
+
 ## <a id='ist'></a> PCF Isolation Segment
 
 See the following PCF Isolation Segment breaking changes:
