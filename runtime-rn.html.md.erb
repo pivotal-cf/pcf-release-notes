@@ -196,7 +196,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix alignment of search results in Apps Manager
 * **[Bug Fix]** Fix policy pruning when there are more than 50 spaces
 * **[Bug Fix]** Fix failed access checks on mount for NFS volume service with some Windows NFS servers
-* **[Bug Fix]** Fix issue that can cause the Spring Boot actuator integration with Apps Manager to stop working after a rolling deployment
+* **[Bug Fix]** Fix issue that can cause the Spring Boot actuator integration with Apps Manager to stop working for apps pushed using the beta rolling app deployment feature. See [Rolling App Deployments (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/rolling-deploy.html). 
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
 * **[Bug Fix]** Properly populate chained CA certificates for backend proxies when route integrity is enabled
