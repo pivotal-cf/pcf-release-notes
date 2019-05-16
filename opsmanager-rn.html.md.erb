@@ -275,17 +275,25 @@ Ops Manager v2.6 Alpha 1 uses the following component versions:
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
-## <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
+### <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
 
 vSphere's vCenter allows you to designate folder names with multiple words separated by spaces. That ability is reflected in Ops Manager. You can specify folder names in vCenter using spaces between words and Ops Manager will accept them as valid.
 
 For an example of folder names with spaces, see [Using the Cisco Nexus 1000v Switch with Ops Manager](http://docs.pivotal.io/pivotalcf/2-6/customizing/nexus-switch.html).
 
-## <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
+### <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
 
 An operator configuring a product tile on a vSphere deployment must configure vSphere properties. Incorrect configuration can cause deployment failures, and can be difficult to troubleshoot effectively. An optional form verifier is available that notifies tile operators when they have configured vSphere properties incorectly.
 
 For more information about this form verifier, see the [*install\_time\_verifiers*](http://www.example.com) section in *Property and Template References* in the tile developer documentation.
+
+### <a id="config-details-endpoint"></a> API Endpoint Returns Deployment Configuration Details
+
+The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys. 
+
+For example, you can view the networks and availability zones assigned to products in your deployment. You can use this information to determine if any products are not assigned a network or availability zone, which causes the deploy to fail.
+
+For more information, see [Running a pre-deploy check for the staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation. 
 
 ## <a id='known-issues'></a> Known Issues
 
