@@ -429,5 +429,11 @@ PAS supports revisions for apps. A revision is an object that represents code an
 
 For more information, see [App Revisions](https://docs.pivotal.io/pivotalcf/2-6/devguide/revisions.html).
 
+### <a id='containerd'></a> Garden Delegates Container Creation and Destruction to containerd by Default
+
+Traditionally, Garden uses runc to create, delete, and run container processes. Garden v1.15.0 and later support delegating the creation and destruction of some container processes through containerd instead of runc.
+
+You can enable or disable containerd mode by using the Garden property `garden.containerd_mode`.
+
 
 ## <a id='known-issues'></a> Known Issues

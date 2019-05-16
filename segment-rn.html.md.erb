@@ -193,6 +193,12 @@ For a list of the VM metrics that the System Metric Agent emits, see [VM Metrics
 
 To enable the System Metric Agent, go to the **System Logging** pane in the PCF Isolation Segment tile and select **Enable System Metrics**.
 
+### <a id='containerd'></a> Garden Delegates Container Creation and Destruction to containerd by Default
+
+Traditionally, Garden uses runc to create, delete, and run container processes. Garden v1.15.0 and later support delegating the creation and destruction of some container processes through containerd instead of runc.
+
+You can enable or disable containerd mode by using the Garden property `garden.containerd_mode`.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 

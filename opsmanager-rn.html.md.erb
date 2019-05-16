@@ -13,7 +13,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager <%= vars.v_major_version %>.
 
-## <a id="releases"></a>Releases
+
+## <a id="releases"></a> Releases
 
 Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
@@ -271,6 +272,7 @@ Ops Manager v2.6 Alpha 1 uses the following component versions:
   </tbody>
 </table>
 
+
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
@@ -287,13 +289,21 @@ An operator configuring a product tile on a vSphere deployment must configure vS
 
 For more information about this form verifier, see the [*install\_time\_verifiers*](http://www.example.com) section in *Property and Template References* in the tile developer documentation.
 
-### <a id="config-details-endpoint"></a> API Endpoint Returns Deployment Configuration Details
+
+### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
 The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys. 
 
 For example, you can view the networks and availability zones assigned to products in your deployment. You can use this information to determine if any products are not assigned a network or availability zone, which causes the deploy to fail.
 
 For more information, see [Running a pre-deploy check for the staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation. 
+
+
+### <a id='gcs-backups'></a> BOSH Director GCS Blobstores Are Backed Up Automatically
+
+When BOSH Director is configured to use a Google Cloud Storage (GCS) external blobstore, BBR creates backups of the blobstore automatically. This feature cannot be disabled.
+
+For more information about configuring BOSH Director to use a GCS external blobstore, see the _Director Config Page_ section of the [BOSH Director configuration topic for your IaaS](http://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html).
 
 ## <a id='known-issues'></a> Known Issues
 
