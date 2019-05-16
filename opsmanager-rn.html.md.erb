@@ -22,12 +22,12 @@ Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
 - **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 - **[Bug Fix]** The `pre_deploy_check` is a top-level key at the `/api/v0/staged/director/pre_deploy_check` endpoint. For more information, see [Running a pre-deploy check for the staged BOSH Director](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation.
-- **[Bug Fix]** The Changelog page in the Ops Manager UI shows version numbers of products.
+- **[Bug Fix]** The  Change Log page in the Ops Manager UI shows version numbers of products.
 - **[Bug Fix]** Ops Manager does not fail to upload a tile with no releases.
 - **[Bug Fix]** The product dependency Ops Manager verify uses the full verifier interface expected by the system.
 - **[Bug Fix]** Cloud config does not show up in the sidebar or in the main column of product diffs.
 - **[Bug Fix]** Dropdowns for certain VM types are easier to use.
-- **[Bug Fix]** The Changelog page shows the status of `DELETED` when a product is deleted.
+- **[Bug Fix]** The Change Log page shows the status of `DELETED` when a product is deleted.
 - **[Bug Fix]** Ops Manager saves the installation change start time.
 - **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
 
@@ -64,9 +64,9 @@ Ops Manager v2.6.0 Release Candidate 1 uses the following component versions:
   <tr><td>BOSH CLI</td><td>5.5.0</td></tr>
   <tr><td>Credhub CLI</td><td>2.4.0</td></tr>
   <tr><td>BBR CLI</td><td>1.5.1*</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -120,15 +120,15 @@ Ops Manager v2.6 Beta 2 uses the following component versions:
 ### <a id="beta-1"></a> 2.6 Beta 1
 
 * **[Breaking Change]**: The `stemcells_assignments` endpoint has been renamed `stemcell_associations`.
-* **[New Feature]**: An error appears when you use `PATCH /api/v0/stemcell_assignments` to assign stemcells to any product that requires multiple stemcells. 
+* **[New Feature]**: An error appears when you use `PATCH /api/v0/stemcell_assignments` to assign stemcells to any product that requires multiple stemcells.
 * **[New Feature]**: Operators can back up the Director S3 blobstore for versioned and un-versioned buckets. To configure backup, select an S3 external blobstore for the Director and choose your preference for backup with the **Backup Strategy** radio button.
 * **[New Feature]**: The Review Pending Changes page shows stemcells that you have added to a deployment in the "Changes" column.
 * **[New Feature]**: The Review Pending Changes page shows information for multiple stemcells, where applicable.
-* **[New Feature]**: The Stemcell Library UI has been enhanced. 
+* **[New Feature]**: The Stemcell Library UI has been enhanced.
 * **[New Feature]**: The Change Log table UI has been enhanced.
 * **[New Feature]**: Ops Manager's template syslog form is available for service broker tiles. When tile developers use the `opsmanager_syslog` key in tile metadata, an option to upload a new runtime config appears after an operator triggers **Apply Changes**. The service broker and any service instances created afterward will have a `syslog_forwarder` job to allow them to use Ops Manager's syslog.
 * **[New Feature]**: vSphere operators are no longer required to specify a `port` key for NSX load balancers. Setting the port number as `null` allows the TCP router to rely on default ports specified by other system components.
-* **[New Feature]**: `ops-manifest` now supports `$runtime` expressions in addition to `$self`, `$director`, and `$ops_manager`. 
+* **[New Feature]**: `ops-manifest` now supports `$runtime` expressions in addition to `$self`, `$director`, and `$ops_manager`.
 * **[New Feature]**: Tile authors can specify a new job-level key called `use_stemcell`, the value of which is the full name of the operating system. This allows authors to specify which stemcell they wish to use for a given job.
 * **[Bug Fix]**: Operators can no longer assign a stemcell with the incorrect infrastructure type on the Stemcell Library page.
 * **[Bug Fix]**: When you delete an unused product, all the stemcells associated with it are also deleted.
@@ -171,13 +171,13 @@ Ops Manager v2.6 Beta 1 uses the following component versions:
   <tr><td>Credhub CLI</td><td>2.4.0</td></tr>
   <tr><td>BBR CLI</td><td>1.5.0</td></tr>
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="alpha-2"></a> 2.6 Alpha 2
 
-* **[Breaking Change]**: API users can use `GET /api/v0/diagnostic_report` to show stemcells for all staged and deployed products. The `stemcells` key replaces the `stemcell` key. `Stemcells` lists information for all stemcells assigned to a product. 
+* **[Breaking Change]**: API users can use `GET /api/v0/diagnostic_report` to show stemcells for all staged and deployed products. The `stemcells` key replaces the `stemcell` key. `Stemcells` lists information for all stemcells assigned to a product.
 * **[Breaking Change]**: API users can use `GET /api/v0/staged/pending_changes` to see the staged, deployed, and last successfully deployed stemcell information for all stemcells associated with a product. Multiple keys in this endpoint have changed. The `stemcell` key has changed to `stemcells` and the output of the endpoint has been reformatted to display details, including the OS and version keys, more specifically for deployments with multiple stemcells.
 * **[New Feature]**: Operators using AWS-based deployments can choose between even more AWS regions in the AWS Config form. Deployments upgraded from v2.5 will default to the AWS region you chose for that deployment.
 * **[New Feature]**: After a deployment fails, API users can use `POST /api/v0/installations` to see which products are not fully configured.
@@ -235,7 +235,7 @@ Ops Manager v2.6 Alpha 2 uses the following component versions:
 * **[New Feature]**: `GET /api/v0/installations` now displays the start and end time for a deployment of each product. Products that are upgraded from earlier versions of Ops Manager will display `null` for their start and end times.
 * **[New Feature]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the must_match_regex parameter.
 * **[New Feature]**: Ops Manager supports 5th generation AWS Instance Types. 5th generation Instance Types are the default when a v2.6 Ops Manager boots.
-* **[New Feature]**: You can now specify a monitor port when defining a NSX load balancer. Send a PUT to `/api/v0/staged/products/:guid/properties/jobs/:job_id/resource_config` with a  `monitor_port` key. This features helps to support NSX load balancer compatibility with Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.  
+* **[New Feature]**: You can now specify a monitor port when defining a NSX load balancer. Send a PUT to `/api/v0/staged/products/:guid/properties/jobs/:job_id/resource_config` with a  `monitor_port` key. This features helps to support NSX load balancer compatibility with Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.
 * **[UI Improvement]**: The banner notifying you that certificates in your deployment will expire in the next three months is edited for improved clarity and usefulness.
 
 Ops Manager v2.6 Alpha 1 uses the following component versions:
@@ -292,11 +292,11 @@ For more information about this form verifier, see the [*install\_time\_verifier
 
 ### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
-The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys. 
+The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys.
 
 For example, you can view the networks and availability zones assigned to products in your deployment. You can use this information to determine if any products are not assigned a network or availability zone, which causes the deploy to fail.
 
-For more information, see [Running a pre-deploy check for the staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation. 
+For more information, see [Running a pre-deploy check for the staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation.
 
 
 ### <a id='gcs-backups'></a> BOSH Director GCS Blobstores Are Backed Up Automatically
@@ -305,7 +305,13 @@ When BOSH Director is configured to use a Google Cloud Storage (GCS) external bl
 
 For more information about configuring BOSH Director to use a GCS external blobstore, see the _Director Config Page_ section of the [BOSH Director configuration topic for your IaaS](http://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html).
 
+### <a id='change-log'></a> Improved Change Log Page
+
+The Ops Manager Change Log page has an improved UI, with deployment status and build times listed individually for each product, as well as for the deployment as a whole.
+
+For more information, see the [Change Log Page](../customizing/pcf-interface.html#changelog) section in the Ops Manager documentation.
+
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
-
