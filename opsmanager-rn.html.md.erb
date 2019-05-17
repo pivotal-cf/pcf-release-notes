@@ -18,8 +18,10 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/cust
 ### <a id="2.4.11"></a> 2.4.11
 
 - **[Security Fix]** Bumps stemcell to 170.69 to resolve [USN-3977-1](https://usn.ubuntu.com/3977-1/).
+- **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 - **[Bug Fix]** Ops Manager does not allow a revert on upgrade without deploying the BOSH Director.
 - **[Bug Fix]** Dropdowns for certain VM types are easier to use.
+- **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
 
 Ops Manager v2.4.11 uses the following component versions:
 
