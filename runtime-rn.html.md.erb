@@ -18,7 +18,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Network policy server returns `X-XSS-Protection: 1` header to prevent noise in security scans
 * **[Feature Improvement]** Update default polling interval and idle connection limits for networking components to reduce resource contention on PAS database
 * **[Bug Fix]** Update MySQL server to version `5.7.25` to address performance issue when querying global variables which could cause platform components to lose database connectivity
-* **[Bug Fix]** Apps Manager colors, header, and footer are customizable again.
+* **[Bug Fix]** Use the correct metrics url for the current foundation in Apps Manager
+* **[Bug Fix]** Removing a foundation from a multi-foundation setup no longer causes Apps Manager to crash
+* **[Bug Fix]** Apps Manager colors, header, and footer are customizable again
 * **[Bug Fix]** Fixes NFS resource leak issues
 * Bump cf-networking to version `2.20.2`
 * Bump cflinuxfs3 to version `0.88.0`
