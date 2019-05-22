@@ -509,9 +509,9 @@ For more information, see [App Revisions](https://docs.pivotal.io/pivotalcf/2-6/
 
 ### <a id='containerd'></a> Garden Delegates Container Creation and Destruction to containerd by Default
 
-Traditionally, Garden uses runc to create, delete, and run container processes. Garden v1.15.0 and later support delegating the creation and destruction of some container processes through containerd instead of runc.
+Traditionally, Garden uses runc directly to create, delete, and run container processes. Garden v1.15.0 and later support delegating some of the container lifecycle through Containerd, which is the industry standard wrapper around runc.
 
-You can enable or disable containerd mode by using the Garden property `garden.containerd_mode`.
+Containerd mode is enabled by default to bring PAS in line with other container proividers. It can be disabled by removing the Garden property `garden.containerd_mode`, or by unchecking the "Enable Containerd Delegation" box on the Application Containers pane in Ops Manager.
 
 
 ## <a id='known-issues'></a> Known Issues
