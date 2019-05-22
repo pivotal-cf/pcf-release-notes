@@ -35,6 +35,17 @@ Information about all stemcells for both staged and deployed products is listed 
 
 For more information about the `/api/v0/diagnostic_report` endpoint, see [Diagnostic Report](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#getting-information-about-certificates-from-products) in the Ops Manager API documentation. 
 
+## <a id='pas-windows'></a>PAS for Windows
+
+See the following PAS for Windows breaking changes:
+
+### <a id='windows2016'></a> Deprecation of the windows2016 Stack
+
+The `windows2016` stack is deprecated in favor of the `windows` stack.
+PAS for Windows v2.6 removes support for `windows2016`.
+
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/2-5/adminguide/stack-auditor.html).
 
 ## <a id='ist'></a> PCF Isolation Segment
 
