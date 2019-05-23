@@ -142,6 +142,14 @@ or later.
 
 PAS for Windows v2.6 includes the following major features:
 
+### <a id='windows2016'></a> Deprecation of the windows2016 Stack
+
+PAS for Windows v2.6 removes support for `windows2016` in favor of the `windows` stack.
+You must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
+
 ## <a id='adv-features'></a> New Advanced Features
 
 The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have
