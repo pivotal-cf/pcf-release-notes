@@ -16,10 +16,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Breaking Change]** Disables ssh proxy HTTP healthcheck server used for some GCP load balancers
 * **[Security Fix]** Introduce and trust new Diego "root CA" in advance of existing CA expiration
 * **[Security Fix]** Network policy server returns `X-XSS-Protection: 1` header to prevent noise in security scans
-* **[Feature Improvement]** Garden will now delegate container creates and destroys to containerd, an industry standard container runtime.
+* **[Feature]** Apps Manager announces page title changes to screen readers
+* **[Feature]** Space Developers can now terminate a specific instance of an app in Apps Manager
+* **[Feature]** Update the side bar, header and footer visuals in Apps Manager* **[Feature Improvement]** Garden will now delegate container creates and destroys to containerd, an industry standard container runtime.
 * **[Feature Improvement]**  Move 'Enable SMB Volume Services' checkbox from Advanced pane to Application Containers pane
 * **[Feature Improvement]** Update default polling interval and idle connection limits for networking components to reduce resource contention on PAS database
-* **[Bug Fix]** Apps Manager colors, header, and footer are customizable again.
+* **[Bug Fix]** Binding a route to an app now shows up sooner in Apps Manager
+* **[Bug Fix]** Use the correct metrics url for the current foundation in Apps Manager
+* **[Bug Fix]** Removing a foundation from a multi-foundation setup no longer causes Apps Manager to crash
+* **[Bug Fix]** Apps Manager colors, header, and footer are customizable again
 * **[Bug Fix]** Fixes NFS resource leak issues
 * Bump capi to version `1.80.0`
 * Bump cf-networking to version `2.22.2`
