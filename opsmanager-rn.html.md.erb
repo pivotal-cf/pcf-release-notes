@@ -34,9 +34,9 @@ Ops Manager v2.6.0 Release Candidate 3 uses the following component versions:
     <td>Ops Manager</td><td>2.6.0-build.133*</td>
   </tr>
   <tr><td>Stemcell</td><td>315.26</td></tr><tr><td>BBR SDK</td><td>1.15.1*</td></tr><tr><td>BOSH Director</td><td>269.0.1</td></tr><tr><td>BOSH DNS</td><td>1.11.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.4.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>75*</td></tr><tr><td>Azure CPI</td><td>35.5.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.0</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -44,7 +44,7 @@ Ops Manager v2.6.0 Release Candidate 3 uses the following component versions:
 
 - **[Security Fix]** Bumps stemcell to 315.26 to resolve [USN-3977-1](https://usn.ubuntu.com/3977-1/).
 - **[Bug Fix]** Ops Manager does not allow a revert on upgrade without deploying the BOSH Director.
-- **[Bug Fix]** Uploading a tile no longer crashes due to the `inspect_local_release` failing in an unexpected way. 
+- **[Bug Fix]** Uploading a tile no longer crashes due to the `inspect_local_release` failing in an unexpected way.
 
 Ops Manager v2.6.0 Release Candidate 2 uses the following component versions:
 
@@ -60,9 +60,9 @@ Ops Manager v2.6.0 Release Candidate 2 uses the following component versions:
     <td>Ops Manager</td><td>2.6.0-build.131*</td>
   </tr>
   <tr><td>Stemcell</td><td>315.26*</td></tr><tr><td>BBR SDK</td><td>1.15.0</td></tr><tr><td>BOSH Director</td><td>269.0.1</td></tr><tr><td>BOSH DNS</td><td>1.11.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.4.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>74</td></tr><tr><td>Azure CPI</td><td>35.5.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.0</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -337,6 +337,15 @@ An operator configuring a product tile on a vSphere deployment must configure vS
 
 For more information about this form verifier, see the [*install\_time\_verifiers*](http://www.example.com) section in *Property and Template References* in the tile developer documentation.
 
+### <a id="blobstore-backups"></a> Strategies for Backing Up BOSH Blobstore to S3 and GCS
+
+The BOSH Director tile > **Director Config** pane supports multiple strategies for backing up the BOSH Director blobstore to external S3 or Google Cloud Storage (GCS) buckets:
+
+* **S3 with versioning**: Back up to prior version of blobstore bucket.
+* **S3 without versioning**: Back up to S3 bucket dedicated to blobstore backup.
+* **GCS**: Back up to GCS bucket dedicated to blobstore backup.
+
+See the _Configuring BOSH Director_ topic > _Director Config Page_ section of the [Installing PCF guidelines for your IaaS](https://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html#contents).
 
 ### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
