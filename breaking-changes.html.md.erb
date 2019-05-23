@@ -15,6 +15,17 @@ Foundry](http://docs.pivotal.io/2-6/customizing/upgrading-pcf.html).
 
 See the following PAS breaking changes:
 
+### <a id='http-healtcheck'></a> HTTP Healthcheck Server Disabled for SSH Proxy
+
+Before upgrading, ensure that your SSH Proxy load balancer is not configured with an HTTP healthcheck. This is the load balancer specified in the **Diego Brain** row of the **Resource Config** pane. 
+
+<p class="note"><strong>Note</strong>: Neither the Terraform templates for installing PAS nor the PAS installation instructions specify a HTTP healthcheck for the SSH Load balancer.</p> 
+
+The `ssh_proxy` job running on the Diego Brain VM no longer starts a HTTP healthcheck server. This feature was previously added to allow GCP load balancers to healthcheck the service. However, GCP load balancers no longer require an HTTP endpoint for healthchecks. 
+
+Additionally, making this healthcheck server inaccessible improves the security of the platform. 
+
+
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
