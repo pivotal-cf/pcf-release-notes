@@ -17,7 +17,7 @@ See the following PAS breaking changes:
 
 ### <a id='http-healtcheck'></a> HTTP Healthcheck Server Disabled for SSH Proxy
 
-Before upgrading, ensure that your SSH Proxy load balancer is not configured with an HTTP healthcheck. This is the load balancer specified in the **Diego Brain** row of the **Resource Config** pane. 
+If your SSH load balancer is configured with an HTTP healthcheck, remove the healthcheck before upgrading. This is the load balancer specified in the **Diego Brain** row of the **Resource Config** pane. 
 
 <p class="note"><strong>Note</strong>: Neither the Terraform templates for installing PAS nor the PAS installation instructions specify a HTTP healthcheck for the SSH Load balancer.</p> 
 
