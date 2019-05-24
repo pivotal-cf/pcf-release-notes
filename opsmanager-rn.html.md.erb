@@ -337,7 +337,7 @@ An operator configuring a product tile on a vSphere deployment must configure vS
 
 For more information about this form verifier, see the [*install\_time\_verifiers*](http://www.example.com) section in *Property and Template References* in the tile developer documentation.
 
-### <a id="blobstore-backups"></a> Strategies for Backing Up BOSH Blobstore to S3 and GCS
+### <a id="blobstore-backups"></a> Added Strategies for Backing Up BOSH Blobstore to S3 and GCS
 
 The BOSH Director tile > **Director Config** pane supports multiple strategies for backing up the BOSH Director blobstore to external S3 or Google Cloud Storage (GCS) buckets:
 
@@ -345,7 +345,7 @@ The BOSH Director tile > **Director Config** pane supports multiple strategies f
 * **S3 without versioning**: Back up to S3 bucket dedicated to blobstore backup.
 * **GCS**: Back up to GCS bucket dedicated to blobstore backup.
 
-See the _Configuring BOSH Director_ topic > _Director Config Page_ section of the [Installing PCF guidelines for your IaaS](https://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html#contents).
+See the _Director Config Page_ section of the _Configuring BOSH Director_ topic for your IaaS, which you can navigate to from the [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html#contents) section of the _Deploying BOSH and Ops Manager_ topic.
 
 ### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
@@ -363,13 +363,13 @@ For more information, see the [Change Log Page](http://docs.pivotal.io/pivotalcf
 
 ### <a id='syslog-template'></a> Ops Manager Syslog Template Available for Service Broker Tiles
 
-Tile developers can use the Ops Manager Syslog template form for their service broker tiles. The template makes tile users’ experience more consistent and secure. Tile developers can apply the Syslog template using the `opsmanager_syslog` key in their tile’s `metadata.yml` file. 
+Tile developers can use the Ops Manager Syslog template form for their service broker tiles. The template makes tile users’ experience more consistent and secure. Tile developers can apply the Syslog template using the `opsmanager_syslog` key in their tile’s `metadata.yml` file.
 
 For more information about the Syslog template, see [Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/opsmanager-rn.html#syslog).
 
 ### <a id='aws-regions'></a> Ops Manager Adds Support for All AWS Regions
 
-The Ops Manager **AWS Config** pane includes an open text field for AWS region. This field allows you to input any AWS region when configuring BOSH Director on AWS.  
+The Ops Manager **AWS Config** pane includes an open text field for AWS region. This field allows you to input any AWS region when configuring BOSH Director on AWS.
 
 For more information about adding an AWS region in Ops Manager, see [Step 2: AWS Config Page](https://docs.pivotal.io/pivotalcf/2-6/om/aws/config-terraform.html#aws-config).
 
