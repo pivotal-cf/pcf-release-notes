@@ -295,6 +295,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Operators can configure API Batch Size for the CF Syslog Drain Release
 * **[Feature Improvement]** Increase performance for internal MySQL by changing innodb_flush_log_at_trx_commit from 1 to 2
 * **[Feature Improvement]** Cloud Controller fetches application metrics from `log-cache`
+* **[Feature Improvement]** Removes `nfs-legacy` NFS mounter. Existing `nfs-legacy` service instances will continue to work, but will use the newer `nfs` mounter
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix MySQL proxy connection limitation caused by incompatibilities between Xenial stemcells and the call to set the open file descriptor in the component's control script
 * **[Bug Fix]** Fixes access issue for NFS shares with `root_squash` enabled and no world read permissions
