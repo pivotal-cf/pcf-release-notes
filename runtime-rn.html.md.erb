@@ -521,5 +521,10 @@ Containerd mode is enabled by default to bring PAS in line with other container 
 
 For more information, see [opsguide-containerd.md](https://github.com/cloudfoundry/garden-runc-release/blob/develop/docs/opsguide-containerd.md) on GitHub.
 
+### <a id='nfs'></a> NFS Legacy Mounter Removed
+
+PAS v2.6 removes the `nfs-legacy` NFS mounter. Existing `nfs-legacy` service instances will continue to work, but will use the newer `nfs` mounter
+
+PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the default `nfs` service, and the original service became `nfs-legacy`. For more information, see [Experimental NFS Volume Service Supports NFSv4](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#nfs) and [NFS-Experimental Service Graduation](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#nfs-experimental-graduation). 
 
 ## <a id='known-issues'></a> Known Issues
