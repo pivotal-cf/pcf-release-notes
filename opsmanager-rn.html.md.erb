@@ -21,7 +21,7 @@ Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
 ### <a id="rc-4"></a> 2.6.0 Release Candidate 4
 
-* **[Bug Fix]**: Errands no longer fail when output is ASCII encoded but contains non-ASCII characters. 
+* **[Bug Fix]**: Errands no longer fail when output is ASCII encoded but contains non-ASCII characters.
 
 Ops Manager v2.6.0 Release Candidate 4 uses the following component versions:
 
@@ -37,9 +37,9 @@ Ops Manager v2.6.0 Release Candidate 4 uses the following component versions:
     <td>Ops Manager</td><td>2.6.0-build.138*</td>
   </tr>
   <tr><td>Stemcell</td><td>315.34*</td></tr><tr><td>BBR SDK</td><td>1.15.1</td></tr><tr><td>BOSH Director</td><td>269.0.2*</td></tr><tr><td>BOSH DNS</td><td>1.11.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.4.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>75</td></tr><tr><td>Azure CPI</td><td>36.0.0*</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1*</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -385,6 +385,14 @@ For more information, see [Running a pre-deploy check for the staged BOSH Direct
 The Ops Manager Change Log page has an improved UI, with deployment status and build times listed individually for each product, as well as for the deployment as a whole.
 
 For more information, see the [Change Log Page](http://docs.pivotal.io/pivotalcf/2-6/customizing/pcf-interface.html#changelog) section in the Ops Manager documentation.
+
+### <a id='deploy-times'></a> Product Deployment Times from API and Change Log Page
+
+Ops Manager publishes deployment times for individual products and whole deployments.
+
+The Ops Manager API returns `started_at` and `finished_at` timestamps from its `/api/v0/installations` endpoint.
+
+The Ops Manager UI **Change Log** page publishes these start and end timestamps, and durations calculated from them, as described in the [Improved Change Log Page](#changelog) note above.
 
 ### <a id='syslog-template'></a> Ops Manager Syslog Template Available for Service Broker Tiles
 
