@@ -1552,3 +1552,9 @@ If **Router application identity verification** is set to `Router and applicatio
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
 
 For more information and instructions for fixing this error, see [Pivotal Cloud Foundry upgrade fails with a StacklessAndStackfulMatchingBuildpacksExistError Cloud Controller Error](https://community.pivotal.io/s/article/pcf-upgrade-fails-with-stacklessandstackfulmatchingbuildpacksexisterror) in the Pivotal Knowledge Base.
+
+### <a id="autoscaler-manage-link-from-apps-manager-results-in-404-error"></a>Autoscaler “Manage” Link from Apps Manager results in 404 Error
+
+After upgrading, from PAS <2.3 to 2.3+,  you can ignore the “Manage” link on the App Autoscaler service instance details. Clicking this link will result in a 404 error and is not harmful.  Configuring the Autoscaler can be found via “Manage Autoscaling” link on the App Overview page in Apps Manager.
+
+For more information on resolving this issue, please see [PAS Autoscaler Manage button in Apps Manager shows 404 Not Found error](https://community.pivotal.io/s/article/autoscaler-manage-button-in-apps-manager-shows-404-not-found-error)
