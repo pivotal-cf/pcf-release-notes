@@ -380,6 +380,18 @@ For example, you can view the networks and availability zones assigned to produc
 
 For more information, see [Running a pre-deploy check for the staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation.
 
+### <a id='monitor-port'></a> Operators Can Specify a Monitor Port When Defining an NSX Load Balancer
+
+The Ops Manager API allows you to specify a monitor port when defining an NSX load balancer with the `monitor_port` parameter. This means the monitor port value does not default to the same value as the traffic port.
+
+For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
+
+### <a id='port-optional'></a> Operators Not Required to Specify a Port for NSX Load Balancers
+
+The Ops Manager API no longer requires you to specify a port for NSX load balancers. When a port is not specified, the TCP router relies on a default port that is specified by other components in the system.
+
+For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
+
 ### <a id='changelog'></a> Improved Change Log Page
 
 The Ops Manager Change Log page has an improved UI, with deployment status and build times listed individually for each product, as well as for the deployment as a whole.
