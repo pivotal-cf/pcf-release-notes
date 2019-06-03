@@ -392,11 +392,19 @@ The Ops Manager API no longer requires you to specify a port for NSX load balanc
 
 For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
 
+### <a id='automatic-ca'></a> Fresh Installations of Ops Manager Create New Default Certificate Authority in CredHub
+
+When installing Ops Manager v2.6, Ops Manager creates a new default certificate authority (CA) in the BOSH Director CredHub. This CA can generate TLS certificates.
+
+When upgrading to Ops Manager v2.6 from Ops Manager v2.5, any CA that already exists does not get overwritten.
+
+For more information about certificates and certificate authorities, see [Certificates and TLS in PCF](https://docs.pivotal.io/pivotalcf/2-6/security/pcf-infrastructure/certificates-index.html).
+
 ### <a id='changelog'></a> Improved Change Log Page
 
 The Ops Manager Change Log page has an improved UI, with deployment status and build times listed individually for each product, as well as for the deployment as a whole.
 
-For more information, see the [Change Log Page](http://docs.pivotal.io/pivotalcf/2-6/customizing/pcf-interface.html#changelog) section in the Ops Manager documentation.
+For more information, see the [Change Log Page](http://docs.pivotal.io/pivotalcf/2-6/customizing/pcf-interface.html#changelog) section in the _Using the Ops Manager Interface_ topic.
 
 ### <a id='deploy-times'></a> Product Deployment Times from API and Change Log Page
 
