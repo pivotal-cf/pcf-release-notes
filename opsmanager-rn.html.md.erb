@@ -436,6 +436,26 @@ These instance types are supported by Xenial stemcells and Trusty stemcell 3586 
 
 For more information about AWS instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/) in the AWS documentation.
 
+### <a id='compiled-bosh-release'></a> Specify Compiled Release Assets in BOSH Deployment Manifest  
+
+An `exported_from` field in the `releases` section of the BOSH deployment manifest file allows you to specify the compiled release assets for the deployment. 
+
+For example, the `exported_from` field in the following manifest file specifies that the deployment uses the packages from the release compiled against version `250.4` of `ubuntu-xenial`: 
+
+```
+releases:
+- name: bpm
+  url: https://s3.amazonaws.com/bosh-compiled-release-tarballs/bpm-0.12.3-ubuntu-xenial-250.4.tgz
+  version: 0.12.3
+  exported_from:
+  - os: ubuntu-xenial
+    version: 250.4
+```    
+
+You can use the `exported_from` field to prevent BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates.   
+
+For more information about using the `exported_from` field, see [Locking Compiled Releases](https://bosh.io/docs/locking-compiled-releases/) in the BOSH documentation. 
+
 
 ## <a id='known-issues'></a> Known Issues
 
