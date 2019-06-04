@@ -620,4 +620,11 @@ PAS v2.6 includes both the original root CA and the new root CA for Diego.
 This release note is informational only. No operator intervention is required.
 
 
+### <a id="read-write-performance"></a> Performance Improvements for Read-Write File Systems
+
+PAS v2.6 improves the speed of read-write mounted file systems that use UID mapping. This improvement addresses performance issues in mapfs, which is enabled when you specify a UID that maps to an NFS volume.
+
+For more information about using external file systems and NFS volume services, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-6/devguide/services/using-vol-services.html).
+
+
 ## <a id='known-issues'></a> Known Issues
