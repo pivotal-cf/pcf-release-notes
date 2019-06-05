@@ -438,7 +438,7 @@ For more information about AWS instance types, see [Amazon EC2 Instance Types](h
 
 ### <a id='compiled-bosh-release'></a> Specify Compiled Release Assets in BOSH Deployment Manifest  
 
-An `exported_from` field in the `releases` section of the BOSH deployment manifest file allows you to specify the compiled release assets for the deployment. 
+An `exported_from` field in the `releases` section of the BOSH deployment manifest file allows you to specify the compiled release assets for the deployment. You can use the `exported_from` field to prevent BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates. 
 
 For example, the `exported_from` field in the following manifest file specifies that the deployment uses the packages from the release compiled against version `250.4` of `ubuntu-xenial`: 
 
@@ -450,9 +450,7 @@ releases:
   exported_from:
   - os: ubuntu-xenial
     version: 250.4
-```    
-
-You can use the `exported_from` field to prevent BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates.   
+```       
 
 For more information about using the `exported_from` field, see [Locking Compiled Releases](https://bosh.io/docs/locking-compiled-releases/) in the BOSH documentation. 
 
