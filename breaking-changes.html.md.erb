@@ -44,7 +44,6 @@ These instance types are supported by Xenial stemcells and Trusty stemcell 3586 
 
 For more information about AWS instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/) in the AWS documentation.
 
-
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
 See the following PAS breaking changes:
@@ -59,6 +58,11 @@ The `ssh_proxy` job running on the Diego Brain VM no longer starts a HTTP health
 
 Additionally, making this healthcheck server inaccessible improves the security of the platform. 
 
+### <a id='router-cpus'></a> Default VM Type Change for Router VMs
+
+PAS v2.6 increases the default and minimum CPU core count from one to two for Router VMs.
+
+You should verify that you have sufficient infrastructure resources allocated to the deployment before upgrading to PAS v2.6.
 
 ## <a id='pas-windows'></a> PAS for Windows
 
