@@ -350,6 +350,26 @@ Ops Manager v2.6 Alpha 1 uses the following component versions:
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
+### <a id="multiple-stemcell"></a> Ops Manager Supports Products that Require Multiple Stemcells
+
+<p class="note breaking"><strong>Breaking Changes</strong>: There are breaking changes for API users related to this feature. For more information, see <a href="../breaking-changes#opsman">PCF Ops Manager</a> in <em>PCF 2.6 Breaking Changes</em>.</p>
+
+Ops Manager now supports tiles that require multiple stemcells. This means separate tiles are no longer required for products that support different operating systems. 
+
+See the following list:
+
+* In the review pending changes page, you can see a list of all of the stemcells for each product along with the OS for those stemcells. You will also see a message indicating when a new stemcell has been added. This information is also available through the review pending changes API endpoints. 
+
+* Stemcell library now includes and additional stemcells dropdown and displays the OS name for each stemcell. 
+
+* API users can assign one or multiple stemcells to a product using the multi-stemcell API, `PATCH /api/v0/stemcells_associations`. `GET /api/v0/stemcells_associations` returns information on all the stemcells assigned to products.
+
+* API users can now see Stemcell information under the `added_products` property of the `/api/v0/diagnostic_report` endpoint, which includes the stemcell filename, OS, and version. 
+
+* You can view update information from Pivotal Network for products with multiple stemcells using the Pivotal Network integration sidebar or the  `pivotal_network/stemcell_updates` API endpoint. Both show the stemcell OS name in addition to the version. 
+
+If you are a tile developer and want to use multiple stemcells, see [Support for Multiple Stemcells](https://docs.pivotal.io/tiledev/2-6/release-notes.html) in the _PCF v2.6 Partners Release Notes_. 
+
 ### <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
 
 vSphere's vCenter allows you to designate folder names with multiple words separated by spaces. That ability is reflected in Ops Manager. You can specify folder names in vCenter using spaces between words and Ops Manager will accept them as valid.
