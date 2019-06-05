@@ -273,9 +273,11 @@ Traditionally, Garden uses runc to create, delete, and run container processes. 
 To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox 
 in the **Application Containers** pane of the PCF Isolation Segment tile.
 
-### <a id='default-cpu-router'></a> Increased Default Number of Router CPUs
+### <a id='default-cpu-router'></a> Increased CPUs for Router VMs
 
-The default number of CPUs for Router VMs has increased from one to two.
+To improve reliability, PAS v2.6 increases the default and minimum CPU core count from one to two for Router VMs.
+
+PAS will migrate Router VMs with a single core to a VM type with two CPU cores during the upgrade.
 
 ## <a id='adv-features'></a> About Advanced Features
 

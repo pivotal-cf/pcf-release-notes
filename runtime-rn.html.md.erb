@@ -632,8 +632,10 @@ PAS v2.6 improves the speed of read-write mounted file systems that use UID mapp
 
 For more information about using external file systems and NFS volume services, see [Using an External File System (Volume Services)](https://docs.pivotal.io/pivotalcf/2-6/devguide/services/using-vol-services.html).
 
-### <a id='default-cpu-router'></a> Increased Default Number of Router CPUs
+### <a id='default-cpu-router'></a> Increased CPUs for Router VMs
 
-The default number of CPUs for Router VM has increased from one to two.
+To improve reliability, PAS v2.6 increases the default and minimum CPU core count from one to two for Router VMs.
+
+PAS will migrate Router VMs with a single core to a VM type with two CPU cores during the upgrade.
 
 ## <a id='known-issues'></a> Known Issues
