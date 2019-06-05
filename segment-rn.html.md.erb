@@ -270,7 +270,8 @@ To enable the System Metric Agent, go to the **System Logging** pane in the PCF 
 
 Traditionally, Garden uses runc to create, delete, and run container processes. Garden v1.15.0 and later support delegating the creation and destruction of some container processes through containerd instead of runc.
 
-You can enable or disable containerd mode by using the Garden property `garden.containerd_mode`.
+To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox 
+in the **Application Containers** pane of the PCF Isolation Segment tile.
 
 ### <a id='default-cpu-router'></a> Increased Default Number of Router CPUs
 
