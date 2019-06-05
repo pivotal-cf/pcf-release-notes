@@ -593,6 +593,13 @@ PAS supports revisions for apps. A revision is an object that represents code an
 
 For more information, see [App Revisions](https://docs.pivotal.io/pivotalcf/2-6/devguide/revisions.html).
 
+### <a id='sidecars'></a> Push Apps with Sidecar Processes (Alpha)
+
+PAS supports running additional operating system processes, or sidecars, in the same container as your app. You can use sidecars for processes that depend on each other or must run in the same container, such as those that must communicate through localhost
+or share the same filesystem. One example is an Application Performance Monitoring (APM) tool.
+
+For more information, see [Pushing Apps with Sidecar Processes (Alpha)](https://docs.pivotal.io/pivotalcf/2-6/devguide/sidecars.html).
+
 ### <a id='containerd'></a> Garden Delegates Container Creation and Destruction to containerd by Default
 
 Traditionally, Garden uses runc directly to create, delete, and run container processes. Garden v1.15.0 and later support delegating some of the container lifecycle through containerd, which is the industry standard wrapper around runc.
