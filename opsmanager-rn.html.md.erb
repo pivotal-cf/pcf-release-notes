@@ -475,6 +475,12 @@ releases:
 For more information about using the `exported_from` field, see [Locking Compiled Releases](https://bosh.io/docs/locking-compiled-releases/) in the BOSH documentation. 
 
 
+### <a id='adfs-auth-azure'></a> ADFS Authentication Available for Microsoft Azure
+
+You can deploy PCF on Microsoft Azure using Active Directory Federation Services (ADFS) for secured identity federation and single sign-on (SSO). To implement ADFS for Azure, you must use a certificate to authenticate on Azure, rather than a client and secret. 
+
+For more information about using ADFS for Azure, see [Use Service Principal with certificate](https://github.com/cloudfoundry/bosh-azure-cpi-release/tree/master/docs/advanced/use-service-principal-with-certificate) on GitHub.
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
