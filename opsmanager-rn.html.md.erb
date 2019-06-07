@@ -350,25 +350,27 @@ Ops Manager v2.6 Alpha 1 uses the following component versions:
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
-### <a id="multiple-stemcell"></a> Ops Manager Supports Products that Require Multiple Stemcells
+### <a id="multiple-stemcell"></a> Ops Manager Supports Multiple Stemcells for Products
 
 <p class="note breaking"><strong>Breaking Changes</strong>: There are breaking changes for API users related to this feature. For more information, see <a href="./breaking-changes.html#opsman">PCF Ops Manager</a> in <em>PCF 2.6 Breaking Changes</em>.</p>
 
-Ops Manager now supports tiles that require multiple stemcells. This means separate tiles are no longer required for products that support different operating systems. 
+Ops Manager supports products that require multiple stemcells. This means it is no longer necessary to deploy separate tiles for products that require different stemcells. 
 
-See the following list:
+The following features and API endpoints enable support for products with multiple stemcells: 
 
-* In the review pending changes page, you can see a list of all of the stemcells for each product along with the OS for those stemcells. You will also see a message indicating when a new stemcell has been added. This information is also available through the review pending changes API endpoints. 
+* The **Review Pending Changes** page includes the OS and version number of all stemcells associated with each product. The **Review Pending Changes** page also displays a message that indicates when a new stemcell is added to a product.   
 
-* Stemcell library now includes and additional stemcells dropdown and displays the OS name for each stemcell. 
+* The **Stemcell Library** includes an **Additional Stemcells** dropdown. You can use this dropdown to add multiple stemcells to each product. The **Stemcell Library** also displays the OS and version number of the stemcells associated with each deployed and staged product. 
 
-* API users can assign one or multiple stemcells to a product using the multi-stemcell API, `PATCH /api/v0/stemcells_associations`. `GET /api/v0/stemcells_associations` returns information on all the stemcells assigned to products.
+* You can assign one or more stemcells to a product with the multi-stemcell API, `PATCH /api/v0/stemcells_associations`. `GET /api/v0/stemcells_associations` returns information on all stemcells assigned to products in your deployment.
 
-* API users can now see Stemcell information under the `added_products` property of the `/api/v0/diagnostic_report` endpoint, which includes the stemcell filename, OS, and version. 
+* The `added_products` property of the `/api/v0/diagnostic_report` endpoint returns the filename, OS, and version number of all stemcells associated with each product in your deployment. 
 
-* You can view update information from Pivotal Network for products with multiple stemcells using the Pivotal Network integration sidebar or the  `pivotal_network/stemcell_updates` API endpoint. Both show the stemcell OS name in addition to the version. 
+* For products with multiple stemcells, you can view available stemcell updates using the Pivotal Network integration sidebar or the  `pivotal_network/stemcell_updates` API endpoint.
 
-If you are a tile developer and want to use multiple stemcells, see [Support for Multiple Stemcells](https://docs.pivotal.io/tiledev/2-6/release-notes.html) in the _PCF v2.6 Partners Release Notes_. 
+For more information about the API endpoints that enable support for products with multiple stemcells, see the [Ops Manager API documentation](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/).
+
+For more information about using multiple stemcells as a tile developer, see [Support for Multiple Stemcells](https://docs.pivotal.io/tiledev/2-6/release-notes.html) in the _PCF v2.6 Partners Release Notes_. 
 
 ### <a id="folder-names"></a> vSphere Operators Can Use Whitespace in Folder Names
 
