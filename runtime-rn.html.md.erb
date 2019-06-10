@@ -643,7 +643,7 @@ PAS migrates Router VMs with a single core to a VM type with two CPU cores durin
 
 The Loggregator architecture in PAS v2.6 includes optional Syslog Agents through the **Enable agent-based syslog egress for app logs** field in the **System Logging** configuration pane. 
 
-<p class="note"><strong>Note</strong>: Enabling this feature disables the Syslog Adapter to avoid log duplication.</p> 
+<p class="note"><strong>Note</strong>: Enabling this feature disables the Syslog Adapter and Syslog Scheduler to avoid log duplication.</p> 
 
 Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
 
