@@ -183,3 +183,7 @@ PAS for Windows v2.6 includes the following advanced features:
 ## <a id='known-issues'></a> Known Issues
 
 This section includes known issues with PAS for Windows v2.6.
+
+### <a id='syslog'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
+
+If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see ["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs). 
