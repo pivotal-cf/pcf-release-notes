@@ -595,9 +595,7 @@ For more information, see [App Revisions](https://docs.pivotal.io/pivotalcf/2-6/
 
 ### <a id='sidecars'></a> Push Apps with Sidecar Processes (Beta)
 
-You can run additional processes, or sidecars, in the same container as your app. Sidecars are useful for processes that depend on each other or must run in the same container. This includes processes that must communicate through localhost
-or share the same filesystem, such as an Application Performance Monitoring (APM) tool.
-
+You can run additional processes, or sidecars, in the same container as your app. Sidecars are useful for processes that depend on each other or must run in the same container. This includes processes that must communicate through localhost or share the same filesystem, such as an Application Performance Monitoring (APM) tool.
 
 For more information, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/pivotalcf/2-6/devguide/sidecars.html).
 
@@ -613,19 +611,21 @@ For more information, see [opsguide-containerd.md](https://github.com/cloudfound
 
 PAS v2.6 removes the `nfs-legacy` NFS mounter. Existing `nfs-legacy` service instances will continue to work, but will use the newer `nfs` mounter.
 
-PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the default `nfs` service, and the original service became `nfs-legacy`. For more information, see [Experimental NFS Volume Service Supports NFSv4](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#nfs) and [NFS-Experimental Service Graduation](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#nfs-experimental-graduation). 
+PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the default `nfs` service, and the original service became `nfs-legacy`. For more information, see [Experimental NFS Volume Service Supports NFSv4](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#nfs) and [NFS-Experimental Service Graduation](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#nfs-experimental-graduation).
+
+### <a id='gcs-backups'></a> GCS Blobstores Are Backed Up Automatically
+
+When BOSH Director is configured to use a Google Cloud Storage (GCS) external blobstore, BOSH Backup and Restore (BBR) creates backups of the blobstore automatically. This feature cannot be disabled.
+
+For more information about configuring BOSH Director to use a GCS external blobstore, see the _Director Config Page_ section of the [BOSH Director configuration topic for your IaaS](http://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html).
 
 ### <a id='diego-root-ca'></a> Extra Diego Root CA Added to Prevent Future Expiration Issues
 
-The current Diego root CA included with PAS v2.3 and later expires in mid-2020. 
-To prevent potential expiration issues with intermediate CAs when the root CA expires, 
-PAS v2.6 includes another Diego root CA that extends the root CA expiration date.
+The current Diego root CA included with PAS v2.3 and later expires in mid-2020. To prevent potential expiration issues with intermediate CAs when the root CA expires, PAS v2.6 includes another Diego root CA that extends the root CA expiration date.
 
-The Diego root CA is used to sign intermediate CAs, which are used to sign app identity certificates.
-In turn, app identity certificates are used to establish trust between applications and various components. 
+The Diego root CA is used to sign intermediate CAs, which are used to sign app identity certificates. In turn, app identity certificates are used to establish trust between applications and various components. 
 
-PAS v2.6 includes both the original root CA and the new root CA for Diego. 
-This release note is informational only. No operator intervention is required.
+PAS v2.6 includes both the original root CA and the new root CA for Diego. This release note is informational only. No operator intervention is required.
 
 ### <a id="read-write-performance"></a> Performance Improvements for Read-Write File Systems
 
@@ -643,15 +643,16 @@ PAS migrates Router VMs with a single core to a VM type with two CPU cores durin
 
 The Loggregator architecture in PAS v2.6 includes optional Syslog Agents through the **Enable agent-based syslog egress for app logs** field in the **System Logging** configuration pane. 
 
-<p class="note"><strong>Note</strong>: Enabling this feature disables the Syslog Adapter and Syslog Scheduler to avoid log duplication.</p> 
+<p class="note"><strong>Note:</strong> Enabling this feature disables the Syslog Adapter and Syslog Scheduler to avoid log duplication.</p> 
 
-<p class="note warning"><strong>WARNING</strong>: See the following known issue related to this feature: <a href="#syslog">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p> 
+<p class="note warning"><strong>WARNING:</strong> See the following known issue related to this feature: <a href="#syslog">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p> 
 
 Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
 
 This update resolves a known issue where app log loss occurs at 10,000 syslog drain service bindings. For more information about the known issue, see the [Known Loggregator Scaling Issues](https://community.pivotal.io/s/article/known-loggregator-scaling-issues) knowledge base article.
 
 For more information about Syslog Agents, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-6/loggregator/architecture.html).
+
 
 ## <a id='known-issues'></a> Known Issues
 

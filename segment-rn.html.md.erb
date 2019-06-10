@@ -251,10 +251,10 @@ The procedure for installing PCF Isolation Segment v2.6 is documented in the [In
 
 To install a PCF Isolation Segment, you must first install PCF v2.6.
 
+
 ## <a id='2.6.0'></a> New Features in PCF Isolation Segment v2.6
 
 See the following new features for PCF Isolation Segment v2.6:
-
 
 ### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
 
@@ -270,8 +270,7 @@ To enable the System Metric Agent, go to the **System Logging** pane in the PCF 
 
 Traditionally, Garden uses runc to create, delete, and run container processes. Garden v1.15.0 and later support delegating the creation and destruction of some container processes through containerd instead of runc.
 
-To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox 
-in the **Application Containers** pane of the PCF Isolation Segment tile.
+To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox in the **Application Containers** pane of the PCF Isolation Segment tile.
 
 ### <a id='default-cpu-router'></a> Increased CPUs for Router VMs
 
@@ -279,10 +278,26 @@ To improve reliability, PAS v2.6 increases the default and minimum CPU core coun
 
 PAS migrates Router VMs with a single core to a VM type with two CPU cores during the upgrade.
 
+### <a id='syslog'></a> Loggregator Syslog Agent Increases Scale For Syslog Drains
+
+The Loggregator architecture in PAS v2.6 includes optional Syslog Agents through the **Enable agent-based syslog egress for app logs** field in the **System Logging** configuration pane. 
+
+<p class="note"><strong>Note:</strong> Enabling this feature disables the Syslog Adapter and Syslog Scheduler to avoid log duplication.</p> 
+
+<p class="note warning"><strong>WARNING:</strong> See the following known issue related to this feature: <a href="#syslog">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p> 
+
+Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
+
+This update resolves a known issue where app log loss occurs at 10,000 syslog drain service bindings. For more information about the known issue, see the [Known Loggregator Scaling Issues](https://community.pivotal.io/s/article/known-loggregator-scaling-issues) knowledge base article.
+
+For more information about Syslog Agents, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-6/loggregator/architecture.html).
+
+
 ## <a id='adv-features'></a> About Advanced Features
 
 The Advanced Features section of the PCF Isolation Segment v2.6 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
+
 
 ## <a id='known-issues'></a> Known Issues
