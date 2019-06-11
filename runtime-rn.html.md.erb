@@ -613,12 +613,6 @@ PAS v2.6 removes the `nfs-legacy` NFS mounter. Existing `nfs-legacy` service ins
 
 PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the default `nfs` service, and the original service became `nfs-legacy`. For more information, see [Experimental NFS Volume Service Supports NFSv4](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#nfs) and [NFS-Experimental Service Graduation](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#nfs-experimental-graduation).
 
-### <a id='gorouter-dns'></a> Gorouter Defaults to DNS Lookup
-
-Gorouter defaults to using DNS lookup to resolve requests from user-provided internal route services. Previously, it defaulted to using any route registered interally.
-
-For more information, see [Configuring Service Lookup](http://docs.pivotal.io/pivotalcf/2-6/customizing/route-service-lookup.html).
-
 ### <a id='diego-root-ca'></a> Extra Diego Root CA Added to Prevent Future Expiration Issues
 
 The current Diego root CA included with PAS v2.3 and later expires in mid-2020. To prevent potential expiration issues with intermediate CAs when the root CA expires, PAS v2.6 includes another Diego root CA that extends the root CA expiration date.
