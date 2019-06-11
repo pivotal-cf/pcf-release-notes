@@ -155,16 +155,9 @@ You must migrate any apps that run on the `windows2016` stack to the `windows` s
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
 
-### <a id='wcf'></a> Improved Windows Communication Foundation (WCF) Support
+### <a id='odbc'></a>ODBC Driver Installation Support in Windows Containers
 
-Developers can deploy .NET applications with improved WCF support. 
-
-In PAS for Windows v2.6, .NET applications now support the following:
-
-+ TCP activation
-+ Microsoft Message Queuing (MSMQ)
-+ Named pipe activation
-+ HTTP activation
+PAS for Windows v2.6 supports ODBC driver installation by giving  developers the ability to add ODBC driver entries to the Windows Registry. Previously, ODBC drivers were installed to Windows cells via BOSH add-ons. Installing ODBC is no longer possible in true Windows containerized runtimes.
 
 ### <a id='bosh-ssh'></a> BOSH SSH Enabled by Default
 
