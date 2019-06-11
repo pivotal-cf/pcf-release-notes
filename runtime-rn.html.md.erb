@@ -611,7 +611,13 @@ For more information, see [opsguide-containerd.md](https://github.com/cloudfound
 
 PAS v2.6 removes the `nfs-legacy` NFS mounter. Existing `nfs-legacy` service instances will continue to work, but will use the newer `nfs` mounter.
 
-PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the default `nfs` service, and the original service became `nfs-legacy`. For more information, see [Experimental NFS Volume Service Supports NFSv4](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#nfs) and [NFS-Experimental Service Graduation](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#nfs-experimental-graduation). 
+PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the default `nfs` service, and the original service became `nfs-legacy`. For more information, see [Experimental NFS Volume Service Supports NFSv4](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#nfs) and [NFS-Experimental Service Graduation](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/runtime-rn.html#nfs-experimental-graduation).
+
+### <a id='gorouter-dns'></a> Gorouter Defaults to DNS Lookup
+
+Gorouter defaults to using DNS lookup to resolve requests from user-provided internal route services. Previously, it defaulted to using any route registered interally.
+
+For more information, see [Configuring Service Lookup](http://docs.pivotal.io/pivotalcf/2-6/customizing/route-service-lookup.html).
 
 ### <a id='diego-root-ca'></a> Extra Diego Root CA Added to Prevent Future Expiration Issues
 
@@ -635,7 +641,7 @@ PAS migrates Router VMs with a single core to a VM type with two CPU cores durin
 
 ### <a id='syslog'></a> Loggregator Syslog Agent Increases Scale For Syslog Drains
 
-<p class="note warning"><strong>Warning:</strong> See the following known issue related to this feature: <a href="#syslog">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p>
+<p class="note warning"><strong>WARNING:</strong> See the following known issue related to this feature: <a href="#syslog">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p>
 
 The Loggregator architecture includes optional Syslog Agents. Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
 
@@ -646,6 +652,18 @@ To enable Syslog Agents, select **Enable agent-based syslog egress for app logs*
 This update resolves a known issue where app log loss occurs at 10,000 syslog drain service bindings. For more information about the known issue, see the [Known Loggregator Scaling Issues](https://community.pivotal.io/s/article/known-loggregator-scaling-issues) knowledge base article.
 
 For more information about Syslog Agents, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-6/loggregator/architecture.html).
+
+### <a id='terminate-instance'></a> Terminate Specific Instances of an App in Apps Manager UI
+
+Apps Manager allows you to terminate a specific instance of an app through the UI. On the list of apps in the Apps Manager UI, a menu option called **Terminate Instance** appears.
+
+For more information about terminating an instance, see [Terminate a process instance](http://v3-apidocs.cloudfoundry.org/version/3.68.0/#terminate-a-process-instance) in the Cloud Foundry API documentation.
+
+### <a id='view-edit-org'></a> View and Edit Labels and Annotations Associated with an Organization
+
+In the **Settings** pane of the Apps Manager UI, the **Metadata** section contains lists of labels and annotations associated with an organization. You can edit these labels and annotations.
+
+For more information, see the [Add Metadata](http://docs.pivotal.io/pivotalcf/console/manage-spaces.html#metadata) section of the _Managing Orgs and Spaces Using Apps Manager_ topic.
 
 
 ## <a id='known-issues'></a> Known Issues
