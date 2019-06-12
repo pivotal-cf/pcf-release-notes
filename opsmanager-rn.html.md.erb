@@ -360,7 +360,7 @@ The following features and API endpoints enable support for products with multip
 
 * The **Review Pending Changes** page includes the OS and version number of all stemcells associated with each product. The **Review Pending Changes** page also displays a message that indicates when a new stemcell is added to a product.   
 
-* The **Stemcell Library** includes an **Additional Stemcells** dropdown. You can use this dropdown to add multiple stemcells to each product. The **Stemcell Library** also displays the OS and version number of the stemcells associated with each deployed and staged product. 
+* The **Stemcell Library** includes a dropdown for each additional required stemcell. You can use this dropdown to add multiple stemcells to each product. The **Stemcell Library** also displays the OS and version number of the stemcells associated with each deployed and staged product. 
 
 * You can assign one or more stemcells to a product with the multi-stemcell API, `PATCH /api/v0/stemcells_associations`. `GET /api/v0/stemcells_associations` returns information on all stemcells assigned to products in your deployment.
 
@@ -384,21 +384,24 @@ An operator configuring a product tile on a vSphere deployment must configure vS
 
 For more information about this form verifier, see the [*install\_time\_verifiers*](https://docs.pivotal.io/tiledev/2-6/property-template-references.html#top-verifier) section in *Property and Template References* in the tile developer documentation.
 
-### <a id="blobstore-backups"></a> Added Strategies for Backing Up BOSH Blobstore to S3 and GCS
+### <a id="blobstore-backups"></a> Added Strategies for Backing Up BOSH Blobstore to S3
 
-The BOSH Director tile > **Director Config** pane supports multiple strategies for backing up the BOSH Director blobstore to external S3 or Google Cloud Storage (GCS) buckets:
+The BOSH Director tile > **Director Config** pane supports multiple strategies for backing up the BOSH Director blobstore to external S3 buckets:
 
 * **S3 with versioning**: Back up to prior version of blobstore bucket.
 * **S3 without versioning**: Back up to S3 bucket dedicated to blobstore backup.
-* **GCS**: Back up to GCS bucket dedicated to blobstore backup.
 
 See the _Director Config Page_ section of the _Configuring BOSH Director_ topic for your IaaS, which you can navigate to from the [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-6/customizing/deploy-bosh-om.html#contents) section of the _Deploying BOSH and Ops Manager_ topic.
 
 ### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
-The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys.
+The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint now validates for 
+missing configurations. The endpoint performs a dry run of Apply Changes verifiers and reports any failures that might 
+occur when triggering Apply Changes. This endpoint allows operators to discover which configurations 
+need attention without having to manually search the Ops Manager UI or wait for Apply Changes to fail.
 
-For example, you can view the networks and availability zones assigned to products in your deployment. You can use this information to determine if any products are not assigned a network or availability zone, which causes the deploy to fail.
+For example, you can check whether a product has not been assigned a stemcell, network, or availability zone. 
+You can also check exactly which properties are invalid and which `install_time` verifiers might fail.
 
 For more information, see [Running a pre-deploy check for the staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation.
 
@@ -458,11 +461,15 @@ These instance types are supported by Xenial stemcells and Trusty stemcell 3586 
 
 For more information about AWS instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/) in the AWS documentation.
 
-### <a id='compiled-bosh-release'></a> Specify Compiled Release Assets in BOSH Deployment Manifest  
+### <a id='compiled-bosh-release'></a> Compiled Release Assets Included in BOSH Deployment Manifest  
 
-An `exported_from` field in the `releases` section of the BOSH deployment manifest file allows you to specify the compiled release assets for the deployment. You can use the `exported_from` field to prevent BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates. 
+Ops Manager now automatically includes the `exported_from` field in the `releases` section of the BOSH deployment manifest file. 
+The `exported_from` field contains the compiled release assets for the deployment and prevents BOSH from 
+updating every VM with later versions of packages during a BOSH deployment. 
+This saves time and reduces unexpected VM updates. 
 
-For example, the `exported_from` field in the following manifest file specifies that the deployment uses the packages from the release compiled against version `250.4` of `ubuntu-xenial`: 
+For example, the `exported_from` field in the following manifest file specifies that the deployment 
+uses the packages from the release compiled against version `250.4` of `ubuntu-xenial`: 
 
 ```
 releases:
