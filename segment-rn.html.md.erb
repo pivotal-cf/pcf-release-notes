@@ -7,6 +7,41 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.6.0-rc.3'></a> 2.6.0-rc.3
+
+* **[Bug Fix]** Fix drain script in SMB volume driver to prevent it from unmounting shares before Diego has finished evacuating the cell
+* **[Bug Fix]** Fix issue with Azure Gateway was keeping connections alive longer than they were available when using HAProxy
+* Bump ubuntu-xenial stemcell to version `315.36`
+* Bump cflinuxfs3 to version `0.101.0`
+* Bump haproxy to version `9.5.2`
+* Bump routing to version `0.188.1`
+* Bump smb-volume to version `1.1.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>315.36</td></tr>
+    <tr><td>bpm</td><td>1.0.4</td></tr>
+    <tr><td>cf-networking</td><td>2.22.2</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.101.0</td></tr>
+    <tr><td>diego</td><td>2.30.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.1</td></tr>
+    <tr><td>haproxy</td><td>9.5.2</td></tr>
+    <tr><td>loggregator-agent</td><td>3.14</td></tr>
+    <tr><td>mapfs</td><td>1.1.5</td></tr>
+    <tr><td>nfs-volume</td><td>2.1.0</td></tr>
+    <tr><td>routing</td><td>0.188.1</td></tr>
+    <tr><td>silk</td><td>2.22.2</td></tr>
+    <tr><td>smb-volume</td><td>1.1.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.6.0-rc.2'></a> 2.6.0-rc.2
 
 * **[Feature]** Improve scalability of application syslog drain system with new syslog agent architecture
