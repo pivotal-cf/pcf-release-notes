@@ -46,7 +46,7 @@ For more information about AWS instance types, see [Amazon EC2 Instance Types](h
 
 ### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Deprecated
 
-The `stemcells_assignments` endpoint has been renamed `stemcell_associations`. 
+The `stemcells_assignments` endpoint, which returns information about one stemcell for a product, has been deprecated. Instead, operators should use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product since products can now be associated with more than one stemcell. 
 
 For more information, see [Stemcell Associations for Products](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
 
