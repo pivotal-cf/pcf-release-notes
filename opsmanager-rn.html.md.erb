@@ -19,47 +19,6 @@ Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
 ### <a id="rc-4"></a> 2.6.0
 
-- **[New Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
-
-* **[New Feature]**: After a deployment fails, API users can use `POST /api/v0/installations` to see which products are not fully configured.
-
-* **[New Feature]**: Tile authors can use a form and install time verifier to verify vSphere IaaS properties.
-* **[New Feature]**: Tile authors can upload tiles that support multiple stemcells. Use the `additional_stemcells_criteria` key to specify an array of additional stemcells for operators to use. Choose a stemcell with the `stemcell_selector` property key included in `PUT /api/v0/staged/products/:PRODUCT-GUID/properties`.
-* **[New Feature]**: Tile authors can create and deploy their own manifests using non-default stemcells. Use a `stemcells` block in the manifest to specify an alias, OS, and version for a stemcell. Additionally, you can use the following double-parens accessors to see further details about stemcells: `(( my_stemcell_selector.os ))`, `(( my_stemcell_selector.version ))`, `(( my_stemcell_selector.assigned? ))`, `(( my_stemcell_selector.value ))`, (( my_stemcell_selector.value_present? ))`.
-
-* **[New Feature]**: `GET /api/v0/installations` now displays the start and end time for a deployment of each product. Products that are upgraded from earlier versions of Ops Manager will display `null` for their start and end times.
-
-* **[New Feature]**: Ops Manager operators cannot set secrets that do not match the constraints defined by the must_match_regex parameter.
-
-* **[New Feature]**: Ops Manager supports 5th generation AWS Instance Types. 5th generation Instance Types are the default when a v2.6 Ops Manager boots.
-* **[New Feature]**: You can now specify a monitor port when defining a NSX load balancer. Send a PUT to `/api/v0/staged/products/:guid/properties/jobs/:job_id/resource_config` with a  `monitor_port` key. This features helps to support NSX load balancer compatibility with Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.
-
-* **[Bug Fix]**: Errands no longer fail when output is ASCII encoded but contains non-ASCII characters.
-- **[Bug Fix]** Ops Manager does not allow a revert on upgrade without deploying the BOSH Director.
-- **[Bug Fix]** Uploading a tile no longer crashes due to the `inspect_local_release` failing in an unexpected way.
-- **[Bug Fix]** The `pre_deploy_check` is a top-level key at the `/api/v0/staged/director/pre_deploy_check` endpoint. For more information, see [Running a pre-deploy check for the staged BOSH Director](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#running-a-pre-deploy-check-for-the-staged-bosh-director) in the Ops Manager API documentation.
-- **[Bug Fix]** The  Change Log page in the Ops Manager UI shows version numbers of products.
-- **[Bug Fix]** Ops Manager does not fail to upload a tile with no releases.
-- **[Bug Fix]** The product dependency Ops Manager verify uses the full verifier interface expected by the system.
-- **[Bug Fix]** Cloud config does not show up in the sidebar or in the main column of product diffs.
-- **[Bug Fix]** Dropdowns for certain VM types are easier to use.
-- **[Bug Fix]** The Change Log page shows the status of `DELETED` when a product is deleted.
-- **[Bug Fix]** Ops Manager saves the installation change start time.
-- **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
-* **[Bug Fix]**: You can now log in to Ops Manager when you have set up Ops Manager with LDAP over SSL.
-* **[Bug Fix]**: The `pre_deploy_check` API now shows all applicable stemcells when multiple stemcells are required.
-* **[Bug Fix]**: Operators can no longer assign a stemcell with the incorrect infrastructure type on the Stemcell Library page.
-* **[Bug Fix]**: When you delete an unused product, all the stemcells associated with it are also deleted.
-* **[Bug Fix]**: **Apply Changes** no longer fails if copying credentials to CredHub takes longer than ten minutes.
-* **[Bug Fix]**: Ops Manager saves the start time for the `InstallationChange` object for runtime config-only tiles.
-* **[Bug Fix]**: Exporting installation settings no longer causes the BOSH Director to incorrectly show that it has staged changes.
-* **[Bug Fix]**: Harbour now installs successfully on deployments that already have PKS installed.
-* **[Bug Fix]**: Operators can no longer change persistent disk size to custom values.
-* **[Bug Fix]**: All product stemcells display a notification when it is out of date, even when there are multiple stemcells associated with a product.
-* **[Bug Fix]**: Ops Manager operators can no longer upload a duplicate stemcell to the Stemcell Library.
-* **[Bug Fix]**: Ops Manager operators on vSphere-based deployments can now use spaces in the folder names for their vCenter config information.
-
-
 Ops Manager v2.6.0 uses the following component versions:
 
 <table border="1" class="nice">
@@ -149,7 +108,9 @@ For more information, see [Configuring resources for a job (Experimental)](http:
 
 The Ops Manager API no longer requires you to specify a port for NSX load balancers. When a port is not specified, the TCP router relies on a default port that is specified by other components in the system.
 
-For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
+This feature helps to support NSX load balancer compatibility with Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.
+
+For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
 
 ### <a id='automatic-ca'></a> Fresh Installations of Ops Manager Create New Default Certificate Authority in CredHub
 
@@ -217,13 +178,38 @@ releases:
 
 For more information about using the `exported_from` field, see [Locking Compiled Releases](https://bosh.io/docs/locking-compiled-releases/) in the BOSH documentation. 
 
-
 ### <a id='adfs-auth-azure'></a> ADFS Authentication Available for Microsoft Azure
 
 You can deploy PCF on Microsoft Azure using Active Directory Federation Services (ADFS) for secured identity federation and single sign-on (SSO). To implement ADFS for Azure, you must use a certificate to authenticate on Azure, rather than a client and secret. 
 
 For more information about using ADFS for Azure, see [Use Service Principal with certificate](https://github.com/cloudfoundry/bosh-azure-cpi-release/tree/master/docs/advanced/use-service-principal-with-certificate) on GitHub.
 
+### <a id="api-improvements"></a> Other Ops Manager API Improvements
+
+In addition to features described above, the Ops Manager v2.6 API also includes the following changes:
+
+- Operators can override the NATS maximum payload. Deployments with a large number of custom domains may use certificates that are larger than the default 1 MB NATS payload size. As a workaround, operators can override the default maximum. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation. 
+
+- When a request to `POST /api/v0/installations` fails to trigger Apply Changes, the response contains more details about which products are not fully configured. For more information, see [Triggering an installation](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#triggering-an-installation) in the Ops Manager API documentation.
+
 ## <a id='known-issues'></a> Known Issues
 
-There are currently no known issues. 
+This release contains the following known issues:
+
+### <a id="service-broker"></a> Ops Manager Syslog Template Is Not Supported for Service Broker Tiles
+
+Ops Manager syslog template does not propagate to service broker tiles.
+Tile developers with service broker tiles should continue to use their own syslog configurations.
+Service broker tiles with the syslog template configured do not display the syslog template.
+
+For more information about the Syslog template, see
+[Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/tiledev/2-4/release-notes.html#syslog).
+
+### <a id="bad-link-failed-install"></a> Incorrect Link for Failed Installations in Ops Manager UI
+
+When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in the pop-up window. 
+This link is currently non-functional.
+
+To work around this issue, click on **Change Log** in the Ops Manager Installation Dashboard to view product installation logs. 
+
+
