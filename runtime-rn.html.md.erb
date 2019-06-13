@@ -1142,10 +1142,6 @@ If you want to configure multiple ports, do the following:
 
 1. Use the Routing API to add all desired TCP ports by following the instructions in the [Modify your TCP ports](https://docs.pivotal.io/pivotalcf/1-12/adminguide/enabling-tcp-routing.html#modify-ports) section of the _Enabling TCP Routing_ topic. When using the Routing API, you can include a comma separated list of ports.
 
-### <a id='cf-networking-downtime'></a> API Downtime During Rolling Deploys
-
-Operators intermittently receive errors when pushing apps during a rolling upgrade.
-
 ### <a id="loggregator-scaling"></a> Loggregator Component Horizontal Scaling Thresholds
 
 Above approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, increase CPU resources for the existing Doppler and Traffic Controller instances to add vertical scale.
