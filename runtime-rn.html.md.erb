@@ -687,11 +687,11 @@ If there is more than one certificate authority, Apps Manager does not show cont
 
 If you must use an SSL certificate chain with more than one intermediate certificate authority in your environment, contact Pivotal Support to discuss options for working around this issue.
 
-### <a id="appsman-bbr"></a> Apps Manager Bosh Backup and Restore (BBR) script failures in v2.5.0--2.5.4
+### <a id="appsman-bbr"></a> Apps Manager BOSH Backup and Restore (BBR) script failures in v2.5.0--2.5.4
 
-In v2.5.0--2.5.4, Apps Manager's BBR script was misconfigured and failed out in the cse where the system organization and system space did not exist.
+In v2.5.0--2.5.4, the Apps Manager BBR script fails in the case where the system organization and system space do not exist.
 
-Manually creating the system organization and system space will allow the script to succeed
+Manually creating the system organization and system space allows the script to succeed
 
 ### <a id='log-error'></a> Metric Registrar App Log Error Message
 
