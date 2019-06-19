@@ -13,10 +13,16 @@ or later.
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.6.0-rc.2'></a> 2.6.0-rc.2
+### <a id='2.6.0'></a> 2.6.0
 
-* **[Feature]** App developers can gracefully shutdown their .NET applications in PASW.
-* **[Feature]** Improve scalability of application syslog drain system with new syslog agent architecture
+<p class='note breaking'><strong>Breaking Change</strong>: Option to override deployment name to CF is removed.</p>
+
+* **[Feature]** App developers can gracefully shutdown their .NET applications in PASW
+* **[Feature]** Add optional System Metric Agent to allow monitoring a more complete set of metrics for all VMs in the deployment
+* **[Feature]** Operators can provide trusted certs in OpsMgr for .NET apps to use automatically
+* **[Feature Improvement]** Allow vcap WriteKey access to ODBC registry entry
+* **[Feature Improvement]** Improve scalability of application syslog drain system with new syslog agent architecture
+* **[Security Fix]** Introduce and trust new Diego "root CA" in advance of existing CA expiration
 * Bump windows2019 stemcell to version `2019.5`
 * Bump hwc-offline-buildpack to version `3.1.9`
 * Bump loggregator-agent to version `3.14`
@@ -46,138 +52,21 @@ or later.
   </tbody>
 </table>
 
-### <a id='2.6.0-rc.1'></a> 2.6.0-rc.1
-
-* **[Security Fix]** Introduce and trust new Diego "root CA" in advance of existing CA expiration
-* No release bumps
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.3</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.51</td></tr>
-    <tr><td>diego</td><td>2.30.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.8</td></tr>
-    <tr><td>loggregator-agent</td><td>3.11</td></tr>
-    <tr><td>loggregator</td><td>103.4</td></tr>
-    <tr><td>winc</td><td>1.10.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.3.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.6.0-beta.1'></a> 2.6.0-beta.1
-
-* **[Feature]** Add optional System Metric Agent to allow monitoring a more complete set of metrics for all VMs in the deployment
-* **[Feature Improvement]** Allow vcap WriteKey access to ODBC registry entry.
-* Bump windows2019 stemcell to version `2019.3`
-* Bump hwc-offline-buildpack to version `3.1.8`
-* Bump loggregator-agent to version `3.11`
-* Bump loggregator to version `103.4`
-* Bump windowsfs-release to version `1.3.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.3</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.51</td></tr>
-    <tr><td>diego</td><td>2.30.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.8</td></tr>
-    <tr><td>loggregator-agent</td><td>3.11</td></tr>
-    <tr><td>loggregator</td><td>103.4</td></tr>
-    <tr><td>winc</td><td>1.10.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.3.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.6.0-alpha.3'></a> 2.6.0-alpha.3
-
-* Bump cf-windows-smoke-tests to version `40.0.51`
-* Bump diego to version `2.30.0`
-* Bump event-log to version `0.8.0`
-* Bump loggregator-agent to version `3.10`
-* Bump winc to version `1.10.0`
-* Bump windowsfs-release to version `1.1.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.2</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.51</td></tr>
-    <tr><td>diego</td><td>2.30.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.6</td></tr>
-    <tr><td>loggregator-agent</td><td>3.10</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.10.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.1.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.6.0-alpha.2'></a> 2.6.0-alpha.2
-
-* **[Breaking Change]** Option to override deployment name to CF is removed
-* **[Feature]** Operators can provide trusted certs in OpsMgr for .NET apps to use automatically
-* Update stemcell OS to windows2019 at version `2019.2`
-* Bump cf-windows-smoke-tests to version `40.0.48`
-* Bump diego to version `2.29.0`
-* Bump garden-runc to version `1.19.1`
-* Bump hwc-offline-buildpack to version `3.1.6`
-* Bump loggregator-agent to version `3.9`
-* Bump winc to version `1.9.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.2</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.48</td></tr>
-    <tr><td>diego</td><td>2.29.0</td></tr>
-    <tr><td>event-log</td><td>0.7.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.6</td></tr>
-    <tr><td>loggregator-agent</td><td>3.9</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.9.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.0.0</td></tr>
-  </tbody>
-</table>
-
-
 ## <a id='new-features'></a> New Features in PAS for Windows v2.6
 
-PAS for Windows v2.6 includes the following major features:
+PAS for Windows v2.6.0 includes the following major features:
+
+### <a id='graceful-shutdown'></a> App Developers Can Gracefully Shutdown Their .NET Applications in PASW
+
+PAS for Windows v2.6.0 allows a PCF app 10 seconds to gracefully shutdown after it is stopped using `cf stop`. 
+Graceful shutdown is supported on deployments running Windows Server 2019 or later. For additional information see 
+[Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the .NET Cookbook.
 
 ### <a id='system-metrics-agent'></a> Introduction of System Metrics Agent
 
-PAS for Windows v2.6 includes the introduction of the System Metrics Agent. When the System Metrics Agent is enabled, Windows cells emit system-level metrics about each VM in your deployment. You can enable this feature in the PAS for Windows v2.6 tile by selecting **Enable System Metrics** within the **System Logging** pane.
+PAS for Windows v2.6 includes the introduction of the System Metrics Agent. When the System Metrics Agent is enabled, 
+Windows cells emit system-level metrics about each VM in your deployment. You can enable this feature in the PAS for 
+Windows v2.6 tile by selecting **Enable System Metrics** within the **System Logging** pane.
 
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
@@ -190,17 +79,27 @@ For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.
 
 ### <a id='odbc'></a>ODBC Driver Installation Support in Windows Containers
 
-PAS for Windows v2.6 supports ODBC driver installation by giving  developers the ability to add ODBC driver entries to the Windows Registry. Previously, ODBC drivers were installed to Windows cells using BOSH add-ons. Installing ODBC drivers by using BOSH add-ons is no longer possible in true Windows containerized runtimes.
+PAS for Windows v2.6 supports ODBC driver installation by giving  developers the ability to add ODBC driver 
+entries to the Windows Registry. Previously, ODBC drivers were installed to Windows cells using BOSH add-ons. 
+Installing ODBC drivers by using BOSH add-ons is no longer possible in true Windows containerized runtimes.
 
 ### <a id='bosh-ssh'></a> BOSH SSH Enabled by Default
 
-In PAS for Windows v2.6, use of the `bosh ssh` command is enabled by default for deployed VMs. Developers can use the `bosh ssh` command to troubleshoot Windows-based Diego cells.
+In PAS for Windows v2.6, use of the `bosh ssh` command is enabled by default for deployed VMs. 
+Developers can use the `bosh ssh` command to troubleshoot Windows-based Diego cells.
 
 ### <a id='gcs'></a> Deploy Windows Stemcells on BOSH Director with GCS
 
 PAS for Windows v2.6 supports deploying Windows stemcells with a BOSH Director that uses GCS as the BOSH blobstore. 
 
-For more information on configuring a GCS blobstore, see _Director Config Page_ in [Configuring BOSH Director on GCP Manually](https://docs.pivotal.io/pcf/om/2-6/gcp/config-manual.html#director-config) or _Director Config Page_ in [Configuring BOSH Director on GCP Using Terraform](https://docs.pivotal.io/pcf/om/2-6/gcp/config-terraform.html).
+For more information on configuring a GCS blobstore, see _Director Config Page_ in 
+[Configuring BOSH Director on GCP Manually](https://docs.pivotal.io/pcf/om/2-6/gcp/config-manual.html#director-config) 
+or _Director Config Page_ in [Configuring BOSH Director on GCP Using Terraform](https://docs.pivotal.io/pcf/om/2-6/gcp/config-terraform.html).
+
+### <a id='improve-scalabillity'></a> Improved Application Syslog Drain Scalability
+
+PAS for Windows v2.6.0 has improved application syslog drain scalability. 
+With v2.6 a new syslog agent architecture has been implemented. 
 
 ## <a id='adv-features'></a> New Advanced Features
 
@@ -218,4 +117,6 @@ This section includes known issues with PAS for Windows v2.6.
 
 ### <a id='syslog'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
 
-If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see ["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs). 
+If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, 
+external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see 
+["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs). 
