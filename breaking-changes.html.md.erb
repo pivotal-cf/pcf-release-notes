@@ -60,6 +60,10 @@ cfnetworking: cni up failed: add network list failed: initialize net out: creati
 
 This is a symptom of a failed Diego healthcheck, which can cause the Diego cell to become unhealthy. If you encounter this error, see the following Pivotal Knowledge Base article to understand and resolve the issue: [Diego Cell Garden healthcheck fails and becomes unhealthy](https://community.pivotal.io/s/article/diego-cell-garden-healthcheck-fails-and-becomes-unhealthy).  
 
+### <a id="autoscaler-api"></a> App Autoscaler v1 API Endpoints are Unsupported
+
+The App Autoscaler v1 API is no longer supported. If you are using any v1 API functionality, you must update to the v2 API.
+
 ## <a id='opsman'></a> PCF Operations Manager (Ops Manager)
 
 ###<a id='xenial'></a> Updates for Xenial Stemcell Support
