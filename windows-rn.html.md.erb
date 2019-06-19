@@ -61,17 +61,23 @@ PAS for Windows v2.6.0 includes the following major features:
 
 ### <a id='graceful-shutdown'></a> App Developers Can Gracefully Shutdown Their .NET Applications in PASW
 
-PAS for Windows v2.6.0 allows a PCF app 10 seconds to gracefully shutdown after it is stopped using `cf stop`. 
-Graceful shutdown is supported on deployments running Windows Server 2019 or later. For additional information see 
-[Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the .NET Cookbook.
+PAS for Windows v2.6 allows ten seconds for a .NET app to shutdown gracefully after the app is stopped using `cf stop`. 
+Graceful shutdown is supported on deployments using Windows Server 2019 or later. 
+
+For more information, see 
+[Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the .NET on Pivotal Cloud Foundry Cookbook.
 
 ### <a id='system-metrics-agent'></a> Introduction of System Metrics Agent
 
 PAS for Windows v2.6 includes the introduction of the System Metrics Agent. When the System Metrics Agent is enabled, 
-Windows cells emit system-level metrics about each VM in your deployment. You can enable this feature in the PAS for 
-Windows v2.6 tile by selecting **Enable System Metrics** within the **System Logging** pane.
-For a list of the VM metrics that the System Metric Agent emits, see [VM Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
+Windows cells emit system-level metrics about each VM in your deployment. 
 
+You can enable this feature in the PAS for Windows v2.6 tile by 
+selecting **Enable System Metrics** within the **System Logging** pane.
+
+For a list of the VM metrics that the System Metric Agent emits for Windows VMs, see [VM Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
+
+For additional information about system-level metrics in PCF, see [BOSH VM and PCF Component Health Metrics](https://docs.pivotal.io/pivotalcf/2-6/monitoring/metrics.html#component-metrics) and [Key Performance Indicators](https://docs.pivotal.io/pivotalcf/2-6/monitoring/kpi.html#bosh).
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
@@ -101,18 +107,7 @@ or _Director Config Page_ in [Configuring BOSH Director on GCP Using Terraform](
 
 ### <a id='improve-scalabillity'></a> Improved Application Syslog Drain Scalability
 
-PAS for Windows v2.6.0 has improved application syslog drain scalability. 
-With v2.6 a new syslog agent architecture has been implemented. 
-
-## <a id='adv-features'></a> New Advanced Features
-
-The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have
-certain constraints.
-
-Although these features are fully supported, Pivotal recommends caution when using them in
-production.
-
-PAS for Windows v2.6 includes the following advanced features:
+PAS for Windows v2.6 has improved application syslog drain scalability and incorporates a new syslog agent architecture. 
 
 ## <a id='known-issues'></a> Known Issues
 
