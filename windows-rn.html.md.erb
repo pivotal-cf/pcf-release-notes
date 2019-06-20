@@ -62,7 +62,8 @@ PAS for Windows v2.6.0 includes the following major features:
 ### <a id='graceful-shutdown'></a> App Developers Can Gracefully Shutdown Their .NET Applications in PASW
 
 PAS for Windows v2.6 allows ten seconds for a .NET app to shutdown gracefully after the app is stopped using `cf stop`. 
-Graceful shutdown is supported on deployments using Windows Server 2019 or later. 
+Graceful shutdown is supported on deployments using Windows Server 2019 or later 
+for apps that provide a control handler for the `CTRL_SHUTDOWN_EVENT` event. 
 
 For more information, see 
 [Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the .NET on Pivotal Cloud Foundry Cookbook.
@@ -118,3 +119,9 @@ This section includes known issues with PAS for Windows v2.6.
 If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, 
 external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see 
 ["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs). 
+
+### <a id='graceful-shutdown-known-issue'></a> Graceful Shutdown Is Not Supported on Deployments with One Windows Cell
+
+Graceful shutdown is supported only on Windows Server 2019 deployments with two or more Windows cells. 
+For more information, see [Graceful shutdown works only for CF deployments with multiple Windows 2019 cells]
+(https://community.pivotal.io/s/article/graceful-shutdown-works-only-for-cf-deployments-with-multiple-windows-2019-cells).
