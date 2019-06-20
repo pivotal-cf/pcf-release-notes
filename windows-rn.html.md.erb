@@ -162,6 +162,14 @@ PAS for Windows v2.6 removes support for `windows2016`.
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/2-5/adminguide/stack-auditor.html).
 
+### <a id='graceful-shutdown'></a> Support Graceful Shutdown of Apps
+
+When an app running on Windows is stopped (e.g. `cf stop`, or a deployment upgrade),
+it receives a `CTRL_SHUTDOWN_EVENT` and is allowed **10 seconds** to gracefully shutdown.
+In order to use this feature, the app must provide a control handler.
+See [Dotnet Cookbook, sec. Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) for more information.
+
+
 ## <a id='known-issues'></a> Known Issues
 
 This section includes known issues with PAS for Windows v2.5.
@@ -202,3 +210,7 @@ certificate error when downloading the app droplet from the blobstore. As a resu
 Add the missing VeriSign root CA certificate to **Trusted Certificates** in Ops
 Manager to ensure that the certificate presented by CloudFront is trusted on Windows
 cells, allowing the droplet to be successfully downloaded from the blobstore.
+
+### <a id='graceful-shutdown-known-issue'></a> Graceful shutdown only works on deployments with more than one Windows cell.
+
+Please see the [related KB article](https://community.pivotal.io/s/article/graceful-shutdown-works-only-for-cf-deployments-with-multiple-windows-2019-cells).
