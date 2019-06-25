@@ -1280,14 +1280,14 @@ See the following sections to learn more about `cflinuxfs3` and compatible build
       * The output of the `cf buildpacks` command has a `stacks` column.
       * The following commands now accept a `-s` flag for specifying a stack:  `cf delete-buildpack`, `cf rename-buildpack`, and `cf update-buildpack`.<br> This is useful if there are two buildpacks of the same name that use a different stack.
 * **Changes to cflinuxfs2**
-  * PAS v2.3 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019. After that date, it will no longer receive security updates. 
+  * PAS v2.3 still includes the `cflinuxfs2` stack and compatible buildpacks. However, `cflinuxfs2` is based on Ubuntu 14.04 (Trusty Tahr), which reaches end of general support (EOGS) in April 2019. After that date, it will no longer receive security updates.
 
   Using `cflinuxfs3` in v2.3 ensures that PAS users continue to have access to a secure stack based on a Ubuntu distribution maintained by Canonical.
 
 #### <a id="cflinuxfs3-guidance-operator"></a> Guidance for Operators
 
 * **Scale Cloud Controller if necessary**:
-  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is already high, you may need to increase the persistent disk of the **Cloud Controller** VM to accommodate the new buildpacks.
+  * The new set of buildpacks are 2.7&nbsp;GB. The buildpack packages are stored on the Cloud Controller VM. If your ephemeral disk usage is already high, you may need to increase the ephemeral disk of the **Cloud Controller** VM to accommodate the new buildpacks.
 * **Migrate apps to cflinuxfs3**:
   * Ensure developers migrate their apps and push any new apps using the `cflinuxfs3` stack by running `cf push APP-NAME -s cflinuxfs3`. For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-3/devguide/deploy-apps/stacks.html). When changing stacks, developers may see errors related to new or changed libraries. If they do, they must update their app accordingly.
 * **Assign a stack to custom buildpacks**:
@@ -1328,7 +1328,7 @@ For more information, see [Configure Application Developer Controls](https://doc
 
 
 
-### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments 
+### <a id="routing-resiliency"></a> HTTP Router Uses TLS By Default in New Deployments
 
 In new installations of PAS v2.3, the HTTP router (Gorouter) uses TLS by default to communicate with application containers. This configuration improves resiliency and consistency for application routes. If you are upgrading to PAS v2.3, PAS retains its previous setting for HTTP communication to apps. TLS is the default setting.
 
@@ -1366,7 +1366,7 @@ For more information, see [Create Container-to-Container Networking Policies](ht
 Apps Manager includes two new options when adding a scaling rule in the **Manage Autoscaling** pane:
 
 * **Custom**: Scale based on a custom metric.
-* **Compare**: Scale based on the result of dividing one custom metric by another. 
+* **Compare**: Scale based on the result of dividing one custom metric by another.
 
 For more information, see [Scaling Rules](https://docs.pivotal.io/pivotalcf/2-3/appsman-services/autoscaler/using-autoscaler.html#metric) in _Scaling an Application Using App Autoscaler_.
 
@@ -1375,7 +1375,7 @@ For more information, see [Scaling Rules](https://docs.pivotal.io/pivotalcf/2-3/
 In PAS v2.3, traffic between Gorouter and Cloud Controller is encrypted. To ensure there is no downtime while upgrading from v2.2 to v2.3, download the latest patch for v2.2. This patch contains the configuration `router.backends.enable_tls: true` in the Gorouter manifest.
 
 <p class='note breaking'><strong>Breaking Change:</strong> This feature can cause downtime if you have modified the default cipher suites for Gorouter. For more information, see <a href="#cipher-downtime">Removal of Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4</a> in the <em>Known Issues</em> section.</p>
- 
+
 
 ### <a id='mutual-tls-id'></a> Mutual TLS App Identity Verification
 
@@ -1477,7 +1477,7 @@ Any data that you have stored on the previous persistent disk may be lost after 
 
 ### <a id="syslog-drain"></a> Bind all Apps in a Space to a Syslog Drain
 
-The `cf drain-space` command, enabled by the CF Drain CLI Plugin, binds a syslog drain to all apps in a space. Previously, you could only run `cf drain` to bind each app to the drain individually. 
+The `cf drain-space` command, enabled by the CF Drain CLI Plugin, binds a syslog drain to all apps in a space. Previously, you could only run `cf drain` to bind each app to the drain individually.
 
 This feature provides the following:
 
@@ -1494,32 +1494,32 @@ In addition to the **Apps Manager Polling Interval** field introduced in a PAS v
 
 PAS provides these fields as a way to temporarily reduce load on the Cloud Controller API. Pivotal recommends that you do not keep these fields modified as a long term fix because it can degrade Apps Manager performance.
 
-For more information, see [Apps Manager Config Page](https://docs.pivotal.io/pivotalcf/2-3/opsguide/custom-branding.html#apps-man). 
+For more information, see [Apps Manager Config Page](https://docs.pivotal.io/pivotalcf/2-3/opsguide/custom-branding.html#apps-man).
 
 
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='apps-do-not-stage'></a> Apps Do Not Stage After Upgrading Windows Or Isolation Segment Tiles
 
-You must upgrade to PAS v2.3.5 or later before upgrading to any of the following tile versions: 
+You must upgrade to PAS v2.3.5 or later before upgrading to any of the following tile versions:
 
 * PAS for Windows 2012R2 v2.3.4 or later
 * PAS for Windows v2.3.5 or later
 * PCF Isolation Segment v2.3.5 or later
 
-If you upgrade to one of these runtime versions before upgrading to PAS v2.3.5, apps do not stage when pushed to the runtime. For more information, see the following article in the Pivotal Knowledge Base: [Diego releases out of sync while upgrading PASW to version v2.3.5 or above](https://community.pivotal.io/s/article/diego-releases-out-of-sync-while-upgrading-pasw). 
+If you upgrade to one of these runtime versions before upgrading to PAS v2.3.5, apps do not stage when pushed to the runtime. For more information, see the following article in the Pivotal Knowledge Base: [Diego releases out of sync while upgrading PASW to version v2.3.5 or above](https://community.pivotal.io/s/article/diego-releases-out-of-sync-while-upgrading-pasw).
 
 ### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
 
-The **Remove Specified HTTP Response Headers** field added in PAS v2.3.8 is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 
+The **Remove Specified HTTP Response Headers** field added in PAS v2.3.8 is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job.
 
 ### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from 2.2 to 2.3 and from 2.3 to 2.4
 
-This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue. 
+This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue.
 
-In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. CAPI uses hardcoded cipher suites for this communication and Gorouter uses cipher suites configured by the operator in the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. By default, this field contains the cipher suites required for communication with CAPI. 
+In PAS v2.3, communication between Gorouter and CAPI is encrypted using TLS. CAPI uses hardcoded cipher suites for this communication and Gorouter uses cipher suites configured by the operator in the **TLS Cipher Suites for Router** field in the PAS **Networking** pane. By default, this field contains the cipher suites required for communication with CAPI.
 
-If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime, during which users cannot do things such as push apps and create routes. 
+If you modify the default cipher suites supported by Gorouter using the **TLS Cipher Suites for Router** field and do not include either of the cipher suites supported by both Gorouter and CAPI, the TLS handshake between Gorouter and CAPI fails. This causes control plane downtime, during which users cannot do things such as push apps and create routes.
 
 To resolve this issue, ensure one of the recommended cipher suites is always in the **TLS Cipher Suites for Router** field:
 
@@ -1529,10 +1529,10 @@ To resolve this issue, ensure one of the recommended cipher suites is always in 
 ### <a id="external-credhub"></a> CredHub Database Cannot be External on GCP
 
 If your PAS deployment is on GCP and you want to use Runtime CredHub, you must select
-**Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub. 
+**Internal** for both your system databases and CredHub database. If you are using external system databases, you cannot use CredHub.
 
-CredHub is not compatible with the external database option on GCP. 
-GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it. 
+CredHub is not compatible with the external database option on GCP.
+GCP Cloud SQL presents its certificate in a way that CredHub refuses to connect to it.
 
 ### <a id='mutual-tls-id-limitations'></a> Limitations with Mutual TLS App Identity Verification
 
@@ -1544,7 +1544,7 @@ Neither TLS nor mTLS app identity verification is available for Windows cells at
 
 ### <a id='missing-buildpacks'></a> Buildpacks Missing or Not Installed
 
-On fresh installs of PAS v2.3, some buildpacks may be missing. For upgrades to PAS v2.3, some buildpacks may not have been upgraded. For more information about the symptoms, cause, and resolution to this issue, see [Buildpacks are missing or not installed in PAS 2.3](https://community.pivotal.io/s/article/buildpacks-are-missing-or-not-installed-in-pas-2-3) in the Pivotal Knowledge Base. 
+On fresh installs of PAS v2.3, some buildpacks may be missing. For upgrades to PAS v2.3, some buildpacks may not have been upgraded. For more information about the symptoms, cause, and resolution to this issue, see [Buildpacks are missing or not installed in PAS 2.3](https://community.pivotal.io/s/article/buildpacks-are-missing-or-not-installed-in-pas-2-3) in the Pivotal Knowledge Base.
 
 Neither TLS nor mTLS app identity verification is available for Windows cells at this time.
 
@@ -1575,7 +1575,7 @@ If you want to configure a list of ports, do the following:
 
 ### <a id="containers-live"></a>Containers Live Briefly after Apps are Deleted or Downsized
 
-In v2.3.0, when you delete or scale down an app, the container instance may continue running for a couple of minutes after `cf apps` and other CLI commands indicate that the instance no longer exists. 
+In v2.3.0, when you delete or scale down an app, the container instance may continue running for a couple of minutes after `cf apps` and other CLI commands indicate that the instance no longer exists.
 
 This may cause the following:
 
@@ -1597,11 +1597,11 @@ To resolve this issue, see [Apps Manager shows no content due to SSL validation 
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.3.7--v2.3.9
 
-In v2.3.7, v2.3.8, and v2.3.9, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
+In v2.3.7, v2.3.8, and v2.3.9, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API.
 
 If there is more than one intermediate certificate authority, not counting the root certificate authority, the following happens:
 
-* Apps Manager does not show content. 
+* Apps Manager does not show content.
 * The logs for Apps Manager include the text `certificate chain too long`.
 
 If you must use an SSL certificate chain with more than one intermediate certificate authority in your environment, contact Pivotal Support to discuss options for working around this issue.
@@ -1613,7 +1613,7 @@ Do not attempt to rotate certificate authorities (CAs) if you use mutual TLS for
 1. Log in to Ops Manager.
 1. Select the PAS tile.
 1. Select the **Application Settings** tab.
-1. View the settings in **Router application identity verification**. 
+1. View the settings in **Router application identity verification**.
 
 If **Router application identity verification** is set to `Router and applications use mutual TLS to verify each other's identity`, then you cannot rotate CAs. If you try to rotate CAs, the router will not be able to reach applications.
 
@@ -1625,7 +1625,7 @@ For more information and instructions for fixing this error, see [Pivotal Cloud 
 
 ### <a id="autoscaler-manage-link-404-error"></a>App Autoscaler Manage Link in Apps Manager Results in 404 Error
 
-The App Autoscaler service instance details page in Apps Manager includes a **Manage** link. Clicking the **Manage** link results in a 404 error.  
+The App Autoscaler service instance details page in Apps Manager includes a **Manage** link. Clicking the **Manage** link results in a 404 error.
 
 To manage App Autoscaler, navigate to the **App Overview** page in Apps Manager and click **Manage Autoscaling**.
 
