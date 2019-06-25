@@ -14,9 +14,11 @@ See the following PCF Ops Manager breaking changes:
 
 You can only SSH onto the Ops Manager VM in a vSphere deployment with a private SSH key. You cannot SSH onto the Ops Manager VM with a password.
 
-To avoid errors when authenticating, add a public key to the OVF template for the Ops Manager VM. Then, use the private key to SSH onto the Ops Manager VM. 
+To avoid upgrade failure and errors when authenticating, add a public key to the OVF template for the Ops Manager VM. Then, use the private key to SSH onto the Ops Manager VM. 
 
 For more information about adding a public key to the OVF template, see [Deploy Ops Manager](https://docs.pivotal.io/pivotalcf/2-6/om/vsphere/deploy.html#deploy) in _Deploying Ops Manager on vSphere_. 
+
+<p class="note warning"><strong>Warning</strong>: You cannot upgrade successfully without adding a public key. If you do not add a key, Ops Manager enters a reboot loop because it cannot find a key.</p>
 
 ### <a id='diagnostic-report-stemcell'></a> Stemcell Property for Diagnostic Report API Endpoint is Removed
 
