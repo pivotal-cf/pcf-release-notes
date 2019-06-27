@@ -20,6 +20,7 @@ Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
 ### <a id="2-6-1"></a> 2.6.1
 
+* **[Security Fix]** This patch addresses [CVE-2019-11477](https://nvd.nist.gov/vuln/detail/CVE-2019-11477) and [CVE-2019-11478](https://nvd.nist.gov/vuln/detail/CVE-2019-11478)
 * **[Feature]** Ops Manager now passes **Trusted Certificates** from the **Security** pane to the `uaa.ca_certs` property of UAA to avoid failures in the pre-start script run by UAA. 
 * **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API
 * **[Bug Fix]** ops-manifest does not break if a RSA certificate is passed as a property value
