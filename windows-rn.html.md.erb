@@ -22,7 +22,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
 
 * **[Feature]** App developers can gracefully shutdown their .NET applications in PASW
 * **[Feature]** Add optional System Metric Agent to allow monitoring a more complete set of metrics for all VMs in the deployment
-* **[Feature]** Operators can provide trusted certs in OpsMgr for .NET apps to use automatically
+* **[Feature]** Operators can provide trusted certificates in Ops Manager for .NET apps to use automatically
 * **[Feature Improvement]** Allow vcap WriteKey access to ODBC registry entry
 * **[Feature Improvement]** Improve scalability of application syslog drain system with new syslog agent architecture
 * **[Security Fix]** Introduce and trust new Diego "root CA" in advance of existing CA expiration
@@ -66,7 +66,7 @@ Graceful shutdown is supported on deployments using Windows Server 2019 or later
 for apps that provide a control handler for the `CTRL_SHUTDOWN_EVENT` event. 
 
 For more information, see 
-[Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the .NET on Pivotal Cloud Foundry Cookbook.
+[Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the _.NET on Pivotal Cloud Foundry Cookbook_.
 
 ### <a id='system-metrics-agent'></a> Introduction of System Metrics Agent
 
@@ -118,10 +118,10 @@ This section includes known issues with PAS for Windows v2.6.
 
 If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, 
 external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see 
-["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs). 
+["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base.
 
 ### <a id='graceful-shutdown-known-issue'></a> Graceful Shutdown Is Not Supported on Deployments with One Windows Cell
 
 Graceful shutdown is supported only on Windows Server 2019 deployments with two or more Windows cells. 
 For more information, see [Graceful shutdown works only for CF deployments with multiple Windows 2019 cells]
-(https://community.pivotal.io/s/article/graceful-shutdown-works-only-for-cf-deployments-with-multiple-windows-2019-cells).
+(https://community.pivotal.io/s/article/graceful-shutdown-works-only-for-cf-deployments-with-multiple-windows-2019-cells) in the Pivotal Knowledge Base.
