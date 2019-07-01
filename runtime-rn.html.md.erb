@@ -182,6 +182,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.7 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic.
@@ -192,8 +193,17 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 * Some partner service tiles may be incompatible with PCF v2.7. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.7, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
+
 ## <a id='new-features'></a> New Features in PAS v2.7
 
 
 
 ## <a id='known-issues'></a> Known Issues
+
+### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
+
+When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
+
+To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
+
+For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
