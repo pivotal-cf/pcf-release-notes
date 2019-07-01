@@ -940,6 +940,7 @@ See also:
   </tbody>
 </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.4 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-4/customizing/upgrading-pcf.html) topic.
@@ -1175,7 +1176,7 @@ This update allows `usage_service.audit` users to quickly generate reports on hi
 
 The **Remove Specified HTTP Response Headers** field added in PAS v2.4.4 is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job. 
 
-### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from v2.2 to v2.3 and from v2.3 to v2.4
+### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from PAS v2.2 to v2.3 and from v2.3 to v2.4
 
 This section describes how removing default ciphers can cause downtime and how to avoid or resolve this issue.
 
@@ -1223,15 +1224,15 @@ If you want to configure multiple ports, do the following:
 
 Above approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Loggregator Firehose performance. To improve performance, increase CPU resources for the existing Doppler and Traffic Controller instances to add vertical scale.
 
-### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.4.3--v2.4.6
+### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in PAS v2.4.3 through v2.4.6
 
-In v2.4.3--v2.4.6, Apps Manager ignores the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
+In PAS v2.4.3 through v2.4.6, Apps Manager ignores the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
 
-### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.4.3--v2.4.5
+### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in PAS v2.4.3 through v2.4.5
 
-In v2.4.3, v2.4.4, and v2.4.5, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
+In PAS v2.4.3, v2.4.4, and v2.4.5, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
 
 If there is more than one intermediate certificate authority, not counting the root certificate authority, the following happens:
 
@@ -1240,7 +1241,7 @@ If there is more than one intermediate certificate authority, not counting the r
 
 If you must use an SSL certificate chain with more than one intermediate certificate authority in your environment, contact Pivotal Support to discuss options for working around this issue.
 
-### <a id="cert-rotation-with-mutual-tls-route-integrity"></a>Certificate Authority Rotation is Not Working in Some PAS Configurations
+### <a id="cert-rotation-with-mutual-tls-route-integrity"></a> Certificate Authority Rotation is Not Working in Some PAS Configurations
 
 Do not attempt to rotate certificate authorities (CAs) if you use mutual TLS for route integrity. To verify whether or not you are using mutual TLS, do the following:
 
@@ -1262,3 +1263,11 @@ For more information and instructions for fixing this error, see [Pivotal Cloud 
 An `invalid log drain` error message may appear in app logs on foundations where the Metric Registrar is enabled. This error message indicates that the current version of Loggregator cannot parse the scheme used by the Metric Registrar. 
 
 This error message does not indicate that the app logs are incorrect or incomplete. There is no action required.
+
+### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
+
+When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
+
+To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
+
+For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
