@@ -529,8 +529,6 @@ See also:
 </table>
 
 
-
-
 ## <a id='upgrade'></a> How to Upgrade
 
 The procedure for upgrading to Pivotal Application Service (PAS) v2.5 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html) topic.
@@ -623,6 +621,7 @@ As for Traffic Controller, the `containermetrics/app-guid` endpoint no longer ex
 
 For more information about Log Cache and Traffic Controller, see [Configuring Logging in PAS](https://docs.pivotal.io/pivotalcf/2-5/opsguide/logging-config-opsman.html), [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-5/loggregator/architecture.html), and [Overview of Logging and Metrics](https://docs.pivotal.io/pivotalcf/2-5/loggregator/data-sources.html).
 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='extended-cf-logs-downtime'></a> Extended cf logs Downtime
@@ -674,15 +673,15 @@ While PAS v2.5 supports Azure availability zones (AZs), enabling this feature is
 
 For more information, see [Azure Availability Zones are not compatible with Diego in PAS 2.5](https://community.pivotal.io/s/article/azure-availability-zones-are-not-compatible-with-deigo) in the Pivotal Knowledge Base.
 
-### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.5.0--2.5.2
+### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in PAS v2.5.0 through v2.5.2
 
-In v2.5.0--2.5.2, Apps Manager ignores the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
+In PAS v2.5.0 through v2.5.2, Apps Manager ignores the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
 
-To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
+To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content) in the Pivotal Knowledge Base.
 
-### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in v2.5.0 and v2.5.1
+### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in PAS v2.5.0 and v2.5.1
 
-In v2.5.0 and v2.5.1, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
+In PAS v2.5.0 and v2.5.1, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
 
 If there is more than one certificate authority, Apps Manager does not show content, and the logs for Apps Manager include the text `certificate chain too long`.
 
@@ -690,7 +689,7 @@ If you must use an SSL certificate chain with more than one intermediate certifi
 
 ### <a id="appsman-bbr"></a> Apps Manager BOSH Backup and Restore (BBR) Script Fails
 
-In v2.5.0 through v2.5.4, the Apps Manager BBR script fails when the system organization and system space do not exist.
+In PAS v2.5.0 through v2.5.4, the Apps Manager BBR script fails when the system organization and system space do not exist.
 
 To avoid script failure, manually create the system organization and system space.
 
@@ -700,3 +699,10 @@ An `invalid log drain` error message may appear in app logs on foundations where
 
 This error message does not indicate that the app logs are incorrect or incomplete. There is no action required. 
 
+### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
+
+When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
+
+To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
+
+For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
