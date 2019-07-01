@@ -206,4 +206,12 @@ For more information, see the [Add Metadata](http://docs.pivotal.io/pivotalcf/2-
 
 ### <a id='syslog'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
 
-If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see ["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs). 
+If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see [Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base. 
+
+### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
+
+When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
+
+To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
+
+For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
