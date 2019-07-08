@@ -8,10 +8,15 @@ owner: Release Engineering
 ### <a id='2.4.10'></a> 2.4.10
 
 * **[Bug Fix]** Add optional TTL pruning for TLS routes
+* **[Bug Fix]** Fix drain script in SMB volume driver to prevent it from unmounting shares before Diego has finished evacuating the cell
+* **[Bug Fix]** Fix issue with Azure Gateway was keeping connections alive longer than they were available when using HAProxy
 * Bump ubuntu-xenial stemcell to version `170.93`
 * Bump cflinuxfs2 to version `1.286.0`
 * Bump cflinuxfs3 to version `0.110.0`
 * Bump routing to version `0.182.7`
+* Bump haproxy to version `9.3.1`
+* Bump smb-volume to version `1.1.0`
+* Removed loggregator release
 
 <table border="1" class="nice">
   <thead>
@@ -38,7 +43,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.4.0</td></tr>
   </tbody>
 </table>
-
+  
 ### <a id='2.4.8'></a> 2.4.8
 
 * **[Feature Improvement]** Update default polling interval and idle connection limits for networking components to reduce resource contention on PAS database
