@@ -17,6 +17,23 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/custo
 
 ### <a id="alpha-2"></a> 2.7 Alpha 2
 
+* **[New Feature]** Visual improvements to the **Resource Config** pane in Ops Manager.
+* **[New Feature]** You can configure the **Load Balancer** on GCP and **Internet Connected** fields in the **Resource Config** pane of Ops Manager.
+* **[New Feature]** OpenStack deployments now include a **Floating IPs** field in the **Resource Config** pane. 
+* **[New Feature]** `audit_log.txt` now includes the request body.
+* **[New Feature]** Ops Manager stores and exposes when UAA clients **Apply Changes** through API.
+the API
+* **[New Feature]** Ops Manager now passes Trusted Certificates from the Security pane to the uaa.ca_certs property of UAA to avoid failures in the pre-start script run by UAA.
+* **[New Feature]** The **credhub.certificates.concatenate_cas** property is set to `true` to enable future rotation using maestro.
+* **[New Feature]** Layout API marks **Credentials** tab as disabled when user cannot view credentials.
+* **[New Feature]** A new endpoint, `/api/v0/staged/products/:product_guid/jobs/:job_id/resource_config` displays resources for a job. 
+* **[Bug Fix]** Ops Manager logs requests that result in a 500 error to `audit_log.txt`.
+* **[Bug Fix]** Non-configurable properties within a collection / selector are not configurable through API.
+* **[Bug Fix]** `ops-manifest` does not break if a RSA certificate is passed as a property value.
+* **[Bug Fix]** Fix alignment issues on Unlock Account and Ensure Availability pages.  
+* **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API.
+* **[Bug Fix]** Non-configurable properties nested under collections should not appear in the UI.
+
 Ops Manager v2.7 Alpha 2 uses the following component versions:
 
 <table border="1" class="nice">
