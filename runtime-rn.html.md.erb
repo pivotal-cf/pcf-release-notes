@@ -17,7 +17,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** Allow users to configure max package size so that they can upload packages larger than 2GB
 * **[Feature Improvement]** Add ability to configure max search depth for LDAP in UAA
 * **[Bug Fix]** Fix missing "actee_name" for certain CAPI user role related audit events
-* **[Bug Fix]** Fix failure of inviting new members via Apps Manager in some networking configurations
+* **[Bug Fix]** Cause Apps Manager errand to fail if environment variable assignment fails
+* **[Bug Fix]** Ellipsify long names of service instances in the services tables of Apps Manager
+* **[Bug Fix]** Fix issue in which flyouts in Apps Manager did not open in Internet Explorer
+* ** [Bug Fix]** Fix failure of inviting new members via Apps Manager in some networking configurations
 * **[Bug Fix]** Add optional TTL pruning for TLS routes
 * **[Bug Fix]** Allow operators to omit backup bucket fields
 * **[Bug Fix]** `diego_brain` instances no longer update concurrently with `diego_cell` VMs to prevent application downtime in case of deployment update failure
