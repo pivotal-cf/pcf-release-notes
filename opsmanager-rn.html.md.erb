@@ -615,6 +615,7 @@ Ops Manager v2.4.0 uses the following component versions:
   </tbody>
 </table>
 
+
 ## <a id='major-features'></a> New Features in Ops Manager v2.4
 
 Ops Manager v2.4 includes the following major features:
@@ -625,15 +626,9 @@ Multiple Ops Manager administrators can use Ops Manager at the same time, to rec
 
 ### <a id='credhub-2.0'></a> Ops Manager Uses CredHub v2.0
 
-BOSH CredHub, the instance that manages credentials on the Ops Manager VM, now
-uses CredHub v2.0. For more information about where your credentials are
-stored, see [BOSH CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
+BOSH CredHub, the instance that manages credentials on the Ops Manager VM, now uses CredHub v2.0. For more information about where your credentials are stored, see [BOSH CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
 
-CredHub v2.0 includes bug fixes, improved security, and new options for
-managing credential permissions. These updates are not directly visible to PCF
-operators, but CredHub v2.0 introduces breaking changes for tile and service
-authors. For more information, see the [PCF v2.4 Partners Release Notice](https://docs.pivotal.io/tiledev/release-notes.html)
-in the PCF Tile Developer Guide.
+CredHub v2.0 includes bug fixes, improved security, and new options for managing credential permissions. These updates are not directly visible to PCF operators, but CredHub v2.0 introduces breaking changes for tile and service authors. For more information, see the [PCF v2.4 Partners Release Notice](https://docs.pivotal.io/tiledev/release-notes.html) in the PCF Tile Developer Guide.
 
 ### <a id='certs-expiration'></a> Operators Can Search for Certificates by Expiration Date in CredHub
 
@@ -686,13 +681,13 @@ Tile authors can insert a templatized Syslog form into their tiles by using the 
 
 For more information about modifying `metadata.yml`, see [Property Template References](https://docs.pivotal.io/tiledev/2-4/property-template-references.html#syslog-flag).
 
-### <a id="multiple-bosh-releases"></a> The BOSH Director Supports Custom BOSH Releases
+### <a id="multiple-bosh-releases"></a> BOSH Director Supports Custom BOSH Releases
 
 You can now add custom BOSH releases to a BOSH Director by modifying a deployment's `manifest.yml`. Custom BOSH releases can enhance antivirus capabilities, add security features, or support monitoring features. The BOSH Director supports custom and standard BOSH releases, but all releases referenced in a manifest must be available at an HTTP address, either locally hosted or available on the internet. You cannot upload a second BOSH release directly to Ops Manager.
 
 To learn more about adding BOSH releases to a BOSH Director, see [Deploying Software with BOSH](https://docs.pivotal.io/pivotalcf/2-4/customizing/deploy-bosh-om.html#bosh).
 
-<p class="note"><strong>Note</strong>: If a hosted BOSH release is no longer available but not removed from Ops Manager, it may cause the BOSH Director not to boot or <strong>Apply Changes</strong> to fail.</p>
+<p class="note"><strong>Note:</strong> If a hosted BOSH release is no longer available but not removed from Ops Manager, it may cause the BOSH Director not to boot or <strong>Apply Changes</strong> to fail.</p>
 
 ### <a id="dns-form"></a> BOSH DNS Config Page in the BOSH Director Tile
 
@@ -700,7 +695,7 @@ The BOSH Director tile has a new page for configuring BOSH DNS. The **BOSH DNS C
 
 For more information, see [BOSH DNS Config Page](https://docs.pivotal.io/pivotalcf/2-4/om/gcp/config-manual.html#bosh-dns) in the GCP documentation, or find an entry for that page in the documentation for any IaaS.
 
-<p class="note"><strong>Note</strong>: BOSH DNS replaces Consul DNS, which had caused stability issues in some deployments. PCF v2.0 through v2.3 progressively phased out Consul DNS, and v2.4 completes its removal. For more information, see the <a href="https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#remove-consul-agent">Pivotal Application Service v2.3 Release Notes</a>.</p>
+<p class="note"><strong>Note:</strong> BOSH DNS replaces Consul DNS, which had caused stability issues in some deployments. PCF v2.0 through v2.3 progressively phased out Consul DNS, and v2.4 completes its removal. For more information, see the <a href="https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/runtime-rn.html#remove-consul-agent">Pivotal Application Service v2.3 Release Notes</a>.</p>
 
 ### <a id="multiple-networks"></a> Associate an Instance Group with Multiple Networks or Diego Cells Simultaneously
 
@@ -736,7 +731,9 @@ You can provide additional global CPI properties via the `additional_cloud_prope
 
 After adding new global CPI properties, you can view the global CPI properties in use by sending a GET to `/api/v0/staged/director/iaas_configurations`.
 
-For more information, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental).
+As an example, you can deploy PCF on Microsoft Azure using Active Directory Federation Services (ADFS) for secured identity federation and single sign-on (SSO). To implement ADFS for Azure, you must use a certificate to authenticate on Azure, rather than a client and secret.
+
+For more information, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental) and contact [Pivotal Support](https://pivotal.io/support).
 
 
 ## <a id='known-issues'></a> Known Issues
