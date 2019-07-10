@@ -117,6 +117,7 @@ Ops Manager v2.6.0 uses the following component versions:
   </tbody>
 </table>
 
+
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
@@ -254,13 +255,7 @@ releases:
     version: 250.4
 ```       
 
-For more information about using the `exported_from` field, see [Locking Compiled Releases](https://bosh.io/docs/locking-compiled-releases/) in the BOSH documentation. 
-
-### <a id='adfs-auth-azure'></a> ADFS Authentication Available for Microsoft Azure
-
-You can deploy PCF on Microsoft Azure using Active Directory Federation Services (ADFS) for secured identity federation and single sign-on (SSO). To implement ADFS for Azure, you must use a certificate to authenticate on Azure, rather than a client and secret. 
-
-For more information about using ADFS for Azure, see [Use Service Principal with certificate](https://github.com/cloudfoundry/bosh-azure-cpi-release/tree/master/docs/advanced/use-service-principal-with-certificate) on GitHub.
+For more information about using the `exported_from` field, see [Locking Compiled Releases](https://bosh.io/docs/locking-compiled-releases/) in the BOSH documentation.
 
 ### <a id="api-improvements"></a> Other Ops Manager API Improvements
 
@@ -269,6 +264,7 @@ In addition to features described above, the Ops Manager v2.6 API also includes 
 - Operators can override the NATS maximum payload. Deployments with a large number of custom domains may use certificates that are larger than the default 1 MB NATS payload size. As a workaround, operators can override the default maximum. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation. 
 
 - When a request to `POST /api/v0/installations` fails to trigger Apply Changes, the response contains more details about which products are not fully configured. For more information, see [Triggering an installation](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#triggering-an-installation) in the Ops Manager API documentation.
+
 
 ## <a id='known-issues'></a> Known Issues
 
