@@ -24,3 +24,14 @@ See the following PCF Ops Manager breaking changes:
 See the following PCF Isolation Segment breaking changes:
 
 None currently.
+
+## <a id='pasw'></a> PAS for Windows
+
+See the following PAS for Windows breaking changes:
+
+### <a id='windows2016'></a> Removal of the windows2016 Stack
+
+Before you upgrade to PAS for Windows v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
