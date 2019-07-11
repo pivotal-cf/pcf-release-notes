@@ -13,6 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.4.
 
+
 ## <a id="releases"></a> Releases
 
 ### <a id="2.4.15"></a> 2.4.15
@@ -727,13 +728,13 @@ Now a notification banner appears in the Ops Manager UI when a certificate needs
 
 ### <a id="additional-cpi-settings"></a> IaaS-Specific Global CPI Properties Are Configurable From the API
 
-You can provide additional global CPI properties via the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS.
+You can provide additional global CPI properties with the `additional_cloud_properties` endpoint in the Ops Manager API. This allows you to set properties that would otherwise be unavailable in Ops Manager. The specific CPI properties you can set varies depending on your IaaS.
 
 After adding new global CPI properties, you can view the global CPI properties in use by sending a GET to `/api/v0/staged/director/iaas_configurations`.
 
-As an example, you can deploy PCF on Microsoft Azure using Active Directory Federation Services (ADFS) for secured identity federation and single sign-on (SSO). To implement ADFS for Azure, you must use a certificate to authenticate on Azure, rather than a client and secret.
+For example, you can deploy PCF on Microsoft Azure using Active Directory Federation Services (ADFS) for secured identity federation and single sign-on (SSO). To implement ADFS for Azure, you must use a certificate to authenticate on Azure, rather than a client and secret.
 
-For more information, see [Updating Director and IaaS Properties](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-director-and-iaas-properties-experimental) and contact [Pivotal Support](https://pivotal.io/support).
+For more information, contact [Pivotal Support](https://pivotal.io/support).
 
 
 ## <a id='known-issues'></a> Known Issues
@@ -759,6 +760,7 @@ When an installation fails, the Ops Manager UI presents a hyperlink to the insta
 This link is currently non-functional.
 
 To work around this issue, click on **Change Log** in the Ops Manager Installation Dashboard to view product installation logs.
+
 
 ## <a id="api-updates"></a> API Documentation Updates
 
