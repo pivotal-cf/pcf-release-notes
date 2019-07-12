@@ -1945,9 +1945,9 @@ Above approximately 40 Doppler instances and 25 Traffic Controller instances, ho
 
 The Syslog Adapter now enforces a hard limit on how many application syslog drains it can service, therefore it is important to follow the [scaling recommendations](https://docs.pivotal.io/pivotalcf/2-2/monitoring/key-cap-scaling.html#scalable-syslog) to ensure that all syslog drains can be serviced.
 
-### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.2.12--v2.2.15
+### <a id="appsman-ssl-validation"></a> Apps Manager SSL Validation Cannot Be Disabled in v2.2.12 through v2.2.16
 
-In v2.2.12--v2.2.15, Apps Manager ignores the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
+In v2.2.12 through v2.2.16, Apps Manager ignores the **Disable SSL certificate verification for this environment** PAS tile setting. For environments using SSL certificates signed by an untrusted certificate authority (CA), this may cause Apps Manager to show no content.
 
 To resolve this issue, see [Apps Manager shows no content due to SSL validation issue](https://community.pivotal.io/s/article/ssl-validation-issue-apps-manager-shows-no-content).
 
