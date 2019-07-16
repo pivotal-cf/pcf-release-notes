@@ -1433,3 +1433,7 @@ When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environme
 To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
 
 For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
+
+### <a id="credhub-db-migration-failure"></a> CredHub Database Migration Failure
+
+When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by the issue detailed [here](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure).
