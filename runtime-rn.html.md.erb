@@ -1756,7 +1756,31 @@ For more information, see [Missing environment variables when using PAS 2.3+ and
 
 PAS v2.3 is not compatible with NSX Container Plugin v2.4.1. 
 
-To use the NSX Container Plugin v2.4.1, upgrade first to PAS v2.4 or later.
+To use the NSX Container Plugin v2.4.1, you must upgrade first to PAS v2.4 or later.
 
 For more information, see [NSX Container Plugin 2.4.1 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4.1/rn/NSX-Container-Plugin-241-Release-Notes.html) in the VMware documentation.
 
+### <a id="stale-routes"></a> Intermittent Misrouting in Large Foundations that Use PAS v2.3.0 to v2.3.13
+
+When the **Router application identity verification** in **Application Containers** is configured to use TLS or mTLS, 
+Gorouter may retain stale routes in its routing table. These routes can point to non-existent or incorrect app containers 
+and can cause apps to intermittently return HTTP codes 404 or 502. 
+
+This issue typically occurs in larger-sized foundations where a single Gorouter 
+instance has missed the deregistration message during the remapping or unmapping of routes to apps. 
+
+This issue been fixed in PAS v2.3.14.
+
+If you experience intermittent misrouting in apps, do the following: 
+
+1. Log in to Ops Manager.
+1. Select the PAS tile.
+1. Select the **Application Containers** tab.
+1. View the settings in **Router application identity verification**. 
+1. Verify that either **Router uses TLS to verify application identity** or **Router and applications use mutual TLS to verify each other's identity** is selected.
+1. Select the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
+1. Click **Apply Changes**.
+
+To persist this configuration after your upgrade, upgrade to PAS v2.4.10 or later.
+
+For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes).
