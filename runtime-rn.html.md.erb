@@ -295,7 +295,13 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.7
 
+### <a id='consul-server'></a> Consul Server Instance Removed from PAS
 
+The consul server instance is removed from PAS. This saves VM resources and reduces maintenance for managing a clustered component.
+
+In PAS v2.4, the instance count for consul server VMs was scaled down to zero. This allowed the consul server to continue to provide the consul link for tiles that consume it. In PAS v2.7, the consul server instance is removed from PAS. 
+
+For information about breaking changes caused by the removal of the consul server instance, see [Consul Clients Not Supported in PAS](./breaking-changes.html#consul-server).
 
 ## <a id='known-issues'></a> Known Issues
 
