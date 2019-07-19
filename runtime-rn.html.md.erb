@@ -880,13 +880,13 @@ For more information, see [Missing environment variables when using PAS 2.3+ and
 
 When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by the issue detailed [here](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure).
 
-### <a id="stale-routes"></a> Intermittent Misrouting in Large Foundations that Use PAS v2.5.0 to v2.5.5
+### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
 Gorouter may retain stale routes in its routing table. These routes can point to non-existent or incorrect app containers 
 and can cause apps to intermittently return HTTP codes 404 or 502. 
 
 This issue typically occurs in larger-sized foundations where a single Gorouter 
-instance has missed the deregistration message during the remapping or unmapping of routes to apps. 
+instance misses a deregistration message when a user unmaps routes to a running app.
 
 This issue been fixed in PAS v2.5.6.
 
@@ -898,6 +898,6 @@ If you experience intermittent misrouting in apps, do the following:
 1. Select the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
 1. Click **Apply Changes**.
 
-To persist this configuration after an upgrade, upgrade to PAS v2.5.6 or later.
+To persist this configuration after an upgrade, upgrade to PAS v2.6.1 or later.
 
 For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes).
