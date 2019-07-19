@@ -1760,14 +1760,14 @@ To use the NSX Container Plugin v2.4.1, you must upgrade first to PAS v2.4 or la
 
 For more information, see [NSX Container Plugin 2.4.1 Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4.1/rn/NSX-Container-Plugin-241-Release-Notes.html) in the VMware documentation.
 
-### <a id="stale-routes"></a> Intermittent Misrouting in Large Foundations that Use PAS v2.3.0 to v2.3.13
+### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
 When the **Router application identity verification** in **Application Containers** is configured to use TLS or mTLS, 
 Gorouter may retain stale routes in its routing table. These routes can point to non-existent or incorrect app containers 
 and can cause apps to intermittently return HTTP codes 404 or 502. 
 
 This issue typically occurs in larger-sized foundations where a single Gorouter 
-instance has missed the deregistration message during the remapping or unmapping of routes to apps. 
+instance misses a deregistration message when a user unmaps routes to a running app.
 
 This issue been fixed in PAS v2.3.14.
 
