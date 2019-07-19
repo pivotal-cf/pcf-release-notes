@@ -303,9 +303,9 @@ In PAS v2.4, the instance count for consul server VMs was scaled down to zero. T
 
 For information about breaking changes caused by the removal of the consul server instance, see [Consul Clients Not Supported in PAS](./breaking-changes.html#consul-server).
 
-### <a id='log-cache'></a> Maximum Envelopes Per Source ID Raised for Log Cache
+### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
-By default, Log Cache keeps 100,000 envelopes per `source_id`. For noisy sources, this default may not provide a long enough duration for historical queries. PAS v2.7 allows you to raise the `max_per_source` above the default 100,000 if needed.
+By default, Log Cache keeps 100,000 envelopes per source. For noisy sources, this default may not provide a long enough duration for historical queries. PAS v2.7 allows you to raise the maximum number of envelopes stored per source above the default 100,000 if needed.
 
 For more information, see the [Configure Advanced Features](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic.
 
