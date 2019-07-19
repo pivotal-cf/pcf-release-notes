@@ -38,6 +38,14 @@ For more information about removing consul clients from your products, see [Tile
 
 See the following PCF Ops Manager breaking changes:
 
+### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Removed
+
+The `stemcells_assignments` endpoint in the Ops Manager API has been removed. 
+
+Instead, operators must use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product.
+
+For more information, see [Stemcell Associations for Products](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
+
 ## <a id='ist'></a> PCF Isolation Segment
 
 See the following PCF Isolation Segment breaking changes:
