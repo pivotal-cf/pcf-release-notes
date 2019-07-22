@@ -1436,7 +1436,9 @@ For more information, see [Missing environment variables when using PAS 2.3+ and
 
 ### <a id="credhub-db-migration-failure"></a> CredHub Database Migration Failure
 
-When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by the issue detailed [here](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure).
+When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by an issue with the `flyway_schema_history` table.
+
+For information on how to address this issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in GitHub.
 
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
