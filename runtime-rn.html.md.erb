@@ -309,6 +309,13 @@ By default, Log Cache keeps 100,000 envelopes per source. For sources that produ
 
 For more information, see the [Configure Advanced Features](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic.
 
+### <a id='upgrade-service-instances'></a> Support for Upgrading Service Instances
+
+PAS v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement. 
+
+App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades. See [Upgrade a Service Instance](https://docs.pivotal.io/devguide/services/managing-services#upgrade) for more information.  
+
+If you are a service author and want to enable this feature, see [Updating a Service Instance](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#updating-a-service-instance) in the _Open Service Broker API Specification_. 
 
 ## <a id='known-issues'></a> Known Issues
 
