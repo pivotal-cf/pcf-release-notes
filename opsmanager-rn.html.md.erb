@@ -336,4 +336,6 @@ To work around this issue, click on **Change Log** in the Ops Manager Installati
 
 ### <a id="credhub-db-migration-failure"></a> CredHub Database Migration Failure
 
-When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by the issue detailed [here](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure).
+When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by an issue with the `flyway_schema_history` table.
+
+For information on how to address the issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in GitHub.
