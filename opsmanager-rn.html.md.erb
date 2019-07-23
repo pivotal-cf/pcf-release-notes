@@ -15,6 +15,41 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/custo
 
 ## <a id='releases'></a> Releases
 
+### <a id="alpha-3"></a> 2.7 Alpha 3
+
+* **[Feature]** Ops Managers now verifies cron expressions for tiles that require them for scheduling backups
+* **[Feature]** For vSphere users, NSX-V and NSX-T are now configurable in the the **Resource Config** pane of the BOSH Director tile. Properties for NSX-V are: Security groups and lbs. Properties for NSX-T are: ns groups, vif type, and lb.
+* **[Feature]** The Ops Manager form UI has improved error handling. When there is an error, Ops Manager displays both a banner and an error message next to the field containing the error. 
+* **[Feature]** The `/api/v0/deployed/certificates` now displays the Ops Manager root and NATS CAs 
+* **[Feature]** This alpha release features additional changes from the redesign of the **Resource Config** pane. 
+* **[Feature]** As part of the redesign of the **Resource Config** pane, the **Load Balancer** and **Internet Connected** fields are now under a dropdown menu.
+* **[Feature]** Users can now see all CredHub managed certificates from `/api/v0/deployed/certificates`
+* **[Breaking Change]** CredHub managed certificates returned from `/api/v0/deployed/certificates` do not contain the `valid_from` and `issuer` fields. 
+
+
+
+Ops Manager v2.7 Alpha 3 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.7.0-build.112*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.1*</td></tr><tr><td>BBR SDK</td><td>1.15.1</td></tr><tr><td>BOSH Director</td><td>270.4.0*</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.0*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.1*</td></tr><tr><td>BPM</td><td>1.1.0</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>75</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
+
+
 ### <a id="alpha-2"></a> 2.7 Alpha 2
 
 * **[Breaking Change]** Non-configurable properties within a collection / selector are no longer configurable through API.
