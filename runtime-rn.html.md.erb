@@ -1762,10 +1762,10 @@ For more information, see [NSX Container Plugin 2.4.1 Release Notes](https://doc
 
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
-When the **Router application identity verification** in **Application Containers** is configured to use TLS or mTLS, 
-Large PCF Foundations can experience intermittent misrouting of apps.
-These routes can point to non-existent or incorrect app containers 
-and can cause apps to intermittently return HTTP codes 404 or 502. 
+Large PCF Foundations can experience intermittent misrouting of apps
+when the **Router application identity verification** in **Application Containers** 
+is configured to use TLS or mTLS. These routes can point to non-existent or incorrect 
+app containers and can cause apps to intermittently return HTTP codes 404 or 502. 
 
 This issue typically occurs in larger-sized foundations where a single Gorouter 
 instance misses a deregistration message when a user unmaps routes to a running app. 
