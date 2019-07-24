@@ -1763,11 +1763,13 @@ For more information, see [NSX Container Plugin 2.4.1 Release Notes](https://doc
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
 When the **Router application identity verification** in **Application Containers** is configured to use TLS or mTLS, 
-Gorouter may retain stale routes in its routing table. These routes can point to non-existent or incorrect app containers 
+Large PCF Foundations can experience intermittent misrouting of apps.
+These routes can point to non-existent or incorrect app containers 
 and can cause apps to intermittently return HTTP codes 404 or 502. 
 
 This issue typically occurs in larger-sized foundations where a single Gorouter 
-instance misses a deregistration message when a user unmaps routes to a running app.
+instance misses a deregistration message when a user unmaps routes to a running app. 
+As a result, the Gorouter retains stale routes in its routing table.
 
 This issue been fixed in PAS v2.3.14.
 
@@ -1775,10 +1777,11 @@ If you experience intermittent misrouting in apps, do the following:
 
 1. Log in to Ops Manager.
 1. Update the PAS tile to PAS v2.3.14 or later.
-1. In the PAS tile, select the **Application Containers** tab.
+1. In the PAS tile, select **Application Containers**.
 1. View the settings in **Router application identity verification**. 
 1. Verify that either **Router uses TLS to verify application identity** or **Router and applications use mutual TLS to verify each other's identity** is selected.
 1. Select the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
+1. Click **Review Pending Changes**.
 1. Click **Apply Changes**.
 
 To persist this configuration after an upgrade, upgrade to PAS v2.4.10 or later.
