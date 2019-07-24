@@ -617,27 +617,6 @@ See also:
 - [Breaking Changes](https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/breaking-changes.html)
 - [New Features](#new-features)
 
-
-* **[Breaking Change]** Users must acknowledge having migrated apps off of cflinuxfs2 prior to upgrading to PAS 2.5
-* **[Breaking Change]** Remove deprecated buffer size config from the `Logging System` pane
-* **[Breaking Change]** Remove `cflinuxfs2` root filesystem and buildpacks
-* **[Breaking Change]** Remove unused `enable_log_cache` property. See [Removed Log Cache Property](./breaking-changes.html#log-cache).
-* **[Breaking Change]** Remove inactive DNS server configuration that only applied to older deployments without BOSH DNS
-* **[Breaking Change]** Remove unused Apps Manager UAA client and refresh token property. See [Removed Unused Apps Manager UAA Client and Property](./breaking-changes.html#apps-man).
-* **[Breaking Change]** Remove option to override deployment name to CF. See [Removed Option to Override Deployment Name to CF](./breaking-changes.html#deployment-name).
-* **[Breaking Change]** Remove unused jobs `mysql-restore` and `mysql-backup`
-* **[Breaking change]** Increase default and minimum CPU core count from 1 to 2 for internal blobstore VMs to improve reliability
-* **[Breaking Change]** Bump log-cache API to version 2.x which moves `/v1` endpoints to `/api/v1`
-* **[Breaking Change]** Internal MySQL always uses Percona XtraDB Cluster
-* **[Feature]** Add optional Istio based routing tier (BETA). See [Optional Istio-Based Routing Tier (BETA)](#istio).
-* **[Feature]** Add ability to disable network policy enforcement between applications. See [Disable Network Policy Enforcement Between Apps](#disable-policy-enforcement).
-* **[Feature]** Apps manager includes new home page and allows users to search for apps, spaces, orgs and service instances
-* **[Feature]** Add metric-registrar to enable App Developers to output custom application metrics that can be monitored by platform-provided tooling
-* **[Feature]** Users in `usage_service.audit` group can access the Usage Service API using their CF OAuth token
-* **[Feature Improvement]** Cloud Controller fetches application metrics from `log-cache`
-* **[Feature Improvement]** BPM is enabled for Credhub
-* **[Feature Improvement]** nfs-broker connects to its database using TLS
-
 <table border="1" class="nice">
   <thead>
     <tr>
