@@ -1791,12 +1791,13 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 ### <a id="ncp-upgrade-issue"></a> Apps Cannot Be Pushed or Restaged after Upgrade to VMware NSX-T Container Plug-in for PCF v2.4
 
 After upgrading the NSX-T Container Plug-in tile from v2.3 to v2.4, 
-users can no longer push or restage apps to PAS. 
+users can no longer push or restage apps on PAS v2.3. 
 
 To workaround this issue, delete any manually created Switching Profiles 
 before proceeding with the upgrade of the plug-in. 
 
 In the NSX-T Manager interface, do the following:
+
 1. Select **Networking**, **Switching**, **Switching Profiles**
 1. Select **ncp-ha (for all clusters)**.
 1. Click **Delete**.
