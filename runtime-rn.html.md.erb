@@ -971,3 +971,7 @@ If you experience intermittent misrouting in apps, do the following:
 To persist this configuration after an upgrade, upgrade to PAS v2.6.1 or later.
 
 For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes).
+
+### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer in PAS 2.5.8
+
+In PAS 2.5.8, Apps Manager included a change in communication with Spring Boot Actuator endpoints that was not compatible with the Internet Explorer 11 browser, resulting in Spring Boot information not appearing on the app page. This issue is fixed in later patch versions and does not affect other browsers.
