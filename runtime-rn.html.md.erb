@@ -295,6 +295,10 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.7
 
+### <a id='annotations'></a> CAPI Annotation Keys and Key Prefixes Use Kubernetes Format
+
+Annotations key and prefix now conform to same format as Kubernetes annotations metadata
+
 ### <a id='rotate-ccdb-key'></a> Rotate the Cloud Controller Database Encryption Key
 
 PAS v2.7 supports rotating the Cloud Controller Database (CCDB) encryption. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables. 
