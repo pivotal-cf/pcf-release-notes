@@ -396,10 +396,6 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.7
 
-### <a id='annotations'></a> CAPI Annotation Keys and Key Prefixes Use Kubernetes Format
-
-Annotations key and prefix now conform to same format as Kubernetes annotations metadata
-
 ### <a id='rotate-ccdb-key'></a> Rotate the Cloud Controller Database Encryption Key
 
 PAS v2.7 supports rotating the Cloud Controller Database (CCDB) encryption. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables. 
@@ -445,3 +441,9 @@ When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environme
 To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
 
 For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
+
+### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
+
+In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables
+creating services with a consistent metadata format across PAS and Kubernetes. For more information
+about annotation keys and key prefixes, see [Using Metadata](./adminguide/metadata.html#annotation).
