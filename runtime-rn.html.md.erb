@@ -1869,3 +1869,9 @@ In the NSX-T Manager interface, do the following:
 1. Select **ncp-ha (for all clusters)**.
 1. Click **Delete**.
 1. Proceed with the upgrade of the NSX-T Container Plug-in.
+
+### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer
+
+In PAS v2.3.16, Apps Manager included a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
+
+This issue does not affect other browsers.
