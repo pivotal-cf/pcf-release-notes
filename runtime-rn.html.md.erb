@@ -412,9 +412,9 @@ For information about breaking changes caused by the removal of the consul serve
 
 ### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
-By default, Log Cache keeps 100,000 envelopes per source. For sources that produce more than 100,000 envelopes, this default may not provide a long enough duration for you to specify a time period for a historical query. PAS v2.7 allows you to raise the maximum number of envelopes stored per source above the default 100,000 if needed.
+An envelope wraps an event and adds metadata. By default, Log Cache keeps 100,000 envelopes per source. For sources that produce more than 100,000 envelopes, this default may not provide a long enough duration for you to specify a time period for a historical query. PAS v2.7 allows you to raise the maximum number of envelopes stored per source above the default 100,000 if needed.
 
-For more information, see the [Configure Advanced Features](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic.
+For more information about configuring this limit, see the [Configure Advanced Features](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic. For more information about envelopes, see [Protocol Documentation](https://github.com/cloudfoundry/dropsonde-protocol/blob/master/events/README.md#envelope) in the dropsonde-protocol repository on GitHub.
 
 ### <a id='upgrade-service-instances'></a> Support for Upgrading Service Instances
 
