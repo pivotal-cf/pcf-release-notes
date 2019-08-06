@@ -434,7 +434,21 @@ For more information, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf
 
 ### <a id='service-mesh-c2c'></a> Client-side Load Balancing, Timeouts, and Retries for App to App Communication in PAS Service Mesh (Beta)
 
-The beta service mesh routing plane in PAS now supports app-to-app communication through container-to-container networking and includes client-side load balancing, timeouts, and retries. For more information, see [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/adminguide/service-mesh.html#c2c) in the _Service Mesh (Beta)_ topic.  
+The beta service mesh routing plane in PAS now supports app-to-app communication through container-to-container networking and includes client-side load balancing, timeouts, and retries. For more information, see [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/adminguide/service-mesh.html#c2c) in the _Service Mesh (Beta)_ topic.
+
+### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
+
+The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`. This simplifies and consolidates existing configuration options for TLS connections to an external MySQL database.
+
+`uaadb.tls` enables TLS connections by default. The following are supported values for this property:
+
+* `enabled`: Enables TLS connections to the UAA database.
+* `enabled_skip_hostname_validation`: Enables TLS connections to an external MySQL database and ignores hostnames in database server certificates.
+* `enabled_skip_all_validation`: Enables TLS connections to an external MySQL database and skips SSL validation in database server certificates.
+* `disabled`: Disables TLS connections to the UAA database.
+
+<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Deprecated</a> in the <em>PCF v2.7 Breaking Changes</em> topic.</p>
+
 
 ## <a id='known-issues'></a> Known Issues
 

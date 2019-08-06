@@ -3,12 +3,20 @@ title: PCF v2.7 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to
-Pivotal Cloud Foundry (PCF) v2.7. For more information about important preparation steps
-you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud
-Foundry](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.7. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
 
 
+## <a id='opsman'></a> PCF Ops Manager
+
+See the following PCF Ops Manager breaking changes:
+
+### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Removed
+
+The `stemcells_assignments` endpoint in the Ops Manager API has been removed. 
+
+Instead, operators must use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product.
+
+For more information, see [Stemcell Associations for Products](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
 
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
@@ -34,23 +42,19 @@ To remove consul clients from your products, make the following changes to any `
 
 For more information about removing consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the PCF v2.4 Partner Release Notes.
 
-## <a id='opsman'></a> PCF Ops Manager
+### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Deprecated
 
-See the following PCF Ops Manager breaking changes:
+The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are deprecated and replaced by `uaadb.tls`. You must update any automation scripts to remove the deprecated properties before upgrading.
 
-### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Removed
+For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the PAS v2.7 release notes.
 
-The `stemcells_assignments` endpoint in the Ops Manager API has been removed. 
-
-Instead, operators must use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product.
-
-For more information, see [Stemcell Associations for Products](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
 
 ## <a id='ist'></a> PCF Isolation Segment
 
 See the following PCF Isolation Segment breaking changes:
 
 None currently.
+
 
 ## <a id='pasw'></a> PAS for Windows
 
