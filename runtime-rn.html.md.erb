@@ -16,6 +16,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 **Release Date:** 07/30/2019
 
 * **[Security Fix]** When a Spring Boot app has a route with unencrypted HTTP as the protocol, Apps Manager attempts requests via encrypted HTTPS
+* **[Bug Fix]** Fix issue in which Enable/Disable Autoscaling button in Apps Manager temporarily shows the wrong autoscaling state
+* **[Bug Fix]** Space Developer Networking Self Service checkbox in PAS tile configuration now gives proper permissions to Apps Manager users
+* **[Bug Fix]** Fix issue where services shared across orgs/spaces never load apps it is bound to from the other orgs/spaces on the Apps Manager service overview tab
+* **[Bug Fix]** Make search bar in Apps Manager case insensitive
 * **[Bug Fix]** Fix Policy Server to correctly read paginated responses from CAPI
 * **[Bug Fix]** Fixes a regression causing `mount` bind configuration to be rejected by the SMB volume service broker
 * **[Bug Fix]** Creating a space via the V3 API generates an audit event
