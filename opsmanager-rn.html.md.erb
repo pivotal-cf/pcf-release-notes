@@ -140,6 +140,34 @@ Ops Manager v2.7 Alpha 1 uses the following component versions:
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
+### <a id='resource-config'></a>Resource Config Redesign
+
+Ops Manager <%= vars.v_major_version %> introduces a redesigned **Resource Config**
+pane. The new **Resource Config** pane appears in every Ops Manager product tile,
+including the BOSH Director.
+
+In the redesigned **Resource Config** pane, you can expand the row that contains
+each job to reveal additional configuration options. The additional options that
+you can configure depend on your IaaS. For example, if you use vSphere, you can
+configure NSX-T or NSX-V settings within each job row.
+
+The new Ops Manager **Resource Config** pane also has improved error handling. When
+there is an error, Ops Manager displays both a banner and an error message next to
+the field that contains the error. When a value you enter violates the constraints
+of a job, Ops Manager highlights the corresponding **Instances**, **VM Type**, and
+**Persistent Disk Type** fields and displays an error message about the violation.
+
+For more information, see the _Resource Config_ section of the BOSH Director configuration topic for your IaaS:
+
+- [Configuring BOSH Director on AWS](../../om/aws/config-manual.html#pcfaws-om-rscestem)
+- [Configuring BOSH Director on AWS Using Terraform](../../om/aws/config-terraform.html#pcfaws-om-rscestem)
+- [Configuring BOSH Director on Azure Manually](../../om/azure/config-manual.html#resource-config)
+- [Configuring BOSH Director on Azure Using Terraform](../../om/azure/config-terraform.html#resource-config)
+- [Configuring BOSH Director on GCP Manually](../../om/gcp/config-manual.html#resource-config)
+- [Configuring BOSH Director on GCP Using Terraform](../../om/gcp/config-terraform.html#resource-config)
+- [Configuring BOSH Director on OpenStack](../../om/openstack/config.html#resource-config)
+- [Configuring BOSH Director on vSphere](../../om/vsphere/config.html#resource-config)
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
