@@ -42,9 +42,9 @@ To remove consul clients from your products, make the following changes to any `
 
 For more information about removing consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the PCF v2.4 Partner Release Notes.
 
-### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Deprecated
+### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed
 
-The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are deprecated and replaced by `uaadb.tls`. You must update any automation scripts to remove the deprecated properties before upgrading.
+The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`. You must update any automation scripts to remove references to the `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` properties before upgrading.
 
 For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the PAS v2.7 release notes.
 
