@@ -18,6 +18,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** When a Spring Boot app has a route with unencrypted HTTP as the protocol, Apps Manager attempts requests via encrypted HTTPS
 * **[Feature]** Allow operator to configure service mesh domain
 * **[Feature]** Add option to allow queries to inactive MySQL servers so auditing and reporting queries can be made without impacting performance on the active MySQL node.
+* **[Bug Fix]** Fix issue in which Enable/Disable Autoscaling button in Apps Manager temporarily shows the wrong autoscaling state
+* **[Bug Fix]** Space Developer Networking Self Service checkbox in PAS tile configuration now gives proper permissions to Apps Manager users
+* **[Bug Fix]** Fix issue where services shared across orgs/spaces never load apps it is bound to from the other orgs/spaces on the Apps Manager service overview tab
+* **[Bug Fix]** Make search bar in Apps Manager case insensitive
+* **[Bug Fix]** Fix various Apps Manager UI bugs
 * **[Bug Fix]** Fix race condition when starting the PAS MySQL database that caused potential failures during upgrade/deploy
 * **[Bug Fix]** Fixes a regression causing `mount` bind configuration to be rejected by the SMB volume service broker
 * **[Bug Fix]** Creating a space via the V3 API generates an audit event
