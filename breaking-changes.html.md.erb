@@ -25,9 +25,9 @@ See the following PAS breaking changes:
 
 ### <a id='consul-server'></a> Consul Clients Not Supported in PAS
 
-The consul server instance is removed from PAS. Tiledev authors must remove any consul clients from their products to avoid failed deployments.
+The Consul server instance is removed from PAS. Tiledev authors must remove any Consul clients from their products to avoid failed deployments.
 
-To remove consul clients from your products, make the following changes to any `job_type` that is colocated with `consul_agent`:
+To remove Consul clients from your products, make the following changes to any `job_type` that is colocated with `consul_agent`:
 
 ```
 - name: consul_agent
@@ -40,7 +40,7 @@ To remove consul clients from your products, make the following changes to any `
           enabled: "(( $ops_manager.dns_enabled ? false : true ))"
 ```
 
-For more information about removing consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the PCF v2.4 Partner Release Notes.
+For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the PCF v2.4 Partner Release Notes.
 
 ### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed
 
