@@ -210,7 +210,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
-
 ### <a id='2.7.0-alpha.2'></a> 2.7.0-alpha.2
 
 * **[Security Fix]** Usage service BBR script now uses ssl validation by default when logging into CAPI
@@ -404,11 +403,11 @@ You can rotate the key using the new **Encryption key ledger** field and **Rotat
 
 ### <a id='consul-server'></a> Consul Server Instance Removed from PAS
 
-The consul server instance is removed from PAS. This saves VM resources and reduces maintenance for managing a clustered component.
+The Consul server instance is removed from PAS. This saves VM resources and reduces maintenance for managing a clustered component.
 
-In PAS v2.4, the instance count for consul server VMs was scaled down to zero. This allowed the consul server to continue to provide the consul link for tiles that consume it. In PAS v2.7, the consul server instance is removed from PAS. 
+In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In PAS v2.7, the Consul server instance is removed from PAS. 
 
-For information about breaking changes caused by the removal of the consul server instance, see [Consul Clients Not Supported in PAS](./breaking-changes.html#consul-server).
+For information about breaking changes caused by the removal of the Consul server instance, see [Consul Clients Not Supported in PAS](./breaking-changes.html#consul-server).
 
 ### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
@@ -438,13 +437,13 @@ The beta service mesh routing plane in PAS now supports app-to-app communication
 
 ### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
 
-The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`. This simplifies and consolidates existing configuration options for TLS connections to an external MySQL database.
+The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`. This simplifies and consolidates existing configuration options for TLS connections to an external database.
 
 `uaadb.tls` enables TLS connections by default. The following are supported values for this property:
 
-* `enabled`: Enables TLS connections to the UAA database.
-* `enabled_skip_hostname_validation`: Enables TLS connections to an external MySQL database and ignores hostnames in database server certificates.
-* `enabled_skip_all_validation`: Enables TLS connections to an external MySQL database and skips SSL validation in database server certificates.
+* `enabled`: Enables TLS connections to an external database.
+* `enabled_skip_hostname_validation`: Enables TLS connections to an external database and ignores hostnames in database server certificates.
+* `enabled_skip_all_validation`: Enables TLS connections to an external database and skips SSL validation in database server certificates.
 * `disabled`: Disables TLS connections to the UAA database.
 
 <p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em>PCF v2.7 Breaking Changes</em> topic.</p>
