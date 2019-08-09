@@ -46,7 +46,7 @@ Ops Manager v2.7 Beta 1 uses the following component versions:
 
 ### <a id="alpha-3"></a> 2.7 Alpha 3
 
-* **[Feature]** Ops Managers now verifies cron expressions for tiles that require them for scheduling backups
+* **[Feature]** Ops Managers now verifies cron expressions for tiles that require them for scheduling backups. See [Valid cron Input Verification](#cron) below.
 * **[Feature]** For vSphere users, NSX-V and NSX-T are now configurable in the the **Resource Config** pane of the BOSH Director tile. Properties for NSX-V are: Security groups and lbs. Properties for NSX-T are: ns groups, vif type, and lb.
 * **[Feature]** The Ops Manager **Resource Config** UI has improved error handling. When there is an error, Ops Manager displays both a banner and an error message next to the field containing the error. 
 * **[Feature]** The `/api/v0/deployed/certificates` now displays the Ops Manager root and NATS CAs 
@@ -167,6 +167,15 @@ For more information, see the _Resource Config_ section of the BOSH Director con
 - [Configuring BOSH Director on GCP Using Terraform](https://docs.pivotal.io/pivotalcf/2-7/om/gcp/config-terraform.html#resource-config)
 - [Configuring BOSH Director on OpenStack](https://docs.pivotal.io/pivotalcf/2-7/om/openstack/config.html#resource-config)
 - [Configuring BOSH Director on vSphere](https://docs.pivotal.io/pivotalcf/2-7/om/vsphere/config.html#resource-config)
+
+### <a id="cron"></a> Valid cron Input Verification
+
+For `string` type form fields in tiles, Ops Manager supports a `constraints.must_be_cron_schedule` attribute
+that verifies whether the input is a valid `cron` expression.
+Tiles can use this attribute for fields that schedule backups, for example.
+For information about the `string` blueprint type,
+see [string](http://docs.pivotal.io/tiledev/property-template-references.html#string).
+
 
 ## <a id='known-issues'></a> Known Issues
 
