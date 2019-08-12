@@ -171,18 +171,17 @@ production.
 
 PAS for Windows v2.7 includes the following advanced features:
 
-### <a id='beta-tls'></a> (BETA) Enable TLS Connections From Router to Applications
+### <a id='beta-tls'></a> (BETA) Enable TLS Connections From Router to Apps
 
-This feature can be found in the PAS for Windows tile, under the `Advanced Features` section.
+You can enable TLS connections from the router to apps. This feature is available in the PAS for Windows tile under **Advanced Features**.
 
-There are three different options that can be selected to add route integrity and mTLS (mutual TLS).
+There are three different options that you can select to add route integrity and mTLS (mutual TLS).
 
 * **Disable route integrity and mutual TLS (Default)**: The default selection for this beta feature is to be disabled.
 * **Router uses TLS to verify application identity**: This will enable route integrity for your apps, but not mTLS.
 * **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing)**: This option enables both route integrity and mTLS.
 
-**Important Note About This Feature**:
-This beta feature checks only that the client certificate is signed by the expected CA using mTLS. It **does not** include SAN (Subject Alternative Name) checks of the presented client certificates.
+<p class="note"><strong>Note</strong>: This beta feature checks only that the client certificate is signed by the expected CA using mTLS. It does not include Subject Alternative Name (SAN) checks of the presented client certificates.</p>
 
 ## <a id='known-issues'></a> Known Issues
 
