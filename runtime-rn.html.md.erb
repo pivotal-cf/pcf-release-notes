@@ -455,6 +455,18 @@ You can configure Key Management Service (KMS) encryption providers for CredHub.
 
 For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_. 
 
+### <a id='inactive-mysql'></a>Enable Inactive MySQL Port for Auditing and Reporting
+
+PAS v2.7 introduces the option to enable MySQL proxies to listen on port 3336. If
+you enable this option, you can run auditing and reporting queries on a MySQL node
+that is not currently serving traffic. By running these queries on an inactive node,
+the active MySQL nodes continue to serve requests with no effect on performance.
+
+To enable this option, select the **Enable inactive mysql port** checkbox on the
+**Internal MySQL** pane of the PAS tile. For more information, see the [Configure
+Internal MySQL](http://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#internal-mysql) section of _Configuring PAS_.
+
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
