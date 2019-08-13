@@ -13,6 +13,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager <%= vars.v_major_version %>.
 
+
 ## <a id='releases'></a> Releases
 
 ### <a id="beta-1"></a> 2.7 Beta 1
@@ -54,8 +55,6 @@ Ops Manager v2.7 Beta 1 uses the following component versions:
 * **[Feature]** Users can now see all CredHub managed certificates from `/api/v0/deployed/certificates`
 * **[Breaking Change]** CredHub managed certificates returned from `/api/v0/deployed/certificates` do not contain the `valid_from` and `issuer` fields. 
 
-
-
 Ops Manager v2.7 Alpha 3 uses the following component versions:
 
 <table border="1" class="nice">
@@ -76,8 +75,6 @@ Ops Manager v2.7 Alpha 3 uses the following component versions:
   </tbody>
 </table>
 
-
-
 ### <a id="alpha-2"></a> 2.7 Alpha 2
 
 * **[Breaking Change]** Non-configurable properties within a collection / selector are no longer configurable through API.
@@ -87,7 +84,6 @@ Ops Manager v2.7 Alpha 3 uses the following component versions:
 * **[Feature]** The **credhub.certificates.concatenate_cas** property is set to `true` to enable future rotation using maestro.
 * **[Bug Fix]** Ops Manager logs requests that result in a 500 error to `audit_log.txt`.
 * **[Bug Fix]** Fix alignment issues on Unlock Account and Ensure Availability pages.  
-
 
 Ops Manager v2.7 Alpha 2 uses the following component versions:
 
@@ -138,22 +134,13 @@ Ops Manager v2.7 Alpha 1 uses the following component versions:
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
-### <a id='resource-config'></a>Resource Config Redesign
+### <a id='resource-config'></a> Resource Config Redesign
 
-Ops Manager <%= vars.v_major_version %> introduces a redesigned **Resource Config**
-pane. The new **Resource Config** pane appears in every Ops Manager product tile,
-including the BOSH Director.
+Ops Manager <%= vars.v_major_version %> introduces a redesigned **Resource Config** pane. The new **Resource Config** pane appears in every Ops Manager product tile, including the BOSH Director.
 
-In the redesigned **Resource Config** pane, you can expand the row that contains
-each job to reveal additional configuration options. The additional options that
-you can configure depend on your IaaS. For example, if you use vSphere, you can
-configure NSX-T or NSX-V settings within each job row.
+In the redesigned **Resource Config** pane, you can expand the row that contains each job to reveal additional configuration options. The additional options that you can configure depend on your IaaS. For example, if you use vSphere, you can configure NSX-T or NSX-V settings within each job row.
 
-The new Ops Manager **Resource Config** pane also has improved error handling. When
-there is an error, Ops Manager displays both a banner and an error message next to
-the field that contains the error. When a value you enter violates the constraints
-of a job, Ops Manager highlights the corresponding **Instances**, **VM Type**, and
-**Persistent Disk Type** fields and displays an error message about the violation.
+The new Ops Manager **Resource Config** pane also has improved error handling. When there is an error, Ops Manager displays both a banner and an error message next to the field that contains the error. When a value you enter violates the constraints of a job, Ops Manager highlights the corresponding **Instances**, **VM Type**, and **Persistent Disk Type** fields and displays an error message about the violation.
 
 For more information, see the _Resource Config_ section of the BOSH Director configuration topic for your IaaS:
 
@@ -168,11 +155,11 @@ For more information, see the _Resource Config_ section of the BOSH Director con
 
 ### <a id="cron"></a> Valid cron Input Verification
 
-For `string` type form fields in tiles, Ops Manager supports a `constraints.must_be_cron_schedule` attribute
-that verifies whether the input is a valid `cron` expression.
-Tiles can use this attribute for fields that schedule backups, for example.
-For information about the `string` blueprint type,
-see [string](http://docs.pivotal.io/tiledev/property-template-references.html#string).
+For `string` type form fields in tiles, Ops Manager supports a `constraints.must_be_cron_schedule` attribute that verifies whether the input is a valid `cron` expression. Tiles can use this attribute for fields that schedule backups, for example. For information about the `string` blueprint type, see [string](http://docs.pivotal.io/tiledev/property-template-references.html#string).
+
+### <a id=‘sanitize-certs’></a> Ops Manager Sanitizes Certificate Input for Carriage Returns and Line Feeds
+
+When you reset the value of a certificate in an Ops Manager tile, Ops Manager sanitizes the certificate for carriage returns and line feeds. This prevents BOSH from interpreting the certificate you reset as a new certificate and recreating VMs. You do not need to manually remove newline characters such as `\n`.
 
 
 ## <a id='known-issues'></a> Known Issues
