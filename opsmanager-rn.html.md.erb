@@ -265,7 +265,7 @@ For more information, see [Configuring resources for a job (Experimental)](http:
 
 ### <a id='automatic-ca'></a> Fresh Installations of Ops Manager Create New Default Certificate Authority in CredHub
 
-When installing Ops Manager v2.6, Ops Manager creates a new default certificate authority (CA) in the BOSH Director CredHub. This CA can generate TLS certificates.
+When installing Ops Manager v2.6, Ops Manager creates a new default certificate authority (CA) in the BOSH Director CredHub under `/services/tls_ca`. This CA can generate TLS certificates.
 
 When upgrading to Ops Manager v2.6 from Ops Manager v2.5, any CA that already exists does not get overwritten.
 
