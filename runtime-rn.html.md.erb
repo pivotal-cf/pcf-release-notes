@@ -449,6 +449,12 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 <p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em>PCF v2.7 Breaking Changes</em> topic.</p>
 
 
+### <a id='credhub-kms'></a> CredHub Supports KMS 
+
+You can configure Key Management Service (KMS) encryption providers for CredHub. Configuring KMS encryption providers for CredHub allows you to more easily create and manage the encryption keys that you use in your environment.
+
+For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_. 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
