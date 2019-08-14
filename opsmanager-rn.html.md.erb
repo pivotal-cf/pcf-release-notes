@@ -48,7 +48,7 @@ Ops Manager v2.7 Beta 1 uses the following component versions:
 * **[Feature]** Ops Managers now verifies cron expressions for tiles that require them for scheduling backups. See [Valid cron Input Verification](#cron) below.
 * **[Feature]** For vSphere users, NSX-V and NSX-T are now configurable in the the **Resource Config** pane of the BOSH Director tile. Properties for NSX-V are: Security groups and lbs. Properties for NSX-T are: ns groups, vif type, and lb.
 * **[Feature]** The Ops Manager **Resource Config** UI has improved error handling. When there is an error, Ops Manager displays both a banner and an error message next to the field containing the error. 
-* **[Feature]** The `/api/v0/deployed/certificates` now displays the Ops Manager root and NATS CAs 
+* **[Feature]** The `/api/v0/deployed/certificates` now displays the Ops Manager root and NATS CAs. See [API Call Returns All Certs](#all-certs).
 * **[Feature]** This alpha release features additional changes from the redesign of the **Resource Config** pane. 
 * **[Feature]** As part of the redesign of the **Resource Config** pane, the **Load Balancer** and **Internet Connected** fields are now under a dropdown menu.
 * **[Feature]** On OpenStack, operators can assign floating IP addresses to Ops Manager jobs.
@@ -161,6 +161,12 @@ For `string` type form fields in tiles, Ops Manager supports a `constraints.must
 
 When you reset the value of a certificate in an Ops Manager tile, Ops Manager sanitizes the certificate for carriage returns and line feeds. This prevents BOSH from interpreting the certificate you reset as a new certificate and recreating VMs. You do not need to manually remove newline characters such as `\n`.
 
+### <a id='all-certs'></a> API Call Returns All Certs
+
+Calling the Ops Manager API `deployed/certificates` endpoint returns listings for
+the root certificate authority (CA) and NATS CA in addition to leaf-level certificates.
+
+For more information, see [List all RSA Certificates](https://docs.pivotal.io/pivotalcf/2-7/security/pcf-infrastructure/managing-certificates.html#list-rsa-certs].
 
 ## <a id='known-issues'></a> Known Issues
 
