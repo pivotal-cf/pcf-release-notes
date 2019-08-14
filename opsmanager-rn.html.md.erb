@@ -157,7 +157,7 @@ For more information, see the _Resource Config_ section of the BOSH Director con
 
 For `string` type form fields in tiles, Ops Manager supports a `constraints.must_be_cron_schedule` attribute that verifies whether the input is a valid `cron` expression. Tiles can use this attribute for fields that schedule backups, for example. For information about the `string` blueprint type, see [string](http://docs.pivotal.io/tiledev/property-template-references.html#string).
 
-### <a id=‘sanitize-certs’></a> Ops Manager Sanitizes Certificate Input for Carriage Returns and Line Feeds
+### <a id='sanitize-certs'></a> Ops Manager Sanitizes Certificate Input for Carriage Returns and Line Feeds
 
 When you reset the value of a certificate in an Ops Manager tile, Ops Manager sanitizes the certificate for carriage returns and line feeds. This prevents BOSH from interpreting the certificate you reset as a new certificate and recreating VMs. You do not need to manually remove newline characters such as `\n`.
 
