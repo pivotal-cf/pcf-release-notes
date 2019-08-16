@@ -203,11 +203,16 @@ the root certificate authority (CA) and NATS CA in addition to leaf-level certif
 
 For more information, see [List all RSA Certificates](https://docs.pivotal.io/pivotalcf/2-7/security/pcf-infrastructure/managing-certificates.html#list-rsa-certs).
 
-### <a id='download-support-zip'></a> Download a Support ZIP File
+### <a id='download-support-zip'></a> Download a Support Bundle from the Ops Manager UI or API
 
-A **Support** link is added to the footer of all pages in the Ops Manager tile. You can click on **Support** to download a ZIP file that includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics. 
+You can download a support bundle as a ZIP file from the Ops Manager UI or API. The support bundle includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics.
 
-You can share the contents of the ZIP file with Pivotal Support to help the Support team more quickly address any issues in your deployment. 
+The contents of the support bundle help Pivotal Support more quickly address any issues in your deployment.  
+
+To download the support bundle ZIP file from the UI, click **Support** in the footer of any page in the Ops Manager UI.
+
+To download the support bundle ZIP file from the Ops Manager API, use the `/api/v0/support_bundle` endpoint. For more information, see [Support Bundle](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#support-bundle) in the Ops Manager API documentation.
+
 
 ## <a id='known-issues'></a> Known Issues
 
