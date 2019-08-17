@@ -18,12 +18,6 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/cust
 
 ### <a id="2-4-17"></a> 2.4.17
 
-* **[Feature]** `/api/v0/deployed/certificates?expires_within=` does not display `saml_service_provider_cert` if Ops Manager is not using SAML.
-* **[Feature]** Operators can set `recursor_selection` in the DNS runtime config through the OpsManager API 
-* **[Feature]** The OpsManager web server (nginx) does not allow TLSv1 and TLSv1.1
-* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog.    
-* **[Bug fix]** Resolves an issue in which Ops Manager set the Director ephemeral disk size to the Operator’s selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field.
-
 Ops Manager v2.4.17 uses the following component versions:
 
 <table border="1" class="nice">
