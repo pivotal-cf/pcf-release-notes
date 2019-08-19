@@ -8,9 +8,15 @@ with Pivotal Cloud Foundry (PCF).
 
 Before you upgrade PCF, always verify that any tiles that you have installed, either from Pivotal or a partner, are compatible with the version of PCF you are deploying and its supported stemcells. For more information on checking PCF and stemcell compatibility, see <a href="https://docs.pivotal.io/pivotalcf/upgrading/checklist.html#compatibility">Tile Compatibility</a> in the Upgrade Checklist. 
 
+PCF uses the following types of stemcells:
+
+* [Ubuntu Trusty Stemcells](#rt_trusty)
+* [Ubuntu Xenial Stemcells](#rt_xenial)
+* [Windows Stemcells](#rt_win)
+
 To find out which stemcell version is used by a product tile version, check the release notes or the Pivotal Network download page for the tile. 
 
-## <a id="rt_trusty"></a> Ubuntu Trusty Stemcells
+## <a name="rt_trusty"></a> Ubuntu Trusty Stemcells
 
 <p class="note"><strong>Note: </strong>Ubuntu 14.04 LTS (Trusty) stemcells are reaching end-of-support in April 2019. Starting in September 2018, Pivotal and its partners will begin releasing product tiles for PCF that support Ubuntu 16.04 LTS (Xenial) stemcells instead. Using supported stemcells is necessary to avoid exposure to security vulnerabilities.</p>
 
@@ -115,7 +121,7 @@ The following Ubuntu Trusty stemcell lines are used with PCF tiles.
   </tr>
 </table>
 
-## <a id="rt_xenial"></a> Ubuntu Xenial Stemcells
+## <a name="rt_xenial"></a> Ubuntu Xenial Stemcells
 
 The following Ubuntu Xenial stemcell lines are used with PCF tiles.
 
@@ -176,7 +182,7 @@ The following Ubuntu Xenial stemcell lines are used with PCF tiles.
   </tr>
 </table>
 
-## <a id="rt_win"></a> Windows Stemcells
+## <a name="rt_win"></a> Windows Stemcells
 
 The following stemcell lines are used with PCF Runtime for Windows and Pivotal Application Service (PAS) Windows.
 
