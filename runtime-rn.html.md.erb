@@ -20,6 +20,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Upgrade Envoy to Fix Security Vulnerabilities
 * **[Security Fix]** Upgrade libseccomp in bpm to 2.4.1 to address CVE-2019-9893
 * **[Bug Fix]** Improve output of Garden diagnostic tool (i.e. `dontpanic`) and increase resiliency in  edge cases through improvements in containerd
+* **[Bug Fix]** Pass through arbitrary parameters when binding a service to an app in Apps Manager
+* **[Bug Fix]** Show all contexts for Spring Boot actuator mappings in Apps Manager, not just mappings that have the 'application' context
+* **[Bug Fix]** Fix bug in Apps Manager where Spring Boot actuator trace tab data was not shown
 * Bump ubuntu-xenial stemcell to version `250.84`
 * Bump bpm to version `1.1.1`
 * Bump cf-autoscaling to version `221`
@@ -1056,10 +1059,10 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 In PAS v2.5.8, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
 
-This issue is fixed in later patch versions and does not affect other browsers.
+This issue is fixed in patch versions after v2.5.9, and does not affect other browsers.
 
 ### <a id="apps-manager-spring-mappings-context"></a> Apps Manager Does Not Show Spring Mappings Outside of the Application Context
 
 In PAS v2.5.0 to v2.5.8, the Spring Boot mappings in Apps Manager did not account for contexts other than the 'application' context. For this reason, some Spring Boot mappings may fail to show up in Apps Manager for a given application.
 
-This issue is fixed in later releases.
+This issue is fixed in patch versions after v2.5.9
