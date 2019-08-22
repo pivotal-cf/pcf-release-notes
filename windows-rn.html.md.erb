@@ -5,11 +5,11 @@ owner: Garden Windows
 
 This topic contains release notes for Pivotal Application Service (PAS) for Windows.
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The PAS for Windows v2.7 tile is available with the release of Pivotal Cloud Foundry (PCF) version
-v2.7. To use the PAS for Windows v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7
-or later.
+The PAS for Windows v2.7 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.7. To use the PAS for Windows v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
+
 
 ## <a id='releases'></a> Releases
 
@@ -184,6 +184,7 @@ or later.
   </tbody>
 </table>
 
+
 ## <a id='new-features'></a> New Features in PAS for Windows v2.7
 
 PAS for Windows v2.7 includes the following major features:
@@ -195,19 +196,24 @@ In PAS for Windows v2.7, the `windows2016` stack is removed. Before you upgrade 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
 
-### <a id='vcr-libs'></a> Pre-installed Visual C++ Redistributables
+### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
 PAS for Windows v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to PAS for Windows v2.2. 
 
-This update improves the developer experience by making VisualC++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.  
+This update improves the developer experience by making VisualC++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
+
+### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
+
+PAS v2.7 contains an agent that forwards logs to configured syslog drains and Loggregator. This agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+
+Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
+
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have
-certain constraints.
+The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when using them in
-production.
+Although these features are fully supported, Pivotal recommends caution when using them in production.
 
 PAS for Windows v2.7 includes the following advanced features:
 
@@ -221,7 +227,8 @@ You can select three different options to add route integrity and mTLS (mutual T
 * **Router uses TLS to verify application identity**: This enables route integrity for your apps but not mTLS.
 * **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing)**: This option enables both route integrity and mTLS.
 
-<p class="note"><strong>Note</strong>: This beta feature checks only that the client certificate is signed by the expected CA using mTLS. It does not include Subject Alternative Name (SAN) checks of the presented client certificates.</p>
+<p class="note"><strong>Note:</strong> This beta feature checks only that the client certificate is signed by the expected CA using mTLS. It does not include Subject Alternative Name (SAN) checks of the presented client certificates.</p>
+
 
 ## <a id='known-issues'></a> Known Issues
 
