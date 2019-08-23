@@ -210,6 +210,18 @@ Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are re
 
 For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
+### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH 
+
+<p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i>PCF v2.7 Breaking Changes</i>.</p>
+
+The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
+
+This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs. 
+
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile. 
+
+For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config) section in _Installing and Configuring PASW_.
+
 
 ## <a id='adv-features'></a> New Advanced Features
 

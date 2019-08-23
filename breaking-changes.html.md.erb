@@ -66,3 +66,16 @@ In PAS for Windows v2.7, the `windows2016` stack is removed. Before you upgrade 
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
+
+
+### <a id='rdp'></a> RDP is Not Supported
+
+The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP. 
+
+Remove references to `.properties.rdp_enabled` in any automated scripts to avoid errors during upgrade.
+
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile. 
+
+For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config) section in _Installing and Configuring PASW_. 
+
+
