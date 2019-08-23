@@ -564,6 +564,19 @@ PAS v2.7 contains an agent that forwards logs to configured syslog drains and Lo
 
 Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
+### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
+
+PAS v2.7 improves route consistency in the route-emitter component of Diego. 
+
+This Diego enhancement ensures better routing resiliency in the event of control plane downtime. 
+For example, if NATS experiences downtime or the network becomes 
+unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
+
+This modification to route-emitter removes the need for the **Prune Routes on TTL Expiry for TLS Backends** 
+configuration option in PAS v2.7. 
+For more information, see 
+[Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) 
+in the Known Issues section of PAS v2.6 Release Notes.
 
 ## <a id='known-issues'></a> Known Issues
 
