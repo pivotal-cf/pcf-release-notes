@@ -233,7 +233,7 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/pivo
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-PAS v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+PCF Isolation Segment v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
 
 Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
