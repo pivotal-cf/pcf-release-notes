@@ -526,6 +526,10 @@ You can navigate to resources, such as the app **Overview** and **Settings** pan
 
 For more information, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-7/console/index.html).
 
+### <a id='service-mesh-c2c'></a> Client-side Load Balancing, Timeouts, and Retries for App to App Communication in PAS Service Mesh (Beta)
+
+The beta service mesh routing plane in PAS now supports app-to-app communication through container-to-container networking and includes client-side load balancing, timeouts, and retries. For more information, see [Container-to-Container Networking](https://docs.pivotal.io/pivotalcf/adminguide/service-mesh.html#c2c) in the _Service Mesh (Beta)_ topic.
+
 ### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
 
 The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`. This simplifies and consolidates existing configuration options for TLS connections to an external database.
@@ -565,6 +569,14 @@ PAS v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog
 Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
 For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
+
+### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
+
+PAS v2.7 improves route consistency in the route-emitter component of Diego. 
+
+This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
+
+This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PAS v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
 
 
 ## <a id='known-issues'></a> Known Issues

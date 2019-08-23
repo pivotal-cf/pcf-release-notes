@@ -223,7 +223,6 @@ The procedure for installing PCF Isolation Segment v2.7 is documented in the [In
 
 To install a PCF Isolation Segment, you must first install PCF v2.7.
 
-
 ## <a id='2.7.0'></a> New Features in PCF Isolation Segment v2.7
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
@@ -240,12 +239,19 @@ Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are re
 
 For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
+### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
+
+PAS v2.7 improves route consistency in the route-emitter component of Diego. 
+
+This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
+
+This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PCF Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+
 
 ## <a id='adv-features'></a> About Advanced Features
 
 The Advanced Features section of the PCF Isolation Segment v2.7 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
-
 
 ## <a id='known-issues'></a> Known Issues
