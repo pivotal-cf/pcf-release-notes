@@ -1040,7 +1040,7 @@ This issue typically occurs in larger-sized foundations where a single Gorouter
 instance misses a deregistration message when a user unmaps routes to a running app. 
 As a result, the Gorouter retains stale routes in its routing table.
 
-This issue been fixed in PAS v2.5.6.
+This issue is fixed in PAS v2.5.6 and later.
 
 If you experience intermittent misrouting in apps, do the following: 
 
@@ -1059,10 +1059,10 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 In PAS v2.5.8, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
 
-This issue is fixed in patch versions after v2.5.9, and does not affect other browsers.
+This issue is fixed in PAS v2.5.9 and later, and does not affect other browsers.
 
 ### <a id="apps-manager-spring-mappings-context"></a> Apps Manager Does Not Show Spring Mappings Outside of the Application Context
 
 In PAS v2.5.0 to v2.5.8, the Spring Boot mappings in Apps Manager did not account for contexts other than the 'application' context. For this reason, some Spring Boot mappings may fail to show up in Apps Manager for a given application.
 
-This issue is fixed in patch versions after v2.5.9
+This issue is fixed in PAS v2.5.9 and later.
