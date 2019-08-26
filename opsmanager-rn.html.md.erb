@@ -16,6 +16,39 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/custo
 
 ## <a id='releases'></a> Releases
 
+### <a id="rc-2"></a> 2.7 Release Candidate 2
+
+* **[Bug Fix]** Credentials are not shown in UI/API for restricted users
+* **[Bug Fix]** Custom UI Banner displays on React pages such as Stemcell Manager
+* **[Bug Fix]** Updates BBR to 1.x to fix postgres db backup
+* **[Bug Fix]** Azure SSH private key is redacted in the UI'
+* **[Bug Fix]** Syslog addon correctly injected into manifest for service brokers that enable OpsManager's consistent syslog
+* **[Bug fix]** Resolves an issue in which Ops Manager set the Director ephemeral disk size to the Operator’s selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field.
+* **[Feature]** Provides more information on Support page
+* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog. 
+* **[Feature]** Deployed certificates endpoint shows the product GUID for all CredHub-managed certificates
+
+Ops Manager v2.7 Release Candidate 2 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.7.0-build.149*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.3</td></tr><tr><td>BBR SDK</td><td>1.17.0</td></tr><tr><td>BOSH Director</td><td>270.4.0</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.4*</td></tr><tr><td>BPM</td><td>1.1.3*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
+
 ### <a id="rc-1"></a> 2.7 Release Candidate 1
 
 * **[Feature]** Support bundle includes most recent and last successful manifest
