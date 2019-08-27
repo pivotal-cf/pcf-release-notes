@@ -1,5 +1,5 @@
 ---
-title: PCF Isolation Segment v2.7 Release Notes
+title: PCF Isolation Segment v2.8 Release Notes
 owner: Release Engineering
 ---
 
@@ -7,250 +7,29 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.7.0-rc.1'></a> 2.7.0-rc.1
 
-**Release Date:** 08/15/2019
-
-* **[Breaking Change]** Enable multiple internal domains for application service discovery
-* **[Security Fix]** Upgrade libseccomp in bpm to 2.4.1 and garden to  1.19.5 to address CVE-2019-9893
-* **[Feature Improvement]** Route TTL pruning is no longer configurable
-* **[Feature Improvement]** Enable SSH to both Linux and Windows application instances when using Linux NSX-T container networking
-* **[Feature Improvement]** Add mTLS for communication between Routing API and other components, by adding properties for Router API
-* **[Feature Improvement]** Disable mapfs when NFS is disabled
-* **[Bug Fix]** Improve output of Garden diagnostic tool (i.e. `dontpanic`) and increase resiliency in  edge cases through improvements in containerd
-* **[Bug Fix]** Loggregator agent runs out of file descriptors causing windows diego cells to be unreachable
-* Bump ubuntu-xenial stemcell to version `456.3`
-* Bump bpm to version `1.1.1`
-* Bump cflinuxfs3 to version `0.118.0`
-* Bump garden-runc to version `1.19.5`
-* Bump loggregator-agent to version `3.19`
-* Bump routing to version `0.190.0`
-* Bump silk to version `2.22.2`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>456.3</td></tr>
-    <tr><td>bpm</td><td>1.1.1</td></tr>
-    <tr><td>cf-networking</td><td>2.23.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.118.0</td></tr>
-    <tr><td>diego</td><td>2.35.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.5</td></tr>
-    <tr><td>haproxy</td><td>9.6.1</td></tr>
-    <tr><td>loggregator-agent</td><td>3.19</td></tr>
-    <tr><td>mapfs</td><td>1.2.0</td></tr>
-    <tr><td>nfs-volume</td><td>2.2.2</td></tr>
-    <tr><td>routing</td><td>0.190.0</td></tr>
-    <tr><td>silk</td><td>2.22.2</td></tr>
-    <tr><td>smb-volume</td><td>1.3.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-beta.1'></a> 2.7.0-beta.1
-
-**Release Date:** 08/01/2019
-
-* **[Feature Improvement]** Agent-based syslog egress is enabled by default
-* **[Bug Fix]** Fixes a regression causing `mount` bind configuration to be rejected by the SMB volume service broker
-* **[Bug Fix]** Fix issue in SMB startup scripts that can cause restart failure or inadvertent application data permission change
-* Bump ubuntu-xenial stemcell to version `315.70`
-* Bump cflinuxfs3 to version `0.117.0`
-* Bump diego to version `2.35.0`
-* Bump garden-runc to version `1.19.4`
-* Bump loggregator-agent to version `3.18`
-* Bump mapfs to version `1.2.0`
-* Bump nfs-volume to version `2.2.2`
-* Bump smb-volume to version `1.3.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>315.70</td></tr>
-    <tr><td>bpm</td><td>1.1.0</td></tr>
-    <tr><td>cf-networking</td><td>2.23.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.117.0</td></tr>
-    <tr><td>diego</td><td>2.35.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.4</td></tr>
-    <tr><td>haproxy</td><td>9.6.1</td></tr>
-    <tr><td>loggregator-agent</td><td>3.18</td></tr>
-    <tr><td>mapfs</td><td>1.2.0</td></tr>
-    <tr><td>nfs-volume</td><td>2.2.2</td></tr>
-    <tr><td>routing</td><td>0.188.0</td></tr>
-    <tr><td>silk</td><td>2.22.0</td></tr>
-    <tr><td>smb-volume</td><td>1.3.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-
-### <a id='2.7.0-alpha.3'></a> 2.7.0-alpha.3
-
-* **[Bug Fix]** Add optional TTL pruning for TLS routes
-* Bump ubuntu-xenial stemcell to version `315.45`
-* Bump cf-networking to version `2.23.0`
-* Bump cflinuxfs3 to version `0.111.0`
-* Bump diego to version `2.34.0`
-* Bump garden-runc to version `1.19.3`
-* Bump haproxy to version `9.6.1`
-* Bump nfs-volume to version `2.2.0`
-* Bump smb-volume to version `1.2.2`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>315.45</td></tr>
-    <tr><td>bpm</td><td>1.1.0</td></tr>
-    <tr><td>cf-networking</td><td>2.23.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.111.0</td></tr>
-    <tr><td>diego</td><td>2.34.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.3</td></tr>
-    <tr><td>haproxy</td><td>9.6.1</td></tr>
-    <tr><td>loggregator-agent</td><td>3.17</td></tr>
-    <tr><td>mapfs</td><td>1.1.5</td></tr>
-    <tr><td>nfs-volume</td><td>2.2.0</td></tr>
-    <tr><td>routing</td><td>0.188.0</td></tr>
-    <tr><td>silk</td><td>2.22.0</td></tr>
-    <tr><td>smb-volume</td><td>1.2.2</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-alpha.2'></a> 2.7.0-alpha.2
-
-* **[Feature]** Improve scalability of application syslog drain system with new syslog agent architecture
-* **[Feature Improvement]** Increase default number of CPUs for router from 1 to 2
-* **[Bug Fix]** Fix drain script in SMB volume driver to prevent it from unmounting shares before Diego has finished evacuating the cell
-* Bump ubuntu-xenial stemcell to version `315.36`
-* Bump bpm to version `1.1.0`
-* Bump cflinuxfs3 to version `0.101.0`
-* Bump garden-runc to version `1.19.2`
-* Bump haproxy to version `9.6.0`
-* Bump loggregator-agent to version `3.17`
-* Bump nfs-volume to version `2.1.0`
-* Removed loggregator release
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>315.36</td></tr>
-    <tr><td>bpm</td><td>1.1.0</td></tr>
-    <tr><td>cf-networking</td><td>2.22.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.101.0</td></tr>
-    <tr><td>diego</td><td>2.31.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.2</td></tr>
-    <tr><td>haproxy</td><td>9.6.0</td></tr>
-    <tr><td>loggregator-agent</td><td>3.17</td></tr>
-    <tr><td>mapfs</td><td>1.1.5</td></tr>
-    <tr><td>nfs-volume</td><td>2.1.0</td></tr>
-    <tr><td>routing</td><td>0.188.0</td></tr>
-    <tr><td>silk</td><td>2.22.0</td></tr>
-    <tr><td>smb-volume</td><td>1.1.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-alpha.1'></a> 2.7.0-alpha.1
-
-* **[Security Fix]** Introduce and trust new Diego "root CA" in advance of existing CA expiration
-* **[Feature Improvement]** Garden will now delegate container creates and destroys to containerd, an industry standard container runtime.
-* **[Bug Fix]** Fixes NFS resource leak issues
-* Bump cflinuxfs3 to version `0.88.0`
-* Bump diego to version `2.31.0`
-* Bump haproxy to version `9.5.1`
-* Bump loggregator-agent to version `3.14`
-* Bump nfs-volume to version `2.0.4`
-* Bump smb-volume to version `1.1.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>315.13</td></tr>
-    <tr><td>bpm</td><td>1.0.4</td></tr>
-    <tr><td>cf-networking</td><td>2.22.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.88.0</td></tr>
-    <tr><td>diego</td><td>2.31.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>haproxy</td><td>9.5.1</td></tr>
-    <tr><td>loggregator-agent</td><td>3.14</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>mapfs</td><td>1.1.5</td></tr>
-    <tr><td>nfs-volume</td><td>2.0.4</td></tr>
-    <tr><td>routing</td><td>0.188.0</td></tr>
-    <tr><td>silk</td><td>2.22.0</td></tr>
-    <tr><td>smb-volume</td><td>1.1.0</td></tr>
-    <tr><td>syslog</td><td>11.4.0</td></tr>
-  </tbody>
-</table>
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.7 tile is available for installation with PCF v2.7.
+The PCF Isolation Segment v2.8 tile is available for installation with PCF v2.8.
 
-[Isolation segments](http://docs.pivotal.io/pivotalcf/2-7/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+[Isolation segments](http://docs.pivotal.io/pivotalcf/2-8/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-7/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-8/adminguide/isolation-segments.html) topic.
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.7 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-7/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v2.8 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v2.7.
+To install a PCF Isolation Segment, you must first install PCF v2.8.
 
-## <a id='2.7.0'></a> New Features in PCF Isolation Segment v2.7
-
-### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
-
-You can SSH into Linux and Windows apps on vSphere deployments with NSX-T enabled. 
-
-For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/ssh-apps.html).
-
-### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
-
-PCF Isolation Segment v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
-
-Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
-
-For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
-
-### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
-
-PAS v2.7 improves route consistency in the route-emitter component of Diego. 
-
-This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
-
-This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PCF Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+## <a id='2.8.0'></a> New Features in PCF Isolation Segment v2.8
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment v2.7 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the PCF Isolation Segment v2.8 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 

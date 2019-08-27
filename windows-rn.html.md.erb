@@ -1,5 +1,5 @@
 ---
-title: PAS for Windows v2.7 Release Notes
+title: PAS for Windows v2.8 Release Notes
 owner: Garden Windows
 ---
 
@@ -8,219 +8,17 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The PAS for Windows v2.7 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.7. To use the PAS for Windows v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
+The PAS for Windows v2.8 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.8. To use the PAS for Windows v2.8 tile, you must install Ops Manager v2.8 or later and PAS v2.8 or later.
 
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.7.0-rc.1'></a> 2.7.0-rc.1
 
-**Release Date:** 08/15/2019
+## <a id='new-features'></a> New Features in PAS for Windows v2.8
 
-* **[Feature Improvement]** Add the ciphers configuration to envoy-nginx-release
-* **[Feature Improvement]** Windows Smoke Tests Errand uses windows stack instead of windows2016.
-* **[Bug Fix]** Loggregator agent runs out of file descriptors causing windows diego cells to be unreachable
-* Bump cf-windows-smoke-tests to version `40.0.116`
-* Bump envoy-nginx to version `0.5.0`
-* Bump garden-runc to version `1.19.5`
-* Bump loggregator-agent to version `3.19`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.8</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.116</td></tr>
-    <tr><td>diego</td><td>2.35.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.5.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.5</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.10</td></tr>
-    <tr><td>loggregator-agent</td><td>3.19</td></tr>
-    <tr><td>loggregator</td><td>105.6</td></tr>
-    <tr><td>winc</td><td>1.14.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.8.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-beta.1'></a> 2.7.0-beta.1
-
-**Release Date:** 08/01/2019
-
-* **[Breaking Change]** Platform engineers can no longer enable/disable RDP in PASW
-* **[Feature]** Enable TLS connections from Router to Windows Applications [Beta]
-* **[Feature Improvement]** Agent-based syslog egress is enabled by default
-* Bump windows2019 stemcell to version `2019.8`
-* Bump cf-windows-smoke-tests to version `40.0.113`
-* Bump diego to version `2.35.0`
-* Add new release envoy-nginx at version `0.4.0`
-* Bump garden-runc to version `1.19.4`
-* Bump hwc-offline-buildpack to version `3.1.10`
-* Bump loggregator-agent to version `3.18`
-* Bump loggregator to version `105.6`
-* Bump windows-utilities to version `0.13.0`
-* Bump windowsfs-release to version `1.8.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.8</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.113</td></tr>
-    <tr><td>diego</td><td>2.35.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.4.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.4</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.10</td></tr>
-    <tr><td>loggregator-agent</td><td>3.18</td></tr>
-    <tr><td>loggregator</td><td>105.6</td></tr>
-    <tr><td>winc</td><td>1.14.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.8.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-alpha.3'></a> 2.7.0-alpha.3
-
-* **[Feature Improvement]** Apps get 10 seconds of graceful shutdown time in PASW
-* Bump windows2019 stemcell to version `2019.7`
-* Bump cf-windows-smoke-tests to version `40.0.109`
-* Bump diego to version `2.34.0`
-* Bump garden-runc to version `1.19.3`
-* Bump windowsfs-release to version `1.6.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.7</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.109</td></tr>
-    <tr><td>diego</td><td>2.34.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.3</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.9</td></tr>
-    <tr><td>loggregator-agent</td><td>3.17</td></tr>
-    <tr><td>loggregator</td><td>105.5</td></tr>
-    <tr><td>winc</td><td>1.14.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.6.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-alpha.2'></a> 2.7.0-alpha.2
+PAS for Windows v2.8 includes the following major features:
 
 
-* **[Feature]** Improve scalability of application syslog drain system with new syslog agent architecture
-* Bump windows2019 stemcell to version `2019.5`
-* Bump cf-windows-smoke-tests to version `40.0.108`
-* Bump garden-runc to version `1.19.2`
-* Bump hwc-offline-buildpack to version `3.1.9`
-* Bump loggregator-agent to version `3.17`
-* Bump loggregator to version `105.5`
-* Bump winc to version `1.14.0`
-* Bump windowsfs-release to version `1.5.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.5</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.108</td></tr>
-    <tr><td>diego</td><td>2.31.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.2</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.9</td></tr>
-    <tr><td>loggregator-agent</td><td>3.17</td></tr>
-    <tr><td>loggregator</td><td>105.5</td></tr>
-    <tr><td>winc</td><td>1.14.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.5.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.7.0-alpha.1'></a> 2.7.0-alpha.1
-
-* **[Security Fix]** Introduce and trust new Diego "root CA" in advance of existing CA expiration
-* Bump diego to version `2.31.0`
-* Bump loggregator-agent to version `3.13`
-* Bump winc to version `1.13.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.3</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.51</td></tr>
-    <tr><td>diego</td><td>2.31.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.1</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.8</td></tr>
-    <tr><td>loggregator-agent</td><td>3.13</td></tr>
-    <tr><td>loggregator</td><td>103.3</td></tr>
-    <tr><td>winc</td><td>1.13.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.11.0</td></tr>
-    <tr><td>windowsfs-release</td><td>1.3.0</td></tr>
-  </tbody>
-</table>
-
-
-## <a id='new-features'></a> New Features in PAS for Windows v2.7
-
-PAS for Windows v2.7 includes the following major features:
-
-### <a id='windows2016'></a> Removal of the windows2016 Stack
-
-In PAS for Windows v2.7, the `windows2016` stack is removed. Before you upgrade to PAS for Windows v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
-
-You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
-
-### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
-
-PAS for Windows v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to PAS for Windows v2.2. 
-
-This update improves the developer experience by making VisualC++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
-
-### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
-
-PAS for Windows v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
-
-Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
-
-For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
-
-### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH 
-
-<p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i>PCF v2.7 Breaking Changes</i>.</p>
-
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
-
-This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs. 
-
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile. 
-
-For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config) section in _Installing and Configuring PASW_.
 
 
 ## <a id='adv-features'></a> New Advanced Features
@@ -229,21 +27,9 @@ The **Advanced Features** pane of the PAS for Windows tile includes new function
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-PAS for Windows v2.7 includes the following advanced features:
-
-### <a id='beta-tls'></a> (Beta) Enable TLS Connections From Router to Apps
-
-You can enable TLS connections from the router to apps. This feature is available in the PAS for Windows tile under **Advanced Features**.
-
-You can select three different options to add route integrity and mTLS (mutual TLS):
-
-* **Disable route integrity and mutual TLS (Default)**: This beta feature is disabled by default. 
-* **Router uses TLS to verify application identity**: This enables route integrity for your apps but not mTLS.
-* **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing)**: This option enables both route integrity and mTLS.
-
-<p class="note"><strong>Note:</strong> This beta feature checks only that the client certificate is signed by the expected CA using mTLS. It does not include Subject Alternative Name (SAN) checks of the presented client certificates.</p>
+PAS for Windows v2.8 includes the following advanced features:
 
 
 ## <a id='known-issues'></a> Known Issues
 
-This section includes known issues with PAS for Windows v2.7.
+This section includes known issues with PAS for Windows v2.8.

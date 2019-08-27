@@ -1,81 +1,28 @@
 ---
-title: PCF v2.7 Breaking Changes
+title: PCF v2.8 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.7. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.8. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html).
 
 
 ## <a id='opsman'></a> PCF Ops Manager
 
 See the following PCF Ops Manager breaking changes:
 
-### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Removed
-
-The `stemcells_assignments` endpoint in the Ops Manager API has been removed. 
-
-Instead, operators must use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product.
-
-For more information, see [Stemcell Associations for Products](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
-
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
 See the following PAS breaking changes:
 
-### <a id='consul-server'></a> Consul Clients Not Supported in PAS
-
-The Consul server instance is removed from PAS. Tiledev authors must remove any Consul clients from their products to avoid failed deployments.
-
-To remove Consul clients from your products, make the following changes to any `job_type` that is colocated with `consul_agent`:
-
-```
-- name: consul_agent
-    release: consul
-    ...
-    manifest: |
-      ...
-      consul:
-        client:
-          enabled: "(( $ops_manager.dns_enabled ? false : true ))"
-```
-
-For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the PCF v2.4 Partner Release Notes.
-
-### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed
-
-The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`. You must update any automation scripts to remove references to the `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` properties before upgrading.
-
-For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the PAS v2.7 release notes.
 
 
 ## <a id='ist'></a> PCF Isolation Segment
 
 See the following PCF Isolation Segment breaking changes:
 
-None currently.
 
 
 ## <a id='pasw'></a> PAS for Windows
 
 See the following PAS for Windows breaking changes:
-
-### <a id='windows2016'></a> Removal of the windows2016 Stack
-
-In PAS for Windows v2.7, the `windows2016` stack is removed. Before you upgrade to PAS for Windows v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
-
-You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
-
-
-### <a id='rdp'></a> RDP is Not Supported
-
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP. 
-
-Remove references to `.properties.rdp_enabled` in any automated scripts to avoid errors during upgrade.
-
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile. 
-
-For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config) section in _Installing and Configuring PASW_. 
-
-
