@@ -467,6 +467,14 @@ only if it is required for backward compatibility with previous versions of PCF
 or if you have scripts that rely on metrics with <code>cf</code> as the value for <code>deployment</code>.
 Pivotal does not recommend enabling the <code>cf</code> value as a permanent solution.</p>
 
+### <a id='vcr'></a> Pre-Installed Visual C++ Redistributables
+
+PAS for Windows v2.4.11 and later includes Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019.
+This change is backported to PAS for Windows v2.2 and later.
+
+This update improves the developer experience by making Visual C++ Redistributables readily available for .NET apps. 
+Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
+
 ## <a id='known-issues'></a> Known Issues
 ### <a id="internetless-ocsp"></a> PASW Smoke Test Errand timeout in environments lacking internet access
 
