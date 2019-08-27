@@ -584,11 +584,16 @@ This Diego enhancement ensures better routing resiliency in the event of control
 
 This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PAS v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
 
-### <a id='mtls'></a> Support for Mutual TLS Communication Between Routing API and Other Components
+### <a id='mtls'></a> Mutual TLS Communication Between Routing API and Other Components
 
-Additional properties in the Routing API enable mutual TLS (mTLS) communication between the Routing API and other PAS routing components. 
+Additional properties in the PAS routing API enable mutual TLS (mTLS) communication between the Routing API and other PAS routing components. 
 
-mTLS allows components to both verify each other's identity. This helps to prevent misrouting and adds additional security.
+In mTLS communication, both components verify each other's identity. This adds additional security for communication between the routing API and other PAS routing components.
+
+
+### <a id='credhub-external-db'></a>
+
+This change allows users to configure CredHub to use an external database with hostname verification disabled. This is necessary for users who want to connect to a Google MySql database.
 
 
 ## <a id='known-issues'></a> Known Issues
