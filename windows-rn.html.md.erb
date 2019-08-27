@@ -246,8 +246,13 @@ them in the system trust store of Windows containers.
 For instructions on configuring trusted certificates in the BOSH Director tile,
 see [Setting Trusted Certificates](https://docs.pivotal.io/pivotalcf/customizing/trusted-certificates.html).
 
-### <a id='vcr'></a>Pre-installed Visual C++ Redistributables
-Microsoft Visual C++ Redistributable for Visual Studio 2010, 2015, 2017 and 2019 have been pre-installed in PAS for Windows 2.7 and backported to PAS for Windows 2.2.
+### <a id='vcr'></a>Pre-Installed Visual C++ Redistributables
+
+PAS for Windows v2.5.5 and later includes Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019.
+This change is backported to PAS for Windows v2.2 and later.
+
+This update improves the developer experience by making Visual C++ Redistributables readily available for .NET apps. 
+Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
