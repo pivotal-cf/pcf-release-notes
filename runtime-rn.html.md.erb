@@ -586,14 +586,9 @@ This modification to the route-emitter removes the need for the **Prune routes o
 
 ### <a id='mtls'></a> Mutual TLS Communication Between Routing API and Other Components
 
-Additional properties in the PAS routing API enable mutual TLS (mTLS) communication between the Routing API and other PAS routing components. 
+Communication between the PAS Routing API and other PAS routing components is authenticated with mutual TLS (mTLS) communication. 
 
-In mTLS communication, both components verify each other's identity. This adds additional security for communication between the routing API and other PAS routing components.
-
-
-### <a id='credhub-external-db'></a>
-
-This change allows users to configure CredHub to use an external database with hostname verification disabled. This is necessary for users who want to connect to a Google MySql database.
+In mTLS communication, both components verify each other's identity. This adds additional security for communication between the Routing API and other routing components.
 
 
 ## <a id='known-issues'></a> Known Issues
