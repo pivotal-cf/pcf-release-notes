@@ -15,6 +15,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 08/28/2019
 
+* **[Known Issue]** In this version of Autoscaler, if a multi-process app is set to scale on HTTP Metrics, the metrics of non-web processes can cause Autoscaler to scale the web process incorrectly
 * **[Security Fix]** Users inviting themselves to org/space they do not have access to
 * **[Feature]** Migrate `nfsbroker` backend to CredHub. When LDAP is enabled, users can specify username and password during service instance creation rather than at bind time
 * Bump ubuntu-xenial stemcell to version `456.12`
