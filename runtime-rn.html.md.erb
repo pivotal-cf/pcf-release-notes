@@ -15,8 +15,19 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 08/28/2019
 
-* **[Security Fix]** Users inviting themselves to org/space they do not have access to
+* **[Security Fix]** Sanitize user input to CSVs from Usage Report and Accounting Report ZIP files downloaded via Apps Manager
+* **[Security Fix]** Prevent users from inviting themselves to orgs they do not have access to via the Invitations microservice
 * **[Feature]** Migrate `nfsbroker` backend to CredHub. When LDAP is enabled, users can specify username and password during service instance creation rather than at bind time
+* **[Feature]** Allow users to see environment variables associated with a revision in Apps Manager
+* **[Feature]** Allow users to redeploy previous revisions via Apps Manager
+* **[Feature]** Redesign org usage report in Apps Manager
+* **[Feature]** Show Memory, Application Instance Count, Service Instance count usage and limits in the Apps Manager org header
+* **[Feature]** Introduce endpoint for streaming JSON in Apps Manager's search server
+* **[Bug Fix]** Various minor Apps Manager UI improvements
+* **[Bug Fix]** Show TCP port for TCP routes on space page and app page in Apps Manager
+* **[Bug Fix]** Show an error page when there is a UAA error after attempted login to Apps Manager
+* **[Bug Fix]** Apps pushed with a droplet are able to start/stop/restart through Apps Manager
+* **[Bug Fix]** Update the square logo to use the PCF logo rather than the PWS logo in Apps Manager
 * Bump ubuntu-xenial stemcell to version `456.12`
 * Bump cflinuxfs3 to version `0.119.0`
 * Bump push-apps-manager-release to version `670.0.7`
