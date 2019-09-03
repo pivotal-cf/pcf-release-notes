@@ -232,7 +232,8 @@ When you reset the value of a certificate in an Ops Manager tile, Ops Manager sa
 ### <a id='all-certs'></a> API Call Returns All Certs
 
 Calling the Ops Manager API `deployed/certificates` endpoint returns listings for
-the root certificate authority (CA) and NATS CA in addition to leaf-level certificates.
+the root certificate authority (CA), NATS CA, and certificates that Ops Manager stores in CredHub,
+in addition to leaf-level certificates that Ops Manager stores directly.
 
 For more information, see [List all RSA Certificates](https://docs.pivotal.io/pivotalcf/2-7/security/pcf-infrastructure/managing-certificates.html#list-rsa-certs).
 
