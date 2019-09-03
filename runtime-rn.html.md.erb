@@ -697,3 +697,7 @@ When upgrading to PAS v2.7, you may see duplicate logs or no logs for a short ti
 If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs until BOSH enables the Syslog Agents. If BOSH enables Syslog Agents before removing Syslog Adapters, there are duplicate logs until BOSH removes Syslog Adapters.
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
+
+### <a id='multi-process-scaling'></a> Autoscaler scales only web processes based on HTTP metrics from all processes
+
+If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web processes can cause Autoscaler to scale the web process incorrectly.
