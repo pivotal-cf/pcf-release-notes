@@ -673,6 +673,14 @@ Communication between the PAS Routing API and other PAS routing components is au
 
 In mTLS communication, both components verify each other's identity. This adds additional security for communication between the Routing API and other routing components.
 
+### <a id='multiple-internal-domains'></a> Configure Multiple Internal Domains
+
+You can configure multiple internal domains that apps use for internal DNS service discovery. 
+
+This allows you to create separate domains for different organizations in your foundation. For example, you can create a separate domain for apps on the development tier and apps on the production tier.  
+
+For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
+
 
 ## <a id='known-issues'></a> Known Issues
 
