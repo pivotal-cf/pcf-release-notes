@@ -277,6 +277,13 @@ To download the support bundle ZIP file from the UI, click **Support** in the fo
 
 To download the support bundle ZIP file from the Ops Manager API, use the `/api/v0/support_bundle` endpoint. For more information, see [Support Bundle](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#support-bundle) in the Ops Manager API documentation.
 
+### <a id='audit-logs'></a> BOSH Director Access Events Appear in Syslog Output
+
+Syslog output includes BOSH Director access events when syslog is enabled in Ops Manager.
+
+BOSH Director access events correspond to the execution of BOSH CLI commands. The addition of these events allows you to audit BOSH Director access and activity for security monitoring purposes.
+
+For more information, see [Syslog](https://docs.pivotal.io/2-7/customizing/pcf-interface.html#syslog) and [Logging API Access](https://bosh.io/docs/director-access-events/) in BOSH Documentation.
 
 ## <a id='known-issues'></a> Known Issues
 
