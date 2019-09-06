@@ -12,21 +12,23 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/opsmanager-rn.html).
 
-### <a id='certificate-expiration'></a> View Expiration Date for Certificates
+### <a id='certificate-expiration'></a> View Expiration Dates for Certificates
 
-Operators can see the certificate expiration date, based on the information provided by BOSH & CredHub.
+You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments. 
 
 ### <a id='nsx'></a> NSX-T and NSX-V Configuration in Ops Manager
 
-Operators can set NSX-V and NSX-T configuration for instance groups in the Ops Manager UI.
+The **Resource Config** page in Ops Manager is updated to include fields for configuring instance groups in deployments with vSphere NSX-T or NSX-V.
 
-### <a id='audit-events'></a> Audit Events in Ops Manager
+### <a id='audit-events'></a> Audit User Activity in Ops Manager
 
-Operators can get enhanced auditing information through Ops Manager.
+Ops Manager includes more detailed logs for auditing user actions and events. For example, you can view and track all Ops Manager login attempts.
 
-### <a id='gss'></a> Send Deployment Information to GSS Engineers
+### <a id='gss'></a> Forward Deployment Information for Quicker Support
 
-Operators can easily send information about their deployment to GSS engineers.
+You can download a support bundle as a ZIP file from the Ops Manager UI or API. The support bundle includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics.
+
+The contents of the support bundle help Pivotal Support more quickly address any issues in your deployment.
 
 ---
 
