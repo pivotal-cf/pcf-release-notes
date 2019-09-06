@@ -628,7 +628,6 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 
 <p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em>PCF v2.7 Breaking Changes</em> topic.</p>
 
-
 ### <a id='credhub-kms'></a> CredHub Supports KMS
 
 You can configure Key Management Service (KMS) encryption providers for CredHub. Configuring KMS encryption providers for CredHub allows you to more easily create and manage the encryption keys that you use in your environment.
@@ -679,7 +678,9 @@ For more information about configuring internal domains for PAS, see [Configure 
 
 ### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
 
-The rolling app deployments feature is GA. It was released as a beta feature in PAS v2.4.
+The rolling app deployments feature is GA. It was released as a beta feature in PAS v2.4. This feature allows you to push updates to apps without incurring downtime.
+
+This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
 
 For more information, see [Rolling App Deployments](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/rolling-deploy.html).
 
