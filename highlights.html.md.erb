@@ -36,24 +36,33 @@ PAS v<%= vars.current_major_version %> includes the following important major fe
 
 ### <a id='rolling-app'></a> Rolling App Deployments is GA
 
-Native rolling application deployments is GA. 
+PAS v2.7 includes GA support for rolling app deployments. This feature offers near-zero downtime for app pushes and restarts, and was originally released as a beta feature in PAS v2.4.
+
+Use the `--strategy rolling` and `no-wait` flags in the cf CLI to do rolling deployments.  
 
 ### <a id='rotate-ccdb-key'></a> Rotate Cloud Controller Encryption Key
 
-Operators can rotate the CCDB encryption key.
+You can rotate the Cloud Controller Database (CCDB) encryption key, which encrypts sensitive data such as app environment variables.
 
-### <a id=''></a> 
+### <a id='app-redeployments'></a> Manage App Re-Deployments and Revisions in Apps Manager
 
-Developers can manage app re-deployments & revisions in Apps Manager 
+You can do the following in Apps Manager: 
 
-### <a id='syslog-agent'></a> Syslog Agent Replaces Syslog Adapter.
+- View revisions for an app  
+- Deploy a revision of an app 
+- View the deployment status of an app revision
+- View the environment variables associated with an app revision
+ 
 
-The Syslog Agent is enabled by default. 
+### <a id='syslog-agent'></a> Syslog Agents Replace Syslog Adapter
 
-### <a id='ldap-nfs'></a>
+Syslog Agents are enabled by default, and the option to disable Syslog Agents is removed. Syslog Agents increase the number of syslog drain service bindings supported by the Loggregator system and reduce the workload for Loggregator VMs, including Syslog Adapters.  
 
-Developers can configure LDAP user credentials when creating NFS service instances.
+### <a id='ldap-nfs'></a> nfsbroker Back End Is in CredHub
 
+The nfsbroker back end is migrated to CredHub. This allows you to specify LDAP credentials when you create an NFS Volume Service instance rather than when binding one, when LDAP authentication is enabled.
+
+---
 
 ## <a id='pas-windows'></a> PAS for Windows Highlights
 
@@ -68,5 +77,6 @@ PAS for Windows v2.7 improves the developer experience with pre-installed Micros
 
 Windows AIs provide secure mTLS communication to the GoRouter using Nginx. 
 
+### <a id='microsoft-baseline-standard'></a> 
 
-
+Windows Server 2019 VMs are compliant with Microsoft Baseline Security Standard
