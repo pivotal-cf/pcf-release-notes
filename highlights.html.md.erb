@@ -1,20 +1,20 @@
 ---
-title: PCF v2.7 Feature Highlights
+title: Pivotal Platform v2.7 Feature Highlights
 modified_date: false
 ---
 
  <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
+This topic highlights important new features included in Pivotal Platform v<%= vars.current_major_version %>.
 
 
-## <a id='om'></a> PCF Ops Manager Highlights
+## <a id='om'></a> Pivotal Ops Manager Highlights
 
-Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/opsmanager-rn.html).
+Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [Pivotal Ops Manager v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/opsmanager-rn.html).
 
 ### <a id='certificate-expiration'></a> View Expiration Dates for Certificates
 
-You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments. 
+You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments.
 
 ### <a id='nsx'></a> NSX-T and NSX-V Configuration in Ops Manager
 
@@ -40,7 +40,7 @@ PAS v<%= vars.current_major_version %> includes the following important major fe
 
 PAS v2.7 includes GA support for rolling app deployments. This feature offers near-zero downtime for app pushes and restarts, and was originally released as a beta feature in PAS v2.4.
 
-Use the `--strategy rolling` and `no-wait` flags in the cf CLI to do rolling deployments.  
+Use the `--strategy rolling` and `no-wait` flags in the cf CLI to do rolling deployments.
 
 ### <a id='rotate-ccdb-key'></a> Rotate Cloud Controller Encryption Key
 
@@ -48,17 +48,17 @@ You can rotate the Cloud Controller Database (CCDB) encryption key, which encryp
 
 ### <a id='app-redeployments'></a> Manage App Re-Deployments and Revisions in Apps Manager
 
-You can do the following in Apps Manager: 
+You can do the following in Apps Manager:
 
-- View revisions for an app  
-- Deploy a revision of an app 
+- View revisions for an app
+- Deploy a revision of an app
 - View the deployment status of an app revision
 - View the environment variables associated with an app revision
- 
+
 
 ### <a id='syslog-agent'></a> Syslog Agents Replace Syslog Adapter
 
-Syslog Agents are enabled by default, and the option to disable Syslog Agents is removed. Syslog Agents increase the number of syslog drain service bindings supported by the Loggregator system and reduce the workload for Loggregator VMs, including Syslog Adapters.  
+Syslog Agents are enabled by default, and the option to disable Syslog Agents is removed. Syslog Agents increase the number of syslog drain service bindings supported by the Loggregator system and reduce the workload for Loggregator VMs, including Syslog Adapters.
 
 ### <a id='ldap-nfs'></a> nfsbroker Back End Is in CredHub
 
@@ -77,8 +77,8 @@ PAS for Windows v2.7 improves the developer experience with pre-installed Micros
 
 ### <a id='windows-mtls'></a> Secure mTLS Communication to Gorouter (Beta)
 
-Windows AIs provide secure mTLS communication to the GoRouter using Nginx. 
+Windows AIs provide secure mTLS communication to the GoRouter using Nginx.
 
-### <a id='microsoft-baseline-standard'></a> 
+### <a id='microsoft-baseline-standard'></a>
 
 Windows Server 2019 VMs are compliant with Microsoft Baseline Security Standard

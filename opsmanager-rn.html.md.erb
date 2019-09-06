@@ -1,9 +1,9 @@
 ---
-title: PCF Ops Manager v2.7 Release Notes
+title: Pivotal Ops Manager v2.7 Release Notes
 owner: Ops Manager
 ---
 
-Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
@@ -11,8 +11,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager <%= vars.v_major_version %>.
-
+The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Ops Manager <%= vars.v_major_version %>.
 
 ## <a id='releases'></a> Releases
 
@@ -41,9 +40,9 @@ Ops Manager v2.7 Release Candidate 3 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.161*</td>
   </tr>
   <tr><td>Stemcell</td><td>456.16*</td></tr><tr><td>BBR SDK</td><td>1.17.1*</td></tr><tr><td>BOSH Director</td><td>270.4.1*</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.3*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.4</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.2*</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -56,7 +55,7 @@ Ops Manager v2.7 Release Candidate 3 uses the following component versions:
 * **[Bug Fix]** Syslog addon correctly injected into manifest for service brokers that enable OpsManager's consistent syslog
 * **[Bug fix]** Resolves an issue in which Ops Manager set the Director ephemeral disk size to the Operator’s selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field.
 * **[Feature]** Provides more information on Support page
-* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog. 
+* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog.
 * **[Feature]** Deployed certificates endpoint shows the product GUID for all CredHub-managed certificates
 
 Ops Manager v2.7 Release Candidate 2 uses the following component versions:
@@ -73,9 +72,9 @@ Ops Manager v2.7 Release Candidate 2 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.149*</td>
   </tr>
   <tr><td>Stemcell</td><td>456.3</td></tr><tr><td>BBR SDK</td><td>1.17.0</td></tr><tr><td>BOSH Director</td><td>270.4.0</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.4*</td></tr><tr><td>BPM</td><td>1.1.3*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -87,12 +86,12 @@ Ops Manager v2.7 Release Candidate 2 uses the following component versions:
 * **[Feature]** `/api/v0/deployed/certificates?expires_within=` does not display saml_service_provider_cert if Ops Manager is not using SAML
 * **[Feature]** Enhance blobstore verifier error messaging
 * **[Feature]** Upgrade from Ruby v2.4 to v2.6 on the Ops Manager VM
-* **[Feature]** Update logrotate configuration to rotate `uaa.out`, `uaa.err`, and `audit_log.txt`. This improves support bundle download times. 
-* **[Feature]** Operators can set `recursor_selection` in the DNS runtime config through Ops Manager API. 
+* **[Feature]** Update logrotate configuration to rotate `uaa.out`, `uaa.err`, and `audit_log.txt`. This improves support bundle download times.
+* **[Feature]** Operators can set `recursor_selection` in the DNS runtime config through Ops Manager API.
 * **[Bug fix]** Remove unused `.director.uaa_admin_credentials` property
 * **[Bug fix]** Clicking the Ops Manager logo brings you to the homepage
 * **[Bug fix]** Operators with restricted view access cannot download a support bundle
-* **[Bug fix]** On newly designed resource config page, all jobs in a tile should are shown and there is padding at the end of the page 
+* **[Bug fix]** On newly designed resource config page, all jobs in a tile should are shown and there is padding at the end of the page
 * **[Bug fix]** Syslog addon correctly injected into manifest for service brokers that enable OpsManager’s consistent syslog
 
 Ops Manager v2.7 Release Candidate 1 uses the following component versions:
@@ -109,15 +108,15 @@ Ops Manager v2.7 Release Candidate 1 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.137*</td>
   </tr>
   <tr><td>Stemcell</td><td>456.3*</td></tr><tr><td>BBR SDK</td><td>1.17.0*</td></tr><tr><td>BOSH Director</td><td>270.4.0</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.3*</td></tr><tr><td>BPM</td><td>1.1.1*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77*</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="beta-1"></a> 2.7 Beta 1
 
-* **[Feature]** You can download a ZIP file containing various diagnostic files using the Ops Manager API or UI. For more information, see [Support Bundle](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#support-bundle) in the Ops Manager API documentation. To access the support bundle using the UI, click **Support** in the footer of Ops Manager. New API endpoints for diagnostics, Ops Manager logs, and apply changes logs support this feature. 
+* **[Feature]** You can download a ZIP file containing various diagnostic files using the Ops Manager API or UI. For more information, see [Support Bundle](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#support-bundle) in the Ops Manager API documentation. To access the support bundle using the UI, click **Support** in the footer of Ops Manager. New API endpoints for diagnostics, Ops Manager logs, and apply changes logs support this feature.
 * **[Feature]** You can see all Ops Manager root and NATS certificate authorities (CAs) in the deployed certificates endpoint. For more information, see [Listing the Root Certificate Authorities](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#listing-the-root-certificate-authorities) in the Ops Manager API documentation.
 * **[Feature]** Ops Manager sanitizes new line characters in certificates in a consistent way so that VMs are not recreated unnecessarily when certificates are submitted within the UI or the API.
 * **[Features]** When an input value violates constraints for jobs configured on the **Resource Config** pane, Ops Manager highlights the associated `Instances`, `VM types`, and `Persistent Disk Types` fields and displays an explanatory error message about the violation.
@@ -136,9 +135,9 @@ Ops Manager v2.7 Beta 1 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.127*</td>
   </tr>
   <tr><td>Stemcell</td><td>456.1</td></tr><tr><td>BBR SDK</td><td>1.16.0*</td></tr><tr><td>BOSH Director</td><td>270.4.0</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.1</td></tr><tr><td>BPM</td><td>1.1.0</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>75</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -146,13 +145,13 @@ Ops Manager v2.7 Beta 1 uses the following component versions:
 
 * **[Feature]** Ops Managers now verifies cron expressions for tiles that require them for scheduling backups. See [Valid cron Input Verification](#cron) below.
 * **[Feature]** For vSphere users, NSX-V and NSX-T are now configurable in the the **Resource Config** pane of the BOSH Director tile. Properties for NSX-V are: Security groups and lbs. Properties for NSX-T are: ns groups, vif type, and lb.
-* **[Feature]** The Ops Manager **Resource Config** UI has improved error handling. When there is an error, Ops Manager displays both a banner and an error message next to the field containing the error. 
+* **[Feature]** The Ops Manager **Resource Config** UI has improved error handling. When there is an error, Ops Manager displays both a banner and an error message next to the field containing the error.
 * **[Feature]** The `/api/v0/deployed/certificates` now displays the Ops Manager root and NATS CAs. See [API Call Returns All Certs](#all-certs).
-* **[Feature]** This alpha release features additional changes from the redesign of the **Resource Config** pane. 
+* **[Feature]** This alpha release features additional changes from the redesign of the **Resource Config** pane.
 * **[Feature]** As part of the redesign of the **Resource Config** pane, the **Load Balancer** and **Internet Connected** fields are now under a dropdown menu.
 * **[Feature]** On OpenStack, operators can assign floating IP addresses to Ops Manager jobs.
 * **[Feature]** Users can now see all CredHub managed certificates from `/api/v0/deployed/certificates`
-* **[Breaking Change]** CredHub managed certificates returned from `/api/v0/deployed/certificates` do not contain the `valid_from` and `issuer` fields. 
+* **[Breaking Change]** CredHub managed certificates returned from `/api/v0/deployed/certificates` do not contain the `valid_from` and `issuer` fields.
 
 Ops Manager v2.7 Alpha 3 uses the following component versions:
 
@@ -168,21 +167,21 @@ Ops Manager v2.7 Alpha 3 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.112*</td>
   </tr>
   <tr><td>Stemcell</td><td>456.1*</td></tr><tr><td>BBR SDK</td><td>1.15.1</td></tr><tr><td>BOSH Director</td><td>270.4.0*</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.0*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.1*</td></tr><tr><td>BPM</td><td>1.1.0</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>75</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="alpha-2"></a> 2.7 Alpha 2
 
 * **[Breaking Change]** Non-configurable properties within a collection / selector are no longer configurable through API.
-* **[Feature]** The **Resource Config** pane in Ops Manager has been redesigned. 
+* **[Feature]** The **Resource Config** pane in Ops Manager has been redesigned.
 * **[Feature]** `audit_log.txt` now includes the request body.
 * **[Feature]** Ops Manager stores and exposes when UAA clients **Apply Changes** through API.
 * **[Feature]** The **credhub.certificates.concatenate_cas** property is set to `true` to enable future rotation using maestro.
 * **[Bug Fix]** Ops Manager logs requests that result in a 500 error to `audit_log.txt`.
-* **[Bug Fix]** Fix alignment issues on Unlock Account and Ensure Availability pages.  
+* **[Bug Fix]** Fix alignment issues on Unlock Account and Ensure Availability pages.
 
 Ops Manager v2.7 Alpha 2 uses the following component versions:
 
@@ -198,9 +197,9 @@ Ops Manager v2.7 Alpha 2 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.83*</td>
   </tr>
   <tr><td>Stemcell</td><td>315.64*</td></tr><tr><td>BBR SDK</td><td>1.15.1</td></tr><tr><td>BOSH Director</td><td>270.2.0*</td></tr><tr><td>BOSH DNS</td><td>1.12.0*</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.4.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>72.0</td></tr><tr><td>BPM</td><td>1.1.0*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0*</td></tr><tr><td>AWS CPI</td><td>75</td></tr><tr><td>Azure CPI</td><td>36.0.1*</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43*</td></tr><tr><td>vSphere CPI</td><td>53*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2*</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -224,7 +223,7 @@ Ops Manager v2.7 Alpha 1 uses the following component versions:
     <td>Ops Manager</td><td>2.7.0-build.29</td>
   </tr>
   <tr><td>Stemcell</td><td>315.26</td></tr><tr><td>BBR SDK</td><td>1.15.1</td></tr><tr><td>BOSH Director</td><td>269.0.2</td></tr><tr><td>BOSH DNS</td><td>1.11.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.4.0</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>72.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>75</td></tr><tr><td>Azure CPI</td><td>36.0.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
   </tbody>
 </table>
 
@@ -272,7 +271,7 @@ For more information, see [List all RSA Certificates](https://docs.pivotal.io/pi
 
 You can download a support bundle as a ZIP file from the Ops Manager UI or API. The support bundle includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics.
 
-The contents of the support bundle help Pivotal Support more quickly address any issues in your deployment.  
+The contents of the support bundle help Pivotal Support more quickly address any issues in your deployment.
 
 To download the support bundle ZIP file from the UI, click **Support** in the footer of any page in the Ops Manager UI.
 
@@ -282,4 +281,3 @@ To download the support bundle ZIP file from the Ops Manager API, use the `/api/
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
-

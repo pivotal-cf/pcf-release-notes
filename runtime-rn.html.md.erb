@@ -3,7 +3,7 @@ title: Pivotal Application Service v2.7 Release Notes
 owner: Release Engineering
 ---
 
-Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
@@ -577,19 +577,19 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 PAS v2.7 supports pushing Java apps with sidecars. Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
 
-For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#sidecars). To understand how you can push Java apps with sidecars, see [Requirements for Java Apps](https://docs.pivotal.io/pivotalcf/2-7/devguide/sidecars.html#java) in _Pushing Apps with Sidecar Processes_. 
+For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#sidecars). To understand how you can push Java apps with sidecars, see [Requirements for Java Apps](https://docs.pivotal.io/pivotalcf/2-7/devguide/sidecars.html#java) in _Pushing Apps with Sidecar Processes_.
 
 ### <a id='rotate-ccdb-key'></a> Rotate the Cloud Controller Database Encryption Key
 
-PAS v2.7 supports rotating the Cloud Controller Database (CCDB) encryption key. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables. 
+PAS v2.7 supports rotating the Cloud Controller Database (CCDB) encryption key. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables.
 
-You can rotate the key using the new **Encryption key ledger** field and **Rotate CC Database Key** errand in the PAS tile. For more information, see [Rotating the Cloud Controller Database Encryption Key](https://docs.pivotal.io/pivotalcf/2-7/opsguide/rotate-ccdb-key.html). 
+You can rotate the key using the new **Encryption key ledger** field and **Rotate CC Database Key** errand in the PAS tile. For more information, see [Rotating the Cloud Controller Database Encryption Key](https://docs.pivotal.io/pivotalcf/2-7/opsguide/rotate-ccdb-key.html).
 
 ### <a id='consul-server'></a> Consul Server Instance Removed from PAS
 
 The Consul server instance is removed from PAS. This saves VM resources and reduces maintenance for managing a clustered component.
 
-In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In PAS v2.7, the Consul server instance is removed from PAS. 
+In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In PAS v2.7, the Consul server instance is removed from PAS.
 
 For information about breaking changes caused by the removal of the Consul server instance, see [Consul Clients Not Supported in PAS](./breaking-changes.html#consul-server).
 
@@ -601,17 +601,17 @@ For more information about configuring this limit, see the [Configure Advanced F
 
 ### <a id='upgrade-service-instances'></a> Support for Upgrading Service Instances
 
-PAS v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement. 
+PAS v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement.
 
-App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades. See [Upgrade a Service Instance](https://docs.pivotal.io/devguide/services/managing-services#upgrade) for more information.  
+App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades. See [Upgrade a Service Instance](https://docs.pivotal.io/devguide/services/managing-services#upgrade) for more information.
 
-If you are a service author and want to enable this feature, see [Updating a Service Instance](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#updating-a-service-instance) in the _Open Service Broker API Specification_. 
+If you are a service author and want to enable this feature, see [Updating a Service Instance](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#updating-a-service-instance) in the _Open Service Broker API Specification_.
 
 ### <a id='apps-manager-ui'></a> Updated Resource Navigation in Apps Manager UI
 
-The Apps Manager UI has an updated look and feel as well as updated resource navigation. 
+The Apps Manager UI has an updated look and feel as well as updated resource navigation.
 
-You can navigate to resources, such as the app **Overview** and **Settings** panes, from a panel on the left side of the screen in Apps Manager. You can find resources that previously appeared in the panel, such as links to documentation and Support, in the Apps Manager footer. 
+You can navigate to resources, such as the app **Overview** and **Settings** panes, from a panel on the left side of the screen in Apps Manager. You can find resources that previously appeared in the panel, such as links to documentation and Support, in the Apps Manager footer.
 
 For more information, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-7/console/index.html).
 
@@ -629,11 +629,11 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 <p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em>PCF v2.7 Breaking Changes</em> topic.</p>
 
 
-### <a id='credhub-kms'></a> CredHub Supports KMS 
+### <a id='credhub-kms'></a> CredHub Supports KMS
 
 You can configure Key Management Service (KMS) encryption providers for CredHub. Configuring KMS encryption providers for CredHub allows you to more easily create and manage the encryption keys that you use in your environment.
 
-For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_. 
+For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_.
 
 ### <a id='inactive-mysql'></a> Enable Inactive MySQL Port for Auditing and Reporting
 
@@ -643,7 +643,7 @@ To enable this option, select the **Enable inactive MySQL port** checkbox in the
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
 
-You can SSH into Linux and Windows apps on vSphere deployments with NSX-T enabled. 
+You can SSH into Linux and Windows apps on vSphere deployments with NSX-T enabled.
 
 For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/ssh-apps.html).
 
@@ -657,7 +657,7 @@ For more information about how Syslog Agents function within Loggregator, see [L
 
 ### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
 
-PAS v2.7 improves route consistency in the route-emitter component of Diego. 
+PAS v2.7 improves route consistency in the route-emitter component of Diego.
 
 This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
 
@@ -665,15 +665,15 @@ This modification to the route-emitter removes the need for the **Prune routes o
 
 ### <a id='mtls'></a> Mutual TLS Communication Between Routing API and Other Components
 
-Communication between the PAS Routing API and other PAS routing components is authenticated with mutual TLS (mTLS). 
+Communication between the PAS Routing API and other PAS routing components is authenticated with mutual TLS (mTLS).
 
 In mTLS communication, both components verify each other's identity. This adds additional security for communication between the Routing API and other routing components.
 
 ### <a id='multiple-internal-domains'></a> Configure Multiple Internal Domains
 
-You can configure multiple internal domains that apps use for internal DNS service discovery. 
+You can configure multiple internal domains that apps use for internal DNS service discovery.
 
-This allows you to create separate domains for different organizations in your foundation. For example, you can create a separate domain for apps on the development tier and apps on the production tier.  
+This allows you to create separate domains for different organizations in your foundation. For example, you can create a separate domain for apps on the development tier and apps on the production tier.
 
 For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
 

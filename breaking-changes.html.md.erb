@@ -1,18 +1,18 @@
 ---
-title: PCF v2.7 Breaking Changes
+title: Pivotal Platform v2.7 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.7. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Platform v2.7. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Platform](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
 
 
-## <a id='opsman'></a> PCF Ops Manager
+## <a id='opsman'></a> Pivotal Ops Manager
 
-See the following PCF Ops Manager breaking changes:
+See the following Ops Manager breaking changes:
 
 ### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Removed
 
-The `stemcells_assignments` endpoint in the Ops Manager API has been removed. 
+The `stemcells_assignments` endpoint in the Ops Manager API has been removed.
 
 Instead, operators must use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product.
 
@@ -40,7 +40,7 @@ To remove Consul clients from your products, make the following changes to any `
           enabled: "(( $ops_manager.dns_enabled ? false : true ))"
 ```
 
-For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the PCF v2.4 Partner Release Notes.
+For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the Pivotal Platform v2.4 Partner Release Notes.
 
 ### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed
 
@@ -70,12 +70,10 @@ For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.
 
 ### <a id='rdp'></a> RDP is Not Supported
 
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP. 
+The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
 
 Remove references to `.properties.rdp_enabled` in any automated scripts to avoid errors during upgrade.
 
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile. 
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_. 
-
-
+For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.

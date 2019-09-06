@@ -1,7 +1,7 @@
 pcf-release
 ===========
 
-A repo that stores the release notes that publish to the PCF versioned release notes.
+A repo that stores the release notes that publish to the Pivotal Platform versioned release notes.
 
 **To author release notes for numbered versions:**
 
@@ -9,7 +9,7 @@ Use the branch for the product version number you are updating. Release notes fo
 
 **To publish updates to your release notes (if the docs team is unavailable):**
 
-Requirement: If you cannot reach the Docs team to Publish your release notes, you need to have access permission to the CI/CD pipelines that publish `production` release notes. 
+Requirement: If you cannot reach the Docs team to Publish your release notes, you need to have access permission to the CI/CD pipelines that publish `production` release notes.
 
 The procedure to bump production notes:
   1. Update, commit and push your content to this repo.

@@ -8,7 +8,7 @@ This topic contains release notes for Pivotal Application Service (PAS) for Wind
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The PAS for Windows v2.7 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.7. To use the PAS for Windows v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
+The PAS for Windows v2.7 tile is available with the release of Pivotal Platform v2.7. To use the PAS for Windows v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
 
 
 ## <a id='releases'></a> Releases
@@ -198,7 +198,7 @@ For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.
 
 ### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
-PAS for Windows v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to PAS for Windows v2.2. 
+PAS for Windows v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to PAS for Windows v2.2.
 
 This update improves the developer experience by making VisualC++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
 
@@ -210,15 +210,15 @@ Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are re
 
 For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
-### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH 
+### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH
 
 <p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i>PCF v2.7 Breaking Changes</i>.</p>
 
 The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
 
-This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs. 
+This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs.
 
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile. 
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
 For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.
 
@@ -237,7 +237,7 @@ You can enable TLS connections from the router to apps. This feature is availabl
 
 You can select three different options to add route integrity and mTLS (mutual TLS):
 
-* **Disable route integrity and mutual TLS (Default)**: This beta feature is disabled by default. 
+* **Disable route integrity and mutual TLS (Default)**: This beta feature is disabled by default.
 * **Router uses TLS to verify application identity**: This enables route integrity for your apps but not mTLS.
 * **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing)**: This option enables both route integrity and mTLS.
 
