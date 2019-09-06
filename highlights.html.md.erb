@@ -10,55 +10,63 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 ## <a id='om'></a> PCF Ops Manager Highlights
 
-Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.6 Release Notes](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/opsmanager-rn.html).
+Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/opsmanager-rn.html).
 
-### <a id="multiple-stemcell"></a> Ops Manager Supports Multiple Stemcells for Products
+### <a id='certificate-expiration'></a> View Expiration Date for Certificates
 
-Ops Manager supports products that require multiple stemcells. This means it is no longer necessary to deploy separate tiles for products that require different stemcells. 
+Operators can see the certificate expiration date, based on the information provided by BOSH & CredHub.
 
-### <a id='deploy-times'></a> Product Deployment Times from API and Change Log Page
+### <a id='nsx'></a> NSX-T and NSX-V Configuration in Ops Manager
 
-Ops Manager publishes deployment times for individual products and whole deployments through the `/api/v0/installations` endpoint and **Change Log** page. 
+Operators can set NSX-V and NSX-T configuration for instance groups in the Ops Manager UI.
 
-### <a id='compiled-bosh-release'></a> Compiled Release Assets Included in BOSH Deployment Manifest
+### <a id='audit-events'></a> Audit Events in Ops Manager
 
-Ops Manager now automatically includes the `exported_from` field in the `releases` section of the BOSH deployment manifest file. The `exported_from` field contains the compiled release assets for the deployment and prevents BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates.
+Operators can get enhanced auditing information through Ops Manager.
 
-### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
+### <a id='gss'></a> Send Deployment Information to GSS Engineers
 
-The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys.
-
-### <a id='5th-gen-instances'></a> AWS Deployments Use 5th Generation Instances
-
-Ops Manager v2.6 uses the latest generation of instances for AWS deployments. When you upgrade to Ops Manager v2.6, your VM types convert to the corresponding 5th generation instance types, such as `t2` to `t3` and `c4` to `c5`.
-
-### <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
-
-An optional form verifier is available that notifies tile operators when they have configured vSphere properties incorrectly.
+Operators can easily send information about their deployment to GSS engineers.
 
 ---
 
-## <a id='pas'></a>Pivotal Application Service (PAS) Highlights
+## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
 
 PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.6 Release Notes](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html).
 
-### <a id='sidecars'></a> Push Apps with Sidecar Processes (Beta)
+### <a id='rolling-app'></a> Rolling App Deployments is GA
 
-You can run additional processes, or sidecars, in the same container as your app. Sidecars are useful for processes that depend on each other or must run in the same container. This includes processes that must communicate through localhost
-or share the same filesystem, such as an Application Performance Monitoring (APM) tool.
+Native rolling application deployments is GA. 
 
-### <a id='revisions'></a> Enable, View, and Rollback Revisions for Apps
+### <a id='rotate-ccdb-key'></a> Rotate Cloud Controller Encryption Key
 
-PAS supports revisions for apps. A revision is an object that represents code and configuration used by an app at a specific time. Some uses cases for revisions include rolling back your app to a previous version and viewing changes in your app over time. You can also add metadata to revisions.
+Operators can rotate the CCDB encryption key.
 
-### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
+### <a id=''></a> 
 
-System Metrics Agent allows you to more easily correlate VM metrics with BOSH jobs. These
-VM metrics help with troubleshooting and diagnosing issues for potential infrastructure
-problems.
+Developers can manage app re-deployments & revisions in Apps Manager 
 
-### <a id='syslog'></a> Loggregator Syslog Agent Increases Scale For Syslog Drains
+### <a id='syslog-agent'></a> Syslog Agent Replaces Syslog Adapter.
 
-Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
+The Syslog Agent is enabled by default. 
+
+### <a id='ldap-nfs'></a>
+
+Developers can configure LDAP user credentials when creating NFS service instances.
+
+
+## <a id='pas-windows'></a> PAS for Windows Highlights
+
+PAS for Windows v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PAS for Windows v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html).
+
+
+### <a id='visual-c-redistributables'></a> Pre-Installed Visual C++ Redistributables
+
+PAS for Windows v2.7 improves the developer experience with pre-installed Microsoft Visual C++ Redistributables for .NET apps.
+
+### <a id='windows-mtls'></a> Secure mTLS Communication to Gorouter (Beta)
+
+Windows AIs provide secure mTLS communication to the GoRouter using Nginx. 
+
 
 
