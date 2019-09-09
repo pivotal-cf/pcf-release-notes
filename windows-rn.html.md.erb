@@ -223,6 +223,17 @@ To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, sele
 For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.
 
 
+### <a id='windows-stemcells-microsoft-baseline'></a> Windows 2019 Stemcells Follow Microsoft Baseline Security Standard
+
+Stemcell hardening for Windows 2019 stemcells on both Pivotal Application Service (PAS) and Pivotal Container Service (PKS) is updated to more closely follow the Microsoft Baseline Security Standard. This improves the security for Windows stemcells and better aligns the stemcell hardening practices with an industry standard.
+
+This is part of a larger effort to align Windows stemcells with the Microsoft Baseline Security Standard.
+
+<p class="note"><b>Note:</b> Windows stemcells do not yet align completely with the Microsoft Baseline Security Standard. For details on the ways in which Windows stemcell hardening differs from the Microsoft Baseline Security Standard, contact Pivotal at <a href="mailto:myemail@example.com">pcf-windows@pivotal.io</a>.</p>
+
+For more information about how Windows 2019 stemcells align with the Microsoft Baseline Security Standard, see [Windows Stemcell Hardening](https://docs.pivotal.io/pivotalcf/2-7/security/pcf-infrastructure/windows-stemcell-hardening.html).
+
+
 ## <a id='adv-features'></a> New Advanced Features
 
 The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have certain constraints.
