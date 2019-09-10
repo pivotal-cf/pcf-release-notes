@@ -1,11 +1,9 @@
 ---
-title: Pivotal Platform Feature Highlights
+title: Pivotal Platform v2.7 Feature Highlights
 modified_date: false
 ---
 
  <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
-
-<% current_page.data.title = vars.product_name + " " + v_major_version + " Feature Highlights" %>
 
 This topic highlights important new features included in Pivotal Platform v<%= vars.current_major_version %>.
 
@@ -38,9 +36,9 @@ The contents of the bundle help Pivotal Support more quickly address any issues 
 
 ---
 
-## <a id='pas'></a> <%= vars.product_full %> Highlights
+## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
 
-PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [<%= vars.product_runtime %> v2.6 Release Notes](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html).
+PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.6 Release Notes](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html).
 
 ### <a id='java-app-sidecars'></a> Java Apps Support Sidecars (Beta)
 
@@ -82,14 +80,14 @@ The nfsbroker back end is migrated to CredHub. This allows you to specify LDAP c
 
 ---
 
-## <a id='pas-windows'></a> <%= vars.product_windows_full %> Highlights
+## <a id='pas-windows'></a> PAS for Windows Highlights
 
-<%= vars.product_windows_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.product_windows_full %> v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html).
+PAS for Windows v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PAS for Windows v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html).
 
 
 ### <a id='visual-c-redistributables'></a> Pre-Installed Visual C++ Redistributables
 
-<%= vars.product_windows_full %> v2.7 improves the developer experience with pre-installed Microsoft Visual C++ Redistributables for .NET apps.
+PAS for Windows v2.7 improves the developer experience with pre-installed Microsoft Visual C++ Redistributables for .NET apps.
 
 ### <a id='windows-mtls'></a> Secure mTLS Communication to Gorouter (Beta)
 
@@ -101,7 +99,7 @@ Stemcells for Windows Server 2019 VMs follow the Microsoft Baseline Security Sta
  
 ### <a id='rdp-removed-bosh-ssh'></a> RDP Support is Removed in Favor of BOSH SSH
 
-<p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i><%= vars.product_name %> v2.7 Breaking Changes</i>.</p>
+<p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i>PCF v2.7 Breaking Changes</i>.</p>
 
 The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
 
