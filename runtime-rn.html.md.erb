@@ -1,7 +1,9 @@
 ---
-title: Pivotal Application Service v2.7 Release Notes
+title: Pivotal Application Service Release Notes
 owner: Release Engineering
 ---
+
+<% current_page.data.title = vars.product_runtime + " " + vars.v_major_version + " Release Notes" %>
 
 Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
@@ -29,7 +31,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Show TCP port for TCP routes on space page and app page in Apps Manager
 * **[Bug Fix]** Show an error page when there is a UAA error after attempted login to Apps Manager
 * **[Bug Fix]** Apps pushed with a droplet are able to start/stop/restart through Apps Manager
-* **[Bug Fix]** Update the square logo to use the PCF logo rather than the PWS logo in Apps Manager
+* **[Bug Fix]** Update the square logo to use the <%= vars.product_name %> logo rather than the PWS logo in Apps Manager
 * Bump ubuntu-xenial stemcell to version `456.12`
 * Bump cflinuxfs3 to version `0.119.0`
 * Bump push-apps-manager-release to version `670.0.7`
@@ -562,13 +564,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.7 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to <%= vars.product_full %> v2.7 is documented in the [Upgrading <%= vars.product_name %>](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic.
 
 When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.6 to successfully upgrade to PAS v2.7.
 
-* Some partner service tiles may be incompatible with PCF v2.7. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of PCF.<br/><br/> For information about which partner service releases are currently compatible with PCF v2.7, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with <%= vars.product_name %> v2.7. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.product_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.product_name %> v2.7, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in PAS v2.7
@@ -591,7 +593,7 @@ The Consul server instance is removed from PAS. This saves VM resources and redu
 
 In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In PAS v2.7, the Consul server instance is removed from PAS.
 
-For information about breaking changes caused by the removal of the Consul server instance, see [Consul Clients Not Supported in PAS](./breaking-changes.html#consul-server).
+<p class="note warning"><b>Warning:</b> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="./breaking-changes.html#consul-server">Consul Clients Not Supported in PAS</a>.</p>
 
 ### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
@@ -615,6 +617,23 @@ You can navigate to resources, such as the app **Overview** and **Settings** pan
 
 For more information, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-7/console/index.html).
 
+### <a id='apps-manager-revisions'></a> Manage App Re-Deployments and Revisions in Apps Manager
+
+You can do the following in Apps Manager to manage app re-deployments and revisions:
+
+- View revisions for an app.
+- Deploy a revision of an app.
+- View the deployment status of an app revision.
+- View the environment variables associated with an app revision.
+
+You can manage app re-deployments and revisions in the **Revisions** pane of the
+Apps Manager UI.
+
+For more information, see [Manage App Revisions](http://docs.pivotal.io/pivotalcf/2-7/console/manage-apps.html#revisions)
+in _Managing Apps and Service Instances Using Apps Manager_.
+
+For general information about app revisions in <%= vars.product_name %>, see [App Revisions](http://docs.pivotal.io/pivotalcf/2-7/devguide/revisions.html).
+
 ### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
 
 The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`. This simplifies and consolidates existing configuration options for TLS connections to an external database.
@@ -626,7 +645,7 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 * `enabled_skip_all_validation`: Enables TLS connections to an external database and skips SSL validation in database server certificates.
 * `disabled`: Disables TLS connections to the UAA database.
 
-<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em>PCF v2.7 Breaking Changes</em> topic.</p>
+<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em><%= vars.product_name %> v2.7 Breaking Changes</em> topic.</p>
 
 ### <a id='credhub-kms'></a> CredHub Supports KMS
 

@@ -1,7 +1,9 @@
 ---
-title: PCF Isolation Segment v2.7 Release Notes
+title: Pivotal Isolation Segment Release Notes
 owner: Release Engineering
 ---
+
+<% current_page.data.title = "Pivotal Isolation Segment " + vars.v_major_version + " Release Notes" %>
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -208,9 +210,9 @@ owner: Release Engineering
   </tbody>
 </table>
 
-## <a id='intro'></a> About PCF Isolation Segment
+## <a id='intro'></a> About Pivotal Isolation Segment
 
-The PCF Isolation Segment v2.7 tile is available for installation with PCF v2.7.
+The Pivotal Isolation Segment v2.7 tile is available for installation with <%= vars.product_name %> v2.7.
 
 [Isolation segments](http://docs.pivotal.io/pivotalcf/2-7/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
@@ -219,11 +221,11 @@ For more information about using isolation segments in your deployment, see the 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.7 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-7/customizing/installing-pcf-is.html) topic.
+The procedure for installing Pivotal Isolation Segment v2.7 is documented in the [Installing Pivotal Isolation Segment](https://docs.pivotal.io/pivotalcf/2-7/customizing/installing-pcf-is.html) topic.
 
-To install a PCF Isolation Segment, you must first install PCF v2.7.
+To install a Pivotal Isolation Segment, you must first install <%= vars.product_name %> v2.7.
 
-## <a id='2.7.0'></a> New Features in PCF Isolation Segment v2.7
+## <a id='2.7.0'></a> New Features in Pivotal Isolation Segment v2.7
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
 
@@ -233,7 +235,7 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/pivo
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-PCF Isolation Segment v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+Pivotal Isolation Segment v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
 
 Additionally, the `syslog_adapter` and `syslog_scheduler` instance groups are removed, as this agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
@@ -245,12 +247,12 @@ PAS v2.7 improves route consistency in the route-emitter component of Diego.
 
 This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
 
-This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PCF Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in Pivotal Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the PCF Isolation Segment v2.7 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the Pivotal Isolation Segment v2.7 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 

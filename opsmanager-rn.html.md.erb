@@ -1,7 +1,9 @@
 ---
-title: Pivotal Ops Manager v2.7 Release Notes
+title: Pivotal Ops Manager Release Notes
 owner: Ops Manager
 ---
+
+<% current_page.data.title = "Pivotal Ops Manager " + vars.v_major_version + " Release Notes" %>
 
 Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
@@ -267,16 +269,32 @@ in addition to leaf-level certificates that Ops Manager stores directly.
 
 For more information, see [List all RSA Certificates](https://docs.pivotal.io/pivotalcf/2-7/security/pcf-infrastructure/managing-certificates.html#list-rsa-certs).
 
-### <a id='download-support-zip'></a> Download a Support Bundle from the Ops Manager UI or API
+### <a id='download-support-zip'></a> Download a Platform Information Bundle from the Ops Manager UI or API
 
-You can download a support bundle as a ZIP file from the Ops Manager UI or API. The support bundle includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics.
+You can download a Platform Information Bundle as a ZIP file from the Ops Manager UI or API. The bundle includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics.
 
-The contents of the support bundle help Pivotal Support more quickly address any issues in your deployment.
+The contents of the bundle help Pivotal Support more quickly address any issues in your deployment.
 
-To download the support bundle ZIP file from the UI, click **Support** in the footer of any page in the Ops Manager UI.
+To download the ZIP file from the UI, click **Support** in the footer of any page in the Ops Manager UI.
 
-To download the support bundle ZIP file from the Ops Manager API, use the `/api/v0/support_bundle` endpoint. For more information, see [Support Bundle](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#support-bundle) in the Ops Manager API documentation.
+To download the ZIP file from the Ops Manager API, use the `/api/v0/support_bundle` endpoint. For more information, see [Support Bundle](https://docs.pivotal.io/pivotalcf/2-7/opsman-api/#support-bundle) in the Ops Manager API documentation.
 
+### <a id='audit-logs'></a> BOSH Director Access Events Appear in Syslog Output
+
+Syslog output includes BOSH Director access events when syslog is enabled in Ops Manager.
+
+BOSH Director access events correspond to the execution of BOSH CLI commands. The addition of these events allows you to audit BOSH Director access and activity for security monitoring purposes.
+
+For more information, see [Syslog](https://docs.pivotal.io/2-7/customizing/pcf-interface.html#syslog) and [Logging API Access](https://bosh.io/docs/director-access-events/) in BOSH Documentation.
+
+
+### <a id='audit-user-activity'></a> Audit User Activity with Ops Manager Logs
+
+Logs for auditing user activity in Ops Manager are moved to a single location on the Ops Manager VM. This makes it easier to access and view user activity logs for security monitoring purposes. For example, you can view the username and timestamp for all successful and failed Ops Manager login attempts. 
+
+To access logs for auditing user activity in Ops Manager, SSH onto the Ops Manager VM and navigate to `/var/log/opsmanager`.
+
+For more information about the types of user activity that you can audit in the Ops Manager logs, see [Auditing User Activity in Ops Manager](https://docs.pivotal.io/pivotalcf/2-7/opsguide/auditing-ops-man.html).
 
 ## <a id='known-issues'></a> Known Issues
 
