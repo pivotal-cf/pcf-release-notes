@@ -1,7 +1,9 @@
 ---
-title: Pivotal Platform v2.7 Breaking Changes
+title: Pivotal Platform Breaking Changes
 owner: Release Engineering
 ---
+
+<% current_page.data.title = vars.product_name + " " + v_major_version + " Breaking Changes" %>
 
 This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Platform v2.7. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Platform](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
 
@@ -19,7 +21,7 @@ Instead, operators must use the `stemcell_associations` endpoint, which returns 
 For more information, see [Stemcell Associations for Products](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
 
 
-## <a id='pas'></a> Pivotal Application Service (PAS)
+## <a id='pas'></a> <%= vars.product_full %>
 
 See the following PAS breaking changes:
 
@@ -49,20 +51,20 @@ The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are remov
 For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the PAS v2.7 release notes.
 
 
-## <a id='ist'></a> PCF Isolation Segment
+## <a id='ist'></a> Pivotal Isolation Segment
 
-See the following PCF Isolation Segment breaking changes:
+See the following Pivotal Isolation Segment breaking changes:
 
 None currently.
 
 
-## <a id='pasw'></a> PAS for Windows
+## <a id='pasw'></a> <%= vars.product_windows_full %>
 
-See the following PAS for Windows breaking changes:
+See the following <%= vars.product_windows_full %> breaking changes:
 
 ### <a id='windows2016'></a> Removal of the windows2016 Stack
 
-In PAS for Windows v2.7, the `windows2016` stack is removed. Before you upgrade to PAS for Windows v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+In <%= vars.product_windows_full %> v2.7, the `windows2016` stack is removed. Before you upgrade to <%= vars.product_windows_full %> v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
