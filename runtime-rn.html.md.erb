@@ -703,9 +703,9 @@ This feature is enabled by default. You can optionally disable it in the **Advan
 
 For more information, see [Rolling App Deployments](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/rolling-deploy.html).
 
-### <a id='nfsbroker'></a> nfsbroker Back End Is in CredHub
+### <a id='nfsbroker'></a> nfsbroker Backing Store Is in CredHub
 
-The `nfsbroker` back end is migrated from SQL to CredHub. This allows you to specify LDAP credentials when you create an NFS Volume Service instance rather than when binding one, when LDAP authentication is enabled.
+The `nfsbroker` backing store is migrated from SQL to CredHub, provided that CredHub exists in the deployment. This allows you to specify LDAP credentials when you create an NFS Volume Service instance rather than when binding one.
 
 For more information, see the [Configure LDAP Credentials with Service Instance Creation](https://docs.pivotal.io/pivotalcf/2-7/devguide/services/using-vol-services.html#ldap) section of the _Using an External File System (Volume Services)_ topic.
 
