@@ -298,4 +298,14 @@ For more information about the types of user activity that you can audit in the 
 
 ## <a id='known-issues'></a> Known Issues
 
-* Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
+### <a id='log'></a> Log Page Accuracy and Behavior
+
+The **Change Log** page may not show the correct results of each **Apply Changes** deploy attempt,
+and the **Installation Log** may omit later logs that show whether the deployment succeeded or how it failed.
+
+For more information and a workaround, see [Operations Manager changelog does not show any errors after failed deployment](https://community.pivotal.io/s/article/operations-manager-change-logs-does-not-show-any-errors) in _Pivotal Support_.
+
+The **Installation Log** also takes time to load, and the link menu for each stage of the deployment scrolls away when you scroll down through the log output.
+
+You access the **Installation Log** page from the **Change Log** page by clicking the **Logs** button for a listed deployment event.
+
