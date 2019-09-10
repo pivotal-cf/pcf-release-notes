@@ -16,17 +16,23 @@ Ops Manager v<%= vars.current_major_version %> includes the following important 
 
 The Ops Manager **Resource Config Pane** is redesigned. The updated pane includes improved error handling to help you more easily troubleshoot. It also includes additional configuration options for each job based on IaaS. 
 
-### <a id='certificate-expiration'></a> View Expiration Dates for Certificates
-
-You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments.
 
 ### <a id='nsx'></a> NSX-T and NSX-V Configuration in Ops Manager
 
 The **Resource Config** pane in Ops Manager includes fields for configuring instance groups in deployments with vSphere NSX-T or NSX-V.
 
+
+### <a id='certificate-expiration'></a> View Expiration Dates for Certificates
+
+You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments.
+
+
 ### <a id='audit-events'></a> Audit User Activity in Ops Manager
 
-Ops Manager includes more detailed logs for auditing user actions. For example, you can view all successful and failed Ops Manager login attempts. You can access Ops Manager user activity logs in `/var/log/opsmanager` on the Ops Manager VM. 
+Ops Manager includes more detailed logs for auditing user actions. For example, you can view all successful and failed Ops Manager login attempts. 
+
+You can access Ops Manager user activity logs in `/var/log/opsmanager` on the Ops Manager VM. 
+
 
 ### <a id='gss'></a> Forward Deployment Information to Pivotal Support
 
@@ -46,15 +52,38 @@ You can push Java apps with sidecars. Sidecars allow you to run additional proce
 
 Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
 
+
 ### <a id='rolling-app'></a> Rolling App Deployments is GA
 
 PAS v2.7 includes GA support for rolling app deployments. Rolling app deployments offer near-zero downtime for app pushes and restarts.
 
 Use the `--strategy rolling` and `no-wait` flags in the cf CLI to do rolling deployments.
 
+
 ### <a id='rotate-ccdb-key'></a> Rotate Cloud Controller Encryption Key
 
 You can rotate the Cloud Controller Database (CCDB) encryption key, which encrypts sensitive data such as app environment variables.
+
+
+### <a id='inactive-mysql'></a> Enable Inactive MySQL Port for Auditing and Reporting
+
+You can run auditing and reporting queries on a MySQL node that is not currently serving traffic. By running these queries on an inactive node, the active MySQL nodes continue to serve requests with no effect on performance.
+
+
+### <a id='mtls-routing-api'></a> Enhanced Security for Routing API with mTLS
+
+Traffic between the Routing API and other routing components is secured with mutual TLS (mTLS) encryption. This provides additional security for communication between routing components in PAS.
+
+
+### <a id='syslog-agent'></a> Syslog Agents Enabled by Default
+
+Syslog Agents are enabled by default, and the option to disable Syslog Agents is removed. Syslog Agents run on host VMs and component VMs, increase the number of syslog drain service bindings supported by the Loggregator system, and reduce the workload for Loggregator VMs.
+
+
+### <a id='ldap-nfs'></a> nfsbroker Back End is in CredHub
+
+The nfsbroker back end is migrated to CredHub. This allows you to specify LDAP credentials when you create an NFS Volume Service instance.
+
 
 ### <a id='app-redeployments'></a> Manage App Re-Deployments and Revisions in Apps Manager
 
@@ -70,14 +99,6 @@ You can do the following in Apps Manager to manage app re-deployments and revisi
 
 The Apps Manager UI is redesigned with improved navigation and an updated look and feel. The improved navigation appears in a panel on the left side of the screen, which allows you to more quickly access settings and resources for the orgs, spaces, apps, and services in your environment. 
 
-### <a id='syslog-agent'></a> Syslog Agents Enabled by Default
-
-Syslog Agents are enabled by default, and the option to disable Syslog Agents is removed. Syslog Agents run on host VMs and component VMs, increase the number of syslog drain service bindings supported by the Loggregator system, and reduce the workload for Loggregator VMs.
-
-### <a id='ldap-nfs'></a> nfsbroker Back End is in CredHub
-
-The nfsbroker back end is migrated to CredHub. This allows you to specify LDAP credentials when you create an NFS Volume Service instance.
-
 ---
 
 ## <a id='pas-windows'></a> PAS for Windows Highlights
@@ -91,16 +112,17 @@ PAS for Windows v2.7 improves the developer experience with pre-installed Micros
 
 ### <a id='windows-mtls'></a> Secure mTLS Communication to Gorouter (Beta)
 
-Windows AIs provide secure multual TLS (mTLS) communication to the Gorouter. This allows for PCI security compliance for Windows container networking.
+Windows AIs provide secure mTLS communication to the Gorouter. This allows for PCI security compliance for Windows container networking.
 
 ### <a id='microsoft-baseline-standard'></a> Windows Stemcells Follow Microsoft Baseline Security Standard
 
 Stemcells for Windows Server 2019 VMs follow the Microsoft Baseline Security Standard. This improves the security for Windows stemcells and better aligns the Windows stemcell hardening practices with an industry standard.
+
  
 ### <a id='rdp-removed-bosh-ssh'></a> RDP Support is Removed in Favor of BOSH SSH
 
 <p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i>PCF v2.7 Breaking Changes</i>.</p>
 
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
+The **Enable Remote Desktop Protocol** field is removed from the PAS for Windows tile. PASW VMs do not support connection through RDP.
 
 This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs.
