@@ -63,7 +63,7 @@ Before upgrading to <%= vars.v_major_version %>, you must update any automation 
   - The `cf_networking_internal_domains` is now an array.
 
 * Runtime CredHub property `credhub_key_encryption_passwords`
-  - The `credhub_key_encryption_passwords` property is renamed to `properties.credhub_internal_provider_keys`.
+  - The `credhub_key_encryption_passwords` property is replaced by `credhub_hsm_provider_encryption_keys` for HSM-resident CredHub and `credhub_internal_provider_keys` for internal CredHub.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
