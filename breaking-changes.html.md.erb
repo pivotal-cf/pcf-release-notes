@@ -44,19 +44,35 @@ To remove Consul clients from your products, make the following changes to any `
 
 For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the Pivotal Platform v2.4 Partner Release Notes.
 
-### <a id='uaadb'></a> UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed
+### <a id='uaadb'></a> UAA Properties uaadb.tls\_enabled and uaadb.skip\_ssl\_validation Are Removed
 
 The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`. You must update any automation scripts to remove references to the `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` properties before upgrading.
 
 For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the PAS v2.7 release notes.
 
+### <a id='syslog'></a> Syslog Jobs syslog\_adapter and syslog_scheduler, and Property syslog\_metrics\_to\_syslog\_enabled Are Removed
+
+Agent-based syslog egress renders the job instance groups `syslog_adapter` and `syslog_scheduler`,
+and the property `syslog_metrics_to_syslog_enabled` unnecessary,
+so they are removed.
+You must update any automation scripts to remove references to
+these jobs and property before upgrading.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress) in the PAS v2.7 release notes.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
 See the following Pivotal Isolation Segment breaking changes:
 
-None currently.
+### <a id='syslog'></a> Syslog Jobs syslog\_adapter and syslog_scheduler, and Property syslog\_metrics\_to\_syslog\_enabled Are Removed
 
+Agent-based syslog egress renders the job instance groups `syslog_adapter` and `syslog_scheduler`,
+and the property `syslog_metrics_to_syslog_enabled` unnecessary,
+so they are removed.
+You must update any automation scripts to remove references to
+these jobs and property before upgrading.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in the Pivotal Isolation Segment v2.7 release notes.
 
 ## <a id='pasw'></a> <%= vars.product_windows_full %>
 
@@ -79,3 +95,13 @@ Remove references to `.properties.rdp_enabled` in any automated scripts to avoid
 To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
 For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.
+
+### <a id='syslog'></a> Syslog Jobs syslog\_adapter and syslog_scheduler, and Property syslog\_metrics\_to\_syslog\_enabled Are Removed
+
+Agent-based syslog egress renders the job instance groups `syslog_adapter` and `syslog_scheduler`,
+and the property `syslog_metrics_to_syslog_enabled` unnecessary,
+so they are removed.
+You must update any automation scripts to remove references to
+these jobs and property before upgrading.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in the Pivotal <%= vars.product_windows_full %> v2.7 release notes.

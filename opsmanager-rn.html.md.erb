@@ -17,6 +17,30 @@ The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-7/customizin
 
 ## <a id='releases'></a> Releases
 
+### <a id="rc-4"></a> 2.7 Release Candidate 4
+
+* **[Bug Fix]** Ops Manager no longer hangs during Apply Changes
+
+Ops Manager v2.7 Release Candidate 4 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.7.0-build.165*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.16</td></tr><tr><td>BBR SDK</td><td>1.17.1</td></tr><tr><td>BOSH Director</td><td>270.4.1</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.5.4*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.8*</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.3*</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
 ### <a id="rc-3"></a> 2.7 Release Candidate 3
 
 * **[Feature]** LDAP configuration includes a **Group Max Search Depth** field
@@ -298,4 +322,14 @@ For more information about the types of user activity that you can audit in the 
 
 ## <a id='known-issues'></a> Known Issues
 
-* Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
+### <a id='log'></a> Log Page Accuracy and Behavior
+
+The **Change Log** page may not show the correct results of each **Apply Changes** deploy attempt,
+and the **Installation Log** may omit later logs that show whether the deployment succeeded or how it failed.
+
+For more information and a workaround, see [Operations Manager changelog does not show any errors after failed deployment](https://community.pivotal.io/s/article/operations-manager-change-logs-does-not-show-any-errors) in _Pivotal Support_.
+
+The **Installation Log** also takes time to load, and the link menu for each stage of the deployment scrolls away when you scroll down through the log output.
+
+You access the **Installation Log** page from the **Change Log** page by clicking the **Logs** button for a listed deployment event.
+
