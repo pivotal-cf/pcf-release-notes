@@ -705,7 +705,9 @@ For more information, see [Rolling App Deployments](https://docs.pivotal.io/pivo
 
 ### <a id='nfsbroker'></a> nfsbroker Backing Store Is in CredHub
 
-The `nfsbroker` backing store is migrated from SQL to CredHub, provided that CredHub exists in the deployment. This allows you to specify LDAP credentials when you create an NFS Volume Service instance rather than when binding one.
+The `nfsbroker` backing store is migrated from your external PAS database to CredHub, provided that CredHub exists in the deployment. This allows you to specify LDAP credentials when you create an NFS Volume Service instance.
+
+NFS Volume Service only uses CredHub as its backing store. If CredHub is not deployed, you cannot use NFS Volume Service.
 
 For more information, see the [Configure LDAP Credentials with Service Instance Creation](https://docs.pivotal.io/pivotalcf/2-7/devguide/services/using-vol-services.html#ldap) section of the _Using an External File System (Volume Services)_ topic.
 
