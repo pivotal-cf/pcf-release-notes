@@ -5,7 +5,7 @@ owner: Release Engineering
 
 <% current_page.data.title = vars.product_name + " " + vars.v_major_version + " Breaking Changes" %>
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Platform v2.7. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Platform](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.product_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.product_name %>](https://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html).
 
 
 ## <a id='opsman'></a> Pivotal Ops Manager
@@ -23,11 +23,11 @@ For more information, see [Stemcell Associations for Products](https://docs.pivo
 
 ## <a id='pas'></a> <%= vars.product_full %>
 
-See the following PAS breaking changes:
+See the following <%= vars.product_short %> breaking changes:
 
-### <a id='consul-server'></a> Consul Clients Not Supported in PAS
+### <a id='consul-server'></a> Consul Clients Not Supported in <%= vars.product_short %>
 
-The Consul server instance is removed from PAS. Tiledev authors must remove any Consul clients from their products to avoid failed deployments.
+The Consul server instance is removed from <%= vars.product_short %>. Tiledev authors must remove any Consul clients from their products to avoid failed deployments.
 
 To remove Consul clients from your products, make the following changes to any `job_type` that is colocated with `consul_agent`:
 
@@ -42,45 +42,52 @@ To remove Consul clients from your products, make the following changes to any `
           enabled: "(( $ops_manager.dns_enabled ? false : true ))"
 ```
 
-For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the Pivotal Platform v2.4 Partner Release Notes.
+For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the <%= vars.product_name %> v2.4 Partner Release Notes.
 
-### <a id='uaadb'></a> UAA Properties uaadb.tls\_enabled and uaadb.skip\_ssl\_validation Are Removed
+### <a id='props-changed'></a> Changed Properties and Jobs
 
-The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`. You must update any automation scripts to remove references to the `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` properties before upgrading.
+The following <%= vars.product_short %> tile properties and <%= vars.product_short %> jobs have changed in <%= vars.product_short %> <%= vars.v_major_version %>.
 
-For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the PAS v2.7 release notes.
+Before upgrading to <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
 
-### <a id='syslog'></a> Syslog Jobs syslog\_adapter and syslog_scheduler, and Property syslog\_metrics\_to\_syslog\_enabled Are Removed
+* UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`
+  - The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`
+  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the <%= vars.product_short %> <%= vars.v_major_version %> release notes.
 
-Agent-based syslog egress renders the job instance groups `syslog_adapter` and `syslog_scheduler`,
-and the property `syslog_metrics_to_syslog_enabled` unnecessary,
-so they are removed.
-You must update any automation scripts to remove references to
-these jobs and property before upgrading.
+* Syslog jobs `syslog_adapter` and `syslog_scheduler`, and property `syslog_metrics_to_syslog_enabled`
+  - The job instance groups `syslog_adapter` and `syslog_scheduler`,
+  and the property `syslog_metrics_to_syslog_enabled` are removed.
+  - Agent-based syslog egress renders these items unnecessary.  For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress) in the <%= vars.product_short %> <%= vars.v_major_version %> release notes.
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress) in the PAS v2.7 release notes.
+* Container networking property `cf_networking_internal_domains`
+  - The `cf_networking_internal_domains` is now an array.
+
+* Runtime CredHub property `credhub_key_encryption_passwords`
+  - The `credhub_key_encryption_passwords` property is renamed to `properties.credhub_internal_provider_keys`.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
-See the following Pivotal Isolation Segment breaking changes:
+### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
 
-### <a id='syslog'></a> Syslog Jobs syslog\_adapter and syslog_scheduler, and Property syslog\_metrics\_to\_syslog\_enabled Are Removed
+The following Pivotal Isolation Segment tile properties and jobs have been removed in <%= vars.product_windows %> <%= vars.v_major_version %>:
 
-Agent-based syslog egress renders the job instance groups `syslog_adapter` and `syslog_scheduler`,
-and the property `syslog_metrics_to_syslog_enabled` unnecessary,
-so they are removed.
-You must update any automation scripts to remove references to
-these jobs and property before upgrading.
+* Syslog job `syslog_adapter`
+* Syslog job `syslog_scheduler`
+* Syslog property `syslog_metrics_to_syslog_enabled`
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in the Pivotal Isolation Segment v2.7 release notes.
+Before upgrading to <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
+
+These changes mirror <%= vars.product_short %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in the Pivotal Isolation Segment <%= vars.v_major_version %> release notes.
 
 ## <a id='pasw'></a> <%= vars.product_windows_full %>
 
-See the following <%= vars.product_windows_full %> breaking changes:
+See the following <%= vars.product_windows_full %> (<%= vars.product_windows %>) breaking changes:
 
 ### <a id='windows2016'></a> Removal of the windows2016 Stack
 
-In <%= vars.product_windows_full %> v2.7, the `windows2016` stack is removed. Before you upgrade to <%= vars.product_windows_full %> v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+In <%= vars.product_windows_full %> <%= vars.v_major_version %>, the `windows2016` stack is removed. Before you upgrade to <%= vars.product_windows_full %> <%= vars.v_major_version %>, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
@@ -88,20 +95,28 @@ For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.
 
 ### <a id='rdp'></a> RDP is Not Supported
 
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
+The **Enable Remote Desktop Protocol** field is removed from the <%= vars.product_windows %> tile. <%= vars.product_windows %> VMs do not support connection through RDP.
 
 Remove references to `.properties.rdp_enabled` in any automated scripts to avoid errors during upgrade.
 
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the <%= vars.product_windows %> tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.
+For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring <%= vars.product_windows %>_.
 
-### <a id='syslog'></a> Syslog Jobs syslog\_adapter and syslog_scheduler, and Property syslog\_metrics\_to\_syslog\_enabled Are Removed
+### <a id='props-changed-pasw'></a> Changed Syslog Properties and Jobs
 
-Agent-based syslog egress renders the job instance groups `syslog_adapter` and `syslog_scheduler`,
-and the property `syslog_metrics_to_syslog_enabled` unnecessary,
-so they are removed.
-You must update any automation scripts to remove references to
-these jobs and property before upgrading.
+The following <%= vars.product_windows %> tile properties and jobs have been removed in <%= vars.product_windows %> <%= vars.v_major_version %>:
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in the Pivotal <%= vars.product_windows_full %> v2.7 release notes.
+* Syslog job `syslog_adapter`
+* Syslog job `syslog_scheduler`
+* Syslog property `syslog_metrics_to_syslog_enabled`
+
+Before upgrading to <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
+
+These changes mirror <%= vars.product_short %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in the Pivotal <%= vars.product_windows_full %> <%= vars.v_major_version %> release notes.
+
+## <a id='pks'></a> <%= vars.pks_product_short %>
+
+For breaking changes in <%= vars.pks_product_short %> v1.5, see See [Breaking Changes](https://docs.pivotal.io/pks/1-5/release-notes.html) in the _<%= vars.pks_product_short %> Release Notes_.
