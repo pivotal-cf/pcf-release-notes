@@ -196,7 +196,7 @@ The <%= vars.product_windows_full %> v2.7 tile is available with the release of 
 In <%= vars.product_windows_full %> v2.7, the `windows2016` stack is removed. Before you upgrade to <%= vars.product_windows_full %> v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
 
 ### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
@@ -212,7 +212,7 @@ Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`,
 and the property `syslog_metrics_to_syslog_enabled`
 are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
-For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
+For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
 ### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH
 
@@ -224,7 +224,7 @@ This is part of a larger effort to achieve platform parity with Linux VMs by ena
 
 To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/pivotalcf/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.
+For more information, see the [Configure VMs](https://docs.pivotal.io/platform/2-7/windows/installing.html#config-vms) section in _Installing and Configuring PASW_.
 
 
 ### <a id='windows-stemcells-microsoft-baseline'></a> Windows Server 2019 VM Stemcells Follow Microsoft Baseline Security Standard
@@ -235,7 +235,7 @@ This is part of a larger effort to align Windows stemcells with the Microsoft Ba
 
 <p class="note"><b>Note:</b> Windows stemcells do not yet align completely with the Microsoft Baseline Security Standard. For details on the ways in which Windows stemcell hardening differs from the Microsoft Baseline Security Standard, contact Pivotal at <a href="mailto:myemail@example.com">pcf-windows@pivotal.io</a>.</p>
 
-For more information about how Windows Server 2019 stemcells align with the Microsoft Baseline Security Standard, see [Windows Stemcell Hardening](https://docs.pivotal.io/pivotalcf/2-7/security/pcf-infrastructure/windows-stemcell-hardening.html).
+For more information about how Windows Server 2019 stemcells align with the Microsoft Baseline Security Standard, see [Windows Stemcell Hardening](https://docs.pivotal.io/platform/2-7/security/pcf-infrastructure/windows-stemcell-hardening.html).
 
 
 ## <a id='adv-features'></a> New Advanced Features

@@ -564,7 +564,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to <%= vars.product_full %> v2.7 is documented in the [Upgrading <%= vars.product_name %>](http://docs.pivotal.io/pivotalcf/2-7/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to <%= vars.product_full %> v2.7 is documented in the [Upgrading <%= vars.product_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html) topic.
 
 When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
@@ -579,13 +579,13 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 PAS v2.7 supports pushing Java apps with sidecars. Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
 
-For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#sidecars). To understand how you can push Java apps with sidecars, see [Requirements for Java Apps](https://docs.pivotal.io/pivotalcf/2-7/devguide/sidecars.html#java) in _Pushing Apps with Sidecar Processes_.
+For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#sidecars). To understand how you can push Java apps with sidecars, see [Requirements for Java Apps](https://docs.pivotal.io/platform/2-7/devguide/sidecars.html#java) in _Pushing Apps with Sidecar Processes_.
 
 ### <a id='rotate-ccdb-key'></a> Rotate the Cloud Controller Database Encryption Key
 
 PAS v2.7 supports rotating the Cloud Controller Database (CCDB) encryption key. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables.
 
-You can rotate the key using the new **Encryption key ledger** field and **Rotate CC Database Key** errand in the PAS tile. For more information, see [Rotating the Cloud Controller Database Encryption Key](https://docs.pivotal.io/pivotalcf/2-7/opsguide/rotate-ccdb-key.html).
+You can rotate the key using the new **Encryption key ledger** field and **Rotate CC Database Key** errand in the PAS tile. For more information, see [Rotating the Cloud Controller Database Encryption Key](https://docs.pivotal.io/platform/2-7/opsguide/rotate-ccdb-key.html).
 
 ### <a id='consul-server'></a> Consul Server Instance Removed from PAS
 
@@ -599,7 +599,7 @@ In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. T
 
 By default, Log Cache keeps 100,000 envelopes per source. An envelope wraps an event and adds metadata. For sources that produce more than 100,000 envelopes, this default may not provide a long enough duration for you to specify a time period for a historical query. PAS v2.7 allows you to raise the maximum number of envelopes stored per source above the default 100,000 if needed.
 
-For more information about configuring this limit, see the [Configure Advanced Features](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic. For more information about envelopes, see [Protocol Documentation](https://github.com/cloudfoundry/dropsonde-protocol/blob/master/events/README.md#envelope) in the dropsonde-protocol repository on GitHub.
+For more information about configuring this limit, see the [Configure Advanced Features](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic. For more information about envelopes, see [Protocol Documentation](https://github.com/cloudfoundry/dropsonde-protocol/blob/master/events/README.md#envelope) in the dropsonde-protocol repository on GitHub.
 
 ### <a id='upgrade-service-instances'></a> Support for Upgrading Service Instances
 
@@ -615,7 +615,7 @@ The Apps Manager UI has an updated look and feel as well as updated resource nav
 
 You can navigate to resources, such as the app **Overview** and **Settings** panes, from a panel on the left side of the screen in Apps Manager. You can find resources that previously appeared in the panel, such as links to documentation and Support, in the Apps Manager footer.
 
-For more information, see [Using Apps Manager](https://docs.pivotal.io/pivotalcf/2-7/console/index.html).
+For more information, see [Using Apps Manager](https://docs.pivotal.io/platform/2-7/console/index.html).
 
 ### <a id='apps-manager-revisions'></a> Manage App Re-Deployments and Revisions in Apps Manager
 
@@ -629,10 +629,10 @@ You can do the following in Apps Manager to manage app re-deployments and revisi
 You can manage app re-deployments and revisions in the **Revisions** pane of the
 Apps Manager UI.
 
-For more information, see [Manage App Revisions](http://docs.pivotal.io/pivotalcf/2-7/console/manage-apps.html#revisions)
+For more information, see [Manage App Revisions](http://docs.pivotal.io/platform/2-7/console/manage-apps.html#revisions)
 in _Managing Apps and Service Instances Using Apps Manager_.
 
-For general information about app revisions in <%= vars.product_name %>, see [App Revisions](http://docs.pivotal.io/pivotalcf/2-7/devguide/revisions.html).
+For general information about app revisions in <%= vars.product_name %>, see [App Revisions](http://docs.pivotal.io/platform/2-7/devguide/revisions.html).
 
 ### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
 
@@ -645,25 +645,25 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 * `enabled_skip_all_validation`: Enables TLS connections to an external database and skips SSL validation in database server certificates.
 * `disabled`: Disables TLS connections to the UAA database.
 
-<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em><%= vars.product_name %> v2.7 Breaking Changes</em> topic.</p>
+<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="https://docs.pivotal.io/platform/2-7/pcf-release-notes/breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in the <em><%= vars.product_name %> v2.7 Breaking Changes</em> topic.</p>
 
 ### <a id='credhub-kms'></a> CredHub Supports KMS
 
 You can configure Key Management Service (KMS) encryption providers for CredHub. Configuring KMS encryption providers for CredHub allows you to more easily create and manage the encryption keys that you use in your environment.
 
-For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_.
+For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_.
 
 ### <a id='inactive-mysql'></a> Enable Inactive MySQL Port for Auditing and Reporting
 
 PAS v2.7 introduces the option to enable MySQL proxies to listen on port 3336. If you enable this option, you can run auditing and reporting queries on a MySQL node that is not currently serving traffic. By running these queries on an inactive node, the active MySQL nodes continue to serve requests with no effect on performance.
 
-To enable this option, select the **Enable inactive MySQL port** checkbox in the **Internal MySQL** pane of the PAS tile. For more information, see the [Configure Internal MySQL](http://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#internal-mysql) section of the _Configuring PAS_ topic.
+To enable this option, select the **Enable inactive MySQL port** checkbox in the **Internal MySQL** pane of the PAS tile. For more information, see the [Configure Internal MySQL](http://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#internal-mysql) section of the _Configuring PAS_ topic.
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
 
 You can SSH into Linux and Windows apps on vSphere deployments with NSX-T enabled.
 
-For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/ssh-apps.html).
+For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/platform/2-7/devguide/deploy-apps/ssh-apps.html).
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
@@ -671,7 +671,7 @@ PAS v2.7 contains Syslog Agents, which forward logs to configured syslog drains 
 
 Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
-For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
+For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
 ### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
 
@@ -679,7 +679,7 @@ PAS v2.7 improves route consistency in the route-emitter component of Diego.
 
 This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
 
-This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PAS v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PAS v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
 
 ### <a id='mtls'></a> Mutual TLS Communication Between Routing API and Other Components
 
@@ -693,13 +693,13 @@ You can configure multiple internal domains that apps use for internal DNS servi
 
 This allows you to create separate domains for different organizations in your foundation. For example, you can create a separate domain for apps on the development tier and apps on the production tier.
 
-For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
+For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
 
 ### <a id='blobstore-backup'></a> Configure Selective Blobstore Backups
 
 You can configure PAS v2.7 to back up your entire blobstores, exclude droplets from your backups, or exclude droplets and packages from your backups. When you exclude droplets and packages from your backups, the Cloud Foundry API is down for a shorter period of time during the backup. Depending on how you configure your backups, you may need to re-stage or re-push your apps.
 
-For more information about the advantages and disadvantages of excluding droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/pivotalcf/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
+For more information about the advantages and disadvantages of excluding droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
 
 ### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
 
@@ -707,7 +707,7 @@ The rolling app deployments feature is GA. It was released as a beta feature in 
 
 This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
 
-For more information, see [Rolling App Deployments](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/rolling-deploy.html).
+For more information, see [Rolling App Deployments](https://docs.pivotal.io/platform/2-7/devguide/deploy-apps/rolling-deploy.html).
 
 ### <a id='nfsbroker'></a> nfsbroker Backing Store Is in CredHub
 
@@ -715,13 +715,13 @@ The `nfsbroker` backing store is migrated from your external PAS database to Cre
 
 NFS Volume Service only uses CredHub as its backing store. If CredHub is not deployed, you cannot use NFS Volume Service.
 
-For more information, see the [Configure LDAP Credentials with Service Instance Creation](https://docs.pivotal.io/pivotalcf/2-7/devguide/services/using-vol-services.html#ldap) section of the _Using an External File System (Volume Services)_ topic.
+For more information, see the [Configure LDAP Credentials with Service Instance Creation](https://docs.pivotal.io/platform/2-7/devguide/services/using-vol-services.html#ldap) section of the _Using an External File System (Volume Services)_ topic.
 
 ### <a id='v1-firehose'></a> Enable or Disable V1 Firehose in Loggregator
 
 You can enable or disable the **Enable V1 firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
 
-To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/pivotalcf/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 
 ## <a id='known-issues'></a> Known Issues
@@ -738,7 +738,7 @@ For more information, see [Missing environment variables when using PAS 2.3+ and
 
 In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables
 creating services with a consistent metadata format across PAS and Kubernetes. For more information
-about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/pivotalcf/2-7/adminguide/metadata.html).
+about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 

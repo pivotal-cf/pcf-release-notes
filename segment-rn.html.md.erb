@@ -214,14 +214,14 @@ owner: Release Engineering
 
 The Pivotal Isolation Segment v2.7 tile is available for installation with <%= vars.product_name %> v2.7.
 
-[Isolation segments](http://docs.pivotal.io/pivotalcf/2-7/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+[Isolation segments](http://docs.pivotal.io/platform/2-7/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-7/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/platform/2-7/adminguide/isolation-segments.html) topic.
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing Pivotal Isolation Segment v2.7 is documented in the [Installing Pivotal Isolation Segment](https://docs.pivotal.io/pivotalcf/2-7/customizing/installing-pcf-is.html) topic.
+The procedure for installing Pivotal Isolation Segment v2.7 is documented in the [Installing Pivotal Isolation Segment](https://docs.pivotal.io/platform/2-7/customizing/installing-pcf-is.html) topic.
 
 To install a Pivotal Isolation Segment, you must first install <%= vars.product_name %> v2.7.
 
@@ -231,7 +231,7 @@ To install a Pivotal Isolation Segment, you must first install <%= vars.product_
 
 You can SSH into Linux and Windows apps on vSphere deployments with NSX-T enabled.
 
-For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/pivotalcf/2-7/devguide/deploy-apps/ssh-apps.html).
+For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/platform/2-7/devguide/deploy-apps/ssh-apps.html).
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
@@ -241,7 +241,7 @@ Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`,
 and the property `syslog_metrics_to_syslog_enabled`
 are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
-For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
+For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
 ### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
 
@@ -249,7 +249,7 @@ PAS v2.7 improves route consistency in the route-emitter component of Diego.
 
 This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
 
-This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in Pivotal Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in Pivotal Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
 
 
 ## <a id='adv-features'></a> About Advanced Features
