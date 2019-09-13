@@ -231,7 +231,7 @@ Ops Manager v2.7 Alpha 2 uses the following component versions:
 
 ### <a id="alpha-1"></a> 2.7 Alpha 1
 
-* **[New Feature]**: Operators can back up an external GCS blobstore for BOSH Director
+* **[New Feature]**: Operators can back up an external GCS blobstore for BOSH Director. See [BBR Backs Up GCS Blobstore](#gcs-bbr) below.
 * **[Bug Fix]**: Setting an instance count of a job to `0` removes the need to upload and assign the stemcell
 * **[Bug Fix]**: Tile upload fails when `use_stemcell` refers to and undeclared stemcell OS
 
@@ -322,6 +322,10 @@ To access the `audit_log.txt` file, SSH into the Ops Manager VM and navigate to 
 
 For more information about the types of user activity that you can audit in the Ops Manager logs, see [Auditing User Activity in Ops Manager](https://docs.pivotal.io/platform/2-7/opsguide/auditing-ops-man.html).
 
+### <a id='gcs-bbr'></a> BBR Backs Up GCS Blobstore
+
+BOSH Backup and Restore (BBR) backs up BOSH Director blobstores that save externally to Google Cloud Storage (GCS), as configured in the **Director Config** pane.  See the [External Storage Support Across Pivotal Platform Versions](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/backup-pcf-bbr.html#version-compatibility) section of _Backing Up Pivotal Platform with BBR_.
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='log'></a> Log Page Accuracy and Behavior
@@ -335,3 +339,6 @@ The **Installation Log** also takes time to load, and the link menu for each sta
 
 You access the **Installation Log** page from the **Change Log** page by clicking the **Logs** button for a listed deployment event.
 
+### <a id='uaa-logs'></a> Syslog Does Not Receive UAA Audit Logs
+
+Audit logs from the Ops Manager UAA component do not forward to a syslog server due to file permission issues.
