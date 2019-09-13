@@ -29,11 +29,11 @@ The **Resource Config** pane in Ops Manager includes fields for configuring inst
 You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments.
 
 
-### <a id='audit-events'></a> Audit User Activity in Ops Manager
+### <a id='audit-events'></a> View Request Parameters in User Activity Logs
 
-Ops Manager includes more detailed logs for auditing user actions. For example, you can view all successful and failed Ops Manager login attempts. 
+The Ops Manager `audit_log.txt` file includes request parameters. This provides additional information about requests made in the Ops Manager UI, such as the timestamp of the request and the username that made the request. 
 
-You can access Ops Manager user activity logs in `/var/log/opsmanager` on the Ops Manager VM. 
+To access the `audit_log.txt` file, SSH into the Ops Manager VM and navigate to `/var/log/opsmanager/audit_log.txt`. 
 
 
 ### <a id='gss'></a> Forward Deployment Information to Pivotal Support

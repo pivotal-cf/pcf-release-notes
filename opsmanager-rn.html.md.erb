@@ -312,11 +312,13 @@ BOSH Director access events correspond to the execution of BOSH CLI commands. Th
 For more information, see [Syslog](https://docs.pivotal.io/2-7/customizing/pcf-interface.html#syslog) and [Logging API Access](https://bosh.io/docs/director-access-events/) in BOSH Documentation.
 
 
-### <a id='audit-user-activity'></a> Audit User Activity with Ops Manager Logs
+### <a id='audit-user-activity'></a> Request Parameters in Ops Manager User Activity Logs
 
-Logs for auditing user activity in Ops Manager are moved to a single location on the Ops Manager VM. This makes it easier to access and view user activity logs for security monitoring purposes. For example, you can view the username and timestamp for all successful and failed Ops Manager login attempts. 
+The Ops Manager `audit_log.txt` file includes request parameters. This provides additional information about requests made in the Ops Manager UI, such as the timestamp of the request and the username that made the request. 
 
-To access logs for auditing user activity in Ops Manager, SSH onto the Ops Manager VM and navigate to `/var/log/opsmanager`.
+These request parameters improve Ops Manager logs for auditing user activity.
+
+To access the `audit_log.txt` file, SSH into the Ops Manager VM and navigate to `/var/log/opsmanager/audit_log.txt`.
 
 For more information about the types of user activity that you can audit in the Ops Manager logs, see [Auditing User Activity in Ops Manager](https://docs.pivotal.io/platform/2-7/opsguide/auditing-ops-man.html).
 
