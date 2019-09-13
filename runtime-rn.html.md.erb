@@ -695,9 +695,9 @@ This allows you to create separate domains for different organizations in your f
 
 For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
 
-### <a id='blobstore-backup'></a> Configure Selective Blobstore Backups
+### <a id='blobstore-backup'></a> Configure Partial Blobstore Backups
 
-You can configure PAS v2.7 to back up your entire blobstores, exclude droplets from your backups, or exclude droplets and packages from your backups. When you exclude droplets and packages from your backups, the Cloud Foundry API is down for a shorter period of time during the backup. Depending on how you configure your backups, you may need to re-stage or re-push your apps.
+You can configure PAS v2.7 to back up your entire blobstore, exclude droplets from your backups, or exclude droplets and packages from your backups. When you exclude droplets and packages from your backups, the Cloud Foundry API experiences less downtime during the backup. Depending on how you configure your backups, you may need to restage or repush your apps.
 
 For more information about the advantages and disadvantages of excluding droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
 
@@ -717,11 +717,11 @@ NFS Volume Service only uses CredHub as its backing store. If CredHub is not dep
 
 For more information, see the [Configure LDAP Credentials with Service Instance Creation](https://docs.pivotal.io/platform/2-7/devguide/services/using-vol-services.html#ldap) section of the _Using an External File System (Volume Services)_ topic.
 
-### <a id='v1-firehose'></a> Enable or Disable V1 Firehose in Loggregator
+### <a id='v1-firehose'></a> Enable or Disable Firehose in Loggregator
 
-You can enable or disable the **Enable V1 firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
+The firehose is enabled by default and configurable. You can enable or disable the firehose by selecting or deselecting the **Enable V1 firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
 
-To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
 
 
 ## <a id='known-issues'></a> Known Issues
