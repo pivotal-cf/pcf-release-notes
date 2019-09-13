@@ -695,9 +695,9 @@ This allows you to create separate domains for different organizations in your f
 
 For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
 
-### <a id='blobstore-backup'></a> Configure Partial Blobstore Backups
+### <a id='blobstore-backup'></a> Configure File Storage Backup Level
 
-You can configure PAS v2.7 to back up your entire blobstore, exclude droplets from your backups, or exclude droplets and packages from your backups. When you exclude droplets and packages from your backups, the Cloud Foundry API experiences less downtime during the backup. Depending on how you configure your backups, you may need to restage or repush your apps.
+You can configure PAS v2.7 to exclude droplets and packages from your backups. This can enable you to take more frequent backups without using a large amount of storage space and causes shorter periods of app downtime. However, you have to re-push or restage all apps, which results in a higher Recovery Time Objective (RTO).
 
 For more information about the advantages and disadvantages of excluding droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
 
