@@ -697,9 +697,11 @@ For more information about configuring internal domains for PAS, see [Configure 
 
 ### <a id='blobstore-backup'></a> Configure File Storage Backup Level
 
-You can configure PAS v2.7 to exclude droplets or to exclude droplets and package. This can enable you to take more frequent backups without using a large amount of storage space and causes shorter periods of app downtime. However, you have to re-push or restage all apps, which results in a higher Recovery Time Objective (RTO).
+You can configure PAS v2.7 to exclude droplets or to exclude both droplets and packages from your blobstore backup. This feature reduces the size of your backup artifact and can enable you to take more frequent backups without using a large amount of storage space.
 
-For more information about the advantages and disadvantages of excluding droplets or excluding droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
+Excluding droplets or both droplets and packages from your blobstore backup can cause shorter periods of app downtime. However, you have to re-push or restage all apps, which results in a higher Recovery Time Objective (RTO).
+
+For more information about the advantages and disadvantages of excluding droplets or excluding both droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
 
 ### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
 
