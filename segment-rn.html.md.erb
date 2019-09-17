@@ -5,6 +5,47 @@ owner: Release Engineering
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.5.9'></a> 2.5.9
+
+**Release Date:** 09/17/2019
+
+* **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
+* **[Feature Improvement]** Add configuration for router balancing algorithm
+* **[Bug Fix]** Fix race condition in garden-external-networker
+* **[Bug Fix]** Keep resending route unregistration message to prevent application misrouting in case of NATS routing tier instability
+* Bump ubuntu-xenial stemcell to version `250.99`
+* Bump cf-networking to version `2.20.5`
+* Add new release cflinuxfs2 at version `1.289.0`
+* Bump cflinuxfs3 to version `0.123.0`
+* Bump diego to version `2.27.9`
+* Bump nfs-volume to version `1.7.11`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>250.99</td></tr>
+    <tr><td>bpm</td><td>1.1.1</td></tr>
+    <tr><td>cf-networking</td><td>2.20.5</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.289.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.123.0</td></tr>
+    <tr><td>diego</td><td>2.27.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.5</td></tr>
+    <tr><td>haproxy</td><td>9.5.2</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.11</td></tr>
+    <tr><td>routing</td><td>0.187.3</td></tr>
+    <tr><td>silk</td><td>2.20.1</td></tr>
+    <tr><td>smb-volume</td><td>1.3.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.5.8'></a> 2.5.8
 
 **Release Date:** 08/15/2019
