@@ -3,7 +3,7 @@ title: Pivotal Application Service Release Notes
 owner: Release Engineering
 ---
 
-<% current_page.data.title = vars.product_runtime + " " + vars.v_major_version + " Release Notes" %>
+<% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
 
 Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
@@ -657,7 +657,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to <%= vars.product_full %> v2.7 is documented in the [Upgrading <%= vars.product_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to <%= vars.app_runtime_full %> v2.7 is documented in the [Upgrading <%= vars.product_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html) topic.
 
 When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
@@ -847,19 +847,19 @@ For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enab
 
 It is not possible to delete the most recent app syslog drain on your foundation.
 
-If you attempt to delete the most recent app syslog drain, the deletion will appear successful. However, the syslog drain will continue to send logs to the syslog endpoint. 
+If you attempt to delete the most recent app syslog drain, the deletion will appear successful. However, the syslog drain will continue to send logs to the syslog endpoint.
 
 To stop the most recent syslog drain from sending logs to the syslog endpoint, you can create a new app syslog drain. This causes the previous syslog drain to stop forwarding logs to the endpoint.
 
 To find the total number of syslog drains in your foundation, install the Log Cache CLI plugn. Then, open a command prompt and run `cf tail syslog_agent -n 100 | grep 'GAUGE drains'`.
 
-See [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache). 
+See [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache).
 
 ## <a id='syslog-drain-type'></a> Syslog Drains Must Forward Both Logs and Metrics
 
-Syslog drains always forward both logs and metrics to the associated syslog endpoint. 
+Syslog drains always forward both logs and metrics to the associated syslog endpoint.
 
-Previously, the `--type` flag of the `cf drain` command allowed you to restrict a syslog drain to send only logs or only metrics to the endpoint. 
+Previously, the `--type` flag of the `cf drain` command allowed you to restrict a syslog drain to send only logs or only metrics to the endpoint.
 
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes

@@ -26,7 +26,7 @@ Ops Manager <%= vars.v_major_version %> does not support v1 of the BOSH CLI.
 
 If you use BOSH CLI v1 commands manually from your workstation or in automation scripts, you need to update your usage to [BOSH CLI v2](https://bosh.io/docs/cli-v2/).
 
-## <a id='pas'></a> <%= vars.product_full %>
+## <a id='pas'></a> <%= vars.app_runtime_full %>
 
 See the following <%= vars.product_short %> breaking changes:
 
@@ -78,7 +78,7 @@ Diego file server is now serving on port 8447. Port must be open for communicati
 
 ### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
 
-The following Pivotal Isolation Segment tile properties and jobs have been removed in <%= vars.product_windows %> <%= vars.v_major_version %>:
+The following Pivotal Isolation Segment tile properties and jobs have been removed in <%= vars.windows_runtime %> <%= vars.v_major_version %>:
 
 * Syslog job `syslog_adapter`
 * Syslog job `syslog_scheduler`
@@ -90,13 +90,13 @@ These changes mirror <%= vars.product_short %> tile changes described in the [Ch
 
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in the Pivotal Isolation Segment <%= vars.v_major_version %> release notes.
 
-## <a id='pasw'></a> <%= vars.product_windows_full %>
+## <a id='pasw'></a> <%= vars.windows_runtime_full %>
 
-See the following <%= vars.product_windows_full %> (<%= vars.product_windows %>) breaking changes:
+See the following <%= vars.windows_runtime_full %> (<%= vars.windows_runtime %>) breaking changes:
 
 ### <a id='windows2016'></a> Removal of the windows2016 Stack
 
-In <%= vars.product_windows_full %> <%= vars.v_major_version %>, the `windows2016` stack is removed. Before you upgrade to <%= vars.product_windows_full %> <%= vars.v_major_version %>, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+In <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, the `windows2016` stack is removed. Before you upgrade to <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
@@ -104,17 +104,17 @@ For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.
 
 ### <a id='rdp'></a> RDP is Not Supported
 
-The **Enable Remote Desktop Protocol** field is removed from the <%= vars.product_windows %> tile. <%= vars.product_windows %> VMs do not support connection through RDP.
+The **Enable Remote Desktop Protocol** field is removed from the <%= vars.windows_runtime %> tile. <%= vars.windows_runtime %> VMs do not support connection through RDP.
 
 Remove references to `.properties.rdp_enabled` in any automated scripts to avoid errors during upgrade.
 
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the <%= vars.product_windows %> tile.
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the <%= vars.windows_runtime %> tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in _Installing and Configuring <%= vars.product_windows %>_.
+For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in _Installing and Configuring <%= vars.windows_runtime %>_.
 
 ### <a id='props-changed-pasw'></a> Changed Syslog Properties and Jobs
 
-The following <%= vars.product_windows %> tile properties and jobs have been removed in <%= vars.product_windows %> <%= vars.v_major_version %>:
+The following <%= vars.windows_runtime %> tile properties and jobs have been removed in <%= vars.windows_runtime %> <%= vars.v_major_version %>:
 
 * Syslog job `syslog_adapter`
 * Syslog job `syslog_scheduler`
@@ -124,8 +124,8 @@ Before upgrading to <%= vars.v_major_version %>, you must update any automation 
 
 These changes mirror <%= vars.product_short %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in the <%= vars.product_windows_full %> <%= vars.v_major_version %> release notes.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in the <%= vars.windows_runtime_full %> <%= vars.v_major_version %> release notes.
 
-## <a id='pks'></a> <%= vars.pks_product_short %>
+## <a id='pks'></a> <%= vars.k8s_runtime %>
 
-For breaking changes in <%= vars.pks_product_short %> v1.5, see See [Breaking Changes](https://docs.pivotal.io/pks/1-5/release-notes.html) in the _<%= vars.pks_product_short %> Release Notes_.
+For breaking changes in <%= vars.k8s_runtime %> v1.5, see See [Breaking Changes](https://docs.pivotal.io/pks/1-5/release-notes.html) in the _<%= vars.k8s_runtime %> Release Notes_.

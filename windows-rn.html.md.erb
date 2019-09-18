@@ -3,14 +3,14 @@ title: Pivotal Application Service for Windows Release Notes
 owner: Garden Windows
 ---
 
-<% current_page.data.title = vars.product_windows_full + " " + vars.v_major_version + " Release Notes" %>
+<% current_page.data.title = vars.windows_runtime_full + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for <%= vars.product_windows_full %>.
+This topic contains release notes for <%= vars.windows_runtime_full %>.
 
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The <%= vars.product_windows_full %> v2.7 tile is available with the release of Pivotal Platform v2.7. To use the <%= vars.product_windows_full %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
+The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of Pivotal Platform v2.7. To use the <%= vars.windows_runtime_full %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
 
 
 ## <a id='releases'></a> Releases
@@ -220,26 +220,26 @@ The <%= vars.product_windows_full %> v2.7 tile is available with the release of 
 </table>
 
 
-## <a id='new-features'></a> New Features in <%= vars.product_windows_full %> v2.7
+## <a id='new-features'></a> New Features in <%= vars.windows_runtime_full %> v2.7
 
-<%= vars.product_windows_full %> v2.7 includes the following major features:
+<%= vars.windows_runtime_full %> v2.7 includes the following major features:
 
 ### <a id='windows2016'></a> Removal of the windows2016 Stack
 
-In <%= vars.product_windows_full %> v2.7, the `windows2016` stack is removed. Before you upgrade to <%= vars.product_windows_full %> v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+In <%= vars.windows_runtime_full %> v2.7, the `windows2016` stack is removed. Before you upgrade to <%= vars.windows_runtime_full %> v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
 
 ### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
-<%= vars.product_windows_full %> v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to <%= vars.product_windows_full %> v2.2.
+<%= vars.windows_runtime_full %> v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to <%= vars.windows_runtime_full %> v2.2.
 
 This update improves the developer experience by making VisualC++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-<%= vars.product_windows_full %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+<%= vars.windows_runtime_full %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
 
 Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`,
 and the property `syslog_metrics_to_syslog_enabled`
@@ -262,7 +262,7 @@ For more information, see the [Configure VMs](https://docs.pivotal.io/platform/a
 
 ### <a id='windows-stemcells-microsoft-baseline'></a> Windows Server 2019 VM Stemcells Follow Microsoft Baseline Security Standard
 
-Stemcell hardening for Windows Server 2019 stemcells on both <%= vars.product_full %> and Pivotal Container Service (PKS) is updated to more closely follow the Microsoft Baseline Security Standard. This improves the security for Windows stemcells and better aligns the stemcell hardening practices with an industry standard.
+Stemcell hardening for Windows Server 2019 stemcells on both <%= vars.app_runtime_full %> and Pivotal Container Service (PKS) is updated to more closely follow the Microsoft Baseline Security Standard. This improves the security for Windows stemcells and better aligns the stemcell hardening practices with an industry standard.
 
 This is part of a larger effort to align Windows stemcells with the Microsoft Baseline Security Standard.
 
@@ -273,15 +273,15 @@ For more information about how Windows Server 2019 stemcells align with the Micr
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the <%= vars.product_windows_full %> tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the <%= vars.windows_runtime_full %> tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-<%= vars.product_windows_full %> v2.7 includes the following advanced features:
+<%= vars.windows_runtime_full %> v2.7 includes the following advanced features:
 
 ### <a id='beta-tls'></a> (Beta) Enable TLS Connections From Router to Apps
 
-You can enable TLS connections from the router to apps. This feature is available in the <%= vars.product_windows_full %> tile under **Advanced Features**.
+You can enable TLS connections from the router to apps. This feature is available in the <%= vars.windows_runtime_full %> tile under **Advanced Features**.
 
 You can select three different options to add route integrity and mTLS (mutual TLS):
 

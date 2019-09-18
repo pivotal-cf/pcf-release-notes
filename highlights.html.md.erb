@@ -16,7 +16,7 @@ Ops Manager v<%= vars.current_major_version %> includes the following important 
 
 ### <a id='resource-config-pane'></a> Resource Config Pane is Redesigned
 
-The Ops Manager **Resource Config Pane** is redesigned. The updated pane includes improved error handling to help you more easily troubleshoot. It also includes additional configuration options for each job based on IaaS. 
+The Ops Manager **Resource Config Pane** is redesigned. The updated pane includes improved error handling to help you more easily troubleshoot. It also includes additional configuration options for each job based on IaaS.
 
 
 ### <a id='nsx'></a> NSX-T and NSX-V Configuration in Ops Manager
@@ -31,9 +31,9 @@ You can view the expiration date for certificates in your environments based on 
 
 ### <a id='audit-events'></a> View Request Parameters in User Activity Logs
 
-The Ops Manager `audit_log.txt` file includes request parameters. This provides additional information about requests made in the Ops Manager UI, such as the timestamp of the request and the username that made the request. 
+The Ops Manager `audit_log.txt` file includes request parameters. This provides additional information about requests made in the Ops Manager UI, such as the timestamp of the request and the username that made the request.
 
-To access the `audit_log.txt` file, SSH into the Ops Manager VM and navigate to `/var/log/opsmanager/audit_log.txt`. 
+To access the `audit_log.txt` file, SSH into the Ops Manager VM and navigate to `/var/log/opsmanager/audit_log.txt`.
 
 
 ### <a id='gss'></a> Forward Deployment Information to Pivotal Support
@@ -44,13 +44,13 @@ The contents of the bundle help Pivotal Support more quickly address any issues 
 
 ---
 
-## <a id='pas'></a> <%= vars.product_full %> Highlights
+## <a id='pas'></a> <%= vars.app_runtime_full %> Highlights
 
-PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [<%= vars.product_runtime %> v2.6 Release Notes](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html).
+PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [<%= vars.app_runtime_full %> v2.6 Release Notes](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html).
 
 ### <a id='java-app-sidecars'></a> Java Apps Support Sidecars (Beta)
 
-You can push Java apps with sidecars. Sidecars allow you to run additional processes in the same container as your app. This is useful for processes that depend on each other or must run in the same container. 
+You can push Java apps with sidecars. Sidecars allow you to run additional processes in the same container as your app. This is useful for processes that depend on each other or must run in the same container.
 
 Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
 
@@ -99,18 +99,18 @@ You can do the following in Apps Manager to manage app re-deployments and revisi
 
 ### <a id='apps-manager-redesign'></a> Apps Manager UI Redesign
 
-The Apps Manager UI is redesigned with improved navigation and an updated look and feel. The improved navigation appears in a panel on the left side of the screen, which allows you to more quickly access settings and resources for the orgs, spaces, apps, and services in your environment. 
+The Apps Manager UI is redesigned with improved navigation and an updated look and feel. The improved navigation appears in a panel on the left side of the screen, which allows you to more quickly access settings and resources for the orgs, spaces, apps, and services in your environment.
 
 ---
 
-## <a id='pas-windows'></a> <%= vars.product_windows_full %> Highlights
+## <a id='pas-windows'></a> <%= vars.windows_runtime_full %> Highlights
 
-<%= vars.product_windows_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.product_windows_full %> v2.7 Release Notes](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html).
+<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.windows_runtime_full %> v2.7 Release Notes](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html).
 
 
 ### <a id='visual-c-redistributables'></a> Pre-Installed Visual C++ Redistributables
 
-<%= vars.product_windows_full %> v2.7 improves the developer experience with pre-installed Microsoft Visual C++ Redistributables for .NET apps.
+<%= vars.windows_runtime_full %> v2.7 improves the developer experience with pre-installed Microsoft Visual C++ Redistributables for .NET apps.
 
 ### <a id='windows-mtls'></a> Secure mTLS Communication to Gorouter (Beta)
 
@@ -120,7 +120,7 @@ Windows AIs provide secure mTLS communication to the Gorouter. This allows for P
 
 Stemcells for Windows Server 2019 VMs follow the Microsoft Baseline Security Standard. This improves the security for Windows stemcells and better aligns the Windows stemcell hardening practices with an industry standard.
 
- 
+
 ### <a id='rdp-removed-bosh-ssh'></a> RDP Support is Removed in Favor of BOSH SSH
 
 <p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i><%= vars.product_name %> v2.7 Breaking Changes</i>.</p>
