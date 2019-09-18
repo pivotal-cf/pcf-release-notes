@@ -22,13 +22,18 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
 * **[Security Fix]** Static file assets hosted by the Diego file-server are downloaded over HTTPS
 * **[Feature Improvement]** Add configuration for router balancing algorithm
+* **[Feature Improvement]** Use semantic HTML <section> tags for panels in Apps Manager to increase screen reader accessibility
 * **[Bug Fix]** Fix various syslog drain bugs in the Syslog Agent
 * **[Bug Fix]** Address Azure MySQL compatibility problems in Notifications release
 * **[Bug Fix]** Bump diego-release to v2.36.0 in PAS 2.7
 * **[Bug Fix]** Fixes NFS regression and upgrade issues
 * **[Bug Fix]** Correct displayed version number when using UA /info endpoint; it now displays the correct semantic version number.
 * **[Bug Fix]** Fixes usage service migration that failed on external dbs with mysql mode ONLY_FULL_GROUP_BY.
+* **[Bug Fix]** Use streaming JSON instead of websockets for Apps Manager search functionality to account for incompatibility with some browsers
+* **[Bug Fix]** Fix CSV downloads from Apps Manager for Usage Report and Accounting Report in IE11
 * **[Bug Fix]** Include pushing applications with the --droplet option in the last push timestamp shown by Apps Manager
+* **[Bug Fix]** Fix Apps Manager crash when viewing service instance credentials that are complex data types
+* **[Bug Fix]** Set width and height of custom logos to keep them from adjusting the layout of Apps Manager
 * **[Bug Fix]** Smoke Test help text now properly references "Enable Metric Registrar".
 * Bump ubuntu-xenial stemcell to version `456.22`
 * Bump cf-autoscaling to version `222`
