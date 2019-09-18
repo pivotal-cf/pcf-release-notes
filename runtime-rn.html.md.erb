@@ -15,7 +15,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 09/17/2019
 
-* **[Security Fix]** Users inviting themselves to org/space they do not have access to
+* **[Security Fix]** Prevent users from inviting themselves to orgs they do not have access to via the Invitations microservice
+* **[Security Fix]** Sanitize user input to CSVs from Usage Report and Accounting Report ZIP files downloaded via Apps Manager
 * **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
 * **[Feature Improvement]** `consul_server` can be scaled down to 0 instances
 * **[Feature Improvement]** Add an option CREDHUB_SKIP_INTERPOLATION to skip CredHub interpolation when staging/starting an app
@@ -25,7 +26,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Address Azure MySQL compatibility problems in Notifications release
 * **[Bug Fix]** Fixes NFS regression and upgrade issues
 * **[Bug Fix]** Fixes usage service migration that failed on external dbs with mysql mode ONLY_FULL_GROUP_BY.
+* **[Bug Fix]** Show TCP port for TCP routes on space page and app page in Apps Manager
+* **[Bug Fix]** Show an error page when there is a UAA error after attempted login to Apps Manager
+* **[Bug Fix]** Apps pushed with a droplet are able to start/stop/restart through Apps Manager
+* **[Bug Fix]** Update the square logo to use the PCF logo rather than the PWS logo in Apps Manager
+* **[Bug Fix]** Use streaming JSON instead of websockets for Apps Manager search functionality to account for incompatibility with some browsers
 * **[Bug Fix]** Include pushing applications with the --droplet option in the last push timestamp shown by Apps Manager
+* **[Bug Fix]** Fix Apps Manager crash when viewing service instance credentials that are complex data types
+* **[Bug Fix]** Re-enable use of custom logos in Apps Manager
+* **[Bug Fix]** Set width and height of custom logos to keep them from adjusting the layout of Apps Manager
 * **[Bug Fix]** Smoke Test help text now properly references "Enable Metric Registrar".
 * **[Bug Fix]** Keep resending route unregistration message to prevent application misrouting in case of NATS routing tier instability
 * **[Bug fix]** Backport cc_deployment_updater config fix to prevent failures when updating healthcheck timeout on multi-instance app deployments.
