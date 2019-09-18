@@ -843,6 +843,18 @@ If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
+## <a id='last-syslog-drain'></a> Cannot Delete Last Syslog Drain
+
+In PAS 2.7, it is not possible to delete the last application Syslog drain in a foundation.
+
+Specifically, when the last drain is deleted, logs will continue to be sent to its Syslog endpoint, despite the deletion appearing to succeed. As a workaround, creating another drain will cause the previous drain to stop sending logs.
+
+<p class='note'><strong>Note:</strong> to find the number of syslog drains in the foundation, make sure that the [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache) is installed, and run `cf tail syslog_agent -n 100 | grep 'GAUGE drains'`.</p>
+
+## <a id='syslog-drain-type'></a> No Longer Possible to Choose Drain Type
+
+Syslog drains have historically offered the ability to send only logs or metrics to their Syslog endpoint, rather than a combination of both. (This corresponds to the `--type` option of `cf drain`.) In PAS 2.7, both logs and metrics will be sent, regardless of the settings for any given drain.
+
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
 
 If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web processes can cause Autoscaler to scale the web process incorrectly.
