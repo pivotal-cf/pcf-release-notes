@@ -818,6 +818,11 @@ The firehose is enabled by default and configurable. You can enable or disable t
 
 To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
 
+### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
+
+In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables
+creating services with a consistent metadata format across PAS and Kubernetes. For more information
+about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -829,11 +834,6 @@ To resolve this issue, ensure that all apps are using environment variables that
 
 For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
 
-### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
-
-In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables
-creating services with a consistent metadata format across PAS and Kubernetes. For more information
-about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
