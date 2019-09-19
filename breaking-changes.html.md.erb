@@ -70,10 +70,6 @@ Before upgrading to <%= vars.v_major_version %>, you must update any automation 
 * Runtime CredHub property `credhub_key_encryption_passwords`
   - The `credhub_key_encryption_passwords` property is replaced by `credhub_hsm_provider_encryption_keys` for HSM-resident CredHub and `credhub_internal_provider_keys` for internal CredHub.
 
-### <a id='diego-port-change'></a> Diego File Server is now Serving Over HTTPS
-
-Diego file server is now serving on port 8447. Port must be open for communications between IST and PAS.
-
 ## <a id='ist'></a> Pivotal Isolation Segment
 
 ### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
@@ -89,6 +85,13 @@ Before upgrading to <%= vars.v_major_version %>, you must update any automation 
 These changes mirror <%= vars.product_short %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
 
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in the Pivotal Isolation Segment <%= vars.v_major_version %> release notes.
+
+### <a id='ist-diego'></a> Isolation Segment Cells Update Diego Securely Over Port 8447
+
+Diego cells deployed by the Isolation Segment tile (IST) communicate  with the Diego file server via HTTPS over port 8447.
+Previously, IST cells communicated via HTTP over port 8080 like cells deployed by the PAS tile itself.
+
+If you use isolation segments, you must ensure that port 8447 is open on the Diego Brain file server VM, which is deployed by the PAS tile.
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %>
 
