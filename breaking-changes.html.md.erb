@@ -94,9 +94,9 @@ For more information, see [Agent-Based Syslog Egress Is Enabled by Default](http
 
 See the following <%= vars.windows_runtime_full %> (<%= vars.windows_runtime %>) breaking changes:
 
-### <a id='windows2016'></a> Removal of the windows2016 Stack
+### <a id='windows2016'></a> Windows2016 Stack is Deprecated
 
-In <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, the `windows2016` stack is removed. Before you upgrade to <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+In <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, the `windows2016` stack is deprecated. Before you upgrade to <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, you can migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
