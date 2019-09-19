@@ -843,23 +843,21 @@ If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
-## <a id='last-syslog-drain'></a> Cannot Delete Most the Most Recent Syslog Drain
+### <a id='last-syslog-drain'></a> Cannot Delete the Most Recent Syslog Drain
 
 It is not possible to delete the most recent app syslog drain on your foundation.
 
-If you attempt to delete the most recent app syslog drain, the deletion will appear successful. However, the syslog drain will continue to send logs to the syslog endpoint.
+If you attempt to delete the most recent app syslog drain, the deletion will appear successful. However, the syslog drain will continue to send logs to the syslog endpoint. 
 
-To stop the most recent syslog drain from sending logs to the syslog endpoint, you can create a new app syslog drain. This causes the previous syslog drain to stop forwarding logs to the endpoint.
+To stop the most recent syslog drain from sending logs to the endpoint, you can create a new app syslog drain. This causes the previous syslog drain to stop forwarding logs to the endpoint.
 
 To find the total number of syslog drains in your foundation, install the Log Cache CLI plugn. Then, open a command prompt and run `cf tail syslog_agent -n 100 | grep 'GAUGE drains'`.
 
-See [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache).
+For more information, see [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache). 
 
-## <a id='syslog-drain-type'></a> Syslog Drains Must Forward Both Logs and Metrics
+### <a id='syslog-drain-type'></a> Cannot Specify Type for Syslog Drains
 
-Syslog drains always forward both logs and metrics to the associated syslog endpoint.
-
-Previously, the `--type` flag of the `cf drain` command allowed you to restrict a syslog drain to send only logs or only metrics to the endpoint.
+In PAS v2.7, you cannot use the `cf drain` `--type` flag to specify that a syslog drain must forward only logs or only metrics to an endpoint. Syslog drains always forward both logs and metrics to the syslog endpoint.
 
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
