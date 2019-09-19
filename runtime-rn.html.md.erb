@@ -15,11 +15,14 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 09/17/2019
 
-* **[Security Fix]** Users inviting themselves to org/space they do not have access to
+* **[Security Fix]** Prevent users from inviting themselves to orgs they do not have access to via the Invitations microservice
+* **[Security Fix]** Sanitize user input to CSVs from Usage Report and Accounting Report ZIP files downloaded via Apps Manager
 * **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
 * **[Feature Improvement]** Add an option CREDHUB_SKIP_INTERPOLATION to skip CredHub interpolation when staging/starting an app
 * **[Bug Fix]** Address Azure MySQL compatibility problems in Notifications release
 * **[Bug Fix]** Include pushing applications with the --droplet option in the last push timestamp shown by Apps Manager
+* **[Bug Fix]** Show TCP port for TCP routes on space page and app page in Apps Manager
+* **[Bug Fix]** Show an error page when there is a UAA error after attempted login to Apps Manager
 * **[Bug Fix]** Smoke Test help text now properly references "Enable Metric Registrar".
 * **[Bug Fix]** Keep resending route unregistration message to prevent application misrouting in case of NATS routing tier instability
 * Bump ubuntu-xenial stemcell to version `170.129`
