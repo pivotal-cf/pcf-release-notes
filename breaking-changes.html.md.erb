@@ -88,8 +88,8 @@ For more information, see [Agent-Based Syslog Egress Is Enabled by Default](http
 
 ### <a id='ist-diego'></a> Isolation Segment Cells Update Diego Securely Over Port 8447
 
-Diego cells deployed by the Isolation Segment tile (IST) communicate  with the Diego file server via HTTPS over port 8447.
-Previously, IST cells communicated via HTTP over port 8080 like cells deployed by the PAS tile itself.
+Diego cells deployed by the Isolation Segment tile (IST) communicate  with the Diego file server with HTTPS over port 8447.
+Previously, IST cells communicated with HTTP over port 8080 like cells deployed by the PAS tile itself.
 
 If you use isolation segments, you must ensure that port 8447 is open on the Diego Brain file server VM, which is deployed by the PAS tile.
 
