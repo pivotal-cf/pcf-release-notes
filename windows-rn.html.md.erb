@@ -71,17 +71,12 @@ For more information, see [](https://docs.pivotal.io/platform/application-servic
 
 <%= vars.windows_runtime_full %> v2.7 includes the following major features:
 
-### <a id='azure-stack'></a> Enable <%= vars.windows_runtime_full %> Windows Stemcell Image Deployment on Azure Stack
+### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
-In <%= vars.windows_runtime_full %> v2.7, Windows stemcell images published in the Microsoft Azure Marketplace can be  
-syndicated into the Microsoft Azure Stack (MAS) marketplace.
-
-### <a id='windows2016'></a> Removal of the windows2016 Stack
-
-In <%= vars.windows_runtime_full %> v2.7, the `windows2016` stack is removed. Before you upgrade to <%= vars.windows_runtime_full %> v2.7, you must migrate any apps that run on the `windows2016` stack to the `windows` stack.
+You should migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
+For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/2-7/adminguide/stack-auditor.html).
 
 ### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
@@ -110,17 +105,6 @@ This is part of a larger effort to achieve platform parity with Linux VMs by ena
 To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
 For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in _Installing and Configuring PASW_.
-
-
-### <a id='windows-stemcells-microsoft-baseline'></a> Windows Server 2019 VM Stemcells Follow Microsoft Baseline Security Standard
-
-Stemcell hardening for Windows Server 2019 stemcells on both <%= vars.windows_runtime_full %> and Pivotal Container Service (PKS) is updated to more closely follow the Microsoft Baseline Security Standard. This improves the security for Windows stemcells and better aligns the stemcell hardening practices with an industry standard.
-
-This is part of a larger effort to align Windows stemcells with the Microsoft Baseline Security Standard.
-
-<p class="note"><b>Note:</b> Windows stemcells do not yet align completely with the Microsoft Baseline Security Standard. For details on the ways in which Windows stemcell hardening differs from the Microsoft Baseline Security Standard, contact Pivotal at <a href="mailto:myemail@example.com">pcf-windows@pivotal.io</a>.</p>
-
-For more information about how Windows Server 2019 stemcells align with the Microsoft Baseline Security Standard, see [Windows Stemcell Hardening](https://docs.pivotal.io/platform/2-7/security/pcf-infrastructure/windows-stemcell-hardening.html).
 
 
 ## <a id='adv-features'></a> New Advanced Features
