@@ -348,8 +348,8 @@ Audit logs from the Ops Manager UAA component do not forward to a syslog server 
 
 ### <a id='credhub-generated-field'></a> Operators Must Reset Manually Set Certificates in CredHub After Ops Manager v2.7 Upgrade
 
-After you upgrade to Ops Manager v2.7, you must reset any manually-set certificates 
-in CredHub that you do not wish to rotate before rotating certificates in Ops Manager v2.8. 
+After you upgrade to Ops Manager v2.7, you must reset any manually set certificates 
+in CredHub to prevent their rotation in Ops Manager v2.8. 
 
 CredHub v2.5 adds a field that tracks whether a certificate 
 has been manually set or generated. 
@@ -359,83 +359,8 @@ are assigned a `null` value in the `generated` field.
 
 When instructed to rotate certificates, Ops Manager v2.8 will do a bulk rotation 
 of all certificates where `generated` is set to either `true` or `null`.
-To prevent rotation of a manually-set certificate in CredHub, 
+To prevent rotation of a manually set certificate in CredHub, 
 you must manually reset the certificate, which updates the `generated` field to `false`. 
 
-To reset a certificate in CredHub, do the following:
-
-1. SSH into the Ops Manager VM.
-
-1. From the Ops Manager VM, set the API target of the CredHub CLI to your BOSH
-CredHub server by running the following command:
-
-    ```
-    credhub api https://BOSH-DIRECTOR:8844 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate
-    ```
-    <br>
-    Where `BOSH-DIRECTOR` is the IP address of the BOSH Director VM.
-    <br><br>
-    For example:
-    <pre class="terminal">
-    $ credhub api http<span>s:</span>//10.0.0.5:8844 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate
-    </pre>
-
-2. Log in to CredHub by running the following command:
-
-    ```
-    credhub login --client-name=CREDHUB-CLIENT-NAME --client-secret=CREDHUB-CLIENT-SECRET
-    ```
-    Where:<br>
-    * `CREDHUB-CLIENT-NAME` is the value you recorded for `BOSH_CLIENT` in
-    [Find the CredHub Credentials](#credhub-creds) above.
-    * `CREDHUB-CLIENT-SECRET` is the value you recorded for `BOSH_CLIENT_SECRET` in
-    [Find the CredHub Credentials](#credhub-creds) above.
-    <br><br>
-    For example:
-    <pre class="terminal">
-    $ credhub login \
-      --client-name=credhub \
-      --client-secret=abcdefghijklm123456789
-    </pre>
-
-1. Retrieve a manually set certificate by running the following commands:
-
-    ```
-    credhub get -n MY-SET-CERTIFICATE -k certificate > /tmp/certificate.yml
-    credhub get -n MY-SET-CERTIFICATE -k ca > /tmp/ca.yml
-    credhub get -n MY-SET-CERTIFICATE -k private_key > /tmp/private_key.yml
-    ```
-   Where `MY-SET-CERTIFICATE` is the name of the manually set certificate you want to retrieve.
-   <br><br>
-   For example:
-   <pre class="terminal">
-    $ credhub get -n /services/tls_ca -k certificate > /tmp/certificate.yml
-    $ credhub get -n /services/tls_ca -k ca > /tmp/ca.yml
-    $ credhub get -n /services/tls_ca -k private_key > /tmp/private_key.yml
-   </pre>
-
-1. Reset the certificate depending on the certificate type.
-   * If the retrieved certificate is a root CA certificate, run the following:
-
-        ```
-        credhub set -n MY-SET-CERTIFICATE -t certificate -r /tmp/ca.yml -c /tmp/certificate.yml -p /tmp/private_key.yml
-        ```
-        Where `MY-SET-CERTIFICATE` is the name of the manually set certificate you want to reset.
-        <br><br>
-        For example:
-        <pre class="terminal">
-        $ credhub set -n /services/tls_ca -t certificate -r /tmp/ca.yml -c /tmp/certificate.yml -p /tmp/private_key.yml
-        </pre>
-   * If the retrieved certificate is an intermediate or leaf certificate, run the following:
-
-        ```
-        credhub set -n MY-SET-CERTIFICATE -t certificate -c /tmp/certificate.yml -p /tmp/private_key.yml -m NAME-OF-SIGNING-CA
-        ```
-        Where:
-        * `MY-SET-CERTIFICATE` is the name of the manually set certificate you want to reset.
-        * `NAME-OF-SIGNING-CA` is the name of the signing root CA certificate.
-        <br><br>
-        For example:
-        <pre class="terminal">
-        $ credhub set -n /opsmgr/cf-123455677890/some_service_certificate -t certificate -c /tmp/certificate.yml -m /services/tls_ca
-        </pre>
+To reset a certificate in CredHub, follow the procedures in 
+[Reviewing Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-7/security/pcf-infrastructure/manual-credhub-certificate.html).
