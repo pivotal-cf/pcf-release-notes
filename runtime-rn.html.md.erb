@@ -848,26 +848,17 @@ If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
-### <a id='last-syslog-drain'></a> Cannot Delete the Most Recent Syslog Drain
+    ## <a id='last-syslog-drain'></a> Cannot Delete Last Syslog Drain
 
-You cannot delete the most recent app syslog drain on your foundation.
+ In PAS 2.7, it is not possible to delete the last application Syslog drain in a foundation.
 
-If you attempt to delete the most recent app syslog drain, the deletion appears successful. However, the syslog drain continues to send logs to the syslog endpoint. 
+ Specifically, when the last drain is deleted, logs will continue to be sent to its Syslog endpoint, despite the deletion appearing to succeed. As a workaround, creating another drain will cause the previous drain to stop sending logs.
 
-To stop the most recent syslog drain from sending logs to the endpoint, you can create a new app syslog drain. This causes the previous syslog drain to stop forwarding logs to the endpoint.
+ <p class='note'><strong>Note:</strong> to find the number of syslog drains in the foundation, make sure that the [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache) is installed, and run `cf tail syslog_agent -n 100 | grep 'GAUGE drains'`.</p>
 
-To find the total number of syslog drains in your foundation:
+ ## <a id='syslog-drain-type'></a> No Longer Possible to Choose Drain Type
 
-1. Install the Log Cache CLI plugin. See [Log Cache CLI plugin](https://plugins.cloudfoundry.org/#log-cache).
-1. Run the following command:
-
-    ```
-    cf tail syslog_agent -n 100 | grep 'GAUGE drains'
-    ```
-
-### <a id='syslog-drain-type'></a> Cannot Specify Type for Syslog Drains
-
-In PAS v2.7, you cannot use the `cf drain` `--type` flag to specify that a syslog drain must forward only logs or only metrics to an endpoint. Syslog drains always forward both logs and metrics to the syslog endpoint.
+ Syslog drains have historically offered the ability to send only logs or metrics to their Syslog endpoint, rather than a combination of both. (This corresponds to the `--type` option of `cf drain`.) In PAS 2.7, both logs and metrics will be sent, regardless of the settings for any given drain.
 
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
