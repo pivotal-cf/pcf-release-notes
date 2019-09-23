@@ -678,7 +678,7 @@ As a result, the Gorouter retains stale routes in its routing table.
 To resolve this issue, update to PAS v2.6.5 or later.
 
 If you have previously checked the `Prune Routes on TTL Expiry for TLS Backends`
-checkbox as referenced below, you should uncheck the box for improved guarantees of
+checkbox as referenced below, uncheck the box for improved guarantees of
 route consistency during control plane instability.
 
 1. Log in to Ops Manager.
@@ -695,7 +695,7 @@ If you are on v2.6.1 - v2.6.4 and need a temporary mitigation pending upgrades, 
 1. Click **Review Pending Changes**.
 1. Click **Apply Changes**.
 
-If you are on a version earlier than v2.6.1 you will need to upgrade to address this issue.
+If you are on a version earlier than v2.6.1, you must upgrade to address this issue.
 
 For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes).
 
