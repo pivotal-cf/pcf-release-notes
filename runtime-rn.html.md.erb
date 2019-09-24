@@ -852,7 +852,7 @@ For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enab
 
 PAS v2.7 has a known issue in which you cannot delete the last remaining app Syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
 
-When you delete the last remaining drain, logs continue to be sent to its Syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previous drain to stop sending logs.
+When you delete the last remaining drain, logs continue to be sent to its Syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs. You can use the following command: `cf drain APP-NAME invalid://invalid`. 
 
 <p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the <a href="https://plugins.cloudfoundry.org/#log-cache">Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>.</p>
 
