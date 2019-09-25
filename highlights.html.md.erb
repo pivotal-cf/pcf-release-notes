@@ -1,98 +1,63 @@
 ---
-title: Pivotal Platform v2.7 Feature Highlights
+title: PCF v2.6 Feature Highlights
 modified_date: false
 ---
 
  <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
 
-This topic highlights important new features included in Pivotal Platform v<%= vars.current_major_version %>.
+This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
 
-## <a id='om'></a> Pivotal Ops Manager Highlights
+## <a id='om'></a> PCF Ops Manager Highlights
 
-Ops Manager v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [Pivotal Ops Manager v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/opsmanager-rn.html).
+Ops Manager v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.6 Release Notes](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/opsmanager-rn.html).
 
-### <a id='certificate-expiration'></a> View Expiration Dates for Certificates
+### <a id="multiple-stemcell"></a> Ops Manager Supports Multiple Stemcells for Products
 
-You can view the expiration date for certificates in your environments based on information provided by BOSH and CredHub. This is part of a larger initiative to provide users with more control over the rotation of credentials in their environments.
+Ops Manager supports products that require multiple stemcells. This means it is no longer necessary to deploy separate tiles for products that require different stemcells. 
 
-### <a id='nsx'></a> NSX-T and NSX-V Configuration in Ops Manager
+### <a id='deploy-times'></a> Product Deployment Times from API and Change Log Page
 
-The **Resource Config** pane in Ops Manager includes fields for configuring instance groups in deployments with vSphere NSX-T or NSX-V.
+Ops Manager publishes deployment times for individual products and whole deployments through the `/api/v0/installations` endpoint and **Change Log** page. 
 
-### <a id='audit-events'></a> Audit User Activity in Ops Manager
+### <a id='compiled-bosh-release'></a> Compiled Release Assets Included in BOSH Deployment Manifest
 
-Ops Manager includes more detailed logs for auditing user actions. For example, you can view all successful and failed Ops Manager login attempts. You can access Ops Manager user activity logs in `/var/log/opsmanager` on the Ops Manager VM. 
+Ops Manager now automatically includes the `exported_from` field in the `releases` section of the BOSH deployment manifest file. The `exported_from` field contains the compiled release assets for the deployment and prevents BOSH from updating every VM with later versions of packages during a BOSH deployment. This saves time and reduces unexpected VM updates.
 
-### <a id='gss'></a> Forward Deployment Information to Pivotal Support
+### <a id="pre-deploy-check-endpoint"></a> API Endpoint Returns Deployment Configuration Details
 
-You can download a Platform Information Bundle as a ZIP file from the Ops Manager UI or API. The bundle includes Ops Manager logs, deployed manifests and configurations, and BOSH deployment diagnostics.
+The `/api/v0/staged/products/:product_guid/pre_deploy_check` Ops Manager API endpoint returns configuration details about a deployment. This allows you to verify the details of your deployment before clicking **Apply Changes**, and to troubleshoot failed deploys.
 
-The contents of the bundle help Pivotal Support more quickly address any issues in your deployment.
+### <a id='5th-gen-instances'></a> AWS Deployments Use 5th Generation Instances
+
+Ops Manager v2.6 uses the latest generation of instances for AWS deployments. When you upgrade to Ops Manager v2.6, your VM types convert to the corresponding 5th generation instance types, such as `t2` to `t3` and `c4` to `c5`.
+
+### <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
+
+An optional form verifier is available that notifies tile operators when they have configured vSphere properties incorrectly.
 
 ---
 
-## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
+## <a id='pas'></a>Pivotal Application Service (PAS) Highlights
 
 PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.6 Release Notes](https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html).
 
-### <a id='java-app-sidecars'></a> Java Apps Support Sidecars (Beta)
+### <a id='sidecars'></a> Push Apps with Sidecar Processes (Beta)
 
-You can push Java apps with sidecars. Sidecars allow you to run additional processes in the same container as your app. This is useful for processes that depend on each other or must run in the same container. 
+You can run additional processes, or sidecars, in the same container as your app. Sidecars are useful for processes that depend on each other or must run in the same container. This includes processes that must communicate through localhost
+or share the same filesystem, such as an Application Performance Monitoring (APM) tool.
 
-Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
+### <a id='revisions'></a> Enable, View, and Rollback Revisions for Apps
 
-### <a id='rolling-app'></a> Rolling App Deployments is GA
+PAS supports revisions for apps. A revision is an object that represents code and configuration used by an app at a specific time. Some uses cases for revisions include rolling back your app to a previous version and viewing changes in your app over time. You can also add metadata to revisions.
 
-PAS v2.7 includes GA support for rolling app deployments. Rolling app deployments offer near-zero downtime for app pushes and restarts.
+### <a id="system-metric-agent"></a> Monitor System Metrics with System Metrics Agent
 
-Use the `--strategy rolling` and `no-wait` flags in the cf CLI to do rolling deployments.
+System Metrics Agent allows you to more easily correlate VM metrics with BOSH jobs. These
+VM metrics help with troubleshooting and diagnosing issues for potential infrastructure
+problems.
 
-### <a id='rotate-ccdb-key'></a> Rotate Cloud Controller Encryption Key
+### <a id='syslog'></a> Loggregator Syslog Agent Increases Scale For Syslog Drains
 
-You can rotate the Cloud Controller Database (CCDB) encryption key, which encrypts sensitive data such as app environment variables.
+Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
 
-### <a id='app-redeployments'></a> Manage App Re-Deployments and Revisions in Apps Manager
-
-You can do the following in Apps Manager to manage app re-deployments and revisions:
-
-- View revisions for an app.
-- Deploy a revision of an app.
-- View the deployment status of an app revision.
-- View the environment variables associated with an app revision.
-
-
-### <a id='syslog-agent'></a> Syslog Agents Enabled by Default
-
-Syslog Agents are enabled by default, and the option to disable Syslog Agents is removed. Syslog Agents run on host VMs and component VMs, increase the number of syslog drain service bindings supported by the Loggregator system, and reduce the workload for Loggregator VMs.
-
-### <a id='ldap-nfs'></a> nfsbroker Back End is in CredHub
-
-The nfsbroker back end is migrated to CredHub. This allows you to specify LDAP credentials when you create an NFS Volume Service instance.
-
----
-
-## <a id='pas-windows'></a> PAS for Windows Highlights
-
-PAS for Windows v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PAS for Windows v2.7 Release Notes](https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/windows-rn.html).
-
-
-### <a id='visual-c-redistributables'></a> Pre-Installed Visual C++ Redistributables
-
-PAS for Windows v2.7 improves the developer experience with pre-installed Microsoft Visual C++ Redistributables for .NET apps.
-
-### <a id='windows-mtls'></a> Secure mTLS Communication to Gorouter (Beta)
-
-Windows AIs provide secure multual TLS (mTLS) communication to the Gorouter. This allows for PCI security compliance for Windows container networking.
-
-### <a id='microsoft-baseline-standard'></a> Alignment with Microsoft Baseline Security Standard
-
-Windows Server 2019 VMs align with the Microsoft Baseline Security Standard. This improves the secuirty hardening of Windows stemcells. 
- 
-### <a id='rdp-removed-bosh-ssh'></a> RDP Support is Removed in Favor of BOSH SSH
-
-<p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i>PCF v2.7 Breaking Changes</i>.</p>
-
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
-
-This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs.
