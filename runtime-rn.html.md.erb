@@ -897,6 +897,10 @@ In PAS v2.7, annotation keys and key prefixes use the same metadata format as Ku
 creating services with a consistent metadata format across PAS and Kubernetes. For more information
 about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
 
+### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
+
+Pulling container images hosted in ECR require fetching credentials that expire after 12 hours. Previously apps pushed to the platform would fail to restart and restage after an initial push with valid ECR credentials. Now users can provide an AWS IAM User's Access Key ID and Secret to the cf CLI as their Docker username and password when pushing images hosted in ECR and apps will be able to continuously restart and restage successfully. This feature will be available in a future patch of PAS v2.7.
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
