@@ -267,7 +267,7 @@ If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
-## <a id='last-syslog-drain'></a> Cannot Delete Last Remaining Syslog Drain
+### <a id='last-syslog-drain'></a> Cannot Delete Last Remaining Syslog Drain
 
 PAS v2.7 has a known issue in which you cannot delete the last remaining app Syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
 
@@ -275,7 +275,7 @@ When you delete the last remaining drain, logs continue to be sent to its Syslog
 
 <p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the <a href="https://plugins.cloudfoundry.org/#log-cache">Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>.</p>
 
-## <a id='syslog-drain-type'></a> Cannot Choose Drain Type
+### <a id='syslog-drain-type'></a> Cannot Choose Drain Type
 
 Syslog drains provide the ability to send only logs or metrics to their Syslog endpoint, rather than a combination of both. However, PAS v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.  
 
