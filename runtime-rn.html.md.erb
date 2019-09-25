@@ -791,3 +791,7 @@ These issues are fixed in PAS v2.6.6 and later.
 In PAS v2.6.0 to v2.6.3, the Spring Boot mappings in Apps Manager did not account for contexts other than the 'application' context. For this reason, some Spring Boot mappings may fail to show up in Apps Manager for a given application.
 
 This issue is fixed in PAS v2.6.4 and later.
+
+### <a id="apps-manager-invitations-failures"></a> Inviting New Users or Adding Space Roles in Apps Manager Fails
+
+In PAS v2.6.5 and v2.6.6, the service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, [use the CLI to manage user roles](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin).
