@@ -775,8 +775,7 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 In PAS v2.6.3, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
 
-This issue is fixed in PAS v2.6.4 and later, and does not affect other browsers.
-
+This issue is fixed in PAS v2.6.4 and later and does not affect other browsers.
 
 ### <a id="apps-manager-square-logo"></a> Apps Manager Unable to Show Custom Branding Square Logo
 
@@ -794,4 +793,6 @@ This issue is fixed in PAS v2.6.4 and later.
 
 ### <a id="apps-manager-invitations-failures"></a> Inviting New Users or Adding Space Roles in Apps Manager Fails
 
-In PAS v2.6.5 and v2.6.6, the service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, [use the CLI to manage user roles](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin).
+In PAS v2.6.5 and v2.6.6, the service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, use the cf CLI to manage user roles.
+
+For more information, see [User Admin](https://docs.pivotal.io/pivotalcf/2-6/cf-cli/cf-help.html#user-admin) commands in the Cloud Foundry CLI Reference Guide.
