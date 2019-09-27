@@ -283,3 +283,7 @@ Syslog drains provide the ability to send only logs or metrics to their Syslog e
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
 
 If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web processes can cause Autoscaler to scale the web process incorrectly.
+
+### <a id="apps-manager-invitations-failures"></a> Inviting New Users or Adding Space Roles in Apps Manager Fails
+
+In PAS v2.7.0, the service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, [use the CLI to manage user roles](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin).
