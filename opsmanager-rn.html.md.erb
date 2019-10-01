@@ -16,6 +16,43 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-8/custo
 
 ## <a id='releases'></a> Releases
 
+### <a id="2-8-0-alpha-1"></a> 2.8.0 Alpha 1
+
+* **[Feature]** Bulk Rotation of Certificates in CredHub. 
+	* The Ops Manager API for rotating certificate authorities and leaf certificates now also rotates certificate authorities and leaf certificates stored in CredHub. For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-7/security/pcf-infrastructure/api-cert-rotation.html).
+* **[Feature]** Tile developers can specify static values for verifier properties. 
+	* The properties of a form or install time verifier can now be specified as a static value, in addition to being a reference to a tile or job property.
+* **[Feature]** Tile developers can implement an install time HTTP verifier
+	* There may be conditions that a tile developer deems it unsafe for an operator to start a deployment. A new install time verifier is available that can make requests to a specified HTTP endpoint, and prevents the deployment if the response is not successful. Tile developers can also specify that the verifier should only run on major or minor upgrades. 
+* **[Feature]** Removes tracking and verification of the BOSH DNS CA, as this responsibility is now handled by maestro. Specifically, this update removes the following:
+	* The `deployed_product_certificate_versions` table in the Ops Manager database
+	* The `CertificateRotationVerifier` verifier 
+	* The `DeployedProductCertificateVersions` property
+* **[Feature]** Operators can back up an internal Director UAA database with BBR
+* **[Feature]** Tile authors can add optional dependencies to a tile using the `optional` key under `requires_product_versions`
+* **[Feature]** Tile authors can check if an optional dependency is present using the `named_manifests` accessor  
+* **[Feature]** Upgrades to maestro v2.x
+* **[Feature]** Upgrades to Node v12
+* **[Feature]** Upgrades to Capybara v3.28.0
+
+Ops Manager v2.8.0 Alpha 1 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.8.0-build.71</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.27</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.5.0</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>1.0.0</td></tr><tr><td>CredHub</td><td>2.5.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.1.0</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1</td></tr><tr><td>BOSH CLI</td><td>6.1.0</td></tr><tr><td>Credhub CLI</td><td>2.5.3</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
+  
+  </tbody>
+</table>
+
 
 
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
