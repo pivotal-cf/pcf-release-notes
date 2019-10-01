@@ -27,10 +27,9 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-8/custo
 * **[Feature]** Removes tracking and verification of the BOSH DNS CA, as this responsibility is now handled by maestro. Specifically, this update removes the following:
 	* The `deployed_product_certificate_versions` table in the Ops Manager database
 	* The `CertificateRotationVerifier` verifier 
-	* The `DeployedProductCertificateVersions` property
-* **[Feature]** Operators can back up an internal Director UAA database with BBR
+* **[Feature]** Operators can back up the Director UAA database with BBR
 * **[Feature]** Tile authors can add optional dependencies to a tile using the `optional` key under `requires_product_versions`
-* **[Feature]** Tile authors can check if an optional dependency is present using the `named_manifests` accessor  
+* **[Feature]** Tile authors can check if an optional dependency is present using the `.present?` accessor  
 * **[Feature]** Upgrades to maestro v2.x
 * **[Feature]** Upgrades to Node v12
 * **[Feature]** Upgrades to Capybara v3.28.0
