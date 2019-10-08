@@ -11,6 +11,101 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.6.7'></a> 2.6.7
+
+**Release Date:** 10/08/2019
+
+* **[Security Fix]** Fix vulnerability with TLS ciphers in Loggregator
+* **[Security Fix]** Upgrade Diego Components to Use grpc v1.23.0 and Go 1.12.9 to Fix HTTP2 CVEs
+* **[Security Fix]** UAA Patch release to address privilege escalation vulnerabilities
+* **[Security Fix]** Bump garden-runc release to take Go HTTP/2 and containerd gRPC fixes
+* **[Security Fix]** Upgrade gRPC-java to patch HTTP/2 vulnerability
+* **[Feature Improvement]** Make TCP Router Request Timeout Configurable
+* **[Feature Improvement]** Metric Registrar - Allow app developers to register custom routes for metrics endpoints
+* **[Bug Fix]** Fix issue where some metrics were incorrectly aggregated
+* **[Bug Fix]** PXC Release - Stale pid files are cleaned up so that processes start reliably
+* **[Bug Fix]** Fix Usage Service SQL errors when MySQL has ONLY_FULL_GROUP_BY enabled
+* **[Bug Fix]** Allow users to set custom memory and disk limits when running tasks against applications in Apps Manager
+* **[Bug Fix]** Improve performance of organization/space user role endpoint
+* **[Bug Fix]** Improve scalability of container-to-container service discovery by increasing file descriptor limit on bosh-dns-adapter
+* Bump ubuntu-xenial stemcell to version `315.99`
+* Bump capi to version `1.80.8`
+* Bump cf-networking to version `2.22.6`
+* Bump cflinuxfs3 to version `0.130.0`
+* Bump credhub to version `2.4.2`
+* Bump diego to version `2.30.5`
+* Bump garden-runc to version `1.19.7`
+* Bump java-offline-buildpack to version `4.22`
+* Bump loggregator-agent to version `3.16`
+* Bump loggregator to version `105.6`
+* Bump metric-registrar to version `1.1.1`
+* Bump push-apps-manager-release to version `669.0.15`
+* Bump push-usage-service-release to version `670.0.10`
+* Bump pxc to version `0.20.0`
+* Bump uaa to version `71.3`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>315.99</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.16.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.33</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.1</td></tr>
+    <tr><td>capi</td><td>1.80.8</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.16.0</td></tr>
+    <tr><td>cf-networking</td><td>2.22.6</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.119</td></tr>
+    <tr><td>cf-syslog-drain</td><td>10.2</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.130.0</td></tr>
+    <tr><td>consul-drain</td><td>0.0.3</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.4.2</td></tr>
+    <tr><td>diego</td><td>2.30.5</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.2.12</td></tr>
+    <tr><td>garden-runc</td><td>1.19.7</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.8.42</td></tr>
+    <tr><td>haproxy</td><td>9.5.2</td></tr>
+    <tr><td>istio</td><td>1.0.2</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.22</td></tr>
+    <tr><td>leadership-election</td><td>1.4</td></tr>
+    <tr><td>log-cache</td><td>2.1.6</td></tr>
+    <tr><td>loggregator-agent</td><td>3.16</td></tr>
+    <tr><td>loggregator</td><td>105.6</td></tr>
+    <tr><td>mapfs</td><td>1.1.5</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.3.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>2.3.0</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.0.15</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.6.52</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.3.78</td></tr>
+    <tr><td>push-apps-manager-release</td><td>669.0.15</td></tr>
+    <tr><td>push-usage-service-release</td><td>670.0.10</td></tr>
+    <tr><td>pxc</td><td>0.20.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.36</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.0.11</td></tr>
+    <tr><td>routing</td><td>0.188.2</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.7.42</td></tr>
+    <tr><td>silk</td><td>2.22.2</td></tr>
+    <tr><td>smb-volume</td><td>2.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.4.43</td></tr>
+    <tr><td>statsd-injector</td><td>1.10.0</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>71.3</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.6.6'></a> 2.6.6
 
 **Release Date:** 09/24/2019
