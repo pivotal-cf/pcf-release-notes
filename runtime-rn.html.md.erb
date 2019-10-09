@@ -21,11 +21,20 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Bump garden-runc release to take Go HTTP/2 and containerd gRPC fixes
 * **[Security Fix]** Upgrade gRPC-java to patch HTTP/2 vulnerability
 * **[Feature Improvement]** Make TCP Router Request Timeout Configurable
+* **[Feature Improvement]** Show revision number on processes in Apps Manager when revisions are enabled for an application
+* **[Feature Improvement]** Show panels in Apps Manager for each web process during a rolling deployment
 * **[Feature Improvement]** Metric Registrar - Allow app developers to register custom routes for metrics endpoints
 * **[Bug Fix]** Fix issue where some metrics were incorrectly aggregated
 * **[Bug Fix]** PXC Release - Stale pid files are cleaned up so that processes start reliably
 * **[Bug Fix]** Fix Usage Service SQL errors when MySQL has ONLY_FULL_GROUP_BY enabled
+* **[Bug Fix]** Show an app's buildpack information in Apps Manager based on the app's current droplet, to account for autodetected buildpacks
+* **[Bug Fix]** Fix filter to remove Apps Manager requests from logs shown in Apps Manager when apps are deployed to a path
+* **[Bug Fix]** Fix Apps Manager search server crashes in cases where requests to Cloud Controller fail
+* **[Bug Fix]** Fix links to documentation in Apps Manager to point to the correct PAS version
+* **[Bug Fix]** Allow slashes to be typed in the Apps Manager search bar
+* **[Bug Fix]** Allow non-web processes to be scaled via Apps Manager manually when autoscaling is enabled
 * **[Bug Fix]** Allow users to set custom memory and disk limits when running tasks against applications in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from inviting others to organizations and spaces through Apps Manager that did not appear in the first page of results from Cloud Controller
 * **[Bug Fix]** Improve performance of organization/space user role endpoint
 * **[Bug Fix]** Improve scalability of container-to-container service discovery by increasing file descriptor limit on bosh-dns-adapter
 * Bump ubuntu-xenial stemcell to version `315.99`
