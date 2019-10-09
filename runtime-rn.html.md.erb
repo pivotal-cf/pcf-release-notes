@@ -26,10 +26,23 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Make TCP Router Request Timeout Configurable
 * **[Feature Improvement]** Metric Registrar - Allow app developers to register custom routes for metrics endpoints
 * **[Feature Improvement]** Docker image applications hosted in AWS ECR continue to run when restarted after the typical AWS ECR credential expiration period
+* **[Feature Improvement]** Show revision number on processes in Apps Manager when revisions are enabled for an application
+* **[Feature Improvement]** Show panels in Apps Manager for each web process during a rolling deployment
 * **[Bug Fix]** Fixes a regression bug causing mounts for applications bound to smb volume services with an older version of the smbbroker to fail on restart or upgrade
 * **[Bug Fix]** PXC Release: Stale pid files are cleaned up so that processes start reliably
 * **[Bug Fix]** Fix Usage Service SQL errors when MySQL has ONLY_FULL_GROUP_BY enabled
+* **[Bug Fix]** Show an app's buildpack information in Apps Manager based on the app's current droplet, to account for autodetected buildpacks
+* **[Bug Fix]** Fix filter to remove Apps Manager requests from logs shown in Apps Manager when apps are deployed to a path
+* **[Bug Fix]** Keep search results in Apps Manager from disappearing while they are being refreshed
+* **[Bug Fix]** Fix Apps Manager search server crashes in cases where requests to Cloud Controller fail
+* **[Bug Fix]** Fix links to documentation in Apps Manager to point to the correct PAS version
+* **[Bug Fix]** Allow slashes to be typed in the Apps Manager search bar
+* **[Bug Fix]** Fix bug where Spring Boot logo was shown instead of Steeltoe logo in the Apps Manager sidebar for Steeltoe apps
+* **[Bug Fix]** Add plan column to the app services tab in Apps Manager so plan names do not get cut off
+* **[Bug Fix]** Stretch background of flyout in Apps Manager to accommodate sidebar being closed
+* **[Bug Fix]** Keep service icons from changing size in Apps Manager when an action is in progress
 * **[Bug Fix]** Allow users to set custom memory and disk limits when running tasks against applications in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from inviting others to organizations and spaces through Apps Manager that did not appear in the first page of results from Cloud Controller
 * **[Bug Fix]** Improve performance of organization/space user role endpoint
 * **[Bug Fix]** Improve scalability of container-to-container service discovery by increasing file descriptor limit on bosh-dns-adapter
 * **[Bug Fix]** Tag system containers with `network.healthcheck` so that 3rd party networking plugins can ignore them.
