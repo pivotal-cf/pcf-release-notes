@@ -60,6 +60,8 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='om-api-rotate-credhub-certs'></a> Ops Manager API Rotates CredHub Certificates and Certificate Authorities
 
+<p class="note warning"><b>Warning:</b> This feature causes a breaking change. For more information, see <a href="./breaking-changes.html#credhub-generated-field">Operators Must Reset Manually Set Certificates in CredHub Before Ops Manager v2.8 Upgrade</a>.</p>
+
 The Ops Manager API endpoint for rotating certificate authorities and leaf certificates, `/api/v0/certificate_authorities/active/regenerate`, also rotates certificate authorities and leaf certificates stored in CredHub.
 
 For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `/api/v0/certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
