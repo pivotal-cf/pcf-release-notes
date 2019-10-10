@@ -18,7 +18,7 @@ CredHub v2.5 adds a field that tracks whether a certificate has been manually se
 
 When instructed to rotate certificates, Ops Manager v2.8 does a bulk rotation of all certificates where `generated` is either `true` or `null`. 
 
-To prevent rotation of a manually set certificate in CredHub, you must manually reset the certificate. This updates the `generated` field to `false`, rather than `null`. 
+To prevent the bulk rotation of a manually set certificate in CredHub, you must manually reset the certificate. This updates the `generated` field to `false`, rather than `null`. 
 
 To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/manual-credhub-certificate.html).
 
