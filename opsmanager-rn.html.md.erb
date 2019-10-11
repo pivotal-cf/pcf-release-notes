@@ -60,7 +60,7 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='om-api-rotate-credhub-certs'></a> Ops Manager API Rotates CredHub Certificates and Certificate Authorities
 
-<p class="note warning"><b>Warning:</b> This feature causes a breaking change. For more information, see <a href="./breaking-changes.html#credhub-generated-field">Operators Must Reset Manually Set Certificates in CredHub Before Ops Manager v2.8 Upgrade</a>.</p>
+<p class="note warning"><strong>Warning:</strong> This feature causes a breaking change. For more information, see <a href="./breaking-changes.html#credhub-generated-field">Operators Must Reset Manually Set Certificates in CredHub Before Ops Manager v2.8 Upgrade</a>.</p>
 
 The Ops Manager API endpoint for rotating certificate authorities and leaf certificates, `/api/v0/certificate_authorities/active/regenerate`, also rotates certificate authorities and leaf certificates stored in CredHub.
 
@@ -70,9 +70,7 @@ For more information about rotating certificates using the Ops Manager API, see 
 
 Maestro, a service for configuring and managing the infrastructure that serves and supports containerized apps, rotates BOSH DNS CAs and runs safety checks.
 
-The Ops Manager verifier that previously blocked certificate rotation when a deployment was using an outdated BOSH DNS CA, `CertificateRotationVerifier`, is removed. The `deployed_product_certificate_versions` database table in the Ops Manager database is also removed.
-
-For more information about Maestro, see the [Maestro documentation](https://maestro.readthedocs.io/en/latest/overview.html). For more information about Ops Manager verifiers, see [Managing Ops Manager Verifiers](https://docs.pivotal.io/platform/2-8/customizing/granular-verifier-control.html).
+For more information about Maestro, see the [Maestro documentation](https://maestro.readthedocs.io/en/latest/overview.html).
 
 
 ## <a id='known-issues'></a> Known Issues
