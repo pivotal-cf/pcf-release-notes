@@ -7,6 +7,22 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.product_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.product_name %>](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
+## <a id='platform'></a> Pivotal Platform
+
+See the following Pivotal Platform breaking changes:
+
+### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.product_name %> v2.7
+
+Pivotal Spring Cloud Services v2.0.x is not compatible 
+with <%= vars.product_name %> v2.7. 
+
+Do not upgrade to Ops Manager v2.7 and <%= vars.product_short %> v2.7 if you are running Spring Cloud Services v2.0.x in your deployment and meet any of the following conditions:
+
+* You need to use the `p-circuit-breaker-dashboard` service in Spring Cloud Services v2.0.x.
+* You have not yet migrated your service instances to use the `p.config-server` and `p.service-registry` services that are available in Spring Cloud Services v3.1.x.
+
+If you are already running Spring Cloud Services v3.1.x, you can upgrade to Ops Manager v2.7 and <%= vars.product_short %> v2.7 by migrating your service instances to use v3.1.x services and by removing Spring Cloud Services v2.0.x prior to upgrade.
+
 ## <a id='opsman'></a> Pivotal Operations Manager
 
 See the following Ops Manager breaking changes:
@@ -24,13 +40,6 @@ For more information, see [Stemcell Associations for Products](https://docs.pivo
 Ops Manager <%= vars.v_major_version %> does not support v1 of the BOSH CLI.
 
 If you use BOSH CLI v1 commands manually from your workstation or in automation scripts, you need to update your usage to [BOSH CLI v2](https://bosh.io/docs/cli-v2/).
-
-### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.x Not Compatible with Ops Manager v2.7
-
-Pivotal Spring Cloud Services v2.x is not compatible with Ops Manager v2.7. 
-
-Before upgrading to Ops Manager v2.7, remove Spring Cloud Services v2.x 
-or install Spring Cloud Services v3.x instead.
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %>
 
@@ -54,13 +63,6 @@ To remove Consul clients from your products, make the following changes to any `
 ```
 
 For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the <%= vars.product_name %> v2.4 Partner Release Notes.
-
-### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.x Not Compatible with <%= vars.product_short %> v2.7
-
-Pivotal Spring Cloud Services v2.x is not compatible with <%= vars.product_short %> v2.7. 
-
-Before upgrading to <%= vars.product_short %> v2.7, remove Spring Cloud Services v2.x 
-or install Spring Cloud Services v3.x instead.
 
 ### <a id='props-changed'></a> Changed Properties and Jobs
 
