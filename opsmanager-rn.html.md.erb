@@ -62,9 +62,9 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 
 <p class="note warning"><strong>Warning:</strong> This feature causes a breaking change. For more information, see <a href="./breaking-changes.html#credhub-generated-field">Operators Must Reset Manually Set Certificates in CredHub Before Ops Manager v2.8 Upgrade</a>.</p>
 
-The Ops Manager API endpoint for rotating certificate authorities and leaf certificates, `/api/v0/certificate_authorities/active/regenerate`, also rotates certificate authorities and leaf certificates stored in CredHub.
+When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` Ops Manager API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
 
-For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `/api/v0/certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
+For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-2/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
 
 ### <a id='maestro-rotate-ca'></a> Maestro Rotates BOSH DNS Certificate Authorities
 
