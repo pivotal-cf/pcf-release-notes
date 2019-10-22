@@ -107,6 +107,15 @@ Maestro rotates BOSH DNS CAs and runs safety checks.
 
 Maestro is a service for configuring and managing the infrastructure that serves and supports containerized apps. For more information about Maestro, see the [Maestro documentation](https://maestro.readthedocs.io/en/latest/overview.html).
 
+### <a id='opsman-metrics'></a> System Metrics Agents in Ops Manager Runtime Config
+
+Before Ops Manager v2.8 and Pivotal Application Service (PAS) v2.8, an agent on each PAS VM emitted system metrics for its memory, disk, CPU, network, load, and swap space status and usage.
+
+In Ops Manager v2.8, this agent is in the Ops Manager runtime config, which installs it on all Pivotal Platform VMs, not just PAS components.
+This enables Healthwatch and App Metrics to consume metrics from PAS VMs, PKS VMs, and any other VMs deployed by Ops Manager.
+
+See a list of VM system metrics in the [`system-metrics-release`](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) repo.
+
 
 ## <a id='known-issues'></a> Known Issues
 
