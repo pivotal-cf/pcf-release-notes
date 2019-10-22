@@ -450,7 +450,9 @@ about annotation keys and key prefixes, see [Using Metadata](https://docs.pivota
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
-Pulling container images hosted in ECR require fetching credentials that expire after 12 hours. Previously apps pushed to the platform would fail to restart and restage after an initial push with valid ECR credentials. Now users can provide an AWS IAM User's Access Key ID and Secret to the cf CLI as their Docker username and password when pushing images hosted in ECR and apps will be able to continuously restart and restage successfully. This feature will be available in a future patch of PAS v2.7.
+When you push images hosted in AWS Elastic Container Registry (ECR), you can provide the Access Key ID and Secret for an AWS IAM User as a Docker username and password in the Cloud Foundry CLI (cf CLI). Apps are able to then continuously restart and restage successfully.
+
+This feature allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
 ## <a id='known-issues'></a> Known Issues
 
