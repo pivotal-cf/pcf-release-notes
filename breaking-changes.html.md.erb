@@ -74,12 +74,11 @@ PAS v2.6 increases the default and minimum CPU core count from one to two for Ro
 
 Verify that you have sufficient infrastructure resources allocated to the deployment before upgrading to PAS v2.6.
 
-### <a id='nfs-legacy-compatibility'></a> Root UID and GID no longer allowed in nfs volume service bindings
+### <a id='nfs-legacy-compatibility'></a> Root UID and GID No Longer Allowed in NFS Volume Service Bindings
 
-In PAS v2.6 the NFS-Legacy Mounter has been removed. Migrating to the NFS volume service might be required if `nfs-legacy` services were bound with a `uid` or `gid`
-set to 0(root). Moving forward the NFS Volume service does not allow specifying `uid=0` or `gid=0` as bind options.
+In PAS v2.6, the NFS-Legacy Mounter is removed. Migrating to the NFS volume service may be required if `nfs-legacy` services are bound with a `uid` or `gid` set to `0` or root. NFS Volume service does not allow specifying `uid=0` or `gid=0` as bind options.
 
-Please refer to the [upgrade checklist](https://docs.pivotal.io/pivotalcf/2-6/upgrading/checklist.html) on how to migrate applications from `nfs-legacy` to `nfs`.
+For more information on how to migrate apps from `nfs-legacy` to `nfs`, see [Upgrade Preparation Checklist for PCF v2.6](https://docs.pivotal.io/pivotalcf/2-6/upgrading/checklist.html).
 
 ## <a id='pas-windows'></a> PAS for Windows
 
