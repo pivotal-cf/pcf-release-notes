@@ -161,6 +161,10 @@ You should migrate any apps that run on the `windows2016` stack to the `windows`
 You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
 For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/2-8/adminguide/stack-auditor.html).
 
+### <a id='mtls-unproxed-port-mappings'></a> Mutual TLS Disables Unproxied Port Mappings
+
+When you enable mutual tls, PASW disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with PAS. 
+
 ## <a id='adv-features'></a> New Advanced Features
 
 The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have certain constraints.
