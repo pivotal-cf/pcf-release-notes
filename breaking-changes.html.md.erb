@@ -32,6 +32,25 @@ See the following PAS breaking changes:
 
 See the following PCF Isolation Segment breaking changes:
 
+### <a id='property-renamed'></a> Segment Name Property Is Renamed
+
+The property `.isolated_diego_cell.placement_tag` is renamed `.properties.compute_isolation`. This property contains the following inputs:
+
+* `.properties.compute_isolation.disabled` to disable compute isolation
+
+* `.properties.compute_isolation.enabled` to enable compute isolation
+
+* `.properties.compute_isolation.enabled.isolation_segment_name` to add a placement tag for your Diego Cells when compute isolation is enabled
+
+You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` inputs.
+
+### <a id='compute-isolation-router-sharding'></a> Compute Isolation and Router Sharding Must Be Configured Simultaneously
+
+Compute isolation is enabled by default.
+
+In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **None** under **Tag name for cell blocks**. If you disable compute isolation, you must set **Router sharding mode** to **No Isolation Segment**.
+
+For more information, see [Section that does not yet exist] in the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
 
 ## <a id='pasw'></a> PAS for Windows
