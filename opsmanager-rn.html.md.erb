@@ -16,6 +16,41 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-8/custo
 
 ## <a id='releases'></a> Releases
 
+### <a id="2-8-0-alpha-2"></a> 2.8.0 Alpha 2
+
+* **[Feature]** Operators can use NSX-T with Principal Identity certificate authentication
+* **[Feature]** `zero_if` optionally lets operators choose an instance count of `0`
+* **[Feature]** Tile authors can add optional dependencies to a tile. The existing top-level key `requires_product_versions` has an `optional` key for each listed product.
+* **[Feature]** Provides new accessors for Telemetry: IaaS type and Director GUID
+* **[Feature]** Tile authors can define an install time verifier to run a HTTP/s request
+* **[Feature]** Updates BOSH DNS runtime config and example runtime config to have properties at the job level instead of the addon level. This is a requirement of the newer BOSH version used by Ops Manager. Other product that use runtime configs must update as well.
+* **[Feature]**  Begins consuming credhub-release from the Pivotal CredHub LTS repo to ensure users will be able to consume patches
+* **[Feature]** The Telemetry tile is available in the sidebar by default 
+**[Feature]** Operators can visually distinguish the required and optional dependencies of a given product on the _Review Pending Changes_ page
+* **[Feature]** API shows which dependencies are optional and their status
+* **[Feature]** Tile authors can declare default values based on optional dependencies to shape the default configuration of products
+* **[Bug Fix]** Ops Manager API shows deployed certificates when only the BOSH Director has been deployed
+ 
+Ops Manager v2.8.0 Alpha 2 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.8.0-build.118*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.30*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.7.0*</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>1.0.0</td></tr><tr><td>CredHub</td><td>2.5.6</td></tr><tr><td>Syslog</td><td>11.5.0*</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.0*</td></tr><tr><td>BPM</td><td>1.1.4*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78*</td></tr><tr><td>Azure CPI</td><td>37.0.0*</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.1</td></tr><tr><td>BOSH CLI</td><td>6.1.0</td></tr><tr><td>Credhub CLI</td><td>2.6.0*</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table>
+
 ### <a id="2-8-0-alpha-1"></a> 2.8.0 Alpha 1
 
 * **[Feature]** Bulk Rotation of Certificates in CredHub. 
