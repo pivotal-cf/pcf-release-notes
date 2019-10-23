@@ -450,7 +450,7 @@ about annotation keys and key prefixes, see [Using Metadata](https://docs.pivota
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
-When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the Access Key ID and Secret for an AWS IAM User as a Docker username and password. Apps are able to then continuously restart and restage successfully.
+When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the Access Key ID and Secret for an AWS IAM User as a Docker username and password as part of the `cf push` command. Apps are able to then continuously restart and restage successfully.
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
