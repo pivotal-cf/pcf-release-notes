@@ -19,14 +19,14 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-8/custo
 ### <a id="2-8-0-alpha-2"></a> 2.8.0 Alpha 2
 
 * **[Feature]** Operators can use NSX-T with Principal Identity certificate authentication
-* **[Feature]** `zero_if` optionally lets operators choose an instance count of `0`
+* **[Feature]** `zero_if` optionally lets operators choose an instance count of `0` when the `zero_if` condition is not active and the `allow_manual_selection_of_zero` is set to  `true`
 * **[Feature]** Tile authors can add optional dependencies to a tile. The existing top-level key `requires_product_versions` has an `optional` key for each listed product.
 * **[Feature]** Provides new accessors for Telemetry: IaaS type and Director GUID
 * **[Feature]** Tile authors can define an install time verifier to run a HTTP/s request
 * **[Feature]** Updates BOSH DNS runtime config and example runtime config to have properties at the job level instead of the addon level. This is a requirement of the newer BOSH version used by Ops Manager. Other product that use runtime configs must update as well.
 * **[Feature]**  Begins consuming credhub-release from the Pivotal CredHub LTS repo to ensure users will be able to consume patches
 * **[Feature]** The Telemetry tile is available in the sidebar by default 
-**[Feature]** Operators can visually distinguish the required and optional dependencies of a given product on the _Review Pending Changes_ page
+* **[Feature]** Operators can visually distinguish the required and optional dependencies of a given product on the _Review Pending Changes_ page
 * **[Feature]** API shows which dependencies are optional and their status
 * **[Feature]** Tile authors can declare default values based on optional dependencies to shape the default configuration of products
 * **[Bug Fix]** Ops Manager API shows deployed certificates when only the BOSH Director has been deployed
