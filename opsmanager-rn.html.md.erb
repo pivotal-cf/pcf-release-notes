@@ -107,15 +107,15 @@ Maestro rotates BOSH DNS CAs and runs safety checks.
 
 Maestro is a service for configuring and managing the infrastructure that serves and supports containerized apps. For more information about Maestro, see the [Maestro documentation](https://maestro.readthedocs.io/en/latest/overview.html).
 
-### <a id='opsman-metrics'></a> System Metrics Agents in Ops Manager Runtime Config
+### <a id='opsman-metrics'></a> All Platform VMs Emit System Metrics
 
-Before Ops Manager v2.8 and Pivotal Application Service (PAS) v2.8, an agent on each PAS VM emitted system metrics for its memory, disk, CPU, network, load, and swap space status and usage.
+The `runtime_config` code in Ops Manager v2.8 installs a system metrics agent on all Pivotal Platform VMs.
+This lets [Pivotal Healthwatch](https://docs.pivotal.io/pcf-healthwatch), [Pivotal App Metrics](https://docs.pivotal.io/app-metrics) and other platform tools consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
 
-In Ops Manager v2.8, this agent is in the Ops Manager runtime config, which installs it on all Pivotal Platform VMs, not just PAS components.
-This enables Healthwatch and App Metrics to consume metrics from PAS VMs, PKS VMs, and any other VMs deployed by Ops Manager.
+System metrics report usage and status of VM memory, disk, CPU, network, load, and swap space.
+See a complete list of metrics in the [`system-metrics-release` repo](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics).
 
-See a list of VM system metrics in the [`system-metrics-release`](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) repo.
-
+Before Ops Manager v2.8, the metrics agent was installed only on Pivotal Application Service (PAS) VMs, and VMs deployed by other products did not emit the system metrics described above.
 
 ## <a id='known-issues'></a> Known Issues
 
