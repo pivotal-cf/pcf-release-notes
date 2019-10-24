@@ -24,11 +24,12 @@ If you are running SCS v3.0.x or SCS v3.1.x alongside SCS v2.0.x and do not requ
 1. If you are running SCS v3.0.x, upgrade to SCS v3.1.0 or later.
 1. Migrate all apps to bind to `p.config-server` service instances instead of `p-config-server`. 
    For more information, see [Migrating Spring Cloud Services 2.0.x or 1.5.x Service Instances ](https://docs.pivotal.io/spring-cloud-services/3-1/common/config-server/managing-service-instances.html#migrating-2-0-or-1-5-service-instances).
-1. Migrate all applications to bind to `p.service-registry` service instances instead of `p-service-registry`. For more information, see (https://docs.pivotal.io/spring-cloud-services/3-1/common/service-registry/managing-service-instances.html#creating) documentation for more details.
+1. Migrate all apps to bind to `p.service-registry` service instances instead of `p-service-registry`. 
+   For more information, see [Creating an Instance](https://docs.pivotal.io/spring-cloud-services/3-1/common/service-registry/managing-service-instances.html#creating) in the SCS v3.1.x documentation for more details.
 1. Restage apps.
 1. IMPORTANT: Verify all apps are behaving as expected before moving on to the next step.
 1. Delete the SCS v2.0.x tile.
-1. Proceed with the Pivotal Platform v2.7 Upgrade. For more information, see [Upgrading Pivotal Platform](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
+1. Proceed with the Pivotal Platform v2.7 upgrade procedure. For more information, see [Upgrading Pivotal Platform](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
 ## <a id='opsman'></a> Pivotal Operations Manager
 
