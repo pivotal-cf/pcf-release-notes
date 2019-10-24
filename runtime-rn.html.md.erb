@@ -456,6 +456,13 @@ This update allows the cf CLI to successfully pull container images hosted in EC
 
 ## <a id='known-issues'></a> Known Issues
 
+### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7 with External Blobstores
+
+You cannot install PAS v2.7 with any external blobstores. If you try to install and deploy PAS v2.7 with one or more external blobstores, the deploy fails with a pipeline error. 
+
+This issue is caused by changes to the blobstore backup options in PAS v2.7. For more information about these changes, see [Configure File Storage Backup Level](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#blobstore-backup) in the _PAS v2.7 Release Notes_.
+
+
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
 
 When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
