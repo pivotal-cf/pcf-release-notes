@@ -193,9 +193,9 @@ For general information about volume services, see [Using an External File Syste
 
 ### <a id='compute-networking-isolation'></a> Compute and Networking Isolation
 
-In the Isolation Segment v2.8 tile, there is a new **Compute and Networking Isolation** pane. In this pane, you can enable or disable compute isolation and configure router sharding for isolation segments. These features must be configured simultaneously.
+In the Isolation Segment v2.8 tile, there is a new **Compute and Networking Isolation** pane. _Compute isolation_ is when an app runs on compute resources - such as clusters, resource pools, and servers - that are isolated from other resources by a network partition or firewall. _Networking isolation_, or router sharding, is when traffic to an app instance uses a dedicated route that is isolated from routes used by other app instances by a network partition or firewall rule.
 
-Both are enabled by default. However, isolation segments do not require compute isolation.
+In the Isolation Segment tile, compute isolation and networking isolation must be configured or disabled simultaneously. This is because networking isolation configures the route by which traffic goes to the Isolation Segment tile. Both are enabled by default. However, isolation segments do not require compute isolation in the Isolation Segment v2.8 tile.
 
 For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section in the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
