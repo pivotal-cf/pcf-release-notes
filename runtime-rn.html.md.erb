@@ -288,7 +288,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
 * **[Feature Improvement]** `consul_server` can be scaled down to 0 instances
 * **[Feature Improvement]** Add an option CREDHUB_SKIP_INTERPOLATION to skip CredHub interpolation when staging/starting an app
-* **[Feature Improvement]** Add configuration for router balancing algorithm
+* **[Feature Improvement]** The **Networking** pane of the PAS tile includes a **Balancing algorithm used by Router** field. You can use this field to specify whether the Router uses a round robin or least connections algorithm to distribute traffic across app instances. By default, the Router uses round robin load balancing, which distributes an equal amount of traffic to each app instance. The least connection algorithm favors the app instances with the least amount of connections. For example, select **Least connections** to help distribute traffic to newer app instances when you scale up.
 * **[Bug Fix]** Fix race condition in garden-external-networker
 * **[Bug Fix]** Fix CCNG bbr lock scripts to be idempotent
 * **[Bug Fix]** Address Azure MySQL compatibility problems in Notifications release
