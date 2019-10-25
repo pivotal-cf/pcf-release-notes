@@ -1436,6 +1436,11 @@ If you are on a version earlier than v2.5.6, you must upgrade to address this is
 
 For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes).
 
+### <a id='mesh-domain'></a> Service Mesh Domain Exists Without Enabling Service Mesh
+
+PAS automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS. 
+
+
 ### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer
 
 In PAS v2.5.8, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
