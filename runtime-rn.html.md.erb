@@ -389,3 +389,13 @@ For general information about volume services, see [Using an External File Syste
 In PAS v2.8, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
+
+### <a id='uaa'></a> Enable URL Encoding For UAA Client Credentials
+
+An optional **Client basic auth compatibility mode** checkbox allows you to require URL encoding for UAA client credentials when they are provided as basic authentication in a HTTP request header. 
+
+URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rfc6749#section-2.3.1). 
+
+By default, the checkbox is enabled. This indicates that UAA does not require URL encoding for client IDs and secrets. This represents the behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
+
+Pivotal recommends that you disable the **Client basic auth compatibility mode** checkbox to require URL encoding for UAA client credentials. Clients may choose to provide a URL-encoded client ID and secret by sending header `X-CF-ENCODED-CREDENTIALS=true`.
