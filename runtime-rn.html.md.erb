@@ -398,6 +398,6 @@ By default, the **Client basic auth compatibility mode** checkbox is enabled. Wh
 
 You can disable the checkbox to require URL encoding for any UAA client basic authentication credentials that are provided in a HTTP request header. URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rfc6749#section-2.3.1).
 
-Pivotal recommends that you disable the **Client basic auth compatibility mode** checkbox. Pivotal also recommends that you provide URL-encoded client basic authentication credentials by using the following HTTP header: `X-CF-ENCODED-CREDENTIALS=true`.
+If you disable the checkbox, provide URL-encoded client basic authentication credentials with the following HTTP header: `X-CF-ENCODED-CREDENTIALS=true`.
 
 For more information about configuring the **Client basic auth compatibility mode** checkbox in PAS, see [Configuring PAS](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa).
