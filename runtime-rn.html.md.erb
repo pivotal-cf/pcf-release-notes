@@ -383,3 +383,9 @@ To disable SMB volume services in the PAS tile, select **App Containers** and cl
 For more information, see [Enabling Volume Services](http://docs.pivotal.io/platform/application-service/2-8/operating/enable-vol-services.html#smb-enable).
 
 For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
+
+### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
+
+In PAS v2.8, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
