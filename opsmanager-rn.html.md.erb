@@ -154,31 +154,37 @@ See the following table for information about how dependencies appear in the Ops
     <th>UI Appearance</th>
     <th width="22%">API Status Key</th>
     <th>Explanation</th>
+    <th>Can Apply Changes?</th>
   </tr>
   <tr>
     <td>Dependency listed in green text</td>
     <td><code>satisfied</code></td>
-    <td>The correct version of the dependency is installed. You can apply changes.</td>
+    <td>The correct version of the dependency is installed.</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Dependency listed in green text, followed by (optional)</td>
     <td><code>satisfied</code></td>
-    <td>The correct version of the dependency is installed, although it is optional. You can apply changes.</td>
+    <td>The correct version of the dependency is installed, although it is optional.</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Dependency listed in red text</td>
     <td><code>unsatisfied</code></td>
-    <td>The correct version of the dependency is not installed. You must update the dependency to apply changes.</td>
+    <td>An incompatible version of the dependency is installed. You must update the dependency to apply changes.</td>
+    <td>No</td>
   </tr>
   <tr>
     <td>Dependency listed in red text, followed by (optional)</td>
     <td><code>unsatisfied</code></td>
-    <td>The correct version of the dependency is not installed, but it is optional. You can apply changes.</td>
+    <td>An incompatible version of the dependency is installed, but the dependency is optional.</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Dependency listed in gray text, followed by (optional)</td>
     <td><code>not_present</code></td>
-    <td>No version of the dependency is installed, but it is optional. You can apply changes.</td>
+    <td>No version of the dependency is installed, but it is optional.</td>
+    <td>Yes</td>
   </tr>
 </table>
 
