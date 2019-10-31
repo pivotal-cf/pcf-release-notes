@@ -389,3 +389,13 @@ For general information about volume services, see [Using an External File Syste
 In PAS v2.8, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
+
+### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
+
+Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job.
+
+### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
+
+In PAS v2.8, you can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the PAS tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
+
+For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
