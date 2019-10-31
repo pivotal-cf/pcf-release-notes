@@ -456,13 +456,15 @@ This update allows the cf CLI to successfully pull container images hosted in EC
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7 with External Blobstores
+### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7 or v2.7.1 with Non-Versioned External Blobstores
 
-<p class="note warning"><b>Warning:</b> This is a breaking change. Do not attempt to upgrade to PAS v2.7 if you have one or more external blobstores.</p>
+<p class="note warning"><b>Warning:</b> This is a breaking change for PAS v2.7 and v2.7.1. Do not attempt to upgrade to PAS v2.7 or v2.7.1 if you have one or more non-versioned external blobstores. You can deploy PAS v2.7.2 with external blobstores.</p>
 
-You cannot install PAS v2.7 with external blobstores. If you try to install and deploy PAS v2.7 with one or more external blobstores, the deploy fails with a pipeline error. 
+You cannot install PAS v2.7 or v2.7.1 with non-versioned external blobstores. If you try to install and deploy PAS v2.7 or v2.7.1 with one or more external blobstores, the deploy fails with a pipeline error. 
 
 This issue is caused by changes to the blobstore backup options in PAS v2.7. For more information about these changes, see [Configure File Storage Backup Level](#blobstore-backup).
+
+This issue is resolved in PAS v2.7.2.
 
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
