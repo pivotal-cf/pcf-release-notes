@@ -13,6 +13,106 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
+### <a id='2.5.14'></a> 2.5.14
+
+**Release Date:** 10/31/2019
+
+* **[Security Fix]** Eliminate risk of Jackson Databind vulnerabilities
+* **[Security Fix]** Upgrade Go, runc and containerd to latest to include security fixes
+* **[Security Fix]** Bump Usage Service Ruby to 2.5.7 and Loofah gem to 2.3.1
+* **[Security Fix]** CVE-2019-17596 bump Go
+* **[Feature]** Enable metrics for delayed job failures for Usage Service Release
+* **[Feature Improvement]** Correct System Logging TLS Destination Certificate Label
+* **[Bug Fix]** Add required template function to enable recreation of `clock_global` vm
+* **[Bug Fix]** Match CLI default timeouts when waiting for app restages and start health checks in Apps Manager
+* **[Bug Fix]** Fix goroutine leak for websockets.
+* **[Bug Fix]** External mesh domain is not seeded when Istio service mesh is disabled
+* Bump ubuntu-xenial stemcell to version `250.130`
+* Bump capi to version `1.76.11`
+* Bump cf-syslog-drain to version `8.2.3`
+* Bump cflinuxfs2 to version `1.297.0`
+* Bump cflinuxfs3 to version `0.137.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.1`
+* Bump garden-runc to version `1.19.8`
+* Bump java-offline-buildpack to version `4.24`
+* Bump log-cache to version `2.1.11`
+* Bump loggregator-agent to version `2.3.4`
+* Bump loggregator to version `103.4.3`
+* Bump nginx-offline-buildpack to version `1.1.0`
+* Bump nodejs-offline-buildpack to version `1.7.0`
+* Bump php-offline-buildpack to version `4.4.0`
+* Bump push-apps-manager-release to version `668.0.24`
+* Bump push-usage-service-release to version `669.0.16`
+* Bump routing to version `0.187.4`
+* Bump ruby-offline-buildpack to version `1.8.1`
+* Bump staticfile-offline-buildpack to version `1.5.0`
+* Bump statsd-injector to version `1.11.1`
+* Bump uaa to version `71.5`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>250.130</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.12.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.35</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.1</td></tr>
+    <tr><td>capi</td><td>1.76.11</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.16.0</td></tr>
+    <tr><td>cf-networking</td><td>2.20.6</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.119</td></tr>
+    <tr><td>cf-syslog-drain</td><td>8.2.3</td></tr>
+    <tr><td>cflinuxfs2</td><td>1.297.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.137.0</td></tr>
+    <tr><td>consul-drain</td><td>0.0.3</td></tr>
+    <tr><td>consul</td><td>198</td></tr>
+    <tr><td>credhub</td><td>2.1.9</td></tr>
+    <tr><td>diego</td><td>2.27.12</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.1</td></tr>
+    <tr><td>garden-runc</td><td>1.19.8</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.1</td></tr>
+    <tr><td>haproxy</td><td>9.5.2</td></tr>
+    <tr><td>istio</td><td>1.0.2</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.24</td></tr>
+    <tr><td>log-cache</td><td>2.1.11</td></tr>
+    <tr><td>loggregator-agent</td><td>2.3.4</td></tr>
+    <tr><td>loggregator</td><td>103.4.3</td></tr>
+    <tr><td>mapfs</td><td>1.1.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.2.0</td></tr>
+    <tr><td>nats</td><td>26</td></tr>
+    <tr><td>nfs-volume</td><td>1.7.11</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.0</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.0</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.0</td></tr>
+    <tr><td>push-apps-manager-release</td><td>668.0.24</td></tr>
+    <tr><td>push-usage-service-release</td><td>669.0.16</td></tr>
+    <tr><td>pxc</td><td>0.14.3</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.37</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.0.13</td></tr>
+    <tr><td>routing</td><td>0.187.4</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.1</td></tr>
+    <tr><td>silk</td><td>2.20.1</td></tr>
+    <tr><td>smb-volume</td><td>2.0.3</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.0</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.1</td></tr>
+    <tr><td>syslog</td><td>11.4.0</td></tr>
+    <tr><td>uaa</td><td>71.5</td></tr>
+  </tbody>
+</table>
+
+
+
 <p class="note warning"><strong>Warning:</strong> Before installing or upgrading to PAS v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
 
 ### <a id='2.5.13'></a> 2.5.13
