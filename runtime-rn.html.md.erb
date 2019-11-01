@@ -26,7 +26,14 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** Enable metrics for delayed job failures for Usage Service Release
 * **[Feature Improvement]** Correct System Logging TLS Destination Certificate Label
 * **[Feature Improvement]** Add marketplace url field and change sidebar links to secondary navigation links in Apps Manager configuration
+* **[Bug Fix]** Fix loading state on panels in Apps Manager
+* **[Bug Fix]** Increase width of Apps Manager logs tab
+* **[Bug Fix]** Do not attempt to start an app if the app droplet fails to build in Apps Manager
+* **[Bug Fix]** Redesign Apps Manager footer to accommodate footer links
+* **[Bug Fix]** Show buildpack name for `java_buildpack` in Apps Manager
+* **[Bug Fix]** Show correct Cloud Controller target on Apps Manager's tools page
 * **[Bug Fix]** Match CLI default timeouts when waiting for app restages and start health checks in Apps Manager
+* **[Bug Fix]** When starting an app via Apps Manager, do not build a new droplet unless it's necessary to do so 
 * Bump ubuntu-xenial stemcell to version `456.40`
 * Bump cf-cli to version `1.21.0`
 * Bump cflinuxfs3 to version `0.137.0`
