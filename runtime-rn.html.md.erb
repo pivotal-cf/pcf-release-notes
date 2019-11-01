@@ -13,6 +13,94 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
+### <a id='2.8.0-beta.1'></a> 2.8.0-beta.1
+
+**Release Date:** 10/31/2019
+
+* **[Security Fix]** Upgrade Go, runc and containerd to latest to include security fixes
+* **[Security Fix]** CVE-2019-17596 bump Go
+* **[Feature]** Enable metrics for delayed job failures for Usage Service Release
+* **[Feature]** Loggregator sends logs and metrics to log-cache syslog server.
+* **[Feature]** Add checkbox to enable client basic auth compatibility mode in UAA
+* **[Feature Improvement]** Correct System Logging TLS Destination Certificate Label
+* **[Feature Improvement]** Add marketplace url field and change sidebar links to secondary navigation links in Apps Manager configuration
+* **[Bug Fix]** Fix CN for Loggregator Metrics Endpoint Certs
+* Bump ubuntu-xenial stemcell to version `456.40`
+* Bump bpm to version `1.1.5`
+* Bump cf-cli to version `1.21.0`
+* Bump cflinuxfs3 to version `0.137.0`
+* Bump credhub to version `2.5.6`
+* Bump java-offline-buildpack to version `4.24`
+* Bump log-cache to version `2.6.0`
+* Bump loggregator-agent to version `5.1.0`
+* Bump mysql-monitoring to version `9.7.0`
+* Bump push-apps-manager-release to version `671.0.1`
+* Bump push-usage-service-release to version `671.0.7`
+* Bump routing to version `0.192.0`
+* Bump ruby-offline-buildpack to version `1.8.1`
+* Bump silk to version `2.25.0`
+* Bump statsd-injector to version `1.11.1`
+* Bump system-metrics to version `1.0.1`
+* Bump uaa to version `74.5.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>456.40</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.35</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-cli</td><td>1.21.0</td></tr>
+    <tr><td>cf-networking</td><td>2.25.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.119</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.137.0</td></tr>
+    <tr><td>credhub</td><td>2.5.6</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.1</td></tr>
+    <tr><td>garden-runc</td><td>1.19.8</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.1</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.24</td></tr>
+    <tr><td>log-cache</td><td>2.6.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.1.0</td></tr>
+    <tr><td>loggregator</td><td>106.0.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>27</td></tr>
+    <tr><td>nfs-volume</td><td>2.3.1</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.0</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.0</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.0</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.1</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.7</td></tr>
+    <tr><td>pxc</td><td>0.20.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.6.37</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.0.13</td></tr>
+    <tr><td>routing</td><td>0.192.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.1</td></tr>
+    <tr><td>silk</td><td>2.25.0</td></tr>
+    <tr><td>smb-volume</td><td>2.0.3</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.0</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.1</td></tr>
+    <tr><td>syslog</td><td>11.5.0</td></tr>
+    <tr><td>system-metrics</td><td>1.0.1</td></tr>
+    <tr><td>uaa</td><td>74.5.0</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.8.0-alpha.5'></a> 2.8.0-alpha.5
 
 **Release Date:** 10/16/2019
@@ -392,7 +480,7 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 ### <a id='uaa-client-url-encoding'></a> Enable URL Encoding For UAA Client Credentials
 
-You can disable an optional **Client basic auth compatibility mode** checkbox in the PAS **UAA** pane to require URL encoding for UAA client credentials. This allows you to use special characters in secrets for UAA client apps. 
+You can disable an optional **Client basic auth compatibility mode** checkbox in the PAS **UAA** pane to require URL encoding for UAA client credentials. This allows you to use special characters in secrets for UAA client apps, which provides additional security. 
 
 URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rfc6749#section-2.3.1).
 
