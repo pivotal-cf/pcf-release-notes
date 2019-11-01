@@ -237,6 +237,12 @@ In the Isolation Segment tile, compute isolation and networking isolation must b
 
 For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section in the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
+### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
+
+Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
+
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see [System Metrics](https://github.com/cloudfoundry/system-metrics-release) on GitHub.
+
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
 In Pivotal Isolation Segment v2.8, you can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the Pivotal Application Service (PAS) v2.8 tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.

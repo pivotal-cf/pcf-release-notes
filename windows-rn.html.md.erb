@@ -203,6 +203,12 @@ To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane i
 
 For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in _Installing and Configuring PASW_.
 
+### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
+
+Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
+
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see [System Metrics](https://github.com/cloudfoundry/system-metrics-release) on GitHub.
+
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
 In PAS for Windows v2.8, you can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the PAS v2.8 tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
