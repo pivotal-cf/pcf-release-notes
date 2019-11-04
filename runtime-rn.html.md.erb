@@ -19,11 +19,22 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 * **[Security Fix]** Upgrade Go, runc and containerd to latest to include security fixes
 * **[Security Fix]** CVE-2019-17596 bump Go
+* **[Security Fix]** Ensure requests are made over HTTPS to the Apps Manager search server
 * **[Feature]** Enable metrics for delayed job failures for Usage Service Release
 * **[Feature]** Loggregator sends logs and metrics to log-cache syslog server.
 * **[Feature]** Add checkbox to enable client basic auth compatibility mode in UAA
 * **[Feature Improvement]** Correct System Logging TLS Destination Certificate Label
 * **[Feature Improvement]** Add marketplace url field and change sidebar links to secondary navigation links in Apps Manager configuration
+* **[Feature Improvement]** Add active indicator to revisions associated with the current droplet in Apps Manager
+* **[Bug Fix]** Fix tooltip alignment on 'Enter as JSON' toggle and bind service form in Apps Manager
+* **[Bug Fix]** Increase width of Apps Manager logs tab
+* **[Bug Fix]** Apps Manage checks whether an application is a Spring Boot or Steeltoe app less frequently
+* **[Bug Fix]** Do not attempt to start an app if the app droplet fails to build in Apps Manager
+* **[Bug Fix]** Redesign Apps Manager footer to accommodate footer links
+* **[Bug Fix]** Show buildpack name for `java_buildpack` in Apps Manager
+* **[Bug Fix]** Show correct Cloud Controller target on Apps Manager's tools page
+* **[Bug Fix]** Match CLI default timeouts when waiting for app restages and start health checks in Apps Manager
+* **[Bug Fix]** When starting an app via Apps Manager, do not build a new droplet unless it's necessary to do so
 * **[Bug Fix]** Fix CN for Loggregator Metrics Endpoint Certs
 * Bump ubuntu-xenial stemcell to version `456.40`
 * Bump bpm to version `1.1.5`
