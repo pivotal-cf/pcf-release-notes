@@ -498,7 +498,7 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
-In PAS v2.8, you can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the PAS tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
+You can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 firehose, including Dopplers and Reverse Log Proxies. After you disable the V2 firehose, you can delete these VMs to save resources.
 
 For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
