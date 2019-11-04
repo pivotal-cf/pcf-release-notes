@@ -504,13 +504,15 @@ To forward logs and metrics to a syslog endpoint after you disable the Firehose,
 
 For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html).
 
-### <a id=''></a> Aggregate Drain for Metrics and App Logs
+### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
 
-You can configure Syslog Agents to forward all app metrics, app logs, and PAS component VM metrics to one or more syslog endpoints.
+You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and PAS component VM metrics to one or more syslog endpoints.
 
-This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. You can also use this feature instead of the Loggregator Firehose, which allows you to disable the Firehose and delete Firehose VMs. For more information, see [V2 Firehose Can Be Disabled](#disable-v2-firehose). 
+This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
 
-To enable aggregate log and metric drains, add a comma-separated list of syslog endpoints to the **Aggregate log/metric drain destinations** field in the **System Logging** pane in the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose). 
+
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log/metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
 ### <a id='credhub-vm'></a> PAS Must Use At Least One CredHub VM
 
