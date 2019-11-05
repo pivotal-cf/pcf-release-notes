@@ -12,9 +12,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 <hr>
 
 ## <a id='releases'></a> Releases
- 
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.3'></a> 2.7.3
 
 **Release Date:** 10/31/2019
@@ -33,7 +33,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Show buildpack name for `java_buildpack` in Apps Manager
 * **[Bug Fix]** Show correct Cloud Controller target on Apps Manager's tools page
 * **[Bug Fix]** Match CLI default timeouts when waiting for app restages and start health checks in Apps Manager
-* **[Bug Fix]** When starting an app via Apps Manager, do not build a new droplet unless it's necessary to do so 
+* **[Bug Fix]** When starting an app via Apps Manager, do not build a new droplet unless it's necessary to do so
 * Bump ubuntu-xenial stemcell to version `456.40`
 * Bump cf-cli to version `1.21.0`
 * Bump cflinuxfs3 to version `0.137.0`
@@ -107,8 +107,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.14</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 <p class="note warning"><strong>Warning:</strong> Before installing or upgrading to PAS v2.7, review the <a href="./breaking-changes.html#pas">PAS Breaking Changes v2.7</a>.</p>
 
@@ -213,7 +213,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** UAA Patch release to address privilege escalation vulnerabilities
 * **[Security Fix]** Bump garden-runc release to take Go HTTP/2 and containerd gRPC fixes
 * **[Security Fix]** Upgrade gRPC-java to patch HTTP/2 vulnerability
-* **[Feature Improvement]** Make TCP Router Request Timeout Configurable. For more information, see [Configuring TCP Routing in PAS](https://docs.pivotal.io/platform/application-service/2-7/operating/tcp-routing-ert-config.html). 
+* **[Feature Improvement]** Make TCP Router Request Timeout Configurable. For more information, see [Configuring TCP Routing in PAS](https://docs.pivotal.io/platform/application-service/2-7/operating/tcp-routing-ert-config.html).
 * **[Feature Improvement]** Metric Registrar - Allow app developers to register custom routes for metrics endpoints
 * **[Feature Improvement]** Docker image applications hosted in AWS ECR continue to run when restarted after the typical AWS ECR credential expiration period
 * **[Feature Improvement]** Show revision number on processes in Apps Manager when revisions are enabled for an application
@@ -551,11 +551,11 @@ This update allows the cf CLI to successfully pull container images hosted in EC
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or v2.7.1 with Non-Versioned External Blobstores
+### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or v2.7.1 with External Blobstores
 
-<p class="note warning"><b>Warning:</b> This is a breaking change for PAS v2.7.0 and v2.7.1. Do not attempt to upgrade to PAS v2.7.0 or v2.7.1 if you have one or more non-versioned external blobstores. You can deploy PAS v2.7.2 with external blobstores.</p>
+<p class="note warning"><b>Warning:</b> This is a breaking change for PAS v2.7.0 and v2.7.1. Do not attempt to upgrade to PAS v2.7.0 or v2.7.1 if you have one or more external blobstores. You can deploy PAS v2.7.2 with external blobstores.</p>
 
-You cannot install PAS v2.7.0 or v2.7.1 with non-versioned external blobstores. If you try to install and deploy PAS v2.7.0 or v2.7.1 with one or more external blobstores, the deploy fails with a pipeline error. 
+You cannot install PAS v2.7.0 or v2.7.1 with external blobstores. If you try to install and deploy PAS v2.7.0 or v2.7.1 with one or more external blobstores, the deploy fails with a pipeline error.
 
 This issue is caused by changes to the blobstore backup options in PAS v2.7.0. For more information about these changes, see [Configure File Storage Backup Level](#blobstore-backup).
 
@@ -583,13 +583,13 @@ For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enab
 
 PAS v2.7 has a known issue in which you cannot delete the last remaining app Syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
 
-When you delete the last remaining drain, logs continue to be sent to its Syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs. You can use the following command: `cf drain APP-NAME invalid://invalid`. 
+When you delete the last remaining drain, logs continue to be sent to its Syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs. You can use the following command: `cf drain APP-NAME invalid://invalid`.
 
 <p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the <a href="https://plugins.cloudfoundry.org/#log-cache">Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>.</p>
 
 ### <a id='syslog-drain-type'></a> Cannot Choose Drain Type
 
-Syslog drains provide the ability to send only logs or metrics to their Syslog endpoint, rather than a combination of both. However, PAS v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.  
+Syslog drains provide the ability to send only logs or metrics to their Syslog endpoint, rather than a combination of both. However, PAS v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
 
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes

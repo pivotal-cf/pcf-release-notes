@@ -14,18 +14,18 @@ See the following Pivotal Platform breaking changes:
 ### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.product_name %> v2.7
 
 Pivotal Spring Cloud Services (SCS) v2.0.x is not compatible with <%= vars.product_name %> v2.7.
-You cannot upgrade to Ops Manager v2.7 or <%= vars.product_short %> v2.7 without either removing SCS v2.0.x 
+You cannot upgrade to Ops Manager v2.7 or <%= vars.product_short %> v2.7 without either removing SCS v2.0.x
 or upgrading from SCS v2.0.x to SCS v2.1.x first.
 
-If you need to use the <code>p-circuit-breaker-dashboard</code> service in SCS v2.0.x, 
-you must upgrade SCS v2.0.x to SCS v2.1.x before you upgrade to Pivotal Platform v2.7. 
+If you need to use the <code>p-circuit-breaker-dashboard</code> service in SCS v2.0.x,
+you must upgrade SCS v2.0.x to SCS v2.1.x before you upgrade to Pivotal Platform v2.7.
 
-If you are running SCS v3.0.x or SCS v3.1.x alongside SCS v2.0.x and do not require `p-circuit-breaker-dashboard` 
-functionality, you can remove SCS v2.0.x entirely after migrating completely to SCS v3.1.x. Follow the procedure 
-in [How to Upgrade to SCS v3.1](https://docs.pivotal.io/spring-cloud-services/3-1/product-upgrades.html#upgrade-to-3-1). 
+If you are running SCS v3.0.x or SCS v3.1.x alongside SCS v2.0.x and do not require `p-circuit-breaker-dashboard`
+functionality, you can remove SCS v2.0.x entirely after migrating completely to SCS v3.1.x. Follow the procedure
+in [How to Upgrade to SCS v3.1](https://docs.pivotal.io/spring-cloud-services/3-1/product-upgrades.html#upgrade-to-3-1).
 
-After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x, 
-you can proceed with the Pivotal Platform v2.7 upgrade procedure. 
+After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x,
+you can proceed with the Pivotal Platform v2.7 upgrade procedure.
 For more information, see [Upgrading Pivotal Platform](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
 ## <a id='opsman'></a> Pivotal Operations Manager
@@ -50,9 +50,9 @@ If you use BOSH CLI v1 commands manually from your workstation or in automation 
 
 See the following <%= vars.product_short %> breaking changes:
 
-### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or PAS v2.7.1 with Non-Versioned External Blobstores
+### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or PAS v2.7.1 with External Blobstores
 
-You cannot install or deploy PAS v2.7.0 or v2.7.1 with non-versioned external blobstores. For more information, see [You Cannot Install PAS v2.7.0 or v2.7.1 with Non-Versioned External Blobstores](./runtime-rn.html#no-external-blobstores) in _Pivotal Application Service v2.7 Release Notes_.
+You cannot install or deploy PAS v2.7.0 or v2.7.1 with external blobstores. For more information, see [You Cannot Install PAS v2.7.0 or v2.7.1 with External Blobstores](./runtime-rn.html#no-external-blobstores) in _Pivotal Application Service v2.7 Release Notes_.
 
 ### <a id='consul-server'></a> Consul Clients Not Supported in <%= vars.product_short %>
 
