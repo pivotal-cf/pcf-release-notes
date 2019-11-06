@@ -161,7 +161,7 @@ CredHub Maestro is a CLI for discovering and rotating CredHub-managed certificat
 
 For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Director can authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
 
-This change means that the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with either certificate or basic login.
+This change means that the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key.
 BOSH Director uses NSX to network and secure platform components, NCP uses NSX-T to network and secure app containers, and Enterprise PKS uses NSX to create load balancers.
 
 For how to configure BOSH Director authentication to NSX, see the [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) section
