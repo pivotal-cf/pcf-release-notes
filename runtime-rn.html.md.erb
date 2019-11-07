@@ -989,7 +989,7 @@ PAS migrates Router VMs with a single core to a VM type with two CPU cores durin
 
 ### <a id='syslog'></a> Loggregator Syslog Agent Increases Scale For Syslog Drains
 
-<p class="note warning"><strong>WARNING:</strong> See the following known issue related to this feature: <a href="#syslog">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p>
+<p class="note warning"><strong>WARNING:</strong> See the following known issue related to this feature: <a href="#syslog-issue">App Syslog Drains Fail After Enabling Agent-Based Syslog</a>.</p>
 
 The Loggregator architecture includes optional Syslog Agents. Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
 
@@ -1016,7 +1016,7 @@ For more information, see the [Add Metadata](http://docs.pivotal.io/pivotalcf/2-
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='syslog'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
+### <a id='syslog-issue'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
 
 If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see [Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base. 
 
