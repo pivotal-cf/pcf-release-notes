@@ -17,10 +17,32 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 
 <p class="note warning"><strong>Warning:</strong> Before installing or upgrading to Ops Manager v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
 
+### <a id="2-5-22"></a> 2.5.22
+
+Ops Manager v2.5.22 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.5.22-build.303*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>250.142*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>268.6.6*</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.1.9</td></tr><tr><td>Syslog</td><td>11.6.0*</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.5</td></tr><tr><td>BPM</td><td>1.1.5</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.1*</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
+
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+
+  </tbody>
+</table>
+
 ### <a id="2-5-21"></a> 2.5.21
 
 - **[Security Fix]** This patch addresses [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
-- **[Feature]** Operators can use the `DELETE /api/v0/staged` endpoint to revert pending changes 
+- **[Feature]** Operators can use the `DELETE /api/v0/staged` endpoint to revert pending changes
 - **[Bug Fix]** API shows correct message for a given product when enabling or disabling unknown verifier
 - **[Bug Fix]** Operators cannot modify vSphere availability zones that are associated with a deployed product with the API
 - **[Bug Fix]** Ops Manager does not show the **Revert** button in the UI after Apply Changes
@@ -41,9 +63,9 @@ Ops Manager v2.5.21 uses the following component versions:
     <td>Ops Manager</td><td>2.5.21-build.297*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.130*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>268.6.5</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.1.9</td></tr><tr><td>Syslog</td><td>11.5.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.5*</td></tr><tr><td>BPM</td><td>1.1.5*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.0</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -65,18 +87,18 @@ Ops Manager v2.5.20 uses the following component versions:
     <td>Ops Manager</td><td>2.5.20-build.283*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.116*</td></tr><tr><td>BBR SDK</td><td>1.17.2*</td></tr><tr><td>BOSH Director</td><td>268.6.5</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.1.9*</td></tr><tr><td>Syslog</td><td>11.5.0*</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.4*</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.0*</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-5-19"></a> 2.5.19
 
-* **[Feature]** Operators can modify the External DB password through API or UI after successful deploy 
-* **[Feature]** Improves Nginx security configuration. Nginx now uses a more secure cipher suite and updates OpenSSL DH parameters to prevent fingerprinting.  
+* **[Feature]** Operators can modify the External DB password through API or UI after successful deploy
+* **[Feature]** Improves Nginx security configuration. Nginx now uses a more secure cipher suite and updates OpenSSL DH parameters to prevent fingerprinting.
 * **[Bug Fix]** AWS AMI IDs for `eu-west-3` and `eu-north-1` are included in PDF on Pivotal Network
-* **[Bug Fix]** Submitting a form with multiple unselected selector properties does not raise a 500 error 
+* **[Bug Fix]** Submitting a form with multiple unselected selector properties does not raise a 500 error
 
 
 Ops Manager v2.5.19 uses the following component versions:
@@ -93,9 +115,9 @@ Ops Manager v2.5.19 uses the following component versions:
     <td>Ops Manager</td><td>2.5.19-build.271*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.110*</td></tr><tr><td>BBR SDK</td><td>1.17.1</td></tr><tr><td>BOSH Director</td><td>268.6.5</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24*</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.3</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.3</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -115,9 +137,9 @@ Ops Manager v2.5.17 uses the following component versions:
     <td>Ops Manager</td><td>2.5.17-build.260*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.99</td></tr><tr><td>BBR SDK</td><td>1.17.1</td></tr><tr><td>BOSH Director</td><td>268.6.5</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.3*</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.3*</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -145,16 +167,16 @@ Ops Manager v2.5.16 uses the following component versions:
     <td>Ops Manager</td><td>2.5.16-build.257*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.99*</td></tr><tr><td>BBR SDK</td><td>1.17.1*</td></tr><tr><td>BOSH Director</td><td>268.6.5*</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2</td></tr><tr><td>BPM</td><td>1.1.3</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.2*</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-5-15"></a> 2.5.15
 
-* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog.  
-* **[Bug fix]** Resolves an issue in which Ops Manager set the Director ephemeral disk size to the Operator’s selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field. 
+* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog.
+* **[Bug fix]** Resolves an issue in which Ops Manager set the Director ephemeral disk size to the Operator’s selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field.
 * **[Bug fix]** Custom UI banners now show on React pages such as **Stemcell Library** and **Review Pending Changes**
 
 Ops Manager v2.5.15 uses the following component versions:
@@ -171,16 +193,16 @@ Ops Manager v2.5.15 uses the following component versions:
     <td>Ops Manager</td><td>2.5.15-build.248*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.93*</td></tr><tr><td>BBR SDK</td><td>1.17.0</td></tr><tr><td>BOSH Director</td><td>268.6.4</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2</td></tr><tr><td>BPM</td><td>1.1.3*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-5-14"></a> 2.5.14
 
 * **[Bug fix]** Update BBR to 1.x to fix postgres db backup
-* **[Feature]** Operators can set `recursor_selection` to true in the DNS runtime config through the OpsManager API 
+* **[Feature]** Operators can set `recursor_selection` to true in the DNS runtime config through the OpsManager API
 * **[Feature]** The OpsManager web server (nginx) does not allow TLSv1 and TLSv1.1
 * **[Feature]** `/api/v0/deployed/certificates?expires_within=` does not display `saml_service_provider_cert` if Ops Manager is not using SAML.
 
@@ -198,9 +220,9 @@ Ops Manager v2.5.14 uses the following component versions:
     <td>Ops Manager</td><td>2.5.14-build.241*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.84</td></tr><tr><td>BBR SDK</td><td>1.17.0*</td></tr><tr><td>BOSH Director</td><td>268.6.4</td></tr><tr><td>BOSH DNS</td><td>1.12.0*</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2</td></tr><tr><td>BPM</td><td>1.1.1*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>77*</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -222,7 +244,7 @@ Ops Manager v2.5.13 uses the following component versions:
     <td>Ops Manager</td><td>2.5.13-build.232*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.84</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.4</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>76*</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
 </table>
@@ -243,15 +265,15 @@ Ops Manager v2.5.12 uses the following component versions:
     <td>Ops Manager</td><td>2.5.12-build.229*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.84*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.4*</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.5*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-5-11"></a> 2.5.11
 
-* **[Bug Fix]** Ops Manager UI and API accurately reports if an Azure region supports AZs. The verifier fails if the region does not support AZs. 
+* **[Bug Fix]** Ops Manager UI and API accurately reports if an Azure region supports AZs. The verifier fails if the region does not support AZs.
 
 Ops Manager v2.5.11 uses the following component versions:
 
@@ -267,9 +289,9 @@ Ops Manager v2.5.11 uses the following component versions:
     <td>Ops Manager</td><td>2.5.11-build.224*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.82*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.3</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.3</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -292,9 +314,9 @@ Ops Manager v2.5.10 uses the following component versions:
     <td>Ops Manager</td><td>2.5.10-build.219*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.79</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.3</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.2*</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.3*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -316,9 +338,9 @@ Ops Manager v2.5.9 uses the following component versions:
     <td>Ops Manager</td><td>2.5.9-build.216*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.79*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.3</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.2</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.2*</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -340,16 +362,16 @@ Ops Manager v2.5.8 uses the following component versions:
     <td>Ops Manager</td><td>2.5.8-build.212*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.73*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.3</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.2</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.1*</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-5-7"></a> 2.5.7
 
-- **[Feature]** Ops Manager now passes **Trusted Certificates** from the **Security** pane to the `uaa.ca_certs` property of UAA to avoid failures in the pre-start script run by UAA. 
-* **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API. 
+- **[Feature]** Ops Manager now passes **Trusted Certificates** from the **Security** pane to the `uaa.ca_certs` property of UAA to avoid failures in the pre-start script run by UAA.
+* **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API.
 
 Ops Manager v2.5.7 uses the following component versions:
 
@@ -365,9 +387,9 @@ Ops Manager v2.5.7 uses the following component versions:
     <td>Ops Manager</td><td>2.5.7-build.208*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.63*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.3*</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20*</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.3*</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.2*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.5.0*</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -387,15 +409,15 @@ Ops Manager v2.5.6 uses the following component versions:
     <td>Ops Manager</td><td>2.5.6-build.198*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.56</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.2*</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.2</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-5-5"></a> 2.5.5
 
-* **Bug Fix** Errands no longer fail when output is ASCII encoded but contains non-ASCII characters. 
+* **Bug Fix** Errands no longer fail when output is ASCII encoded but contains non-ASCII characters.
 
 Ops Manager v2.5.5 uses the following component versions:
 
@@ -411,9 +433,9 @@ Ops Manager v2.5.5 uses the following component versions:
     <td>Ops Manager</td><td>2.5.5-build.194*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.56*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.1</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.5.2*</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.1*</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -436,9 +458,9 @@ Ops Manager v2.5.4 uses the following component versions:
     <td>Ops Manager</td><td>2.5.4-build.189*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.48*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.1</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.4.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1</td></tr><tr><td>BOSH CLI</td><td>5.5.0</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -470,9 +492,9 @@ Ops Manager v2.5.3 uses the following component versions:
     <td>Ops Manager</td><td>2.5.3-build.185*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.38*</td></tr><tr><td>BBR SDK</td><td>1.14.0</td></tr><tr><td>BOSH Director</td><td>268.6.1*</td></tr><tr><td>BOSH DNS</td><td>1.10.0</td></tr><tr><td>Metrics Server</td><td>0.0.22</td></tr><tr><td>CredHub</td><td>2.1.6*</td></tr><tr><td>Syslog</td><td>11.4.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.0</td></tr><tr><td>BPM</td><td>1.0.4</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>20.0.0</td></tr><tr><td>AWS CPI</td><td>73</td></tr><tr><td>Azure CPI</td><td>35.4.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.1*</td></tr><tr><td>BOSH CLI</td><td>5.5.0*</td></tr><tr><td>Credhub CLI</td><td>2.4.0</td></tr><tr><td>BBR CLI</td><td>1.5.1*</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -517,7 +539,7 @@ Ops Manager v2.5.2 uses the following component versions:
   </tbody>
 </table>
 
-### <a id="2-5-1"></a> 2.5.1 
+### <a id="2-5-1"></a> 2.5.1
 
 * **[Security Fix]**: This patch addresses [CVE-2019-5418](https://nvd.nist.gov/vuln/detail/CVE-2019-5418), a Rails file content disclosure vulnerability.
 * **[Security Fix]**: This patch addresses [CVE-2019-5419](https://nvd.nist.gov/vuln/detail/CVE-2019-5419), a Rails vulnerability that could lead to denial of service (DoS) attacks.
@@ -563,7 +585,7 @@ Ops Manager v2.5.1 uses the following component versions:
   </tbody>
 </table>
 
-### <a id="2-5-0"></a> 2.5.0 
+### <a id="2-5-0"></a> 2.5.0
 
 Ops Manager v2.5.0 uses the following component versions:
 
@@ -624,7 +646,7 @@ For more information, see [Configuring BOSH Director on Azure](http://docs.pivot
 
 ### <a id="host-groups"></a> Host Group Configuration Available for vSphere Availability Zones
 
-You can associate an Availability Zone (AZ) with a host group for Ops Manager deployments on vSphere. Host groups are subsets of vSphere clusters. Since you must associate a cluster with an AZ in vSphere deployments, host group configuration can help you manage deployment resources more precisely. Enable vSphere host groups from the **Create Availability Zones** pane in the BOSH Director tile. 
+You can associate an Availability Zone (AZ) with a host group for Ops Manager deployments on vSphere. Host groups are subsets of vSphere clusters. Since you must associate a cluster with an AZ in vSphere deployments, host group configuration can help you manage deployment resources more precisely. Enable vSphere host groups from the **Create Availability Zones** pane in the BOSH Director tile.
 
 For more information, see [Create Availability Zones Page](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#create-az) in *Configuring BOSH Director on vSphere*.
 
@@ -661,11 +683,11 @@ The field names, button text, error messaging, and other textual UI elements in 
 
 This update does not impact Ops Manager product tiles or the BOSH Director. For more information about the Ops Manager UI, see [Using the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html).
 
-### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs 
+### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs
 
-You can choose to store credentials for BOSH jobs in temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk. Choosing to store credentials in tmpfs may impact your BOSH deployment's availability if the tmpfs is refreshed or loses access to the deployment. You must recreate all VMs for this change to take effect. 
+You can choose to store credentials for BOSH jobs in temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk. Choosing to store credentials in tmpfs may impact your BOSH deployment's availability if the tmpfs is refreshed or loses access to the deployment. You must recreate all VMs for this change to take effect.
 
-To enable this feature, navigate to the **Director Config** section of the **BOSH Director** tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox. 
+To enable this feature, navigate to the **Director Config** section of the **BOSH Director** tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox.
 
 For more information on the Director Config forms, see [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-5/customizing/deploy-bosh-om.html#contents).
 
@@ -681,7 +703,7 @@ For more information about the Ops Manager Syslog pane, see [Settings Page](http
 
 You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the standard settings available in the Ops Manager UI.
 
-If you configure custom rules and also choose the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place. 
+If you configure custom rules and also choose the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place.
 
 For more information about forwarding debug logs, see [Forward Ops Manager Debug Logs to An External Store in the Syslog Form](#log-forwarding).
 
@@ -716,7 +738,7 @@ For more information, see [BPM fails to start job process with exit status 1](ht
 
 ### <a id="bad-link-failed-install"></a> Incorrect Link for Failed Installations in Ops Manager UI
 
-When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in a pop-up window. 
+When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in a pop-up window.
 This link is currently non-functional.
 
 To work around this issue, click on **Change Log** in the Ops Manager Installation Dashboard to view product installation logs.
