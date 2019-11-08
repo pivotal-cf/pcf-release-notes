@@ -1571,3 +1571,9 @@ This issue is fixed in PAS v2.5.10 and later.
 In PAS v2.5.10 and v2.5.11, the Apps Manager service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, use the cf CLI to manage user roles.
 
 For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) commands in the Cloud Foundry CLI Reference Guide.
+
+### <a id="credhub-encryption-password"></a> CredHub Enforces 20 Character Minimum on Encryption Keys
+
+PAS versions 2.5.0 and 2.5.1 had a bug where CredHub did not enforce the 20 character minimum on encryption passwords. This was fixed in PAS 2.5.2+.
+
+Before upgrading to PAS 2.5.2+, ensure your encryption key is at least 20 characters in length.
