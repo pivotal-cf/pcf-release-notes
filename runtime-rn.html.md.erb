@@ -1735,3 +1735,9 @@ For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-h
 In PAS v2.4.13 to v2.4.15, Apps Manager does not show Spring Boot App Health information.
 
 This issue is fixed in PAS 2.5 and later.
+ 
+### <a id="credhub-encryption-password"></a> CredHub Enforces 20 Character Minimum on Encryption Keys
+
+In PAS v2.4.0 to v2.4.5, CredHub does not enforce the 20 character minimum on encryption passwords. This is fixed in PAS 2.4.6 and later.
+
+Before upgrading to PAS v2.4.6 and later, ensure your encryption key is at least 20 characters in length.
