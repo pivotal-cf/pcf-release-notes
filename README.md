@@ -21,7 +21,7 @@ This pipeline automatically publishes release notes to a staging environment. On
 someone should review the results to verify the content and formatting. After verification, someone must manually trigger
 publishing to a production site.
 
-Contact the PCF Documentation team to publish your release notes to a production site, either through Slack (#pcf-docs in the Pivotal organization) or by email (cf-docs@pivotal.io).
+Contact the Pivotal Platform Documentation team to publish your release notes to a production site, either through Slack (#pcf-docs in the Pivotal organization) or by email (cf-docs@pivotal.io).
 
 If you have access permission to the `cf-release-notes` Concourse pipeline, you can publish your release notes to a
 production site without contacting the Pivotal Platform Documentation team. In general, we only recommend this for small changes.
@@ -42,9 +42,9 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
     * [PCF 2.4 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/index.html)
     * [PCF 2.5 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/index.html)
     * [PCF 2.6 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-6/pcf-release-notes/index.html)
-    * [PCF 2.7 staging site](http://docs-pcf-staging.cfapps.io/platform/2-7/pcf-release-notes/index.html)
-    * [PCF 2.8 staging site](http://docs-pcf-staging.cfapps.io/platform/2-8/pcf-release-notes/index.html)
-    * [PCF 2.9 staging site](http://docs-pcf-staging.cfapps.io/platform/2-9/pcf-release-notes/index.html)
+    * [Pivotal Platform 2.7 staging site](http://docs-pcf-staging.cfapps.io/platform/2-7/pcf-release-notes/index.html)
+    * [Pivotal Platform 2.8 staging site](http://docs-pcf-staging.cfapps.io/platform/2-8/pcf-release-notes/index.html)
+    * [Pivotal Platform 2.9 staging site](http://docs-pcf-staging.cfapps.io/platform/2-9/pcf-release-notes/index.html)
 
 3. Open the appropriate tab in Concourse, click the **production** box, then click the **+** button in the top right to start a production build.
 
@@ -55,6 +55,6 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
     * [PCF 2.4](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-4)
     * [PCF 2.5](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-5)
     * [PCF 2.6](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-6)
-    * [PCF 2.7](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-7)
-    * [PCF 2.8](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-8)
-    * [PCF 2.9](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-9)
+    * [Pivotal Platform 2.7](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-7)
+    * [Pivotal Platform 2.8](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-8)
+    * [Pivotal Platform 2.9](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?group=pcf-2-9)
