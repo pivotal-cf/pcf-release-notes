@@ -394,7 +394,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
 * **[Feature Improvement]** `consul_server` can be scaled down to 0 instances
 * **[Feature Improvement]** Add an option CREDHUB_SKIP_INTERPOLATION to skip CredHub interpolation when staging/starting an app
-* **[Feature Improvement]** Add configuration for router balancing algorithm to the **Networking** pane. Pivotal recommends **Round robin** for most use cases. Selecting **Least connection** may result in a more even load between application instances. For more information, see [HTTP Routing](https://docs.pivotal.io/pivotalcf/2-5/concepts/http-routing.html#balancing-algorithm).
+* **[Feature Improvement]** Add configuration for router balancing algorithm to the **Networking** pane. **Round robin** is the default and Pivotal recommends this option for most use cases. Some use cases, such as those where apps have long-lived connections, may benefit from the least connection algorithm. For more information, see HTTP Routing.. For more information, see [HTTP Routing](https://docs.pivotal.io/pivotalcf/2-5/concepts/http-routing.html#balancing-algorithm).
 * **[Feature Improvement]** re-introduce the CFLinuxFS2 stack
 * **[Bug Fix]** Fix race condition in garden-external-networker
 * **[Bug Fix]** Address Azure MySQL compatibility problems in Notifications release
