@@ -231,6 +231,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix bug that prevented users from inviting others to organizations and spaces through Apps Manager that did not appear in the first page of results from Cloud Controller
 * **[Bug Fix]** Improve performance of organization/space user role endpoint
 * **[Bug Fix]** Improve scalability of container-to-container service discovery by increasing file descriptor limit on bosh-dns-adapter
+* **[Bug Fix]** Metric Registrar - Metric Registrar Monitor app now gets deleted after Deploy Metric Registrar errand completes, reducing load on Cloud Controller
 * Bump ubuntu-xenial stemcell to version `315.99`
 * Bump capi to version `1.80.8`
 * Bump cf-networking to version `2.22.6`
@@ -389,7 +390,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Improve LDAP username validation for NFS LDAP integration
 * **[Feature Improvement]** `consul_server` can be scaled down to 0 instances
 * **[Feature Improvement]** Add an option CREDHUB_SKIP_INTERPOLATION to skip CredHub interpolation when staging/starting an app
-* **[Feature Improvement]** Add configuration for router balancing algorithm to the **Networking** pane. **Round robin** is the default and Pivotal recommends this option for most use cases. Some use cases, such as those where apps have long-lived connections, may benefit from the least connection algorithm. For more information, see HTTP Routing.. For more information, see [HTTP Routing](https://docs.pivotal.io/pivotalcf/2-6/concepts/http-routing.html#balancing-algorithm)
+* **[Feature Improvement]** Add configuration for router balancing algorithm to the **Networking** pane. Pivotal recommends **Round robin** for most use cases. Selecting **Least connection** may result in a more even load between application instances. For more information, see [HTTP Routing](https://docs.pivotal.io/pivotalcf/2-6/concepts/http-routing.html#balancing-algorithm).
 * **[Bug Fix]** Fix race condition in garden-external-networker
 * **[Bug Fix]** Fix CCNG bbr lock scripts to be idempotent
 * **[Bug Fix]** Address Azure MySQL compatibility problems in Notifications release
