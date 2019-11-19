@@ -3,12 +3,14 @@ title: PCF v2.8 Breaking Changes
 owner: Release Engineering
 ---
 
-This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v2.8. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html).
+<% current_page.data.title = vars.platform_name + " " + vars.v_major_version + " Breaking Changes" %>
+
+This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
 
-## <a id='opsman'></a> PCF Ops Manager
+## <a id='opsman'></a> Pivotal Ops Manager
 
-See the following PCF Ops Manager breaking changes:
+See the following Pivotal Ops Manager breaking changes:
 
 ### <a id='credhub-generated-field'></a> Reset Manually Set Certificates in CredHub Before Upgrade
 
@@ -28,9 +30,9 @@ See the following PAS breaking changes:
 
 
 
-## <a id='ist'></a> PCF Isolation Segment
+## <a id='ist'></a> Pivotal Isolation Segment
 
-See the following PCF Isolation Segment breaking changes:
+See the following Pivotal Isolation Segment breaking changes:
 
 ### <a id='property-renamed'></a> Segment Name Property Is Renamed
 
@@ -44,15 +46,15 @@ The property `.isolated_diego_cell.placement_tag` is renamed `.properties.comput
 
 * `.properties.compute_isolation.enabled.isolation_segment_name` to add a placement tag for your Diego Cells when compute isolation is enabled
 
-You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _<%= vars.product_name %> Isolation Segment v2.8 Release Notes_.
+You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _Pivotal Isolation Segment v2.8 Release Notes_.
 
 ### <a id='compute-isolation-router-sharding'></a> Compute Isolation and Router Sharding Must Be Configured Simultaneously
 
 In the Isolation Segment v2.8 tile, compute isolation and networking isolation must be configured or disabled simultaneously. In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **Disable** under **Compute isolation**. If you disable compute isolation, you must set **Router sharding mode** to **No Isolation Segment**. If **Compute isolation** is enabled and **Router sharding mode** is set to **Isolation Segment only**, the Isolation Segment tile fails.
 
-Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _<%= vars.product_name %> Isolation Segment v2.8 Release Notes_.
+Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _Pivotal Isolation Segment v2.8 Release Notes_.
 
-For more information about configuring or disabling compute and networking isolation, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section in the _Installing <%= vars.product_name %> Isolation Segment_ topic.
+For more information about configuring or disabling compute and networking isolation, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section in the _Installing Pivotal Isolation Segment_ topic.
 
 
 ## <a id='pasw'></a> PAS for Windows
