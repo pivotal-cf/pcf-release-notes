@@ -179,9 +179,9 @@ Before Ops Manager v2.8, the metrics agent was installed only on Pivotal Applica
 
 ### <a id=‘enable-signed-urls’></a> BOSH VMs Can Use Signed URLs to Communicate with Blobstore
 
-You can configure BOSH VMs with Xenial stemcell line 621 to generate short-lived, pre-signed URLs for communication between the BOSH Agent and blobstore. This improves security because BOSH Agents no longer need credentials to communicate with the blobstore and VM disks no longer store blobstore credentials. These short-lived URLs are signed with appropriate permissions based on the type of VM and the type of objects.
+You can configure BOSH VMs with Xenial stemcell line 621 to generate short-lived, pre-signed URLs for communication between the BOSH Agent and blobstore. This improves security because BOSH Agents no longer use credentials to communicate with the blobstore and VM disks no longer store blobstore credentials. These short-lived URLs are signed with appropriate permissions based on the type of VM and the type of objects.
 
-To enable this feature, select the **Enable bookstore signed URLs** checkbox in the **Director Config** pane of the Ops Manager tile. This feature is disabled by default.
+To enable this feature, select the **Enable blobstore signed URLs** checkbox in the **Director Config** pane of the Ops Manager tile. This feature is disabled by default.
 
 For more information, see the [Ops Manager configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
 
