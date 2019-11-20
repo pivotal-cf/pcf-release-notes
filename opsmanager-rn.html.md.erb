@@ -18,6 +18,31 @@ The [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/cust
 
 ## <a id="releases"></a> Releases
 
+### <a id="2-4-26"></a>2.4.26
+
+* **[Feature]** Operators can configure multiple HSM hosts in BOSH CredHub using the Ops Manager API.
+* **[Security Fix]**: When an operator makes a request to the UAA server, the server does not log credentials within the query parameters.
+
+Ops Manager v2.4.26 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.4-build.298*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>170.175*</td></tr><tr><td>BBR SDK</td><td>1.7.1</td></tr><tr><td>BOSH Director</td><td>268.2.9</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.1.9</td></tr><tr><td>Syslog</td><td>11.6.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.5</td></tr><tr><td>BPM</td><td>1.1.5</td></tr><tr><td>Networking</td><td>9*</td></tr><tr><td>OS Conf</td><td>21.0.0*</td></tr><tr><td>AWS CPI</td><td>74</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>27.0.1</td></tr><tr><td>OpenStack CPI</td><td>39</td></tr><tr><td>vSphere CPI</td><td>51.1.2</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.1</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
+
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+
+  </tbody>
+</table>
+
 ### <a id="2-4-25"></a> 2.4.25
 
 Ops Manager v2.4.25 uses the following component versions:
