@@ -258,6 +258,10 @@ To enable this feature, select the **Enable blobstore signed URLs** checkbox in 
 
 For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
 
+### <a id='tls-always-enabled-for-internal-blobstore'></a> TLS Always Enabled for Internal Blobstore
+
+TLS is now always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API. 
+
 ### <a id='optional-dependencies'></a> Ops Manager UI and API Show More Information about Dependencies
 
 Ops Manager v2.8 changes the way dependencies appear when you selectively deploy products. When you click **Review Pending Changes** in the Ops Manager UI, each product lists its dependencies in the **Depends on** section. When you make a request to the `pending_changes` Ops Manager API endpoint, the response lists each product's dependencies in the `depends_on` section.
