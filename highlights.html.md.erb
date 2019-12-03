@@ -12,11 +12,138 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/opsmanager-rn.html).
 
+### <a id='om-optional-dependencies'></a> Add Optional Dependencies
+
+Tile authors can declare optional dependencies
+
+A tile does not need a hard dependency on another tile (eg: Healthwatch can be optionally dependent on PAS and PKS).
+
+Operators do not have to care about the “right order” to deploy tiles.
+
+### <a id='om-time-verifier'></a> Install Time Verifier
+
+Operators are protected from service instance upgrade lag.
+
+Tile authors can use a new Install Time Verifier to check for service instances that may be slow to update.
+
+If it is not safe, the upgrade will quit, and the operator will see a warning message.
+
+### <a id='om-system-metrics-agent'></a> System Metrics Agent
+
+Ops Manager installs system metrics agent on all VMs by default
+System metrics report the usage and status of VM memory, disk, CPU, network, load and swap space.
+
+Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume these metrics.
+
+### Tiles can be auto-imported on Ops Manager
+
+### Ops Manager supports certificate authentication to vSphere NSX Manager
+
+### Operators can use the API to revert pending changes
+
+### Operators can configure multiple hardware security module (HSM) hosts in CredHub
+
+### BOSH VMs can use signed URLs to communicate with Blobstore
 
 
 ---
 
-## <a id='pas'></a>Pivotal Application Service (PAS) Highlights
+## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
 
 PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
+
+
+### <a id='deploy-sidecar-buildpack'></a> Deploy a Sidecar with a Buidlpack
+
+App developers can deploy a sidecar with a buildpack
+Continues our support for user-provided sidecars, as in prior releases
+
+Previously, the developer had to roll the sidecar process into the main app then deploy it with an app manifest.
+Sidecars feature remains in beta
+
+
+### <a id='manageable-upgrades'></a> More manageable upgrades of large PAS installations
+
+Operators can more easily break up their PAS upgrades into multiple independently upgradeable chunks of Diego cells. This mechanism can also decouple the upgrades from the PAS control plane.
+
+Enabled by “placement-tagless” with Isolation Segments.
+
+PASW also supports this approach.
+
+Similar to the “cell-block” upgrade mechanisms in PWS
+
+
+### <a id='manageable-upgrades'></a> Push and manage apps built from container images hosted on AWS Elastic Container Registry (ECR)
+
+PAS 2.8 can successfully run apps based on container images pulled from Amazon ECR.
+Now, customers can migrate apps based on container images in this registry to PAS.
+
+### <a id='credhub-instance-count'></a> Deploy At Least One CredHub Instance
+
+Operators are required to deploy at least 1 instance of PAS CredHub.
+PAS will not deploy if the CredHub instance count is set to 0, so we are including CredHub by default.
+
+Due to the way BOSH links are setup.
+
+In addition, this inclusion has other benefits:
+Makes the platform more "secure by default"
+Service teams can count on the PAS CredHub being there, and don't have to plan for unexpected behaviors
+
+
+### <a id='cpu-usage-metrics'></a> PAS emits CPU usage metrics that take CPU entitlement into account [beta]
+
+Developers can now make more informed decisions about scaling their apps.
+The new metric is relative to the application CPU entitlement. A value of 100% always means "you are using all the CPU you're entitled to and should probably scale up your application," regardless of the size of the cell.
+Current CPU stats are relative to the cell's CPU capacity; they don't include data about how much CPU the application is entitled to use vs how much CPU it's actually using.
+
+
+### <a id='apps-manager-scs-config'></a> Apps Manager SCS Config Server Integrations
+
+Devs can now see the configuration of their Spring Cloud Config Server instances on the service instance detail page
+
+Devs can now see the online status of the SCS instance, and perform a mirror sync with one click
+Closer integrations with Spring Cloud mean devs can work and troubleshoot faster
+
+
+### <a id='apps-manager-scs-config'></a> View Quota Information on Apps Manager
+
+Quota information for the org is displayed in the org header, helping devs and admins understand resource usage
+
+
+## <a id='observability'></a> Pivotal Platform Observability Highlights
+
+### App Metrics 2.0 
+
+Extended, redundant metrics and logs datasets
+Micrometer metric support
+Multi-process and rolling deployment support
+Declarative, codified observability and monitoring
+Persistent dashboards
+Improved product speed and stability
+Reduced tile footprint
+Expected to be the final PAS4BOSH / single foundation major release
+This allows us to focus on layering a richer developer experience into Healthwatch v2.0. 
+
+### Custom App Observability
+
+With Indicator Protocol and Pivotal App Metrics, app developers can declaratively codify their observability and monitoring definitions and push them with their code. 
+Declare the metrics that matter most to monitor app health 
+Define thresholds per metric and alert routing per app
+Define once, apply to multiple apps
+Monitor Spring Micrometer and tagged application metrics
+Can be automated in CI pipelines 
+Custom dashboards persist across all users 
+
+### Pivotal Healthwatch v1.8
+
+Adapts for PAS 2.8 relevant KPI/KSI changes
+Also features a v2 Firehose nozzle, to ensure compatibility through upcoming Firehose changes
+No major feature changes planned in v1 line
+Focus will be on development of Healthwatch v2.0
+A singular, on-prem product offering, likely under the Healthwatch brand.
+Multi-platform, multi-foundation, full-stack, backed by a Prometheus-compatible data store. 
+When GA ready, this tool will replace the current PAS-centric Healthwatch GA version. 
+Any future app developer observability offerings will also be part of this full-stack product; though the right deployment/access pattern for k8s app devs is still being determined.
+
+
 
