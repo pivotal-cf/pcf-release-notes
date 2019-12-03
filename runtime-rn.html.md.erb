@@ -1585,10 +1585,6 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='extended-cf-logs-downtime'></a> Extended cf logs Downtime
-
-When upgrading from PAS v2.4, there is extended `cf logs` downtime. This causes the smoke test errand to fail during upgrade.
-
 ### <a id='scheduler'></a> Scheduler Fails to Deploy If Connecting to MySQL Over TLS
 
 Scheduler for PCF has a dependency on MySQL for PCF v2.x and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF v2.x is configured to require TLS connection to the database, Scheduler fails to install.
