@@ -90,9 +90,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.5.15'></a> 2.5.15
 
 **Release Date:** 11/19/2019
@@ -177,8 +177,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.5.14'></a> 2.5.14
 
@@ -1708,9 +1708,9 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 ### <a id='mesh-domain'></a> Service Mesh Domain Exists Without Enabling Service Mesh
 
-PAS automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS. 
+PAS automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS.
 
-This issue is resolved in PAS v2.5.14. However, upgrading to v2.5.14 from v2.5.0 through v2.5.13 does not delete the domain. You must manually delete the domain. 
+This issue is resolved in PAS v2.5.14. However, upgrading to v2.5.14 from v2.5.0 through v2.5.13 does not delete the domain. You must manually delete the domain.
 
 ### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer
 
@@ -1730,11 +1730,16 @@ In PAS v2.5.1 to v2.5.9, Apps Manager shows the PWS logo rather than the PCF log
 
 This issue is fixed in PAS v2.5.10 and later.
 
-### <a id="apps-manager-invitations-failures"></a> Inviting New Users or Adding Space Roles in Apps Manager Fails
+### <a id="apps-manager-invitations-failures"></a> Cannot Invite New Users or Add Space Roles in Apps Manager
 
-In PAS v2.5.10 and v2.5.11, the Apps Manager service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, use the cf CLI to manage user roles.
+In PAS v2.5.10 and v2.5.11, the service that handles inviting new users to PAS fails to do the following in many cases:
 
-For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) commands in the Cloud Foundry CLI Reference Guide.
+* Add space roles for users
+* Invite new users with space roles
+
+As a workaround, you can use the CLI to manage user roles. See [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
+
+This issue is resolved in PAS v2.5.12 and later.
 
 ### <a id="credhub-encryption-password"></a> CredHub Enforces 20 Character Minimum on Encryption Keys
 
