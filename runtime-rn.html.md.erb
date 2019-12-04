@@ -90,9 +90,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.10'></a> 2.6.10
 
 **Release Date:** 11/19/2019
@@ -176,8 +176,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.6.9'></a> 2.6.9
 
@@ -1138,7 +1138,7 @@ PAS v2.3 introduced the `nfs-experimental` service. PAS v2.4 made this the defau
 
 The current Diego root CA included with PAS v2.3 and later expires in mid-2020. To prevent potential expiration issues with intermediate CAs when the root CA expires, PAS v2.6 includes another Diego root CA that extends the root CA expiration date.
 
-The Diego root CA is used to sign intermediate CAs, which are used to sign app identity certificates. In turn, app identity certificates are used to establish trust between applications and various components. 
+The Diego root CA is used to sign intermediate CAs, which are used to sign app identity certificates. In turn, app identity certificates are used to establish trust between applications and various components.
 
 PAS v2.6 includes both the original root CA and the new root CA for Diego. This release note is informational only. No operator intervention is required.
 
@@ -1160,9 +1160,9 @@ PAS migrates Router VMs with a single core to a VM type with two CPU cores durin
 
 The Loggregator architecture includes optional Syslog Agents. Syslog Agents run on PCF component VMs and host VMs to manage connections with and write to syslog drains for app logs. The addition of Syslog Agents increases the number of syslog drain service bindings supported by the Loggregator system and reduces the workload for Loggregator VMs.
 
-To enable Syslog Agents, select **Enable agent-based syslog egress for app logs** in the **System Logging** PAS configuration pane. 
+To enable Syslog Agents, select **Enable agent-based syslog egress for app logs** in the **System Logging** PAS configuration pane.
 
-<p class="note"><strong>Note:</strong> Enabling this feature disables the Syslog Adapter and Syslog Scheduler to avoid log duplication.</p>  
+<p class="note"><strong>Note:</strong> Enabling this feature disables the Syslog Adapter and Syslog Scheduler to avoid log duplication.</p>
 
 This update resolves a known issue where app log loss occurs at 10,000 syslog drain service bindings. For more information about the known issue, see the [Known Loggregator Scaling Issues](https://community.pivotal.io/s/article/known-loggregator-scaling-issues) knowledge base article.
 
@@ -1185,7 +1185,7 @@ For more information, see the [Add Metadata](http://docs.pivotal.io/pivotalcf/2-
 
 ### <a id='syslog-issue'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
 
-If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see [Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base. 
+If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see [Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base.
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
 
@@ -1204,11 +1204,11 @@ For information on how to address this issue, see [Database Migration Failure](h
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
 Large PCF Foundations can experience intermittent misrouting of apps.
-These routes can point to non-existent or incorrect app containers 
-and can cause apps to intermittently return HTTP codes 404 or 502. 
+These routes can point to non-existent or incorrect app containers
+and can cause apps to intermittently return HTTP codes 404 or 502.
 
-This issue typically occurs in larger-sized foundations where a single Gorouter 
-instance misses a deregistration message when a user unmaps routes to a running app. 
+This issue typically occurs in larger-sized foundations where a single Gorouter
+instance misses a deregistration message when a user unmaps routes to a running app.
 As a result, the Gorouter retains stale routes in its routing table.
 
 To resolve this issue, update to PAS v2.6.5 or later.
@@ -1237,9 +1237,9 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 ### <a id='mesh-domain'></a> Service Mesh Domain Exists Without Enabling Service Mesh
 
-PAS v2.6.0 through v2.6.3 automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS. 
+PAS v2.6.0 through v2.6.3 automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS.
 
-This issue is resolved in PAS v2.6.4. However, upgrading to v2.6.4 from v2.6.0 through v2.6.3 does not delete the domain. You must manually delete the domain. 
+This issue is resolved in PAS v2.6.4. However, upgrading to v2.6.4 from v2.6.0 through v2.6.3 does not delete the domain. You must manually delete the domain.
 
 ### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer
 
@@ -1249,7 +1249,7 @@ This issue is fixed in PAS v2.6.4 and later and does not affect other browsers.
 
 ### <a id="apps-manager-square-logo"></a> Apps Manager Unable to Show Custom Branding Square Logo
 
-In PAS v2.6.0 to v2.6.4, Apps Manager does not show a custom logo in its header. It instead shows the Pivotal Web Services logo. 
+In PAS v2.6.0 to v2.6.4, Apps Manager does not show a custom logo in its header. It instead shows the Pivotal Web Services logo.
 
 In PAS v2.6.5 and v2.6.6, the correct PCF default logo is displayed and custom logos may be uploaded, however the uploaded logo must be the right size, otherwise it will cause layout problems.
 
@@ -1259,8 +1259,13 @@ In PAS v2.6.0 to v2.6.3, the Spring Boot mappings in Apps Manager did not accoun
 
 This issue is fixed in PAS v2.6.4 and later.
 
-### <a id="apps-manager-invitations-failures"></a> Inviting New Users or Adding Space Roles in Apps Manager Fails
+### <a id="apps-manager-invitations-failures"></a> Cannot Invite New Users or Add Space Roles in Apps Manager
 
-In PAS v2.6.5 and v2.6.6, the Apps Manager service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, use the cf CLI to manage user roles.
+In PAS v2.6.5 and v2.6.6, the service that handles inviting new users to PAS fails to do the following in many cases:
 
-For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) commands in the Cloud Foundry CLI Reference Guide.
+* Add space roles for users
+* Invite new users with space roles
+
+As a workaround, you can use the CLI to manage user roles. See [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
+
+This issue is resolved in PAS v2.6.7 and later.
