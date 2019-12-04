@@ -89,9 +89,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.15</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.4'></a> 2.7.4
 
 **Release Date:** 11/20/2019
@@ -175,8 +175,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.15</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.7.3'></a> 2.7.3
 
@@ -762,12 +762,14 @@ If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web p
 
 ### <a id="apps-manager-invitations-failures"></a> Cannot Invite New Users or Add Space Roles in Apps Manager
 
-The service that handles inviting new users to PAS fails to do the following in many cases:
+In PAS v2.7.0, the service that handles inviting new users to PAS fails to do the following in many cases:
 
 * Add space roles for users
 * Invite new users with space roles
 
 As a workaround, you can use the CLI to manage user roles. See [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
+
+This issue is resolved in PAS v2.7.1.
 
 ### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.product_short %> v2.7
 
