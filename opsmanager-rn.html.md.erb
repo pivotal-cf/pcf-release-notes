@@ -260,7 +260,9 @@ For more information, see the [BOSH Director configuration topic for your IaaS](
 
 ### <a id='tls-always-enabled-for-internal-blobstore'></a> TLS Always Enabled for Internal Blobstore
 
-TLS is now always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API. 
+TLS is now always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API.  
+
+Pivotal recommends that you enable TLS for the internal blobstore before you upgrade. You can do this by selecting **Enable TLS** in the **Director Config** pane. There may be errors if the blobstore CA is expired. 
 
 ### <a id='optional-dependencies'></a> Ops Manager UI and API Show More Information about Dependencies
 
