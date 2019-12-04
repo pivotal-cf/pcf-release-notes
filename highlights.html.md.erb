@@ -1,5 +1,5 @@
 ---
-title: PCF v2.8 Feature Highlights
+title: Pivotal v2.8 Feature Highlights
 modified_date: false
 ---
 
@@ -8,29 +8,30 @@ modified_date: false
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
 
-## <a id='om'></a> PCF Ops Manager Highlights
+## <a id='om'></a> Pivotal Ops Manager Highlights
 
 Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/opsmanager-rn.html).
 
 ### <a id='om-optional-dependencies'></a> Add Optional Dependencies
 
-Tile authors can declare optional dependencies
+Tile authors can include both required and optional product dependencies for tiles.
 
-A tile does not need a hard dependency on another tile (eg: Healthwatch can be optionally dependent on PAS and PKS).
+Optional dependencies are only required if you upload both the dependent tile and the optional dependency to your environment.
 
-Operators do not have to care about the “right order” to deploy tiles.
+If tiles use optional dependencies instead of required dependencies, operators do not need to upload tiles in a particular order to avoid errors during deployment. 
 
 ### <a id='om-time-verifier'></a> Install Time Verifier
 
-Operators are protected from service instance upgrade lag.
+Tile authors can use an install time verifier to check for service instances that may be slow to update.
 
-Tile authors can use a new Install Time Verifier to check for service instances that may be slow to update.
+You can define an install time verifier that Ops Manager executes after you click **Apply Changes** to deploy. This verifier calls an HTTP endpoint on the existing broker to determine if all service instances are on the current version.  
 
-If it is not safe, the upgrade will quit, and the operator will see a warning message.
+If a service instance is not on a supported version, the upgrade quits and the install time verifier displays a warning message.
 
 ### <a id='om-system-metrics-agent'></a> System Metrics Agent
 
-Ops Manager installs system metrics agent on all VMs by default
+Ops Manager installs a System Metrics Agent on all VMs by default.
+
 System metrics report the usage and status of VM memory, disk, CPU, network, load and swap space.
 
 Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume these metrics.
