@@ -99,10 +99,11 @@ Current CPU stats are relative to the cell's CPU capacity; they don't include da
 
 ### <a id='apps-manager-scs-config'></a> Apps Manager SCS Config Server Integrations
 
-Devs can now see the configuration of their Spring Cloud Config Server instances on the service instance detail page
+You can see the configuration of your Spring Cloud Config Server instances on the Apps Manager service instance detail page.
 
-Devs can now see the online status of the SCS instance, and perform a mirror sync with one click
-Closer integrations with Spring Cloud mean devs can work and troubleshoot faster
+You can view the online status of the SCS instance and perform a mirror sync from the details page.
+
+This feature provides closer integrations with Spring Cloud, which means that you can work and troubleshoot more quickly.
 
 
 ### <a id='apps-manager-scs-config'></a> View Quota Information on Apps Manager
@@ -112,38 +113,40 @@ Quota information for the org is displayed in the org header, helping devs and a
 
 ## <a id='observability'></a> Pivotal Platform Observability Highlights
 
-### App Metrics 2.0 
 
-Extended, redundant metrics and logs datasets
-Micrometer metric support
-Multi-process and rolling deployment support
-Declarative, codified observability and monitoring
-Persistent dashboards
-Improved product speed and stability
-Reduced tile footprint
-Expected to be the final PAS4BOSH / single foundation major release
-This allows us to focus on layering a richer developer experience into Healthwatch v2.0. 
+### <a id='app-metrics-2-0'></a> App Metrics 2.0 
 
-### Custom App Observability
+App Metrics v2.0 includes the following features:
 
-With Indicator Protocol and Pivotal App Metrics, app developers can declaratively codify their observability and monitoring definitions and push them with their code. 
-Declare the metrics that matter most to monitor app health 
-Define thresholds per metric and alert routing per app
-Define once, apply to multiple apps
-Monitor Spring Micrometer and tagged application metrics
-Can be automated in CI pipelines 
-Custom dashboards persist across all users 
+* Extended, redundant metrics and logs datasets
+* Micrometer metric support
+* Multi-process and rolling deployment support
+* Declarative, codified observability and monitoring
+* Persistent dashboards
+* Improved product speed and stability
+* Reduced tile footprint
 
-### Pivotal Healthwatch v1.8
+### <a id='custom-observability'></a> Custom App Observability
 
-Adapts for PAS 2.8 relevant KPI/KSI changes
-Also features a v2 Firehose nozzle, to ensure compatibility through upcoming Firehose changes
-No major feature changes planned in v1 line
-Focus will be on development of Healthwatch v2.0
-A singular, on-prem product offering, likely under the Healthwatch brand.
-Multi-platform, multi-foundation, full-stack, backed by a Prometheus-compatible data store. 
-When GA ready, this tool will replace the current PAS-centric Healthwatch GA version. 
-Any future app developer observability offerings will also be part of this full-stack product; though the right deployment/access pattern for k8s app devs is still being determined.
+With Indicator Protocol and Pivotal App Metrics v2.0, app developers can push their observability and monitoring definitions with their code.
 
+The following describes the benefits of using custom observability metrics:
+
+* Declare the metrics that matter most to monitor app health 
+* Define thresholds per metric and alert routing per app
+* Define once, apply to multiple apps
+* Monitor Spring Micrometer and tagged application metrics
+* Can be automated in CI pipelines 
+* Custom dashboards persist across all users 
+
+### <a id='metric-egress'></a> Metric and Log Egress with System Metrics Agent
+
+Operators can view VM metrics, including compute, network, and storage, for all runtime and service tile VMs with the System Metrics Agent. Previously, these metrics were available for PAS VMs only.
+
+This is an improvement on the `bosh-system-metrics-forwarder`.
+
+App, Org and Space GUID/Name are available as annotations on all PAS metrics and logs.
+
+Operators can send logs for all apps to a single syslog destination with an aggregate syslog drain. So, you do not need to configure an individual syslog drain for each app.
 
 
