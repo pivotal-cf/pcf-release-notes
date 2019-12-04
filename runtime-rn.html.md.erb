@@ -830,7 +830,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix alignment of search results in Apps Manager
 * **[Bug Fix]** Fix policy pruning when there are more than 50 spaces
 * **[Bug Fix]** Fix failed access checks on mount for NFS volume service with some Windows NFS servers
-* **[Bug Fix]** Fix issue that can cause the Spring Boot actuator integration with Apps Manager to stop working for apps pushed using the beta rolling app deployment feature. See [Rolling App Deployments (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/rolling-deploy.html). 
+* **[Bug Fix]** Fix issue that can cause the Spring Boot actuator integration with Apps Manager to stop working for apps pushed using the beta rolling app deployment feature. See [Rolling App Deployments (Beta)](https://docs.pivotal.io/pivotalcf/2-4/devguide/rolling-deploy.html).
 * **[Bug Fix]** Fix issue in loggregator where AZ names with special characters could cause metron agent job to fail
 * **[Bug Fix]** Fix feature: "Operator can specify headers to be stripped from the response by the router"
 * **[Bug Fix]** Properly populate chained CA certificates for backend proxies when route integrity is enabled
@@ -1408,7 +1408,7 @@ To switch over to the new `nfs` service, you must re-create and re-bind your exi
 
 <p class="breaking note"><strong>Breaking Change:</strong> Your upgrade may fail if you do not take action. Additionally, this feature has operational impact and can affect other features. For more information, see the corresponding item in the <a href="./breaking-changes.html#app-identity">Breaking Changes</a> topic.</p>
 
-In PAS v2.4, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter. Before you upgrade to v2.4, you must have secure routing with TLS enabled. 
+In PAS v2.4, the Gorouter always uses TLS to verify app identity. Verifying app identity improves resiliency and consistency for app routes, as well as increases security by encrypting data in flight from the Gorouter. Before you upgrade to v2.4, you must have secure routing with TLS enabled.
 
 For more information, see [Configure Gorouter with TLS](https://docs.pivotal.io/pivotalcf/2-4/upgrading/checklist.html#pas) in _Upgrade Preparation Checklist for PCF v2.4_.
 
@@ -1558,7 +1558,7 @@ This update allows `usage_service.audit` users to quickly generate reports on hi
 ### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
 
 The **Remove Specified HTTP Response Headers** field added in PAS v2.4.4 is not functional. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job.
- 
+
 This issue is fixed in PAS patch v2.4.5.
 
 ### <a id="cipher-downtime"></a> Removal of Default Ciphers Causes Downtime when Upgrading from PAS v2.2 to v2.3 and from v2.3 to v2.4
@@ -1617,11 +1617,11 @@ To resolve this issue, see [Apps Manager shows no content due to SSL validation 
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in PAS v2.4.3 through v2.4.5
 
-In PAS v2.4.3, v2.4.4, and v2.4.5, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API. 
+In PAS v2.4.3, v2.4.4, and v2.4.5, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API.
 
 If there is more than one intermediate certificate authority, not counting the root certificate authority, the following happens:
 
-* Apps Manager does not show content. 
+* Apps Manager does not show content.
 * The logs for Apps Manager include the text `certificate chain too long`.
 
 If you must use an SSL certificate chain with more than one intermediate certificate authority in your environment, contact Pivotal Support to discuss options for working around this issue.
@@ -1633,10 +1633,10 @@ Do not attempt to rotate certificate authorities (CAs) if you use mutual TLS for
 1. Log in to Ops Manager.
 1. Select the PAS tile.
 1. Select the **Application Settings** tab.
-1. View the settings in **Router application identity verification**. 
+1. View the settings in **Router application identity verification**.
 
 If **Router application identity verification** is set to `Router and applications use mutual TLS to verify each other's identity`, then you cannot rotate CAs. If you try to rotate CAs, the router will not be able to reach applications.
-  
+
 ### <a id=‘cc-error’></a> Cloud Controller Error Causes PCF Upgrade to Fail
 
 With buildpacks now having stack associations, additional validation must be added while upgrading to PAS v2.2 and later. This can generate a new `StacklessAndStackfulMatchingBuildpacksError` error in the post-start scripts.
@@ -1645,7 +1645,7 @@ For more information and instructions for fixing this error, see [Pivotal Cloud 
 
 ### <a id='log-error'></a> Metric Registrar App Log Error Message
 
-An `invalid log drain` error message may appear in app logs on foundations where the Metric Registrar is enabled. This error message indicates that the current version of Loggregator cannot parse the scheme used by the Metric Registrar. 
+An `invalid log drain` error message may appear in app logs on foundations where the Metric Registrar is enabled. This error message indicates that the current version of Loggregator cannot parse the scheme used by the Metric Registrar.
 
 This error message does not indicate that the app logs are incorrect or incomplete. There is no action required.
 
@@ -1666,11 +1666,11 @@ For information on how to address this issue, see [Database Migration Failure](h
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
 Large PCF Foundations can experience intermittent misrouting of apps.
-These routes can point to non-existent or incorrect app containers 
-and can cause apps to intermittently return HTTP codes 404 or 502. 
+These routes can point to non-existent or incorrect app containers
+and can cause apps to intermittently return HTTP codes 404 or 502.
 
-This issue typically occurs in larger-sized foundations where a single Gorouter 
-instance misses a deregistration message when a user unmaps routes to a running app. 
+This issue typically occurs in larger-sized foundations where a single Gorouter
+instance misses a deregistration message when a user unmaps routes to a running app.
 As a result, the Gorouter retains stale routes in its routing table.
 
 To resolve this issue, update to PAS v2.4.14 or later.
@@ -1699,11 +1699,11 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 ### <a id="ncp-upgrade-issue"></a> Apps Cannot Be Pushed or Restaged after Upgrade to VMware NSX-T Container Plug-in for PCF v2.4
 
-After upgrading the NSX-T Container Plug-in tile from v2.3 to v2.4, 
-users can no longer push or restage apps on PAS v2.4. 
+After upgrading the NSX-T Container Plug-in tile from v2.3 to v2.4,
+users can no longer push or restage apps on PAS v2.4.
 
-To workaround this issue, delete any manually created Switching Profiles 
-before proceeding with the upgrade of the plug-in. 
+To workaround this issue, delete any manually created Switching Profiles
+before proceeding with the upgrade of the plug-in.
 
 In the NSX-T Manager interface, do the following:
 
@@ -1715,27 +1715,30 @@ In the NSX-T Manager interface, do the following:
 ### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer
 
 In PAS v2.4.12, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
-  
+
 This issue is fixed in PAS v2.4.13 and later, and does not affect other browsers.
-  
+
 ### <a id="apps-manager-spring-mappings-context"></a> Apps Manager Does Not Show Spring Mappings Outside of the Application Context
 
 In PAS v2.4.0 to v2.4.12, the Spring Boot mappings in Apps Manager did not account for contexts other than the 'application' context. For this reason, some Spring Boot mappings may fail to show up in Apps Manager for a given application.
 
 This issue is fixed in PAS v2.4.13 and later.
 
-### <a id="apps-manager-invitations-failures"></a> Inviting New Users or Adding Space Roles in Apps Manager Fails
+### <a id="apps-manager-invitations-failures"></a> Cannot Invite New Users or Add Space Roles in Apps Manager
 
-In PAS v2.4.14 and v2.4.15, the Apps Manager service that handles inviting new users to Cloud Foundry fails in many cases to add space roles for users or invite new users with space roles. As a workaround, use the cf CLI to manage user roles.
+In PAS v2.4.14 and v2.4.15, the service that handles inviting new users to PAS fails to do the following in many cases:
 
-For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) commands in the Cloud Foundry CLI Reference Guide.
+* Add space roles for users
+* Invite new users with space roles
+
+As a workaround, you can use the CLI to manage user roles. See [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
 
 ### <a id="apps-manager-spring-app-health-missing"></a> Spring Boot App Health is Not Displayed
 
 In PAS v2.4.13 to v2.4.15, Apps Manager does not show Spring Boot App Health information.
 
 This issue is fixed in PAS 2.5 and later.
- 
+
 ### <a id="credhub-encryption-password"></a> CredHub Enforces 20 Character Minimum on Encryption Keys
 
 In PAS v2.4.0 to v2.4.5, CredHub does not enforce the 20 character minimum on encryption passwords. This is fixed in PAS 2.4.6 and later.
