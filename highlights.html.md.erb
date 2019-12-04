@@ -75,26 +75,26 @@ Similar to the “cell-block” upgrade mechanisms in PWS
 
 ### <a id='manageable-upgrades'></a> Push and manage apps built from container images hosted on AWS Elastic Container Registry (ECR)
 
-PAS 2.8 can successfully run apps based on container images pulled from Amazon ECR.
-Now, customers can migrate apps based on container images in this registry to PAS.
+PAS v2.8 can run apps based on container images pulled from Amazon ECR.
+
+You can migrate apps based on container images in ECR to PAS.
 
 ### <a id='credhub-instance-count'></a> Deploy At Least One CredHub Instance
 
-Operators are required to deploy at least 1 instance of PAS CredHub.
-PAS will not deploy if the CredHub instance count is set to 0, so we are including CredHub by default.
+Operators are required to deploy at least one instance of PAS CredHub.
 
-Due to the way BOSH links are setup.
+PAS v2.8 does not deploy if the CredHub instance count is set to zero.
 
-In addition, this inclusion has other benefits:
-Makes the platform more "secure by default"
-Service teams can count on the PAS CredHub being there, and don't have to plan for unexpected behaviors
+This update improves platform security by deploying PAS with one instance of CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances. 
 
 
-### <a id='cpu-usage-metrics'></a> PAS emits CPU usage metrics that take CPU entitlement into account [beta]
+### <a id='cpu-usage-metrics'></a> PAS Emits CPU Usage Metrics With CPU Entitlement
 
-Developers can now make more informed decisions about scaling their apps.
-The new metric is relative to the application CPU entitlement. A value of 100% always means "you are using all the CPU you're entitled to and should probably scale up your application," regardless of the size of the cell.
-Current CPU stats are relative to the cell's CPU capacity; they don't include data about how much CPU the application is entitled to use vs how much CPU it's actually using.
+The PAS CPU usage metrics take into account CPU entitlement. This allows you to make more informed scaling decisions for your apps.
+
+The CPU usage metric in PAS v2.8 is relative to the app CPU entitlement. A value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled. 
+
+Previously, CPU usage metrics did not include data about how much CPU the app is entitled to use as compared to the CPU that it is currently using.
 
 
 ### <a id='apps-manager-scs-config'></a> Apps Manager SCS Config Server Integrations
