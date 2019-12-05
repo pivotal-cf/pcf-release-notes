@@ -30,21 +30,39 @@ If a service instance is not on a supported version, the upgrade quits and the i
 
 ### <a id='om-system-metrics-agent'></a> System Metrics Agent
 
-Ops Manager installs a System Metrics Agent on all VMs by default.
+Ops Manager installs a System Metrics Agent on all Pivotal Platform VMs by default.
 
-System metrics report the usage and status of VM memory, disk, CPU, network, load and swap space.
+System metrics report the usage and status of VM memory, disk, CPU, network, load and swap space. 
 
-Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume these metrics.
+Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
 
-### Tiles can be auto-imported on Ops Manager
+For a complete list of metrics, see [`system-metrics-release`](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) in GitHub.
 
-### Ops Manager supports certificate authentication to vSphere NSX Manager
+### <a id='om-nsx-manager-auth'></a> Ops Manager Supports Certificate Authentication to vSphere NSX Manager
 
-### Operators can use the API to revert pending changes
+For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
 
-### Operators can configure multiple hardware security module (HSM) hosts in CredHub
+For information about how to configure BOSH Director authentication to NSX, see the [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) section
+of the _Configuring BOSH Director on vSphere_ topic.
 
-### BOSH VMs can use signed URLs to communicate with Blobstore
+### <a id='om-revert-pending-changes'></a> Revert Pending Changes With the API
+
+You can revert pending changes in Ops Manager with the `DELETE /api/v0/staged` Ops Manager API endpoint. 
+
+### <a id='om-hsm-hosts'></a> Operators can configure multiple hardware security module (HSM) hosts in CredHub
+
+Operators can use the Ops Manager API `/api/v0/staged/director/properties` endpoint to configure BOSH CredHub to use a highly available Hardware Security Module (HSM).
+
+### <a id='om-signed-urls'></a> BOSH VMs can use signed URLs to communicate with Blobstore
+
+You can configure BOSH VMs with Xenial stemcell line 621 to generate short-lived, pre-signed URLs for communication between the BOSH Agent and blobstore. This improves security because VM disks do not store blobstore credentials.
+
+To enable this feature, select the **Enable blobstore signed URLs** checkbox in the **Director Config** pane of the Ops Manager tile.
+
+For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
+
+### <a id='om-auto-import'></a> Tiles can be auto-imported on Ops Manager
+
 
 
 ---
@@ -112,6 +130,88 @@ This feature provides closer integrations with Spring Cloud, which means that yo
 Quota information for the org is displayed in the org header, helping devs and admins understand resource usage
 
 
+
+
+## <a id='pks'></a> Enterprise Pivotal Container Service (PKS) v1.6 Highlights
+
+
+### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
+
+PKS v1.6 provides experimental integration with Tanzu Mission Control. For more information, see [Tanzu Mission Control Integration](./installing-nsx-t.html#tmc).
+
+### <a id='pks-cluster-limit'></a> Operators Can Limit Cluster Provisioning
+
+Operators can limit the total number of clusters a user can provision in <%= vars.product_short %>. For more information about quotas, see [Managing Resource Usage with Quotas](resource-usage.html) and [Viewing Usage Quotas](resource-review.html).
+
+### <a id='pks-admin-role'></a> Read-Only Admin Role
+
+Adds a new UAA scope, `pks.clusters.admin.read`, for Enterprise PKS users. Accounts with this scope can access any information about all clusters except for cluster credentials.
+
+For information about UAA scopes, see [UAA Scopes for <%= vars.product_short %> Users](uaa-scopes.html) and [Managing <%= vars.product_short %> Users with UAA](manage-users.html).
+
+
+### <a id='pks-cluster-config'></a> (Beta) Configure a Cluster With a Docker Registry CA Certificate
+
+Operators can configure a single Kubernetes cluster with a specific Docker
+Registry CA certificate. 
+
+For more information about configuring a cluster with a Docker
+Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](docker-custom-ca-certs.html).
+
+### Gear2 Enterprise Management Console
+
+
+
+### <a id='pks-cluster-upgrade'></a> Upgrade Multiple Clusters Simultaneously
+
+Operators can save time on cluster upgrades by upgrading multiple Kubernetes clusters simultaneously. Operators can also designate specific upgrade clusters as canary clusters. Operators can upgrade clusters serially, serially with some clusters designated as canary clusters, or entirely in parallel.
+
+For more information about multiple cluster upgrades, see
+[Upgrade Multiple Kubernetes Clusters(https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
+
+
+### <a id='pks-cluster-creation-time'></a> Accelerated Cluster Creation Time
+
+The **Worker VM Max in Flight** default value is increased from `1` to `4` in the **PKS API** configuration pane. This accelerates cluster creation by allowing up to four new nodes to be provisioned simultaneously.
+
+The updated default value is only applied during new <%= vars.product_short %> installation and is not applied during an <%= vars.product_short %> upgrade.
+
+If you are upgrading <%= vars.product_short %> from a previous version and want to accelerate multi-cluster provisioning, you can increase the value of **Worker VM Max in Flight** manually.
+
+### <a id='pks-cluster-creation-time'></a> Support for Active-Active T0
+
+PKS v1.6 supports active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.  
+
+For more information, see [Configure Networking](./console/deploy-ent-pks-wizard.html#networking).
+
+### <a id='pks-lb-tier-1-routers'></a> Use Different Failure Domains for Load Balancer and Tier-1 Active/Standby Routers
+
+You can place the load balancer and Tier-1 Active/Standby routers on different failure domains. 
+
+For more information, see [Multisite Deployment of NSX-T Data Center](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-5D7E3D43-6497-4273-99C1-77613C36AD75.html) in the VMware documentation.
+
+### <a id='pks-health-status'></a> View Health Status of NSX-T Cluster Networking Object
+
+NSX Error CRD allows cluster managers and users to view NSX errors in Kubernetes resource annotations. The command `kubectl get nsxerror` provides the health status of NSX-T cluster networking objects for NCP v2.5.0 and later.
+
+This improves visibility and troubleshooting for cluster managers and users.
+
+For more information, see [Viewing the Health Status of Cluster Networking Objects (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-health.html).
+
+### <a id='pks-ingress-scale'></a> Scale Ingress Capacity With the Load Balancer CRD
+
+The NSXLoadBalancerMonitor CRD allows you monitor the load balancer and ingress resource capacity.
+
+For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMonitors` to view a health score that reflects the current performance of the NSX-T load balancer service, including usage, traffic, and current status. 
+
+For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
+
+### <a id='pks-http-s-redirect'></a> HTTPS Redirect
+
+### <a id='pks-http-proxy-aws'></a> HTTP proxy on AWS
+
+PKS v1.6 supports an HTTP/HTTPS Proxy on AWS. For more information see, [Using Proxies with <%= vars.product_short %> on AWS](proxies-aws.html). 
+
 ## <a id='observability'></a> Pivotal Platform Observability Highlights
 
 
@@ -129,7 +229,7 @@ App Metrics v2.0 includes the following features:
 
 ### <a id='custom-observability'></a> Custom App Observability
 
-With Indicator Protocol and Pivotal App Metrics v2.0, app developers can push their observability and monitoring definitions with their code.
+With Indicator Protocol and Pivotal App Metrics v2.0, app developers can push their observability and monitoring definitions with their app code.
 
 The following describes the benefits of using custom observability metrics:
 
@@ -140,14 +240,12 @@ The following describes the benefits of using custom observability metrics:
 * Can be automated in CI pipelines 
 * Custom dashboards persist across all users 
 
-### <a id='metric-egress'></a> Metric and Log Egress with System Metrics Agent
+### <a id='metric-egress'></a> Metric and Log Egress with System Metrics Agents
 
-Operators can view VM metrics, including compute, network, and storage, for all runtime and service tile VMs with the System Metrics Agent. Previously, these metrics were available for PAS VMs only.
+System Metrics Agents collect VM metrics, including compute, network, and storage metrics, for all runtime and service tile VMs. Without the System Metrics Agents, these metrics were available for PAS VMs only.
 
-This is an improvement on the `bosh-system-metrics-forwarder`.
+Operators can send logs for all apps to a single syslog destination with an aggregate syslog drain. You do not need to configure an individual syslog drain for each app.
 
 App, Org and Space GUID/Name are available as annotations on all PAS metrics and logs.
-
-Operators can send logs for all apps to a single syslog destination with an aggregate syslog drain. So, you do not need to configure an individual syslog drain for each app.
 
 
