@@ -137,34 +137,35 @@ Quota information for the org is displayed in the org header, helping devs and a
 
 ### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
 
-PKS v1.6 provides experimental integration with Tanzu Mission Control. For more information, see [Tanzu Mission Control Integration](./installing-nsx-t.html#tmc).
+Enterprise PKS v1.6 includes an experimental integration with Tanzu Mission Control. 
+
+For more information, see [Tanzu Mission Control Integration](https://docs.pivotal.io/pks/1-6/installing-nsx-t.html#tmc).
 
 ### <a id='pks-cluster-limit'></a> Operators Can Limit Cluster Provisioning
 
-Operators can limit the total number of clusters a user can provision in <%= vars.product_short %>. For more information about quotas, see [Managing Resource Usage with Quotas](resource-usage.html) and [Viewing Usage Quotas](resource-review.html).
+Operators can limit the total number of clusters a user can provision in Enterprise PKS. 
+
+For more information about quotas, see [Managing Resource Usage with Quotas](https://docs.pivotal.io/pks/1-6/resource-usage.html) and [Viewing Usage Quotas](https://docs.pivotal.io/pks/1-6/resource-review.html).
 
 ### <a id='pks-admin-role'></a> Read-Only Admin Role
 
 Adds a new UAA scope, `pks.clusters.admin.read`, for Enterprise PKS users. Accounts with this scope can access any information about all clusters except for cluster credentials.
 
-For information about UAA scopes, see [UAA Scopes for <%= vars.product_short %> Users](uaa-scopes.html) and [Managing <%= vars.product_short %> Users with UAA](manage-users.html).
+For information about UAA scopes, see [UAA Scopes for Enterprise PKS Users](https://docs.pivotal.io/pks/1-6/uaa-scopes.html) and [Managing Enterprise PKS Users with UAA](https://docs.pivotal.io/pks/1-6/manage-users.html).
 
 
-### <a id='pks-cluster-config'></a> (Beta) Configure a Cluster With a Docker Registry CA Certificate
+### <a id='pks-cluster-config'></a> Configure a Cluster With a Docker Registry CA Certificate (Beta)
 
 Operators can configure a single Kubernetes cluster with a specific Docker
 Registry CA certificate. 
 
 For more information about configuring a cluster with a Docker
-Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](docker-custom-ca-certs.html).
-
-### Gear2 Enterprise Management Console
-
+Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
 
 
 ### <a id='pks-cluster-upgrade'></a> Upgrade Multiple Clusters Simultaneously
 
-Operators can save time on cluster upgrades by upgrading multiple Kubernetes clusters simultaneously. Operators can also designate specific upgrade clusters as canary clusters. Operators can upgrade clusters serially, serially with some clusters designated as canary clusters, or entirely in parallel.
+Operators can save time on cluster upgrades by upgrading multiple Kubernetes clusters simultaneously. Operators can also designate specific upgrade clusters as canary clusters. Cluster upgrades can be serial, serial with some clusters designated as canary clusters, or in parallel.
 
 For more information about multiple cluster upgrades, see
 [Upgrade Multiple Kubernetes Clusters(https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
@@ -172,17 +173,17 @@ For more information about multiple cluster upgrades, see
 
 ### <a id='pks-cluster-creation-time'></a> Accelerated Cluster Creation Time
 
-The **Worker VM Max in Flight** default value is increased from `1` to `4` in the **PKS API** configuration pane. This accelerates cluster creation by allowing up to four new nodes to be provisioned simultaneously.
+In the **PKS API** configuration pane, the **Worker VM Max in Flight** default value is increased from `1` to `4`. This accelerates cluster creation by allowing up to four new nodes to be provisioned simultaneously.
 
-The updated default value is only applied during new <%= vars.product_short %> installation and is not applied during an <%= vars.product_short %> upgrade.
+The updated default value is only applied during new Enterprise PKS installation and is not applied during an Enterprise PKS upgrade.
 
-If you are upgrading <%= vars.product_short %> from a previous version and want to accelerate multi-cluster provisioning, you can increase the value of **Worker VM Max in Flight** manually.
+If you are upgrading Enterprise PKS from a previous version and want to accelerate multi-cluster provisioning, you can increase the value of **Worker VM Max in Flight** manually.
 
 ### <a id='pks-cluster-creation-time'></a> Support for Active-Active T0
 
-PKS v1.6 supports active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.  
+You can use active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.  
 
-For more information, see [Configure Networking](./console/deploy-ent-pks-wizard.html#networking).
+For more information, see [Configure Networking](https://docs.pivotal.io/pks/1-6/console/deploy-ent-pks-wizard.html#networking).
 
 ### <a id='pks-lb-tier-1-routers'></a> Use Different Failure Domains for Load Balancer and Tier-1 Active/Standby Routers
 
@@ -206,18 +207,22 @@ For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMo
 
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
 
-### <a id='pks-http-s-redirect'></a> HTTPS Redirect
 
 ### <a id='pks-http-proxy-aws'></a> HTTP proxy on AWS
 
-PKS v1.6 supports an HTTP/HTTPS Proxy on AWS. For more information see, [Using Proxies with <%= vars.product_short %> on AWS](proxies-aws.html). 
+Enterprise PKS v1.6 supports an HTTP/HTTPS Proxy on AWS. If your environment includes HTTP proxies, you can configure Enterprise PKS on AWS to use these proxies so that Enterprise PKS-deployed Kubernetes master and worker nodes access public Internet services and other internal services through a proxy.
+
+For more information see, [Using Proxies with Enterprise PKS on AWS](https://docs.pivotal.io/pks/1-6/proxies-aws.html).
+
 
 ## <a id='observability'></a> Pivotal Platform Observability Highlights
 
 
 ### <a id='app-metrics-2-0'></a> App Metrics 2.0 
 
-App Metrics v2.0 includes the following features:
+App Metrics v2.0 includes several new features to provide users with greater flexibility and control over observability and monitoring.
+
+New features in App Metrics v2.0 include:
 
 * Extended, redundant metrics and logs datasets
 * Micrometer metric support
@@ -226,6 +231,8 @@ App Metrics v2.0 includes the following features:
 * Persistent dashboards
 * Improved product speed and stability
 * Reduced tile footprint
+
+For more information about App Metrics v2.0, see [Pivotal App Metrics](https://docs.pivotal.io/app-metrics/2-0/index.html).
 
 ### <a id='custom-observability'></a> Custom App Observability
 
@@ -244,8 +251,10 @@ The following describes the benefits of using custom observability metrics:
 
 System Metrics Agents collect VM metrics, including compute, network, and storage metrics, for all runtime and service tile VMs. Without the System Metrics Agents, these metrics were available for PAS VMs only.
 
-Operators can send logs for all apps to a single syslog destination with an aggregate syslog drain. You do not need to configure an individual syslog drain for each app.
-
 App, Org and Space GUID/Name are available as annotations on all PAS metrics and logs.
+
+### <a id='aggregate-syslog-drain'></a> Aggregate Syslog Drain
+
+Operators can send logs for all apps to a single syslog destination with an Aggregate Syslog Drain. Configuring an Aggregate Syslog Drains means that you do not need to configure an individual syslog drain for each app.
 
 
