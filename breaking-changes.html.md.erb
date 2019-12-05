@@ -1,5 +1,5 @@
 ---
-title: PCF v2.8 Breaking Changes
+title: Pivotal Platform v2.8 Breaking Changes
 owner: Release Engineering
 ---
 
@@ -8,15 +8,14 @@ owner: Release Engineering
 This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
 
-## <a id='opsman'></a> Pivotal Ops Manager
+## <a id='opsman'></a> Pivotal Operations Manager
 
-See the following Pivotal Ops Manager breaking changes:
+See the following Ops Manager breaking changes:
 
 ### <a id='credhub-generated-field'></a> Reset Manually Set Certificates in CredHub before Rotating Certificates
 
-Before you rotate certificates in Ops Manager v2.8 using the `certificate_authorities/active/regenerate` API endpoint, you must reset all manually set certificates in CredHub. 
-
-When instructed to rotate certificates, Ops Manager v2.8 does a bulk rotation of all certificates where `generated` is either `true` or `null`. If you have manually set a certificate in Ops Manager v2.6 and earlier, the `generated` field is set to `null`. For more information about this feature, see [Ops Manager API Rotates CredHub Certificates and Certificate Authorities](./opsmanager-rn.html#om-api-rotate-credhub-certs) in _Ops Manager v2.8 Release Notes_.
+If you have manually set any certificates in CredHub on Ops Manager v2.6 or earlier, you need to reset those certificates before using either the `certificate_authorities/active/regenerate` API endpoint in Ops Manager v2.8 or the CredHub Maestro CLI to rotate certificates. 
+Resetting these certificates is not a required condition for the Ops Manager v2.8 upgrade. You can reset them either before or after the upgrade.
 
 To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/manual-credhub-certificate.html).
 
