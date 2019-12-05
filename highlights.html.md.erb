@@ -10,7 +10,7 @@ This topic highlights important new features included in Pivotal Cloud Foundry (
 
 ## <a id='om'></a> Pivotal Ops Manager Highlights
 
-Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/opsmanager-rn.html).
+Ops Manager v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [Pivotal Operations Manager v2.8 Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/opsmanager-rn.html).
 
 ### <a id='om-optional-dependencies'></a> Add Optional Dependencies
 
@@ -28,11 +28,11 @@ You can define an install time verifier that Ops Manager executes after you clic
 
 If a service instance is not on a supported version, the upgrade quits and the install time verifier displays a warning message.
 
-### <a id='om-system-metrics-agent'></a> System Metrics Agent
+### <a id='om-system-metrics-agent'></a> System Metrics Agent Installed By Default
 
 Ops Manager installs a System Metrics Agent on all Pivotal Platform VMs by default.
 
-System metrics report the usage and status of VM memory, disk, CPU, network, load and swap space. 
+System metrics report the usage and status of VM memory, disk, CPU, network, load, and swap space. 
 
 Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
 
@@ -61,7 +61,7 @@ To enable this feature, select the **Enable blobstore signed URLs** checkbox in 
 
 For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
 
-### <a id='om-auto-import'></a> Tiles can be auto-imported on Ops Manager
+### <a id='om-auto-import'></a> Tiles can be Automatically Imported on Ops Manager
 
 
 
@@ -72,24 +72,16 @@ For more information, see the [BOSH Director configuration topic for your IaaS](
 PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
 
 
-### <a id='deploy-sidecar-buildpack'></a> Deploy a Sidecar with a Buidlpack
+### <a id='deploy-sidecar-buildpack'></a> Deploy Sidecar Processes with a Buidlpack
 
-App developers can deploy a sidecar with a buildpack
-Continues our support for user-provided sidecars, as in prior releases
+You can deploy a sidecar process for an app with a buildpack, rather than deploying the sidecar process with an app manifest.
 
-Previously, the developer had to roll the sidecar process into the main app then deploy it with an app manifest.
-Sidecars feature remains in beta
+For more information about deploying sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
 
 
-### <a id='manageable-upgrades'></a> More manageable upgrades of large PAS installations
+### <a id='manageable-upgrades'></a> More Manageable Upgrades of Large PAS Installations
 
-Operators can more easily break up their PAS upgrades into multiple independently upgradeable chunks of Diego cells. This mechanism can also decouple the upgrades from the PAS control plane.
 
-Enabled by “placement-tagless” with Isolation Segments.
-
-PASW also supports this approach.
-
-Similar to the “cell-block” upgrade mechanisms in PWS
 
 
 ### <a id='manageable-upgrades'></a> Push and manage apps built from container images hosted on AWS Elastic Container Registry (ECR)
@@ -98,41 +90,39 @@ PAS v2.8 can run apps based on container images pulled from Amazon ECR.
 
 You can migrate apps based on container images in ECR to PAS.
 
-### <a id='credhub-instance-count'></a> Deploy At Least One CredHub Instance
 
-Operators are required to deploy at least one instance of PAS CredHub.
+### <a id='credhub-instance-count'></a> PAS Deployed With CredHub by Default
 
-PAS v2.8 does not deploy if the CredHub instance count is set to zero.
+You must use at least one CredHub VM when you deploy PAS v2.8. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
 
-This update improves platform security by deploying PAS with one instance of CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances. 
-
+This update improves platform security by deploying PAS with CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances. 
 
 ### <a id='cpu-usage-metrics'></a> PAS Emits CPU Usage Metrics With CPU Entitlement
 
-The PAS CPU usage metrics take into account CPU entitlement. This allows you to make more informed scaling decisions for your apps.
+The CPU usage metric in PAS v2.8 is relative to the app CPU entitlement. For example, a value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled. 
 
-The CPU usage metric in PAS v2.8 is relative to the app CPU entitlement. A value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled. 
-
-Previously, CPU usage metrics did not include data about how much CPU the app is entitled to use as compared to the CPU that it is currently using.
+This allows you to make more informed scaling decisions for your apps.
 
 
-### <a id='apps-manager-scs-config'></a> Apps Manager SCS Config Server Integrations
+### <a id='apps-manager-scs-config'></a> Apps Manager Spring Cloud Services Config Server Integrations
 
-You can see the configuration of your Spring Cloud Config Server instances on the Apps Manager service instance detail page.
-
-You can view the online status of the SCS instance and perform a mirror sync from the details page.
+For Spring Cloud Services (SCS) instances, Apps Manager shows the current status of the SCS Config Server on the service instance detail page. You can also use Apps Manager to trigger the Config Server to update app configurations.
 
 This feature provides closer integrations with Spring Cloud, which means that you can work and troubleshoot more quickly.
+
+For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in the _Using Apps Manager_ documentation.
 
 
 ### <a id='apps-manager-scs-config'></a> View Quota Information on Apps Manager
 
-Quota information for the org is displayed in the org header, helping devs and admins understand resource usage
+You can view quota information for the orgs in the org header in App Manager. This allows you to more quickly find resource usage information for orgs.
 
 
+---
 
+## <a id='pks'></a> Enterprise Pivotal Container Service (Enterprise PKS) v1.6 Highlights
 
-## <a id='pks'></a> Enterprise Pivotal Container Service (PKS) v1.6 Highlights
+Enterprise Pivotal Container Service (Enterprise PKS) v1.6 includes the following important major features. additional information about these and other features included in Enterprise PKS v1.6, see [Release Notes](https://docs.pivotal.io/pks/1-6/release-notes.html) in the Enterprise PKS documentation.
 
 
 ### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
@@ -247,14 +237,10 @@ The following describes the benefits of using custom observability metrics:
 * Can be automated in CI pipelines 
 * Custom dashboards persist across all users 
 
-### <a id='metric-egress'></a> Metric and Log Egress with System Metrics Agents
-
-System Metrics Agents collect VM metrics, including compute, network, and storage metrics, for all runtime and service tile VMs. Without the System Metrics Agents, these metrics were available for PAS VMs only.
-
-App, Org and Space GUID/Name are available as annotations on all PAS metrics and logs.
-
 ### <a id='aggregate-syslog-drain'></a> Aggregate Syslog Drain
 
-Operators can send logs for all apps to a single syslog destination with an Aggregate Syslog Drain. Configuring an Aggregate Syslog Drains means that you do not need to configure an individual syslog drain for each app.
+You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and PAS component VM metrics to one or more syslog endpoints.
 
+This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
 
+For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
