@@ -130,6 +130,10 @@ Operators can limit the total number of clusters a user can provision in Enterpr
 
 For more information about quotas, see [Managing Resource Usage with Quotas](https://docs.pivotal.io/pks/1-6/resource-usage.html) and [Viewing Usage Quotas](https://docs.pivotal.io/pks/1-6/resource-review.html).
 
+### <a id='pks-management-console'></a> Enterprise PKS Management Console
+
+Enterprise PKS v1.6 includes the VMware Enterprise PKS Management Console v1.1 installer. VMware Enterprise PKS Management Console provides a unified installation experience for deploying Enterprise PKS to vSphere. For more information, see [Using the Enterprise PKS Management Console](https://docs.pivotal.io/pks/1-6/console/console-index.html).
+
 ### <a id='pks-admin-role'></a> Read-Only Admin Role
 
 Adds a new UAA scope, `pks.clusters.admin.read`, for Enterprise PKS users. Accounts with this scope can access any information about all clusters except for cluster credentials.
@@ -191,13 +195,6 @@ For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMo
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
 
 
-### <a id='pks-http-proxy-aws'></a> HTTP proxy on AWS
-
-Enterprise PKS v1.6 supports an HTTP/HTTPS Proxy on AWS. If your environment includes HTTP proxies, you can configure Enterprise PKS on AWS to use these proxies so that Enterprise PKS-deployed Kubernetes master and worker nodes access public Internet services and other internal services through a proxy.
-
-For more information see, [Using Proxies with Enterprise PKS on AWS](https://docs.pivotal.io/pks/1-6/proxies-aws.html).
-
-
 ## <a id='observability'></a> Pivotal Platform Observability Highlights
 
 The following are important major updates for monitoring and observability products in Pivotal Platform v<%= vars.current_major_version %>. For more information, see the documentation for the relevant product.
@@ -219,22 +216,9 @@ New features in App Metrics v2.0 include:
 
 For more information about App Metrics v2.0, see [Pivotal App Metrics](https://docs.pivotal.io/app-metrics/2-0/index.html).
 
-### <a id='custom-observability'></a> Custom App Observability
+### <a id='aggregate-syslog-drain'></a> Forward Logs and Metrics for All Apps with Aggregate Syslog Drain
 
-With Indicator Protocol and Pivotal App Metrics v2.0, app developers can push their observability and monitoring definitions with their app code.
-
-The following describes the benefits of using custom observability metrics:
-
-* Declare the metrics that matter most to monitor app health 
-* Define thresholds per metric and alert routing per app
-* Define once, apply to multiple apps
-* Monitor Spring Micrometer and tagged application metrics
-* Can be automated in CI pipelines 
-* Custom dashboards persist across all users 
-
-### <a id='aggregate-syslog-drain'></a> Aggregate Syslog Drain
-
-You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and PAS component VM metrics to one or more syslog endpoints.
+You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and VM metrics to one or more syslog endpoints.
 
 This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
 
