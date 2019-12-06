@@ -10,9 +10,7 @@ This topic contains release notes for <%= vars.windows_runtime_full %>.
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of Pivotal Platform v2.7. 
-To use the <%= vars.windows_runtime_full %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later.
-For more information, see [](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html).  
+The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of Pivotal Platform v2.7. To use the <%= vars.windows_runtime_full %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later. For more information, see [Installing and Configuring PASW](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html).  
 
 
 ## <a id='releases'></a> Releases
@@ -211,7 +209,6 @@ For more information, see [](https://docs.pivotal.io/platform/application-servic
 </table>
 
 
-
 ## <a id='new-features'></a> New Features in <%= vars.windows_runtime_full %> v2.7
 
 <%= vars.windows_runtime_full %> v2.7 includes the following major features:
@@ -220,8 +217,7 @@ For more information, see [](https://docs.pivotal.io/platform/application-servic
 
 You should migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
-You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/2-7/adminguide/stack-auditor.html).
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin. For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/2-7/adminguide/stack-auditor.html).
 
 ### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
@@ -233,15 +229,13 @@ This update improves the developer experience by making VisualC++ Redistributabl
 
 <%= vars.windows_runtime_full %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
 
-Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`,
-and the property `syslog_metrics_to_syslog_enabled`
-are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
+Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
 For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
 ### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH
 
-<p class="note warning"><b>Warning:</b> This feature is a breaking change. See <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <i><%= vars.product_name %> v2.7 Breaking Changes</i>.</p>
+<p class="note warning"><strong>Warning:</strong> This feature is a breaking change. For more information, see <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <em><%= vars.product_name %> v2.7 Breaking Changes</em>.</p>
 
 The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
 
@@ -249,7 +243,8 @@ This is part of a larger effort to achieve platform parity with Linux VMs by ena
 
 To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in _Installing and Configuring PASW_.  
+For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in the _Installing and Configuring PASW_ topic.  
+
 
 ## <a id='adv-features'></a> New Advanced Features
 
@@ -265,8 +260,8 @@ You can enable TLS connections from the router to apps. This feature is availabl
 
 You can select three different options to add route integrity and mTLS (mutual TLS):
 
-* **Disable route integrity and mutual TLS (Default)**: This beta feature is disabled by default.
-* **Router uses TLS to verify application identity**: This enables route integrity for your apps but not mTLS.
-* **Router and applications use mutual TLS to verify each other's identity (incompatible with TCP Routing)**: This option enables both route integrity and mTLS.
+* **Disable route integrity and mutual TLS**: This beta feature is disabled by default.
+* **Router uses TLS to verify app identity**: This enables route integrity for your apps but not mTLS.
+* **Router and apps use mutual TLS to verify each other's identity**: This option enables both route integrity and mTLS.
 
 <p class="note"><strong>Note:</strong> This beta feature checks only that the client certificate is signed by the expected CA using mTLS. It does not include Subject Alternative Name (SAN) checks of the presented client certificates.</p>

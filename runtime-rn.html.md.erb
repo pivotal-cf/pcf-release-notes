@@ -538,15 +538,16 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to <%= vars.app_runtime_full %> v2.7 is documented in the [Upgrading <%= vars.product_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to <%= vars.app_runtime_full %> v2.7 is documented in [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
 When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of PAS, you must first upgrade to PAS v2.6 to successfully upgrade to PAS v2.7.
 
-* Some partner service tiles may be incompatible with <%= vars.product_name %> v2.7. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.product_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.product_name %> v2.7, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.7. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.product_name %> v2.7, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in PAS v2.7
@@ -555,7 +556,7 @@ When upgrading to PAS v2.7, be aware of the following upgrade considerations:
 
 PAS v2.7 supports pushing Java apps with sidecars. Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
 
-For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#sidecars). To understand how you can push Java apps with sidecars, see [Requirements for Java Apps](https://docs.pivotal.io/platform/2-7/devguide/sidecars.html#java) in _Pushing Apps with Sidecar Processes_.
+For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#sidecars) in the PAS v2.6 release notes. To understand how you can push Java apps with sidecars, see the [Requirements for Java Apps](https://docs.pivotal.io/platform/2-7/devguide/sidecars.html#java) section in the _Pushing Apps with Sidecar Processes_ topic.
 
 ### <a id='rotate-ccdb-key'></a> Rotate the Cloud Controller Database Encryption Key
 
@@ -569,7 +570,7 @@ The Consul server instance is removed from PAS. This saves VM resources and redu
 
 In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In PAS v2.7, the Consul server instance is removed from PAS.
 
-<p class="note warning"><b>Warning:</b> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="./breaking-changes.html#consul-server">Consul Clients Not Supported in PAS</a>.</p>
+<p class="note warning"><strong>Warning:</strong> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="./breaking-changes.html#consul-server">Consul Clients Not Supported in PAS</a> in the <em>Pivotal Platform v2.7 Breaking Changes</em> topic.</p>
 
 ### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
@@ -581,9 +582,9 @@ For more information about configuring this limit, see the [Configure Advanced F
 
 PAS v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement.
 
-App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades. See [Upgrade a Service Instance](https://docs.pivotal.io/devguide/services/managing-services.html#upgrade) for more information.
+App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades. For more information, see the [Upgrade a Service Instance](https://docs.pivotal.io/devguide/services/managing-services.html#upgrade) section of the _Managing Service Instances with the cf CLI_ topic.
 
-If you are a service author and want to enable this feature, see [Updating a Service Instance](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#updating-a-service-instance) in the _Open Service Broker API Specification_.
+If you are a service author and want to enable this feature, see [Updating a Service Instance](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#updating-a-service-instance) in the _Open Service Broker API Specification_ on GitHub.
 
 ### <a id='apps-manager-ui'></a> Updated Resource Navigation in Apps Manager UI
 
@@ -602,13 +603,10 @@ You can do the following in Apps Manager to manage app re-deployments and revisi
 - View the deployment status of an app revision.
 - View the environment variables associated with an app revision.
 
-You can manage app re-deployments and revisions in the **Revisions** pane of the
-Apps Manager UI.
+You can manage app re-deployments and revisions in the **Revisions** pane of the Apps Manager UI.
 
-For more information, see [Manage App Revisions](http://docs.pivotal.io/platform/2-7/console/manage-apps.html#revisions)
-in _Managing Apps and Service Instances Using Apps Manager_.
-
-For general information about app revisions in <%= vars.product_name %>, see [App Revisions](http://docs.pivotal.io/platform/2-7/devguide/revisions.html).
+For more information, see the [Manage App Revisions](http://docs.pivotal.io/platform/2-7/console/manage-apps.html#revisions)
+section of the _Managing Apps and Service Instances Using Apps Manager_ topic.
 
 ### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
 
@@ -627,7 +625,7 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 
 You can configure Key Management Service (KMS) encryption providers for CredHub. Configuring KMS encryption providers for CredHub allows you to more easily create and manage the encryption keys that you use in your environment.
 
-For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#credhub) section of _Configuring PAS_.
+For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#credhub) section of the _Configuring PAS_ topic.
 
 ### <a id='inactive-mysql'></a> Enable Inactive MySQL Port for Auditing and Reporting
 
@@ -669,13 +667,13 @@ You can configure multiple internal domains that apps use for internal DNS servi
 
 This allows you to create separate domains for different organizations in your foundation. For example, you can create a separate domain for apps on the development tier and apps on the production tier.
 
-For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in _Configuring PAS_.
+For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in the _Configuring PAS_ topic.
 
 ### <a id='blobstore-backup'></a> Configure File Storage Backup Level
 
 You can configure PAS v2.7 to exclude droplets or to exclude both droplets and packages from your blobstore backup. This feature reduces the size of your backup artifact and can enable you to take more frequent backups without using a large amount of storage space.
 
-Excluding droplets or both droplets and packages from your blobstore backup can cause shorter periods of app downtime. However, you have to re-push or restage all apps, which results in a higher Recovery Time Objective (RTO).
+Excluding droplets or both droplets and packages from your blobstore backup can cause shorter periods of app downtime. However, you must re-push or restage all apps, which results in a higher Recovery Time Objective (RTO).
 
 For more information about the advantages and disadvantages of excluding droplets or excluding both droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
 
@@ -697,15 +695,13 @@ For more information, see the [Configure LDAP Credentials with Service Instance 
 
 ### <a id='v1-firehose'></a> Enable or Disable Firehose in Loggregator
 
-The firehose is enabled by default and configurable. You can enable or disable the firehose by selecting or deselecting the **Enable V1 firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
+The Firehose is enabled by default and configurable. You can enable or disable the Firehose by selecting or deselecting the **Enable V1 Firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the Firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
 
 To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
 
 ### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
 
-In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables
-creating services with a consistent metadata format across PAS and Kubernetes. For more information
-about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
+In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables creating services with a consistent metadata format across PAS and Kubernetes. For more information about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
@@ -713,18 +709,18 @@ When you push container images hosted in AWS Elastic Container Registry (ECR) wi
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
+
 ## <a id='known-issues'></a> Known Issues
 
 ### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or v2.7.1 with External Blobstores
 
-<p class="note warning"><b>Warning:</b> This is a breaking change for PAS v2.7.0 and v2.7.1. Do not attempt to upgrade to PAS v2.7.0 or v2.7.1 if you have one or more external blobstores. You can deploy PAS v2.7.2 with external blobstores.</p>
+<p class="note warning"><strong>Warning:</strong> This is a breaking change for PAS v2.7.0 and v2.7.1. Do not attempt to upgrade to PAS v2.7.0 or v2.7.1 if you have one or more external blobstores. You can deploy PAS v2.7.2 with external blobstores.</p>
 
 You cannot install PAS v2.7.0 or v2.7.1 with external blobstores. If you try to install and deploy PAS v2.7.0 or v2.7.1 with one or more external blobstores, the deploy fails with a pipeline error.
 
 This issue is caused by changes to the blobstore backup options in PAS v2.7.0. For more information about these changes, see [Configure File Storage Backup Level](#blobstore-backup).
 
 This issue is resolved in PAS v2.7.2.
-
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
 
@@ -733,7 +729,6 @@ When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environme
 To resolve this issue, ensure that all apps are using environment variables that do not contain periods or dashes.
 
 For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
-
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
@@ -745,16 +740,15 @@ For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enab
 
 ### <a id='last-syslog-drain'></a> Cannot Delete Last Remaining Syslog Drain
 
-PAS v2.7 has a known issue in which you cannot delete the last remaining app Syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
+PAS v2.7 has a known issue in which you cannot delete the last remaining app syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
 
-When you delete the last remaining drain, logs continue to be sent to its Syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs. You can use the following command: `cf drain APP-NAME invalid://invalid`.
+When you delete the last remaining drain, logs continue to be sent to its syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs. You can use the following command: `cf drain APP-NAME invalid://invalid`.
 
 <p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the <a href="https://plugins.cloudfoundry.org/#log-cache">Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>.</p>
 
 ### <a id='syslog-drain-type'></a> Cannot Choose Drain Type
 
-Syslog drains provide the ability to send only logs or metrics to their Syslog endpoint, rather than a combination of both. However, PAS v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
-
+Syslog drains provide the ability to send only logs or metrics to their syslog endpoint, rather than a combination of both. However, PAS v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
 
@@ -771,6 +765,6 @@ As a workaround, you can use the CLI to manage user roles. See [User Admin](http
 
 This issue is resolved in PAS v2.7.1.
 
-### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.product_short %> v2.7
+### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.app_runtime_abbr %> v2.7
 
-Pivotal Spring Cloud Services v2.0.x is not compatible with <%= vars.product_short %> v2.7 because Consul server is no longer available in <%= vars.product_short %> v2.7.
+Pivotal Spring Cloud Services v2.0.x is not compatible with <%= vars.app_runtime_abbr %> v2.7 because Consul server is no longer available in <%= vars.app_runtime_abbr %> v2.7.
