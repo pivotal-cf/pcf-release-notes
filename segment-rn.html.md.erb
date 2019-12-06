@@ -281,23 +281,30 @@ owner: Release Engineering
   </tbody>
 </table>
 
-## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.8 tile is available for installation with PCF v2.8.
+## <a id='intro'></a> About Pivotal Isolation Segment
+
+The Pivotal Isolation Segment v2.8 tile is available for installation with Pivotal v2.8.
 
 [Isolation segments](http://docs.pivotal.io/pivotalcf/2-8/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-8/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-8/adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.8 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html) topic.
+The procedure for installing Pivotal Isolation Segment v2.8 is documented in [Installing Pivotal Platform Isolation Segment](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html).
 
-To install a PCF Isolation Segment, you must first install PCF v2.8.
+To install a Pivotal Isolation Segment, you must first install Pivotal Platform v2.8.
 
 
 ## <a id='2.8.0'></a> New Features in Pivotal Isolation Segment v2.8
+
+### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
+
+Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This in turn allows Garden to calculate `AbsoluteCPUEntitlement`, the CPU entitlement for the container, and produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
+
+For more information about the `AbsoluteCPUEntitlement` and `AbsoluteCPUUsage` metrics, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
@@ -308,6 +315,12 @@ To disable SMB volume services in the Isolation Segment tile, select **Advanced 
 For more information, see the [Advanced Features](https://docs.pivotal.io/platform/application-service/2-8/operating/installing-pcf-is.html#advanced_features) section in _Installing Pivotal Platform Isolation Segment_.
 
 For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
+
+### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
+
+In the Isolation Segment v2.8 tile, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
 ### <a id='compute-networking-isolation'></a> Compute and Networking Isolation
 

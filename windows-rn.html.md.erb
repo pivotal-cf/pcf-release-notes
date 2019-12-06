@@ -268,6 +268,12 @@ To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane i
 
 For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in _Installing and Configuring PASW_.
 
+### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
+
+In PAS for Windows v2.8, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
+
 ### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
 
 Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.

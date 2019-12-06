@@ -615,7 +615,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.8 is documented in the [Upgrading Pivotal Platform](http://docs.pivotal.io/platform/2-8/customizing/upgrading-pcf.html) topic.
+The procedure for upgrading to Pivotal Application Service (PAS) v2.8 is documented in [Upgrading Pivotal Platform](http://docs.pivotal.io/platform/2-8/customizing/upgrading-pcf.html).
 
 When upgrading to PAS v2.8, be aware of the following upgrade considerations:
 
@@ -626,11 +626,17 @@ When upgrading to PAS v2.8, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.8
 
+### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
+
+Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This in turn allows Garden to calculate `AbsoluteCPUEntitlement`, the CPU entitlement for the container, and produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
+
+For more information about the `AbsoluteCPUEntitlement` and `AbsoluteCPUUsage` metrics, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic.
+
 ### <a id='appsman-scs'></a> Spring Cloud Services Configuration in Apps Manager
 
 For Spring Cloud Services (SCS) instances, Apps Manager shows the current status of the SCS Config Server and lets you trigger the Config Server to update app configurations.
 
-For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in the _Using Apps Manager_ documentation.
+For more information, see the [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) section of the _Managing Apps and Service Instances Using Apps Manager_ topic.
 
 ### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
 
@@ -638,7 +644,7 @@ In PAS v2.8, Usage Service deletes granular data after 365 days by default. You 
 
 This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.  
 
-For more information, see [Usage Data Retention](https://docs.pivotal.io/platform/application-service/2-8/operating/accounting-report.html#usage-retention).
+For more information, see the [Usage Data Retention](https://docs.pivotal.io/platform/application-service/2-8/operating/accounting-report.html#usage-retention) section of the _Reporting App, Task, and Service Instance Usage_ topic.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
@@ -646,7 +652,7 @@ In the PAS v2.8 tile, SMB volume services are enabled by default. When SMB volum
 
 To disable SMB volume services in the PAS tile, select **App Containers** and clear the **Enable SMB volume services** checkbox, and then select **Errands** and set the **SMB Broker Errand** to **Off**.
 
-For more information, see [Enabling Volume Services](http://docs.pivotal.io/platform/application-service/2-8/operating/enable-vol-services.html#smb-enable).
+For more information, see the [Enable SMB Volume Services](http://docs.pivotal.io/platform/application-service/2-8/operating/enable-vol-services.html#smb-enable) section of the _Enabling Volume Services_ topic.
 
 For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
 
@@ -664,9 +670,9 @@ URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rf
 
 By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub. 
 
-For more information about configuring the **Client basic auth compatibility mode** checkbox in PAS, see [Configuring PAS](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa).
+For more information about configuring the **Client basic auth compatibility mode** checkbox in PAS, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
 
-<p class="note warning"><strong>Warning:</strong> If you disable the <b>Client basic auth compatibility mode</b> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
+<p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
 
 ### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
 
