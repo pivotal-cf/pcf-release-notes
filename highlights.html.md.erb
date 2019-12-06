@@ -49,7 +49,7 @@ of the _Configuring BOSH Director on vSphere_ topic.
 
 You can revert pending changes in Ops Manager with the `DELETE /api/v0/staged` Ops Manager API endpoint. 
 
-### <a id='om-hsm-hosts'></a> Operators can configure multiple hardware security module (HSM) hosts in CredHub
+### <a id='om-hsm-hosts'></a> Configure Multiple Hardware Security Module Hosts in CredHub
 
 Operators can use the Ops Manager API `/api/v0/staged/director/properties` endpoint to configure BOSH CredHub to use a highly available Hardware Security Module (HSM).
 
@@ -105,14 +105,6 @@ You can view quota information for the orgs in the org header in App Manager. Th
 
 ---
 
-## <a id='pas-windows'></a> <%= vars.windows_runtime_full %> Highlights
-
-<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
-
-
-
----
-
 ## <a id='pks'></a> Enterprise Pivotal Container Service (Enterprise PKS) v1.6 Highlights
 
 Enterprise Pivotal Container Service (Enterprise PKS) v1.6 includes the following important major features. additional information about these and other features included in Enterprise PKS v1.6, see [Release Notes](https://docs.pivotal.io/pks/1-6/release-notes.html) in the Enterprise PKS documentation.
@@ -155,7 +147,7 @@ Registry CA certificate, see [Configuring PKS Clusters with Private Docker Regis
 Operators can save time on cluster upgrades by upgrading multiple Kubernetes clusters simultaneously. Operators can also designate specific upgrade clusters as canary clusters. Cluster upgrades can be serial, serial with some clusters designated as canary clusters, or in parallel.
 
 For more information about multiple cluster upgrades, see
-[Upgrade Multiple Kubernetes Clusters(https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
+[Upgrade Multiple Kubernetes Clusters](https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
 
 
 ### <a id='pks-cluster-creation-time'></a> Accelerated Cluster Creation Time
@@ -195,6 +187,9 @@ For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMo
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
 
 
+---
+
+
 ## <a id='observability'></a> Pivotal Platform Observability Highlights
 
 The following are important major updates for monitoring and observability products in Pivotal Platform v<%= vars.current_major_version %>. For more information, see the documentation for the relevant product.
@@ -223,3 +218,17 @@ You can configure an aggregate log and metric drain for your foundation to allow
 This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
 
 For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+
+<!--
+
+## <%= vars.windows_runtime_full %> Highlights
+
+<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
+
+### Web Config Transform Extension Buildpack
+
+### Platform engineers can ‘bosh ssh’ into Windows compilation VMs on Azure, AWS, GCP, and vSphere.
+
+### Platform engineers can use a test suite to validate Windows stemcell creation and isolate stemcell creation failures
+
+-->
