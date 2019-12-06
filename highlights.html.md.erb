@@ -1,5 +1,5 @@
 ---
-title: PCF v2.8 Feature Highlights
+title: Pivotal v2.8 Feature Highlights
 modified_date: false
 ---
 
@@ -8,15 +8,204 @@ modified_date: false
 This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
 
 
-## <a id='om'></a> PCF Ops Manager Highlights
+## <a id='om'></a> Pivotal Ops Manager Highlights
 
-Ops Manager v<%= vars.current_major_version %> includes the important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [PCF Ops Manager v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/opsmanager-rn.html).
+Ops Manager v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [Pivotal Operations Manager v2.8 Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/opsmanager-rn.html).
 
+### <a id='om-optional-dependencies'></a> Add Optional Dependencies
+
+Tile authors can include both required and optional product dependencies for tiles.
+
+Optional dependencies are only required if you upload both the dependent tile and the optional dependency to your environment.
+
+If tiles use optional dependencies instead of required dependencies, operators do not need to upload tiles in a particular order to avoid errors during deployment. 
+
+### <a id='om-time-verifier'></a> Install Time Verifier
+
+Tile authors can use an install time verifier to check for service instances that may be slow to update.
+
+You can define an install time verifier that Ops Manager executes after you click **Apply Changes** to deploy. This verifier calls an HTTP endpoint on the existing broker to determine if all service instances are on the current version.  
+
+If a service instance is not on a supported version, the upgrade quits and the install time verifier displays a warning message.
+
+### <a id='om-system-metrics-agent'></a> System Metrics Agent Installed By Default
+
+Ops Manager installs a System Metrics Agent on all Pivotal Platform VMs by default.
+
+System metrics report the usage and status of VM memory, disk, CPU, network, load, and swap space. 
+
+Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
+
+For a complete list of metrics, see [`system-metrics-release`](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) in GitHub.
+
+### <a id='om-nsx-manager-auth'></a> Ops Manager Supports Certificate Authentication to vSphere NSX Manager
+
+For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
+
+For information about how to configure BOSH Director authentication to NSX, see the [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) section
+of the _Configuring BOSH Director on vSphere_ topic.
+
+### <a id='om-revert-pending-changes'></a> Revert Pending Changes With the API
+
+You can revert pending changes in Ops Manager with the `DELETE /api/v0/staged` Ops Manager API endpoint. 
+
+### <a id='om-hsm-hosts'></a> Configure Multiple Hardware Security Module Hosts in CredHub
+
+Operators can use the Ops Manager API `/api/v0/staged/director/properties` endpoint to configure BOSH CredHub to use a highly available Hardware Security Module (HSM).
+
+### <a id='om-signed-urls'></a> BOSH VMs can use signed URLs to communicate with Blobstore
+
+You can configure BOSH VMs with Xenial stemcell line 621 to generate short-lived, pre-signed URLs for communication between the BOSH Agent and blobstore. This improves security because VM disks do not store blobstore credentials.
+
+To enable this feature, select the **Enable blobstore signed URLs** checkbox in the **Director Config** pane of the Ops Manager tile.
+
+For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
 
 
 ---
 
-## <a id='pas'></a>Pivotal Application Service (PAS) Highlights
+## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
 
 PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
 
+
+### <a id='deploy-sidecar-buildpack'></a> Deploy Sidecar Processes with a Buidlpack
+
+You can deploy a sidecar process for an app with a buildpack, rather than deploying the sidecar process with an app manifest.
+
+For more information about deploying sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
+
+
+### <a id='credhub-instance-count'></a> PAS Deployed With CredHub by Default
+
+You must use at least one CredHub VM when you deploy PAS v2.8. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
+
+This update improves platform security by deploying PAS with CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances. 
+
+### <a id='cpu-usage-metrics'></a> PAS Emits CPU Usage Metrics With CPU Entitlement
+
+The CPU usage metric in PAS v2.8 is relative to the app CPU entitlement. For example, a value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled. 
+
+This allows you to make more informed scaling decisions for your apps.
+
+
+### <a id='aggregate-syslog-drain'></a> Forward Logs and Metrics for All Apps with Aggregate Syslog Drain
+
+You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and VM metrics to one or more syslog endpoints.
+
+This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
+
+For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+
+
+### <a id='apps-manager-scs-config'></a> Apps Manager Spring Cloud Services Config Server Integrations
+
+For Spring Cloud Services (SCS) instances, Apps Manager shows the current status of the SCS Config Server on the service instance detail page. You can also use Apps Manager to trigger the Config Server to update app configurations.
+
+This feature provides closer integrations with Spring Cloud, which means that you can work and troubleshoot more quickly.
+
+For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in the _Using Apps Manager_ documentation.
+
+
+### <a id='apps-manager-scs-config'></a> View Quota Information on Apps Manager
+
+You can view quota information for the orgs in the org header in App Manager. This allows you to more quickly find resource usage information for orgs.
+
+
+---
+
+## <a id='pks'></a> Enterprise Pivotal Container Service (Enterprise PKS) v1.6 Highlights
+
+Enterprise Pivotal Container Service (Enterprise PKS) v1.6 includes the following important major features. additional information about these and other features included in Enterprise PKS v1.6, see [Release Notes](https://docs.pivotal.io/pks/1-6/release-notes.html) in the Enterprise PKS documentation.
+
+
+### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
+
+Enterprise PKS v1.6 includes an experimental integration with Tanzu Mission Control. 
+
+For more information, see [Tanzu Mission Control Integration](https://docs.pivotal.io/pks/1-6/installing-nsx-t.html#tmc).
+
+### <a id='pks-cluster-limit'></a> Operators Can Limit Cluster Provisioning
+
+Operators can limit the total number of clusters a user can provision in Enterprise PKS. 
+
+For more information about quotas, see [Managing Resource Usage with Quotas](https://docs.pivotal.io/pks/1-6/resource-usage.html) and [Viewing Usage Quotas](https://docs.pivotal.io/pks/1-6/resource-review.html).
+
+### <a id='pks-management-console'></a> Enterprise PKS Management Console
+
+Enterprise PKS v1.6 includes the VMware Enterprise PKS Management Console v1.1 installer. VMware Enterprise PKS Management Console provides a unified installation experience for deploying Enterprise PKS to vSphere. For more information, see [Using the Enterprise PKS Management Console](https://docs.pivotal.io/pks/1-6/console/console-index.html).
+
+### <a id='pks-admin-role'></a> Read-Only Admin Role
+
+Adds a new UAA scope, `pks.clusters.admin.read`, for Enterprise PKS users. Accounts with this scope can access any information about all clusters except for cluster credentials.
+
+For information about UAA scopes, see [UAA Scopes for Enterprise PKS Users](https://docs.pivotal.io/pks/1-6/uaa-scopes.html) and [Managing Enterprise PKS Users with UAA](https://docs.pivotal.io/pks/1-6/manage-users.html).
+
+
+### <a id='pks-cluster-config'></a> Configure a Cluster With a Docker Registry CA Certificate (Beta)
+
+Operators can configure a single Kubernetes cluster with a specific Docker
+Registry CA certificate. 
+
+For more information about configuring a cluster with a Docker
+Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
+
+
+### <a id='pks-cluster-upgrade'></a> Upgrade Multiple Clusters Simultaneously
+
+Operators can save time on cluster upgrades by upgrading multiple Kubernetes clusters simultaneously. Operators can also designate specific upgrade clusters as canary clusters. Cluster upgrades can be serial, serial with some clusters designated as canary clusters, or in parallel.
+
+For more information about multiple cluster upgrades, see
+[Upgrade Multiple Kubernetes Clusters](https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
+
+
+### <a id='pks-cluster-creation-time'></a> Accelerated Cluster Creation Time
+
+In the **PKS API** configuration pane, the **Worker VM Max in Flight** default value is increased from `1` to `4`. This accelerates cluster creation by allowing up to four new nodes to be provisioned simultaneously.
+
+The updated default value is only applied during new Enterprise PKS installation and is not applied during an Enterprise PKS upgrade.
+
+If you are upgrading Enterprise PKS from a previous version and want to accelerate multi-cluster provisioning, you can increase the value of **Worker VM Max in Flight** manually.
+
+### <a id='pks-cluster-creation-time'></a> Support for Active-Active T0
+
+You can use active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.  
+
+For more information, see [Configure Networking](https://docs.pivotal.io/pks/1-6/console/deploy-ent-pks-wizard.html#networking).
+
+### <a id='pks-lb-tier-1-routers'></a> Use Different Failure Domains for Load Balancer and Tier-1 Active/Standby Routers
+
+You can place the load balancer and Tier-1 Active/Standby routers on different failure domains. 
+
+For more information, see [Multisite Deployment of NSX-T Data Center](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-5D7E3D43-6497-4273-99C1-77613C36AD75.html) in the VMware documentation.
+
+### <a id='pks-health-status'></a> View Health Status of NSX-T Cluster Networking Object
+
+NSX Error CRD allows cluster managers and users to view NSX errors in Kubernetes resource annotations. The command `kubectl get nsxerror` provides the health status of NSX-T cluster networking objects for NCP v2.5.0 and later.
+
+This improves visibility and troubleshooting for cluster managers and users.
+
+For more information, see [Viewing the Health Status of Cluster Networking Objects (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-health.html).
+
+### <a id='pks-ingress-scale'></a> Scale Ingress Capacity With the Load Balancer CRD
+
+The NSXLoadBalancerMonitor CRD allows you monitor the load balancer and ingress resource capacity.
+
+For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMonitors` to view a health score that reflects the current performance of the NSX-T load balancer service, including usage, traffic, and current status. 
+
+For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
+
+
+<!--
+
+## <%= vars.windows_runtime_full %> Highlights
+
+<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
+
+### Web Config Transform Extension Buildpack
+
+### Platform engineers can ‘bosh ssh’ into Windows compilation VMs on Azure, AWS, GCP, and vSphere.
+
+### Platform engineers can use a test suite to validate Windows stemcell creation and isolate stemcell creation failures
+
+-->
