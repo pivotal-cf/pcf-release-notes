@@ -175,8 +175,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.2</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.8.0-beta.1'></a> 2.8.0-beta.1
 
@@ -638,9 +638,9 @@ For more information, see the [View and Update Spring Cloud Services Configurati
 
 ### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
 
-In PAS v2.8, Usage Service deletes granular data after 365 days by default. You can configure the retention period for granular data in the **Advanced Features** pane of the PAS tile. 
+In PAS v2.8, Usage Service deletes granular data after 365 days by default. You can configure the retention period for granular data in the **Advanced Features** pane of the PAS tile.
 
-This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.  
+This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.
 
 For more information, see the [Usage Data Retention](https://docs.pivotal.io/platform/application-service/2-8/operating/accounting-report.html#usage-retention) section of the _Reporting App, Task, and Service Instance Usage_ topic.
 
@@ -662,11 +662,11 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 ### <a id='uaa-client-url-encoding'></a> Enable URL Encoding For UAA Client Credentials
 
-You can disable an optional **Client basic auth compatibility mode** checkbox in the PAS **UAA** pane to require URL encoding for UAA client credentials. 
+You can disable an optional **Client basic auth compatibility mode** checkbox in the PAS **UAA** pane to require URL encoding for UAA client credentials.
 
 URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rfc6749#section-2.3.1).
 
-By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub. 
+By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
 
 For more information about configuring the **Client basic auth compatibility mode** checkbox in PAS, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
 
@@ -696,9 +696,9 @@ For more information about Metrics Discovery Release, see the [Metrics Discovery
 
 You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and PAS component VM metrics to one or more syslog endpoints.
 
-This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
+This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually.
 
-You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose). 
+You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
 To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log/metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
@@ -707,3 +707,46 @@ To enable an aggregate log and metric drain for your foundation, add a comma-sep
 In PAS v2.8, you must use at least one CredHub VM. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see the [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) section of the _Configuring PAS_ topic.
+
+## <a id='known-issues'></a> Known Issues
+
+### <a id='duplicate-metrics'></a>Duplicate Metrics Appear in the Firehose
+
+PAS v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In this PAS release, metrics appear in both formats. In the Firehose, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.
+
+The following table shows examples of the existing Loggregator metrics format and the new System Metrics Agent metrics format:
+
+<table>
+  <tr>
+    <th>Loggregator Format</th>
+    <th>System Metrics Agent Format</th>
+  </tr>
+  <tr>
+    <td><code>system.healthy</code></td>
+    <td><code>system_healthy</code></td>
+  </tr>
+  <tr>
+    <td><code>system.mem.percent</code></td>
+    <td><code>system_mem_percent</code></td>
+  </tr>
+  <tr>
+    <td><code>system.disk.system.percent</code></td>
+    <td><code>system_disk_system_percent</code></td>
+  </tr>
+  <tr>
+    <td><code>system.disk.ephemeral.percent</code></td>
+    <td><code>system_disk_ephemeral_percent</code></td>
+  </tr>
+  <tr>
+    <td><code>system.disk.persistent.percent</code></td>
+    <td><code>system_disk_persistent_percent</code></td>
+  </tr>
+  <tr>
+    <td><code>system.cpu.user</code></td>
+    <td><code>system_cpu_user</code></td>
+  </tr>
+</table>
+
+The new System Metrics Agent adds about 50 metric envelopes per VM each minute.
+
+The existing BOSH system metrics forwarder emits 2 metric envelopes per VM each minute. Each envelope contains 13 metrics.
