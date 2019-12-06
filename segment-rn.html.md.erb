@@ -288,18 +288,18 @@ See [New Features](#new-features).
 
 ## <a id='intro'></a> About Pivotal Isolation Segment
 
-The Pivotal Isolation Segment v2.7 tile is available for installation with <%= vars.product_name %> v2.7.
+The Pivotal Isolation Segment v2.7 tile is available for installation with <%= vars.platform_name %> v2.7.
 
 [Isolation segments](http://docs.pivotal.io/platform/2-7/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/platform/2-7/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/2-7/adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing Pivotal Isolation Segment v2.7 is documented in the [Installing Pivotal Isolation Segment](https://docs.pivotal.io/platform/2-7/customizing/installing-pcf-is.html) topic.
+The procedure for installing Pivotal Isolation Segment v2.7 is documented in [Installing Pivotal Isolation Segment](https://docs.pivotal.io/platform/2-7/customizing/installing-pcf-is.html).
 
-To install a Pivotal Isolation Segment, you must first install <%= vars.product_name %> v2.7.
+To install a Pivotal Isolation Segment, you must first install <%= vars.platform_name %> v2.7.
 
 ## <a id='new-features'></a> New Features in Pivotal Isolation Segment v2.7
 
@@ -313,9 +313,7 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/plat
 
 Pivotal Isolation Segment v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
 
-Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`,
-and the property `syslog_metrics_to_syslog_enabled`
-are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
+Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
 For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
