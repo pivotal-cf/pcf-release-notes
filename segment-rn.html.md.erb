@@ -304,7 +304,7 @@ To install a Pivotal Isolation Segment, you must first install <%= vars.platform
 
 Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This in turn allows Garden to calculate `AbsoluteCPUEntitlement`, the CPU entitlement for the container, and produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
 
-For more information about the `AbsoluteCPUEntitlement` and `AbsoluteCPUUsage` metrics, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic.
+For more information about the `AbsoluteCPUEntitlement` and `AbsoluteCPUUsage` metrics, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
