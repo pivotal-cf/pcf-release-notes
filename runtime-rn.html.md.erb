@@ -716,7 +716,7 @@ For more information, see the [View and Update Spring Cloud Services Configurati
 
 ### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
 
-In PAS v2.8, Usage Service deletes granular data after 365 days by default. You can configure the retention period for granular data in the **Advanced Features** pane of the PAS tile.
+Usage Service deletes granular data after 365 days by default. You can configure the retention period for granular data in the **Advanced Features** pane of the PAS tile.
 
 This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.
 
@@ -724,7 +724,7 @@ For more information, see the [Usage Data Retention](https://docs.pivotal.io/pla
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
-In the PAS v2.8 tile, SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
+SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
 
 To disable SMB volume services in the PAS tile, select **App Containers** and clear the **Enable SMB volume services** checkbox, and then select **Errands** and set the **SMB Broker Errand** to **Off**.
 
@@ -734,19 +734,19 @@ For general information about volume services, see [Using an External File Syste
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
-In PAS v2.8, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
 ### <a id='uaa-client-url-encoding'></a> Enable URL Encoding For UAA Client Credentials
 
-You can disable an optional **Client basic auth compatibility mode** checkbox in the PAS **UAA** pane to require URL encoding for UAA client credentials.
+You can disable an optional **Client basic auth compatibility mode** checkbox in the **UAA** pane of the PAS tile to require URL encoding for UAA client credentials.
 
 URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rfc6749#section-2.3.1).
 
 By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
 
-For more information about configuring the **Client basic auth compatibility mode** checkbox in PAS, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
+For more information about configuring the **Client basic auth compatibility mode** checkbox, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
 
 <p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
 
@@ -758,9 +758,9 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
-You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
-To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html).
 
@@ -778,7 +778,7 @@ This allows you to forward logs and metrics for all apps in your foundation with
 
 You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log/metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log/metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 ### <a id='credhub-vm'></a> PAS Must Use At Least One CredHub VM
 
@@ -790,40 +790,18 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 ### <a id='duplicate-metrics'></a>Duplicate Metrics Appear in the Firehose
 
-PAS v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In this PAS release, metrics appear in both formats. In the Firehose, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.
+PAS v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In PAS v2.8, metrics appear in both formats. In the Firehose, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.
 
 The following table shows examples of the existing Loggregator metrics format and the new System Metrics Agent metrics format:
 
-<table>
-  <tr>
-    <th>Loggregator Format</th>
-    <th>System Metrics Agent Format</th>
-  </tr>
-  <tr>
-    <td><code>system.healthy</code></td>
-    <td><code>system_healthy</code></td>
-  </tr>
-  <tr>
-    <td><code>system.mem.percent</code></td>
-    <td><code>system_mem_percent</code></td>
-  </tr>
-  <tr>
-    <td><code>system.disk.system.percent</code></td>
-    <td><code>system_disk_system_percent</code></td>
-  </tr>
-  <tr>
-    <td><code>system.disk.ephemeral.percent</code></td>
-    <td><code>system_disk_ephemeral_percent</code></td>
-  </tr>
-  <tr>
-    <td><code>system.disk.persistent.percent</code></td>
-    <td><code>system_disk_persistent_percent</code></td>
-  </tr>
-  <tr>
-    <td><code>system.cpu.user</code></td>
-    <td><code>system_cpu_user</code></td>
-  </tr>
-</table>
+| Loggregator Format | System Metrics Agent Format |
+| ------------------ | --------------------------- |
+| `system.healthy` | `system_healthy` |
+| `system.mem.percent` | `system_mem_percent` |
+| `system.disk.system.percent` | `system_disk_system_percent` |
+| `system.disk.ephemeral.percent` | `system_disk_ephemeral_percent` |
+| `system.disk.persistent.percent` | `system_disk_persistent_percent` |
+| `system.cpu.user` | `system_cpu_user` |
 
 The new System Metrics Agent adds about 50 metric envelopes per VM each minute.
 

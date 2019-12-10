@@ -346,27 +346,27 @@ For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego C
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
-In the Isolation Segment v2.8 tile, SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
+SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
 
 To disable SMB volume services in the Isolation Segment tile, select **Advanced Features** and clear the **Enable SMB volume services** checkbox.
 
-For more information, see the [Advanced Features](https://docs.pivotal.io/platform/application-service/2-8/operating/installing-pcf-is.html#advanced_features) section in _Installing Pivotal Platform Isolation Segment_.
+For more information, see the [Advanced Features](https://docs.pivotal.io/platform/application-service/2-8/operating/installing-pcf-is.html#advanced_features) section of the _Installing Pivotal Platform Isolation Segment_ topic.
 
 For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
-In the Isolation Segment v2.8 tile, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
 ### <a id='compute-networking-isolation'></a> Compute and Networking Isolation
 
-In the Isolation Segment v2.8 tile, there is a new **Compute and Networking Isolation** pane. _Compute isolation_ is when an app runs on compute resources - such as clusters, resource pools, and servers - that are isolated from other resources by a network partition or firewall. _Networking isolation_, or router sharding, is when traffic to an app instance uses a dedicated route that is isolated from routes used by other app instances by a network partition or firewall rule.
+There is a new **Compute and Networking Isolation** pane. _Compute isolation_ is when an app runs on compute resources - such as clusters, resource pools, and servers - that are isolated from other resources by a network partition or firewall. _Networking isolation_, or router sharding, is when traffic to an app instance uses a dedicated route that is isolated from routes used by other app instances by a network partition or firewall rule.
 
 In the Isolation Segment tile, compute isolation and networking isolation must be configured or disabled simultaneously. This is because networking isolation configures the route by which traffic goes to the Isolation Segment tile. Both are enabled by default. However, isolation segments do not require compute isolation in the Isolation Segment v2.8 tile.
 
-For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section in the _Installing <%= vars.product_name %> Isolation Segment_ topic.
+For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section of the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
 ### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
 
@@ -376,7 +376,7 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
-In Pivotal Isolation Segment v2.8, you can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the Pivotal Application Service (PAS) v2.8 tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the Pivotal Application Service (PAS) v2.8 tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
 
 For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 

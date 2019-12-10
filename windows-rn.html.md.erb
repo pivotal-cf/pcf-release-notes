@@ -295,13 +295,13 @@ You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a
 
 When you enable mutual TLS, PAS for Windows disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with PAS.
 
-To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity.** 
+To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**. 
 
-For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in _Installing and Configuring PASW_.
+For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in the _Installing and Configuring PASW_ topic.
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
-In PAS for Windows v2.8, NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
@@ -313,7 +313,7 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
-In PAS for Windows v2.8, you can disable the V2 firehose by deselecting the **Enable V2 firehose** checkbox in the **System Logging** pane of the PAS v2.8 tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS v2.8 tile. This allows you to save resources by shutting off related VMs, such as the Traffic Controller.
 
 For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
