@@ -18,13 +18,13 @@ Tile authors can include both required and optional product dependencies for til
 
 Optional dependencies are only required if you upload both the dependent tile and the optional dependency to your environment.
 
-If tiles use optional dependencies instead of required dependencies, operators do not need to upload tiles in a particular order to avoid errors during deployment. 
+If tiles use optional dependencies instead of required dependencies, operators do not need to upload tiles in a particular order to avoid errors during deployment.
 
 ### <a id='om-time-verifier'></a> Install Time Verifier
 
 Tile authors can use an install time verifier to check for service instances that may be slow to update.
 
-You can define an install time verifier that Ops Manager executes after you click **Apply Changes** to deploy. This verifier calls an HTTP endpoint on the existing broker to determine if all service instances are on the current version.  
+You can define an install time verifier that Ops Manager executes after you click **Apply Changes** to deploy. This verifier calls an HTTP endpoint on the existing broker to determine if all service instances are on the current version.
 
 If a service instance is not on a supported version, the upgrade quits and the install time verifier displays a warning message.
 
@@ -32,7 +32,7 @@ If a service instance is not on a supported version, the upgrade quits and the i
 
 Ops Manager installs a System Metrics Agent on all Pivotal Platform VMs by default.
 
-System metrics report the usage and status of VM memory, disk, CPU, network, load, and swap space. 
+System metrics report the usage and status of VM memory, disk, CPU, network, load, and swap space.
 
 Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
 
@@ -47,13 +47,13 @@ of the _Configuring BOSH Director on vSphere_ topic.
 
 ### <a id='om-revert-pending-changes'></a> Revert Pending Changes With the API
 
-You can revert pending changes in Ops Manager with the `DELETE /api/v0/staged` Ops Manager API endpoint. 
+You can revert pending changes in Ops Manager with the `DELETE /api/v0/staged` Ops Manager API endpoint.
 
 ### <a id='om-hsm-hosts'></a> Configure Multiple Hardware Security Module Hosts in CredHub
 
 Operators can use the Ops Manager API `/api/v0/staged/director/properties` endpoint to configure BOSH CredHub to use a highly available Hardware Security Module (HSM).
 
-### <a id='om-signed-urls'></a> BOSH VMs can use signed URLs to communicate with Blobstore
+### <a id='om-signed-urls'></a> BOSH VMs Can Use Signed URLs to Communicate with Blobstore
 
 You can configure BOSH VMs with Xenial stemcell line 621 to generate short-lived, pre-signed URLs for communication between the BOSH Agent and blobstore. This improves security because VM disks do not store blobstore credentials.
 
@@ -80,11 +80,11 @@ For more information about deploying sidecar processes, see [Pushing Apps with S
 
 You must use at least one CredHub VM when you deploy PAS v2.8. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
 
-This update improves platform security by deploying PAS with CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances. 
+This update improves platform security by deploying PAS with CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances.
 
 ### <a id='cpu-usage-metrics'></a> PAS Emits CPU Usage Metrics With CPU Entitlement
 
-The CPU usage metric in PAS v2.8 is relative to the app CPU entitlement. For example, a value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled. 
+The CPU usage metric in PAS v2.8 is relative to the app CPU entitlement. For example, a value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled.
 
 This allows you to make more informed scaling decisions for your apps.
 
@@ -93,7 +93,7 @@ This allows you to make more informed scaling decisions for your apps.
 
 You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and VM metrics to one or more syslog endpoints.
 
-This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually. 
+This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually.
 
 For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
@@ -121,13 +121,13 @@ Enterprise Pivotal Container Service (Enterprise PKS) v1.6 includes the followin
 
 ### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
 
-Enterprise PKS v1.6 includes an experimental integration with Tanzu Mission Control. 
+Enterprise PKS v1.6 includes an experimental integration with Tanzu Mission Control.
 
 For more information, see [Tanzu Mission Control Integration](https://docs.pivotal.io/pks/1-6/installing-nsx-t.html#tmc).
 
 ### <a id='pks-cluster-limit'></a> Operators Can Limit Cluster Provisioning
 
-Operators can limit the total number of clusters a user can provision in Enterprise PKS. 
+Operators can limit the total number of clusters a user can provision in Enterprise PKS.
 
 For more information about quotas, see [Managing Resource Usage with Quotas](https://docs.pivotal.io/pks/1-6/resource-usage.html) and [Viewing Usage Quotas](https://docs.pivotal.io/pks/1-6/resource-review.html).
 
@@ -145,7 +145,7 @@ For information about UAA scopes, see [UAA Scopes for Enterprise PKS Users](http
 ### <a id='pks-cluster-config'></a> Configure a Cluster With a Docker Registry CA Certificate (Beta)
 
 Operators can configure a single Kubernetes cluster with a specific Docker
-Registry CA certificate. 
+Registry CA certificate.
 
 For more information about configuring a cluster with a Docker
 Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
@@ -169,13 +169,13 @@ If you are upgrading Enterprise PKS from a previous version and want to accelera
 
 ### <a id='pks-cluster-creation-time'></a> Support for Active-Active T0
 
-You can use active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.  
+You can use active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.
 
 For more information, see [Configure Networking](https://docs.pivotal.io/pks/1-6/console/deploy-ent-pks-wizard.html#networking).
 
 ### <a id='pks-lb-tier-1-routers'></a> Use Different Failure Domains for Load Balancer and Tier-1 Active/Standby Routers
 
-You can place the load balancer and Tier-1 Active/Standby routers on different failure domains. 
+You can place the load balancer and Tier-1 Active/Standby routers on different failure domains.
 
 For more information, see [Multisite Deployment of NSX-T Data Center](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-5D7E3D43-6497-4273-99C1-77613C36AD75.html) in the VMware documentation.
 
@@ -191,7 +191,7 @@ For more information, see [Viewing the Health Status of Cluster Networking Objec
 
 The NSXLoadBalancerMonitor CRD allows you monitor the load balancer and ingress resource capacity.
 
-For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMonitors` to view a health score that reflects the current performance of the NSX-T load balancer service, including usage, traffic, and current status. 
+For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMonitors` to view a health score that reflects the current performance of the NSX-T load balancer service, including usage, traffic, and current status.
 
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
 
