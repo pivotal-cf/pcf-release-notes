@@ -23,13 +23,11 @@ If tiles use optional dependencies instead of required dependencies, operators d
 ### <a id='om-time-verifier'></a> HTTP Install-Time Verifier
 
 Tile authors can define an HTTP install-time verifier that calls an HTTP endpoint on
-the broker.
+the broker. Ops Manager executes this verifier after you click Apply Changes.
+If the HTTP response is not successful, the deployment fails and the verifier displays a warning message.
 
-You can use this verifier to check for service instances
+Tile authors can use this verifier to check for service instances
 that might become orphaned after an upgrade.
-Ops Manager executes this verifier after you click **Apply Changes** to deploy.
-If a service instance is not on a supported version,
-the deployment fails and the verifier displays a warning message.
 
 For more information,
 see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier)
