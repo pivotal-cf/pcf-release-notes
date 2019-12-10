@@ -31,17 +31,17 @@ Ops Manager release candidate 3 uses the following component versions:
     <td>Ops Manager</td><td>2.8.0-build.176*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.12</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.8.0</td></tr><tr><td>BOSH DNS</td><td>1.16.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.2</td></tr><tr><td>CredHub</td><td>2.5.9</td></tr><tr><td>Syslog</td><td>11.6.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.5*</td></tr><tr><td>BPM</td><td>1.1.5</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.3</td></tr><tr><td>BOSH CLI</td><td>6.1.1</td></tr><tr><td>Credhub CLI</td><td>2.6.1</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>1.0.0</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
 ### <a id="2-8-0-rc-2"></a> 2.8.0 Release Candidate 2
 
-- **[Feature]** TLS is always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API. 
-- **[Feature]** Sets the NGINX `worker_processes` property of the BOSH internal blobstore to `auto` to resolve failures during deployments where there were not enough workers.  
-- **[Bug Fix]** Resolves issue where help text for the **Enable signed URLs** checkbox was not legible when the director is deployed.  
+- **[Feature]** TLS is always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API.
+- **[Feature]** Sets the NGINX `worker_processes` property of the BOSH internal blobstore to `auto` to resolve failures during deployments where there were not enough workers.
+- **[Bug Fix]** Resolves issue where help text for the **Enable signed URLs** checkbox was not legible when the director is deployed.
 
 Ops Manager release candidate 2 uses the following component versions:
 
@@ -57,9 +57,9 @@ Ops Manager release candidate 2 uses the following component versions:
     <td>Ops Manager</td><td>2.8.0-build.175*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.12</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.8.0</td></tr><tr><td>BOSH DNS</td><td>1.16.0*</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.2*</td></tr><tr><td>CredHub</td><td>2.5.9*</td></tr><tr><td>Syslog</td><td>11.6.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.4*</td></tr><tr><td>BPM</td><td>1.1.5</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.3</td></tr><tr><td>BOSH CLI</td><td>6.1.1</td></tr><tr><td>Credhub CLI</td><td>2.6.1</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>1.0.0</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -79,9 +79,9 @@ Ops Manager release candidate 1 uses the following component versions:
     <td>Ops Manager</td><td>2.8.0-build.165*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.12</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.8.0</td></tr><tr><td>BOSH DNS</td><td>1.15.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.0*</td></tr><tr><td>CredHub</td><td>2.5.8*</td></tr><tr><td>Syslog</td><td>11.6.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.3*</td></tr><tr><td>BPM</td><td>1.1.5</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.3*</td></tr><tr><td>BOSH CLI</td><td>6.1.1</td></tr><tr><td>Credhub CLI</td><td>2.6.1</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>1.0.0*</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -104,9 +104,9 @@ Ops Manager v2.8.0 Beta 2 uses the following component versions:
     <td>Ops Manager</td><td>2.8.0-build.156*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.12*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.8.0</td></tr><tr><td>BOSH DNS</td><td>1.15.0</td></tr><tr><td>Metrics Server</td><td>0.0.24*</td></tr><tr><td>System Metrics</td><td>1.0.1</td></tr><tr><td>CredHub</td><td>2.5.7*</td></tr><tr><td>Syslog</td><td>11.6.0</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.2</td></tr><tr><td>BPM</td><td>1.1.5</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.2*</td></tr><tr><td>BOSH CLI</td><td>6.1.1</td></tr><tr><td>Credhub CLI</td><td>2.6.1</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>0.0.6*</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -169,7 +169,7 @@ Ops Manager v2.8.0 Alpha 3 uses the following component versions:
 * **[Feature]** `zero_if` optionally lets operators choose an instance count of `0` when the `zero_if` condition is not active and the `allow_manual_selection_of_zero` is set to  `true`
 * **[Feature]** Tile authors can add optional dependencies to a tile. The existing top-level key `requires_product_versions` has an `optional` key for each listed product.
 * **[Feature]** Provides new accessors for Telemetry: IaaS type and Director GUID
-* **[Feature]** Tile authors can define an install time verifier to run a HTTP/s request
+* **[Feature]** Tile authors can define an install-time verifier to run a HTTP/s request
 * **[Feature]** Updates BOSH DNS runtime config and example runtime config to have properties at the job level instead of the addon level. This is a requirement of the newer BOSH version used by Ops Manager. Other product that use runtime configs must update as well.
 * **[Feature]**  Begins consuming credhub-release from the Pivotal CredHub LTS repo to ensure users will be able to consume patches
 * **[Feature]** The Telemetry tile is available in the sidebar by default
@@ -203,9 +203,12 @@ Ops Manager v2.8.0 Alpha 2 uses the following component versions:
 * **[Feature]** Bulk Rotation of Certificates in CredHub.
 	* The Ops Manager API for rotating certificate authorities and leaf certificates now also rotates certificate authorities and leaf certificates stored in CredHub. For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-7/security/pcf-infrastructure/api-cert-rotation.html).
 * **[Feature]** Tile developers can specify static values for verifier properties.
-	* The properties of a form or install time verifier can now be specified as a static value, in addition to being a reference to a tile or job property.
-* **[Feature]** Tile developers can implement an install time HTTP verifier
-	* There may be conditions that a tile developer deems it unsafe for an operator to start a deployment. A new install time verifier is available that can make requests to a specified HTTP endpoint, and prevents the deployment if the response is not successful. Tile developers can also specify that the verifier should only run on major or minor upgrades.
+	* The properties of a form or install-time verifier can now be specified as a static value, in addition to being a reference to a tile or job property.
+* **[Feature]** Tile developers can implement an HTTP install-time verifier
+	* There may be conditions that a tile authors deems it unsafe for an operator to start a deployment.
+  A new install-time verifier is available that can make requests to a specified HTTP endpoint,
+  and prevents the deployment if the response is not successful.
+  Tile authors can also specify that the verifier should only run on major or minor upgrades.
 * **[Feature]** Removes tracking and verification of the BOSH DNS CA, as this responsibility is now handled by maestro. Specifically, this update removes the following:
 	* The `deployed_product_certificate_versions` table in the Ops Manager database
 	* The `CertificateRotationVerifier` verifier
@@ -282,9 +285,9 @@ For more information, see the [BOSH Director configuration topic for your IaaS](
 
 ### <a id='tls-always-enabled-for-internal-blobstore'></a> TLS Always Enabled for Internal Blobstore
 
-TLS is now always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API.  
+TLS is now always enabled for the internal blobstore. You can no longer toggle TLS for the internal blobstore with the UI or API.
 
-Pivotal recommends that you enable TLS for the internal blobstore before you upgrade. You can do this by selecting **Enable TLS** in the **Director Config** pane. There may be errors if the blobstore CA is expired. 
+Pivotal recommends that you enable TLS for the internal blobstore before you upgrade. You can do this by selecting **Enable TLS** in the **Director Config** pane. There may be errors if the blobstore CA is expired.
 
 ### <a id='optional-dependencies'></a> Ops Manager UI and API Show More Information about Dependencies
 
@@ -331,6 +334,23 @@ See the following table for information about how dependencies appear in the Ops
   </tr>
 </table>
 
+### <a id='om-time-verifier'></a> HTTP Install-Time Verifier
+Tile authors can define an `HttpSuccessVerifier` install-time verifier that calls an
+HTTP endpoint on the broker.
+
+Ops Manager executes this verifier after you click **Apply Changes**.
+If the HTTP response is not successful, the deployment fails and
+the verifier displays a warning message.
+
+Tile authors can use this verifier
+to check if all service instances on an existing broker are on the current version.
+This prevents service instances from becoming orphaned after an upgrade.
+
+They can also specify that the verifier should only run on major or minor upgrades.
+
+For more information,
+see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier)
+section in _Property and Template References_ in the Tile Developer documentation.
 
 ## <a id='known-issues'></a> Known Issues
 

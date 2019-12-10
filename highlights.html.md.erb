@@ -20,13 +20,16 @@ Optional dependencies are only required if you upload both the dependent tile an
 
 If tiles use optional dependencies instead of required dependencies, operators do not need to upload tiles in a particular order to avoid errors during deployment.
 
-### <a id='om-time-verifier'></a> Install Time Verifier
+### <a id='om-time-verifier'></a> HTTP Install-Time Verifier
 
-Tile authors can use an install time verifier to check for service instances that may be slow to update.
+Tile authors can define an HTTP install-time verifier that calls an HTTP endpoint on
+the broker.
 
-You can define an install time verifier that Ops Manager executes after you click **Apply Changes** to deploy. This verifier calls an HTTP endpoint on the existing broker to determine if all service instances are on the current version.
-
-If a service instance is not on a supported version, the upgrade quits and the install time verifier displays a warning message.
+You can use this verifier to check for service instances
+that might become orphaned after an upgrade.
+Ops Manager executes this verifier after you click **Apply Changes** to deploy.
+If a service instance is not on a supported version,
+the deployment fails and the verifier displays a warning message.
 
 ### <a id='om-system-metrics-agent'></a> System Metrics Agent Installed By Default
 
@@ -84,13 +87,13 @@ This update improves platform security by deploying PAS with CredHub by default.
 
 ### <a id='cpu-entitlement'></a> CPU Usage Metric Is Relative to CPU Entitlement for the Container
 
-Garden uses the CPU weight property for a containere to calculate a `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. 
+Garden uses the CPU weight property for a containere to calculate a `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container.
 
 Garden can then produce CPU usage metrics that are relative to `AbsoluteCPUEntitlement`. For example, a value of `100%` for CPU usage indiciates that the app is using all the CPU to which it is entitled.
 
 CPU usage metrics that are relative to the CPU entitlement for the container help you make more informed scaling decisions for your apps.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. 
+For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic.
 
 For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
