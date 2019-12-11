@@ -355,6 +355,10 @@ section in _Property and Template References_ in the Tile Developer documentatio
 
 You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation.
 
+### <a id='multiple-hsm-hosts'></a> Configure Multiple HSMs With the API
+
+You can use the `PUT /api/v0/staged/director/properties` endpoint in the Ops Manager API to configure multiple hardware security modules (HSMs) for BOSH CredHub. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.

@@ -47,11 +47,11 @@ of the _Configuring BOSH Director on vSphere_ topic.
 
 ### <a id='om-revert-staged-changes'></a> Revert Staged Changes With the API
 
-You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation.
+You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation
 
-### <a id='om-hsm-hosts'></a> Configure Multiple Hardware Security Module Hosts in CredHub
+### <a id='om-multiple-hsm-hosts'></a> Configure Multiple HSMs With the API
 
-Operators can use the Ops Manager API `/api/v0/staged/director/properties` endpoint to configure BOSH CredHub to use a highly available Hardware Security Module (HSM).
+You can use the `PUT /api/v0/staged/director/properties` endpoint in the Ops Manager API to configure multiple hardware security modules (HSMs) for BOSH CredHub. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 
 ### <a id='om-signed-urls'></a> BOSH VMs Can Use Signed URLs to Communicate with Blobstore
 
