@@ -45,9 +45,9 @@ For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Di
 For information about how to configure BOSH Director authentication to NSX, see the [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) section
 of the _Configuring BOSH Director on vSphere_ topic.
 
-### <a id='om-revert-pending-changes'></a> Revert Pending Changes With the API
+### <a id='om-revert-staged-changes'></a> Revert Staged Changes With the API
 
-You can revert pending changes in Ops Manager with the `DELETE /api/v0/staged` Ops Manager API endpoint.
+You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation.
 
 ### <a id='om-hsm-hosts'></a> Configure Multiple Hardware Security Module Hosts in CredHub
 
