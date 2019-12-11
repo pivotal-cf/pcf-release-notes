@@ -762,6 +762,14 @@ For more information about configuring the **Client basic auth compatibility mod
 
 <p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
 
+### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
+
+When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the access key ID and secret for an AWS IAM user as a Docker username and password as part of the `cf push` command. Apps are able to then continuously restart and restage successfully.
+
+This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
+
+For more information, see the [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) section of the _Deploying an App with Docker_ topic.
+
 ### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
 
 Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
