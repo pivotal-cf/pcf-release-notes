@@ -772,7 +772,7 @@ For more information, see the [Configure LDAP Credentials with Service Instance 
 
 The Firehose is enabled by default and configurable. You can enable or disable the Firehose by selecting or deselecting the **Enable V1 Firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the Firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
 
-To enable or disable the firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
+To enable or disable the Firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
 
 ### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
 
@@ -780,7 +780,7 @@ In PAS v2.7, annotation keys and key prefixes use the same metadata format as Ku
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
-When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the Access Key ID and Secret for an AWS IAM User as a Docker username and password as part of the `cf push` command. Apps are able to then continuously restart and restage successfully.
+When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the Access key ID and secret for an AWS IAM user as a Docker username and password as part of the `cf push` command. Apps are able to then continuously restart and restage successfully.
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
