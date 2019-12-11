@@ -22,16 +22,11 @@ If tiles use optional dependencies instead of required dependencies, operators d
 
 ### <a id='om-time-verifier'></a> HTTP Install-Time Verifier
 
-Tile authors can define an HTTP install-time verifier that calls an HTTP endpoint on
-the broker. Ops Manager executes this verifier after you click Apply Changes.
-If the HTTP response is not successful, the deployment fails and the verifier displays a warning message.
+Tile authors can define an HTTP install-time verifier that calls an HTTP endpoint on the broker. Ops Manager executes this verifier after you click **Apply Changes**. If the HTTP response is not successful, the deployment fails and the verifier displays a warning message.
 
-Tile authors can use this verifier to check for service instances
-that might become orphaned after an upgrade.
+Tile authors can use this verifier to check for service instances that might become orphaned after an upgrade.
 
-For more information,
-see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier)
-section in _Property and Template References_ in the Tile Developer documentation.
+For more information, see the [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier) section of the _Property and Template References_ topic.
 
 ### <a id='om-system-metrics-agent'></a> System Metrics Agent Installed By Default
 
@@ -41,7 +36,7 @@ System metrics report the usage and status of VM memory, disk, CPU, network, loa
 
 Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
 
-For a complete list of metrics, see [`system-metrics-release`](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) in GitHub.
+For a complete list of metrics, see the [VM Metrics](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) of _System Metrics Agent_ in the System Metrics repository on GitHub.
 
 ### <a id='om-nsx-manager-auth'></a> Ops Manager Supports Certificate Authentication to vSphere NSX Manager
 
@@ -66,20 +61,23 @@ To enable this feature, select the **Enable blobstore signed URLs** checkbox in 
 
 For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
 
-
 ---
 
 ## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
 
 PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
 
-
 ### <a id='deploy-sidecar-buildpack'></a> Deploy Sidecar Processes with a Buidlpack
 
 You can deploy a sidecar process for an app with a buildpack, rather than deploying the sidecar process with an app manifest.
 
-For more information about deploying sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
+For more information about deploying sidecar processes with buildpacks, see [Sidecar Buildpacks](https://docs.pivotal.io/platform/application-service/2-8/buildpacks/sidecar-buildpacks.html).
 
+### <a id='cli-support-sidecares'></a> cf CLI Supports Sidecar Processes
+
+The Cloud Foundry Command-Line Interface (cf CLI) adds support for sidecar processes by displaying the sidecar process alongside the app process to which it is attached.
+
+For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
 
 ### <a id='credhub-instance-count'></a> PAS Deployed With CredHub by Default
 
@@ -99,15 +97,13 @@ For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego C
 
 For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
-
 ### <a id='aggregate-syslog-drain'></a> Forward Logs and Metrics for All Apps with Aggregate Syslog Drain
 
 You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and VM metrics to one or more syslog endpoints.
 
 This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually.
 
-For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
-
+For more information about enabling an aggregate log and metric drain for your foundation, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 ### <a id='apps-manager-scs-config'></a> Apps Manager Spring Cloud Services Config Server Integrations
 
@@ -115,20 +111,17 @@ For Spring Cloud Services (SCS) instances, Apps Manager shows the current status
 
 This feature provides closer integrations with Spring Cloud, which means that you can work and troubleshoot more quickly.
 
-For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in the _Using Apps Manager_ documentation.
-
+For more information, see the [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) section of the _Managing Apps and Service Instances Using Apps Manager_ topic.
 
 ### <a id='apps-manager-scs-config'></a> View Quota Information on Apps Manager
 
 You can view quota information for the orgs in the org header in App Manager. This allows you to more quickly find resource usage information for orgs.
-
 
 ---
 
 ## <a id='pks'></a> Enterprise Pivotal Container Service (Enterprise PKS) v1.6 Highlights
 
 Enterprise Pivotal Container Service (Enterprise PKS) v1.6 includes the following important major features. additional information about these and other features included in Enterprise PKS v1.6, see [Release Notes](https://docs.pivotal.io/pks/1-6/release-notes.html) in the Enterprise PKS documentation.
-
 
 ### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
 
@@ -152,23 +145,17 @@ Adds a new UAA scope, `pks.clusters.admin.read`, for Enterprise PKS users. Accou
 
 For information about UAA scopes, see [UAA Scopes for Enterprise PKS Users](https://docs.pivotal.io/pks/1-6/uaa-scopes.html) and [Managing Enterprise PKS Users with UAA](https://docs.pivotal.io/pks/1-6/manage-users.html).
 
-
 ### <a id='pks-cluster-config'></a> Configure a Cluster With a Docker Registry CA Certificate (Beta)
 
-Operators can configure a single Kubernetes cluster with a specific Docker
-Registry CA certificate.
+Operators can configure a single Kubernetes cluster with a specific Docker Registry CA certificate.
 
-For more information about configuring a cluster with a Docker
-Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
-
+For more information about configuring a cluster with a Docker Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
 
 ### <a id='pks-cluster-upgrade'></a> Upgrade Multiple Clusters Simultaneously
 
 Operators can save time on cluster upgrades by upgrading multiple Kubernetes clusters simultaneously. Operators can also designate specific upgrade clusters as canary clusters. Cluster upgrades can be serial, serial with some clusters designated as canary clusters, or in parallel.
 
-For more information about multiple cluster upgrades, see
-[Upgrade Multiple Kubernetes Clusters](https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
-
+For more information about multiple cluster upgrades, see [Upgrade Multiple Kubernetes Clusters](https://docs.pivotal.io/pks/1-6/upgrade-clusters.html#upgrade-clusters-multi) in _Upgrading Clusters_.
 
 ### <a id='pks-cluster-creation-time'></a> Accelerated Cluster Creation Time
 
