@@ -714,6 +714,18 @@ For Spring Cloud Services (SCS) instances, Apps Manager shows the current status
 
 For more information, see the [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) section of the _Managing Apps and Service Instances Using Apps Manager_ topic.
 
+### <a id='sidecars-buildpack'></a> Deploy Sidecar Processes with a Buildpack
+
+You can deploy sidecar processes alongside your main app through a buildpack, instead of creating sidecar processes separately and deploying them through an app manifest.
+
+For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/platform/application-service/2-8/buildpacks/sidecar-buildpacks.html).
+
+### <a id='cli-support-sidecares'></a> cf CLI Supports Sidecar Processes
+
+The Cloud Foundry Command-Line Interface (cf CLI) adds support for sidecar processes. You can add a sidecar process to an app process using an app manifest. The cf CLI displays the sidecar process alongside the app process to which it is attached.
+
+For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
+
 ### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
 
 Usage Service deletes granular data after 365 days by default. You can configure the retention period for granular data in the **Advanced Features** pane of the PAS tile.
