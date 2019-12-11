@@ -5,7 +5,7 @@ owner: Release Engineering
 
 <% current_page.data.title = vars.platform_name + " " + vars.v_major_version + " Breaking Changes" %>
 
-This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 
 ## <a id='opsman'></a> Pivotal Operations Manager
@@ -14,7 +14,7 @@ See the following Ops Manager breaking changes:
 
 ### <a id='credhub-generated-field'></a> Reset Manually Set Certificates in CredHub Before Rotating Certificates
 
-If you have manually set any certificates in CredHub on Ops Manager v2.6 or earlier, you need to reset those certificates before using either the `certificate_authorities/active/regenerate` API endpoint in Ops Manager v2.8 or the CredHub Maestro CLI to rotate certificates. 
+If you have manually set any certificates in CredHub on Ops Manager v2.6 or earlier, you need to reset those certificates before using the CredHub Maestro CLI on the Ops Manager VM to rotate certificates. 
 Resetting these certificates is not a required condition for the Ops Manager v2.8 upgrade. You can reset them either before or after the upgrade.
 
 To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/manual-credhub-certificate.html).
@@ -23,7 +23,13 @@ To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Cer
 
 See the following PAS breaking changes:
 
+### <a id='uaa-url-encode'></a> URL Encoding For UAA Client Credentials
 
+By default, the **Client basic auth compatibility mode** checkbox is enabled in PAS v2.8. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets.
+
+If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking authentication in your apps, ensure that all client apps support URL encoding before you disable the checkbox.
+
+For more information about configuring the **Client basic auth compatibility mode** checkbox, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
