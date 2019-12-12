@@ -351,6 +351,7 @@ For more information,
 see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier)
 section in _Property and Template References_ in the Tile Developer documentation.
 
+
 ### <a id='revert-staged-changes'></a> Revert Staged Changes With the API
 
 You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation.
@@ -358,6 +359,17 @@ You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all s
 ### <a id='multiple-hsm-hosts'></a> Configure Multiple HSMs With the API
 
 You can use the `PUT /api/v0/staged/director/properties` endpoint of the Ops Manager API to configure multiple hardware security modules (HSMs) for BOSH CredHub. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+
+### <a id='telemetry'></a> Pivotal Telemetry for Ops Manager Is Included by Default
+
+Pivotal Ops Manager v2.8 and later automatically includes the Pivotal Telemetry for Ops Manager tile.
+When you install Pivotal Ops Manager, the Pivotal Telemetry tile appear in the sidebar.
+Using Pivotal Telemetry for Ops Manager is optional and the tile does not
+share product usage data until you configured it.
+
+For more information,
+see [Pivotal Telemetry for Ops Manager](http://docs.pivotal.io/pivotal-telemetry/1-1/index.html)
+
 
 ## <a id='known-issues'></a> Known Issues
 
