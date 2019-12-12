@@ -402,12 +402,6 @@ You must select this checkbox if you disable the V2 Firehose, or logs and metric
 
 For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
-### <a id='prometheus'></a> All Platform Metrics Exposed on Prometheus Endpoints
-
-All platform metrics are exposed on Prometheus endpoints. Instead of sending metrics through the Firehose, you can use the Metrics Discovery Release to register Prometheus-formatted metrics endpoints in your Pivotal Platform deployment. You can then use an external tool to scrape those metrics. This also adds two new jobs, `metrics-discovery-registrar` and `metrics-agent`.
-
-For more information about Metrics Discovery Release, see the [Metrics Discovery Release](https://github.com/cloudfoundry/metrics-discovery-release) repository on GitHub. For more information about Metrics Agent, see [Using Metrics Agent](https://github.com/cloudfoundry/metrics-discovery-release/blob/develop/docs/metrics-agent.md) on GitHub.
-
 
 ## <a id='adv-features'></a> About Advanced Features
 
