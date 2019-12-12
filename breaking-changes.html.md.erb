@@ -10,26 +10,11 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 ## <a id='opsman'></a> Pivotal Operations Manager
 
-See the following Ops Manager breaking changes:
-
-### <a id='credhub-generated-field'></a> Reset Manually Set Certificates in CredHub Before Rotating Certificates
-
-If you have manually set any certificates in CredHub on Ops Manager v2.6 or earlier, you need to reset those certificates before using the CredHub Maestro CLI on the Ops Manager VM to rotate certificates. 
-Resetting these certificates is not a required condition for the Ops Manager v2.8 upgrade. You can reset them either before or after the upgrade.
-
-To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/manual-credhub-certificate.html).
+There are no breaking changes in this release of Ops Manager.
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-See the following PAS breaking changes:
-
-### <a id='uaa-url-encode'></a> URL Encoding For UAA Client Credentials
-
-By default, the **Client basic auth compatibility mode** checkbox is enabled in PAS v2.8. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets.
-
-If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking authentication in your apps, ensure that all client apps support URL encoding before you disable the checkbox.
-
-For more information about configuring the **Client basic auth compatibility mode** checkbox, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
+There are no breaking changes in this release of PAS.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
@@ -59,5 +44,7 @@ For more information about configuring or disabling compute and networking isola
 
 
 ## <a id='pasw'></a> PAS for Windows
+
+There are no breaking changes in this release of PAS for Windows.
 
 See the following PAS for Windows breaking changes:
