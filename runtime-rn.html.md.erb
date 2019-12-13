@@ -780,19 +780,11 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
-If you disable the V2 Firehose, you must select the **Enable Log Cache syslog ingestion** checkbox for logs and metrics to appear in Log Cache.
+<p class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache.</p>
 
 To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html).
-
-### <a id='log-cache-syslog-ingestion'></a> Log Cache Can Ingest Logs and Metrics Through Syslog Server
-
-You can configure Log Cache to ingest logs and metrics through the syslog server instead of the Reverse Log Proxy by selecting the **Enable Log Cache syslog ingestion** checkbox in the **System Logging** pane of the PAS tile.
-
-You must select this checkbox if you disable the V2 Firehose, or logs and metrics do not appear in Log Cache.
-
-For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 ### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
 
@@ -802,7 +794,7 @@ This allows you to forward logs and metrics for all apps in your foundation with
 
 You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log/metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
 ### <a id='credhub-vm'></a> PAS Must Use At Least One CredHub VM
 
@@ -810,9 +802,10 @@ In PAS v2.8, you must use at least one CredHub VM. The default number of CredHub
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see the [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) section of the _Configuring PAS_ topic.
 
+
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='duplicate-metrics'></a>Duplicate Metrics Appear in the Firehose
+### <a id='duplicate-metrics'></a> Duplicate Metrics Appear in the Firehose
 
 PAS v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In PAS v2.8, metrics appear in both formats. In the Firehose, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.
 
