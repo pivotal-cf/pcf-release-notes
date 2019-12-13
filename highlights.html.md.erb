@@ -213,8 +213,7 @@ For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMo
 
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
 
-
-<!--
+---
 
 ## <%= vars.windows_runtime_full %> Highlights
 
@@ -222,8 +221,8 @@ For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io
 
 ### Web Config Transform Extension Buildpack
 
-### Platform engineers can ‘bosh ssh’ into Windows compilation VMs on Azure, AWS, GCP, and vSphere.
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configs. The buildpack allows you to externalize the configurations in web.config to environment variables.
 
-### Platform engineers can use a test suite to validate Windows stemcell creation and isolate stemcell creation failures
+If the buildpack detects config server binding, it replaces any matching token in web.config with the config server value.
 
--->
+For more information, see [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) on Github.
