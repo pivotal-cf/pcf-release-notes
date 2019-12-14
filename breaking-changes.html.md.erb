@@ -32,7 +32,11 @@ The property `.isolated_diego_cell.placement_tag` is renamed `.properties.comput
 
 * `.properties.compute_isolation.enabled.isolation_segment_name` to add a placement tag for your Diego Cells when compute isolation is enabled
 
-You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _Pivotal Isolation Segment v2.8 Release Notes_.
+You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs. 
+
+For more information, see and [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _Pivotal Isolation Segment v2.8 Release Notes_.
+
+For guidance on setting configuration values, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section of the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
 ### <a id='compute-isolation-router-sharding'></a> Compute Isolation and Router Sharding Must Be Configured Simultaneously
 
