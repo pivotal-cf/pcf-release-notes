@@ -370,6 +370,8 @@ There is a new **Compute and Networking Isolation** pane. _Compute isolation_ is
 
 In the Isolation Segment tile, compute isolation and networking isolation must be configured or disabled simultaneously. This is because networking isolation configures the route by which traffic goes to the Isolation Segment tile. Both are enabled by default. However, isolation segments do not require compute isolation in the Isolation Segment v2.8 tile.
 
+You may want to deploy the Isolation Segment tile without compute isolation if you have a PAS tile with a large volume of Diego Cells. When you put more of your workloads on the Diego Cells of one or more Isolation Segment tiles, upgrades are more manageable. This approach helps separate the upgrade of the PAS control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. 
+
 For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section of the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
