@@ -14,7 +14,20 @@ There are no breaking changes in this release of Ops Manager.
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-There are no breaking changes in this release of PAS.
+See the following PAS breaking changes:
+
+### <a id='syslog-adapters-removed'></a> Syslog Adapters Are Removed
+
+Syslog Adapters are no longer supported 
+in PAS v2.8. 
+
+Before upgrading to PAS v2.8, make sure that 
+Syslog Agents are enabled in your PAS deployment. 
+By default, PAS v2.7 enables Syslog Agents and most deployments automatically enable them.
+
+If, for some reason, you have configured PAS v2.7 to disable Syslog Agents, you must enable them prior to the upgrade. 
+
+Otherwise, the upgrade to PAS v2.8 fails in order to prevent potential log loss.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
