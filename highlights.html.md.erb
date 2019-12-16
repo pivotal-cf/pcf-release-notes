@@ -137,6 +137,15 @@ For more information, see the [View and Update Spring Cloud Services Configurati
 
 You can view quota information for the orgs in the org header in App Manager. This allows you to more quickly find resource usage information for orgs.
 
+### <a id='manageable-upgrades'></a> Use the Isolation Segment Tile to Make Upgrades More Manageable
+
+You can now deploy the isolation segment tile without compute isolation. You may want to do this if you have a PAS tile with a large volume of Diego Cells. This option helps operators by making upgrades more manageable and does not affect end users pushing apps to PAS. Putting more of your workloads on the Diego Cells of one or more Isolation Segment tiles has the following benefits:
+
+- Separates the upgrade of the PAS control plane from the upgrade of the Diego Cells
+- Separates the upgrade of the Diego Cells into smaller groups
+
+For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section of the _Installing <%= vars.product_name %> Isolation Segment_ topic.
+
 ---
 
 ## <a id='pks'></a> Enterprise Pivotal Container Service (Enterprise PKS) v1.6 Highlights
