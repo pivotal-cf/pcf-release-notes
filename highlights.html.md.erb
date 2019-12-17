@@ -213,3 +213,15 @@ The NSXLoadBalancerMonitor CRD allows you monitor the load balancer and ingress 
 For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMonitors` to view a health score that reflects the current performance of the NSX-T load balancer service, including usage, traffic, and current status.
 
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
+
+---
+
+## <%= vars.windows_runtime_full %> Highlights
+
+<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
+
+### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
+
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as Github, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact. 
+
+For more information about using the buildpack, see [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) on Github.
