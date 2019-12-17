@@ -53,14 +53,6 @@ You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all s
 
 You can use the `PUT /api/v0/staged/director/properties` endpoint of the Ops Manager API to configure multiple hardware security modules (HSMs) for BOSH CredHub. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 
-### <a id='om-signed-urls'></a> BOSH VMs Can Use Signed URLs to Communicate with Blobstore
-
-You can configure BOSH VMs with Xenial stemcell line 621 to generate short-lived, pre-signed URLs for communication between the BOSH Agent and blobstore. This improves security because VM disks do not store blobstore credentials.
-
-To enable this feature, select the **Enable blobstore signed URLs** checkbox in the **Director Config** pane of the Ops Manager tile.
-
-For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-8/).
-
 ### <a id='telemetry'></a> Pivotal Telemetry for Ops Manager Is Imported by Default
 
 Ops Manager automatically imports the Pivotal Telemetry for Ops Manager tile.
