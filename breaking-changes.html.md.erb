@@ -25,7 +25,7 @@ Before upgrading to PAS v2.8, make sure that
 Syslog Agents are enabled in your PAS deployment. 
 By default, PAS v2.7 enables Syslog Agents and most deployments automatically enable them.
 
-If, for some reason, you have configured PAS v2.7 to disable Syslog Agents, you must enable them prior to the upgrade. 
+If, for some reason, you have configured PAS v2.7 to disable Syslog Agents through the UI or by setting `properties.syslog_agent_enabled`  to `false`, then you must enable them prior to the upgrade. 
 
 Otherwise, the upgrade to PAS v2.8 fails in order to prevent potential log loss.
 
