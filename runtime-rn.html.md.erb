@@ -215,3 +215,29 @@ The following table shows examples of the existing Loggregator metrics format an
 The new System Metrics Agent adds about 50 metric envelopes per VM each minute.
 
 The existing BOSH system metrics forwarder emits 2 metric envelopes per VM each minute. Each envelope contains 13 metrics.
+
+
+### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
+
+If you disable the v1 or v2 Firehose in PAS v2.8, you must also disable the Smoke Test Errand. 
+
+If you do not disable the Smoke Test Errand, the deploy fails with an error similar to the following:
+
+```
+[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m  
+          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m  
+          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m  
+          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m  
+          --- FAIL: TestSmokeTests (56.17s)  
+          FAIL  
+          Ginkgo ran 2 suites in 1m7.050120251s  
+          Test Suite Failed  
+Stderr     Error: failed to run job-process: exit status 1 (exit status 1)
+```
+
+To disable the Smoke Test Errand:
+
+1. Navigate to the PAS tile **Errands** pane. 
+1. For **Smoke Test Errand**, select **Off**.
+
+For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#errands) in _Configuring PAS_.
