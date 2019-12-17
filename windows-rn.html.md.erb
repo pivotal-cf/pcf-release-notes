@@ -331,6 +331,12 @@ When an aggregate log and metric drain is configured in PAS, PAS for Windows sen
 
 To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
+### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
+
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as Github, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact. 
+
+For more information about using the buildpack, see [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) on Github.
+
 
 ## <a id='adv-features'></a> New Advanced Features
 
