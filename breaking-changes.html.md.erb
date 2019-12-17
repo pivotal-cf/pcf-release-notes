@@ -7,27 +7,13 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
-
 ## <a id='opsman'></a> Pivotal Operations Manager
 
 There are no breaking changes in this release of Ops Manager.
 
 ## <a id='pas'></a> Pivotal Application Service (PAS)
 
-See the following PAS breaking changes:
-
-### <a id='syslog-adapters-removed'></a> Syslog Adapters Are Removed
-
-Syslog Adapters are no longer supported 
-in PAS v2.8. 
-
-Before upgrading to PAS v2.8, make sure that 
-Syslog Agents are enabled in your PAS deployment. 
-By default, PAS v2.7 enables Syslog Agents and most deployments automatically enable them.
-
-If, for some reason, you have configured PAS v2.7 to disable Syslog Agents through the UI or by setting `properties.syslog_agent_enabled`  to `false`, then you must enable them prior to the upgrade. 
-
-Otherwise, the upgrade to PAS v2.8 fails in order to prevent potential log loss.
+There are no breaking changes in this release of PAS.
 
 ## <a id='ist'></a> Pivotal Isolation Segment
 
