@@ -174,7 +174,7 @@ You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Fireh
 </ul>
 </div>
 
-<p class="note warning"><strong>Warning:</strong> If you disable the v1 or v2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
+<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
 
 To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
@@ -221,7 +221,7 @@ The existing BOSH system metrics forwarder emits 2 metric envelopes per VM each 
 
 ### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
 
-If you disable the v1 or v2 Firehose in PAS v2.8, you must also disable the Smoke Test Errand. 
+If you disable the V1 or V2 Firehose in PAS v2.8, you must also disable the Smoke Test Errand. 
 
 If you do not disable the Smoke Test Errand, the deploy fails with an error similar to the following:
 
