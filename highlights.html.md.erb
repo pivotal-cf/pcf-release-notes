@@ -131,10 +131,16 @@ You can view quota information for the orgs in the org header in App Manager. Th
 
 ### <a id='manageable-upgrades'></a> Use the Isolation Segment Tile to Make Upgrades More Manageable
 
-You can now deploy the isolation segment tile without compute isolation. You may want to do this if you have a PAS tile with a large volume of Diego Cells. This option helps operators by making upgrades more manageable and does not affect end users pushing apps to PAS. Putting more of your workloads on the Diego Cells of one or more Isolation Segment tiles has the following benefits:
+<div class="note warning"><strong>Warning:</strong> This feature has the following breaking changes:</br></br><ul><li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#property-renamed">Segment Name Property is Renamed</a></li><li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#compute-isolation-router-sharding">Tag Name and Router Sharding Must Be Configured Simultaneously</a></li><li><a href="https://docs.pivotal.io/platform/healthwatch/1-7/release-notes.html">Healthwatch Reports False Capacity Metrics for Isolation Segments Without Placement Tags</a></li></ul></div> 
+
+You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Cell capacity from other apps. You may want to do this if you have a PAS tile with a large volume of Diego Cells. 
+
+Putting more of your workloads on the Diego Cells of one or more Isolation Segment tiles has the following benefits:
 
 - Separates the upgrade of the PAS control plane from the upgrade of the Diego Cells
 - Separates the upgrade of the Diego Cells into smaller groups
+
+This option helps operators by making upgrades more manageable. It does not affect developers pushing apps to PAS. 
 
 For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section of the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
