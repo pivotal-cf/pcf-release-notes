@@ -5,12 +5,12 @@ owner: Garden Windows
 
 <% current_page.data.title = vars.windows_runtime_full + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for <%= vars.windows_runtime_full %>.
+This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) v2.7.
 
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of Pivotal Platform v2.7. To use the <%= vars.windows_runtime_full %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later. For more information, see [Installing and Configuring PASW](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html).  
+The <%= vars.windows_runtime_abbr %> v2.7 tile is available with the release of Pivotal Platform v2.7. To use the <%= vars.windows_runtime_abbr %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later. For more information, see [Installing and Configuring PASW](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html).  
 
 
 ## <a id='releases'></a> Releases
@@ -45,9 +45,7 @@ The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of 
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.4'></a> 2.7.4
 
 **Release Date:** 12/02/2019
@@ -77,9 +75,7 @@ The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of 
     <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.3'></a> 2.7.3
 
 **Release Date:** 10/31/2019
@@ -113,8 +109,6 @@ The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of 
     <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.7.2'></a> 2.7.2
 
@@ -191,9 +185,7 @@ The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of 
 
 ### <a id='2.7.0'></a> 2.7.0
 
-<p class="note breaking">
-    <strong>Breaking Change: </strong> Platform engineers can no longer enable/disable RDP in PASW.
-</p>
+<p class="note breaking"><strong>Breaking Change:</strong> Platform engineers can no longer enable or disable RDP in PASW.</p>
 
 * **[Feature]** Enable TLS connections from Router to Windows Applications [Beta]
 * **[Feature Improvement]** Add the ciphers configuration to envoy-nginx-release
@@ -240,9 +232,7 @@ The <%= vars.windows_runtime_full %> v2.7 tile is available with the release of 
 </table>
 
 
-## <a id='new-features'></a> New Features in <%= vars.windows_runtime_full %> v2.7
-
-<%= vars.windows_runtime_full %> v2.7 includes the following major features:
+## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> v2.7
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
@@ -252,21 +242,21 @@ You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a
 
 ### <a id='vcr-libs'></a> Pre-Installed Visual C++ Redistributables
 
-<%= vars.windows_runtime_full %> v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to <%= vars.windows_runtime_full %> v2.2.
+<%= vars.windows_runtime_abbr %> v2.7 includes pre-installed Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to <%= vars.windows_runtime_abbr %> v2.2.
 
 This update improves the developer experience by making VisualC++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-<%= vars.windows_runtime_full %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+<%= vars.windows_runtime_abbr %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
 
 Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
-For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
+For more information about how Syslog Agent functions within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [Loggregator Agent Release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
 ### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH
 
-<p class="note warning"><strong>Warning:</strong> This feature is a breaking change. For more information, see <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <em><%= vars.product_name %> v2.7 Breaking Changes</em>.</p>
+<p class="note warning"><strong>Warning:</strong> This feature is a breaking change. For more information, see <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in the <em><%= vars.product_name %> v2.7 Breaking Changes</em> topic.</p>
 
 The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
 
@@ -274,20 +264,20 @@ This is part of a larger effort to achieve platform parity with Linux VMs by ena
 
 To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in the _Installing and Configuring PASW_ topic.  
+For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section of the _Installing and Configuring PASW_ topic.  
 
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the <%= vars.windows_runtime_full %> tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
-<%= vars.windows_runtime_full %> v2.7 includes the following advanced features:
+<%= vars.windows_runtime_abbr %> v2.7 includes the following advanced features:
 
 ### <a id='beta-tls'></a> (Beta) Enable TLS Connections From Router to Apps
 
-You can enable TLS connections from the router to apps. This feature is available in the <%= vars.windows_runtime_full %> tile under **Advanced Features**.
+You can enable TLS connections from the router to apps. This feature is available in the **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> tile.
 
 You can select three different options to add route integrity and mTLS (mutual TLS):
 

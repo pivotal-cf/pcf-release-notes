@@ -87,9 +87,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.16</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.5'></a> 2.7.5
 
 **Release Date:** 12/02/2019
@@ -164,8 +162,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.15</td></tr>
   </tbody>
 </table>
-
-
 
 ### <a id='2.7.4'></a> 2.7.4
 
@@ -250,8 +246,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.15</td></tr>
   </tbody>
 </table>
-
-
 
 ### <a id='2.7.3'></a> 2.7.3
 
@@ -346,9 +340,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
-
-
-<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to PAS v2.7, review the <a href="./breaking-changes.html#pas">PAS Breaking Changes v2.7</a>.</p>
+<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to <%= vars.app_runtime_abbr %> v2.7, review the <a href="./breaking-changes.html#pas"><%= vars.app_runtime_abbr %> Breaking Changes v2.7</a> topic.</p>
 
 ### <a id='2.7.2'></a> 2.7.2
 
@@ -451,7 +443,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** UAA Patch release to address privilege escalation vulnerabilities
 * **[Security Fix]** Bump garden-runc release to take Go HTTP/2 and containerd gRPC fixes
 * **[Security Fix]** Upgrade gRPC-java to patch HTTP/2 vulnerability
-* **[Feature Improvement]** Make TCP Router Request Timeout Configurable. For more information, see [Configuring TCP Routing in PAS](https://docs.pivotal.io/platform/application-service/2-7/operating/tcp-routing-ert-config.html).
+* **[Feature Improvement]** Make TCP Router Request Timeout Configurable. For more information, see [Configuring TCP Routing in <%= vars.app_runtime_abbr %>](https://docs.pivotal.io/platform/application-service/2-7/operating/tcp-routing-ert-config.html).
 * **[Feature Improvement]** Metric Registrar - Allow app developers to register custom routes for metrics endpoints
 * **[Feature Improvement]** Docker image applications hosted in AWS ECR continue to run when restarted after the typical AWS ECR credential expiration period
 * **[Feature Improvement]** Show revision number on processes in Apps Manager when revisions are enabled for an application
@@ -463,7 +455,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix filter to remove Apps Manager requests from logs shown in Apps Manager when apps are deployed to a path
 * **[Bug Fix]** Keep search results in Apps Manager from disappearing while they are being refreshed
 * **[Bug Fix]** Fix Apps Manager search server crashes in cases where requests to Cloud Controller fail
-* **[Bug Fix]** Fix links to documentation in Apps Manager to point to the correct PAS version
+* **[Bug Fix]** Fix links to documentation in Apps Manager to point to the correct <%= vars.app_runtime_abbr %> version
 * **[Bug Fix]** Allow slashes to be typed in the Apps Manager search bar
 * **[Bug Fix]** Fix bug where Spring Boot logo was shown instead of Steeltoe logo in the Apps Manager sidebar for Steeltoe apps
 * **[Bug Fix]** Add plan column to the app services tab in Apps Manager so plan names do not get cut off
@@ -551,7 +543,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.7.0'></a> 2.7.0
 
-* See [New Features in PAS v2.7](#new-features)
+* See [New Features in <%= vars.app_runtime_abbr %> v2.7](#new-features)
 * See [Breaking Changes](./breaking-changes.html)
 
 <table border="1" class="nice">
@@ -616,46 +608,46 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to <%= vars.app_runtime_full %> v2.7 is documented in [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
+The procedure for upgrading to <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) v2.7 is documented in [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
-When upgrading to PAS v2.7, be aware of the following upgrade considerations:
+When upgrading to <%= vars.app_runtime_abbr %> v2.7, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.6 to successfully upgrade to PAS v2.7.
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.6 to successfully upgrade to <%= vars.app_runtime_abbr %> v2.7.
 
 * Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.7. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.product_name %> v2.7, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
-## <a id='new-features'></a> New Features in PAS v2.7
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> v2.7
 
 ### <a id='sidecars'></a> Sidecars for Java Apps (Beta)
 
-PAS v2.7 supports pushing Java apps with sidecars. Pushing apps with sidecars is a beta feature that released with PAS v2.6.0.
+<%= vars.app_runtime_abbr %> v2.7 supports pushing Java apps with sidecars. Pushing apps with sidecars is a beta feature that released with <%= vars.app_runtime_abbr %> v2.6.0.
 
-For more information about the PAS v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#sidecars) in the PAS v2.6 release notes. To understand how you can push Java apps with sidecars, see the [Requirements for Java Apps](https://docs.pivotal.io/platform/2-7/devguide/sidecars.html#java) section in the _Pushing Apps with Sidecar Processes_ topic.
+For more information about the <%= vars.app_runtime_abbr %> v2.6 feature, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#sidecars) in the <%= vars.app_runtime_abbr %> v2.6 release notes. To understand how you can push Java apps with sidecars, see the [Requirements for Java Apps](https://docs.pivotal.io/platform/2-7/devguide/sidecars.html#java) section in the _Pushing Apps with Sidecar Processes_ topic.
 
 ### <a id='rotate-ccdb-key'></a> Rotate the Cloud Controller Database Encryption Key
 
-PAS v2.7 supports rotating the Cloud Controller Database (CCDB) encryption key. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables.
+<%= vars.app_runtime_abbr %> v2.7 supports rotating the Cloud Controller Database (CCDB) encryption key. This key is used to encrypt sensitive data at rest in the CCDB, such as app environment variables.
 
-You can rotate the key using the new **Encryption key ledger** field and **Rotate CC Database Key** errand in the PAS tile. For more information, see [Rotating the Cloud Controller Database Encryption Key](https://docs.pivotal.io/platform/2-7/opsguide/rotate-ccdb-key.html).
+You can rotate the key using the new **Encryption key ledger** field and **Rotate CC Database Key** errand in the <%= vars.app_runtime_abbr %> tile. For more information, see [Rotating the Cloud Controller Database Encryption Key](https://docs.pivotal.io/platform/2-7/opsguide/rotate-ccdb-key.html).
 
-### <a id='consul-server'></a> Consul Server Instance Removed from PAS
+### <a id='consul-server'></a> Consul Server Instance Removed from <%= vars.app_runtime_abbr %>
 
-The Consul server instance is removed from PAS. This saves VM resources and reduces maintenance for managing a clustered component.
+The Consul server instance is removed from <%= vars.app_runtime_abbr %>. This saves VM resources and reduces maintenance for managing a clustered component.
 
-In PAS v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In PAS v2.7, the Consul server instance is removed from PAS.
+In <%= vars.app_runtime_abbr %> v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In <%= vars.app_runtime_abbr %> v2.7, the Consul server instance is removed from <%= vars.app_runtime_abbr %>.
 
-<p class="note warning"><strong>Warning:</strong> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="./breaking-changes.html#consul-server">Consul Clients Not Supported in PAS</a> in the <em>Pivotal Platform v2.7 Breaking Changes</em> topic.</p>
+<p class="note warning"><strong>Warning:</strong> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="./breaking-changes.html#consul-server">Consul Clients Not Supported in <%= vars.app_runtime_abbr %></a> in the <em>Pivotal Platform v2.7 Breaking Changes</em> topic.</p>
 
 ### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
-By default, Log Cache keeps 100,000 envelopes per source. An envelope wraps an event and adds metadata. For sources that produce more than 100,000 envelopes, this default may not provide a long enough duration for you to specify a time period for a historical query. PAS v2.7 allows you to raise the maximum number of envelopes stored per source above the default 100,000 if needed.
+By default, Log Cache keeps 100,000 envelopes per source. An envelope wraps an event and adds metadata. For sources that produce more than 100,000 envelopes, this default may not provide a long enough duration for you to specify a time period for a historical query. <%= vars.app_runtime_abbr %> v2.7 allows you to raise the maximum number of envelopes stored per source above the default 100,000 if needed.
 
-For more information about configuring this limit, see the [Configure Advanced Features](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#advanced) section of the _Configuring PAS_ topic. For more information about envelopes, see [Protocol Documentation](https://github.com/cloudfoundry/dropsonde-protocol/blob/master/events/README.md#envelope) in the dropsonde-protocol repository on GitHub.
+For more information about configuring this limit, see the [Configure Advanced Features](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#advanced) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic. For more information about envelopes, see [Protocol Documentation](https://github.com/cloudfoundry/dropsonde-protocol/blob/master/events/README.md#envelope) in the dropsonde-protocol repository on GitHub.
 
 ### <a id='upgrade-service-instances'></a> Support for Upgrading Service Instances
 
-PAS v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement.
+<%= vars.app_runtime_abbr %> v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement.
 
 App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades. For more information, see the [Upgrade a Service Instance](https://docs.pivotal.io/devguide/services/managing-services.html#upgrade) section of the _Managing Service Instances with the cf CLI_ topic.
 
@@ -700,13 +692,13 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 
 You can configure Key Management Service (KMS) encryption providers for CredHub. Configuring KMS encryption providers for CredHub allows you to more easily create and manage the encryption keys that you use in your environment.
 
-For more information about how to configure KMS providers for CredHub in PAS, see the [Configure CredHub](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#credhub) section of the _Configuring PAS_ topic.
+For more information about how to configure KMS providers for CredHub in <%= vars.app_runtime_abbr %>, see the [Configure CredHub](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#credhub) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
 
 ### <a id='inactive-mysql'></a> Enable Inactive MySQL Port for Auditing and Reporting
 
-PAS v2.7 introduces the option to enable MySQL proxies to listen on port 3336. If you enable this option, you can run auditing and reporting queries on a MySQL node that is not currently serving traffic. By running these queries on an inactive node, the active MySQL nodes continue to serve requests with no effect on performance.
+<%= vars.app_runtime_abbr %> v2.7 introduces the option to enable MySQL proxies to listen on port 3336. If you enable this option, you can run auditing and reporting queries on a MySQL node that is not currently serving traffic. By running these queries on an inactive node, the active MySQL nodes continue to serve requests with no effect on performance.
 
-To enable this option, select the **Enable inactive MySQL port** checkbox in the **Internal MySQL** pane of the PAS tile. For more information, see the [Configure Internal MySQL](http://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#internal-mysql) section of the _Configuring PAS_ topic.
+To enable this option, select the **Enable inactive MySQL port** checkbox in the **Internal MySQL** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see the [Configure Internal MySQL](http://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#internal-mysql) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
 
@@ -716,7 +708,7 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/plat
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-PAS v2.7 contains Syslog Agents, which forward logs to configured syslog drains and Loggregator. Syslog Agents are enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+<%= vars.app_runtime_abbr %> v2.7 contains Syslog Agents, which forward logs to configured syslog drains and Loggregator. Syslog Agents are enabled by default, and the option to enable or disable syslog egress is removed from the <%= vars.app_runtime_abbr %> UI.
 
 Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
@@ -724,15 +716,15 @@ For more information about how Syslog Agents function within Loggregator, see [L
 
 ### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
 
-PAS v2.7 improves route consistency in the route-emitter component of Diego.
+<%= vars.app_runtime_abbr %> v2.7 improves route consistency in the route-emitter component of Diego.
 
-This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
+This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since <%= vars.app_runtime_abbr %> no longer prunes routes on time-to-live (TTL).
 
-This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in PAS v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in <%= vars.app_runtime_abbr %> v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the <%= vars.app_runtime_abbr %> v2.6 release notes.
 
 ### <a id='mtls'></a> Mutual TLS Communication Between Routing API and Other Components
 
-Communication between the PAS Routing API and other PAS routing components is authenticated with mutual TLS (mTLS).
+Communication between the <%= vars.app_runtime_abbr %> Routing API and other <%= vars.app_runtime_abbr %> routing components is authenticated with mutual TLS (mTLS).
 
 In mTLS communication, both components verify each other's identity. This adds additional security for communication between the Routing API and other routing components.
 
@@ -742,19 +734,19 @@ You can configure multiple internal domains that apps use for internal DNS servi
 
 This allows you to create separate domains for different organizations in your foundation. For example, you can create a separate domain for apps on the development tier and apps on the production tier.
 
-For more information about configuring internal domains for PAS, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in the _Configuring PAS_ topic.
+For more information about configuring internal domains for <%= vars.app_runtime_abbr %>, see [Configure App Developer Controls](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#appdevctrl-config) in the _Configuring <%= vars.app_runtime_abbr %>_ topic.
 
 ### <a id='blobstore-backup'></a> Configure File Storage Backup Level
 
-You can configure PAS v2.7 to exclude droplets or to exclude both droplets and packages from your blobstore backup. This feature reduces the size of your backup artifact and can enable you to take more frequent backups without using a large amount of storage space.
+You can configure <%= vars.app_runtime_abbr %> v2.7 to exclude droplets or to exclude both droplets and packages from your blobstore backup. This feature reduces the size of your backup artifact and can enable you to take more frequent backups without using a large amount of storage space.
 
 Excluding droplets or both droplets and packages from your blobstore backup can cause shorter periods of app downtime. However, you must re-push or restage all apps, which results in a higher Recovery Time Objective (RTO).
 
-For more information about the advantages and disadvantages of excluding droplets or excluding both droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring PAS_ topic.
+For more information about the advantages and disadvantages of excluding droplets or excluding both droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see the [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
 
 ### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
 
-The rolling app deployments feature is GA. It was released as a beta feature in PAS v2.4. This feature allows you to push updates to apps without incurring downtime.
+The rolling app deployments feature is GA. It was released as a beta feature in <%= vars.app_runtime_abbr %> v2.4. This feature allows you to push updates to apps without incurring downtime.
 
 This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
 
@@ -762,7 +754,7 @@ For more information, see [Rolling App Deployments](https://docs.pivotal.io/plat
 
 ### <a id='nfsbroker'></a> nfsbroker Backing Store Is in CredHub
 
-The `nfsbroker` backing store is migrated from your external PAS database to CredHub, provided that CredHub exists in the deployment. This allows you to specify LDAP credentials when you create an NFS Volume Service instance.
+The `nfsbroker` backing store is migrated from your external <%= vars.app_runtime_abbr %> database to CredHub, provided that CredHub exists in the deployment. This allows you to specify LDAP credentials when you create an NFS Volume Service instance.
 
 NFS Volume Service only uses CredHub as its backing store. If CredHub is not deployed, you cannot use NFS Volume Service.
 
@@ -770,13 +762,13 @@ For more information, see the [Configure LDAP Credentials with Service Instance 
 
 ### <a id='v1-firehose'></a> Enable or Disable Firehose in Loggregator
 
-The Firehose is enabled by default and configurable. You can enable or disable the Firehose by selecting or deselecting the **Enable V1 Firehose** checkbox in the **System Logging** pane of PAS v2.7. Disabling the Firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
+The Firehose is enabled by default and configurable. You can enable or disable the Firehose by selecting or deselecting the **Enable V1 Firehose** checkbox in the **System Logging** pane of <%= vars.app_runtime_abbr %> v2.7. Disabling the Firehose disables the Traffic Controller job in Loggregator, which causes logs to be sent to the Traffic Controller VM through Log Cache instead.
 
-To enable or disable the Firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
+To enable or disable the Firehose, see the [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
 
 ### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
 
-In PAS v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables creating services with a consistent metadata format across PAS and Kubernetes. For more information about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
+In <%= vars.app_runtime_abbr %> v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables creating services with a consistent metadata format across <%= vars.app_runtime_abbr %> and Kubernetes. For more information about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
@@ -789,27 +781,27 @@ For more information, see the [Amazon Elastic Container Registry (ECR)](https://
 
 ## <a id='known-issues'></a> Known Issues
 
-### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or v2.7.1 with External Blobstores
+### <a id='no-external-blobstores'></a> You Cannot Install <%= vars.app_runtime_abbr %> v2.7.0 or v2.7.1 with External Blobstores
 
-<p class="note warning"><strong>Warning:</strong> This is a breaking change for PAS v2.7.0 and v2.7.1. Do not attempt to upgrade to PAS v2.7.0 or v2.7.1 if you have one or more external blobstores. You can deploy PAS v2.7.2 with external blobstores.</p>
+<p class="note warning"><strong>Warning:</strong> This is a breaking change for <%= vars.app_runtime_abbr %> v2.7.0 and v2.7.1. Do not attempt to upgrade to <%= vars.app_runtime_abbr %> v2.7.0 or v2.7.1 if you have one or more external blobstores. You can deploy <%= vars.app_runtime_abbr %> v2.7.2 with external blobstores.</p>
 
-You cannot install PAS v2.7.0 or v2.7.1 with external blobstores. If you try to install and deploy PAS v2.7.0 or v2.7.1 with one or more external blobstores, the deploy fails with a pipeline error.
+You cannot install <%= vars.app_runtime_abbr %> v2.7.0 or v2.7.1 with external blobstores. If you try to install and deploy <%= vars.app_runtime_abbr %> v2.7.0 or v2.7.1 with one or more external blobstores, the deploy fails with a pipeline error.
 
-This issue is caused by changes to the blobstore backup options in PAS v2.7.0. For more information about these changes, see [Configure File Storage Backup Level](#blobstore-backup).
+This issue is caused by changes to the blobstore backup options in <%= vars.app_runtime_abbr %> v2.7.0. For more information about these changes, see [Configure File Storage Backup Level](#blobstore-backup).
 
-This issue is resolved in PAS v2.7.2.
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.2.
 
 ### <a id='missing-env-variables'></a> Some Environment Variables Are Missing When Using cflinuxfs3
 
-When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
+When using the `cflinuxfs3` stack in <%= vars.app_runtime_abbr %> v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
 
 To resolve this issue, ensure that all apps are using environment variables that do not contain periods or dashes.
 
-For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
+For more information, see [Missing environment variables when using <%= vars.app_runtime_abbr %> 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
-When upgrading to PAS v2.7, you may see duplicate logs or no logs for a short time on syslog endpoints while BOSH enables the Syslog Agent component.
+When upgrading to <%= vars.app_runtime_abbr %> v2.7, you may see duplicate logs or no logs for a short time on syslog endpoints while BOSH enables the Syslog Agent component.
 
 If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs until BOSH enables the Syslog Agents. If BOSH enables Syslog Agents before removing Syslog Adapters, there are duplicate logs until BOSH removes Syslog Adapters.
 
@@ -817,15 +809,21 @@ For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enab
 
 ### <a id='last-syslog-drain'></a> Cannot Delete Last Remaining Syslog Drain
 
-PAS v2.7 has a known issue in which you cannot delete the last remaining app syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
+<%= vars.app_runtime_abbr %> v2.7 has a known issue in which you cannot delete the last remaining app syslog drain in a foundation. This issue only applies if there is a single drain in the entire foundation, and you delete that drain.
 
-When you delete the last remaining drain, logs continue to be sent to its syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs. You can use the following command: `cf drain APP-NAME invalid://invalid`.
+When you delete the last remaining drain, logs continue to be sent to its syslog endpoint. This happens even though the deletion appears to succeed. As a workaround, you can create another drain to cause the previously deleted drain to stop sending logs by running:
 
-<p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the <a href="https://plugins.cloudfoundry.org/#log-cache">Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>.</p>
+```
+cf drain APP-NAME invalid://invalid
+```
+
+Where `APP-NAME` is the name of the app from which you deleted the log drain.
+
+<p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>. To install the Log Cache CLI plugin, see <a href="https://plugins.cloudfoundry.org/#log-cache">log-cache</a> on the cf CLI Plugins website.</p>
 
 ### <a id='syslog-drain-type'></a> Cannot Choose Drain Type
 
-Syslog drains provide the ability to send only logs or metrics to their syslog endpoint, rather than a combination of both. However, PAS v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
+Syslog drains provide the ability to send only logs or metrics to their syslog endpoint, rather than a combination of both. However, <%= vars.app_runtime_abbr %> v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
 
@@ -833,14 +831,14 @@ If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web p
 
 ### <a id="apps-manager-invitations-failures"></a> Cannot Invite New Users or Add Space Roles in Apps Manager
 
-In PAS v2.7.0, the service that handles inviting new users to PAS fails to do the following in many cases:
+In <%= vars.app_runtime_abbr %> v2.7.0, the service that handles inviting new users to <%= vars.app_runtime_abbr %> fails to do the following in many cases:
 
 * Add space roles for users
 * Invite new users with space roles
 
-As a workaround, you can use the CLI to manage user roles. See [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
+As a workaround, you can use the CLI to manage user roles. For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
 
-This issue is resolved in PAS v2.7.1.
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.1.
 
 ### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.app_runtime_abbr %> v2.7
 
