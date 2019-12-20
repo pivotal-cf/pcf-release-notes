@@ -73,7 +73,7 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
 
-For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see [System Metrics](https://github.com/cloudfoundry/system-metrics-release) on GitHub.
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
@@ -99,18 +99,16 @@ To enable an aggregate log and metric drain for your foundation, add a comma-sep
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 
-You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as Github, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact. 
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as GitHub, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact. 
 
-For more information about using the buildpack, see [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) on Github.
+For more information about using the buildpack, see the [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) repository on GitHub.
 
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the PAS for Windows tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the PAS for Windows v2.8 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
-
-PAS for Windows v2.8 includes the following advanced features:
 
 
 ## <a id='known-issues'></a> Known Issues

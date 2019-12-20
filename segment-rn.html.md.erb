@@ -74,7 +74,7 @@ To install a Pivotal Isolation Segment, you must first install <%= vars.platform
 
 Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
@@ -94,9 +94,15 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 ### <a id='compute-networking-isolation'></a> Use the Isolation Segment Tile to Improve Upgrades for Large Foundations
 
-<div class="note warning"><strong>Warning:</strong> This feature has the following breaking changes:</br></br><ul><li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#property-renamed">Segment Name Property is Renamed</a></li><li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#compute-isolation-router-sharding">Tag Name and Router Sharding Must Be Configured Simultaneously</a></li><li><a href="https://docs.pivotal.io/platform/healthwatch/1-7/release-notes.html">Healthwatch Reports False Capacity Metrics for Isolation Segments Without Placement Tags</a></li></ul></div> 
+<div class="note warning"><strong>Warning:</strong> This feature has the following breaking changes:</br></br>
+  <ul>
+    <li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#property-renamed">Segment Name Property is Renamed</a></li>
+    <li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#compute-isolation-router-sharding">Tag Name and Router Sharding Must Be Configured Simultaneously</a></li>
+    <li><a href="https://docs.pivotal.io/platform/healthwatch/1-7/release-notes.html">Healthwatch Reports False Capacity Metrics for Isolation Segments Without Placement Tags</a></li>
+  </ul>
+</div> 
 
-You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Cell capacity from other apps.
+You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Diego Cell capacity from other apps.
 
 This approach helps separate the upgrade of the PAS control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. This helps operators of large foundations by making upgrades more manageable. It does not affect developers pushing apps to PAS.
 
@@ -116,21 +122,21 @@ For more information, see the [Amazon Elastic Container Registry (ECR)](https://
 
 Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
 
-For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see [System Metrics](https://github.com/cloudfoundry/system-metrics-release) on GitHub.
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
 You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
 <div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. Pivotal recommends that you do not disable the Firehose if you are dependent on any of the following: 
-<ul>
+  <ul>
     <li>Service tile metrics</li>
     <li>Pivotal Healthwatch or Pivotal App Metrics</li>
     <li>Partner log or metric integrations</li>
-</ul>
+  </ul>
 </div>
 
-<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
+<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a> in the Pivotal Application Service v2.8 release notes.</p>
 
 For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 

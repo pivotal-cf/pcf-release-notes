@@ -19,6 +19,7 @@ When upgrading to PAS v2.8, be aware of the following upgrade considerations:
 
 * Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.8. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> v2.8, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
+
 ## <a id='releases'></a> Releases
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
@@ -86,13 +87,14 @@ When upgrading to PAS v2.8, be aware of the following upgrade considerations:
   </tbody>
 </table>
 
+
 ## <a id='new-features'></a> New Features in PAS v2.8
 
 ### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
 
 Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='appsman-scs'></a> Spring Cloud Services Configuration in Apps Manager
 
@@ -148,7 +150,7 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 You can disable an optional **Client basic auth compatibility mode** checkbox in the **UAA** pane of the PAS tile to require URL encoding for UAA client credentials.
 
-URL encoding is defined by RFC6749. See [RFC6749](https://tools.ietf.org/html/rfc6749#section-2.3.1).
+URL encoding is defined by RFC 6749. For more information, see the [2.3.1. Client Password](https://tools.ietf.org/html/rfc6749#section-2.3.1) section of RFC 6749.
 
 By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
 
@@ -168,21 +170,21 @@ For more information, see the [Amazon Elastic Container Registry (ECR)](https://
 
 Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
 
-For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see [System Metrics](https://github.com/cloudfoundry/system-metrics-release) on GitHub.
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
 You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
 <div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. Pivotal recommends that you do not disable the Firehose if you are dependent on any of the following: 
-<ul>
+  <ul>
     <li>Service tile metrics</li>
     <li>Pivotal Healthwatch or Pivotal App Metrics</li>
     <li>Partner log or metric integrations</li>
-</ul>
+  </ul>
 </div>
 
-<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
+<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
 
 To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
 
@@ -202,9 +204,7 @@ To enable an aggregate log and metric drain for your foundation, add a comma-sep
 
 In PAS v2.8, you must use at least one CredHub VM. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
 
-<p class="note warning"><strong>Warning</strong>:
-If you are using an external GCP or Azure database for PAS and previously set CredHub instances to 0 in PAS v2.7, you must set CredHub instances greater than 0 and disable hostname verification before you upgrade to PAS v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in the Upgrade Preparation Checklist for Pivotal Platform v2.8.
-</p>
+<p class="note warning"><strong>Warning</strong>:vIf you are using an external GCP or Azure database for PAS and previously set CredHub instances to 0 in PAS v2.7, you must set CredHub instances greater than 0 and disable hostname verification before you upgrade to PAS v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in the <em>Upgrade Preparation Checklist for Pivotal Platform v2.8</em> topic.</p>
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see the [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) section of the _Configuring PAS_ topic.
 
@@ -212,7 +212,8 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 In the **Custom Branding** pane of PAS v2.8, you can customize the marketplace URL and secondary navigation links that appear in your Apps Manager deployment.
 
-For more information, see [Configuring PAS](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man).
+For more information, see the [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man) section of the _Configuring PAS_ topic.
+
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -235,12 +236,11 @@ The new System Metrics Agent adds about 50 metric envelopes per VM each minute.
 
 The existing BOSH system metrics forwarder emits 2 metric envelopes per VM each minute. Each envelope contains 13 metrics.
 
-
 ### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
 
-If you disable the V1 or V2 Firehose in PAS v2.8, you must also disable the Smoke Test Errand. 
+If you disable the V1 or V2 Firehose in PAS v2.8, you must also disable the smoke test errand. 
 
-If you do not disable the Smoke Test Errand, the deploy fails with an error similar to the following:
+If you do not disable the smoke test errand, the deploy fails with an error similar to the following:
 
 ```
 [91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m  
@@ -254,9 +254,10 @@ If you do not disable the Smoke Test Errand, the deploy fails with an error simi
 Stderr     Error: failed to run job-process: exit status 1 (exit status 1)
 ```
 
-To disable the Smoke Test Errand:
+To disable the smoke test errand:
 
-1. Navigate to the PAS tile **Errands** pane. 
+1. Navigate to the **Errands** pane in the PAS tile.
+
 1. For **Smoke Test Errand**, select **Off**.
 
-For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#errands) in _Configuring PAS_.
+For more information, see the [Configure Errands](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#errands) section in the _Configuring PAS_ topic.
