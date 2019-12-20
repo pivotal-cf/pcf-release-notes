@@ -364,13 +364,15 @@ NFS Broker uses CredHub as its backing store, rather than an internal PAS databa
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
-### <a id='compute-networking-isolation'></a> Compute and Networking Isolation
+### <a id='compute-networking-isolation'></a> Use IST to Improve Upgrades for Large Foundations
 
-There is a new **Compute and Networking Isolation** pane. _Compute isolation_ is when an app runs on compute resources - such as clusters, resource pools, and servers - that are isolated from other resources by a network partition or firewall. _Networking isolation_, or router sharding, is when traffic to an app instance uses a dedicated route that is isolated from routes used by other app instances by a network partition or firewall rule.
+<div class="note warning"><strong>Warning:</strong> This feature has the following breaking changes:</br></br><ul><li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#property-renamed">Segment Name Property is Renamed</a></li><li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#compute-isolation-router-sharding">Tag Name and Router Sharding Must Be Configured Simultaneously</a></li><li><a href="https://docs.pivotal.io/platform/healthwatch/1-7/release-notes.html">Healthwatch Reports False Capacity Metrics for Isolation Segments Without Placement Tags</a></li></ul></div> 
 
-In the Isolation Segment tile, compute isolation and networking isolation must be configured or disabled simultaneously. This is because networking isolation configures the route by which traffic goes to the Isolation Segment tile. Both are enabled by default. However, isolation segments do not require compute isolation in the Isolation Segment v2.8 tile.
+You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Cell capacity from other apps.
 
-You may want to deploy the Isolation Segment tile without compute isolation if you have a PAS tile with a large volume of Diego Cells. When you put more of your workloads on the Diego Cells of one or more Isolation Segment tiles, upgrades are more manageable. This approach helps separate the upgrade of the PAS control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. 
+This approach helps separate the upgrade of the PAS control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. This helps operators of large foundations by making upgrades more manageable. It does not affect developers pushing apps to PAS.
+
+To use this feature, go to the **Compute and Networking Isolation** pane in the Isolation Segment tile and select **None** for **Tag name for cell blocks**. 
 
 For more information, see the [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) section of the _Installing <%= vars.product_name %> Isolation Segment_ topic.
 
