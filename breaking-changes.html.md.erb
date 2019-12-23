@@ -15,9 +15,9 @@ There are no breaking changes in this release of Ops Manager.
 
 See the following PAS breaking changes:
 
-### <a id='credhub-vm'></a> CredHub
+### <a id='credhub-vm'></a> CredHub Requires At Least One CredHub Instance
 
- <%= vars.platform_name %> <%= vars.v_major_version %> and later requires at least one CredHub instance to deploy PAS. If the number of CredHub instances is set to 0, the upgrade fails.
+PAS v2.8 and later requires at least one CredHub instance. If the number of CredHub instances is set to 0, the deployment fails.
 
 If you scaled the number of CredHub instances to 0 in PAS v2.7, check the number of CredHub instances in the **Resource Config** pane of the PAS v2.8 tile and increase to one or more instances before you apply changes for the upgrade.
 
