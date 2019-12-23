@@ -156,7 +156,7 @@ By default, the **Client basic auth compatibility mode** checkbox is enabled. Wh
 
 For more information about configuring the **Client basic auth compatibility mode** checkbox, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
 
-<p class="note breaking"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
+<p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
@@ -204,7 +204,9 @@ To enable an aggregate log and metric drain for your foundation, add a comma-sep
 
 In PAS v2.8, you must use at least one CredHub VM. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
 
-<p class="note warning"><strong>Warning:</strong> If you are using an external GCP or Azure database for PAS and previously set CredHub instances to 0 in PAS v2.7, you must set CredHub instances greater than 0 and disable hostname verification before you upgrade to PAS v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in the <em>Upgrade Preparation Checklist for Pivotal Platform v2.8</em> topic.</p>
+For high availability, Pivotal recommends that you use at least one CredHub instance per availability zone (AZ). Or, if you have only one AZ, use at least three CredHub instances.
+
+<p class="note warning"><strong>Warning:</strong> If you use an external GCP or Azure database for PAS and previously set CredHub instances to 0 in PAS v2.7, you must also disable hostname verification before you upgrade to PAS v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in the <em>Upgrade Preparation Checklist for Pivotal Platform v2.8</em> topic.</p>
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see the [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) section of the _Configuring PAS_ topic.
 
