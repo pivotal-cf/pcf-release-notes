@@ -38,7 +38,19 @@ When upgrading to PAS v2.8, be aware of the following upgrade considerations:
 * **[Feature Improvement]** Clarify wording of marketplace url help text in Apps Manager configuration
 * **[Feature Improvement]** Add doppler.firehose and usage_service.audit to Apps Manager client
 * **[Feature Improvement]** Always enable ssh-proxy TLS to backend instances to ensure widest compatibility mode with PASW and IST
+* **[Feature Improvement]** When users have correct permissions, show bound and bindable services shared from other spaces as bindable for an app in Apps Manager
+* **[Feature Improvement]** When users have correct permissions, show bound and bindable apps from spaces a service instance has been shared to in Apps Manager
 * **[Bug Fix]** Fix bug that prevented users from downloading the Accounting and Usage Service reports through Apps Manager when fields are undefined or null
+* **[Bug Fix]** Prevent new requests from being made when clicking on the currently active tab in Apps Manager
+* **[Bug Fix]** Fix bug that prevented additional resources from populating after user permissions load in Apps Manager
+* **[Bug Fix]** Fix bug preventing multiple service instances without binding names from being bound to apps in Apps Manager
+* **[Bug Fix]** Exclude user provided service instances from org level service instance hours on Usage Report in Apps Manager
+* **[Bug Fix]** Allow users with`usage_service.audit` scope to view Usage Report in Apps Manager
+* **[Bug Fix]** Account for malformed git properties in Spring and Steeltoe apps to keep Apps Manager from crashing on render
+* **[Bug Fix]** Fix bug where 'Invalid Date' was shown in Apps Manager trace tab when using Spring v2.0
+* **[Bug Fix]** Prevent Apps Manager's revisions tab from crashing out when a deployment is in progress
+* **[Bug Fix]** Move tooltip in the Apps Manager bind services flyout to make text fully visible
+* **[Bug Fix]** Prevent attempts to build a droplet when starting an app through Apps Manager if there is no associated package
 * **[Bug Fix]** Passwords containing commas no longer cause the SMB volume service to crash at startup with a "mount failed" error
 * **[Bug Fix]** All CAPI jobs respect "Maximum disk quota per app"
 * Bump ubuntu-xenial stemcell to version `621.29`
