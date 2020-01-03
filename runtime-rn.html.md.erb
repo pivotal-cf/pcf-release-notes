@@ -25,10 +25,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Add doppler.firehose and usage_service.audit to Apps Manager client
 * **[Bug Fix]** CredHub - Upgrade to Luna Client 7.4 to be compatible with FIPS compliant HSMs
 * **[Bug Fix]** Fix bug that prevented users from downloading the Accounting and Usage Service reports through Apps Manager when fields are undefined or null
-* **[Bug Fix]** Exclude user provided service instances from org level service instance hours on Usage Report in Apps Manager
-* **[Bug Fix]** Allow users with`usage_service.audit` scope to view Usage Report in Apps Manager
-* **[Bug Fix]** Account for malformed git properties in Spring and Steeltoe apps to keep Apps Manager from crashing on render
-* **[Bug Fix]** Fix bug where 'Invalid Date' was shown in Apps Manager trace tab when using Spring v2.0
+* **[Bug Fix]** Exclude user-provided service instances from org-level service instance hours on **Usage Report** in Apps Manager
+* **[Bug Fix]** Allow users with `usage_service.audit` scope to view **Usage Report** in Apps Manager
+* **[Bug Fix]** Account for malformed Git properties in Spring and Steeltoe apps to keep Apps Manager from crashing on render
+* **[Bug Fix]** 'Invalid Date' does not show in Apps Manager trace tab when using Spring v2.0
 * **[Bug Fix]** Fix error when using `after_guid` query parameter with the `v2/app_usage_events` endpoint after all AppUsageEvents have been pruned
 * **[Bug Fix]** Passwords containing commas no longer cause the SMB volume service to crash at startup with a "mount failed" error
 * **[Bug Fix]** Silk correctly calculates non-standard CIDRs
