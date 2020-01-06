@@ -23,6 +23,21 @@ If you scaled the number of CredHub instances to 0 in PAS v2.7, check the number
 
 For more information, see [PAS Must Use At Least One CredHub VM](runtime-rn.html#credhub-vm) in the PAS v2.8 Release Notes.
 
+
+### <a id='syslog-adapters-removed'></a> Syslog Adapters Are Removed
+
+Syslog Adapters are not supported in PAS v2.8. 
+
+Before you upgrade to PAS v2.8, verify 
+that Syslog Agents are enabled in your PAS deployment. 
+
+If you configured PAS v2.7.7 or later to disable Syslog Agents 
+through the UI or by setting `properties.syslog_agent_enabled` 
+to `false`, then you must enable Syslog Agents prior to the upgrade. 
+
+If you do not enable Syslog Agents prior to upgrade, 
+the upgrade to PAS v2.8 fails in order to prevent potential log loss.
+
 ## <a id='ist'></a> Pivotal Isolation Segment
 
 See the following Pivotal Isolation Segment breaking changes:
