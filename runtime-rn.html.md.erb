@@ -909,7 +909,7 @@ For more information, see [Missing environment variables when using <%= vars.app
 
 When upgrading to <%= vars.app_runtime_abbr %> v2.7.6 or earlier, you may see duplicate logs or no logs for a short time on syslog endpoints while BOSH enables the Syslog Agent component. This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.7. 
 
-If BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs until BOSH enables the Syslog Agents. If BOSH enables Syslog Agents before removing Syslog Adapters, there are duplicate logs until BOSH removes Syslog Adapters.
+In <%= vars.app_runtime_abbr %> v2.7.6 and earlier, if BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs until BOSH enables the Syslog Agents. If BOSH enables Syslog Agents before removing Syslog Adapters, there are duplicate logs until BOSH removes Syslog Adapters.
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
