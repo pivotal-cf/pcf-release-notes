@@ -10,9 +10,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 <hr>
 
 ## <a id='releases'></a> Releases
- 
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.6.13'></a> 2.6.13
 
 **Release Date:** 12/26/2019
@@ -110,9 +110,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.6</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.12'></a> 2.6.12
 
 **Release Date:** 12/09/2019
@@ -186,9 +186,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.6</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.11'></a> 2.6.11
 
 **Release Date:** 12/02/2019
@@ -1300,7 +1300,9 @@ For more information, see [Pushing Apps with Sidecar Processes (Beta)](https://d
 
 Traditionally, Garden uses runc directly to create, delete, and run container processes. Garden v1.15.0 and later support delegating some of the container lifecycle through containerd, which is the industry standard wrapper around runc.
 
-Containerd mode is enabled by default to bring PAS in line with other container providers. To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox in the **Application Containers** pane of the PAS tile.
+Containerd mode is enabled by default to bring PAS in line with other container providers. A normal PAS upgrade causes Garden to restart, and this restart causes Garden to re-create existing containers. When you upgrade to PAS v2.6, Garden switches the container runtime from runc to containerd during this re-creation step.
+
+To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox in the **Application Containers** pane of the PAS tile.
 
 For more information, see [opsguide-containerd.md](https://github.com/cloudfoundry/garden-runc-release/blob/develop/docs/opsguide-containerd.md) on GitHub.
 
