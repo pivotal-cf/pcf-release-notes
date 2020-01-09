@@ -362,4 +362,19 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
  
- 
+## <a id='new-features'></a> New Features in PAS v2.9
+
+PAS v2.9 includes the following major features:
+
+
+
+## <a id='known-issues'></a> Known Issues
+
+PAS v2.9 includes the following known issues:
+
+### <a id='nfs-broker-errand'></a> Run NFS Broker Errand Before Upgrade
+
+If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to PAS v2.9. Running this errand in PAS v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
+
+PAS v2.9 removes the ability to migrate data from MySQL to CredHub. If you do not run the errand in PAS v2.8, you may be unable to bind apps to 
+existing NFS Volume Service service instances after upgrading to PAS v2.9.
