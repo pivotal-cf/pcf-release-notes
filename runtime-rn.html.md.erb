@@ -814,9 +814,9 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/plat
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-<%= vars.app_runtime_abbr %> v2.7 contains Syslog Agents, which forward logs to configured syslog drains and Loggregator. Syslog Agents are enabled by default, and the option to enable or disable syslog egress is removed from the <%= vars.app_runtime_abbr %> UI.
+<%= vars.app_runtime_abbr %> v2.7 contains Syslog Agents, which forward logs to configured syslog drains and Loggregator. Syslog Agents are enabled by default.
 
-Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
+The instance groups `syslog_adapter` and `syslog_scheduler` and the property `syslog_metrics_to_syslog_enabled` are removed. They are removed because agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
 For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
