@@ -1,5 +1,5 @@
 ---
-title: PAS for Windows v2.8 Release Notes
+title: Pivotal Application Service for Windows v2.8 Release Notes
 owner: Garden Windows
 ---
 
@@ -12,9 +12,9 @@ The PAS for Windows v2.8 tile is available with the release of <%= vars.platform
 
 
 ## <a id='releases'></a> Releases
- 
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.1'></a> 2.8.1
 
 **Release Date:** 12/26/2019
@@ -51,9 +51,9 @@ The PAS for Windows v2.8 tile is available with the release of <%= vars.platform
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.0'></a> 2.8.0
 
 **Release Date:** 12/09/2019
@@ -100,7 +100,7 @@ You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a
 
 When you enable mutual TLS, PAS for Windows disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with PAS.
 
-To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**. 
+To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**.
 
 For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in the _Installing and Configuring PASW_ topic.
 
@@ -120,7 +120,7 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
-<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. Pivotal recommends that you do not disable the Firehose if you are dependent on any of the following: 
+<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. Pivotal recommends that you do not disable the Firehose if you are dependent on any of the following:
 <ul>
     <li>Service tile metrics</li>
     <li>Pivotal Healthwatch or Pivotal App Metrics</li>
@@ -140,7 +140,7 @@ To enable an aggregate log and metric drain for your foundation, add a comma-sep
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 
-You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as GitHub, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact. 
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as GitHub, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact.
 
 For more information about using the buildpack, see the [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) repository on GitHub.
 
