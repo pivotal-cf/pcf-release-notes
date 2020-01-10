@@ -1,11 +1,11 @@
 ---
-title: Pivotal v2.8 Feature Highlights
+title: Pivotal Platform v2.8 Feature Highlights
 modified_date: false
 ---
 
  <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
 
-This topic highlights important new features included in Pivotal Cloud Foundry (PCF) v<%= vars.current_major_version %>.
+This topic highlights important new features included in <%= vars.platform_name %> v<%= vars.current_major_version %>.
 
 
 ## <a id='om'></a> Pivotal Ops Manager Highlights
@@ -131,7 +131,7 @@ You can view quota information for the orgs in the org header in App Manager. Th
 
 ### <a id='manageable-upgrades'></a> Use the Isolation Segment Tile to Make Upgrades More Manageable
 
-You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Cell capacity from other apps. You may want to do this if you have a PAS tile with a large volume of Diego Cells. 
+You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Cell capacity from other apps. You may want to do this if you have a PAS tile with a large volume of Diego Cells.
 
 Putting more of your workloads on the Diego Cells of one or more Isolation Segment tiles has the following benefits:
 
@@ -224,6 +224,6 @@ For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 
-You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as Github, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact. 
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as Github, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact.
 
 For more information about using the buildpack, see [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) on Github.
