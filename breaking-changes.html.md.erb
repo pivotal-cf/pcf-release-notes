@@ -69,6 +69,24 @@ To remove Consul clients from your products, make the following changes to any `
 
 For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the <%= vars.product_name %> v2.4 Partner Release Notes.
 
+### <a id="syslog-agents"></a> Do Not Edit Syslog Agent Configuration When Upgrading
+
+Do not change your Syslog Agent configuration when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time. For example, if Syslog Agents are enabled on your current version of <%= vars.app_runtime_abbr %>, ensure that Syslog Agents are enabled when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time.
+
+If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> v2.7.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](runtime-rn.html#duplicate-logs).
+
+You can edit the Syslog Agent configuration on <%= vars.app_runtime_abbr %> v2.7.7 after the first deploy. 
+
+To enable or disable Syslog Agents:  
+
+1. Go to the PAS **System Logging** pane.
+
+1. Do one of the following:
+  * **Enable Syslog Agents**: Select **Enable agent-based syslog egress for app logs**.
+  * **Disable Syslog Agents**: Deselect **Enable agent-based syslog egress for app logs**.
+
+1. Click **Apply Changes**. 
+
 ### <a id='props-changed'></a> Changed Properties and Jobs
 
 The following <%= vars.product_short %> tile properties and <%= vars.product_short %> jobs have changed in <%= vars.product_short %> <%= vars.v_major_version %>.
