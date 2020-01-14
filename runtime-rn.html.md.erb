@@ -816,7 +816,16 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/plat
 
 <%= vars.app_runtime_abbr %> v2.7 contains Syslog Agents, which forward logs to configured syslog drains and Loggregator. Syslog Agents are enabled by default.
 
-The instance groups `syslog_adapter` and `syslog_scheduler` and the property `syslog_metrics_to_syslog_enabled` are removed. They are removed because agent-based syslog egress removes the need for VMs dedicated to syslog drains.
+Agent-based syslog egress removes the need for VMs dedicated to syslog drains. So, any instance groups and properties related to these VMs were removed in <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6.
+
+The following instance groups are removed:
+- `syslog_adapter`
+- `syslog_scheduler` 
+
+The following property is removed:
+- `syslog_metrics_to_syslog_enabled`
+
+<p class="note"><b>Note:</b>The <code>syslog_adapter</code> and <code>syslog_scheduler</code> instance groups and the <code>syslog_metrics_to_syslog_enabled</code> property are availble in <%= vars.app_runtime_abbr %> v2.7.7. This allows you to optionally disable Syslog Agents in v2.7.7.</p>
 
 For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
@@ -907,11 +916,25 @@ For more information, see [Missing environment variables when using <%= vars.app
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
-When upgrading to <%= vars.app_runtime_abbr %> v2.7.6 or earlier, you may see duplicate logs or no logs for a short time on syslog endpoints while BOSH enables the Syslog Agent component. This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.7. 
+Syslog Agents are required on PAS v2.7.0 through v2.7.6. When you upgrade to PAS v2.7.0 through v2.7.6, BOSH turns on Syslog Agents and turns off Syslog Adapter VMs.  
 
-In <%= vars.app_runtime_abbr %> v2.7.6 and earlier, if BOSH removes Syslog Adapters before enabling Syslog Agents, there are no logs until BOSH enables the Syslog Agents. If BOSH enables Syslog Agents before removing Syslog Adapters, there are duplicate logs until BOSH removes Syslog Adapters.
+If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, then there are no logs for a significant period of time while BOSH turns on the Syslog Agents on each Diego cell. 
+
+If BOSH turns on the Syslog Agents before it turns off the Syslog Adapter VMs, then there are duplicate logs until the Syslog Adapter VMs are off.
+
+This period of log loss or log duplication is signifantly reduced in <%= vars.app_runtime_abbr %> v2.7.7. For more information, see [Duplicate or Missing Logs During Upgrade from v2.6.x to v2.7.7](#duplicate-missing-logs-2-7-7).
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
+
+### <a id='duplicate-missing-logs-2-7-7'></a> Duplicate or Missing Logs During Upgrade from v2.6.x to v2.7.7
+
+There is a short period of log loss or log duplication when you enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7.   
+
+This log loss or log duplication occurs when BOSH enables Syslog Agents and turns off Syslog Adapter VMs. For more information about the cause of the log loss or duplication, see [Duplicate or Missing Logs](#duplicate-logs).
+
+If you enabled Syslog Agents on <%= vars.app_runtime_abbr %> v2.6.x, you must disable Syslog Agents before you upgrade to <%= vars.app_runtime_abbr %> v2.7.7. You can then enable Syslog Agents on v2.7.7 and re-deploy <%= vars.app_runtime_abbr %>.  
+
+For more information, see [Reduce Log Loss or Log Duplication When Deploying Syslog Agents on PAS v2.7.7](https://docs.pivotal.io/platform/2-7/upgrading/checklist.html#syslog-agents) procedure in the _Upgrade Preparation Checklist for Pivotal Platform v2.7_ topic.   
 
 ### <a id='last-syslog-drain'></a> Cannot Delete Last Remaining Syslog Drain
 
