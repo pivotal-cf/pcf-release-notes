@@ -173,3 +173,22 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.0</td></tr>
   </tbody>
 </table>
+
+
+## <a id='new-features'></a> New Features in Pivotal Isolation Segment v2.9
+
+Pivotal Isolation Segment v2.9 includes the following major features:
+
+### <a id='app-graceful-shutdown'></a> Increase App Graceful Shutdown Period
+
+You can increase the graceful shutdown period for your apps.
+
+When PAS requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the PAS tile.
+
+For more information, see the [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) section of the _App Container Lifecycle_ topic and the [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#advanced_features) section of the _Installing Pivotal Isolation Segment_ topic.
+
+
+
+## <a id='known-issues'></a> Known Issues
+
+Pivotal Isolation Segment v2.9 includes the following known issues:
