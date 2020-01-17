@@ -1519,7 +1519,7 @@ This issue is resolved in PAS v2.6.4. However, upgrading to v2.6.4 from v2.6.0 t
 
 A defect in the mapfs FUSE driver causes errors to occur in file append operations when the ID mapping feature is used with NFS in v2.6.10 through v2.6.13.  ID mapping is enabled when either the `uid` or `username` option is speficied in service instance or service bind configuration.
 
-When file append operations within the mounted file system (e.g. `echo hello >> test.txt`) fail with the error `File operation not supported`.
+File append operations within the mounted file system (e.g. `echo hello >> test.txt`) fail with the error `File operation not supported`.
 
 This issue is resolved in PAS v2.6.14.
 
