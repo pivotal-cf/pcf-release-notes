@@ -1983,6 +1983,14 @@ PAS automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even 
 
 This issue is resolved in PAS v2.5.14. However, upgrading to v2.5.14 from v2.5.0 through v2.5.13 does not delete the domain. You must manually delete the domain.
 
+### <a id='nfs-file-append'></a> NFS Volume Service File Append Errors
+
+A defect in the mapfs FUSE driver causes errors to occur in file append operations when the ID mapping feature is used with NFS in v2.5.15 through v2.5.19.  ID mapping is enabled when either the `uid` or `username` option is speficied in service instance or service bind configuration.
+
+When file append operations within the mounted file system (e.g. `echo hello >> test.txt`) fail with the error `File operation not supported`.
+
+This issue is resolved in PAS v2.5.19.
+
 ### <a id="apps-manager-ie"></a> Apps Manager Spring Boot Integration Fails in Internet Explorer
 
 In PAS v2.5.8, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
