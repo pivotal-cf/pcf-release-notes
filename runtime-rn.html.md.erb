@@ -456,8 +456,8 @@ For more information, see the [Configure Errands](https://docs.pivotal.io/platfo
 
 ### <a id='nfs-file-append'></a> NFS Volume Service File Append Errors
 ￼
-￼A defect in the mapfs FUSE driver causes errors to occur in file append operations when the ID mapping feature is used with NFS in v2.8.0 through v2.8.1.  ID mapping is enabled when either the `uid` or `username` option is specified in service instance or service bind configuration.
+A defect in the mapfs FUSE driver causes errors to occur in file append operations when PAS users access the ID mapping feature with NFS in PAS v2.8.0 through PAS v2.8.1. PAS users enable the ID mapping feature when they specify either the `uid` or `username` option in their service instance or service bind configuration.
 ￼
-￼File append operations within the mounted file system (e.g. `echo hello >> test.txt`) fail with the error `File operation not supported`.
-￼
-￼This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
+When this issue occurs, file append operations within the mounted file system (e.g. `echo hello >> test.txt`) fail with the error `File operation not supported`.
+
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
