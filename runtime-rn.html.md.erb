@@ -468,6 +468,18 @@ When upgrading to <%= vars.app_runtime_abbr %> v2.9, be aware of the following u
 
 <%= vars.app_runtime_abbr %> v2.9 includes the following major features:
 
+### <a id=‘observability-fabric’></a> <%= vars.platform_name %> Observability Fabric (Beta)
+
+<%= vars.platform_name %> Observability Fabric includes components that collect, store, and forward logs and metrics in your <%= vars.platform_name %> deployment. The components of Observability Fabric use a shared-nothing architecture that requires several fewer VMs than the Loggregator system. <%= vars.app_runtime_abbr %> v2.8.1 adds two new jobs, `metrics-agent` and `metrics-discovery-registrar`.
+
+The Metrics Agent receives logs and metrics in Loggregator V2 envelopes and exposes them on Prometheus endpoints. Similarly, the Service Metrics Agent receives metrics from service instances and exposes them on Prometheus endpoints.
+
+The Metrics Discovery Registrar then publishes the endpoint scrape location to NATS so you can automate a scrape configuration, using an external tool such as Telegraf. This creates a pull-based architecture to access logs and metrics, replacing the push-based architecture of Loggregator.
+
+To use the Observability Fabric components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-logging) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+
+For more information about Observability Fabric, see [<%= vars.platform_name %> Observability Fabric (Beta)](http://docs.pivotal.io/platform/application-service/2-9/loggregator/observability-fabric.html).
+
 ### <a id='app-graceful-shutdown'></a> Increase App Graceful Shutdown Period
 
 You can increase the graceful shutdown period for your apps.
