@@ -451,28 +451,44 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.0</td></tr>
   </tbody>
 </table>
- 
 
-## <a id='new-features'></a> New Features in PAS v2.9
 
-PAS v2.9 includes the following major features:
+## <a id='upgrade'></a> How to Upgrade
+
+The procedure for upgrading to <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) v2.9 is documented in [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/2-9/customizing/upgrading-pcf.html).
+
+When upgrading to <%= vars.app_runtime_abbr %> v2.9, be aware of the following upgrade considerations:
+
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> v2.9.
+
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.9. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> v2.9, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+
+
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> v2.9
+
+<%= vars.app_runtime_abbr %> v2.9 includes the following major features:
 
 ### <a id='app-graceful-shutdown'></a> Increase App Graceful Shutdown Period
 
 You can increase the graceful shutdown period for your apps.
 
-When PAS requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the PAS tile.
+When <%= vars.app_runtime_abbr %> requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the <%= vars.app_runtime_abbr %> tile.
 
-For more information, see the [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) section of the _App Container Lifecycle_ topic and the [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#advanced) section of the _Configuring PAS_ topic.
+For more information, see the [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) section of the _App Container Lifecycle_ topic and the [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#advanced) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+
+### <a id='apps-manager-buildpacks'></a> Configure Buildpacks for Apps Manager
+
+You can configure the Apps Manager, Search Server, and Invitations apps to deploy with buildpacks you specify. To specify which buildpacks you want these apps to use, enter them in the **Apps Manager** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see the [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#customize-apps-man) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+
+If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see the [Buildpack Detection](../buildpacks/understand-buildpacks.html#buildpack-detection) section of the _How Buildpacks Work in <%= vars.app_runtime_abbr %>_ topic.
 
 
 ## <a id='known-issues'></a> Known Issues
 
-PAS v2.9 includes the following known issues:
+<%= vars.app_runtime_abbr %> v2.9 includes the following known issues:
 
 ### <a id='nfs-broker-errand'></a> Run NFS Broker Errand Before Upgrade
 
-If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to PAS v2.9. Running this errand in PAS v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
+If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to <%= vars.app_runtime_abbr %> v2.9. Running this errand in <%= vars.app_runtime_abbr %> v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
 
-If you do not run the errand in PAS v2.8, you may be unable to bind apps to 
-existing NFS Volume Service service instances after upgrading to PAS v2.9.
+If you do not run the errand in <%= vars.app_runtime_abbr %> v2.8, you may be unable to bind apps to existing NFS Volume Service service instances after upgrading to <%= vars.app_runtime_abbr %> v2.9.
