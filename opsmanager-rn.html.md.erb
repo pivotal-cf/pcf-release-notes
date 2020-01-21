@@ -15,6 +15,32 @@ The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-8/customizin
 
 ## <a id='releases'></a> Releases
 
+### <a id="2-8-2"></a> 2.8.2
+
+- **[Bug Fix]** Fixes issue where tiles that contain build numbers in `product_version` incorrectly fail to meet the requirements for `minimum_version_for_upgrade` version.
+- **[Bug Fix]** Fixes performance issues with the Ops Manager change log page.
+- **[Bug Fix]** Fixes issue where setting the **HTTP(S) Proxy** in Ops Manager to an empty value causes apply changes to fail.
+
+Ops Manager v2.8.2 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.8.2-build.203*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>621.41</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.10.0</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.9*</td></tr><tr><td>CredHub</td><td>2.5.9</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.5</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.5*</td></tr><tr><td>BOSH CLI</td><td>6.2.0*</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>1.0.0</td></tr>
+  
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  
+  </tbody>
+</table> 
+
 ### <a id="2-8-1"></a> 2.8.1
 
 - **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH.
