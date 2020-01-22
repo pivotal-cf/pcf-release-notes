@@ -15,6 +15,20 @@ The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-8/customizin
 
 ## <a id='releases'></a> Releases
 
+### <a id='2-9-alpha'></a> 2.9.0 Alpha 1
+
+* **[Feature]** Operators can view and update internal authentication settings by using the Ops Manager `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the Ops Manager UI.
+* **[Feature]** Operators can view and update the Ops Manager decryption passphrase by using the Ops Manager `/api/v0/settings/decryption-passphrase` API endpoint.
+* **[Feature]** Operators can view and update proxy settings in Ops Manager by using the Ops Manager `/api/v0/settings/proxy_settings` API endpoint.
+* **[Feature]** When in Advanced Mode, operators can update **Blobstore Location** settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
+* **[Feature]** Ops Manager supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
+* **[UI Improvement]** When in Advanced Mode, operators see a special banner in the Ops Manager UI.
+
+Ops Manager v2.9.0 Alpha 1 uses the following component versions:
+
+ 
+
+
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
