@@ -1040,14 +1040,14 @@ Syslog drains provide the ability to send only logs or metrics to their syslog e
 
 If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web processes can cause Autoscaler to scale the web process incorrectly.
 
-### <a id='nfs-file-append'></a> Errors Appear in NFS Volume Service File Append Operations
+### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
 A defect in the mapfs FUSE driver causes errors to occur in file append operations when you enable the ID mapping feature with NFS in PAS v2.7.4 through PAS v2.7.7. 
 
 You enable the ID mapping feature by specifying either the `uid` or 
 `username` option in service instance or service bind configurations.
 
-When this issue occurs, file append operations within the mounted file system fail with the error `File operation not supported`. For example, `echo hello >> test.txt` fails. 
+When this issue occurs, appending files within the mounted file system fail with the error `File operation not supported`. For example, `echo hello >> test.txt` fails. 
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.8.
 
