@@ -22,6 +22,7 @@ The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-8/customizin
 * **[Feature]** Operators can view and update proxy settings in Ops Manager by using the Ops Manager `/api/v0/settings/proxy_settings` API endpoint.
 * **[Feature]** When in Advanced Mode, operators can update **Blobstore Location** settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
 * **[Feature]** Ops Manager supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
+* **[Feature]** Ops Manager API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the Ops Manager API docs and improves general formatting.
 * **[UI Improvement]** When in Advanced Mode, operators see a special banner in the Ops Manager UI.
 
 Ops Manager v2.9.0 Alpha 1 uses the following component versions:
@@ -38,6 +39,12 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 Ops Manager displays a banner when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode when you complete the required work. 
 
 For more information about how to enable Advanced Mode in Ops Manager, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _Ops Manager Fields That Lock On Deploy_.
+
+### <a id='open-api-spec-docs'></a> Ops Manager API Documentation Uses the Open API Specification
+
+In v2.9, Ops Manager API documentation adopts the Open API Specification (OAS). In addition to general format improvements, this update provides operators with a machine-parsable version of the Ops Manager API docs.
+
+For more information about OAS, see [The OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification).
 
 
 ## <a id='known-issues'></a> Known Issues
