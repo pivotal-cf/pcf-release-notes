@@ -48,6 +48,12 @@ Ops Manager v2.9.0 Alpha 1 uses the following component versions:
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
 
+### <a id='om-api-rotate-credhub-certs'></a> Ops Manager API Rotates CredHub Certificates and Certificate Authorities
+
+When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` Ops Manager API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
+
+For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
+
 ### <a id='advanced-mode-banner'></a> Advanced Mode UI Banner
 
 Ops Manager displays a banner when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode when you complete the required work. 
