@@ -40,9 +40,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.17'></a> 2.5.17
 
 **Release Date:** 12/26/2019
@@ -87,9 +85,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.16'></a> 2.5.16
 
 **Release Date:** 12/09/2019
@@ -126,9 +122,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.15'></a> 2.5.15
 
 **Release Date:** 12/02/2019
@@ -163,9 +157,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.14'></a> 2.5.14
 
 **Release Date:** 11/19/2019
@@ -205,8 +197,6 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.4.0</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.5.13'></a> 2.5.13
 
@@ -247,8 +237,6 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.4.0</td></tr>
   </tbody>
 </table>
-
-
 
 ### <a id='2.5.12'></a> 2.5.12
 
@@ -730,14 +718,14 @@ See also:
 
 The PCF Isolation Segment v2.5 tile is available for installation with PCF v2.5.
 
-[Isolation segments](http://docs.pivotal.io/pivotalcf/2-3/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+[Isolation segments](http://docs.pivotal.io/pivotalcf/2-5/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-3/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-5/adminguide/isolation-segments.html) topic.
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.5 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-3/customizing/installing-pcf-is.html) topic.
+The procedure for installing PCF Isolation Segment v2.5 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-5/customizing/installing-pcf-is.html) topic.
 
 To install a PCF Isolation Segment, you must first install PCF v2.5.
 
@@ -746,12 +734,9 @@ To install a PCF Isolation Segment, you must first install PCF v2.5.
 
 ### <a id="disable-policy-enforcment"></a> Disable Network Policy Enforcement Between Apps
 
-You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile.
-Disabling network policy enforcement allows all apps to send network traffic to all other apps in the
-foundation despite no policy specifically allowing it.
+You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile. Disabling network policy enforcement allows all apps to send network traffic to all other apps in the foundation despite no policy specifically allowing it.
 
-Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk,
-see [silk](https://github.com/cloudfoundry/silk) in GitHub.
+Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
 
 ### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
 

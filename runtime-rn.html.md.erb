@@ -96,9 +96,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.7</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.18'></a> 2.5.18
 
 **Release Date:** 12/26/2019
@@ -199,9 +197,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.6</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.17'></a> 2.5.17
 
 **Release Date:** 12/09/2019
@@ -276,9 +272,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.6</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.16'></a> 2.5.16
 
 **Release Date:** 12/02/2019
@@ -356,8 +350,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
-
-
 
 ### <a id='2.5.15'></a> 2.5.15
 
@@ -443,8 +435,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
-
-
 
 ### <a id='2.5.14'></a> 2.5.14
 
@@ -547,8 +537,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.5</td></tr>
   </tbody>
 </table>
-
-
 
 <p class="note warning"><strong>Warning:</strong> Before installing or upgrading to PAS v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
 
@@ -817,7 +805,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.2</td></tr>
   </tbody>
 </table>
-
 
 ### <a id='2.5.10'></a> 2.5.10
 
@@ -1769,7 +1756,7 @@ When upgrading to PAS v2.5, be aware of the following upgrade considerations:
 
 PAS versions v2.5.0 to v2.5.9 do not support apps running on `cflinuxfs2`.
 
-PAS v2.5 patch versions v2.5.10 and later optionally support pre-existing apps staged with `cflinuxfs2` buildpacks, but do not support restaging on `cflinuxfs2`.  To enable `cflinuxfs2` support, see the [Configure Cloud Controller](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#config-cc) section of the _Configuring PAS_ topic.
+PAS v2.5 patch versions v2.5.10 and later optionally support pre-existing apps staged with `cflinuxfs2` buildpacks, but do not support restaging on `cflinuxfs2`. To enable `cflinuxfs2` support, see the [Configure Cloud Controller](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#config-cc) section of the _Configuring PAS_ topic.
 
 PAS v2.4 also supports both the `cflinuxfs3` and `cflinuxfs2` stacks.
 
@@ -1853,6 +1840,7 @@ For more information about Log Cache and Traffic Controller, see [Configuring Lo
 In PAS v2.5, you can configure Apps Manager to support multi-foundation deployments. This configuration allows you to search, view, and manage orgs, spaces, apps, and service instances across multiple foundations from a single interface.
 
 For more information, see [Configuring Multi-Foundation Support in Apps Manager in PAS](https://docs.pivotal.io/pivotalcf/2-5/opsguide/configure-multi-foundation.html).
+
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -1945,32 +1933,34 @@ For information on how to address this issue, see [Database Migration Failure](h
 
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
-Large PCF Foundations can experience intermittent misrouting of apps.
-These routes can point to non-existent or incorrect app containers
-and can cause apps to intermittently return HTTP codes 404 or 502.
+Large PCF Foundations can experience intermittent misrouting of apps. These routes can point to non-existent or incorrect app containers and can cause apps to intermittently return HTTP codes 404 or 502.
 
-This issue typically occurs in larger-sized foundations where a single Gorouter
-instance misses a deregistration message when a user unmaps routes to a running app.
-As a result, the Gorouter retains stale routes in its routing table.
+This issue typically occurs in larger-sized foundations where a single Gorouter instance misses a deregistration message when a user unmaps routes to a running app. As a result, the Gorouter retains stale routes in its routing table.
 
 To resolve this issue, update to PAS v2.5.10 or later.
 
-If you have previously checked the `Prune Routes on TTL Expiry for TLS Backends`
-checkbox as referenced below, uncheck the box for improved guarantees of
-route consistency during control plane instability.
+If you have previously checked the `Prune Routes on TTL Expiry for TLS Backends` checkbox as referenced below, uncheck the box for improved guarantees of route consistency during control plane instability.
 
 1. Log in to Ops Manager.
+
 1. In the PAS tile, select **Application Containers**.
+
 1. Uncheck the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
+
 1. Click **Review Pending Changes**.
+
 1. Click **Apply Changes**.
 
 If you are on v2.5.6 to v2.5.9 and need a temporary mitigation pending upgrades, do the following:
 
 1. Log in to Ops Manager.
+
 1. In the PAS tile, select **Application Containers**.
+
 1. Select the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
+
 1. Click **Review Pending Changes**.
+
 1. Click **Apply Changes**.
 
 If you are on a version earlier than v2.5.6, you must upgrade to address this issue.
@@ -1987,8 +1977,7 @@ This issue is resolved in PAS v2.5.14. However, upgrading to v2.5.14 from v2.5.0
 
 A defect in the mapfs FUSE driver causes errors to occur in file append operations when you enable the ID mapping feature with NFS in PAS v2.5.15 through PAS v2.5.18.
 
-You enable the ID mapping feature by specifying either the `uid` or 
-`username` option in service instance or service bind configurations.
+You enable the ID mapping feature by specifying either the `uid` or `username` option in service instance or service bind configurations.
 
 When this issue occurs, appending files within the mounted file system fail with the error `File operation not supported`. For example, `echo hello >> test.txt` fails.
 

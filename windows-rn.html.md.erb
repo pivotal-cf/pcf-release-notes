@@ -5,11 +5,11 @@ owner: Garden Windows
 
 This topic contains release notes for Pivotal Application Service (PAS) for Windows.
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-The PAS for Windows v2.5 tile is available with the release of Pivotal Cloud Foundry (PCF) version
-v2.5. To use the PAS for Windows v2.5 tile, you must install Ops Manager v2.5 or later and PAS v2.5
-or later.
+The PAS for Windows v2.5 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.5. To use the PAS for Windows v2.5 tile, you must install Ops Manager v2.5 or later and PAS v2.5 or later.
+
 
 ## <a id='releases'></a> Releases
  
@@ -44,9 +44,7 @@ or later.
     <tr><td>windowsfs-release</td><td>2.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.14'></a> 2.5.14
 
 **Release Date:** 01/16/2020
@@ -74,9 +72,7 @@ or later.
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.13'></a> 2.5.13
 
 **Release Date:** 12/26/2019
@@ -110,9 +106,7 @@ or later.
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.12'></a> 2.5.12
 
 **Release Date:** 12/09/2019
@@ -171,9 +165,7 @@ or later.
     <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.5.10'></a> 2.5.10
 
 **Release Date:** 10/31/2019
@@ -206,8 +198,6 @@ or later.
     <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.5.9'></a> 2.5.9
 
@@ -513,47 +503,37 @@ or later.
   </tbody>
 </table>
 
+
 ## <a id='new-features'></a> New Features in PAS for Windows v2.5
 
 PAS for Windows v2.5 includes the following major features:
 
 ### <a id="windows-2019"></a> Support for Windows Server 2019
 
-PAS for Windows v2.5 requires Windows Server 2019. This means developers can deploy
-.NET and Windows applications on Windows Server 2019 in PAS. Moving to Windows Server
-2019 adds stability and enhances a number of container APIs used in the Garden Windows implementation (`winc`) of PAS for Windows.
+PAS for Windows v2.5 requires Windows Server 2019. This means developers can deploy .NET and Windows applications on Windows Server 2019 in PAS. Moving to Windows Server 2019 adds stability and enhances a number of container APIs used in the Garden Windows implementation (`winc`) of PAS for Windows.
 
-Windows Server 2019 stemcells for supported public cloud providers are available for
-download on [Pivotal Network](https://network.pivotal.io). For vSphere stemcells, see
-the documentation on producing them from a Windows image provided by your Microsoft
-VLSC account. For more information, see [Creating a vSphere Windows Stemcell](https://docs.pivotal.io/pivotalcf/windows/create-vsphere-stemcell.html).
+Windows Server 2019 stemcells for supported public cloud providers are available for download on [Pivotal Network](https://network.pivotal.io). For vSphere stemcells, see the documentation on producing them from a Windows image provided by your Microsoft VLSC account. For more information, see [Creating a vSphere Windows Stemcell](https://docs.pivotal.io/pivotalcf/windows/create-vsphere-stemcell.html).
 
 <p class="note"><strong>Note:</strong> PAS for Windows v2.5 supports Windows Server 2019-based stemcells only.</p>
 
 ### <a id='trusted-certificates'></a> .NET Apps Trust CA Certificates Configured in BOSH Director
 
-Applications deployed on PAS for Windows now automatically trust your certificate
-authority (CA) certificates configured in the **Security** pane of the BOSH Director
-tile. To enable .NET apps to trust these CA certificates, PAS for Windows includes
-them in the system trust store of Windows containers.
+Applications deployed on PAS for Windows now automatically trust your certificate authority (CA) certificates configured in the **Security** pane of the BOSH Director tile. To enable .NET apps to trust these CA certificates, PAS for Windows includes them in the system trust store of Windows containers.
 
-For instructions on configuring trusted certificates in the BOSH Director tile,
-see [Setting Trusted Certificates](https://docs.pivotal.io/pivotalcf/customizing/trusted-certificates.html).
+For instructions on configuring trusted certificates in the BOSH Director tile, see [Setting Trusted Certificates](https://docs.pivotal.io/pivotalcf/customizing/trusted-certificates.html).
 
 ### <a id='vcr'></a>Pre-Installed Visual C++ Redistributables
 
-PAS for Windows v2.5.5 and later includes Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019.
-This change is backported to PAS for Windows v2.2 and later.
+PAS for Windows v2.5.5 and later includes Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to PAS for Windows v2.2 and later.
 
-This update improves the developer experience by making Visual C++ Redistributables readily available for .NET apps.
-Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
+This update improves the developer experience by making Visual C++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
 In PAS for Windows v2.5, the `windows2016` stack is deprecated in favor of the `windows` stack.
 
-You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/2-5/adminguide/stack-auditor.html).
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin. For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/2-5/adminguide/stack-auditor.html).
+
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -571,7 +551,7 @@ If you have scripts that rely on metrics with `cf` as the value for `deployment`
 
 Additionally, if you have PCF Healthwatch installed and you changed the value of **Use “cf” as deployment name in emitted metrics instead of unique name** in PAS, you must run the **Push Monitoring Components** errand for Healthwatch to detect the change.
 
-### <a id='cf-push-aws'></a>AWS Deployments Using CloudFront-Enabled Blobstores May Result in cf push Failing Due to Untrusted Root Certificates
+### <a id='cf-push-aws'></a> AWS Deployments Using CloudFront-Enabled Blobstores May Result in cf push Failing Due to Untrusted Root Certificates
 
 **Symptom**
 
@@ -583,15 +563,10 @@ ERR: Downloading failed
 
 **Explanation**
 
-Windows Server 2019 stemcells (version v2019.2) on AWS are missing the root CA certificate that is used to sign Amazon's CloudFront CDN certificate. The missing
-root CA certificate is the VeriSign Class 3 Public Primary Certification Authority.
+Windows Server 2019 stemcells (version v2019.2) on AWS are missing the root CA certificate that is used to sign Amazon's CloudFront CDN certificate. The missing root CA certificate is the VeriSign Class 3 Public Primary Certification Authority.
 
-If you deploy PAS with a blobstore that is fronted by CloudFront, there is an x509
-certificate error when downloading the app droplet from the blobstore. As a result,
-`cf push` fails.
+If you deploy PAS with a blobstore that is fronted by CloudFront, there is an x509 certificate error when downloading the app droplet from the blobstore. As a result, `cf push` fails.
 
 **Workaround**
 
-Add the missing VeriSign root CA certificate to **Trusted Certificates** in Ops
-Manager to ensure that the certificate presented by CloudFront is trusted on Windows
-cells, allowing the droplet to be successfully downloaded from the blobstore.
+Add the missing VeriSign root CA certificate to **Trusted Certificates** in Ops Manager to ensure that the certificate presented by CloudFront is trusted on Windows cells, allowing the droplet to be successfully downloaded from the blobstore.
