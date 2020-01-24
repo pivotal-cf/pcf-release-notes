@@ -51,11 +51,11 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 
 When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` Ops Manager API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
 
-<p class="note"><strong>Note:</strong> Ops Manager will not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal CloudCache services.</p>
+<p class="note"><strong>Note:</strong> Ops Manager does not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal CloudCache services.</p>
 
 For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
 
-### <a id="authentication-update"></a> Ability to View and Update Ops Manager Internal Authentication Settings
+### <a id='authentication-update'></a> Ability to View and Update Ops Manager Internal Authentication Settings
 
 In Ops Manager v2.9, operators can view and update Ops Manager internal authentication configuration by using the Ops Manager `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the Ops Manager UI.
 
@@ -67,7 +67,7 @@ Ops Manager displays a banner in the UI when you are in Advanced Mode. This help
 
 For more information about how to enable Advanced Mode in Ops Manager, see [How to Enable Advanced Mode in the Ops Manager](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base. 
 
-### <a id="advanced-mode-fields"></a> Updates to Settings that Are Unlocked in Advanced Mode
+### <a id='advanced-mode-fields'></a> Additional Unlocked Settings in Advanced Mode
 
 In Ops Manager v2.9, the following **Director Config** fields can be unlocked in Advanced Mode after you apply changes:
 
