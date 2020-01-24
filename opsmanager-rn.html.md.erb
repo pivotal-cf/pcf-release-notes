@@ -20,9 +20,10 @@ The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-8/customizin
 * **[Feature]** Operators can view and update internal authentication settings by using the Ops Manager `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the Ops Manager UI.
 * **[Feature]** Operators can update the Ops Manager decryption passphrase by using the Ops Manager `/api/v0/settings/decryption-passphrase` API endpoint.
 * **[Feature]** Operators can view and update proxy settings in Ops Manager by using the Ops Manager `/api/v0/settings/proxy_settings` API endpoint.
-* **[Feature]** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM and S3 settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
+* **[Feature]** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
 * **[Feature]** Ops Manager supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
 * **[Feature]** Ops Manager API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the Ops Manager API docs and improves general formatting.
+* **[Feature Enhancement]** 
 * **[UI Improvement]** When in Advanced Mode, operators see a special banner in the Ops Manager UI.
 
 Ops Manager v2.9.0 Alpha 1 uses the following component versions:
@@ -52,13 +53,49 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 
 When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` Ops Manager API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
 
+<p class="note"><strong>Note:</strong> Ops Manager will not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal CloudCache services.</p>
+
 For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
+
+### <a id="authentication-update"></a> Ability to View and Update Ops Manager Internal Authentication Settings
+
+In Ops Manager v2.9, operators can view and update Ops Manager internal authentication configuration by using the Ops Manager `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the Ops Manager UI.
+
+For more information about accessing the **Settings** page, see [Using the Ops Manager Interface](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings).
 
 ### <a id='advanced-mode-banner'></a> Advanced Mode UI Banner
 
-Ops Manager displays a banner when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode when you complete the required work. 
+Ops Manager displays a banner in the UI when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode when you complete the required work. 
 
-For more information about how to enable Advanced Mode in Ops Manager, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _Ops Manager Fields That Lock On Deploy_.
+For more information about how to enable Advanced Mode in Ops Manager, see [How to Enable Advanced Mode in the Ops Manager](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base. 
+
+### <a id="advanced-mode-fields"></a> Updates to Settings that Are Unlocked in Advanced Mode
+
+In Ops Manager v2.9, the following **Director Config** fields can be unlocked in Advanced Mode after you apply changes:
+
+* **Blobstore Location**
+* For AWS S3:
+    * **S3 Endpoint**
+    * **S3 Bucket Name**
+    * **V2 Signature in S3** 
+    * **V4 Signature in S3**
+    * **Region in V4**
+* For GCS:
+    * **Bucket Name in GCS**
+    * **Storage Class in GCS**
+    * **Service Account Key in GCS**
+* For Luna HSM:
+    * **Partition Serial Number**
+
+You can also modify these properties by using the `api/v0/staged/director/properties` Ops Manager API endpoint.
+
+To unlock these fields or properties, you must use Ops Manager's Advanced Mode.
+
+For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _Ops Manager Fields That Lock On Deploy_.
+
+### <a id='domain-style'></a> Support for Domain-Style URLs for AWS S3 Blobstores
+
+Ops Manager supports domain-style URLs for specifying AWS S3 compatible blobstores. Starting in October 2020, AWS will be deprecating path-style S3 URLs in favor of domain-style.
 
 ### <a id='open-api-spec-docs'></a> Ops Manager API Documentation Uses the Open API Specification
 
