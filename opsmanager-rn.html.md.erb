@@ -21,7 +21,7 @@ The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/custo
 ### <a id="2-5-28"></a> 2.5.28
 
 - **[Bug Fix]** Fixes issue where multi-datacenter vSphere always deploys
-to the first vCenter configured in Ops Manager.
+BOSH Director to the first vCenter configured in Ops Manager.
 - **[Bug Fix]** Fixes performance issues with the Ops Manager change log page.
 
 Ops Manager v2.5.28 uses the following component versions:
@@ -621,7 +621,7 @@ Ops Manager v2.5.4 uses the following component versions:
 - **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
 - **[Bug Fix]** Certificate chain for LDAP makes it into the UAA truststore.
 - **[Bug Fix]** Harbor installs correctly when the PKS tile is already installed.
-- **[Bug Fix]** When an operators export installation settings, they see "Pending Changes" for the BOSH Director.
+- **[Bug Fix]** When operators export installation settings, they see "Pending Changes" for BOSH Director.
 - **[Bug Fix]** Operators cannot change non-configurable resource configs.
 - **[Bug Fix]** Apply Changes does not fail if copying credentials to CredHub takes longer than ten minutes.
 - **[Bug Fix]** VM extension names do not contain a period.
@@ -817,7 +817,7 @@ You can configure a pre-created client for Ops Manager either before you deploy 
 
 For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
 
-### <a id="vm-extensions"></a> Apply Custom VM Extensions to the BOSH Director in the Ops Manager API
+### <a id="vm-extensions"></a> Apply Custom VM Extensions to BOSH Director in the Ops Manager API
 
 You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director’s jobs and product tiles.
 
@@ -830,7 +830,7 @@ For more information about custom VM extensions, see [Staged VM Extensions](http
 
 The field names, button text, error messaging, and other textual UI elements in Ops Manager are updated. This is part of an ongoing effort to improve clarity, utility, and the user experience.
 
-This update does not impact Ops Manager product tiles or the BOSH Director. For more information about the Ops Manager UI, see [Using the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html).
+This update does not impact Ops Manager product tiles or BOSH Director. For more information about the Ops Manager UI, see [Using the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html).
 
 ### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs
 
