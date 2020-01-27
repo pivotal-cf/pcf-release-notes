@@ -23,7 +23,7 @@ Ops Manager v2.7 includes the following minor releases:
 
 
 - **[Bug Fix]** Fixes issue where multi-datacenter vSphere always deploys
-to the first vCenter configured in Ops Manager.
+BOSH Director to the first vCenter configured in Ops Manager.
 - **[Bug Fix]** Fixes issue where tiles that contain build numbers in `product_version` incorrectly
 fail to meet the requirements for `minimum_version_for_upgrade version`.
 - **[Bug Fix]** Fixes performance issues with the Ops Manager change log page.
@@ -224,7 +224,7 @@ Ops Manager v2.7.4 uses the following component versions:
 
 ### <a id="2-7-3"></a>2.7.3
 
-* **[Bug Fix]** Fix unbound variable in UAA that causes bosh director to fail
+* **[Bug Fix]** Fix unbound variable in UAA that causes BOSH Director to fail
 
 Ops Manager v2.7.3 uses the following component versions:
 
@@ -287,7 +287,7 @@ Ops Manager v2.7.2 uses the following component versions:
 * **[Bug Fix]** When an operator exports a runtime config only tile from Ops Manager 2.6 on AWS, they can successfully import their installation.zip into Ops Manager 2.7. Previously there was a 5th generation AWS instance schema migration failure.
 * **[Bug Fix]** Submitting a form with multiple unselected selector properties does not raise a 500 error
 * **[Bug Fix]** Resolves an issue in which Ops Manager hangs during **Apply Changes**
-* **[Bug Fix]** Ops Manager API shows deployed certificates when only the BOSH Director has been deployed
+* **[Bug Fix]** Ops Manager API shows deployed certificates when only BOSH Director has been deployed
 
 Ops Manager v2.7.1 uses the following component versions:
 
@@ -338,7 +338,7 @@ Ops Manager <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='resource-config'></a> Resource Config Redesign
 
-Ops Manager <%= vars.v_major_version %> introduces a redesigned **Resource Config** pane. The new **Resource Config** pane appears in every Ops Manager product tile, including the BOSH Director.
+Ops Manager <%= vars.v_major_version %> introduces a redesigned **Resource Config** pane. The new **Resource Config** pane appears in every Ops Manager product tile, including BOSH Director.
 
 In the redesigned **Resource Config** pane, you can expand the row that contains each job to reveal additional configuration options. The additional options that you can configure depend on your IaaS. For example, if you use vSphere, you can configure NSX-T or NSX-V settings within each job row.
 
