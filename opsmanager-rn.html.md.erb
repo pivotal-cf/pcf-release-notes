@@ -3,7 +3,7 @@ title: Pivotal Operations Manager v2.9 Release Notes
 owner: Ops Manager
 ---
 
-Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
@@ -11,21 +11,21 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Operations Manager <%= vars.v_major_version %>.
+The [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html) topic contains instructions for upgrading to <%= vars.ops_manager_full %> <%= vars.v_major_version %>.
 
 ## <a id='releases'></a> Releases
 
 ### <a id='2-9-alpha'></a> 2.9.0 Alpha 1
 
-* **[Feature]** Operators can view and update internal authentication settings by using the Ops Manager `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the Ops Manager UI.
-* **[Feature]** Operators can update the Ops Manager decryption passphrase by using the Ops Manager `/api/v0/settings/decryption-passphrase` API endpoint.
-* **[Feature]** Operators can view and update proxy settings in Ops Manager by using the Ops Manager `/api/v0/settings/proxy_settings` API endpoint.
+* **[Feature]** Operators can view and update internal authentication settings by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
+* **[Feature]** Operators can update the <%= vars.ops_manager %> decryption passphrase by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
+* **[Feature]** Operators can view and update proxy settings in <%= vars.ops_manager %> by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
 * **[Feature]** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
-* **[Feature]** Ops Manager supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
-* **[Feature]** Ops Manager API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the Ops Manager API docs and improves general formatting.
-* **[UI Improvement]** When in Advanced Mode, operators see a special banner in the Ops Manager UI.
+* **[Feature]** <%= vars.ops_manager %> supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
+* **[Feature]** <%= vars.ops_manager %> API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API docs and improves general formatting.
+* **[UI Improvement]** When in Advanced Mode, operators see a special banner in the <%= vars.ops_manager %> UI.
 
-Ops Manager v2.9.0 Alpha 1 uses the following component versions:
+<%= vars.ops_manager %> <%= vars.v_major_version %>.0 Alpha 1 uses the following component versions:
 
 <table border="1" class="nice">
   <thead>
@@ -36,46 +36,46 @@ Ops Manager v2.9.0 Alpha 1 uses the following component versions:
   </thead>
   <tbody>
   <tr>
-    <td>Ops Manager</td><td>2.9.0-build.59</td>
+    <td><%= vars.ops_manager %></td><td>2.9.0-build.59</td>
   </tr>
   <tr><td>Stemcell</td><td>621.50</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.11.0</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.10</td></tr><tr><td>CredHub</td><td>2.5.9</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.13.0</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>80</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>53.0.5</td></tr><tr><td>BOSH CLI</td><td>6.2.0</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>1.0.0</td></tr>
-  
+
   </tbody>
 </table>
 
-## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
+## <a id='major-features'></a> New Features in <%= vars.ops_manager %> <%= vars.v_major_version %>
 
-Ops Manager <%= vars.v_major_version %> includes the following major features:
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='om-api-rotate-credhub-certs'></a> Ops Manager API Rotates CredHub Certificates and Certificate Authorities
+### <a id='om-api-rotate-credhub-certs'></a> <%= vars.ops_manager %> API Rotates CredHub Certificates and Certificate Authorities
 
-When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` Ops Manager API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
+When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` <%= vars.ops_manager %> API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
 
-<p class="note"><strong>Note:</strong> Ops Manager does not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal CloudCache services.</p>
+<p class="note"><strong>Note:</strong> <%= vars.ops_manager %> does not rotate the CredHub certificates for MySQL for <%= vars.platform_name %> and Pivotal CloudCache services.</p>
 
-For more information about rotating certificates using the Ops Manager API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the Ops Manager API documentation.
+For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
-### <a id='authentication-update'></a> Ability to View and Update Ops Manager Internal Authentication Settings
+### <a id='authentication-update'></a> Ability to View and Update <%= vars.ops_manager %> Internal Authentication Settings
 
-In Ops Manager v2.9, operators can view and update Ops Manager internal authentication configuration by using the Ops Manager `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the Ops Manager UI.
+In <%= vars.ops_manager %> <%= vars.v_major_version %>, operators can view and update <%= vars.ops_manager %> internal authentication configuration by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
 
-For more information about accessing the **Settings** page, see [Using the Ops Manager Interface](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings).
+For more information about accessing the **Settings** page, see [Using the <%= vars.ops_manager %> Interface](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings).
 
 ### <a id='advanced-mode-banner'></a> Advanced Mode UI Banner
 
-Ops Manager displays a banner in the UI when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode.
+<%= vars.ops_manager %> displays a banner in the UI when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode.
 
-For more information about how to enable Advanced Mode in Ops Manager, see [How to Enable Advanced Mode in the Ops Manager](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base. 
+For more information about how to enable Advanced Mode in <%= vars.ops_manager %>, see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base.
 
 ### <a id='advanced-mode-fields'></a> Additional Unlocked Fields in Advanced Mode
 
-In Ops Manager v2.9, the following **Director Config** fields can be unlocked in Advanced Mode after you apply changes:
+In <%= vars.ops_manager %> <%= vars.v_major_version %>, the following **Director Config** fields can be unlocked in Advanced Mode after you apply changes:
 
 * **Blobstore Location**
 * For AWS S3:
     * **S3 Endpoint**
     * **S3 Bucket Name**
-    * **V2 Signature in S3** 
+    * **V2 Signature in S3**
     * **V4 Signature in S3**
     * **Region in V4**
 * For GCS:
@@ -85,31 +85,31 @@ In Ops Manager v2.9, the following **Director Config** fields can be unlocked in
 * For Luna HSM:
     * **Partition Serial Number**
 
-You can also modify these properties by using the `api/v0/staged/director/properties` Ops Manager API endpoint.
+You can also modify these properties by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint.
 
-To unlock these fields or properties, you must use Ops Manager's Advanced Mode.
+To unlock these fields or properties, you must use <%= vars.ops_manager %>'s Advanced Mode.
 
-For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _Ops Manager Fields That Lock On Deploy_.
+For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
 
 ### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for AWS S3 Blobstores
 
-Ops Manager supports virtual-hosted-style, or domain-style, URLs for AWS S3-compatible blobstores. This allows you to use virtual-hosted-style URLs for S3-compatible blobstores before AWS ends support for path-style URLs after September 30, 2020. 
+<%= vars.ops_manager %> supports virtual-hosted-style, or domain-style, URLs for AWS S3-compatible blobstores. This allows you to use virtual-hosted-style URLs for S3-compatible blobstores before AWS ends support for path-style URLs after September 30, 2020.
 
 For more information about the end of support for path-style S3 bucket URLs, see [Amazon S3 Path Deprecation Plan – The Rest of the Story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) in the AWS News Blog.
 
 To specify domain-style URLs for an S3-compatible blobstore:
 
-1. Go to the Ops Manager **Director Config** pane.
+1. Go to the <%= vars.ops_manager %> **Director Config** pane.
 
 1. For **Blobstore Location**, select **S3 Compatible Blobstore**.
 
-1. For the **S3 URLs Style** dropdown, select domain-style URL. 
+1. For the **S3 URLs Style** dropdown, select domain-style URL.
 
-For more information about the difference between path-style and virtual-hosted-style URLs, see [Virtual Hosting of Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) in the AWS documentation. 
+For more information about the difference between path-style and virtual-hosted-style URLs, see [Virtual Hosting of Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) in the AWS documentation.
 
-### <a id='open-api-spec-docs'></a> Ops Manager API Documentation Uses the Open API Specification
+### <a id='open-api-spec-docs'></a> <%= vars.ops_manager %> API Documentation Uses the Open API Specification
 
-In v2.9, Ops Manager API documentation adopts the Open API Specification (OAS). In addition to general format improvements, this update provides operators with a machine-parsable version of the Ops Manager API docs.
+In <%= vars.ops_manager %> <%= vars.v_major_version %>, <%= vars.ops_manager %> API documentation adopts the Open API Specification (OAS). In addition to general format improvements, this update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API docs.
 
 For more information about OAS, see [The OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification).
 

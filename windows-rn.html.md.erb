@@ -3,12 +3,12 @@ title: Pivotal Application Service for Windows v2.9 Release Notes
 owner: Garden Windows
 ---
 
-This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) v<%= vars.current_major_version %>.
+This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) <%= vars.v_major_version %>.
 
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.0-alpha.6'></a> 2.9.0-alpha.6
 
 **Release Date:** 01/18/2020
@@ -41,9 +41,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars
     <tr><td>windowsfs-release</td><td>2.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.5'></a> 2.9.0-alpha.5
 
 **Release Date:** 01/16/2020
@@ -74,8 +74,8 @@ This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.0-alpha.4'></a> 2.9.0-alpha.4
 
@@ -218,16 +218,16 @@ This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The <%= vars.windows_runtime_abbr %> v<%= vars.current_major_version %> tile is available with the release of <%= vars.platform_name %> v2.8. To use the <%= vars.windows_runtime_abbr %> v<%= vars.current_major_version %> tile, you must install <%= vars.ops_manager_full %> v<%= vars.current_major_version %> or later and <%= vars.app_runtime_full %> (<%= vars.app_runtime_full %>) v<%= vars.current_major_version %> or later.
+The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is available with the release of <%= vars.platform_name %> v2.8. To use the <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile, you must install <%= vars.ops_manager_full %> <%= vars.v_major_version %> or later and <%= vars.app_runtime_full %> (<%= vars.app_runtime_full %>) <%= vars.v_major_version %> or later.
 
 
-## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> v<%= vars.current_major_version %>
+## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
 
-<%= vars.windows_runtime_abbr %> v<%= vars.current_major_version %> includes the following major features:
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
 
-You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the Pivotal Isolation Segment tile.
+You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.segment_runtime_full %> tile.
 
 This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. It also prevents apps from reporting inaccurate app metrics in the cf CLI or increasing the CPU usage on the Diego Cell VM.
 
@@ -236,11 +236,11 @@ For more information, see the [Assign a Tile to an Isolation Segment](http://doc
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> v<%= vars.current_major_version %> tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, <%= vars.recommended_by %> recommends caution when using them in production.
 
 
 ## <a id='known-issues'></a> Known Issues
 
-There are currently no known issues in <%= vars.windows_runtime_abbr %> v<%= vars.current_major_version %>.
+There are currently no known issues in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>.

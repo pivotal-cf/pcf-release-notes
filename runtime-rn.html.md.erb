@@ -3,7 +3,7 @@ title: Pivotal Application Service v2.9 Release Notes
 owner: Release Engineering
 ---
 
-Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
@@ -12,13 +12,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.0-alpha.5'></a> 2.9.0-alpha.5
 
 **Release Date:** 01/16/2020
 
 * **[Security Fix]** Several security issues were fixed in MySQL [USN-4070-1](https://usn.ubuntu.com/4070-1/), [USN-4195-1](https://usn.ubuntu.com/4195-1/)
-* **[Feature]** Expose PAS database metrics in the Healthwatch Indicator Protocol dashboard
+* **[Feature]** Expose <%= vars.app_runtime_abbr %> database metrics in the Healthwatch Indicator Protocol dashboard
 * **[Bug Fix]** mapfs - Fix error when appending to a file
 * Bump ubuntu-xenial stemcell to version `621.41`
 * Bump binary-offline-buildpack to version `1.0.36`
@@ -100,9 +100,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.12.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.4'></a> 2.9.0-alpha.4
 
 **Release Date:** 12/26/2019
@@ -112,7 +112,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Clarify wording of marketplace url help text in Apps Manager configuration
 * **[Feature Improvement]** Remove vestigial nfs-volume SQL database and related properties
 * **[Feature Improvement]** Add doppler.firehose and usage_service.audit to Apps Manager client
-* **[Feature Improvement]** Always enable ssh-proxy TLS to backend instances to ensure widest compatibility mode with PASW and IST
+* **[Feature Improvement]** Always enable ssh-proxy TLS to backend instances to ensure widest compatibility mode with <%= vars.windows_runtime_abbr %> and IST
 * **[Bug Fix]** Passwords containing commas no longer cause the SMB volume service to crash at startup with a "mount failed" error
 * **[Bug Fix]** All CAPI jobs respect "Maximum disk quota per app"
 * Bump ubuntu-xenial stemcell to version `621.29`
@@ -187,9 +187,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.12.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.3'></a> 2.9.0-alpha.3
 
 **Release Date:** 12/09/2019
@@ -286,9 +286,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.12.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.2'></a> 2.9.0-alpha.2
 
 **Release Date:** 11/20/2019
@@ -376,9 +376,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.9.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.1'></a> 2.9.0-alpha.1
 
 **Release Date:** 11/06/2019
@@ -455,18 +455,18 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) v2.9 is documented in [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/2-9/customizing/upgrading-pcf.html).
+The procedure for upgrading to <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> is documented in [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/2-9/customizing/upgrading-pcf.html).
 
-When upgrading to <%= vars.app_runtime_abbr %> v2.9, be aware of the following upgrade considerations:
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> v2.9.
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.9. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> v2.9, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
 
-## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> v2.9
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
-<%= vars.app_runtime_abbr %> v2.9 includes the following major features:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='observability-fabric'></a> <%= vars.platform_name %> Observability Fabric (Beta)
 
@@ -505,10 +505,10 @@ If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detecti
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.app_runtime_abbr %> v2.9 includes the following known issues:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
 ### <a id='nfs-broker-errand'></a> Run NFS Broker Errand Before Upgrade
 
-If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to <%= vars.app_runtime_abbr %> v2.9. Running this errand in <%= vars.app_runtime_abbr %> v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
+If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. Running this errand in <%= vars.app_runtime_abbr %> v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
 
-If you do not run the errand in <%= vars.app_runtime_abbr %> v2.8, you may be unable to bind apps to existing NFS Volume Service service instances after upgrading to <%= vars.app_runtime_abbr %> v2.9.
+If you do not run the errand in <%= vars.app_runtime_abbr %> v2.8, you may be unable to bind apps to existing NFS Volume Service service instances after upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.

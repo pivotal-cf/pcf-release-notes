@@ -8,7 +8,7 @@ owner: Release Engineering
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.0-alpha.5'></a> 2.9.0-alpha.5
 
 **Release Date:** 01/16/2020
@@ -43,9 +43,9 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.4'></a> 2.9.0-alpha.4
 
 **Release Date:** 12/26/2019
@@ -83,9 +83,9 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.3'></a> 2.9.0-alpha.3
 
 **Release Date:** 12/09/2019
@@ -131,9 +131,9 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.0-alpha.2'></a> 2.9.0-alpha.2
 
 **Release Date:** 11/20/2019
@@ -173,8 +173,8 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.0</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.0-alpha.1'></a> 2.9.0-alpha.1
 
@@ -212,9 +212,9 @@ owner: Release Engineering
 </table>
 
 
-## <a id='new-features'></a> New Features in Pivotal Isolation Segment v2.9
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-Pivotal Isolation Segment v2.9 includes the following major features:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='app-graceful-shutdown'></a> Increase App Graceful Shutdown Period
 
@@ -222,17 +222,17 @@ You can increase the graceful shutdown period for your apps.
 
 When <%= vars.app_runtime_full %> requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the <%= vars.app_runtime_full %> tile.
 
-For more information, see the [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) section of the _App Container Lifecycle_ topic and the [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#advanced_features) section of the _Installing Pivotal Isolation Segment_ topic.
+For more information, see the [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) section of the _App Container Lifecycle_ topic and the [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#advanced_features) section of the _Installing <%= vars.segment_runtime_full %>_ topic.
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
 
-You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the Pivotal Isolation Segment tile.
+You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.segment_runtime_full %> tile.
 
 This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. It also prevents apps from reporting inaccurate app metrics in the cf CLI or increasing the CPU usage on the Diego Cell VM.
 
-For more information, see the [App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) section of the _Installing Pivotal Isolation Segment_ topic.
+For more information, see the [App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) section of the _Installing <%= vars.segment_runtime_full %>_ topic.
 
 
 ## <a id='known-issues'></a> Known Issues
 
-Pivotal Isolation Segment v2.9 includes the following known issues:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
