@@ -226,8 +226,11 @@ For more information, see the [Shutdown](https://docs.pivotal.io/platform/applic
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit
 
+You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit** section in the **App Containers** pane of the Pivotal Isolation Segment tile.
 
+This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. It also prevents apps from reporting inaccurate app metrics in the cf CLI or increasing the CPU usage on the Diego Cell VM.
 
+For more information, see the [App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) section of the _Installing Pivotal Isolation Segment_ topic.
 
 
 ## <a id='known-issues'></a> Known Issues
