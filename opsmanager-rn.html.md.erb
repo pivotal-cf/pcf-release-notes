@@ -11,12 +11,37 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-The [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Cloud Foundry (PCF) Ops Manager v2.5.
+To upgrade to Pivotal Cloud Foundry (PCF) Ops Manager v2.5, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
 
 
 ## <a id="releases"></a> Releases
 
 <p class="note warning"><strong>Warning:</strong> Before installing or upgrading to Ops Manager v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
+
+### <a id="2-5-28"></a> 2.5.28
+
+- **[Bug Fix]** Fixes issue where multi-datacenter vSphere always deploys BOSH Director to the first vCenter configured in Ops Manager.
+- **[Bug Fix]** Fixes performance issues with the Ops Manager change log page.
+
+Ops Manager v2.5.28 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.5.28-build.341*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>250.178*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>268.6.7</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.1.10</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.7</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.9*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
+
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+
+  </tbody>
+</table>
 
 ### <a id="2-5-27"></a> 2.5.27
 
@@ -547,7 +572,7 @@ Ops Manager v2.5.4 uses the following component versions:
 - **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
 - **[Bug Fix]** Certificate chain for LDAP makes it into the UAA truststore.
 - **[Bug Fix]** Harbor installs correctly when the PKS tile is already installed.
-- **[Bug Fix]** When an operators export installation settings, they see "Pending Changes" for the BOSH Director.
+- **[Bug Fix]** When operators export installation settings, they see "Pending Changes" for BOSH Director.
 - **[Bug Fix]** Operators cannot change non-configurable resource configs.
 - **[Bug Fix]** Apply Changes does not fail if copying credentials to CredHub takes longer than ten minutes.
 - **[Bug Fix]** VM extension names do not contain a period.
@@ -741,7 +766,7 @@ You can configure a pre-created client for Ops Manager either before you deploy 
 
 For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
 
-### <a id="vm-extensions"></a> Apply Custom VM Extensions to the BOSH Director in the Ops Manager API
+### <a id="vm-extensions"></a> Apply Custom VM Extensions to BOSH Director in the Ops Manager API
 
 You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director’s jobs and product tiles.
 
@@ -753,7 +778,7 @@ For more information about custom VM extensions, see [Staged VM Extensions](http
 
 The field names, button text, error messaging, and other textual UI elements in Ops Manager are updated. This is part of an ongoing effort to improve clarity, utility, and the user experience.
 
-This update does not impact Ops Manager product tiles or the BOSH Director. For more information about the Ops Manager UI, see [Using the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html).
+This update does not impact Ops Manager product tiles or BOSH Director. For more information about the Ops Manager UI, see [Using the Ops Manager Interface](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html).
 
 ### <a id="tmpfs"></a> Store BOSH Job Credentials on tmpfs
 
