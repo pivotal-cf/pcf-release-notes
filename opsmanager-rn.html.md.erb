@@ -97,6 +97,10 @@ For more information about fields that can be unlocked in Advanced Mode, see the
 
 For more information about the end of support for path-style S3 bucket URLs, see [Amazon S3 Path Deprecation Plan – The Rest of the Story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) in the AWS News Blog.
 
+You can specify either path-style or domain-style URLs for S3-compatible blobstores in the **S3 URLs Style** dropdown in the Ops Manager **Director Config** pane. 
+
+If you used S3-compatible blobstores on <%= vars.platform_name %> v2.8, Ops Manager specifies path-style URLs for the blobstores <%= vars.platform_name %> v2.9 by default. This helps ensure compatibility on upgrade to <%= vars.platform_name %> v2.9.
+
 To specify domain-style URLs for an S3-compatible blobstore:
 
 1. Go to the <%= vars.ops_manager %> **Director Config** pane.
