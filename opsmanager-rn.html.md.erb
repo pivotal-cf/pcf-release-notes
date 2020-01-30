@@ -722,17 +722,21 @@ This release contains the following known issues:
 
 ### <a id="service-broker"></a> Ops Manager Syslog Template Is Not Supported for Service Broker Tiles
 
-Ops Manager syslog template does not propagate to service broker tiles.
-Tile developers with service broker tiles should continue to use their own syslog configurations.
-Service broker tiles with the syslog template configured do not display the syslog template.
+Ops Manager syslog template does not propagate to service broker tiles. Tile developers with service broker tiles should continue to use their own syslog configurations. Service broker tiles with the syslog template configured do not display the syslog template.
 
-For more information about the Syslog template, see
-[Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/tiledev/2-4/release-notes.html#syslog).
+For more information about the Syslog template, see [Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/tiledev/2-4/release-notes.html#syslog).
+
+### <a id="monit"></a> Monit Inaccurately Reports Health of UAA
+
+When BOSH Director reboots, Monit may report UAA as running, even though its process state is unhealthy. The Monit start scripts for UAA use the UAA `/healthz` endpoint to verify UAA is running, but the `/healthz` endpoint does not know there is a database requirement. Monit detects UAA is healthy, even though UAA is stuck, and never restarts it.
+
+To fix this, run `monit restart uaa` to restart UAA after Postgres is running.
+
+For more information, see [Monit reports UAA running on BOSH Director when it is actually unhealthy](https://community.pivotal.io/s/article/monit-reports-uaa-running-on-bosh-director-when-it-is-actually-unhealthy) in the Pivotal Knowledge Base.
 
 ### <a id="bad-link-failed-install"></a> Incorrect Link for Failed Installations in Ops Manager UI
 
-When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in the pop-up window.
-This link is currently non-functional.
+When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in the pop-up window. This link is currently non-functional.
 
 To work around this issue, click on **Change Log** in the Ops Manager Installation Dashboard to view product installation logs.
 
