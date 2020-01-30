@@ -55,11 +55,19 @@ When you rotate certificate authorities and leaf certificates using the `certifi
 
 For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
-### <a id='authentication-update'></a> Ability to View and Update <%= vars.ops_manager %> Internal Authentication Settings
+### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Internal Authentication Settings
 
-In <%= vars.ops_manager %> <%= vars.v_major_version %>, operators can view and update <%= vars.ops_manager %> internal authentication configuration by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
+Operators can view and update the current internal authentication settings through the <%= vars.ops_manager %> UI and API. 
 
-For more information about accessing the **Settings** page, see [Using the <%= vars.ops_manager %> Interface](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings).
+To view and update authentication settings through the <%= vars.ops_manager %> UI:
+
+1. Go to the <%= vars.ops_manager %> **Settings** pane and select the current authentication method. 
+
+1. View the current settings or click **Update** to edit the settings. 
+
+For more information about accessing the **Settings** pane, see [Using the <%= vars.ops_manager %> Interface](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings).
+
+You can also use the `/api/v0/settings/authentication` <%= vars.ops_manager %> API endpoint to view and edit authentication settings. 
 
 ### <a id='advanced-mode-banner'></a> Advanced Mode UI Banner
 
