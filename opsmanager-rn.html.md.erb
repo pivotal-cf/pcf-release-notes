@@ -3,15 +3,13 @@ title: Pivotal Operations Manager v2.9 Release Notes
 owner: Ops Manager
 ---
 
+This topic contains release notes for <%= vars.ops_manager_full %> <%= vars.v_major_version %>.
+
 <%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
-
-## <a id='how-to-upgrade'></a> How to Upgrade
-
-The [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html) topic contains instructions for upgrading to <%= vars.ops_manager_full %> <%= vars.v_major_version %>.
 
 ## <a id='releases'></a> Releases
 
@@ -43,6 +41,12 @@ The [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/pivotalcf/2-8/c
   </tbody>
 </table>
 
+
+## <a id='how-to-upgrade'></a> How to Upgrade
+
+The [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html) topic contains instructions for upgrading to <%= vars.ops_manager_full %> <%= vars.v_major_version %>.
+
+
 ## <a id='major-features'></a> New Features in <%= vars.ops_manager %> <%= vars.v_major_version %>
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> includes the following major features:
@@ -65,7 +69,7 @@ To view and update authentication settings through the <%= vars.ops_manager %> U
 
 1. Edit the current settings and then click **Update**. 
 
-For more information about accessing the **Settings** pane, see [Using the <%= vars.ops_manager %> Interface](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings).
+For more information about accessing the **Settings** pane, see [Setting Page](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings) in _Using the <%= vars.ops_manager %> Interface_.
 
 To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint. 
 
@@ -97,7 +101,7 @@ You can also modify these properties by using the `api/v0/staged/director/proper
 
 To unlock these fields or properties, you must use <%= vars.ops_manager %>'s Advanced Mode.
 
-For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
+For more information about fields that can be unlocked in Advanced Mode, see [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
 
 ### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for AWS S3 Blobstores
 
@@ -123,7 +127,7 @@ For more information about the difference between path-style and virtual-hosted-
 
 In <%= vars.ops_manager %> <%= vars.v_major_version %>, <%= vars.ops_manager %> API documentation adopts the Open API Specification (OAS). In addition to general format improvements, this update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API docs.
 
-For more information about OAS, see [The OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification).
+For more information about OAS, see the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) repository on GitHub.
 
 ### <a id='credhub-keys'></a> Ops Manager Enforces Persistent Active CredHub Encryption Key
 
