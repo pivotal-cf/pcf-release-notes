@@ -476,7 +476,7 @@ The Metrics Agent receives logs and metrics in Loggregator V2 envelopes and expo
 
 The Metrics Discovery Registrar then publishes the endpoint scrape location to NATS so you can automate a scrape configuration, using an external tool such as Telegraf. This creates a pull-based architecture to access logs and metrics, replacing the push-based architecture of Loggregator.
 
-To use the Observability Fabric components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. To configure these components, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-logging) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+To use the Observability Fabric components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. To configure these components, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 For more information about Observability Fabric, see [<%= vars.platform_name %> Observability Fabric (Beta)](http://docs.pivotal.io/platform/application-service/2-9/loggregator/observability-fabric.html).
 
@@ -486,21 +486,21 @@ You can increase the graceful shutdown period for your apps.
 
 When <%= vars.app_runtime_abbr %> requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the <%= vars.app_runtime_abbr %> tile.
 
-For more information, see the [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) section of the _App Container Lifecycle_ topic and the [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#advanced) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+For more information, see [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#advanced) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
 
 You can limit the number of log lines each app instance generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.app_runtime_abbr %> tile.
 
-This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. It also prevents apps from reporting inaccurate app metrics in the cf CLI or increasing the CPU usage on the Diego Cell VM.
+This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
 
-For more information, see the [Configure App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#application-containers-config) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+For more information, see [Configure App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#application-containers-config) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='apps-manager-buildpacks'></a> Configure Buildpacks for Apps Manager
 
-You can configure the Apps Manager, Search Server, and Invitations apps to deploy with buildpacks you specify. To specify which buildpacks you want these apps to use, enter them in the **Apps Manager** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see the [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#customize-apps-man) section of the _Configuring <%= vars.app_runtime_abbr %>_ topic.
+You can configure the Apps Manager, Search Server, and Invitations apps to deploy with buildpacks you specify. To specify which buildpacks you want these apps to use, enter them in the **Apps Manager** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see the [Buildpack Detection](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) section of the _How Buildpacks Work in <%= vars.app_runtime_abbr %>_ topic.
+If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see [Buildpack Detection](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) in _How Buildpacks Work in <%= vars.app_runtime_abbr %>_.
 
 
 ## <a id='known-issues'></a> Known Issues

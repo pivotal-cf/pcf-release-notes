@@ -229,9 +229,9 @@ The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is availab
 
 You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.segment_runtime_full %> tile.
 
-This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. It also prevents apps from reporting inaccurate app metrics in the cf CLI or increasing the CPU usage on the Diego Cell VM.
+This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
 
-For more information, see the [Assign a Tile to an Isolation Segment](http://docs.pivotal.io/platform/application-service-windows/2-9/isolation.html#assign-isolation) section of the _Windows Diego Cells in Isolation Segments_ topic.
+For more information, see [Assign a Tile to an Isolation Segment](http://docs.pivotal.io/platform/application-service-windows/2-9/isolation.html#assign-isolation) in _Windows Diego Cells in Isolation Segments_.
 
 
 ## <a id='adv-features'></a> New Advanced Features
