@@ -125,6 +125,18 @@ In <%= vars.ops_manager %> <%= vars.v_major_version %>, <%= vars.ops_manager %> 
 
 For more information about OAS, see [The OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification).
 
+### <a id=‘credhub-keys’></a> Ops Manager Enforces Persistent Active CredHub Encryption Key
+
+Ops Manager places extra safeguards around the `/api/v0/staged/director/properties` endpoint to ensure that you cannot accidentally delete active CredHub encryption keys through the Ops Manager API:
+
+* You must always have an active key.
+* You cannot remove keys that are currently active. You can only remove keys after they have been deactivated.
+
+To delete an active CredHub key, you must first deactivate it and activate a new or existing key.
+
+For more information, see [Delete Key](https://docs-pcf-staging.cfapps.io/platform/2-9/customizing/hsm-config.html#delete-key) in _Preparing CredHub HSMs for Configuration_.
+
+
 ## <a id='known-issues'></a> Known Issues
 
 * Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
