@@ -3,12 +3,7 @@ title: Pivotal Application Service for Windows v2.8 Release Notes
 owner: Garden Windows
 ---
 
-This topic contains release notes for Pivotal Application Service (PAS) for Windows.
-
-
-## <a id='upgrade'></a> How to Upgrade
-
-The PAS for Windows v2.8 tile is available with the release of <%= vars.platform_name %> v2.8. To use the PAS for Windows v2.8 tile, you must install Ops Manager v2.8 or later and PAS v2.8 or later.
+This topic contains release notes for Pivotal Application Service for Windows (PASW).
 
 
 ## <a id='releases'></a> Releases
@@ -123,7 +118,7 @@ The PAS for Windows v2.8 tile is available with the release of <%= vars.platform
 
 **Release Date:** 12/09/2019
 
-* See [New Features in PAS for Windows v2.8](#new-features)
+* See [New Features in PASW v2.8](#new-features)
 * See [Breaking Changes](./breaking-changes.html)
 * Bump windowsfs-release to version `2.3.0`
 
@@ -151,9 +146,14 @@ The PAS for Windows v2.8 tile is available with the release of <%= vars.platform
 </table>
 
 
-## <a id='new-features'></a> New Features in PAS for Windows v2.8
+## <a id='upgrade'></a> How to Upgrade
 
-PAS for Windows v2.8 includes the following major features:
+The PASW v2.8 tile is available with the release of <%= vars.platform_name %> v2.8. To use the PASW v2.8 tile, you must install Ops Manager v2.8 or later and PAS v2.8 or later.
+
+
+## <a id='new-features'></a> New Features in PASW v2.8
+
+PASW v2.8 includes the following major features:
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
@@ -163,11 +163,11 @@ You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a
 
 ### <a id='mtls-unproxed-port-mappings'></a> Mutual TLS Disables Unproxied Port Mappings
 
-When you enable mutual TLS, PAS for Windows disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with PAS.
+When you enable mutual TLS, PASW disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with PAS.
 
-To enable mutual TLS for PAS for Windows, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**.
+To enable mutual TLS for PASW, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**.
 
-For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in the _Installing and Configuring PASW_ topic.
+For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in _Installing and Configuring PASW_.
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
@@ -195,13 +195,13 @@ You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Fireh
 
 <p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
 
-For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
 ### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
 
-When an aggregate log and metric drain is configured in PAS, PAS for Windows sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
+When an aggregate log and metric drain is configured in PAS, PASW sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 
@@ -212,11 +212,11 @@ For more information about using the buildpack, see the [Web Config Transform Bu
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the PAS for Windows v2.8 tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the PASW v2.8 tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.
 
 
 ## <a id='known-issues'></a> Known Issues
 
-There are currently no known issues in PAS for Windows v2.8.
+There are currently no known issues in PASW v2.8.

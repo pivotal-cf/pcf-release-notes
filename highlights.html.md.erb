@@ -5,12 +5,12 @@ modified_date: false
 
  <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
 
-This topic highlights important new features included in <%= vars.platform_name %> v<%= vars.current_major_version %>.
+This topic highlights important new features included in <%= vars.platform_name %> <%= vars.v_major_version %>.
 
 
 ## <a id='om'></a> Pivotal Ops Manager Highlights
 
-Ops Manager v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [Pivotal Operations Manager v2.8 Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/opsmanager-rn.html).
+Ops Manager <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager <%= vars.v_major_version %>, see [Pivotal Operations Manager v2.8 Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/opsmanager-rn.html).
 
 ### <a id='om-optional-dependencies'></a> Add Optional Dependencies
 
@@ -26,7 +26,7 @@ Tile authors can define an HTTP install-time verifier that calls an HTTP endpoin
 
 Tile authors can use this verifier to check for service instances that might become orphaned after an upgrade.
 
-For more information, see the [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier) section of the _Property and Template References_ topic.
+For more information, see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier) in _Property and Template References_.
 
 ### <a id='om-system-metrics-agent'></a> System Metrics Agent Installed By Default
 
@@ -42,12 +42,11 @@ For a complete list of metrics, see the [VM Metrics](https://github.com/cloudfou
 
 For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
 
-For information about how to configure BOSH Director authentication to NSX, see the [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) section
-of the _Configuring BOSH Director on vSphere_ topic.
+For information about how to configure BOSH Director authentication to NSX, see [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) in _Configuring BOSH Director on vSphere_.
 
 ### <a id='om-revert-staged-changes'></a> Revert Staged Changes With the API
 
-You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation
+You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation.
 
 ### <a id='om-multiple-hsm-hosts'></a> Configure Multiple HSMs With the API
 
@@ -69,7 +68,7 @@ see the documentation for the
 
 ## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
 
-PAS v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in PAS v<%= vars.current_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
+PAS <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in PAS <%= vars.v_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
 
 ### <a id='deploy-sidecar-buildpack'></a> Deploy Sidecar Processes with a Buildpack
 
@@ -97,7 +96,7 @@ Garden can then produce CPU usage metrics that are relative to `AbsoluteCPUEntit
 
 CPU usage metrics that are relative to the CPU entitlement for the container help you make more informed scaling decisions for your apps.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic.
+For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_.
 
 For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
@@ -107,7 +106,7 @@ When you push container images hosted in AWS Elastic Container Registry (ECR) wi
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
-For more information, see the [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) section of the _Deploying an App with Docker_ topic.
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
 
 ### <a id='aggregate-syslog-drain'></a> Forward Logs and Metrics for All Apps with Aggregate Syslog Drain
 
@@ -115,7 +114,7 @@ You can configure an aggregate log and metric drain for your foundation to allow
 
 This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually.
 
-For more information about enabling an aggregate log and metric drain for your foundation, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
 ### <a id='apps-manager-scs-config'></a> Apps Manager Spring Cloud Services Config Server Integrations
 
@@ -123,7 +122,7 @@ For Spring Cloud Services (SCS) instances, Apps Manager shows the current status
 
 This feature provides closer integrations with Spring Cloud, which means that you can work and troubleshoot more quickly.
 
-For more information, see the [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) section of the _Managing Apps and Service Instances Using Apps Manager_ topic.
+For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in _Managing Apps and Service Instances Using Apps Manager_.
 
 ### <a id='apps-manager-scs-config'></a> View Quota Information on Apps Manager
 
@@ -220,7 +219,7 @@ For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io
 
 ## <%= vars.windows_runtime_full %> Highlights
 
-<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager v<%= vars.current_major_version %>, see [<%= vars.windows_runtime_full %> v<%= vars.current_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
+<%= vars.windows_runtime_full %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager <%= vars.v_major_version %>, see [<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 

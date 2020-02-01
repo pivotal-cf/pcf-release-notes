@@ -3,15 +3,13 @@ title: Pivotal Operations Manager v2.8 Release Notes
 owner: Ops Manager
 ---
 
+This topic contains release notes for <%= vars.ops_manager_full %> <%= vars.v_major_version %>.
+
 Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
-
-## <a id='how-to-upgrade'></a> How to Upgrade
-
-The [Upgrading Pivotal Platform](http://docs.pivotal.io/pivotalcf/2-8/customizing/upgrading-pcf.html) topic contains instructions for upgrading to Pivotal Operations Manager <%= vars.v_major_version %>.
 
 ## <a id='releases'></a> Releases
 
@@ -92,6 +90,12 @@ Ops Manager v2.8.1 uses the following component versions:
   </tbody>
 </table>
 
+
+## <a id='how-to-upgrade'></a> How to Upgrade
+
+[Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/pivotalcf/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html) contains instructions for upgrading to <%= vars.ops_manager_full %> <%= vars.v_major_version %>.
+
+
 ## <a id='major-features'></a> New Features in Ops Manager <%= vars.v_major_version %>
 
 Ops Manager <%= vars.v_major_version %> includes the following major features:
@@ -106,11 +110,9 @@ CredHub Maestro is a CLI for discovering and rotating CredHub-managed certificat
 
 For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Director can authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
 
-This change means that the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key.
-BOSH Director uses NSX to network and secure platform components, NCP uses NSX-T to network and secure app containers, and Enterprise PKS uses NSX to create load balancers.
+This change means that the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key. BOSH Director uses NSX to network and secure platform components, NCP uses NSX-T to network and secure app containers, and Enterprise PKS uses NSX to create load balancers.
 
-For how to configure BOSH Director authentication to NSX, see the [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) section
-of the _Configuring BOSH Director on vSphere_ topic.
+For how to configure BOSH Director authentication to NSX, see [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) in _Configuring BOSH Director on vSphere_.
 
 ### <a id='opsman-metrics'></a> All Platform VMs Emit System Metrics
 

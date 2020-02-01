@@ -3,22 +3,13 @@ title: Pivotal Application Service v2.8 Release Notes
 owner: Release Engineering
 ---
 
+This topic contains release notes for Pivotal Application Service (PAS) v2.8.
+
 Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
-
-## <a id='upgrade'></a> How to Upgrade
-
-The procedure for upgrading to Pivotal Application Service (PAS) v2.8 is documented in [Upgrading Pivotal Platform](http://docs.pivotal.io/platform/2-8/customizing/upgrading-pcf.html).
-
-When upgrading to PAS v2.8, be aware of the following upgrade considerations:
-
-* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.7 to successfully upgrade to PAS v2.8.
-
-* Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.8. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> v2.8, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
-
 
 ## <a id='releases'></a> Releases
  
@@ -278,19 +269,30 @@ When upgrading to PAS v2.8, be aware of the following upgrade considerations:
 </table>
 
 
+## <a id='upgrade'></a> How to Upgrade
+
+[Upgrading Pivotal Platform](http://docs.pivotal.io/platform/2-8/customizing/upgrading-pcf.html) contains instructions for upgrading to PAS v2.8.
+
+When upgrading to PAS v2.8, be aware of the following upgrade considerations:
+
+* If you previously used an earlier version of PAS, you must first upgrade to PAS v2.7 to successfully upgrade to PAS v2.8.
+
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> v2.8. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> v2.8, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+
+
 ## <a id='new-features'></a> New Features in PAS v2.8
 
 ### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
 
 Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see the [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) section of the _Container Metrics_ topic. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='appsman-scs'></a> Spring Cloud Services Configuration in Apps Manager
 
 For Spring Cloud Services (SCS) instances, Apps Manager shows the current status of the SCS Config Server and lets you trigger the Config Server to update app configurations.
 
-For more information, see the [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) section of the _Managing Apps and Service Instances Using Apps Manager_ topic.
+For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in _Managing Apps and Service Instances Using Apps Manager_.
 
 ### <a id='active-droplet'></a> View the Active Droplet for an App in Apps Manager
 
@@ -318,7 +320,7 @@ Usage Service deletes granular data after 365 days by default. You can configure
 
 This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.
 
-For more information, see the [Usage Data Retention](https://docs.pivotal.io/platform/application-service/2-8/operating/accounting-report.html#usage-retention) section of the _Reporting App, Task, and Service Instance Usage_ topic.
+For more information, see [Usage Data Retention](https://docs.pivotal.io/platform/application-service/2-8/operating/accounting-report.html#usage-retention) in _Reporting App, Task, and Service Instance Usage_.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
@@ -326,7 +328,7 @@ SMB volume services are enabled by default. When SMB volume services are enabled
 
 To disable SMB volume services in the PAS tile, select **App Containers** and clear the **Enable SMB volume services** checkbox, and then select **Errands** and set the **SMB Broker Errand** to **Off**.
 
-For more information, see the [Enable SMB Volume Services](http://docs.pivotal.io/platform/application-service/2-8/operating/enable-vol-services.html#smb-enable) section of the _Enabling Volume Services_ topic.
+For more information, see [Enable SMB Volume Services](http://docs.pivotal.io/platform/application-service/2-8/operating/enable-vol-services.html#smb-enable) in _Enabling Volume Services_.
 
 For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
 
@@ -344,7 +346,7 @@ URL encoding is defined by RFC 6749. For more information, see the [2.3.1. Clien
 
 By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
 
-For more information about configuring the **Client basic auth compatibility mode** checkbox, see the [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) section of the _Configuring PAS_ topic.
+For more information about configuring the **Client basic auth compatibility mode** checkbox, see [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) in _Configuring PAS_.
 
 <p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
 
@@ -354,7 +356,7 @@ When you push container images hosted in AWS Elastic Container Registry (ECR) wi
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
-For more information, see the [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) section of the _Deploying an App with Docker_ topic.
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
 
 ### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
 
@@ -376,7 +378,7 @@ You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Fireh
 
 <p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
 
-To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
 For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html).
 
@@ -388,7 +390,7 @@ This allows you to forward logs and metrics for all apps in your foundation with
 
 You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see the [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) section of the _Configuring PAS_ topic.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
 
 ### <a id='credhub-vm'></a> PAS Must Use At Least One CredHub VM
 
@@ -396,15 +398,15 @@ In PAS v2.8, you must use at least one CredHub VM. The default number of CredHub
 
 For high availability, Pivotal recommends that you use at least one CredHub instance per availability zone (AZ). Or, if you have only one AZ, use at least three CredHub instances.
 
-<p class="note warning"><strong>Warning:</strong> If you use an external GCP or Azure database for PAS and previously set CredHub instances to 0 in PAS v2.7, you must also disable hostname verification before you upgrade to PAS v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in the <em>Upgrade Preparation Checklist for Pivotal Platform v2.8</em> topic.</p>
+<p class="note warning"><strong>Warning:</strong> If you use an external GCP or Azure database for PAS and previously set CredHub instances to 0 in PAS v2.7, you must also disable hostname verification before you upgrade to PAS v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist for Pivotal Platform v2.8</em>.</p>
 
-For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see the [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) section of the _Configuring PAS_ topic.
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) in _Configuring PAS_.
 
 ### <a id='apps-man-marketplace'></a> Customizable Marketplace URL and Secondary Navigation Links in Apps Manager
 
 In the **Custom Branding** pane of PAS v2.8, you can customize the marketplace URL and secondary navigation links that appear in your Apps Manager deployment.
 
-For more information, see the [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man) section of the _Configuring PAS_ topic.
+For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man) in _Configuring PAS_.
 
 
 ## <a id='known-issues'></a> Known Issues
@@ -452,14 +454,13 @@ To disable the smoke test errand:
 
 1. For **Smoke Test Errand**, select **Off**.
 
-For more information, see the [Configure Errands](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#errands) section in the _Configuring PAS_ topic.
+For more information, see the [Configure Errands](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#errands) section in the _Configuring PAS_.
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
 A defect in the mapfs FUSE driver causes errors to occur in file append operations when you enable the ID mapping feature with NFS in PAS v2.8.0 through PAS v2.8.1.
 
-You enable the ID mapping feature by specifying either the `uid` or 
-`username` option in service instance or service bind configurations.
+You enable the ID mapping feature by specifying either the `uid` or `username` option in service instance or service bind configurations.
 
 When this issue occurs, appending files within the mounted file system fail with the error `File operation not supported`. For example, `echo hello >> test.txt` fails.
 
