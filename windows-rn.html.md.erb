@@ -3,7 +3,7 @@ title: Pivotal Application Service for Windows v2.8 Release Notes
 owner: Garden Windows
 ---
 
-This topic contains release notes for Pivotal Application Service for Windows (PASW).
+This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) <%= vars.v_major_version %>.
 
 
 ## <a id='releases'></a> Releases
@@ -40,9 +40,7 @@ This topic contains release notes for Pivotal Application Service for Windows (P
     <tr><td>windowsfs-release</td><td>2.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.8.2'></a> 2.8.2
 
 **Release Date:** 01/16/2020
@@ -72,8 +70,6 @@ This topic contains release notes for Pivotal Application Service for Windows (P
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.8.1'></a> 2.8.1
 
@@ -112,13 +108,11 @@ This topic contains release notes for Pivotal Application Service for Windows (P
   </tbody>
 </table>
 
-
-
 ### <a id='2.8.0'></a> 2.8.0
 
 **Release Date:** 12/09/2019
 
-* See [New Features in PASW v2.8](#new-features)
+* See [New Features in <%= vars.windows_runtime_abbr %> v2.8](#new-features)
 * See [Breaking Changes](./breaking-changes.html)
 * Bump windowsfs-release to version `2.3.0`
 
@@ -148,12 +142,12 @@ This topic contains release notes for Pivotal Application Service for Windows (P
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The PASW v2.8 tile is available with the release of <%= vars.platform_name %> v2.8. To use the PASW v2.8 tile, you must install Ops Manager v2.8 or later and PAS v2.8 or later.
+The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is available with the release of <%= vars.platform_name %> v2.8. To use the <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile, you must install <%= vars.ops_manager_full %> <%= vars.v_major_version %> or later and <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> or later.
 
 
-## <a id='new-features'></a> New Features in PASW v2.8
+## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
 
-PASW v2.8 includes the following major features:
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
@@ -163,15 +157,15 @@ You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a
 
 ### <a id='mtls-unproxed-port-mappings'></a> Mutual TLS Disables Unproxied Port Mappings
 
-When you enable mutual TLS, PASW disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with PAS.
+When you enable mutual TLS, <%= vars.windows_runtime_abbr %> disables unproxied port mappings. This ensures that unsecure ports are closed and also provides feature parity with <%= vars.app_runtime_abbr %>.
 
-To enable mutual TLS for PASW, go to the **Advanced Features** pane in the PASW tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**.
+To enable mutual TLS for <%= vars.windows_runtime_abbr %>, go to the **Advanced Features** pane in the <%= vars.windows_runtime_abbr %> tile. Under **TLS connections from Router to apps (beta)**, select **Router and apps use mutual TLS to verify each other's identity**.
 
-For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in _Installing and Configuring PASW_.
+For more information, see [TLS Connections from Router to Apps (Beta)](https://docs.pivotal.io/platform/application-service-windows/2-8/installing.html#config-advanced-features) in _Installing and Configuring <%= vars.windows_runtime_abbr %>_.
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
-NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+NFS Broker uses CredHub as its backing store, rather than an internal <%= vars.app_runtime_abbr %> database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
@@ -183,9 +177,9 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
-You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
-<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. Pivotal recommends that you do not disable the Firehose if you are dependent on any of the following:
+<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. <%= vars.recommended_by %> recommends that you do not disable the Firehose if you are dependent on any of the following:
 <ul>
     <li>Service tile metrics</li>
     <li>Pivotal Healthwatch or Pivotal App Metrics</li>
@@ -195,13 +189,13 @@ You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Fireh
 
 <p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
 
-For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
 
-When an aggregate log and metric drain is configured in PAS, PASW sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
+When an aggregate log and metric drain is configured in <%= vars.app_runtime_abbr %>, <%= vars.windows_runtime_abbr %> sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 
@@ -212,11 +206,11 @@ For more information about using the buildpack, see the [Web Config Transform Bu
 
 ## <a id='adv-features'></a> New Advanced Features
 
-The **Advanced Features** pane of the PASW v2.8 tile includes new functionality that may have certain constraints.
+The **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile includes new functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when using them in production.
+Although these features are fully supported, <%= vars.recommended_by %> recommends caution when using them in production.
 
 
 ## <a id='known-issues'></a> Known Issues
 
-There are currently no known issues in PASW v2.8.
+There are currently no known issues in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>.

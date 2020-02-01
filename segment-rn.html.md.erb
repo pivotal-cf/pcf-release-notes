@@ -5,7 +5,9 @@ owner: Release Engineering
 
 <% current_page.data.title = "Pivotal Isolation Segment " + vars.v_major_version + " Release Notes" %>
 
-Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
@@ -48,9 +50,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.8.1'></a> 2.8.1
 
 **Release Date:** 12/26/2019
@@ -93,14 +93,12 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.8.0'></a> 2.8.0
 
 **Release Date:** 12/09/2019
 
-* See [New Features in Pivotal Isolation Segment v2.8](#new-features)
+* See [New Features in <%= vars.segment_runtime_full %> v2.8](#new-features)
 * See [Breaking Changes](./breaking-changes.html)
 * **[Feature Improvement]** Upgrade Routing, Networking, and Silk releases to use go 1.13 release
 * **[Feature Improvement]** Add syslog log-cache aggregate drain
@@ -135,47 +133,49 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 </table>
 
 
-## <a id='intro'></a> About Pivotal Isolation Segment
+## <a id='intro'></a> About <%= vars.segment_runtime_full %>
 
-The Pivotal Isolation Segment v2.8 tile is available for installation with <%= vars.platform_name %> v2.8.
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
 
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/platform/application-service/2-8/concepts/security.html#isolation-segments) in _PAS Security_ .
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/application-service/2-8/operating/installing-pcf-is.html).
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/operating/installing-pcf-is.html).
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing Pivotal Isolation Segment v2.8 is documented in [Installing Pivotal Platform Isolation Segment](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/installing-pcf-is.html).
 
-To install a Pivotal Isolation Segment, you must first install <%= vars.platform_name %> v2.8.
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.platform_name %> <%= vars.v_major_version %>.
 
 
-## <a id='2.8.0'></a> New Features in Pivotal Isolation Segment v2.8
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
 
 Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of <%= vars.app_runtime_abbr %> apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
 SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
 
-To disable SMB volume services in the Isolation Segment tile, select **Advanced Features** and clear the **Enable SMB volume services** checkbox.
+To disable SMB volume services in the <%= vars.segment_runtime_full %> tile, select **Advanced Features** and clear the **Enable SMB volume services** checkbox.
 
-For more information, see [Advanced Features](https://docs.pivotal.io/platform/application-service/2-8/operating/installing-pcf-is.html#advanced_features) in _Installing Pivotal Platform Isolation Segment_.
+For more information, see [Advanced Features](https://docs.pivotal.io/platform/application-service/2-8/operating/installing-pcf-is.html#advanced_features) in _Installing <%= vars.segment_runtime_full %>_.
 
 For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
-NFS Broker uses CredHub as its backing store, rather than an internal PAS database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+NFS Broker uses CredHub as its backing store, rather than an internal <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
 
 For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
 
-### <a id='compute-networking-isolation'></a> Use the Isolation Segment Tile to Improve Upgrades for Large Foundations
+### <a id='compute-networking-isolation'></a> Use <%= vars.segment_runtime_full %> to Improve Upgrades for Large Foundations
 
 <div class="note warning"><strong>Warning:</strong> This feature has the following breaking changes:</br></br>
   <ul>
@@ -185,13 +185,13 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
   </ul>
 </div> 
 
-You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Diego Cell capacity from other apps.
+You can use the <%= vars.segment_runtime_full %> tile to deploy a separate group of Diego Cells without isolating the Diego Cell capacity from other apps.
 
-This approach helps separate the upgrade of the PAS control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. This helps operators of large foundations by making upgrades more manageable. It does not affect developers pushing apps to PAS.
+This approach helps separate the upgrade of the <%= vars.app_runtime_abbr %> control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. This helps operators of large foundations by making upgrades more manageable. It does not affect developers pushing apps to <%= vars.app_runtime_abbr %>.
 
-To use this feature, go to the **Compute and Networking Isolation** pane in the Isolation Segment tile and select **None** for **Tag name for cell blocks**. 
+To use this feature, go to the **Compute and Networking Isolation** pane in the <%= vars.segment_runtime_full %> tile and select **None** for **Tag name for Diego Cell blocks**. 
 
-For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
+For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
@@ -209,9 +209,9 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
-You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the PAS tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
-<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. Pivotal recommends that you do not disable the Firehose if you are dependent on any of the following: 
+<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. <%= vars.recommended_by %> recommends that you do not disable the Firehose if you are dependent on any of the following: 
   <ul>
     <li>Service tile metrics</li>
     <li>Pivotal Healthwatch or Pivotal App Metrics</li>
@@ -219,24 +219,24 @@ You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Fireh
   </ul>
 </div>
 
-<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a> in the Pivotal Application Service v2.8 release notes.</p>
+<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a> in the <%= vars.app_runtime_full %> v2.8 release notes.</p>
 
-For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
 
-When an aggregate log and metric drain is configured in PAS, Pivotal Isolation Segment sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
+When an aggregate log and metric drain is configured in <%= vars.app_runtime_abbr %>, <%= vars.segment_runtime_full %> sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the PAS tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the Pivotal Isolation Segment v2.8 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile includes new functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when using them in production.
+Although these features are fully supported, <%= vars.recommended_by %> recommends caution when using them in production.
 
 
 ## <a id='known-issues'></a> Known Issues
 
-There are currently no known issues in Pivotal Isolation Segment v2.8.
+There are currently no known issues in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.

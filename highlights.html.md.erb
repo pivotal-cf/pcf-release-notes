@@ -8,9 +8,9 @@ modified_date: false
 This topic highlights important new features included in <%= vars.platform_name %> <%= vars.v_major_version %>.
 
 
-## <a id='om'></a> Pivotal Ops Manager Highlights
+## <a id='om'></a> <%= vars.ops_manager_full %> Highlights
 
-Ops Manager <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager <%= vars.v_major_version %>, see [Pivotal Operations Manager v2.8 Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/opsmanager-rn.html).
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the important major features. For additional information about these and other features included in <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/release-notes/opsmanager-rn.html).
 
 ### <a id='om-optional-dependencies'></a> Add Optional Dependencies
 
@@ -22,53 +22,49 @@ If tiles use optional dependencies instead of required dependencies, operators d
 
 ### <a id='om-time-verifier'></a> HTTP Install-Time Verifier
 
-Tile authors can define an HTTP install-time verifier that calls an HTTP endpoint on the broker. Ops Manager executes this verifier after you click **Apply Changes**. If the HTTP response is not successful, the deployment fails and the verifier displays a warning message.
+Tile authors can define an HTTP install-time verifier that calls an HTTP endpoint on the broker. <%= vars.ops_manager %> executes this verifier after you click **Apply Changes**. If the HTTP response is not successful, the deployment fails and the verifier displays a warning message.
 
 Tile authors can use this verifier to check for service instances that might become orphaned after an upgrade.
 
-For more information, see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier) in _Property and Template References_.
+For more information, see [install\_time\_verifiers](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-verifier) in _Property and Template References_ in the <%= vars.platform_name %> Tile Developer Guide.
 
 ### <a id='om-system-metrics-agent'></a> System Metrics Agent Installed By Default
 
-Ops Manager installs a System Metrics Agent on all Pivotal Platform VMs by default.
+<%= vars.ops_manager %> installs a System Metrics Agent on all <%= vars.platform_name %> VMs by default.
 
 System metrics report the usage and status of VM memory, disk, CPU, network, load, and swap space.
 
-Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from PAS, PKS, hosted services, and any other products deployed by Ops Manager.
+Other platform tools such as Pivotal Healthwatch and Pivotal App Metrics can consume VM metrics from <%= vars.app_runtime_abbr %>, <%= vars.k8s_runtime_abbr %>, hosted services, and any other products deployed by <%= vars.ops_manager %>.
 
-For a complete list of metrics, see the [VM Metrics](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) of _System Metrics Agent_ in the System Metrics repository on GitHub.
+For a complete list of metrics, see [VM Metrics](https://github.com/cloudfoundry/system-metrics-release/blob/develop/docs/system-metrics-agent.md#vm-metrics) in _System Metrics Agent_ in the System Metrics repository on GitHub.
 
-### <a id='om-nsx-manager-auth'></a> Ops Manager Supports Certificate Authentication to vSphere NSX Manager
+### <a id='om-nsx-manager-auth'></a> <%= vars.ops_manager %> Supports Certificate Authentication to vSphere NSX Manager
 
-For Pivotal Platform deployments on vSphere that use NSX networking, the BOSH Director, NSX-T Container Plugin (NCP), and Enterprise PKS can all authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
+For <%= vars.platform_name %> deployments on vSphere that use NSX networking, the BOSH Director, NSX-T Container Plugin (NCP), and <%= vars.k8s_runtime_abbr %> can all authenticate to the NSX Manager with a certificate and private key, as well as with a username and password.
 
 For information about how to configure BOSH Director authentication to NSX, see [Step 2: Configure vCenter](https://docs.pivotal.io/platform/ops-manager/2-8/vsphere/config.html#vcenter-config) in _Configuring BOSH Director on vSphere_.
 
 ### <a id='om-revert-staged-changes'></a> Revert Staged Changes With the API
 
-You can use the `DELETE /api/v0/staged` Ops Manager API endpoint to revert all staged changes in Ops Manager. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the Ops Manager API documentation.
+You can use the `DELETE /api/v0/staged` <%= vars.ops_manager %> API endpoint to revert all staged changes in <%= vars.ops_manager %>. For more information, see [Revert staged changes](https://docs.pivotal.io/platform/2-8/opsman-api/#streaming-current-installation-log) in the <%= vars.ops_manager %> API documentation.
 
 ### <a id='om-multiple-hsm-hosts'></a> Configure Multiple HSMs With the API
 
-You can use the `PUT /api/v0/staged/director/properties` endpoint of the Ops Manager API to configure multiple hardware security modules (HSMs) for BOSH CredHub. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+You can use the `PUT /api/v0/staged/director/properties` endpoint of the <%= vars.ops_manager %> API to configure multiple hardware security modules (HSMs) for BOSH CredHub. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the <%= vars.ops_manager %> API documentation.
 
-### <a id='telemetry'></a> Pivotal Telemetry for Ops Manager Is Imported by Default
+### <a id='telemetry'></a> Pivotal Telemetry for <%= vars.ops_manager %> Is Imported by Default
 
-Ops Manager automatically imports the Pivotal Telemetry for Ops Manager tile.
-This tile collects product usage data, which helps Pivotal improve our products and services.
+<%= vars.ops_manager %> automatically imports the Pivotal Telemetry for <%= vars.ops_manager %> tile. This tile collects product usage data, which helps Pivotal improve our products and services.
 
-Using Pivotal Telemetry for Ops Manager is optional and the tile does not
-share product usage data until you add and configure it.
+Using Pivotal Telemetry for <%= vars.ops_manager %> is optional, and the tile does not share product usage data until you add and configure it.
 
-For more information,
-see the documentation for the
-[Pivotal Telemetry for Ops Manager](http://docs.pivotal.io/pivotal-telemetry/index.html) tile.
+For more information, see the [Pivotal Telemetry for <%= vars.ops_manager %>](http://docs.pivotal.io/pivotal-telemetry/index.html) documentation.
 
 ---
 
-## <a id='pas'></a> Pivotal Application Service (PAS) Highlights
+## <a id='pas'></a> <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) Highlights
 
-PAS <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in PAS <%= vars.v_major_version %>, see [Pivotal Application Service v2.8 Release Notes](https://docs.pivotal.io/pivotalcf/2-8/pcf-release-notes/runtime-rn.html).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/release-notes/runtime-rn.html).
 
 ### <a id='deploy-sidecar-buildpack'></a> Deploy Sidecar Processes with a Buildpack
 
@@ -82,11 +78,11 @@ The Cloud Foundry Command-Line Interface (cf CLI) adds support for sidecar proce
 
 For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
 
-### <a id='credhub-instance-count'></a> PAS Deployed With CredHub by Default
+### <a id='credhub-instance-count'></a> <%= vars.app_runtime_abbr %> Deployed With CredHub by Default
 
-You must use at least one CredHub VM when you deploy PAS v2.8. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs PAS uses in the **Resource Config** pane of the PAS tile.
+You must use at least one CredHub VM when you deploy <%= vars.app_runtime_abbr %> v2.8. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs <%= vars.app_runtime_abbr %> uses in the **Resource Config** pane of the <%= vars.app_runtime_abbr %> tile.
 
-This update improves platform security by deploying PAS with CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances.
+This update improves platform security by deploying <%= vars.app_runtime_abbr %> with CredHub by default. It also helps to avoid unexpected behaviors that occur when there are zero CredHub instances.
 
 ### <a id='cpu-entitlement'></a> CPU Usage Metric Is Relative to CPU Entitlement for the Container
 
@@ -98,7 +94,7 @@ CPU usage metrics that are relative to the CPU entitlement for the container hel
 
 For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_.
 
-For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of PAS apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of <%= vars.app_runtime_abbr %> apps relative to their CPU entitlement, see the [cpu-entitlement-plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
@@ -114,7 +110,7 @@ You can configure an aggregate log and metric drain for your foundation to allow
 
 This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually.
 
-For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring PAS_.
+For more information about enabling an aggregate log and metric drain for your foundation, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='apps-manager-scs-config'></a> Apps Manager Spring Cloud Services Config Server Integrations
 
@@ -128,50 +124,50 @@ For more information, see [View and Update Spring Cloud Services Configurations]
 
 You can view quota information for the orgs in the org header in App Manager. This allows you to more quickly find resource usage information for orgs.
 
-### <a id='manageable-upgrades'></a> Use the Isolation Segment Tile to Make Upgrades More Manageable
+### <a id='manageable-upgrades'></a> Use <%= vars.segment_runtime_full %> to Make Upgrades More Manageable
 
-You can use the Isolation Segment tile to deploy a separate group of Diego Cells without isolating the Cell capacity from other apps. You may want to do this if you have a PAS tile with a large volume of Diego Cells.
+You can use the <%= vars.segment_runtime_full %> tile to deploy a separate group of Diego Cells without isolating the Diego Cell capacity from other apps. You may want to do this if you have a <%= vars.app_runtime_abbr %> tile with a large volume of Diego Cells.
 
-Putting more of your workloads on the Diego Cells of one or more Isolation Segment tiles has the following benefits:
+Putting more of your workloads on the Diego Cells of one or more <%= vars.segment_runtime_full %> tiles has the following benefits:
 
-- Separates the upgrade of the PAS control plane from the upgrade of the Diego Cells
+- Separates the upgrade of the <%= vars.app_runtime_abbr %> control plane from the upgrade of the Diego Cells
 - Separates the upgrade of the Diego Cells into smaller groups
 
-For more information, see [Use the Isolation Segment Tile to Improve Upgrades for Large Foundations](https://docs.pivotal.io/platform/2-8/release-notes/segment-rn.html#compute-networking-isolation) in _Pivotal Isolation Segment v2.8 Release Notes_.
+For more information, see [Use <%= vars.segment_runtime_full %> to Improve Upgrades for Large Foundations](https://docs.pivotal.io/platform/2-8/release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
 
 ---
 
-## <a id='pks'></a> Enterprise Pivotal Container Service (Enterprise PKS) v1.6 Highlights
+## <a id='pks'></a> <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>) v1.6 Highlights
 
-Enterprise Pivotal Container Service (Enterprise PKS) v1.6 includes the following important major features. additional information about these and other features included in Enterprise PKS v1.6, see [Release Notes](https://docs.pivotal.io/pks/1-6/release-notes.html) in the Enterprise PKS documentation.
+<%= vars.k8s_runtime_abbr %> v1.6 includes the following important major features. additional information about these and other features included in <%= vars.k8s_runtime_abbr %> v1.6, see [Release Notes](https://docs.pivotal.io/pks/1-6/release-notes.html) in the <%= vars.k8s_runtime_abbr %> documentation.
 
 ### <a id='pks-tanzu-mc'></a> Experimental Integration with Tanzu Mission Control
 
-Enterprise PKS v1.6 includes an experimental integration with Tanzu Mission Control.
+<%= vars.k8s_runtime_abbr %> v1.6 includes an experimental integration with Tanzu Mission Control.
 
 For more information, see [Tanzu Mission Control Integration](https://docs.pivotal.io/pks/1-6/installing-nsx-t.html#tmc).
 
 ### <a id='pks-cluster-limit'></a> Operators Can Limit Cluster Provisioning
 
-Operators can limit the total number of clusters a user can provision in Enterprise PKS.
+Operators can limit the total number of clusters a user can provision in <%= vars.k8s_runtime_abbr %>.
 
 For more information about quotas, see [Managing Resource Usage with Quotas](https://docs.pivotal.io/pks/1-6/resource-usage.html) and [Viewing Usage Quotas](https://docs.pivotal.io/pks/1-6/resource-review.html).
 
-### <a id='pks-management-console'></a> Enterprise PKS Management Console
+### <a id='pks-management-console'></a> <%= vars.k8s_runtime_abbr %> Management Console
 
-Enterprise PKS v1.6 includes the VMware Enterprise PKS Management Console v1.1 installer. VMware Enterprise PKS Management Console provides a unified installation experience for deploying Enterprise PKS to vSphere. For more information, see [Using the Enterprise PKS Management Console](https://docs.pivotal.io/pks/1-6/console/console-index.html).
+<%= vars.k8s_runtime_abbr %> v1.6 includes the VMware <%= vars.k8s_runtime_abbr %> Management Console v1.1 installer. VMware <%= vars.k8s_runtime_abbr %> Management Console provides a unified installation experience for deploying <%= vars.k8s_runtime_abbr %> to vSphere. For more information, see [Using the <%= vars.k8s_runtime_abbr %> Management Console](https://docs.pivotal.io/pks/1-6/console/console-index.html).
 
 ### <a id='pks-admin-role'></a> Read-Only Admin Role
 
-Adds a new UAA scope, `pks.clusters.admin.read`, for Enterprise PKS users. Accounts with this scope can access any information about all clusters except for cluster credentials.
+<%= vars.k8s_runtime_abbr %> v1.6 adds a new UAA scope, `pks.clusters.admin.read`, for <%= vars.k8s_runtime_abbr %> users. Accounts with this scope can access any information about all clusters except for cluster credentials.
 
-For information about UAA scopes, see [UAA Scopes for Enterprise PKS Users](https://docs.pivotal.io/pks/1-6/uaa-scopes.html) and [Managing Enterprise PKS Users with UAA](https://docs.pivotal.io/pks/1-6/manage-users.html).
+For information about UAA scopes, see [UAA Scopes for <%= vars.k8s_runtime_abbr %> Users](https://docs.pivotal.io/pks/1-6/uaa-scopes.html) and [Managing <%= vars.k8s_runtime_abbr %> Users with UAA](https://docs.pivotal.io/pks/1-6/manage-users.html).
 
 ### <a id='pks-cluster-config'></a> Configure a Cluster With a Docker Registry CA Certificate (Beta)
 
 Operators can configure a single Kubernetes cluster with a specific Docker Registry CA certificate.
 
-For more information about configuring a cluster with a Docker Registry CA certificate, see [Configuring PKS Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
+For more information about configuring a cluster with a Docker Registry CA certificate, see [Configuring <%= vars.k8s_runtime_abbr %> Clusters with Private Docker Registry CA Certificates (Beta)](https://docs.pivotal.io/pks/1-6/docker-custom-ca-certs.html).
 
 ### <a id='pks-cluster-upgrade'></a> Upgrade Multiple Clusters Simultaneously
 
@@ -181,17 +177,17 @@ For more information about multiple cluster upgrades, see [Upgrade Multiple Kube
 
 ### <a id='pks-cluster-creation-time'></a> Accelerated Cluster Creation Time
 
-In the **PKS API** configuration pane, the **Worker VM Max in Flight** default value is increased from `1` to `4`. This accelerates cluster creation by allowing up to four new nodes to be provisioned simultaneously.
+In the **<%= vars.k8s_runtime_abbr %> API** configuration pane, the **Worker VM Max in Flight** default value is increased from `1` to `4`. This accelerates cluster creation by allowing up to four new nodes to be provisioned simultaneously.
 
-The updated default value is only applied during new Enterprise PKS installation and is not applied during an Enterprise PKS upgrade.
+The updated default value is only applied during new <%= vars.k8s_runtime_abbr %> installation and is not applied during an <%= vars.k8s_runtime_abbr %> upgrade.
 
-If you are upgrading Enterprise PKS from a previous version and want to accelerate multi-cluster provisioning, you can increase the value of **Worker VM Max in Flight** manually.
+If you are upgrading <%= vars.k8s_runtime_abbr %> from a previous version and want to accelerate multi-cluster provisioning, you can increase the value of **Worker VM Max in Flight** manually.
 
 ### <a id='pks-cluster-creation-time'></a> Support for Active-Active T0
 
 You can use active-active mode on the tier 0 router in both automated-NAT deployments and in Bring Your Own Topology deployments with No-NAT configurations.
 
-For more information, see [Configure Networking](https://docs.pivotal.io/pks/1-6/console/deploy-ent-pks-wizard.html#networking).
+For more information, see [Configure Networking](https://docs.pivotal.io/pks/1-6/console/deploy-ent-pks-wizard.html#networking) in _Deploy <%= vars.k8s_runtime_abbr %> by Using the Configuration Wizard_.
 
 ### <a id='pks-lb-tier-1-routers'></a> Use Different Failure Domains for Load Balancer and Tier-1 Active/Standby Routers
 
@@ -217,12 +213,12 @@ For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io
 
 ---
 
-## <%= vars.windows_runtime_full %> Highlights
+## <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) Highlights
 
-<%= vars.windows_runtime_full %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in Ops Manager <%= vars.v_major_version %>, see [<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/2-8/pcf-release-notes/windows-rn.html).
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/release-notes/windows-rn.html).
 
 ### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
 
-You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as Github, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact.
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as GitHub, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact.
 
-For more information about using the buildpack, see [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) on Github.
+For more information about using the buildpack, see the [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) repository on GitHub.

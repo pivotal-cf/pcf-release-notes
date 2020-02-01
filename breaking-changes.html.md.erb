@@ -7,38 +7,38 @@ owner: Release Engineering
 
 This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
-## <a id='opsman'></a> Pivotal Operations Manager
 
-There are no breaking changes in this release of Ops Manager.
+## <a id='opsman'></a> <%= vars.ops_manager_full %>
 
-## <a id='pas'></a> Pivotal Application Service (PAS)
+There are no breaking changes in this release of <%= vars.ops_manager %>.
 
-See the following PAS breaking changes:
+
+## <a id='pas'></a> <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
+
+See the following <%= vars.app_runtime_abbr %> breaking changes:
 
 ### <a id='credhub-vm'></a> CredHub Requires At Least One CredHub Instance
 
-PAS v2.8 and later requires at least one CredHub instance. If the number of CredHub instances is set to 0, the deployment fails.
+<%= vars.app_runtime_abbr %> v2.8 and later requires at least one CredHub instance. If the number of CredHub instances is set to 0, the deployment fails.
 
-If you scaled the number of CredHub instances to 0 in PAS v2.7, check the number of CredHub instances in the **Resource Config** pane of the PAS v2.8 tile and increase to one or more instances before you apply changes for the upgrade.
+If you scaled the number of CredHub instances to 0 in <%= vars.app_runtime_abbr %> v2.7, check the number of CredHub instances in the **Resource Config** pane of the <%= vars.app_runtime_abbr %> v2.8 tile and increase to one or more instances before you apply changes for the upgrade.
 
-For more information, see [PAS Must Use At Least One CredHub VM](runtime-rn.html#credhub-vm) in the PAS v2.8 Release Notes.
-
+For more information, see [<%= vars.app_runtime_abbr %> Must Use At Least One CredHub VM](runtime-rn.html#credhub-vm) in _<%= vars.app_runtime_full %> v2.8 Release Notes_.
 
 ### <a id='syslog-adapters-removed'></a> Syslog Adapters Are Removed
 
-Syslog Adapters are not supported in PAS v2.8. If you disabled Syslog Agents on PAS v2.7.7, you must enable Syslog Agents before you upgrade to v2.8.x. If you do not enable Syslog Agents prior to upgrade, the upgrade fails in order to prevent potential log loss.
+Syslog Adapters are not supported in <%= vars.app_runtime_abbr %> v2.8. If you disabled Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, you must enable Syslog Agents before you upgrade to v2.8.x. If you do not enable Syslog Agents prior to upgrade, the upgrade fails in order to prevent potential log loss.
 
-To enable Syslog Agents on PAS v2.7.7, do one of the following:
+To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the following:
 
-* Go to the PAS **System Logging** pane. Select the **Enable agent-based syslog egress for app logs** checkbox.
+* Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile and select the **Enable agent-based syslog egress for app logs** checkbox.
 
-* Set the `properties.syslog_agent_enabled` property
-to `true`. 
+* Set the `properties.syslog_agent_enabled` property to `true`. 
 
 
-## <a id='ist'></a> Pivotal Isolation Segment
+## <a id='ist'></a> <%= vars.segment_runtime_full %>
 
-See the following Pivotal Isolation Segment breaking changes:
+See the following <%= vars.segment_runtime_full %> breaking changes:
 
 ### <a id='property-renamed'></a> Segment Name Property Is Renamed
 
@@ -54,20 +54,20 @@ The property `.isolated_diego_cell.placement_tag` is renamed `.properties.comput
 
 You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs. 
 
-For more information, see and [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in the _Pivotal Isolation Segment v2.8 Release Notes_.
+For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
 
 For guidance on setting configuration values, see [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
 
 ### <a id='compute-isolation-router-sharding'></a> Compute Isolation and Router Sharding Must Be Configured Simultaneously
 
-In the Isolation Segment v2.8 tile, compute isolation and networking isolation must be configured or disabled simultaneously. In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **Disable** under **Compute isolation**. If you disable compute isolation, you must set **Router sharding mode** to **No Isolation Segment**. If **Compute isolation** is enabled and **Router sharding mode** is set to **Isolation Segment only**, the Isolation Segment tile fails.
+In the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, compute isolation and networking isolation must be configured or disabled simultaneously. In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **Disable** under **Compute isolation**. If you disable compute isolation, you must set **Router sharding mode** to **No isolation segment**. If **Compute isolation** is enabled and **Router sharding mode** is set to **Isolation segment only**, the <%= vars.segment_runtime_full %> tile fails.
 
-Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in _Pivotal Isolation Segment v2.8 Release Notes_.
+Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
 
-For more information about configuring or disabling compute and networking isolation, see [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing Pivotal Isolation Segment_.
+For more information about configuring or disabling compute and networking isolation, see [Compute and Networking Isolation](https://docs.pivotal.io/pivotalcf/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
 
 
-## <a id='pasw'></a> PAS for Windows
+## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
 
-There are no breaking changes in this release of PAS for Windows.
+There are no breaking changes in this release of <%= vars.windows_runtime_abbr %>.
 
