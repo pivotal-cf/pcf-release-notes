@@ -79,29 +79,41 @@ To view and update authentication settings through the <%= vars.ops_manager %> A
 
 For more information about how to enable Advanced Mode in <%= vars.ops_manager %>, see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base.
 
-### <a id='advanced-mode-fields'></a> Additional Unlocked Fields in Advanced Mode
+### <a id='advanced-mode-fields'></a> Modifications to Unlockable Fields
 
-In <%= vars.ops_manager %> <%= vars.v_major_version %>, the following **Director Config** fields can be unlocked in Advanced Mode after you apply changes:
+<%= vars.ops_manager %> <%= vars.v_major_version %> changes which fields 
+are unlockable after you apply changes and deploy the BOSH Director. 
+
+In the **Director Config** pane, you can now unlock:
 
 * **Blobstore Location**
-* For AWS S3:
+* Under **S3 Compatible Blobstore**:
     * **S3 Endpoint**
     * **S3 Bucket Name**
-    * **V2 Signature in S3**
-    * **V4 Signature in S3**
-    * **Region in V4**
-* For GCS:
-    * **Bucket Name in GCS**
-    * **Storage Class in GCS**
-    * **Service Account Key in GCS**
-* For Luna HSM:
-    * **Partition Serial Number**
+    * Under **S3 Signature Version**
+        * **S3 Signature Version**
+        * Under **V4 Signature**
+            * **Region**
+    * Under **S3 Backup Strategy**:
+        * Under **Copy into an additional bucket**:
+            * **Backup Bucket Region**
+            * **Backup Bucket Name**
+* Under **GCS Blobstore**:
+    * **Bucket Name**
+    * **Storage Class**
+    * **Service Account Key**
 
-You can also modify these properties by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint.
+You can no longer unlock:
 
-To unlock these fields or properties, you must use <%= vars.ops_manager %>'s Advanced Mode.
+* In the **CredHub Encryption Provider** section:
+    * **Encryption Key Name**
+    * **Provider Partition**
 
-For more information about fields that can be unlocked in Advanced Mode, see [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
+For unlockable fields, you can also modify the values of these settings by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint.
+
+To unlock these fields or properties in the UI or by API, you must use <%= vars.ops_manager %>'s Advanced Mode.
+
+For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
 
 ### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for AWS S3 Blobstores
 
