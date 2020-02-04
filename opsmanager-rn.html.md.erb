@@ -71,7 +71,17 @@ To view and update authentication settings through the <%= vars.ops_manager %> U
 
 For more information about accessing the **Settings** pane, see [Setting Page](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings) in _Using the <%= vars.ops_manager %> Interface_.
 
-To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint. 
+To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint.
+
+### <a id='update-decryption-passphrase'></a> Update the Ops Manager Decryption Passphrase
+
+Operators can update the <%= vars.ops_manager %> decryption passphrase 
+by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
+
+### <a id='update-decryption-passphrase'></a> View and Update Ops Manager Proxy Settings
+
+Operators can view and update proxy settings in <%= vars.ops_manager %> 
+by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
 
 ### <a id='advanced-mode-banner'></a> Advanced Mode UI Banner
 
