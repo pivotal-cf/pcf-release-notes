@@ -10,7 +10,7 @@ This topic highlights important new features included in <%= vars.platform_name 
 
 ## <a id='om'></a> <%= vars.ops_manager_full %> Highlights
 
-<%= vars.ops_manager %> <%= vars.v_major_version %> includes the important major features. For additional information about these and other features included in <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/release-notes/opsmanager-rn.html).
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the important major features. For additional information about these and other features included in <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
 
 ### <a id='om-optional-dependencies'></a> Add Optional Dependencies
 
@@ -64,7 +64,7 @@ For more information, see the [Pivotal Telemetry for <%= vars.ops_manager %>](ht
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) Highlights
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/release-notes/runtime-rn.html).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](runtime-rn.html).
 
 ### <a id='deploy-sidecar-buildpack'></a> Deploy Sidecar Processes with a Buildpack
 
@@ -134,6 +134,18 @@ Putting more of your workloads on the Diego Cells of one or more <%= vars.segmen
 - Separates the upgrade of the Diego Cells into smaller groups
 
 For more information, see [Use <%= vars.segment_runtime_full %> to Improve Upgrades for Large Foundations](https://docs.pivotal.io/platform/2-8/release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
+
+---
+
+## <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) Highlights
+
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](windows-rn.html).
+
+### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
+
+You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as GitHub, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact.
+
+For more information about using the buildpack, see the [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) repository on GitHub.
 
 ---
 
@@ -210,15 +222,3 @@ The NSXLoadBalancerMonitor CRD allows you monitor the load balancer and ingress 
 For NCP v2.5.1 and later, you can run the command `kubectl get nsxLoadBalancerMonitors` to view a health score that reflects the current performance of the NSX-T load balancer service, including usage, traffic, and current status.
 
 For more information, see [Ingress Scaling (NSX-T only)](https://docs.pivotal.io/pks/1-6/nsxt-ingress-scale.html).
-
----
-
-## <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) Highlights
-
-<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/release-notes/windows-rn.html).
-
-### <a id='web-config-transform-buildpack'></a> Web Config Transform Extension Buildpack
-
-You can use the Web Config Transform Extension Buildpack to externalize .NET Framework configurations in the `web.config` file to external sources such as GitHub, CredHub, or environment variables. The buildpack uses token replacement to ensure that app configurations are not included in the `web.config` build artifact.
-
-For more information about using the buildpack, see the [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) repository on GitHub.
