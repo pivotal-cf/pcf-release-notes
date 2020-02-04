@@ -5,12 +5,7 @@ owner: Garden Windows
 
 <% current_page.data.title = vars.windows_runtime_full + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) v2.7.
-
-
-## <a id='upgrade'></a> How to Upgrade
-
-The <%= vars.windows_runtime_abbr %> v2.7 tile is available with the release of Pivotal Platform v2.7. To use the <%= vars.windows_runtime_abbr %> v2.7 tile, you must install Ops Manager v2.7 or later and PAS v2.7 or later. For more information, see [Installing and Configuring PASW](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html).  
+This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) v2.7. 
 
 
 ## <a id='releases'></a> Releases
@@ -46,9 +41,7 @@ The <%= vars.windows_runtime_abbr %> v2.7 tile is available with the release of 
     <tr><td>windowsfs-release</td><td>2.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.7'></a> 2.7.7
 
 **Release Date:** 01/16/2020
@@ -77,9 +70,7 @@ The <%= vars.windows_runtime_abbr %> v2.7 tile is available with the release of 
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.6'></a> 2.7.6
 
 **Release Date:** 12/26/2019
@@ -114,9 +105,7 @@ The <%= vars.windows_runtime_abbr %> v2.7 tile is available with the release of 
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.5'></a> 2.7.5
 
 **Release Date:** 12/09/2019
@@ -332,7 +321,15 @@ The <%= vars.windows_runtime_abbr %> v2.7 tile is available with the release of 
 </table>
 
 
-## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> v2.7
+## <a id='upgrade'></a> How to Upgrade
+
+The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is available with the release of <%= vars.platform_name %> <%= vars.v_major_version %>. To use the <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile, you must install <%= vars.ops_manager_full %> <%= vars.v_major_version %> or later and <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> or later.
+
+
+## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
+
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
@@ -348,7 +345,7 @@ This update improves the developer experience by making VisualC++ Redistributabl
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-<%= vars.windows_runtime_abbr %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+<%= vars.windows_runtime_abbr %> v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the <%= vars.app_runtime_abbr %> UI.
 
 Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
@@ -356,24 +353,24 @@ For more information about how Syslog Agent functions within Loggregator, see [L
 
 ### <a id='rdp'></a> RDP Support Removed in Favor of BOSH SSH
 
-<p class="note warning"><strong>Warning:</strong> This feature is a breaking change. For more information, see <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in the <em><%= vars.product_name %> v2.7 Breaking Changes</em> topic.</p>
+<p class="note warning"><strong>Warning:</strong> This feature is a breaking change. For more information, see <a href="./breaking-changes.html#rdp">RDP is Not Supported</a> in <em><%= vars.platform_name %> v2.7 Breaking Changes</em>.</p>
 
-The **Enable Remote Desktop Protocol** field is removed from the PASW tile. PASW VMs do not support connection through RDP.
+The **Enable Remote Desktop Protocol** field is removed from the <%= vars.windows_runtime_abbr %> tile. <%= vars.windows_runtime_abbr %> VMs do not support connection through RDP.
 
 This is part of a larger effort to achieve platform parity with Linux VMs by enabling `bosh ssh` for all actions related to the Windows VMs.
 
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the PASW tile.
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the <%= vars.windows_runtime_abbr %> tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section of the _Installing and Configuring PASW_ topic.  
+For more information, see [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) in _Installing and Configuring <%= vars.windows_runtime_abbr %>_.  
 
 
 ## <a id='adv-features'></a> New Advanced Features
 
 The **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> tile includes new functionality that may have certain constraints.
 
-Although these features are fully supported, Pivotal recommends caution when using them in production.
+Although these features are fully supported, <%= vars.recommended_by %> recommends caution when using them in production.
 
-<%= vars.windows_runtime_abbr %> v2.7 includes the following advanced features:
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following advanced features:
 
 ### <a id='beta-tls'></a> (Beta) Enable TLS Connections From Router to Apps
 

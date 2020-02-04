@@ -3,33 +3,36 @@ breadcrumb: Pivotal Platform Documentation
 title: Pivotal Platform Release Notes
 ---
 
-<% current_page.data.title = vars.product_name + " Release Notes" %>
+<% current_page.data.title = vars.platform_name + " Release Notes" %>
 
-Pivotal Platform is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
-This topic provides links to the release notes for Pivotal Platform. Release notes include new features, breaking changes, bug fixes, and known issues.
+This topic provides links to the release notes for <%= vars.platform_name %>. Release notes include new features, breaking changes, bug fixes, and known issues.
 
-To find release notes for Pivotal Platform services, navigate to the documentation for the desired service from [Pivotal Documentation](https://docs.pivotal.io/).
+To find release notes for <%= vars.platform_name %> services, navigate to the documentation for the desired service in the [Pivotal documentation](https://docs.pivotal.io/).
 
-## Pivotal Platform Release Notes
 
-* [Pivotal Platform v2.7 Breaking Changes](./breaking-changes.html)
+## <%= vars.platform_name %> Release Notes
 
-* [Pivotal Operations Manager v2.7 Release Notes](./opsmanager-rn.html)
+* [<%= vars.platform_name %> <%= vars.v_major_version %> Breaking Changes](./breaking-changes.html)
 
-## Pivotal Platform Runtime Release Notes
+* [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](./opsmanager-rn.html)
 
-* [<%= vars.app_runtime_full %> v2.7 Release Notes](./runtime-rn.html)
 
-* [<%= vars.windows_runtime_full %> v2.7 Release Notes](./windows-rn.html)
+## <%= vars.platform_name %> Runtime Release Notes
 
-* [Pivotal Isolation Segment v2.7 Release Notes](./segment-rn.html)
+* [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](./runtime-rn.html)
 
-* [Pivotal Container Service (PKS) v1.5 Release Notes](https://docs.pivotal.io/runtimes/pks/1-5/release-notes.html)
+* [<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](./windows-rn.html)
+
+* [<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Release Notes](./segment-rn.html)
+
+* [<%= vars.k8s_runtime_full %> v1.5 Release Notes](https://docs.pivotal.io/runtimes/pks/1-5/release-notes.html)
+
 
 ## Stemcell Release Notes
 

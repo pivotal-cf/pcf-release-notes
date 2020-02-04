@@ -5,6 +5,9 @@ owner: Release Engineering
 
 <% current_page.data.title = "Pivotal Isolation Segment " + vars.v_major_version + " Release Notes" %>
 
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+
+
 ## <a id='releases'></a> Releases
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
@@ -41,9 +44,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.7'></a> 2.7.7
 
 **Release Date:** 12/26/2019
@@ -83,9 +84,7 @@ owner: Release Engineering
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.7.6'></a> 2.7.6
 
 **Release Date:** 12/09/2019
@@ -363,7 +362,7 @@ owner: Release Engineering
 
 ### <a id='2.7.0'></a> 2.7.0
 
-<p class='note breaking'><strong>Breaking Change:</strong>The diego file server is now serving on port 8447; this port must be open for communications between IST and PAS.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> The Diego file server is now serving on port 8447. This port must be open for communications between <%= vars.segment_runtime_full %> and <%= vars.app_runtime_abbr %>.</p>
 
 See [New Features](#new-features).
 
@@ -393,23 +392,25 @@ See [New Features](#new-features).
 </table>
 
 
-## <a id='intro'></a> About Pivotal Isolation Segment
+## <a id='intro'></a> About <%= vars.segment_runtime_full %>
 
-The Pivotal Isolation Segment v2.7 tile is available for installation with <%= vars.platform_name %> v2.7.
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
 
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see the [Isolation Segments](https://docs.pivotal.io/platform/application-service/2-7/concepts/security.html#isolation-segments) section of the _Pivotal Application Service Security_ topic.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/2-7/adminguide/isolation-segments.html).
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/operating/installing-pcf-is.html).
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing Pivotal Isolation Segment v2.7 is documented in [Installing Pivotal Isolation Segment](https://docs.pivotal.io/platform/2-7/customizing/installing-pcf-is.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](https://docs.pivotal.io/pivotalcf/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/installing-pcf-is.html).
 
-To install a Pivotal Isolation Segment, you must first install <%= vars.platform_name %> v2.7.
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.platform_name %> <%= vars.v_major_version %>.
 
 
-## <a id='new-features'></a> New Features in Pivotal Isolation Segment v2.7
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
 
@@ -419,7 +420,7 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/plat
 
 ### <a id='agent-based-syslog-egress'></a> Agent-Based Syslog Egress Is Enabled by Default
 
-Pivotal Isolation Segment v2.7 contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the PAS UI.
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> contains Syslog Agent, an agent that forwards logs to configured syslog drains and Loggregator. Syslog Agent is enabled by default, and the option to enable or disable syslog egress is removed from the <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) UI.
 
 Additionally, the instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed, as agent-based syslog egress removes the need for VMs dedicated to syslog drains.
 
@@ -427,11 +428,11 @@ For more information about how Syslog Agent functions within Loggregator, see [L
 
 ### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
 
-PAS v2.7 improves route consistency in the route-emitter component of Diego.
+<%= vars.app_runtime_abbr %> v2.7 improves route consistency in the route-emitter component of Diego.
 
-This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since PAS no longer prunes routes on time-to-live (TTL).
+This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since <%= vars.app_runtime_abbr %> no longer prunes routes on time-to-live (TTL).
 
-This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in Pivotal Isolation Segment v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in the PAS v2.6 release notes.
+This modification to route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in _<%= vars.app_runtime_full %> v2.6 Release Notes_.
 
 ### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
 
@@ -439,11 +440,11 @@ When you push container images hosted in AWS Elastic Container Registry (ECR) wi
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
-For more information, see the [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-7/devguide/deploy-apps/push-docker.html#ecr) section of the _Deploying an App with Docker_ topic.
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-7/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
 
 
 ## <a id='adv-features'></a> About Advanced Features
 
-The Advanced Features section of the Pivotal Isolation Segment v2.7 tile includes new functionality that may have certain constraints.
+The Advanced Features section of the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile includes new functionality that may have certain constraints.
 
 Although these features are fully supported, Pivotal recommends caution when using them in production.

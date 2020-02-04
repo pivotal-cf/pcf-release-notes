@@ -5,54 +5,54 @@ owner: Release Engineering
 
 <% current_page.data.title = vars.platform_name + " " + vars.v_major_version + " Breaking Changes" %>
 
-This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.product_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.product_name %>](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
+This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 
-## <a id='platform'></a> Pivotal Platform
+## <a id='platform'></a> <%= vars.platform_name %>
 
-See the following Pivotal Platform breaking changes:
+See the following <%= vars.platform_name %> breaking changes:
 
-### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.product_name %> v2.7
+### <a id='scs-2x-not-supported'></a> Pivotal Spring Cloud Services v2.0.x Not Compatible with <%= vars.platform_name %> <%= vars.v_major_version %>.
 
-Pivotal Spring Cloud Services (SCS) v2.0.x is not compatible with <%= vars.product_name %> v2.7. You cannot upgrade to Ops Manager v2.7 or <%= vars.product_short %> v2.7 without either removing SCS v2.0.x or upgrading from SCS v2.0.x to SCS v2.1.x first.
+Pivotal Spring Cloud Services (SCS) v2.0.x is not compatible with <%= vars.platform_name %> <%= vars.v_major_version %>. You cannot upgrade to <%= vars.ops_manager %> <%= vars.v_major_version %>. or <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. without either removing SCS v2.0.x or upgrading from SCS v2.0.x to SCS v2.1.x first.
 
-If you need to use the `p-circuit-breaker-dashboard` service in SCS v2.0.x, you must upgrade SCS v2.0.x to SCS v2.1.x before you upgrade to Pivotal Platform v2.7.
+If you need to use the `p-circuit-breaker-dashboard` service in SCS v2.0.x, you must upgrade SCS v2.0.x to SCS v2.1.x before you upgrade to <%= vars.platform_name %> <%= vars.v_major_version %>..
 
 If you are running SCS v3.0.x or SCS v3.1.x alongside SCS v2.0.x and do not require `p-circuit-breaker-dashboard` functionality, you can remove SCS v2.0.x entirely after migrating completely to SCS v3.1.x. Follow the procedure in [How to Upgrade to SCS v3.1](https://docs.pivotal.io/spring-cloud-services/3-1/product-upgrades.html#upgrade-to-3-1).
 
-After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x, you can proceed with the Pivotal Platform v2.7 upgrade procedure. For more information, see [Upgrading Pivotal Platform](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
+After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x, you can proceed with the <%= vars.platform_name %> <%= vars.v_major_version %>. upgrade procedure. For more information, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/2-7/customizing/upgrading-pcf.html).
 
 
-## <a id='opsman'></a> Pivotal Operations Manager
+## <a id='opsman'></a> <%= vars.ops_manager_full %>
 
-See the following Ops Manager breaking changes:
+See the following <%= vars.ops_manager %> breaking changes:
 
 ### <a id='renamed-stemcell-endpoint'></a> Stemcell Assignments Endpoint Removed
 
-The `stemcells_assignments` endpoint in the Ops Manager API has been removed.
+The `stemcells_assignments` endpoint in the <%= vars.ops_manager %> API has been removed.
 
 Instead, operators must use the `stemcell_associations` endpoint, which returns information about all stemcells associated with a product.
 
-For more information, see [Stemcell Associations for Products](https://docs.pivotal.io/platform/2-7/opsman-api/#stemcell-associations-for-products) in the Ops Manager API documentation.
+For more information, see [Stemcell Associations for Products](https://docs.pivotal.io/platform/2-7/opsman-api/#stemcell-associations-for-products) in the <%= vars.ops_manager %> API documentation.
 
 ### <a id='bosh-cli-v1'></a> BOSH CLI v1 Not Supported
 
-Ops Manager <%= vars.v_major_version %> does not support v1 of the BOSH CLI.
+<%= vars.ops_manager %> <%= vars.v_major_version %> does not support BOSH CLI v1.
 
-If you use BOSH CLI v1 commands manually from your workstation or in automation scripts, you need to update your usage to [BOSH CLI v2](https://bosh.io/docs/cli-v2/).
+If you use BOSH CLI v1 commands manually from your workstation or in automation scripts, you must update your usage to BOSH CLI v2. For more information, see [Installing the CLI](https://bosh.io/docs/cli-v2-install/) and [Commands](https://bosh.io/docs/cli-v2/) in the BOSH documentation.
 
 
-## <a id='pas'></a> <%= vars.app_runtime_full %>
+## <a id='pas'></a> <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
 
-See the following <%= vars.product_short %> breaking changes:
+See the following <%= vars.app_runtime_abbr %> breaking changes:
 
-### <a id='no-external-blobstores'></a> You Cannot Install PAS v2.7.0 or PAS v2.7.1 with External Blobstores
+### <a id='no-external-blobstores'></a> You Cannot Install <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 with External Blobstores
 
-You cannot install or deploy PAS v2.7.0 or v2.7.1 with external blobstores. For more information, see [You Cannot Install PAS v2.7.0 or v2.7.1 with External Blobstores](./runtime-rn.html#no-external-blobstores) in _Pivotal Application Service v2.7 Release Notes_.
+You cannot install or deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with external blobstores. For more information, see [You Cannot Install <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with External Blobstores](./runtime-rn.html#no-external-blobstores) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
-### <a id='consul-server'></a> Consul Clients Not Supported in <%= vars.product_short %>
+### <a id='consul-server'></a> Consul Clients Not Supported in <%= vars.app_runtime_abbr %>
 
-The Consul server instance is removed from <%= vars.product_short %>. Tiledev authors must remove any Consul clients from their products to avoid failed deployments.
+The Consul server instance is removed from <%= vars.app_runtime_abbr %>. Tile authors must remove any Consul clients from their products to avoid failed deployments.
 
 To remove Consul clients from your products, make the following changes to any `job_type` that is colocated with `consul_agent`:
 
@@ -67,19 +67,19 @@ To remove Consul clients from your products, make the following changes to any `
           enabled: "(( $ops_manager.dns_enabled ? false : true ))"
 ```
 
-For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in the <%= vars.product_name %> v2.4 Partner Release Notes.
+For more information about removing Consul clients from your products, see [Tile Authors Must Remove consul_agent](https://docs.pivotal.io/tiledev/2-4/release-notes.html#breaking-consul) in _<%= vars.platform_name %> v2.4 Partner Release Notes_.
 
 ### <a id="syslog-agents"></a> Do Not Edit Syslog Agent Configuration When Upgrading
 
-Do not change your Syslog Agent configuration when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time. For example, if Syslog Agents are enabled on your current version of <%= vars.app_runtime_abbr %>, ensure that Syslog Agents are enabled when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time.
+Do not change your Syslog Agent configuration when you stage <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7 for the first time. For example, if Syslog Agents are enabled on your current version of <%= vars.app_runtime_abbr %>, ensure that Syslog Agents are enabled when you stage <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7 for the first time.
 
-If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> v2.7.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](runtime-rn.html#duplicate-logs).
+If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](runtime-rn.html#duplicate-logs).
 
-You can edit the Syslog Agent configuration on <%= vars.app_runtime_abbr %> v2.7.7 after the first deploy. 
+You can edit the Syslog Agent configuration on <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7 after the first deploy. 
 
 To enable or disable Syslog Agents:  
 
-1. Go to the PAS **System Logging** pane.
+1. Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile.
 
 1. Do one of the following:
   * **Enable Syslog Agents**: Select **Enable agent-based syslog egress for app logs**.
@@ -89,18 +89,17 @@ To enable or disable Syslog Agents:
 
 ### <a id='props-changed'></a> Changed Properties and Jobs
 
-The following <%= vars.product_short %> tile properties and <%= vars.product_short %> jobs have changed in <%= vars.product_short %> <%= vars.v_major_version %>.
+The following <%= vars.app_runtime_abbr %> tile properties and <%= vars.app_runtime_abbr %> jobs have changed in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-Before upgrading to <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
+Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
 
 * UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`
   - The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`
-  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#uaadb) in the <%= vars.product_short %> <%= vars.v_major_version %> release notes.
+  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#uaadb) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 * Syslog jobs `syslog_adapter` and `syslog_scheduler`, and property `syslog_metrics_to_syslog_enabled`
-  - The job instance groups `syslog_adapter` and `syslog_scheduler`,
-  and the property `syslog_metrics_to_syslog_enabled` are removed.
-  - Agent-based syslog egress renders these items unnecessary.  For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress) in the <%= vars.product_short %> <%= vars.v_major_version %> release notes.
+  - The job instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed.
+  - Agent-based syslog egress renders these items unnecessary. For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 * Container networking property `cf_networking_internal_domains`
   - The `cf_networking_internal_domains` is now an array.
@@ -109,66 +108,65 @@ Before upgrading to <%= vars.v_major_version %>, you must update any automation 
   - The `credhub_key_encryption_passwords` property is replaced by `credhub_hsm_provider_encryption_keys` for HSM-resident CredHub and `credhub_internal_provider_keys` for internal CredHub.
 
 
-## <a id='ist'></a> Pivotal Isolation Segment
+## <a id='ist'></a> <%= vars.segment_runtime_full %>
 
 ### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
 
-The following Pivotal Isolation Segment tile properties and jobs have been removed in <%= vars.windows_runtime %> <%= vars.v_major_version %>:
+The following <%= vars.segment_runtime_full %> tile properties and jobs have been removed in <%= vars.windows_runtime_full %> <%= vars.v_major_version %>:
 
 * Syslog job `syslog_adapter`
 * Syslog job `syslog_scheduler`
 * Syslog property `syslog_metrics_to_syslog_enabled`
 
-Before upgrading to <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
+Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
 
-These changes mirror <%= vars.product_short %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
+These changes mirror <%= vars.app_runtime_abbr %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in the Pivotal Isolation Segment <%= vars.v_major_version %> release notes.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in _<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
-### <a id='ist-diego'></a> Isolation Segment Cells Update Diego Securely Over Port 8447
+### <a id='ist-diego'></a> Isolation Segment Diego Cells Update Diego Securely Over Port 8447
 
-Diego cells deployed by the Isolation Segment tile (IST) communicate  with the Diego file server with HTTPS over port 8447.
-Previously, IST cells communicated with HTTP over port 8080 like cells deployed by the PAS tile itself.
+Diego Cells deployed by the <%= vars.segment_runtime_full %> tile communicate with the Diego file server with HTTPS over port 8447.
+Previously, <%= vars.segment_runtime_full %> Diego Cells communicated with HTTP over port 8080 like Diego Cells deployed by the <%= vars.app_runtime_abbr %> tile itself.
 
-If you use isolation segments, you must ensure that port 8447 is open on the Diego Brain file server VM, which is deployed by the PAS tile.
+If you use isolation segments, you must ensure that port 8447 is open on the Diego Brain file server VM, which is deployed by the <%= vars.app_runtime_abbr %> tile.
 
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %>
 
-See the following <%= vars.windows_runtime_full %> (<%= vars.windows_runtime %>) breaking changes:
+See the following <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) breaking changes:
 
 ### <a id='windows2016'></a> Windows2016 Stack is Deprecated
 
-In <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, the `windows2016` stack is deprecated. Before you upgrade to <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, you can migrate any apps that run on the `windows2016` stack to the `windows` stack.
+In <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>, the `windows2016` stack is deprecated. Before you upgrade to <%= vars.windows_runtime_full %> <%= vars.v_major_version %>, you can migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
-You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin. For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/platform/adminguide/stack-auditor.html).
 
 ### <a id='rdp'></a> RDP is Not Supported
 
-The **Enable Remote Desktop Protocol** field is removed from the <%= vars.windows_runtime %> tile. <%= vars.windows_runtime %> VMs do not support connection through RDP.
+The **Enable Remote Desktop Protocol** field is removed from the <%= vars.windows_runtime_abbr %> tile. <%= vars.windows_runtime_abbr %> VMs do not support connection through RDP.
 
 Remove references to `.properties.rdp_enabled` in any automated scripts to avoid errors during upgrade.
 
-To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the <%= vars.windows_runtime %> tile.
+To access Windows VMs, use `bosh ssh`. To enable `bosh ssh` for Windows VM, select **Enable BOSH-native SSH support on all VMs** in the <%= vars.windows_runtime_abbr %> tile.
 
-For more information, see the [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) section in _Installing and Configuring <%= vars.windows_runtime %>_.
+For more information, see [Configure VMs](https://docs.pivotal.io/platform/application-service-windows/2-7/installing.html#config-vms) in _Installing and Configuring <%= vars.windows_runtime_abbr %>_.
 
 ### <a id='props-changed-pasw'></a> Changed Syslog Properties and Jobs
 
-The following <%= vars.windows_runtime %> tile properties and jobs have been removed in <%= vars.windows_runtime %> <%= vars.v_major_version %>:
+The following <%= vars.windows_runtime_abbr %> tile properties and jobs have been removed in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>:
 
 * Syslog job `syslog_adapter`
 * Syslog job `syslog_scheduler`
 * Syslog property `syslog_metrics_to_syslog_enabled`
 
-Before upgrading to <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
+Before upgrading to <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
 
-These changes mirror <%= vars.product_short %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
+These changes mirror <%= vars.app_runtime_abbr %> tile changes described in [Changed Properties and Jobs](#props-changed).
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in the <%= vars.windows_runtime_full %> <%= vars.v_major_version %> release notes.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in _<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 
-## <a id='pks'></a> <%= vars.k8s_runtime %>
+## <a id='pks'></a> <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>)
 
-For breaking changes in <%= vars.k8s_runtime %> v1.5, see See [Breaking Changes](https://docs.pivotal.io/pks/1-5/release-notes.html#v1.5.0-breaking-changes) in the _<%= vars.k8s_runtime %> Release Notes_.
+For breaking changes in <%= vars.k8s_runtime_abbr %> v1.5, see [Breaking Changes](https://docs.pivotal.io/pks/1-5/release-notes.html#v1.5.0-breaking-changes) in the _<%= vars.k8s_runtime_full %> Release Notes_.
