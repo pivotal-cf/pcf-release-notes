@@ -48,7 +48,7 @@ See the following <%= vars.app_runtime_abbr %> breaking changes:
 
 ### <a id='no-external-blobstores'></a> You Cannot Install <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 with External Blobstores
 
-You cannot install or deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with external blobstores. For more information, see [You Cannot Install <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with External Blobstores](./runtime-rn.html#no-external-blobstores) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+You cannot install or deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with external blobstores. For more information, see [You Cannot Install <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with External Blobstores](runtime-rn.html#no-external-blobstores) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 ### <a id='consul-server'></a> Consul Clients Not Supported in <%= vars.app_runtime_abbr %>
 
@@ -95,11 +95,11 @@ Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, yo
 
 * UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`
   - The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`
-  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#uaadb) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](runtime-rn.html#uaadb) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 * Syslog jobs `syslog_adapter` and `syslog_scheduler`, and property `syslog_metrics_to_syslog_enabled`
   - The job instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed.
-  - Agent-based syslog egress renders these items unnecessary. For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+  - Agent-based syslog egress renders these items unnecessary. For more information, see [Agent-Based Syslog Egress Is Enabled by Default](runtime-rn.html#agent-based-syslog-egress) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 * Container networking property `cf_networking_internal_domains`
   - The `cf_networking_internal_domains` is now an array.
@@ -109,6 +109,8 @@ Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, yo
 
 
 ## <a id='ist'></a> <%= vars.segment_runtime_full %>
+
+See the following <%= vars.segment_runtime_full %> breaking changes:
 
 ### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
 
@@ -120,9 +122,9 @@ The following <%= vars.segment_runtime_full %> tile properties and jobs have bee
 
 Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
 
-These changes mirror <%= vars.app_runtime_abbr %> tile changes described in the [Changed Properties and Jobs](#props-changed) section above.
+These changes mirror <%= vars.app_runtime_abbr %> tile changes described in [Changed Properties and Jobs](#props-changed) above.
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/segment-rn.html#agent-based-syslog-egress) in _<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](segment-rn.html#agent-based-syslog-egress) in _<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 ### <a id='ist-diego'></a> Isolation Segment Diego Cells Update Diego Securely Over Port 8447
 
@@ -164,7 +166,7 @@ Before upgrading to <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
 
 These changes mirror <%= vars.app_runtime_abbr %> tile changes described in [Changed Properties and Jobs](#props-changed).
 
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/pcf-release-notes/windows-rn.html#agent-based-syslog-egress) in _<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](windows-rn.html#agent-based-syslog-egress) in _<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 
 ## <a id='pks'></a> <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>)
