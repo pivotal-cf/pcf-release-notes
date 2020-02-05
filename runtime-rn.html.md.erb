@@ -3,6 +3,8 @@ title: Pivotal Application Service v2.5 Release Notes
 owner: Release Engineering
 ---
 
+This topic contains release notes for Pivotal Application Service (PAS) v2.5.
+
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
@@ -538,7 +540,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
-<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to PAS v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
+<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to PAS v2.5, see <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
 
 ### <a id='2.5.13'></a> 2.5.13
 
@@ -1741,7 +1743,7 @@ See also:
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.5 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html) topic.
+To upgrade to PAS v2.5, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
 
 When upgrading to PAS v2.5, be aware of the following upgrade considerations:
 
@@ -1752,15 +1754,17 @@ When upgrading to PAS v2.5, be aware of the following upgrade considerations:
 
 ## <a id='new-features'></a> New Features in PAS v2.5
 
+PAS v2.5 includes the following major features:
+
 ### <a id='cflinuxfs3'></a> PAS v2.5.9 and Earlier Only Support cflinuxfs3
 
 PAS versions v2.5.0 to v2.5.9 do not support apps running on `cflinuxfs2`.
 
-PAS v2.5 patch versions v2.5.10 and later optionally support pre-existing apps staged with `cflinuxfs2` buildpacks, but do not support restaging on `cflinuxfs2`. To enable `cflinuxfs2` support, see the [Configure Cloud Controller](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#config-cc) section of the _Configuring PAS_ topic.
+PAS v2.5 patch versions v2.5.10 and later optionally support pre-existing apps staged with `cflinuxfs2` buildpacks, but do not support restaging on `cflinuxfs2`. To enable `cflinuxfs2` support, see [Configure Cloud Controller](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#config-cc) in _Configuring PAS_.
 
 PAS v2.4 also supports both the `cflinuxfs3` and `cflinuxfs2` stacks.
 
-Pivotal recommends that you upgrade to the latest v2.5 and encourage developers to migrate all their apps and upgrade any custom buildpacks to `cflinuxfs3`. For more information, see the [Migrate Apps to cflinuxfs3](https://docs.pivotal.io/pivotalcf/2-5/upgrading/checklist.html#cflinuxfs3) of the _Upgrade Preparation Checklist for PCF v2.5_ topic.
+<%= vars.recommended_by %> recommends that you upgrade to the latest PAS v2.5 patch and encourage developers to migrate all their apps and upgrade any custom buildpacks to `cflinuxfs3`. For more information, see [Migrate Apps to cflinuxfs3](https://docs.pivotal.io/pivotalcf/2-5/upgrading/checklist.html#cflinuxfs3) in _Upgrade Preparation Checklist for PCF v2.5_.
 
 The `cflinuxfs3` stack is derived from Ubuntu Bionic 18.04. The `cflinuxfs2` stack is derived from Ubuntu Trusty 14.04, for which support ends in April 2019. For more information, see [cflinuxfs3 Release](https://bosh.io/releases/github.com/cloudfoundry/cflinuxfs3-release?all=1) in the BOSH documentation.
 
@@ -1768,7 +1772,7 @@ The `cflinuxfs3` stack is derived from Ubuntu Bionic 18.04. The `cflinuxfs2` sta
 
 You can disable Silk network policy enforcement between apps in the **Networking** pane of the PAS tile. Disabling network policy enforcement allows all apps to send network traffic to all other apps in the foundation despite no policy specifically allowing it.
 
-Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
+Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see the [Silk](https://github.com/cloudfoundry/silk) repository in GitHub.
 
 ### <a id="istio"></a> Service Mesh Routing Plane (Beta)
 
@@ -1784,15 +1788,15 @@ For more information, see [Using Weighted Routing (Beta)](https://docs.pivotal.i
 
 ### <a id='routability'></a> Diego BBS Increases Routing Stability
 
-Diego Bulletin Board System (BBS) improves routability for application instances running on cells with unstable presences.
+Diego Bulletin Board System (BBS) improves routability for app instances running on Diego Cells with unstable presences.
 
-Previously, when the cell missed a heartbeat, application instances on unstable cells were immediately replaced and routability was terminated. Now, when the cell misses a heartbeat, the routing to the application instance is maintained in case the cell is able to regain its presence. A replacement app is scheduled in case the cell does not regain its presence.
+Previously, when the Diego Cell missed a heartbeat, app instances on unstable Diego Cells were immediately replaced and routability was terminated. Now, when the Diego Cell misses a heartbeat, the routing to the app instance is maintained in case the Diego Cell is able to regain its presence. A replacement app is scheduled in case the Diego Cell does not regain its presence.
 
 ### <a id='multiple-ports'></a> Support For Apps That Require Multiple Ports
 
 PAS v2.5 supports apps that require multiple ports and apps that require custom ports. This update allows additional apps, such as Docker images and apps with TCP protocols that require multiple ports, to run on PAS.
 
-For more information, see [Configuring CF to Route Traffic to Apps on Custom Ports](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
+For more information, see [Configuring PAS to Route Traffic to Apps on Custom Ports](https://docs.pivotal.io/pivotalcf/2-5/devguide/custom-ports.html).
 
 ### <a id='app-policies'></a> Configure Networking Policies Across Spaces Using the cf CLI
 
@@ -1800,8 +1804,7 @@ You can use the Cloud Foundry Command Line Interface (cf CLI) to configure netwo
 
 ### <a id="asynch-bind"></a> Apps Manager Supports Asynchronous Service Bindings
 
-Apps Manager supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out
-for synchronous operations in PAS.
+Apps Manager supports services that take advantage of the flexibility of asynchronous bindings. Asynchronous bindings provide service brokers more time to perform the operations required to complete a bind. This can help service brokers avoid timing out for synchronous operations in PAS.
 
 When you bind an app to a service that uses asynchronous bindings, Apps Manager displays the status of the service while the bind is still pending.
 
@@ -1844,11 +1847,13 @@ For more information, see [Configuring Multi-Foundation Support in Apps Manager 
 
 ## <a id='known-issues'></a> Known Issues
 
+PAS v2.5 include the following known issues:
+
 ### <a id='scheduler'></a> Scheduler Fails to Deploy If Connecting to MySQL Over TLS
 
 Scheduler for PCF has a dependency on MySQL for PCF v2.x and currently does not support connecting to a MySQL database over TLS. If MySQL for PCF v2.x is configured to require TLS connection to the database, Scheduler fails to install.
 
-Pivotal recommends configuring Scheduler to allow **Optional TLS**. This approach can be applied to other use cases, such as Spring Cloud Services, or for developer applications.
+<%= vars.recommended_by %> recommends configuring Scheduler to allow **Optional TLS**. This approach can be applied to other use cases, such as Spring Cloud Services, or for developer apps.
 
 For more information, see [PAS Scheduler fails to deploy in 2.5](https://community.pivotal.io/s/article/pas-scheduler-fails-to-deploy-in-2-5) in the Pivotal Knowledge Base.
 
@@ -1873,21 +1878,21 @@ If this HTTPS server uses a certificate signed by a CA represented in the bundle
 If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)
 ```
 
-This error occurs because the Apps Usage Service errand uses native `curl` instead of `cf curl` to query an API endpoint.  The native `curl` command fails SSL verification in the PAS deployment.
+This error occurs because the Apps Usage Service errand uses native `curl` instead of `cf curl` to query an API endpoint. The native `curl` command fails SSL verification in the PAS deployment.
 
-For more information and instructions for resolving this issue, see [Apps Usage errand fails in PAS 2.5 with curl SSL error](https://community.pivotal.io/s/article/apps-usage-errand-fails-in-pas-2-5-with-curl-ssl-error).
+For more information and instructions for resolving this issue, see [Apps Usage errand fails in PAS 2.5 with curl SSL error](https://community.pivotal.io/s/article/apps-usage-errand-fails-in-pas-2-5-with-curl-ssl-error) in the Pivotal Knowledge Base.
 
 ### <a id='http-headers'></a> HTTP Response Headers Field Not Functional
 
-The **Remove Specified HTTP Response Headers** field is not functional in PAS v2.5.0. If you modify this field, the router does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job.
+The **Remove Specified HTTP Response Headers** field is not functional in PAS v2.5.0. If you modify this field, the Gorouter does not remove the headers as expected. This is due to a bug that prevents the configuration from being applied to the underlying job.
 
 For more information, see [Remove Specified HTTP Response Headers in PCF does not work](https://community.pivotal.io/s/article/remove-specified-http-response-headers-in-pcf-does-not-work) in the Pivotal Knowledge Base.
 
-This issue is fixed in PAS patch v2.5.1.
+This issue is resolved in PAS v2.5.1.
 
 ### <a id=''></a> Azure Availability Zones Not Compatible with Diego
 
-While PAS v2.5 supports Azure availability zones (AZs), enabling this feature is not recommended for production workloads. With Azure AZs, Diego cannot detect which zone the cells are in. This means PAS cannot distribute app instances across different AZs, causing PCF not to run in high availability mode.
+While PAS v2.5 supports Azure availability zones (AZs), enabling this feature is not recommended for production workloads. With Azure AZs, Diego cannot detect which zone the Diego Cells are in. This means PAS cannot distribute app instances across different AZs, causing PCF not to run in high availability mode.
 
 For more information, see [Azure Availability Zones are not compatible with Diego in PAS 2.5](https://community.pivotal.io/s/article/azure-availability-zones-are-not-compatible-with-deigo) in the Pivotal Knowledge Base.
 
@@ -1899,7 +1904,7 @@ To resolve this issue, see [Apps Manager shows no content due to SSL validation 
 
 ### <a id='appsman-cert-chain-length'></a> Apps Manager Only Allows One Intermediate Certificate Authority in PAS v2.5.0 and v2.5.1
 
-In PAS v2.5.0 and v2.5.1, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from backend services such as the Cloud Controller API.
+In PAS v2.5.0 and v2.5.1, Apps Manager does not accept SSL certificates that have a signing chain with more than one intermediate certificate authority between the SSL certificate and the root certificate authority. This includes certificates from back end services such as the Cloud Controller API.
 
 If there is more than one certificate authority, Apps Manager does not show content, and the logs for Apps Manager include the text `certificate chain too long`.
 
@@ -1921,7 +1926,7 @@ This error message does not indicate that the app logs are incorrect or incomple
 
 When using the `cflinuxfs3` stack in PAS v2.3 or later, if you provide environment variables containing periods or dashes, the environment variables do not appear in the process environment of the app.
 
-To resolve this issue, ensure that all applications are using environment variables that do not contain periods or dashes.
+To resolve this issue, ensure that all apps are using environment variables that do not contain periods or dashes.
 
 For more information, see [Missing environment variables when using PAS 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
 
@@ -1929,7 +1934,7 @@ For more information, see [Missing environment variables when using PAS 2.3+ and
 
 When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by an issue with the `flyway_schema_history` table.
 
-For information on how to address this issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in GitHub.
+For information on how to address this issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in _Known Issues with current CredHub versions_ in the CredHub repository on GitHub.
 
 ### <a id="stale-routes"></a> Intermittent Misrouting of Apps in Large PCF Foundations
 
@@ -1939,39 +1944,43 @@ This issue typically occurs in larger-sized foundations where a single Gorouter 
 
 To resolve this issue, update to PAS v2.5.10 or later.
 
-If you have previously checked the `Prune Routes on TTL Expiry for TLS Backends` checkbox as referenced below, uncheck the box for improved guarantees of route consistency during control plane instability.
+If you previously enabled the **Prune Routes on TTL Expiry for TLS Backends** checkbox in the **Application Containers** pane of the PAS tile, disable the checkbox for improved guarantees of route consistency during control plane instability. To disable the checkbox:
 
-1. Log in to Ops Manager.
+1. Navigate to the Ops Manager Installation Dashboard.
 
-1. In the PAS tile, select **Application Containers**.
+1. Click the PAS tile.
 
-1. Uncheck the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
+1. Select **Application Containers**.
 
-1. Click **Review Pending Changes**.
+1. Disable the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
 
-1. Click **Apply Changes**.
-
-If you are on v2.5.6 to v2.5.9 and need a temporary mitigation pending upgrades, do the following:
-
-1. Log in to Ops Manager.
-
-1. In the PAS tile, select **Application Containers**.
-
-1. Select the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
-
-1. Click **Review Pending Changes**.
+1. In the the Ops Manager Installation Dashboard, click **Review Pending Changes**.
 
 1. Click **Apply Changes**.
 
-If you are on a version earlier than v2.5.6, you must upgrade to address this issue.
+If you are on PAS v2.5.6 to v2.5.9 and need a temporary mitigation pending upgrades:
 
-For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes).
+1. Navigate to the Ops Manager Installation Dashboard.
+
+1. Click the PAS tile.
+
+1. Select **Application Containers**.
+
+1. Enable the **Prune Routes on TTL Expiry for TLS Backends** checkbox.
+
+1. In the the Ops Manager Installation Dashboard, click **Review Pending Changes**.
+
+1. Click **Apply Changes**.
+
+If you are on a version earlier than PAS v2.5.6, you must upgrade to address this issue.
+
+For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes) in the Pivotal Knowledge Base.
 
 ### <a id='mesh-domain'></a> Service Mesh Domain Exists Without Enabling Service Mesh
 
-PAS automatically creates a service mesh domain `mesh.YOUR-CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS.
+PAS automatically creates a service mesh domain `mesh.CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS.
 
-This issue is resolved in PAS v2.5.14. However, upgrading to v2.5.14 from v2.5.0 through v2.5.13 does not delete the domain. You must manually delete the domain.
+This issue is resolved in PAS v2.5.14. However, upgrading to PAS v2.5.14 from PAS v2.5.0 through v2.5.13 does not delete the domain. You must manually delete the domain.
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
@@ -1987,33 +1996,30 @@ This issue is resolved in PAS v2.5.19.
 
 In PAS v2.5.8, Apps Manager includes a change in communication with Spring Boot Actuator endpoints that is not compatible with the Internet Explorer 11 browser. The change results in Spring Boot information not appearing on the app page.
 
-This issue is fixed in PAS v2.5.9 and later, and does not affect other browsers.
+This issue is resolved in PAS v2.5.9 and later, and does not affect other browsers.
 
-### <a id="apps-manager-spring-mappings-context"></a> Apps Manager Does Not Show Spring Mappings Outside of the Application Context
+### <a id="apps-manager-spring-mappings-context"></a> Apps Manager Does Not Show Spring Mappings Other Than the 'Application' Context
 
-In PAS v2.5.0 to v2.5.8, the Spring Boot mappings in Apps Manager did not account for contexts other than the 'application' context. For this reason, some Spring Boot mappings may fail to show up in Apps Manager for a given application.
+In PAS v2.5.0 to v2.5.8, the Spring Boot mappings in Apps Manager did not account for contexts other than the 'application' context. For this reason, some Spring Boot mappings may fail to show up in Apps Manager for a given app.
 
-This issue is fixed in PAS v2.5.9 and later.
+This issue is resolved in PAS v2.5.9 and later.
 
 ### <a id="apps-manager-default-logo"></a> Apps Manager Shows the PWS logo
 
 In PAS v2.5.1 to v2.5.9, Apps Manager shows the PWS logo rather than the PCF logo if a custom logo has not been uploaded.
 
-This issue is fixed in PAS v2.5.10 and later.
+This issue is resolved in PAS v2.5.10 and later.
 
 ### <a id="apps-manager-invitations-failures"></a> Cannot Invite New Users or Add Space Roles in Apps Manager
 
-In PAS v2.5.10 and v2.5.11, the service that handles inviting new users to PAS fails to do the following in many cases:
+In PAS v2.5.10 and v2.5.11, the service that handles inviting new users to PAS fails to add space roles for users or invite new users with space roles in many cases.
 
-* Add space roles for users
-* Invite new users with space roles
-
-As a workaround, you can use the CLI to manage user roles. See [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
+As a workaround, you can use the CLI to manage user roles. For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
 
 This issue is resolved in PAS v2.5.12 and later.
 
 ### <a id="credhub-encryption-password"></a> CredHub Enforces 20 Character Minimum on Encryption Keys
 
-In PAS v2.5.0 and v2.5.1, CredHub does not enforce the 20 character minimum on encryption passwords. This is fixed in PAS v2.5.2 and later.
+In PAS v2.5.0 and v2.5.1, CredHub does not enforce the 20 character minimum on encryption passwords. This issue is resolved in PAS v2.5.2 and later.
 
 Before upgrading to PAS v2.5.2 or later, ensure your encryption key is at least 20 characters in length.

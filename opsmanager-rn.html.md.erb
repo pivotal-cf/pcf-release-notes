@@ -3,20 +3,17 @@ title: PCF Ops Manager v2.5 Release Notes
 owner: Ops Manager
 ---
 
+This topic contains release notes for Pivotal Cloud Foundry (PCF) Ops Manager v2.6.
+
 Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
 
 <hr>
 
-## <a id='how-to-upgrade'></a> How to Upgrade
-
-To upgrade to Pivotal Cloud Foundry (PCF) Ops Manager v2.5, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
-
-
 ## <a id="releases"></a> Releases
 
-<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to Ops Manager v2.5, review the <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
+<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to Ops Manager v2.5, review <a href="./breaking-changes.html#critical-breaking">Critical Breaking Changes in PCF v2.5</a>.</p>
 
 ### <a id="2-5-28"></a> 2.5.28
 
@@ -37,9 +34,7 @@ Ops Manager v2.5.28 uses the following component versions:
     <td>Ops Manager</td><td>2.5.28-build.341*</td>
   </tr>
   <tr><td>Stemcell</td><td>250.178*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>268.6.7</td></tr><tr><td>BOSH DNS</td><td>1.12.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.1.10</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.7</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>77</td></tr><tr><td>Azure CPI</td><td>35.5.3</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.9*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr>
-
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-
   </tbody>
 </table>
 
@@ -478,7 +473,7 @@ Ops Manager v2.5.8 uses the following component versions:
 
 ### <a id="2-5-7"></a> 2.5.7
 
-- **[Feature]** Ops Manager now passes **Trusted Certificates** from the **Security** pane to the `uaa.ca_certs` property of UAA to avoid failures in the pre-start script run by UAA.
+* **[Feature]** Ops Manager now passes **Trusted Certificates** from the **Security** pane to the `uaa.ca_certs` property of UAA to avoid failures in the pre-start script run by UAA.
 * **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API.
 
 Ops Manager v2.5.7 uses the following component versions:
@@ -722,23 +717,28 @@ Ops Manager v2.5.0 uses the following component versions:
 </table>
 
 
+## <a id='how-to-upgrade'></a> How to Upgrade
+
+To upgrade to Ops Manager v2.5, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
+
+
 ## <a id='major-features'></a> New Features in Ops Manager v2.5
 
 Ops Manager v2.5 includes the following major features:
 
 ### <a id="pending-tile-changes"></a> Pending Changes Page Displays Staged Changes
 
-If you have changed the configuration of a tile in your deployment, use the Pending Changes page to review the changes to the existing manifest or configs line-by-line. Access a tile's pending changes by clicking the **See Changes** button on the Review Pending Changes page.
+If you have changed the configuration of a tile in your deployment, see the **Pending Changes** page to review the changes to the existing manifest or configs line-by-line. Access a tile's pending changes by clicking the **See Changes** button on the Review Pending Changes page.
 
 Use the output on this page to verify accuracy and comprehensiveness before redeploying Ops Manager. This page is especially useful for deployments with more than one operator or administrator, or deployments that change due to both API and UI modifications.
 
-For more information, see [About Pending Changes for a Specific Tile](https://docs.pivotal.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes).
+For more information, see [About Pending Changes for a Specific Tile](https://docs.pivotal.io/pivotalcf/2-5/customizing/review-pending-changes.html#pending-changes) in _Reviewing Pending Product Changes_.
 
 ### <a id="azure-azs"></a> Microsoft Azure Availability Zones Available
 
 Ops Manager operators and administrators can now configure Availability Zones (AZs). AZs provide high availability, minimal latency, and efficient resource management for deployments around the world.
 
-AZs are only available for new installations of Ops Manager. Existing installations that are being upgraded from v2.4 must use Availability Sets.
+AZs are only available for new installations of Ops Manager. Existing installations that are being upgraded from Ops Manager v2.4 must use Availability Sets.
 
 For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
 
@@ -746,7 +746,7 @@ For more information, see [Configuring BOSH Director on Azure](http://docs.pivot
 
 You can associate an Availability Zone (AZ) with a host group for Ops Manager deployments on vSphere. Host groups are subsets of vSphere clusters. Since you must associate a cluster with an AZ in vSphere deployments, host group configuration can help you manage deployment resources more precisely. Enable vSphere host groups from the **Create Availability Zones** pane in the BOSH Director tile.
 
-For more information, see [Create Availability Zones Page](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#create-az) in *Configuring BOSH Director on vSphere*.
+For more information, see [Create Availability Zones Page](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#create-az) in _Configuring BOSH Director on vSphere_.
 
 ### <a id="nats-ca"></a> NATS Certificate Rotation Available in the Ops Manager API
 
@@ -760,7 +760,7 @@ For more information about regenerating and rotating certificates, see [Rotating
 
 You can now configure a pre-created client account to manage automation tasks and scripts for Ops Manager. To do this, you will need access to the UAA Command Line Client (UAAC) and Ops Manager API.
 
-Pivotal recommends using client accounts for automated tasks because client accounts are not bound to the same authentication protocols as user accounts. A user account that controls automated components can cause those components to fail if the account experiences inconsistent availability due to permission or authentication issues.
+<%= vars.recommended_by %> recommends using client accounts for automated tasks because client accounts are not bound to the same authentication protocols as user accounts. A user account that controls automated components can cause those components to fail if the account experiences inconsistent availability due to permission or authentication issues.
 
 You can configure a pre-created client for Ops Manager either before you deploy Ops Manager for the first time, or by adding it to an existing deployment.
 
@@ -768,7 +768,7 @@ For more information about Ops Manager users and clients, see [Creating and Mana
 
 ### <a id="vm-extensions"></a> Apply Custom VM Extensions to BOSH Director in the Ops Manager API
 
-You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director’s jobs and product tiles.
+You can define custom VM extensions for the BOSH Director VM by creating them in the API and then applying them to an instance group using `PUT /api/v0/staged/products/PRODUCT_GUID/JOBS/JOB_GUID/resource_config`. This endpoint works for both the BOSH Director's jobs and product tiles.
 
 Use this endpoint to configure custom behavior for the BOSH Director VM, such as allowing the Director to read or write directly to a blobstore.
 
@@ -784,36 +784,38 @@ This update does not impact Ops Manager product tiles or BOSH Director. For more
 
 You can choose to store credentials for BOSH jobs in temporary file storage (tmpfs). This method stores credentials in volatile memory, rather than on the persistent disk. Choosing to store credentials in tmpfs may impact your BOSH deployment's availability if the tmpfs is refreshed or loses access to the deployment. You must recreate all VMs for this change to take effect.
 
-To enable this feature, navigate to the **Director Config** section of the **BOSH Director** tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox.
+To enable this feature, go to the **Director Config** pane of the BOSH Director tile and enable the **Store BOSH Job Credentials on tmpfs (beta)** checkbox.
 
-For more information on the Director Config forms, see [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-5/customizing/deploy-bosh-om.html#contents).
+For more information on the Director Config forms, see [IaaS-Specific Deployment Guidelines](https://docs.pivotal.io/pivotalcf/2-5/customizing/deploy-bosh-om.html#contents) in _Deploying BOSH and Ops Manager_.
 
 ### <a id="log-forwarding"></a> Forward Ops Manager Debug Logs to An External Store in the Syslog Form
 
-You can choose to forward logs generated by debugging processes to an external source by selecting a checkbox in the Syslog pane of the Ops Manager **Settings** page. Forwarded logs are delivered to whatever external location you choose to receive other types of logs from Ops Manager.
+You can choose to forward logs generated by debugging processes to an external source by enabling a checkbox in the **Syslog** pane of the Ops Manager Installation Dashboard **Settings** page. Forwarded logs are delivered to whatever external location you choose to receive other types of logs from Ops Manager.
 
-To forward logs, select the **Forward Debug Logs** checkbox in the Syslog pane. This checkbox is deselected by default, because debug logs can be excessive and require a great deal of storage capacity. If you choose to use this option, ensure you have sufficient storage to contain the generated logs.
+To forward logs, enable the **Forward Debug Logs** checkbox in the **Syslog** pane. This checkbox is disabled by default, because debug logs can be excessive and require a great deal of storage capacity. If you choose to use this option, ensure you have sufficient storage to contain the generated logs.
 
-For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
+For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in _Using the Ops Manager Interface_.
 
 ### <a id="rsyslog"></a> Custom Rsyslog Configuration Available in Ops Manager Syslog Template
 
-You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the standard settings available in the Ops Manager UI.
+You can further customize Syslog behavior by including configuration options in the **Custom rsyslog Configuration** field of the Ops Manager Installation Dashboard **Settings** page. This optional field lets you add more refined rules for syslog configuration than are permitted in the standard settings available in the Ops Manager UI.
 
-If you configure custom rules and also choose the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place.
+If you configure custom rules and also enable the **Forward Debug Logs** checkbox, the rules apply before log forwarding takes place.
 
 For more information about forwarding debug logs, see [Forward Ops Manager Debug Logs to An External Store in the Syslog Form](#log-forwarding).
 
-For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in the *Using the Ops Manager Interface* topic.
+For more information about the Ops Manager Syslog pane, see [Settings Page](https://docs.pivotal.io/pivotalcf/2-5/customizing/pcf-interface.html#settings) in _Using the Ops Manager Interface_ topic.
 
 
 ## <a id='known-issues'></a> Known Issues
+
+Ops Manager v2.5 includes the following known issues:
 
 ### <a id="service-broker-syslog"></a> Ops Manager's Syslog Template is Not Supported for Service Broker Tiles
 
 Ops Manager's Syslog template does not propagate to service broker tiles. Tile developers with service broker tiles should continue to use their own Syslog configurations. Service broker tiles with the Syslog template configured will not display the Syslog template.
 
-For more information about the Syslog template, see [Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/opsmanager-rn.html#syslog).
+For more information about the Syslog template, see [Syslog Form Template Available for Tile Authors](https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/opsmanager-rn.html#syslog) in _PCF Ops Manager v2.4 Release Notes_.
 
 ### <a id="monit"></a> Monit Inaccurately Reports Health of UAA
 
@@ -836,16 +838,16 @@ For more information, see [BPM fails to start job process with exit status 1](ht
 
 ### <a id="bad-link-failed-install"></a> Incorrect Link for Failed Installations in Ops Manager UI
 
-When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in a pop-up window.
-This link is currently non-functional.
+When an installation fails, the Ops Manager UI presents a hyperlink to the installation log in a pop-up window. This link is currently non-functional.
 
-To work around this issue, click on **Change Log** in the Ops Manager Installation Dashboard to view product installation logs.
+To work around this issue, click **Change Log** in the Ops Manager Installation Dashboard to view product installation logs.
 
 ### <a id="credhub-db-migration-failure"></a> CredHub Database Migration Failure
 
 When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by an issue with the `flyway_schema_history` table.
 
-For information on how to address this issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in GitHub.
+For information on how to address this issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in _Known Issues with current CredHub versions_ in the CredHub repository on GitHub.
+
 
 ## <a id="api-updates"></a> API Documentation Updates
 
@@ -857,16 +859,23 @@ The following sections of the API documentation are updated in Ops Manager v2.5:
 
 * [Setting up with an internal userstore](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-an-internal-userstore) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
+
 * [Setting up with SAML](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-saml) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
+
 * [Setting up with LDAP](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-ldap) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
+
 * [Updating director and Iaas properties (Experimental)]
 (http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in *Setup*: This section includes a new parameter:
  * `job_configuration_on_tmpfs`
+
 * [Retrieving a list of install time verifiers for the director](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-a-list-of-install-time-verifiers-for-the-director) in *Staged BOSH Director*: This section is renamed.
+
 * [Deployed BOSH Director (Advanced)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#deployed-bosh-director-advanced): This section is designated "advanced."
+
 * [Fetching a deployed manifest](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-manifest) in *Deployed BOSH Director (Advanced)*: This section is renamed.
+
 * [Fetching a deployed cloud config](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-cloud-config) in *Deployed BOSH Director (Advanced)*: This section is renamed.
 
 ### <a id="new-sections"></a> New Sections
@@ -874,10 +883,15 @@ The following sections of the API documentation are updated in Ops Manager v2.5:
 The following sections are new in Ops Manager v2.5:
 
 * [Upgrading a stemcell](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#upgrading-a-stemcell)
+
 * [Syslog Configuration](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental)
+
 * [Retrieving information about a deployed product](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-information-about-a-deployed-product)
+
 * [Retrieving information about a staged product](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-information-about-a-staged-product)
+
 * [Setting precreated-client secret](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-precreated-client-secret)
+
 * [Diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs): This section also includes new subsections:
   * [Fetching the BOSH Director diff](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-the-bosh-director-diff)
   * [Fetching a product diff](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-product-diff)

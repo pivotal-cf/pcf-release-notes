@@ -3,6 +3,9 @@ title: PCF Isolation Segment v2.5 Release Notes
 owner: Release Engineering
 ---
 
+This topic contains release notes for Pivotal Cloud Foundry (PCF) Isolation Segment v2.6.
+
+
 ## <a id='releases'></a> Releases
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
@@ -716,27 +719,29 @@ See also:
 
 ## <a id='intro'></a> About PCF Isolation Segment
 
-The PCF Isolation Segment v2.5 tile is available for installation with PCF v2.5.
+The PCF Isolation Segment v2.6 tile is available for installation with PCF v2.6.
 
-[Isolation segments](http://docs.pivotal.io/pivotalcf/2-5/concepts/security.html#isolation-segments) provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different CF deployments but avoids redundant management and network complexity.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different PCF deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](http://docs.pivotal.io/pivotalcf/2-5/concepts/security.html#isolation-segments) in _PAS Security_.
 
-For more information about using isolation segments in your deployment, see the [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-5/adminguide/isolation-segments.html) topic.
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/pivotalcf/2-5/adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
 
-The procedure for installing PCF Isolation Segment v2.5 is documented in the [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-5/customizing/installing-pcf-is.html) topic.
+To install PCF Isolation Segment v2.5, see [Installing PCF Isolation Segment](https://docs.pivotal.io/pivotalcf/2-5/customizing/installing-pcf-is.html).
 
 To install a PCF Isolation Segment, you must first install PCF v2.5.
 
 
 ## <a id='new-features'></a> New Features in PCF Isolation Segment v2.5
 
+PCF Isolation Segment v2.5 includes the following major features:
+
 ### <a id="disable-policy-enforcment"></a> Disable Network Policy Enforcement Between Apps
 
-You can now disable Silk network policy enforcement between apps in the **Networking** pane of the Isolation Segment tile. Disabling network policy enforcement allows all apps to send network traffic to all other apps in the foundation despite no policy specifically allowing it.
+You can now disable Silk network policy enforcement between apps in the **Networking** pane of the PCF Isolation Segment tile. Disabling network policy enforcement allows all apps to send network traffic to all other apps in the foundation despite no policy specifically allowing it.
 
-Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see [silk](https://github.com/cloudfoundry/silk) in GitHub.
+Silk is a network fabric for containers designed for Cloud Foundry. For more information about Silk, see the [Silk](https://github.com/cloudfoundry/silk) repository on GitHub.
 
 ### <a id=‘jobs-removed’></a> mysql-restore and mysql-backup Jobs Are Removed
 
@@ -754,8 +759,10 @@ Although these features are fully supported, Pivotal recommends caution when usi
 
 ## <a id='known-issues'></a> Known Issues
 
+PCF Isolation Segment v2.5 includes the following known issues:
+
 ### <a id='nsx-t'></a> NSX-T v2.3.1 and Earlier Not Compatible with PCF Isolation Segment
 
-NSX-T tiles v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an Isolation Segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
+NSX-T v2.3.1 and earlier are not compatible with PCF Isolation Segment. The Gorouters in an isolation segment are not given access in the firewall rules for NSX-T v2.3.1 and earlier, which prevents them from communicating with apps.
 
-NSX-T tiles v2.3.2 and later give access to the Gorouters in an Isolation Segment and are compatible with PCF Isolation Segment.
+NSX-T tiles v2.3.2 and later give access to the Gorouters in an isolation segment and are compatible with PCF Isolation Segment.
