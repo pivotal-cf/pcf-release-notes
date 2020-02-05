@@ -89,18 +89,17 @@ by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpo
 
 For more information about how to enable Advanced Mode in <%= vars.ops_manager %>, see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base.
 
-### <a id='advanced-mode-fields'></a> Modifications to Unlockable Fields
+### <a id='advanced-mode-fields'></a> Modifications to Locked and Unlocked Fields
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> changes which fields 
-are unlockable after you apply changes and deploy the BOSH Director. 
+are locked after you apply changes and deploy the BOSH Director. 
 
-In the **Director Config** pane, you can now unlock:
+In the **Director Config** pane, the following fields are now 
+unlocked, do not require Advanced Mode and can be modified anytime 
+after deploying the BOSH Director.
 
-* **Blobstore Location**
 * Under **S3 Compatible Blobstore**:
-    * **S3 Endpoint**
-    * **S3 Bucket Name**
-    * Under **S3 Signature Version**
+    * Under **S3 Signature Version**:
         * **S3 Signature Version**
         * Under **V4 Signature**
             * **Region**
@@ -113,15 +112,23 @@ In the **Director Config** pane, you can now unlock:
     * **Storage Class**
     * **Service Account Key**
 
-You can no longer unlock:
+In the **Director Config** pane, the following fields are 
+still locked but are now unlockable in Advanced Mode:
 
+* **Blobstore Location**
+* Under **S3 Compatible Blobstore**:
+    * **S3 Endpoint**
+    * **S3 Bucket Name**
+
+In the **Director Config** pane, you can no longer unlock 
+or modify the following fields, even in Advanced Mode:
+
+* **Database Location**
 * In the **CredHub Encryption Provider** section:
     * **Encryption Key Name**
     * **Provider Partition**
 
-For unlockable fields, you can also modify the values of these settings by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint.
-
-To unlock these fields or properties in the UI or by API, you must use <%= vars.ops_manager %>'s Advanced Mode.
+For unlockable fields, you can also modify the values of these settings by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint in Advanced Mode.
 
 For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
 
