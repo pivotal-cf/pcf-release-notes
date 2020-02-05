@@ -1,18 +1,10 @@
 ---
-title: PAS for Windows v2.6 Release Notes
+title: PASW v2.6 Release Notes
 owner: Garden Windows
 ---
 
-This topic contains release notes for Pivotal Application Service (PAS) for Windows.
+This topic contains release notes for Pivotal Application Service for Windows (PASW) v2.6.
 
-## <a id='upgrade'></a> How to Upgrade
-
-The PAS for Windows v2.6 tile is available with the release of Pivotal Cloud Foundry (PCF) version
-v2.6. To use the PAS for Windows v2.6 tile, you must install Ops Manager v2.6 or later and PAS v2.6
-or later.
-
-If you are running PAS for Windows v2.4.4 or later on PCF v2.5 and want to upgrade to PCF v2.6,
-you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
 
 ## <a id='releases'></a> Releases
  
@@ -46,9 +38,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
     <tr><td>windowsfs-release</td><td>2.4.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.6.11'></a> 2.6.11
 
 **Release Date:** 01/16/2020
@@ -78,9 +68,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.6.10'></a> 2.6.10
 
 **Release Date:** 12/26/2019
@@ -111,9 +99,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.6.9'></a> 2.6.9
 
 **Release Date:** 12/09/2019
@@ -141,9 +127,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
     <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.6.8'></a> 2.6.8
 
 **Release Date:** 12/02/2019
@@ -172,9 +156,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
     <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.6.7'></a> 2.6.7
 
 **Release Date:** 10/31/2019
@@ -207,8 +189,6 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
     <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.6.6'></a> 2.6.6
 
@@ -369,7 +349,6 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
   </tbody>
 </table>
 
-
 ### <a id='2.6.1'></a> 2.6.1
 
 * **[Feature Improvement]** Apps get 10 seconds of graceful shutdown time in PASW
@@ -405,8 +384,7 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
 
 ### <a id='2.6.0'></a> 2.6.0
 
-
-<p class='note breaking'><strong>Breaking Change</strong>: The <strong>Use "cf" as deployment name in emitted metrics instead of unique name</strong> option is removed.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> The <strong>Use "cf" as deployment name in emitted metrics instead of unique name</strong> option is removed.</p>
 
 * **[Feature]** App developers can gracefully shutdown their .NET applications in PASW
 * **[Feature]** Add optional System Metric Agent to allow monitoring a more complete set of metrics for all VMs in the deployment
@@ -443,85 +421,77 @@ you must upgrade to PAS for Windows v2.5 before upgrading to PCF v2.6.
   </tbody>
 </table>
 
-## <a id='new-features'></a> New Features in PAS for Windows v2.6
 
-PAS for Windows v2.6.0 includes the following major features:
+## <a id='upgrade'></a> How to Upgrade
+
+The PASW v2.6 tile is available with the release of Pivotal Cloud Foundry (PCF) version v2.6. To use the PASW v2.6 tile, you must install Ops Manager v2.6 or later and PAS v2.6 or later.
+
+If you are running PASW v2.4.4 or later on PCF v2.5 and want to upgrade to PCF v2.6, you must upgrade to PASW v2.5 before upgrading to PCF v2.6.
+
+
+## <a id='new-features'></a> New Features in PASW v2.6
+
+PASW v2.6 includes the following major features:
 
 ### <a id='graceful-shutdown'></a> App Developers Can Gracefully Shut Down .NET Apps
 
-PAS for Windows v2.6 allows ten seconds for a .NET app to shut down gracefully after the app is stopped using `cf stop`.
-Graceful shutdown is supported on deployments using Windows Server 2019 or later 
-for apps that provide a control handler for the `CTRL_SHUTDOWN_EVENT` event. 
+PASW v2.6 allows ten seconds for a .NET app to shut down gracefully after the app is stopped using `cf stop`. Graceful shutdown is supported on deployments using Windows Server 2019 or later  for apps that provide a control handler for the `CTRL_SHUTDOWN_EVENT` event. 
 
-For more information, see 
-[Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the _.NET on Pivotal Cloud Foundry Cookbook_.
+For more information, see  [Graceful Shutdown](https://dotnet-cookbook.cfapps.io/aspnet/graceful-shutdown/) in the _.NET on Pivotal Cloud Foundry Cookbook_.
 
 ### <a id='system-metrics-agent'></a> Introduction of System Metrics Agent
 
-PAS for Windows v2.6 includes the introduction of the System Metrics Agent. When the System Metrics Agent is enabled, 
-Windows cells emit system-level metrics about each VM in your deployment. 
+PASW v2.6 includes the introduction of the System Metrics Agent. When the System Metrics Agent is enabled, Windows Diego Cells emit system-level metrics about each VM in your deployment. 
 
-You can enable this feature in the PAS for Windows v2.6 tile by 
-selecting **Enable System Metrics** within the **System Logging** pane.
+You can enable this feature by selecting **Enable System Metrics** in the **System Logging** pane of the PASW tile.
 
-For a list of the VM metrics that the System Metric Agent emits for Windows VMs, see [VM Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in GitHub.
+For a list of the VM metrics that the System Metric Agent emits for Windows VMs, see [VM Metrics](https://github.com/cloudfoundry/loggregator-agent-release#vm-metrics) in the Loggregator Agent Release repository on GitHub.
 
-For additional information about system-level metrics in PCF, see [BOSH VM and PCF Component Health Metrics](https://docs.pivotal.io/pivotalcf/2-6/monitoring/metrics.html#component-metrics) and [Key Performance Indicators](https://docs.pivotal.io/pivotalcf/2-6/monitoring/kpi.html#bosh).
+For additional information about system-level metrics in PCF, see [BOSH VM and PCF Component Health Metrics](https://docs.pivotal.io/pivotalcf/2-6/monitoring/metrics.html#component-metrics) in _Selecting and Configuring a Monitoring System_ and [System (BOSH) Metrics](https://docs.pivotal.io/pivotalcf/2-6/monitoring/kpi.html#bosh) in _Key Performance Indicators_.
 
 ### <a id='windows2016'></a> Deprecation of the windows2016 Stack
 
 You should migrate any apps that run on the `windows2016` stack to the `windows` stack.
 
-You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin.
-For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
+You can migrate your apps from `windows2016` to `windows` using Stack Auditor, a Cloud Foundry CLI plugin. For more information, see [Using the Stack Auditor Plugin](https://docs.pivotal.io/pivotalcf/adminguide/stack-auditor.html).
 
-### <a id='vcr'></a>Pre-Installed Visual C++ Redistributables
+### <a id='vcr'></a> Pre-Installed Visual C++ Redistributables
 
-PAS for Windows v2.6.2 and later includes Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019.
-This change is backported to PAS for Windows v2.2 and later.
+PASW v2.6.2 and later includes Microsoft Visual C++ Redistributables for Visual Studio 2010, 2015, 2017 and 2019. This change is backported to PASW v2.2 and later.
 
-This update improves the developer experience by making Visual C++ Redistributables readily available for .NET apps. 
-Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
+This update improves the developer experience by making Visual C++ Redistributables readily available for .NET apps. Developers no longer have to manually bin deploy to reference C++ or C++ based libraries.
 
-### <a id='odbc'></a>ODBC Driver Installation Support in Windows Containers
+### <a id='odbc'></a> ODBC Driver Installation Support in Windows Containers
 
-PAS for Windows v2.6 supports ODBC driver installation by giving  developers the ability to add ODBC driver 
-entries to the Windows Registry. Previously, ODBC drivers were installed to Windows cells using BOSH add-ons. 
-Installing ODBC drivers by using BOSH add-ons is no longer possible in true Windows containerized runtimes.
+PASW v2.6 supports ODBC driver installation by giving developers the ability to add ODBC driver entries to the Windows Registry. Previously, ODBC drivers were installed to Windows cells using BOSH add-ons. Installing ODBC drivers by using BOSH add-ons is no longer possible in true Windows containerized runtimes.
 
 ### <a id='bosh-ssh'></a> BOSH SSH Enabled by Default
 
-In PAS for Windows v2.6, use of the `bosh ssh` command is enabled by default for deployed VMs. 
-Developers can use the `bosh ssh` command to troubleshoot Windows-based Diego cells.
+In PASW v2.6, use of the `bosh ssh` command is enabled by default for deployed VMs. Developers can use the `bosh ssh` command to troubleshoot Windows-based Diego Cells.
 
 ### <a id='gcs'></a> Deploy Windows Stemcells on BOSH Director with GCS
 
-PAS for Windows v2.6 supports deploying Windows stemcells with a BOSH Director that uses GCS as the BOSH blobstore. 
+PASW v2.6 supports deploying Windows stemcells with a BOSH Director that uses GCS as the BOSH blobstore. 
 
-For more information on configuring a GCS blobstore, see _Director Config Page_ in 
-[Configuring BOSH Director on GCP Manually](https://docs.pivotal.io/pcf/om/2-6/gcp/config-manual.html#director-config) 
-or _Director Config Page_ in [Configuring BOSH Director on GCP Using Terraform](https://docs.pivotal.io/pcf/om/2-6/gcp/config-terraform.html).
+For more information on configuring a GCS blobstore, see _Director Config Page_ in [Configuring BOSH Director on GCP Manually](https://docs.pivotal.io/pcf/om/2-6/gcp/config-manual.html#director-config) or _Director Config Page_ in [Configuring BOSH Director on GCP Using Terraform](https://docs.pivotal.io/pcf/om/2-6/gcp/config-terraform.html#director-config).
 
-### <a id='improve-scalabillity'></a> Improved Application Syslog Drain Scalability
+### <a id='improve-scalabillity'></a> Improved App Syslog Drain Scalability
 
-PAS for Windows v2.6 has improved application syslog drain scalability and incorporates a new syslog agent architecture. 
+PASW v2.6 has improved app syslog drain scalability and incorporates a new syslog agent architecture. 
+
 
 ## <a id='known-issues'></a> Known Issues
 
-This section includes known issues with PAS for Windows v2.6.
+PASW v2.6 includes the following known issues:
 
-### <a id='tls-support'></a> PAS for Windows v2.6 does not support TLS from GoRouter to an app container
+### <a id='tls-support'></a> PASW v2.6 Does Not Support TLS From Gorouter to an App Container
 
-PAS for Windows v2.6 does not currently support TLS encryption between GoRouter and an app container.  
+PASW v2.6 does not currently support TLS encryption between the Gorouter and an app container.  
 
 ### <a id='syslog'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
 
-If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, 
-external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see 
-["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base.
+If you select **Enable agent-based syslog egress for app logs** in the **System Logging** pane of the PAS tile, external syslog drains that are bound to Windows Apps cannot collect logs. For more information, see ["Enable agent-based syslog egress for app logs" interrupts external log collection for PAS Windows apps](https://community.pivotal.io/s/article/enable-agent-based-syslog-egress-for-app-logs) in the Pivotal Knowledge Base.
 
-### <a id='graceful-shutdown-known-issue'></a> Graceful Shutdown Is Not Supported on Deployments with One Windows Cell
+### <a id='graceful-shutdown-known-issue'></a> Graceful Shutdown Is Not Supported on Deployments with One Windows Stemcell
 
-Graceful shutdown is supported only on Windows Server 2019 deployments with two or more Windows cells. 
-For more information, see [Graceful shutdown works only for CF deployments with multiple Windows 2019 cells]
-(https://community.pivotal.io/s/article/graceful-shutdown-works-only-for-cf-deployments-with-multiple-windows-2019-cells) in the Pivotal Knowledge Base.
+Graceful shutdown is supported only on Windows Server 2019 deployments with two or more Windows stemcells. For more information, see [Graceful shutdown works only for CF deployments with multiple Windows 2019 cells](https://community.pivotal.io/s/article/graceful-shutdown-works-only-for-cf-deployments-with-multiple-windows-2019-cells) in the Pivotal Knowledge Base.
