@@ -94,9 +94,8 @@ For more information about how to enable Advanced Mode in <%= vars.ops_manager %
 <%= vars.ops_manager %> <%= vars.v_major_version %> changes which fields 
 are locked after you apply changes and deploy the BOSH Director. 
 
-In the **Director Config** pane, the following fields are now 
-unlocked, do not require Advanced Mode and can be modified anytime 
-after deploying the BOSH Director.
+In the **Director Config** pane, the following fields are no longer locked after 
+BOSH Director deployment. You can modify these fields at anytime without entering Advanced Mode.
 
 * Under **S3 Compatible Blobstore**:
     * Under **S3 Signature Version**:
@@ -112,16 +111,16 @@ after deploying the BOSH Director.
     * **Storage Class**
     * **Service Account Key**
 
-In the **Director Config** pane, the following fields are 
-still locked but are now unlockable in Advanced Mode:
+In the **Director Config** pane, the following fields are locked 
+but you can now unlock them in Advanced Mode:
 
 * **Blobstore Location**
 * Under **S3 Compatible Blobstore**:
     * **S3 Endpoint**
     * **S3 Bucket Name**
 
-In the **Director Config** pane, you can no longer unlock 
-or modify the following fields, even in Advanced Mode:
+In the **Director Config** pane, you can no longer unlock the following fields, 
+even in Advanced Mode:
 
 * **Database Location**
 * In the **CredHub Encryption Provider** section:
