@@ -123,13 +123,17 @@ by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpo
 
 For more information about how to enable Advanced Mode in <%= vars.ops_manager %>, see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base.
 
-### <a id='advanced-mode-fields'></a> Modifications to Locked and Unlocked Fields
+### <a id='advanced-mode-fields'></a> Modifications to Locked and Unlockable Fields
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> changes which fields 
-are locked after you apply changes and deploy the BOSH Director. 
+are locked after you deploy the BOSH Director.
 
-In the **Director Config** pane, the following fields are no longer locked after 
-BOSH Director deployment. You can modify these fields at anytime without entering Advanced Mode.
+You can access these fields in the Ops Manager Director Config pane. For unlockable fields, you can also modify the values of these settings by using the `/api/v0/staged/director/properties` Ops Manager API endpoint in Advanced Mode.
+
+#### Standard Field Changes
+
+The following fields are not locked after BOSH Director deployment.
+You can modify these fields at anytime without entering Advanced Mode.
 
 * Under **S3 Compatible Blobstore**:
     * Under **S3 Signature Version**:
@@ -140,28 +144,29 @@ BOSH Director deployment. You can modify these fields at anytime without enterin
         * Under **Copy into an additional bucket**:
             * **Backup Bucket Region**
             * **Backup Bucket Name**
-* Under **GCS Blobstore**:
+* In the **GCS Blobstore** section:
     * **Bucket Name**
     * **Storage Class**
     * **Service Account Key**
 
-In the **Director Config** pane, the following fields are locked 
-but you can now unlock them in Advanced Mode:
+#### Unlockable Field Changes
+
+The following fields are locked and you can unlock them in Advanced Mode:
 
 * **Blobstore Location**
-* Under **S3 Compatible Blobstore**:
+* In the **S3 Compatible Blobstore** section:
     * **S3 Endpoint**
     * **S3 Bucket Name**
 
-In the **Director Config** pane, you can no longer unlock the following fields, 
+#### Permanently Locked Field Changes
+
+The following fields are locked and you cannot unlock them, 
 even in Advanced Mode:
 
 * **Database Location**
 * In the **CredHub Encryption Provider** section:
     * **Encryption Key Name**
     * **Provider Partition**
-
-For unlockable fields, you can also modify the values of these settings by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint in Advanced Mode.
 
 For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
 
