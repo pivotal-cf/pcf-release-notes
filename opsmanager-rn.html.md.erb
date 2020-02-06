@@ -15,13 +15,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2-9-alpha'></a> 2.9.0 Alpha 1
 
-* **[Feature]** Operators can view and update internal authentication settings by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
-* **[Feature]** Operators can update the <%= vars.ops_manager %> decryption passphrase by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
-* **[Feature]** Operators can view and update proxy settings in <%= vars.ops_manager %> by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
-* **[Feature]** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
-* **[Feature]** <%= vars.ops_manager %> supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
-* **[Feature]** <%= vars.ops_manager %> API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API docs and improves general formatting.
-* **[UI Improvement]** When in Advanced Mode, operators see a special banner in the <%= vars.ops_manager %> UI.
+* **[Feature]:** Operators can view and update internal authentication settings by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
+* **[Feature]:** Operators can update the <%= vars.ops_manager %> decryption passphrase by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
+* **[Feature]:** Operators can view and update proxy settings in <%= vars.ops_manager %> by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
+* **[Feature]:** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
+* **[Feature]:** <%= vars.ops_manager %> supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
+* **[Feature]:** <%= vars.ops_manager %> API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API docs and improves general formatting.
+* **[UI Improvement]:** When in Advanced Mode, operators see a special banner in the <%= vars.ops_manager %> UI.
+* **[Feature Improvement]:** Performance and UI improvements to the deployment log display.
+  See [Improved Deployment Log Display](#deployment-log-improved) below.
 
 <%= vars.ops_manager %> <%= vars.v_major_version %>.0 Alpha 1 uses the following component versions:
 
@@ -75,7 +77,17 @@ To view and update authentication settings through the <%= vars.ops_manager %> U
 
 For more information about accessing the **Settings** pane, see [Setting Page](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings) in _Using the <%= vars.ops_manager %> Interface_.
 
-To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint. 
+To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint. For more information, see [Authentication Settings](https://docs.pivotal.io/platform/2-9/opsman-api/#tag/Apply-Changes/paths/~1api~1v0~1staged~1pending_changes/get) in the _Pivotal Ops Manager API Reference (2.9)_.
+
+### <a id='update-decryption-passphrase'></a> Update the Ops Manager Decryption Passphrase
+
+Operators can update the <%= vars.ops_manager %> decryption passphrase 
+by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
+
+### <a id='update-decryption-passphrase'></a> View and Update Ops Manager Proxy Settings
+
+Operators can view and update proxy settings in <%= vars.ops_manager %> 
+by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
 
 ### <a id='advanced-mode-banner'></a> Advanced Mode UI Banner
 
@@ -83,29 +95,47 @@ To view and update authentication settings through the <%= vars.ops_manager %> A
 
 For more information about how to enable Advanced Mode in <%= vars.ops_manager %>, see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base.
 
-### <a id='advanced-mode-fields'></a> Additional Unlocked Fields in Advanced Mode
+### <a id='advanced-mode-fields'></a> Modifications to Locked and Unlocked Fields
 
-In <%= vars.ops_manager %> <%= vars.v_major_version %>, the following **Director Config** fields can be unlocked in Advanced Mode after you apply changes:
+<%= vars.ops_manager %> <%= vars.v_major_version %> changes which fields 
+are locked after you apply changes and deploy the BOSH Director. 
+
+In the **Director Config** pane, the following fields are no longer locked after 
+BOSH Director deployment. You can modify these fields at anytime without entering Advanced Mode.
+
+* Under **S3 Compatible Blobstore**:
+    * Under **S3 Signature Version**:
+        * **S3 Signature Version**
+        * Under **V4 Signature**
+            * **Region**
+    * Under **S3 Backup Strategy**:
+        * Under **Copy into an additional bucket**:
+            * **Backup Bucket Region**
+            * **Backup Bucket Name**
+* Under **GCS Blobstore**:
+    * **Bucket Name**
+    * **Storage Class**
+    * **Service Account Key**
+
+In the **Director Config** pane, the following fields are locked 
+but you can now unlock them in Advanced Mode:
 
 * **Blobstore Location**
-* For AWS S3:
+* Under **S3 Compatible Blobstore**:
     * **S3 Endpoint**
     * **S3 Bucket Name**
-    * **V2 Signature in S3**
-    * **V4 Signature in S3**
-    * **Region in V4**
-* For GCS:
-    * **Bucket Name in GCS**
-    * **Storage Class in GCS**
-    * **Service Account Key in GCS**
-* For Luna HSM:
-    * **Partition Serial Number**
 
-You can also modify these properties by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint.
+In the **Director Config** pane, you can no longer unlock the following fields, 
+even in Advanced Mode:
 
-To unlock these fields or properties, you must use <%= vars.ops_manager %>'s Advanced Mode.
+* **Database Location**
+* In the **CredHub Encryption Provider** section:
+    * **Encryption Key Name**
+    * **Provider Partition**
 
-For more information about fields that can be unlocked in Advanced Mode, see [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
+For unlockable fields, you can also modify the values of these settings by using the `api/v0/staged/director/properties` <%= vars.ops_manager %> API endpoint in Advanced Mode.
+
+For more information about fields that can be unlocked in Advanced Mode, see the [Unlockable Fields](https://docs.pivotal.io/platform/2-9/customizing/lock-on-deploy.html#unlock) section in _<%= vars.ops_manager %> Fields That Lock On Deploy_.
 
 ### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for AWS S3 Blobstores
 
@@ -144,6 +174,18 @@ To delete an active CredHub key, you must first deactivate it and activate a new
 
 For more information, see [Delete Key](https://docs.pivotal.io/platform/2-9/customizing/hsm-config.html#delete-key) in _Preparing CredHub HSMs for Configuration_.
 
+
+### <a id='deployment-log-improved'></a> Improved Deployment Log Display
+
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes UI and peformance improvments
+to the deployment log display:
+
+* Deployment logs render faster
+* Stages are more clearly delineated
+* Errored stage now accessible with one click
+* Start and end time are clearly displayed
+
+![Ops Manager v2.9 Deployment Log Display](deployment-log-improvements.png)
 
 ## <a id='known-issues'></a> Known Issues
 
