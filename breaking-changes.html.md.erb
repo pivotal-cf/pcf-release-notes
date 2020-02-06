@@ -15,11 +15,11 @@ See the following critical breaking changes before installing or upgrading to PC
 
 ### <a id="cflinuxfs2-unsupported"></a> cflinuxfs2 is Unsupported
 
-Operators cannot upgrade the platform to PAS 2.5 until all app instances (AIs) are using cflinuxfs3.
+Operators cannot upgrade the platform to PAS v2.5 until all app instances (AIs) are using cflinuxfs3.
 
 During upgrade, you must check a box to verify that all AIs have been migrated. If you check the box and the AIs have not been migrated, the upgrade causes all AIs to fail.
 
-<%= vars.recommended_by %> recommends that you communicate the change of stack to your development teams and have them migrate to cflinux3 before upgrading to v2.5.
+<%= vars.recommended_by %> recommends that you communicate the change of stack to your development teams and have them migrate to cflinux3 before upgrading to PAS v2.5.
 
 For more information about this change, see [PAS Only Supports cflinux3](https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/runtime-rn.html#cflinuxfs3) in _Pivotal Application Service v2.5 Release Notes_.
 
@@ -34,7 +34,7 @@ For more information about this change, see [Ops Manager Release Artifacts Renam
 
 ## <a id='opsman'></a> PCF Ops Manager
 
-See the following PCF Ops Manager breaking changes:
+See the following Ops Manager breaking changes:
 
 ### <a id="azure-azs"></a> New Installations of Ops Manager v2.5 Use Azure Availability Zones by Default
 
