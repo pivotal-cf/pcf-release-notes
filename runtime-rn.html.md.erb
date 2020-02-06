@@ -1342,7 +1342,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to PAS v2.6 is documented in [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html).
+To upgrade to PAS v2.6, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html).
 
 When upgrading to PAS v2.6, be aware of the following upgrade considerations:
 
@@ -1448,7 +1448,7 @@ For more information, see [Add Metadata](http://docs.pivotal.io/pivotalcf/2-6/co
 
 ## <a id='known-issues'></a> Known Issues
 
-Ops Manager v2.6 includes the following known issues:
+PAS v2.6 includes the following known issues:
 
 ### <a id='syslog-issue'></a> App Syslog Drains Fail After Enabling Agent-Based Syslog
 
@@ -1490,7 +1490,7 @@ If you previously enabled the **Prune Routes on TTL Expiry for TLS Backends** ch
 
 1. Click **Apply Changes**.
 
-If you are on v2.6.1 to v2.6.4 and need a temporary mitigation pending upgrades:
+If you are on PAS v2.6.1 to v2.6.4 and need a temporary mitigation pending upgrades:
 
 1. Navigate to the Ops Manager Installation Dashboard.
 
@@ -1504,7 +1504,7 @@ If you are on v2.6.1 to v2.6.4 and need a temporary mitigation pending upgrades:
 
 1. Click **Apply Changes**.
 
-If you are on a version earlier than v2.6.1, you must upgrade to address this issue.
+If you are on a version earlier than PAS v2.6.1, you must upgrade to address this issue.
 
 For more information, see [Enabling TLS from the Gorouter to application instances results in bad routes in PAS 2.3+](https://community.pivotal.io/s/article/enabling-tls-from-the-gorouter-to-application-instances-results-in-bad-routes) in the Pivotal Knowledge Base.
 
@@ -1512,7 +1512,7 @@ For more information, see [Enabling TLS from the Gorouter to application instanc
 
 PAS v2.6.0 through v2.6.3 automatically creates a service mesh domain `mesh.CF-APPS-DOMAIN` even when you do not enable service mesh in the **Networking - Service Mesh** pane of the PAS tile. This may cause issues such as SSL certificate errors or failing environment automation scripts. To work around this issue, you can delete the domain from PAS.
 
-This issue is resolved in PAS v2.6.4. However, upgrading to v2.6.4 from v2.6.0 through v2.6.3 does not delete the domain. You must manually delete the domain.
+This issue is resolved in PAS v2.6.4. However, upgrading to PAS v2.6.4 from PAS v2.6.0 through v2.6.3 does not delete the domain. You must manually delete the domain.
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
