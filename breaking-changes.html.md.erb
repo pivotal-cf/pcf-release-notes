@@ -33,7 +33,12 @@ To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the fo
 
 * Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile and select the **Enable agent-based syslog egress for app logs** checkbox.
 
-* Set the `properties.syslog_agent_enabled` property to `true`. 
+* Set the `properties.syslog_agent_enabled` property to `true`.
+
+
+## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
+
+There are no breaking changes in this release of <%= vars.windows_runtime_abbr %>.
 
 
 ## <a id='ist'></a> <%= vars.segment_runtime_full %>
@@ -65,9 +70,3 @@ In the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, comput
 Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
 
 For more information about configuring or disabling compute and networking isolation, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
-
-
-## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
-
-There are no breaking changes in this release of <%= vars.windows_runtime_abbr %>.
-
