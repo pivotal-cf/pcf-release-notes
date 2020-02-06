@@ -108,32 +108,6 @@ Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, yo
   - The `credhub_key_encryption_passwords` property is replaced by `credhub_hsm_provider_encryption_keys` for HSM-resident CredHub and `credhub_internal_provider_keys` for internal CredHub.
 
 
-## <a id='ist'></a> <%= vars.segment_runtime_full %>
-
-See the following <%= vars.segment_runtime_full %> breaking changes:
-
-### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
-
-The following <%= vars.segment_runtime_full %> tile properties and jobs have been removed in <%= vars.windows_runtime_full %> <%= vars.v_major_version %>:
-
-* Syslog job `syslog_adapter`
-* Syslog job `syslog_scheduler`
-* Syslog property `syslog_metrics_to_syslog_enabled`
-
-Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
-
-These changes mirror <%= vars.app_runtime_abbr %> tile changes described in [Changed Properties and Jobs](#props-changed) above.
-
-For more information, see [Agent-Based Syslog Egress Is Enabled by Default](segment-rn.html#agent-based-syslog-egress) in _<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Release Notes_.
-
-### <a id='ist-diego'></a> Isolation Segment Diego Cells Update Diego Securely Over Port 8447
-
-Diego Cells deployed by the <%= vars.segment_runtime_full %> tile communicate with the Diego file server with HTTPS over port 8447.
-Previously, <%= vars.segment_runtime_full %> Diego Cells communicated with HTTP over port 8080 like Diego Cells deployed by the <%= vars.app_runtime_abbr %> tile itself.
-
-If you use isolation segments, you must ensure that port 8447 is open on the Diego Brain file server VM, which is deployed by the <%= vars.app_runtime_abbr %> tile.
-
-
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %>
 
 See the following <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>) breaking changes:
@@ -167,6 +141,32 @@ Before upgrading to <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
 These changes mirror <%= vars.app_runtime_abbr %> tile changes described in [Changed Properties and Jobs](#props-changed).
 
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](windows-rn.html#agent-based-syslog-egress) in _<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+
+
+## <a id='ist'></a> <%= vars.segment_runtime_full %>
+
+See the following <%= vars.segment_runtime_full %> breaking changes:
+
+### <a id='props-changed-ist'></a> Changed Syslog Properties and Jobs
+
+The following <%= vars.segment_runtime_full %> tile properties and jobs have been removed in <%= vars.windows_runtime_full %> <%= vars.v_major_version %>:
+
+* Syslog job `syslog_adapter`
+* Syslog job `syslog_scheduler`
+* Syslog property `syslog_metrics_to_syslog_enabled`
+
+Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must update any automation scripts to remove or change references to these properties and jobs.
+
+These changes mirror <%= vars.app_runtime_abbr %> tile changes described in [Changed Properties and Jobs](#props-changed) above.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](segment-rn.html#agent-based-syslog-egress) in _<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+
+### <a id='ist-diego'></a> Isolation Segment Diego Cells Update Diego Securely Over Port 8447
+
+Diego Cells deployed by the <%= vars.segment_runtime_full %> tile communicate with the Diego file server with HTTPS over port 8447.
+Previously, <%= vars.segment_runtime_full %> Diego Cells communicated with HTTP over port 8080 like Diego Cells deployed by the <%= vars.app_runtime_abbr %> tile itself.
+
+If you use isolation segments, you must ensure that port 8447 is open on the Diego Brain file server VM, which is deployed by the <%= vars.app_runtime_abbr %> tile.
 
 
 ## <a id='pks'></a> <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>)
