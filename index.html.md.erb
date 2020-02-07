@@ -1,7 +1,9 @@
 ---
-breadcrumb: Pivotal Platform Documentation
+breadcrumb: <%= vars.platform_name %> Documentation
 title: Pivotal Platform Release Notes
 ---
+
+<% current_page.data.title = vars.platform_name + " Release Notes" %>
 
 <%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
@@ -21,7 +23,7 @@ To find release notes for <%= vars.platform_name %> services, navigate to the do
 * [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](opsmanager-rn.html)
 
 
-## Pivotal Runtime Release Notes
+## Runtime Release Notes
 
 * [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](runtime-rn.html)
 
