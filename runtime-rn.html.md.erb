@@ -23,14 +23,17 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** The HSM Client Private Key for CredHub can be encrypted.
 * **[Feature Improvement]** Use the Diego logging format for the Garden job
 * **[Bug Fix]** Show spring mappings in Apps Manager for apps using Spring Boot 2.2.x
-* **[Bug Fix]** Add empty state message to marketplace for orgs without spaces in Apps Manager
+* **[Bug Fix]** Add empty state message to Marketplace for orgs without spaces in Apps Manager
 * **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager 
-* **[Bug Fix]** Apps Manager bound services list correctly shows number of bound apps when table is paginated
+* **[Bug Fix]** The Apps Manager bound services list correctly shows the number of bound apps when a table is paginated
 * **[Bug Fix]** Show full app name, regardless of length, in Apps Manager 
-* **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view cloud controller resources in Apps Manager
-* **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view cloud controller resources in Apps Manager, including secrets
-* **[Bug Fix]** Render restage app modal in Apps Manager when clicking on 'Restage App' option where applicable in success flash messages
-* **[Bug Fix]** Show spring health information in Apps Manager for applications using Spring Boot 2.2.x
+* **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view
+    Cloud Controller resources in Apps Manager
+* **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view
+    Cloud Controller resources in Apps Manager, including secrets
+* **[Bug Fix]** When clicking on the Restage App option, App Manager renders the restage app modal.
+    where applicable in success flash messages
+* **[Bug Fix]** For apps using Spring Boot 2.2.x, show Spring Health information in Apps Manager
 * **[Bug Fix]** Wait for necessary information to load in Apps Manager before rendering link to recently accessed apps
 * **[Bug Fix]** Disable hostname validation for external DBs in routing-api, silk-controller, and policy-server
 * **[Bug Fix]** HAProxy returns with HTTP/1.1 proto for 504s
@@ -200,7 +203,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]**  Expose all platform metrics on Prometheus endpoints
 * **[Feature Improvement]** Upgrade nats release to use go 1.13 release
 * **[Feature Improvement]** Notifications service will skip hostname validation for external databases
-* **[Feature Improvement]** Clarify wording of marketplace url help text in Apps Manager configuration
+* **[Feature Improvement]** Clarify wording of Marketplace URL help text in Apps Manager configuration
 * **[Feature Improvement]** Add doppler.firehose and usage_service.audit to Apps Manager client
 * **[Feature Improvement]** Always enable ssh-proxy TLS to backend instances to ensure widest compatibility mode with <%= vars.windows_runtime_abbr %> and IST
 * **[Feature Improvement]** When users have correct permissions, show bound and bindable services shared from other spaces as bindable for an app in Apps Manager
@@ -493,7 +496,7 @@ For more information about CredHub, see [CredHub](https://docs.pivotal.io/platfo
 
 ### <a id='apps-man-marketplace'></a> Customizable Marketplace URL and Secondary Navigation Links in Apps Manager
 
-In the **Custom Branding** pane of <%= vars.app_runtime_abbr %> v2.8, you can customize the marketplace URL and secondary navigation links that appear in your Apps Manager deployment.
+In the **Custom Branding** pane of <%= vars.app_runtime_abbr %> v2.8, you can customize the Marketplace URL and secondary navigation links that appear in your Apps Manager deployment.
 
 For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
 
