@@ -597,6 +597,12 @@ To disable revisions in an app, you must manually turn them off using your CAPI 
 
 Only Apps Manager and Pivotal Web Services (PWS) consume this API change.
 
+### <a id='v1-firehose-disabled'></a> V1 Firehose is Disabled by Default
+
+The Loggregator V1 Firehose is disabled by default in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You can use the V2 Firehose to stream logs and metrics. 
+
+Disabling the V1 Firehose scales down all Traffic Controller VMs to zero instances. The V2 Firehose uses the Reverse Log Proxy (RLP), rather than Traffic Controllers, to forward logs and metrics.
+
 
 ## <a id='known-issues'></a> Known Issues
 
