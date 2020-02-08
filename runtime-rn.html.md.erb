@@ -25,14 +25,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** The HSM Client Private Key for CredHub can be encrypted.
 * **[Feature Improvement]** Use the Diego logging format for the Garden job
 * **[Bug Fix]** Show spring mappings in Apps Manager for apps using Spring Boot 2.2.x
-* **[Bug Fix]** Add empty state message to marketplace for orgs without spaces in Apps Manager
+* **[Bug Fix]** Add empty state message to Marketplace for orgs without spaces in Apps Manager
 * **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager 
-* **[Bug Fix]** Apps Manager bound services list correctly shows number of bound apps when table is paginated
+* **[Bug Fix]** The Apps Manager bound services list correctly shows the number of bound apps when a table is paginated
 * **[Bug Fix]** Show full app name, regardless of length, in Apps Manager 
 * **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view cloud controller resources in Apps Manager
-* **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view cloud controller resources in Apps Manager, including secrets
-* **[Bug Fix]** Render restage app modal in Apps Manager when clicking on 'Restage App' option where applicable in success flash messages
-* **[Bug Fix]** Show spring health information in Apps Manager for applications using Spring Boot 2.2.x
+* **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view
+    Cloud Controller resources in Apps Manager, including secrets
+* **[Bug Fix]** When clicking on the Restage App option, App Manager renders the restage app modal.
+* **[Bug Fix]** For apps using Spring Boot 2.2.x, show Spring Health information in Apps Manager
 * **[Bug Fix]** Wait for necessary information to load in Apps Manager before rendering link to recently accessed apps
 * **[Bug Fix]** Enforce memory limits on non-API cloud_controller jobs
 * **[Bug Fix]** HAProxy returns with HTTP/1.1 proto for 504s
@@ -206,7 +207,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Improve the upgrade process for 2.7 to ensure that users with large scale environments do not see too much log loss when switching from syslog adapters to syslog agents
 * **[Feature Improvement]** Upgrade nats release to use go 1.13 release
 * **[Feature Improvement]** Notifications service will skip hostname validation for external databases
-* **[Feature Improvement]** Clarify wording of marketplace url help text in Apps Manager configuration
+* **[Feature Improvement]** Clarify wording of Marketplace URL help text in Apps Manager configuration
 * **[Feature Improvement]** Add doppler.firehose and usage_service.audit to Apps Manager client
 * **[Bug Fix]** Fix bug that prevented users from downloading the Accounting and Usage Service reports through Apps Manager when fields are undefined or null
 * **[Bug Fix]** Fix bug that prevented additional resources from populating after user permissions load in Apps Manager
@@ -540,7 +541,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** CVE-2019-17596 bump Go
 * **[Feature]** Enable metrics for delayed job failures for Usage Service Release
 * **[Feature Improvement]** Correct System Logging TLS Destination Certificate Label
-* **[Feature Improvement]** Add marketplace url field and change sidebar links to secondary navigation links in Apps Manager configuration
+* **[Feature Improvement]** Add Marketplace URL field and change sidebar links to secondary navigation links in Apps Manager configuration
 * **[Bug Fix]** Fix loading state on panels in Apps Manager
 * **[Bug Fix]** Increase width of Apps Manager logs tab
 * **[Bug Fix]** Do not attempt to start an app if the app droplet fails to build in Apps Manager
