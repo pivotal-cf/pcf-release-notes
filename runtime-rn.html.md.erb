@@ -590,17 +590,23 @@ You can configure the Apps Manager, Search Server, and Invitations apps to deplo
 
 If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see [Buildpack Detection](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) in _How Buildpacks Work in <%= vars.app_runtime_abbr %>_.
 
+### <a id='v1-firehose-disabled'></a> V1 Firehose Is Disabled by Default
+
+The Loggregator V1 Firehose is disabled by default in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You can use the V2 Firehose to stream logs and metrics. 
+
+Disabling the V1 Firehose scales down all Traffic Controller VMs to zero instances. The V2 Firehose uses the Reverse Log Proxy (RLP), rather than Traffic Controllers, to forward logs and metrics.
+
 ### <a id='app-revisions'></a> App Revisions Are Enabled by Default (Beta)
 
 App revisions are enabled by default.
 
 To disable revisions in an app, you must manually turn them off using your Cloud Foundry API (CAPI) endpoint. For more information, see [Disable Revisions for an App](https://docs.pivotal.io/platform/application-service/2-9/devguide/revisions.html#disable) in _App Revisions_.
 
-### <a id='v1-firehose-disabled'></a> V1 Firehose Is Disabled by Default
+### <a id='view-sidecars'></a> View Sidecar Processes in Apps Manager
 
-The Loggregator V1 Firehose is disabled by default in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You can use the V2 Firehose to stream logs and metrics. 
+You can view sidecar processes associated with your apps through the Apps Manager UI. To view the sidecars for your app, navigate to the **Overview** pane for your app and check the **Processes and Instances** section.
 
-Disabling the V1 Firehose scales down all Traffic Controller VMs to zero instances. The V2 Firehose uses the Reverse Log Proxy (RLP), rather than Traffic Controllers, to forward logs and metrics.
+For more information about sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-9/devguide/sidecars.html).
 
 
 ## <a id='known-issues'></a> Known Issues
