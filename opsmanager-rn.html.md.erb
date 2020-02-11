@@ -220,20 +220,12 @@ to the deployment log display:
 
 ## <a id='known-issues'></a> Known Issues
 
-* Known issues to come as features and dependencies are implemented in <%= vars.v_major_version %> release candidates.
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following known issues:
 
 ### <a id='unresponsive-agent'></a> BOSH VMs Report Unresponsive Agent After Activating New Root CA
 
-After activating a new root CA in Ops Manager, some BOSH VMs report an unresponsive agent. This error occurs if you do not recreate all service instances for a service tile when  rotating the root CA.
+<%= partial "/pcf/certs/recreate-service-instances" %> 
 
-You can recreate all service instances by enabling the **Recreate all service instance** errand in the service tile before applying changes or for tiles that do not have this errrand, by running a manual BOSH command. For more information, see [Rotate CAs and Leaf Certificates](https://docs.pivotal.io/pivotalcf/2-3/security/pcf-infrastructure/api-cert-rotation.html#rotate-ca).
-
-The services tiles that do not have this errand include:
-
-* MySQL for Pivotal Platform
-* Pivotal Cloud Cache
-* RabbitMQ for PCF v1.15.4 or earlier
-* Redis for PCF v2.0.22 and earlier 
 
 
 
