@@ -412,3 +412,7 @@ If you have manually set any certificates in CredHub on <%= vars.ops_manager %> 
 When instructed to rotate certificates using the `certificate_authorities/active/regenerate` <%= vars.ops_manager %> API endpoint, <%= vars.ops_manager %> v2.8 does a bulk rotation of all certificates where `generated` is set to either `true` or `null`. To prevent rotation of a manually set certificate in CredHub, you should reset the certificate, which updates the `generated` field to `false`.
 
 To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-7/security/pcf-infrastructure/manual-credhub-certificate.html).
+
+### <a id='unresponsive-agent'></a> BOSH VMs Report Unresponsive Agent After Activating New Root CA
+
+<%= partial "/pcf/certs/recreate-service-instances" %>
