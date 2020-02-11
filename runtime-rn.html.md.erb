@@ -558,3 +558,13 @@ You enable the ID mapping feature by specifying either the `uid` or `username` o
 When this issue occurs, appending files within the mounted file system fail with the error `File operation not supported`. For example, `echo hello >> test.txt` fails.
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
+
+### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.x Not Compatible with PAS v2.8.3 and Later
+
+After you upgrade to PAS v2.8.3, PCF Metrics v1.6.x no longer works.
+This incompatibility is caused by an update to nodejs-offline-buildpack v1.7.9, 
+which removes support for Node.js 8.x.
+
+If you require PCF Metrics v1.6.x, do not upgrade to PAS v2.8.3 or later. 
+
+If you have already upgraded, see the [PCF Metrics v1.6.x is not compatible with PAS 2.6.15+, 2.7.9+ & 2.8.3+](https://community.pivotal.io/s/article/PCF-Metrics-not-compatible-with-PAS) knowledgebase article for other potential workarounds.
