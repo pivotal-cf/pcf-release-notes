@@ -227,3 +227,7 @@ If you have manually set any certificates in CredHub on <%= vars.ops_manager %> 
 Resetting these certificates is not a required condition for the <%= vars.ops_manager %> v2.8 upgrade. You can reset them either before or after the upgrade.
 
 To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/manual-credhub-certificate.html). For more information about Maestro, see [CredHub Maestro Rotates BOSH DNS Certificate Authorities](#maestro-rotate-ca).
+
+### <a id='unresponsive-agent'></a> BOSH VMs Report Unresponsive Agent After Activating New Root CA
+
+<%= partial "/pcf/certs/recreate-service-instances" %>
