@@ -1646,3 +1646,13 @@ In PAS v2.6.5 and v2.6.6, the service that handles inviting new users to PAS fai
 As a workaround, you can use the CLI to manage user roles. For more information, see [User Admin](https://docs.cloudfoundry.org/cf-cli/cf-help.html#user-admin) in the cf CLI Reference Guide.
 
 This issue is resolved in PAS v2.6.7 and later.
+
+### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.x Not Compatible with PAS v2.6.15 and Later
+
+After you upgrade to PAS v2.6.15, PCF Metrics v1.6.x no longer works.
+This incompatibility is caused by an update to nodejs-offline-buildpack v1.7.9, 
+which removes support for Node.js 8.x.
+
+If you require PCF Metrics v1.6.x, do not upgrade to PAS v2.6.15 or later. 
+
+If you have already upgraded, see the [PCF Metrics v1.6.x is not compatible with PAS 2.6.15+, 2.7.9+ & 2.8.3+](https://community.pivotal.io/s/article/PCF-Metrics-not-compatible-with-PAS) knowledgebase article for other potential workarounds.
