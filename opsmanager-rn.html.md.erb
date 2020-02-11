@@ -693,3 +693,7 @@ To work around this issue, click on **Change Log** in the Ops Manager Installati
 When the CredHub database fails to migrate with a `Flyway` exception, it may be caused by an issue with the `flyway_schema_history` table.
 
 For information on how to address the issue, see [Database Migration Failure](https://github.com/pivotal-cf/credhub-release/blob/master/docs/known-issues.md#database-migration-failure) in _Known Issues with current CredHub versions_ in the CredHub repository on GitHub.
+
+### <a id='unresponsive-agent'></a> BOSH VMs Report Unresponsive Agent After Activating New Root CA
+
+<%= partial "/pcf/certs/recreate-service-instances" %>
