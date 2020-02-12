@@ -18,14 +18,15 @@ See the following <%= vars.app_runtime_abbr %> breaking changes:
 
 ### <a id='v1-firehose-disabled'></a> V1 Firehose Disabled by Default
 
-The Loggregator V1 Firehose is disabled by default. When the V1 Firehose is disabled, all Traffic Controller VMs are scaled down to zero instances. 
+The Loggregator V1 Firehose is disabled by default. When the V1 Firehose is disabled, all Traffic Controller VMs are scaled down to zero instances.
 
 Any automation, tooling, or integrations that rely on Traffic Controller VMs break on upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
 To address this breaking change, do one of the following:
 
 * Update any automation, tooling, or integrations to remove references to Traffic Controllers.
-* After you stage and before you deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, re-enable the V1 Firehose. 
+* After you stage and before you deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, re-enable the V1 Firehose.
+
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
 

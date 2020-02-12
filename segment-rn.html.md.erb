@@ -49,8 +49,6 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.9.0-alpha.5'></a> 2.9.0-alpha.5
 
@@ -282,6 +280,12 @@ You can limit the number of log lines each app instance in your isolation segmen
 This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
 
 For more information, see [App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
+
+### <a id='smoke-tests'></a> Run Smoke Tests for <%= vars.segment_runtime_full %>
+
+The **Smoke Tests** pane is added to the <%= vars.segment_runtime_full %> tile. This pane allows you to choose where to run smoke tests. The Smoke Tests errand runs basic functionality tests against your isolation segment after an installation or update. In the **Errands** pane of the <%= vars.segment_runtime_full %> tile, you can choose whether or not to run the Smoke Tests errand.
+
+For more information, see [Smoke Tests](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) in _Installing <%= vars.segment_runtime_full %>_.
 
 
 ## <a id='known-issues'></a> Known Issues
