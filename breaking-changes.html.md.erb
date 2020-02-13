@@ -63,9 +63,9 @@ For more information, see [Compute and Networking Isolation](segment-rn.html#com
 
 For guidance on setting configuration values, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
 
-### <a id='compute-isolation-router-sharding'></a> Compute Isolation and Router Sharding Must Be Configured Simultaneously
+### <a id='compute-isolation-router-sharding'></a> Compute Isolation Must Be Enabled If Networking Isolation Is Enabled
 
-In the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, compute isolation and networking isolation must be configured or disabled simultaneously. In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **Disable** under **Compute isolation**. If you disable compute isolation, you must set **Router sharding mode** to **No isolation segment**. If **Compute isolation** is disabled and **Router sharding mode** is set to **Isolation segment only**, the <%= vars.segment_runtime_full %> tile fails.
+In the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, you cannot disable compute isolation and enable networking isolation at the same time. In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **Disable** under **Compute isolation**. If you disable compute isolation, you must set **Router sharding mode** to **No isolation segment**. If **Compute isolation** is disabled and **Router sharding mode** is set to **Isolation segment only**, the apps in your isolation segment fail to schedule.
 
 Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
 
