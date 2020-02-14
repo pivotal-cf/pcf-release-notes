@@ -1166,10 +1166,4 @@ Pivotal Spring Cloud Services v2.0.x is not compatible with <%= vars.app_runtime
 
 ### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.x Not Compatible with PAS v2.7.9 and Later
 
-After you upgrade to PAS v2.7.9, PCF Metrics v1.6.x no longer works.
-This incompatibility is caused by an update to nodejs-offline-buildpack v1.7.9, 
-which removes support for Node.js 8.x.
-
-If you require PCF Metrics v1.6.x, do not upgrade to PAS v2.7.9 or later. 
-
-If you have already upgraded, see the [PCF Metrics v1.6.x is not compatible with PAS 2.6.15+, 2.7.9+ & 2.8.3+](https://community.pivotal.io/s/article/PCF-Metrics-not-compatible-with-PAS) knowledgebase article for other potential workarounds.
+<%= partial "/pcf/app-service-kis/pcf_metrics_incompatible" %>
