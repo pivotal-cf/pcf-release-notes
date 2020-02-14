@@ -1,22 +1,22 @@
 ---
-title: Pivotal Platform v2.9 Breaking Changes
+title: Breaking Changes
 owner: Release Engineering
 ---
 
-<% current_page.data.title = vars.platform_name + " " + vars.v_major_version + " Breaking Changes" %>
+<% current_page.data.title = vars.platform_name + " " + " and Runtime Breaking Changes" %>
 
 This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 
-## <a id='om'></a> <%= vars.ops_manager_full %>
+## <a id='om'></a> <%= vars.ops_manager_full %> <%= vars.v_major_version %>
 
-See the following <%= vars.ops_manager %> breaking changes:
+See the following <%= vars.ops_manager %> <%= vars.v_major_version %> breaking changes:
 
 
 
-## <a id='pas'></a> <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
+## <a id='pas'></a> <%= vars.app_runtime_full %> <%= vars.v_major_version %>
 
-See the following <%= vars.app_runtime_abbr %> breaking changes:
+See the following <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> breaking changes:
 
 ### <a id='v1-firehose-disabled'></a> V1 Firehose Disabled by Default
 
@@ -30,12 +30,12 @@ To address this breaking change, do one of the following:
 * After you stage and before you deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, re-enable the V1 Firehose.
 
 
-## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
+## <a id='pasw'></a> <%= vars.windows_runtime_full %> <%= vars.v_major_version %>
 
 See the following <%= vars.windows_runtime_abbr %> breaking changes:
 
 
 
-## <a id='ist'></a> <%= vars.segment_runtime_full %>
+## <a id='ist'></a> <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
 See the following <%= vars.segment_runtime_full %> breaking changes:
