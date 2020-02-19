@@ -43,8 +43,6 @@ This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars
     <tr><td>windowsfs-release</td><td>2.5.0</td></tr>
   </tbody>
 </table>
- 
- 
 
 ### <a id='2.9.0-alpha.6'></a> 2.9.0-alpha.6
 
@@ -259,6 +257,12 @@ You can limit the number of log lines each app instance in your isolation segmen
 This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
 
 For more information, see [Assign a Tile to an Isolation Segment](http://docs.pivotal.io/platform/application-service-windows/2-9/isolation.html#assign-isolation) in _Windows Diego Cells in Isolation Segments_.
+
+### <a id='route-emitters'></a> <%= vars.windows_runtime_abbr %> Uses Route Emitters to Communicate with NATS Over TLS
+
+<%= vars.windows_runtime_abbr %> uses a Diego route emitter to communicate with NATS over TLS. The `nats-tls` job is added to the NATS VM to enable communication over mutual TLS (mTLS). This improves security and reduces the need to make security policy exceptions for <%= vars.app_runtime_abbr %> or rely on security add-ons that often cause additional problems.
+
+For more information about routing architecture in <%= vars.app_runtime_abbr %>, see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/platform/application-service/2-9/concepts/cf-routing-architecture.html). For more information about outbound network communication paths from Diego, see [Outbound Communications](https://docs.pivotal.io/platform/2-9/security/networking/diego-network-paths.html#outbound) in _Diego Network Communications_.
 
 
 ## <a id='adv-features'></a> New Advanced Features

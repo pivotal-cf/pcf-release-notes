@@ -616,6 +616,12 @@ The Loggregator V1 Firehose is disabled by default in <%= vars.app_runtime_abbr 
 
 Disabling the V1 Firehose scales down all Traffic Controller VMs to zero instances. The V2 Firehose uses the Reverse Log Proxy (RLP), rather than Traffic Controllers, to forward logs and metrics.
 
+### <a id='nats-tls'></a> NATS Shares Messages with NATS TLS
+
+The `nats-tls` job is added to the NATS VM. The Diego route emitter sends routing information to NATS, which then shares that information with NATS TLS.
+
+For more information about routing architecture in <%= vars.app_runtime_abbr %>, see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/platform/application-service/2-9/concepts/cf-routing-architecture.html).
+
 ### <a id='app-revisions'></a> App Revisions Are Enabled by Default (Beta)
 
 App revisions are enabled by default.
