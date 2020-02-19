@@ -87,7 +87,7 @@ To upgrade to <%= vars.ops_manager_full %> <%= vars.v_major_version %>, see [Upg
 
 When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` <%= vars.ops_manager %> API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
 
-<p class="note"><strong>Note:</strong> <%= vars.ops_manager %> does not rotate the CredHub certificates for MySQL for <%= vars.platform_name %> and Pivotal CloudCache services.</p>
+<p class="note"><strong>Note:</strong> <%= vars.ops_manager %> does not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal Cloud Cache services.</p>
 
 For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
@@ -229,5 +229,14 @@ to the deployment log display:
 <%= partial "/pcf/certs/recreate-service-instances" %> 
 
 
+### <a id='credhub-generated-field'></a> Reset Manually Set Certificates in CredHub Before Rotating Certificates with the Ops Manager API
+
+If you have manually set any certificates in CredHub on <%= vars.ops_manager %> v2.6 or earlier, you need to reset those certificates before using the Ops Manager API to rotate CredHub certificates. 
+
+Resetting these certificates is not a required condition for the <%= vars.ops_manager %> v2.9 upgrade. You can reset them either before or after the upgrade.
+
+To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Certificates in CredHub](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/manual-credhub-certificate.html). 
+
+For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
 
