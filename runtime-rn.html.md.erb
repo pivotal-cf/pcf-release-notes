@@ -811,9 +811,9 @@ For more information about configuring aggregate syslog drains, see [Configure S
 
 You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on TAS for VMs by allowing you to scale down Doppler and Traffic Controller VMs.
 
-### <a id='sticky-cookies'></a> Configurable Sticky-Session Cookie Names
+### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
-You can supply sticky-session cookie names for the Gorouter to use when handling sticky sessions.
+You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.
 By default, Gorouter uses `JSESSIONID`. Some apps require a different session name.
 For example, Spring WebFlux requires `SESSION` for the session cookie name.
 
