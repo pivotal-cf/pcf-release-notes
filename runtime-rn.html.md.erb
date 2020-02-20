@@ -579,9 +579,10 @@ When <%= vars.app_runtime_abbr %> requests a shutdown of app instances, the proc
 
 For more information, see [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#advanced) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-### <a id='sticky-cookies'></a> Configurable Sticky-Session Cookie Names
+### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
 You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.
+
 The Gorouter uses these cookies to support session affinity, or _sticky sessions_.
 For more information, see [Session Affinity](https://docs.pivotal.io/platform/2-9/concepts/http-routing.html#sessions)
 in _HTTP Routing_.
