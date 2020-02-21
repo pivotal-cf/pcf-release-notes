@@ -669,3 +669,25 @@ see [Manage an App](https://docs.pivotal.io/platform/application-service/2-9/con
 If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. Running this errand in <%= vars.app_runtime_abbr %> v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
 
 If you do not run the errand in <%= vars.app_runtime_abbr %> v2.8, you may be unable to bind apps to existing NFS Volume Service service instances after upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+
+### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
+
+If you disable the V1 or V2 Firehose in <%= vars.app_runtime_abbr %> v2.9, you must also disable the smoke test errand.
+
+If you do not disable the smoke test errand, the deploy fails with an error similar to the following:
+
+```
+[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m  
+          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m  
+          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m  
+          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m  
+          --- FAIL: TestSmokeTests (56.17s)  
+          FAIL  
+          Ginkgo ran 2 suites in 1m7.050120251s  
+          Test Suite Failed  
+Stderr     Error: failed to run job-process: exit status 1 (exit status 1)
+```
+
+To disable the smoke test errand,
+see [Errands Pane: Persistent Rules](https://docs.pivotal.io/platform/2-9/customizing/managing_errands.html#errands-pane)
+in _Managing Errands in Ops Manager_.
