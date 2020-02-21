@@ -814,6 +814,10 @@ You can choose to prevent the Loggregator Firehose from emitting app logs but st
 ### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
 You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.
+The Gorouter uses these cookies to support session affinity, or _sticky sessions_.
+For more information, see [Session Affinity](https://docs.pivotal.io/platform/2-10/concepts/http-routing.html#sessions)
+in _HTTP Routing_.
+
 By default, Gorouter uses `JSESSIONID`. Some apps require a different session name.
 For example, Spring WebFlux requires `SESSION` for the session cookie name.
 
