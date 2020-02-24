@@ -87,7 +87,7 @@ To upgrade to <%= vars.ops_manager_full %> <%= vars.v_major_version %>, see [Upg
 
 When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` <%= vars.ops_manager %> API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
 
-<p class="note"><strong>Note:</strong> <%= vars.ops_manager %> does not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal Cloud Cache services.</p>
+<p class="note"><strong>Note:</strong> <%= vars.ops_manager %> will not rotate any CredHub certificates if either PKS is installed or there is a version of PAS installed below version 2.9. <%= vars.ops_manager %> does not rotate the CredHub certificates for MySQL for Pivotal Platform and Pivotal Cloud Cache services.</p>
 
 For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
