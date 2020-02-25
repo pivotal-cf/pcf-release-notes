@@ -617,16 +617,6 @@ You can configure the Apps Manager, Search Server, and Invitations apps to deplo
 
 If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see [Buildpack Detection](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) in _How Buildpacks Work in <%= vars.app_runtime_abbr %>_.
 
-### <a id='v1-firehose-disabled'></a> V1 Firehose Is Disabled by Default
-
-<p class="note warning"><strong>Warning:</strong> Any custom automation, tooling, or integrations that are dependent on the V1 Firehose breaks after you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. To avoid this, remove all V1 Firehose dependencies before you upgrade, or re-enable the V1 Firehose before you deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.</p>
-
-The Loggregator V1 Firehose is disabled by default in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You can use the V2 Firehose to stream logs and metrics. 
-
-When the V1 Firehose is disabled, you can scale down all Traffic Controller VMs. This allows you to save resources. 
-
-For more information about the Firehose and other Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-9/loggregator/architecture.html).
-
 ### <a id='nats-tls'></a> NATS Shares Messages with NATS TLS
 
 The `nats-tls` job is added to the NATS VM. 
