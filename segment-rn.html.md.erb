@@ -291,7 +291,7 @@ In the org and space you configure in the **Smoke Tests** pane, the Smoke Tests 
 
 For more information, see [Configure Smoke Tests](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) in _Installing <%= vars.segment_runtime_full %>_.
 
-<p class='note warning'><strong>Warning:</strong> These smoke tests fail if you configure the <strong>Compute and Networking Isolation</strong> pane in a way that is incompatible with how you configured the <strong>Gorouters reject requests for isolation segments</strong> checkbox in the <strong>Networking</strong> pane of the <%= vars.app_runtime_abbr %> tile. For more information, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#compute-networking-isolation-configs">Options for Configuring Compute and Networking Isolation</a>.</p>
+<p class='note warning'><strong>Warning:</strong> If you configure the <strong>Compute and Networking Isolation</strong> pane and the <strong>Gorouters reject requests for isolation segments</strong> checkbox in the <%= vars.app_runtime_abbr %> tile in a manner other than the use cases <%= vars.recommended_by %> recommends, the smoke tests fail. For more information, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#compute-networking-isolation-configs">Options for Configuring Compute and Networking Isolation</a> in _Installing <%= vars.segment_runtime_full %>_.</p>
 
 
 ## <a id='known-issues'></a> Known Issues
