@@ -85,16 +85,22 @@ To upgrade to <%= vars.ops_manager_full %> <%= vars.v_major_version %>, see [Upg
 
 ### <a id='om-api-rotate-credhub-certs'></a> <%= vars.ops_manager %> API Rotates CredHub Certificates and Certificate Authorities
 
-When you rotate certificate authorities and leaf certificates using the `certificate_authorities/active/regenerate` <%= vars.ops_manager %> API endpoint, the API includes certificate authorities and leaf certificates stored in CredHub.
+The `certificate_authorities` API endpoints in <%= vars.ops_manager %> now rotate certificates
+in CredHub as well as in <%= vars.ops_manager %> if the following conditions are met:
 
-<p class="note"><strong>Note:</strong> <%= vars.ops_manager %> only rotates CredHub certificates
-  if <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is installed and
-  <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>) is not installed.
-  <%= vars.ops_manager %> does not rotate the CredHub certificates for MySQL for Pivotal Platform
-  and Pivotal Cloud Cache.
-</p>
++ <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> or later is installed.
++ <%= vars.k8s_runtime_full %> is not installed.
 
-For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
+Both Certificate Authorities (CAs) and leaf certificates are rotated.
+However, some certificates in MySQL for Pivotal Platform and Pivotal Cloud Cache are still not rotated.
+
+After rotating certificates using the `certificate_authorities` API endpoints,
+review the output list of rotated certificates for missing CredHub certificates.
+
+For how to rotate the CredHub certificates,
+see [Advanced Certificate Rotation with CredHub Maestro](https://docs.pivotal.io/platform/2-8/security/pcf-infrastructure/advanced-certificate-rotation.html).
+For more information about the `certificate_authorities` endpoint,
+see the [<%= vars.ops_manager %> API documentation](https://docs.pivotal.io/platform/2-9/opsman-api/#tag/Certificate-Authorities/paths/~1api~1v0~1certificate_authorities~1generate/post).
 
 ### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Internal Authentication Settings
 
