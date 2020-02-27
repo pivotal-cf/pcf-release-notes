@@ -17,6 +17,93 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
  
+### <a id='2.7.10'></a> 2.7.10
+
+**Release Date:** 02/27/2020
+
+* **[Security Fix]** Stop logging private data in background jobs
+* **[Security Fix]** Fix vulnerabilities CVE-2019-2426, CVE-2019-2449, CVE-2019-2422 in Credhub
+* **[Feature Improvement]** Allow Syslog Adapters to scale to zero
+* **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
+* **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
+* **[Bug Fix]** Fix cascading deletions of certain resources with metadata
+* **[Bug Fix]** Fix Race Condition in Loggregator Agent
+* **[Bug Fix]**  Fixes race condition in log cache, no longer causes cf-auth-proxy to crash
+* **[Bug Fix]** Gorouter sets vcap_id SameSite value based on sticky session cookie
+* **[Bug Fix]** Cloud Controller no longer tries to connect to Copilot when it is not deployed
+* Bump ubuntu-xenial stemcell to version `456.98`
+* Bump capi to version `1.84.7`
+* Bump cf-smoke-tests to version `40.0.127`
+* Bump cflinuxfs3 to version `0.164.0`
+* Bump credhub to version `2.5.11`
+* Bump log-cache to version `2.1.13`
+* Bump loggregator-agent to version `3.21.6`
+* Bump push-apps-manager-release to version `670.0.16`
+* Bump routing to version `0.198.0`
+* Bump uaa to version `73.4.17`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>456.98</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.1</td></tr>
+    <tr><td>capi</td><td>1.84.7</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-backup-and-restore</td><td>0.0.11</td></tr>
+    <tr><td>cf-cli</td><td>1.24.0</td></tr>
+    <tr><td>cf-networking</td><td>2.23.5</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cf-syslog-drain</td><td>10.2.5</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.164.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.36.5</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.4</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.5</td></tr>
+    <tr><td>haproxy</td><td>9.6.1</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>leadership-election</td><td>1.4.2</td></tr>
+    <tr><td>log-cache</td><td>2.1.13</td></tr>
+    <tr><td>loggregator-agent</td><td>3.21.6</td></tr>
+    <tr><td>loggregator</td><td>105.6.3</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>2.3.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.9</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.6</td></tr>
+    <tr><td>push-apps-manager-release</td><td>670.0.16</td></tr>
+    <tr><td>push-usage-service-release</td><td>670.0.13</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.6</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>routing</td><td>0.198.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.8</td></tr>
+    <tr><td>silk</td><td>2.23.5</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.3</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>uaa</td><td>73.4.17</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
 ### <a id='2.7.9'></a> 2.7.9
 
 **Release Date:** 02/07/2020
