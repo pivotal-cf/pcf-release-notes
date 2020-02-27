@@ -26,6 +26,19 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Allow Syslog Adapters to scale to zero
 * **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
+* **[Feature Improvement]** Introduce read only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
+* **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
+* **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
+* **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
+* **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
+* **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
+* **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
+* **[Bug Fix]** Surface errors from Spring and Steeltoe trace actuator endpoint in Apps Manager
+* **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from navigating beyond first page of app revisions in Apps Manager
+* **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
+* **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
+* **[Bug Fix]** Use more informative description 'Last Update' rather than 'Last Push' in Apps Manager
 * **[Bug Fix]** Fix cascading deletions of certain resources with metadata
 * **[Bug Fix]** Fix Race Condition in Loggregator Agent
 * **[Bug Fix]**  Fixes race condition in log cache, no longer causes cf-auth-proxy to crash
