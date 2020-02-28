@@ -20,7 +20,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 **Release Date:** 02/27/2020
 
 * **[Security Fix]** Stop logging private data in background jobs
-* **[Security Fix]** Fix vulnerabilities CVE-2019-2426, CVE-2019-2449, CVE-2019-2422 in Credhub
+* **[Security Fix]** Fix vulnerabilities CVE-2019-2426, CVE-2019-2449, CVE-2019-2422 in CredHub
 * **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
 * **[Feature Improvement]** Introduce read only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
@@ -32,10 +32,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
 * **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
 * **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
-* **[Bug Fix]** Use more informative description 'Last Update' rather than 'Last Push' in Apps Manager
+* **[Bug Fix]** Use more informative description "Last Update" instead of "Last Push" in Apps Manager
 * **[Bug Fix]** Fix cascading deletions of certain resources with metadata
 * **[Bug Fix]** Fix Race Condition in Loggregator Agent
-* **[Bug Fix]**  Fixes race condition in log cache, no longer causes cf-auth-proxy to crash
+* **[Bug Fix]** Fixes race condition in log cache, no longer causes cf-auth-proxy to crash
 * **[Bug Fix]** Gorouter sets vcap_id SameSite value based on sticky session cookie
 * **[Bug Fix]** Cloud Controller no longer tries to connect to Copilot when it is not deployed
 * Bump ubuntu-xenial stemcell to version `315.169`
@@ -117,7 +117,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 02/06/2020
 
-* **[Security Fix]** [CVE-2020-5399](https://nvd.nist.gov/vuln/detail/CVE-2020-5399) - Use TLS for MySQL database connections in Credhub
+* **[Security Fix]** [CVE-2020-5399](https://nvd.nist.gov/vuln/detail/CVE-2020-5399) - Use TLS for MySQL database connections in CredHub
 * **[Feature Improvement]** Replace Metric Forwarder integration with Metric Registrar integration in Apps Manager
 * **[Feature Improvement]** The HSM Client Private Key for CredHub can be encrypted.
 * **[Feature Improvement]** Use the Diego logging format for the Garden job
