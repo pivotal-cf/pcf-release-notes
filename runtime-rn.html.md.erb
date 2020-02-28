@@ -1267,3 +1267,7 @@ Pivotal Spring Cloud Services v2.0.x is not compatible with <%= vars.app_runtime
 ### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.x Not Compatible with PAS v2.7.9 and Later
 
 <%= partial "/pcf/app-service-kis/pcf_metrics_incompatible" %>
+
+### <a id="apps-manager-slow-logs"></a> Logs Take a Long Time to Load in Apps Manager
+
+In <%= vars.app_runtime_abbr %> v2.7.0--2.7.9, Apps Manager used an inefficient method of loading app logs that resulted in the logs page being in a loading state for a long time before displaying logs. This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.10.
