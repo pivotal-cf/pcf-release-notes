@@ -232,6 +232,14 @@ This new name clarifies which VMs are recreated when you enable this checkbox.
 
 For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-9/index.html).
 
+### <a id='recreate-bosh-director-vm'></a> Recreate BOSH Director VM
+
+You can recreate the BOSH Director VM in addition to VMs deployed by the BOSH Director in one of two ways:
+
+* In the **Director Config** pane of the BOSH Director tile, there is a new **Recreate BOSH Director VM** checkbox. Enabling this checkbox recreates the BOSH Director VM after you click **Apply Changes** in the <%= vars.ops_manager %> Installation Dashboard. The checkbox clears after you apply changes. For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-9/index.html).
+
+* Using the `/api/v0/staged/director/properties` endpoint in the Ops Manager API, you can set the `bosh_recreate_director_on_next_deploy` property to `true`. It is set to `false` by default. For more information about using the `api/v0/staged/director/properties` endpoint, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the <%= vars.ops_manager %> API documentation.
+
 ### <a id='deployment-log-improved'></a> Improved Deployment Log Display
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> includes UI and performance improvements
