@@ -650,3 +650,7 @@ This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
 ### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.x Not Compatible with PAS v2.8.3 and Later
 
 <%= partial "/pcf/app-service-kis/pcf_metrics_incompatible" %>
+
+### <a id="apps-manager-slow-logs"></a> Logs Take a Long Time to Load in Apps Manager
+
+In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager uses an inefficient method of loading app logs. This method causes the logs page to remain in a loading state for a long time before displaying logs. This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
