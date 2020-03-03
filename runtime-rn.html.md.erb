@@ -25,20 +25,20 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Add circuit breaker to Logcache so users can push apps even if metrics are unavailable
 * **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
-* **[Feature Improvement]** Introduce read only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
+* **[Feature Improvement]** Introduce read-only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
 * **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
 * **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
 * **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
 * **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
 * **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
 * **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
-* **[Bug Fix]** Remove suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager, as it is not a necessary step
+* **[Bug Fix]** Remove unnecessary suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager
 * **[Bug Fix]** Surface errors from Spring and Steeltoe trace actuator endpoint in Apps Manager
 * **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
 * **[Bug Fix]** Fix bug that prevented users from navigating beyond first page of app revisions in Apps Manager
 * **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
 * **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
-* **[Bug Fix]** Use more informative description 'Last Update' rather than 'Last Push' in Apps Manager
+* **[Bug Fix]** Use more informative description "Last Update" instead of "Last Push" in Apps Manager
 * **[Bug Fix]** Log only necessary information when auction scoring fails
 * **[Bug Fix]** Fix Race Condition in Loggregator Agent
 * **[Bug Fix]** Gorouter sets vcap_id SameSite value based on sticky session cookie
@@ -667,4 +667,4 @@ This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
 
 ### <a id="apps-manager-slow-logs"></a> Logs Take a Long Time to Load in Apps Manager
 
-In <%= vars.app_runtime_abbr %> v2.8.0--2.8.3, Apps Manager used an inefficient method of loading app logs that resulted in the logs page being in a loading state for a long time before displaying logs. This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
+In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager used an inefficient method of loading app logs that resulted in the logs page remaining in a loading state for a long time before displaying logs. This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
