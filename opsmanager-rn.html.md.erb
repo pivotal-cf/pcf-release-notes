@@ -234,11 +234,30 @@ For more information, see the [BOSH Director configuration topic for your IaaS](
 
 ### <a id='recreate-bosh-director-vm'></a> Recreate BOSH Director VM
 
-You can recreate the BOSH Director VM in addition to VMs deployed by the BOSH Director in one of two ways:
+You can recreate the BOSH Director VM in one of two ways:
 
-* In the **Director Config** pane of the BOSH Director tile, there is a new **Recreate BOSH Director VM** checkbox. Enabling this checkbox recreates the BOSH Director VM after you click **Apply Changes** in the <%= vars.ops_manager %> Installation Dashboard. The checkbox clears after you apply changes. For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-9/index.html).
+* In the **Director Config** pane of the BOSH Director tile.
 
-* Using the `/api/v0/staged/director/properties` endpoint in the Ops Manager API, you can set the `bosh_recreate_director_on_next_deploy` property to `true`. It is set to `false` by default. For more information about using the `api/v0/staged/director/properties` endpoint, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) in the <%= vars.ops_manager %> API documentation.
+* With the `/api/v0/staged/director/properties` Ops Manager API endpoint. 
+
+To recreate the BOSH Director VM in the BOSH Director tile:
+
+1. Go to the **Director Config** pane. 
+
+1. Enable the **Recreate BOSH Director VM** checkbox. 
+
+1. Click **Apply Changes** in the <%= vars.ops_manager %> Installation Dashboard. 
+
+The checkbox clears after you apply changes. 
+For more information, see the [BOSH Director configuration topic for your IaaS](https://docs.pivotal.io/platform/ops-manager/2-9/index.html).
+
+To recreate the BOSH Director VM through the Ops Manager API, 
+use the `/api/v0/staged/director/properties` endpoint to set the `bosh_recreate_director_on_next_deploy` property to `true`. 
+
+This property is set to `false` by default. 
+For more information about using the `api/v0/staged/director/properties` endpoint, 
+see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/platform/2-8/opsman-api/#updating-director-and-iaas-properties-experimental) 
+in the <%= vars.ops_manager %> API documentation.
 
 ### <a id='deployment-log-improved'></a> Improved Deployment Log Display
 
