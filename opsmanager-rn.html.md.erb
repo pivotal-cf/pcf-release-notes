@@ -39,7 +39,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** Support domain-style S3 paths with an Ops Manager blobstore verifier
 * **[Feature]** Each step in the Historical and Streaming Logs page is collapsable with indication on whether the step was successful, failed, or not executed yet.
 * **[Feature]** Historical and Streaming Logs page has **Open All** and **Close All** buttons for expandable sections
-* **[Feature]** Ops Manager API documentation is redesigned. See [Pivotal Ops Manager API Reference (2.9)](https://docs.pivotal.io/platform/2-9/opsman-api)
+* **[Feature]** Ops Manager API documentation is redesigned.
+  See [Ops Manager API Reference (2.9)](https://docs.pivotal.io/platform/2-9/opsman-api).
 
 <%= vars.ops_manager %> <%= vars.v_major_version %>.0 Beta 1 uses the following component versions:
 
@@ -107,7 +108,7 @@ in BOSH CredHub as well as in <%= vars.ops_manager %> if the following condition
 * <%= vars.k8s_runtime_full %> is not installed.
 
 The Ops Manager API rotates both Certificate Authorities (CAs) and leaf certificates.
-However, some certificates in MySQL for Pivotal Platform and Pivotal Cloud Cache are not rotated.
+However, some certificates in MySQL for Pivotal Platform and VMware Tanzu GemFire are not rotated.
 
 After rotating certificates using the `certificate_authorities` API endpoints,
 review the output list of rotated certificates for missing CredHub certificates.
@@ -137,7 +138,7 @@ To view and update authentication settings through the <%= vars.ops_manager %> U
 
 For more information about accessing the **Settings** pane, see [Setting Page](https://docs.pivotal.io/platform/ops-manager/2-9/pcf-interface.html#settings) in _Using the <%= vars.ops_manager %> Interface_.
 
-To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint. For more information, see [Authentication Settings](https://docs.pivotal.io/platform/2-9/opsman-api/#tag/Apply-Changes/paths/~1api~1v0~1staged~1pending_changes/get) in the _Pivotal Ops Manager API Reference (2.9)_.
+To view and update authentication settings through the <%= vars.ops_manager %> API, you can send a valid JSON object to the `/api/v0/settings/authentication` endpoint. For more information, see [Authentication Settings](https://docs.pivotal.io/platform/2-9/opsman-api/#tag/Apply-Changes/paths/~1api~1v0~1staged~1pending_changes/get) in the _Ops Manager API Reference (2.9)_.
 
 ### <a id='update-decryption-passphrase'></a> Update the Ops Manager Decryption Passphrase
 
@@ -153,7 +154,9 @@ by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpo
 
 <%= vars.ops_manager %> displays a banner in the UI when you are in Advanced Mode. This helps you understand when you are in Advanced Mode. It also helps ensure that you remember to exit Advanced Mode.
 
-For more information about how to enable Advanced Mode in <%= vars.ops_manager %>, see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager) in the Pivotal Knowledge Base.
+For more information about how to enable Advanced Mode in <%= vars.ops_manager %>,
+see [How to Enable Advanced Mode in the <%= vars.ops_manager %>](https://community.pivotal.io/s/article/How-to-Enable-Advanced-Mode-in-the-Ops-Manager)
+in the Knowledge Base.
 
 ### <a id='advanced-mode-fields'></a> Modifications to Locked and Unlockable Fields
 
