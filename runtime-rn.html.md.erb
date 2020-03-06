@@ -22,7 +22,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 **Release Date:** 03/05/2020
 
 * **[Security Fix]** Stop logging private data in background jobs
-* **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426), [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449), [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in Credhub
+* **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426),
+  [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449),
+  [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in CredHub
 * **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
 * **[Feature]** Make app log rate limit configurable
 * **[Feature]** New and improved smoke-tests for Application Service
@@ -35,7 +37,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
 * **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
 * **[Feature Improvement]** Add the ability to scale down to 0 for `loggregator_trafficontroller`
-* **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
+* **[Bug Fix]** Fix display of the logo in footer of Apps Manager for Internet Explorer users
 * **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
 * **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
 * **[Bug Fix]** Remove suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager, as it is not a necessary step
@@ -665,7 +667,11 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 * If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>.
+  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.
+  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %>
+  <%= vars.v_major_version %>, review the appropriate partners services release documentation
+  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
