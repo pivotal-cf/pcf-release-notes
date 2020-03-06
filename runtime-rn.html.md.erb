@@ -28,8 +28,23 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** New and improved smoke-tests for Application Service
 * **[Feature Improvement]** Allow the Cloud Controller to use Domain Style URLs for AWS S3 Access
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
-* **[Feature Improvement]** Add the ability to scale down to 0 for `loggregator_trafficontroller`
 * **[Feature Improvement]** Allow users to cancel rolling deployments in process from the Apps Manager Revisions page for an application
+* **[Feature Improvement]** Show cancelled rolling deployments as events on the overview page for an application in Apps Manager
+* **[Feature Improvement]** Introduce read only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
+* **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
+* **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
+* **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
+* **[Feature Improvement]** Add the ability to scale down to 0 for `loggregator_trafficontroller`
+* **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
+* **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
+* **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
+* **[Bug Fix]** Remove suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager, as it is not a necessary step
+* **[Bug Fix]** Surface errors from Spring and Steeltoe trace actuator endpoint in Apps Manager
+* **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from navigating beyond first page of app revisions in Apps Manager
+* **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
+* **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
+* **[Bug Fix]** Use more informative description 'Last Update' rather than 'Last Push' in Apps Manager
 * **[Bug Fix]** Fix Race Condition in Loggregator Agent
 * **[Bug Fix]** Gorouter sets vcap_id SameSite value based on sticky session cookie
 * **[Bug Fix]** Make `encrypted_environment_variables` column type consistent between `revisions` and `apps` tables
