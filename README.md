@@ -5,6 +5,13 @@ This repository stores the content that publishes to the PCF versioned release n
 
 All release notes are stored in version-specific branches. Do not use the MASTER branch for release note content.
 
+**Branch Information**
+
+|Branch | Use |
+|---|---|
+| master | Do not use. |
+
+
 **Create Release Notes**
 
 When you create release notes, create them in the branch of this repository that corresponds to the product version number 
