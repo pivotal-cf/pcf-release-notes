@@ -62,7 +62,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2-9-0-alpha-1'></a> 2.9.0 Alpha 1
 
-* **[Feature]:** Operators can view and update internal authentication settings by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
+* **[Feature]:** Operators can view and update authentication settings by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
 * **[Feature]:** Operators can update the <%= vars.ops_manager %> decryption passphrase by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
 * **[Feature]:** Operators can view and update proxy settings in <%= vars.ops_manager %> by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
 * **[Feature]:** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
@@ -122,9 +122,9 @@ see [Advanced Certificate Rotation with CredHub Maestro](https://docs.pivotal.io
 For more information about the `certificate_authorities` endpoint,
 see the [<%= vars.ops_manager %> API documentation](https://docs.pivotal.io/platform/2-9/opsman-api/#tag/Certificate-Authorities/paths/~1api~1v0~1certificate_authorities~1generate/post).
 
-### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Internal Authentication Settings
+### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Authentication Settings
 
-Operators can view and update the current internal authentication settings through the <%= vars.ops_manager %> UI and API. 
+Operators can view and update the current authentication settings through the <%= vars.ops_manager %> UI and API. 
 
 To view and update authentication settings through the <%= vars.ops_manager %> UI:
 

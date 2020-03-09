@@ -14,7 +14,22 @@ see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= p
 
 See the following <%= vars.ops_manager %> <%= vars.v_major_version %> breaking changes:
 
+### <a id='maestro'></a> Rotating Certificates in Ops Manager
 
+Before performing certificate rotation with Ops Manager v2.9, you must first upgrade both <%= vars.ops_manager %> and <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) to v2.9. 
+
+<p class="note"><strong>Note</strong>: <%= vars.app_runtime_abbr %> was formerly named Pivotal Application Service (PAS).</p>
+
+If you rotate certificates with Ops Manager v2.9 and PAS v2.8, you can orphan VMs.
+
+### <a id='maestro-services'></a> Service TLS CA Rotation
+
+Not all  <%= vars.ops_manager %> service tiles are compatible with CredHub Maestro. 
+If you use CredHub Maestro to rotate the services TLS CA and you have incompatible tiles in your deployment, then you may experience services downtime or data loss. 
+
+Before rotating the services TLS CA with CredHub Maestro, you must check that the tiles in your deployment are compatible. For compatibility information, see [CredHub Maestro Tile Compatibility](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/maestro-tile-compatibility.html).
+
+To rotate the services TLS CA, see [Advanced Certificate Rotation with CredHub Maestro](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/advanced-certificate-rotation.html#services-rotation).
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %> <%= vars.v_major_version %>
 
