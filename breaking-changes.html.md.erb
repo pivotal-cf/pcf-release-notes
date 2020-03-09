@@ -33,7 +33,9 @@ To rotate the services TLS CA, see [Advanced Certificate Rotation with CredHub M
 
 ### <a id='nsx-t-2-2'></a> Ops Manager v2.9 Incompatible with vSphere Data Center NSX-T v2.2 and Earlier
 
-The BOSH vSphere CPI that is included with Ops Manager v2.9 does not work with NSX-T v2.2 or earlier.
+The BOSH vSphere CPI included with Ops Manager v2.9 does not support NSX-T v2.2 or earlier.
+
+If you are running NSX-T v2.2 or earlier, you must upgrade NSX-T before deploying Ops Manager v2.9.
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %> <%= vars.v_major_version %>
 
