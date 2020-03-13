@@ -317,14 +317,6 @@ When <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) requests a shut
 
 For more information, see [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#advanced_features) in _Installing <%= vars.segment_runtime_full %>_.
 
-### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
-
-You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.segment_runtime_full %> tile.
-
-This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
-
-For more information, see [Configure App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
-
 ### <a id='smoke-tests'></a> Run Smoke Tests for <%= vars.segment_runtime_full %>
 
 A **Smoke Tests** pane is added to the <%= vars.segment_runtime_full %> tile. This pane allows you to specify an org and space where smoke tests are run.
@@ -350,6 +342,14 @@ The **Errands** pane is added to the <%= vars.segment_runtime_full %> tile. In t
 Errands are scripts that <%= vars.ops_manager %> runs automatically when it installs or uninstalls a product, such as a new version of <%= vars.app_runtime_abbr %>. By default, <%= vars.ops_manager %> always runs all errands.  For more information about how <%= vars.ops_manager %> manages errands, see [Managing Errands in <%= vars.ops_manager %>](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/customizing/managing_errands.html).
 
 This pane allows you to configure whether the Smoke Test errand runs. For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
+
+### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
+
+You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.segment_runtime_full %> tile.
+
+This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
+
+For more information, see [Configure App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
 
 
 ## <a id='known-issues'></a> Known Issues
