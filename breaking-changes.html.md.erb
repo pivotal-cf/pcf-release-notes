@@ -21,14 +21,13 @@ See the following <%= vars.ops_manager %> <%= vars.v_major_version %> breaking c
 
 Before performing certificate rotation with Ops Manager v2.9, you must first upgrade both <%= vars.ops_manager %> and <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) to v2.9. 
 
-<p class="note"><strong>Note</strong>: <%= vars.app_runtime_abbr %> was formerly named Pivotal Application Service (PAS).</p>
-
-If you rotate certificates with Ops Manager v2.9 and PAS v2.8, you can orphan VMs.
+If you rotate certificates with Ops Manager v2.9 and Pivotal Application Service 
+(PAS) v2.8, you can orphan VMs.
 
 ### <a id='maestro-services'></a> Service TLS CA Rotation
 
 Not all  <%= vars.ops_manager %> service tiles are compatible with CredHub Maestro. 
-If you use CredHub Maestro to rotate the services TLS CA and you have incompatible tiles in your deployment, then you may experience services downtime or data loss. 
+If you use CredHub Maestro to rotate the services TLS certificate authority (CA) and you have incompatible tiles in your deployment, then you may experience services downtime or data loss. 
 
 Before rotating the services TLS CA with CredHub Maestro, you must check that the tiles in your deployment are compatible. For compatibility information, see [CredHub Maestro Tile Compatibility](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/maestro-tile-compatibility.html).
 
@@ -72,6 +71,6 @@ This section lists support changes to buildpacks associated with this release:
 
 If your app depends on any of these language distributions and use the buildpacks packaged for TAS for VMs, you should consider updating the apps and their dependencies prior to upgrading to TAS for VMs v2.9.0.
 
-### <a id='2-6'></a> Ops Manager v2.6 and TAS for VMs v2.6
+### <a id='2-6'></a> Ops Manager v2.6 and Pivotal Application Service v2.6
 
-Shortly after Ops Manager and TAS for VMs v2.9 are released, Ops Manager v2.6 and TAS for VMs v2.6 reach their end of general support.
+Shortly after Ops Manager and TAS for VMs v2.9 are released, Ops Manager v2.6 and Pivotal Application Service v2.6 reach their end of general support.

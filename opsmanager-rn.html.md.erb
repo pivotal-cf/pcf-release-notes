@@ -1,5 +1,5 @@
 ---
-title: Pivotal Operations Manager v2.9 Release Notes
+title: Ops Manager v2.9 Release Notes
 owner: Ops Manager
 ---
 
@@ -108,7 +108,7 @@ in BOSH CredHub as well as in <%= vars.ops_manager %> if the following condition
 * <%= vars.k8s_runtime_full %> is not installed.
 
 The Ops Manager API rotates both Certificate Authorities (CAs) and leaf certificates.
-However, some certificates in MySQL for Pivotal Platform and VMware Tanzu GemFire are not rotated.
+However, some certificates in MySQL for VMware Tanzu and VMware Tanzu GemFire are not rotated.
 
 After rotating certificates using the `certificate_authorities` API endpoints,
 review the output list of rotated certificates for missing CredHub certificates.
