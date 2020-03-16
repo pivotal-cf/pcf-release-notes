@@ -62,16 +62,16 @@ This section lists of components that are either at their end-of-life (EOL) or n
 
 ### <a id='buildpack'></a> Buildpack Support Changes
 
-This section lists known changes to buildpacks associated with this release:
+This section lists support changes to buildpacks associated with this release:
 
 * **.NET Core Buildpack**: Support for dotnet-runtime versions 3.0.x will be removed in the first release of the .NET Core buildpack after March 3, 2020.
 
-* **Node.js Buildpack**: Node.js v8.x is removed from the Node.js buildpack v1.7.9 and laer because Node.js v8.x is out of support. This is known to break App Metrics v1.6.0 to v1.6.2 as it currently relies on Node.js v8.0.
+* **Node.js Buildpack**: Node.js v8.x is removed from the Node.js buildpack v1.7.9 and later because Node.js v8.x is out of support. This removal is known to break App Metrics v1.6.0 to v1.6.2 since those versions of App Metrics rely on Node.js v8.0.
 
-* **Python**: Python v2.7 is removed from the buildpack that ships with 2.9.0.
+* **Python**: Python v2.7 is removed from the buildpack that ships with TAS fr VMs v2.9.0.
 
+If your app depends on any of these language distributions and use the buildpacks packaged for TAS for VMs, you should consider updating the apps and their dependencies prior to upgrading to TAS for VMs v2.9.0.
 
+### <a id='2-6'></a> Ops Manager v2.6 and TAS for VMs v2.6
 
-### <a id='2-6'></a> Ops Manager v2.6 and Pivotal Application Service v2.6
-
-At the end of the month in which OM+TAS 2.9 is released, versions compatible with 2.6 and older will pass out of support. Tile teams can delete 2.6 and earlier pipelines, unless you have specific reasons otherwise.
+Shortly after Ops Manager and TAS for VMs v2.9 are released, Ops Manager v2.6 and TAS for VMs v2.6 reach their end of general support.
