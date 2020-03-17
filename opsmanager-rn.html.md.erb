@@ -13,15 +13,39 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-### <a id="2-8-4 - Withdrawn"></a> 2.8.4 - Withdrawn
+### <a id='2-8-5'></a> 2.8.5
 
+* **[Feature]** Operators can configure multiple certificates in the Server SSL Cert field for LDAP Settings.
+* **[Feature]** Adds **Set VM-HOST Affinity rule as SHOULD** checkbox to **Availability Zones** pane.
+* **[Bug Fix]** Deployed certificates endpoint show `configurable: true` for CredHub certs marked as `generated: null`.
+* **[Bug Fix]** BOSH DNS certificates are regenerated during a certificate rotation when BOSH and product are redeployed.
+* **[Bug Fix]** The `/api/v0/staged/products/:guid/properties` API endpoint rejects malformed secret properties.
+* **[Bug Fix]** Non-configurable jobs that default to zero instances do not appear in the **Resource Config** pane.
+* **[Bug Fix]** <%= vars.ops_manager %> marks RSA certificates with extra characters as invalid before deployment.
 
-<p class="note warning"><strong> Warning:</strong>
-This release has been removed from VMware Tanzu Network because it shipped with an unintentional
-breaking change in BOSH DNS which causes PAS Windows deployments to fail.
-</p>
+<%= vars.ops_manager %> v2.8.5 uses the following component versions:
 
-* **[Feature]** Adds **VM-HOST Affinity Rule** drop-down to **Availability Zones** pane. This drop-down is available if you have availability zones (AZs) on vSphere. In the drop-down, you can select either MUST or SHOULD to add a Distributed Resource Scheduler (DRS) rule for the AZ.   
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.8.5-build.234*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>621.59*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.11.1</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.11*</td></tr><tr><td>BPM</td><td>1.1.7*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.2.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.7</td></tr><tr><td>BOSH CLI</td><td>6.2.1*</td></tr><tr><td>Credhub CLI</td><td>2.7.0*</td></tr><tr><td>BBR CLI</td><td>1.7.2*</td></tr><tr><td>Telemetry</td><td>1.0.3*</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
+### <a id="2-8-4-withdrawn"></a> 2.8.4 - Withdrawn
+
+<p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network because it shipped with an unintentional breaking change in BOSH DNS which causes PAS Windows deployments to fail. </p>
+
+* **[Feature]** Adds **VM-HOST Affinity Rule** dropdown to **Availability Zones** pane. This dropdown is available if you have availability zones (AZs) on vSphere. In the dropdown, you can select either MUST or SHOULD to add a Distributed Resource Scheduler (DRS) rule for the AZ.   
 
 <%= vars.ops_manager %> v2.8.4 uses the following component versions:
 
@@ -37,15 +61,13 @@ breaking change in BOSH DNS which causes PAS Windows deployments to fail.
     <td>Ops Manager</td><td>2.8.4-build.224*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.57*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.11.1</td></tr><tr><td>BOSH DNS</td><td>1.18.0*</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.9*</td></tr><tr><td>BPM</td><td>1.1.7*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.2.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.7</td></tr><tr><td>BOSH CLI</td><td>6.2.1*</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.7.0</td></tr><tr><td>Telemetry</td><td>1.0.1</td></tr>
-  
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
   </tbody>
 </table>
 
 ### <a id="2-8-3"></a> 2.8.3
 
-* **[Bug Fix]** Multi-datacenter vSphere configurations deploys to the datacenter that matches to the availability zone and network the operator has selected
+* **[Bug Fix]** Multi-datacenter vSphere configurations deploys to the datacenter that matches to the availability zone and network the operator has selected.
 
 <%= vars.ops_manager %> v2.8.3 uses the following component versions:
 
@@ -61,17 +83,15 @@ breaking change in BOSH DNS which causes PAS Windows deployments to fail.
     <td>Ops Manager</td><td>2.8.3-build.217*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.51*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.11.1*</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11*</td></tr><tr><td>CredHub</td><td>2.5.11*</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.5</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>79</td></tr><tr><td>Azure CPI</td><td>37.2.0*</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.7*</td></tr><tr><td>BOSH CLI</td><td>6.2.0</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.7.0*</td></tr><tr><td>Telemetry</td><td>1.0.1*</td></tr>
-  
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
   </tbody>
 </table>
 
 ### <a id="2-8-2"></a> 2.8.2
 
-- **[Bug Fix]** Fixes issue where tiles that contain build numbers in `product_version` incorrectly fail to meet the requirements for `minimum_version_for_upgrade` version.
-- **[Bug Fix]** Fixes performance issues with the <%= vars.ops_manager %> change log page.
-- **[Bug Fix]** Fixes issue where setting the **HTTP(S) Proxy** in <%= vars.ops_manager %> to an empty value causes apply changes to fail.
+* **[Bug Fix]** Fixes issue where tiles that contain build numbers in `product_version` incorrectly fail to meet the requirements for `minimum_version_for_upgrade` version.
+* **[Bug Fix]** Fixes performance issues with the <%= vars.ops_manager %> change log page.
+* **[Bug Fix]** Fixes issue where setting the **HTTP(S) Proxy** in <%= vars.ops_manager %> to an empty value causes apply changes to fail.
 
 <%= vars.ops_manager %> v2.8.2 uses the following component versions:
 
@@ -93,11 +113,11 @@ breaking change in BOSH DNS which causes PAS Windows deployments to fail.
 
 ### <a id="2-8-1"></a> 2.8.1
 
-- **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH.
-- **[Feature]** Operators can use an encrypted private key in Tile settings.
-- **[Bug Fix]** System metrics certificate is redacted in BOSH output.
-- **[Bug Fix]** Fixes upgrade issue for deployments where operators have used the `add_job_to_instance_group` API endpoint.
-- **[Bug Fix]** Apply changes no longer fails when tiles use the `allow_encrypted_key` feature.
+* **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH.
+* **[Feature]** Operators can use an encrypted private key in Tile settings.
+* **[Bug Fix]** System metrics certificate is redacted in BOSH output.
+* **[Bug Fix]** Fixes upgrade issue for deployments where operators have used the `add_job_to_instance_group` API endpoint.
+* **[Bug Fix]** Apply changes no longer fails when tiles use the `allow_encrypted_key` feature.
 
 <%= vars.ops_manager %> v2.8.1 uses the following component versions:
 
