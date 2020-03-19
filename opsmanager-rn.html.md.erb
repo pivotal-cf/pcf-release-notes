@@ -15,6 +15,29 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 Ops Manager <%= vars.v_major_version %> includes the following minor releases:
 
+### <a id='2-6-24'></a> 2.6.24
+
+* **[Feature]** Operators can configure multiple certificates in the Server SSL Cert field for LDAP Settings.
+* **[Bug Fix]** The `/api/v0/staged/products/:guid/properties` API endpoint rejects malformed secret properties.
+
+Ops Manager v2.6.24 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.6.24-build.302*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>315.171*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>269.0.9</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.4.4</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.9*</td></tr><tr><td>BPM</td><td>1.1.7</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.11</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0*</td></tr><tr><td>BBR CLI</td><td>1.7.2*</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
 ### <a id="2-6-23"></a> 2.6.23
 
 Ops Manager v2.6.23 uses the following component versions:
@@ -31,9 +54,7 @@ Ops Manager v2.6.23 uses the following component versions:
     <td>Ops Manager</td><td>2.6.23-build.292*</td>
   </tr>
   <tr><td>Stemcell</td><td>315.169*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>269.0.9</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.4.4</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.8*</td></tr><tr><td>BPM</td><td>1.1.7*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.11</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.7.0</td></tr>
-  
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
   </tbody>
 </table>
 
@@ -53,19 +74,15 @@ Ops Manager v2.6.22 uses the following component versions:
     <td>Ops Manager</td><td>2.6.22-build.288*</td>
   </tr>
   <tr><td>Stemcell</td><td>315.167*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>269.0.9</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.4.4*</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>71.7</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>42</td></tr><tr><td>vSphere CPI</td><td>52.1.11*</td></tr><tr><td>BOSH CLI</td><td>5.5.1</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.7.0*</td></tr>
-
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-
   </tbody>
 </table>
 
 ### <a id="2-6-21"></a> 2.6.21
 
-- **[Bug Fix]** Fixes issue where multi-datacenter vSphere always deploys
-BOSH Director to the first vCenter configured in Ops Manager.
-- **[Bug Fix]** Fixes issue where tiles that contain build numbers in `product_version` incorrectly
-fail to meet the requirements for `minimum_version_for_upgrade version`.
-- **[Bug Fix]** Fixes performance issues with the Ops Manager change log page.
+* **[Bug Fix]** Fixes issue where multi-datacenter vSphere always deploys BOSH Director to the first vCenter configured in Ops Manager.
+* **[Bug Fix]** Fixes issue where tiles that contain build numbers in `product_version` incorrectly fail to meet the requirements for `minimum_version_for_upgrade version`.
+* **[Bug Fix]** Fixes performance issues with the Ops Manager change log page.
 
 Ops Manager v2.6.21 uses the following component versions:
 
@@ -87,9 +104,9 @@ Ops Manager v2.6.21 uses the following component versions:
 
 ### <a id="2-6-20"></a> 2.6.20
 
-- **[Feature]** Operators can download a Platform Information Bundle as a ZIP file from the Ops Manager UI.
-- **[Feature]** Operators can download a Platform Information Bundle as a ZIP file from the Ops Manager `/api/v0/support_bundle endpoint` API endpoint.
-- **[Bug Fix]** Apply changes no longer fails when tiles use the `allow_encrypted_key` feature.
+* **[Feature]** Operators can download a Platform Information Bundle as a ZIP file from the Ops Manager UI.
+* **[Feature]** Operators can download a Platform Information Bundle as a ZIP file from the Ops Manager `/api/v0/support_bundle endpoint` API endpoint.
+* **[Bug Fix]** Apply Changes no longer fails when tiles use the `allow_encrypted_key` feature.
 
 Ops Manager v2.6.20 uses the following component versions:
 
@@ -111,9 +128,9 @@ Ops Manager v2.6.20 uses the following component versions:
 
 ### <a id="2-6-19"></a> 2.6.19
 
-* **[Feature]** Multiple LDAP server URLs can be passed to LDAPBindVerifier
-* **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH
-* **[Feature]** Operators can use an encrypted private key in Tile settings
+* **[Feature]** Multiple LDAP server URLs can be passed to LDAPBindVerifier.
+* **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH.
+* **[Feature]** Operators can use an encrypted private key in Tile settings.
 
 Ops Manager v2.6.19 uses the following component versions:
 
@@ -218,7 +235,7 @@ Ops Manager v2.6.15 uses the following component versions:
 
 ### <a id="2-6-14"></a> 2.6.14
 
-- **[Feature Improvement]** Ops Manager on Azure runs the `chrony` service, which uses the hardware clock to sync local VM time with the Azure hypervisor.
+* **[Feature Improvement]** Ops Manager on Azure runs the `chrony` service, which uses the hardware clock to sync local VM time with the Azure hypervisor.
 
 Ops Manager v2.6.14 uses the following component versions:
 
@@ -240,12 +257,12 @@ Ops Manager v2.6.14 uses the following component versions:
 
 ### <a id="2-6-13"></a> 2.6.13
 
-- **[Security Fix]** This patch addresses [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587)
-- **[Feature]** Operators can use the `DELETE /api/v0/staged` endpoint to revert pending changes
-- **[Bug Fix]** API shows correct message for a given product when enabling or disabling unknown verifier
-- **[Bug Fix]** Operators cannot modify vSphere availability zones that are associated with a deployed product with the API
-- **[Bug Fix]** Ops Manager does not show the **Revert** button in the UI after Apply Changes
-- **[Bug Fix]** Users are allowed to uncheck all options in a `multi_select_options` property that is nested under a selector
+* **[Security Fix]** This patch addresses [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587).
+* **[Feature]** Operators can use the `DELETE /api/v0/staged` endpoint to revert pending changes.
+* **[Bug Fix]** API shows correct message for a given product when enabling or disabling unknown verifier.
+* **[Bug Fix]** Operators cannot modify vSphere availability zones that are associated with a deployed product with the API.
+* **[Bug Fix]** Ops Manager does not show the **Revert** button in the UI after Apply Changes.
+* **[Bug Fix]** Users are allowed to uncheck all options in a `multi_select_options` property that is nested under a selector.
 
 Ops Manager v2.6.13 uses the following component versions:
 
@@ -267,7 +284,7 @@ Ops Manager v2.6.13 uses the following component versions:
 
 ### <a id="2-6-12"></a> 2.6.12
 
-- **[Bug Fix]** AWS AMI IDs for `eu-west-3` and `eu-north-1` are included in PDF on Pivotal Network
+* **[Bug Fix]** AWS AMI IDs for `eu-west-3` and `eu-north-1` are included in PDF on Pivotal Network.
 
 Ops Manager v2.6.12 uses the following component versions:
 
@@ -309,7 +326,7 @@ Ops Manager v2.6.11 uses the following component versions:
 
 ### <a id="2-6-10"></a> 2.6.10
 
-* **[Security Fix]** Updates mariadb to v10.4
+* **[Security Fix]** Updates MariaDB to v10.4.
 
 Ops Manager v2.6.10 uses the following component versions:
 
@@ -331,11 +348,11 @@ Ops Manager v2.6.10 uses the following component versions:
 
 ### <a id="2-6-9"></a> 2.6.9
 
-* **[Feature]** Operator can make changes to UAA group mappings using a BOSH admin client when Ops Manager is configured with LDAP
-* **[Feature]** LDAP configuration includes a **Group Max Search Depth** field
-* **[Bug Fix]** Footer on React pages includes the correct copyright date
-* **[Bug Fix]** Redirect to the changelog page when an installation fails
-* **[Bug Fix]** Credentials are not shown in UI or API for restricted users
+* **[Feature]** Operator can make changes to UAA group mappings using a BOSH admin client when Ops Manager is configured with LDAP.
+* **[Feature]** LDAP configuration includes a **Group Max Search Depth** field.
+* **[Bug Fix]** Footer on React pages includes the correct copyright date.
+* **[Bug Fix]** Redirect to the changelog page when an installation fails.
+* **[Bug Fix]** Credentials are not shown in UI or API for restricted users.
 
 Ops Manager v2.6.9 uses the following component versions:
 
@@ -357,7 +374,7 @@ Ops Manager v2.6.9 uses the following component versions:
 
 ### <a id="2-6-8"></a> 2.6.8
 
-* **[Bug fix]** Custom UI banners now show on React pages such as **Stemcell Library** and **Review Pending Changes**
+* **[Bug fix]** Custom UI banners now show on React pages such as **Stemcell Library** and **Review Pending Changes**.
 
 Ops Manager v2.6.8 uses the following component versions:
 
@@ -380,15 +397,15 @@ Ops Manager v2.6.8 uses the following component versions:
 ### <a id="2-6-7"></a> 2.6.7
 
 * **[Feature]** `/api/v0/deployed/certificates?expires_within=` does not display `saml_service_provider_cert` if Ops Manager is not using SAML.
-* **[Feature]** Operators can set `recursor_selection` in the DNS runtime config through the OpsManager API
-* **[Feature]** The OpsManager web server (nginx) does not allow TLSv1 and TLSv1.1
-* **[Feature]** Enhance blobstore verifier error messaging
-* **[Feature]** Enforce required value for public SSH key in when installing Ops Manager on vSphere
-* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the Director syslog.
-* **[Bug fix]** Update BBR to 1.x to fix postgres db backup
-* **[Bug fix]** Resolves an issue in which Ops Manager set the Director ephemeral disk size to the Operator’s selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field.
-* **[Bug fix]** Azure SSH private key is redacted in the UI
-* **[Bug Fix]** Syslog addon correctly injected into manifest for service brokers that enable OpsManager's consistent syslog
+* **[Feature]** Operators can set `recursor_selection` in the DNS runtime config through the Ops Manager API.
+* **[Feature]** The Ops Manager web server (nginx) does not allow TLSv1 and TLSv1.1.
+* **[Feature]** Enhance blobstore verifier error messaging.
+* **[Feature]** Enforce required value for public SSH key in when installing Ops Manager on vSphere.
+* **[Feature]** Enable audit checks on BOSH CLI commands. Events now appear in the BOSH Director syslog.
+* **[Bug fix]** Update BBR to 1.x to fix Postgres database backup.
+* **[Bug fix]** Resolves an issue in which Ops Manager set the BOSH Director ephemeral disk size to the operator's selected **PERSISTENT DISK** size. Now Ops Manager sets the ephemeral disk size as specified in the **VM TYPE** field.
+* **[Bug fix]** Azure SSH private key is redacted in the UI.
+* **[Bug Fix]** Syslog addon correctly injected into manifest for service brokers that enable Ops Manager's consistent syslog.
 
 Ops Manager v2.6.7 uses the following component versions:
 
@@ -474,7 +491,7 @@ Ops Manager v2.6.4 uses the following component versions:
 
 ### <a id="2-6-3"></a> 2.6.3
 
-* **[Bug Fix]** Ops Manager allows the PKS v1.5 tile to upload
+* **[Bug Fix]** Ops Manager allows the PKS v1.5 tile to upload.
 
 Ops Manager v2.6.3 uses the following component versions:
 
@@ -496,7 +513,7 @@ Ops Manager v2.6.3 uses the following component versions:
 
 ### <a id="2-6-2"></a> 2.6.2
 
-* **[Security Fix]** This patch addresses [CVE-2019-11479](https://nvd.nist.gov/vuln/detail/CVE-2019-11479)
+* **[Security Fix]** This patch addresses [CVE-2019-11479](https://nvd.nist.gov/vuln/detail/CVE-2019-11479).
 
 Ops Manager v2.6.2 uses the following component versions:
 
@@ -518,11 +535,11 @@ Ops Manager v2.6.2 uses the following component versions:
 
 ### <a id="2-6-1"></a> 2.6.1
 
-* **[Security Fix]** This patch addresses [CVE-2019-11477](https://nvd.nist.gov/vuln/detail/CVE-2019-11477) and [CVE-2019-11478](https://nvd.nist.gov/vuln/detail/CVE-2019-11478)
+* **[Security Fix]** This patch addresses [CVE-2019-11477](https://nvd.nist.gov/vuln/detail/CVE-2019-11477) and [CVE-2019-11478](https://nvd.nist.gov/vuln/detail/CVE-2019-11478).
 * **[Feature]** Ops Manager now passes **Trusted Certificates** from the **Security** pane to the `uaa.ca_certs` property of UAA to avoid failures in the pre-start script run by UAA.
-* **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API
-* **[Bug Fix]** ops-manifest does not break if a RSA certificate is passed as a property value
-* **[Bug Fix]** vSphere verifier does not fail if all the fields are blank
+* **[Bug Fix]** Non-configurable collection record properties do not require configuration in the UI or API.
+* **[Bug Fix]** ops-manifest does not break if a RSA certificate is passed as a property value.
+* **[Bug Fix]** vSphere verifier does not fail if all the fields are blank.
 
 Ops Manager v2.6.1 uses the following component versions:
 
