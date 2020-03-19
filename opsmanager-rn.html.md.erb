@@ -20,10 +20,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id="2-7-14"></a> 2.7.14
 
 * **[Feature]** Operators can configure multiple certificates in the **Server SSL Cert** field during **LDAP Server** configuration.
-* **[Bug Fix]** Deployed certificates endpoint show `configurable: true` for CredHub certs marked as `generated: null`.
-* **[Bug Fix]** The `/api/v0/staged/products/:guid/properties` API endpoint rejects malformed secret properties.
+* **[Bug Fix]** Deployed certificates endpoint show `configurable: true` for CredHub certificates marked as `generated: null`.
+* **[Bug Fix]** The `/api/v0/staged/products/:guid/properties` <%= vars.ops_manager %> API endpoint rejects malformed secret properties.
 * **[Bug Fix]** Non-configurable jobs that default to zero instances do not appear in the **Resource Config** pane.
-* **[Bug Fix]** Ops Manager marks RSA certificates with extra characters as invalid before deployment.
+* **[Bug Fix]** <%= vars.ops_manager %> marks RSA certificates with extra characters as invalid before deployment.
 
 <%= vars.ops_manager %> v2.7.14 uses the following component versions:
 
@@ -110,9 +110,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-7-10"></a> 2.7.10
 
-* **[Feature]** Operators can access the <%= vars.ops_manager %> `/api/v0/support_bundle` API endpoint to download a ZIP file with the <%= vars.ops_manager %> diagnostic report.
+* **[Feature]** Operators can access the <%= vars.ops_manager %> `/api/v0/support_bundle` <%= vars.ops_manager %> API endpoint to download a ZIP file with the <%= vars.ops_manager %> diagnostic report.
 * **[Feature]** Multiple LDAP server URLs can be passed to `LDAPBindVerifier`.
-* **[Bug Fix]** Fixes upgrade issue for deployments where operators have used the `add_job_to_instance_group` API endpoint.
+* **[Bug Fix]** Fixes upgrade issue for deployments where operators have used the `add_job_to_instance_group` <%= vars.ops_manager %> API endpoint.
 * **[Bug Fix]** **Apply Changes** no longer fails when tiles use the `allow_encrypted_key` feature.
 
 <%= vars.ops_manager %> v2.7.10 uses the following component versions:
@@ -135,7 +135,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-7-9"></a> 2.7.9
 
-* **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH.
+* **[Feature]** Operators can use an encrypted private key for **Provider Client Certificate Private Key** when configuring HSM in BOSH.
 * **[Feature]** Operators can use an encrypted private key in Tile settings.
 
 <%= vars.ops_manager %> v2.7.9 uses the following component versions:
@@ -178,8 +178,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-7-7"></a> 2.7.7
 
-* **[Feature]** In Advanced Mode after a successful deployment, Operators can update host, port, and database properties under **External MySQL Database** in the **Director Config** pane of the BOSH Director tile.
-* **[Bug Fix]** After a successful deployment, Operators can update the username under **External MySQL Database** in the **Director Config** pane of the BOSH Director tile.
+* **[Feature]** In Advanced Mode after a successful deployment, operators can update host, port, and database properties under **External MySQL Database** in the **Director Config** pane of the BOSH Director tile.
+* **[Bug Fix]** After a successful deployment, operators can update the username under **External MySQL Database** in the **Director Config** pane of the BOSH Director tile.
 
 <%= vars.ops_manager %> v2.7.7 uses the following component versions:
 
@@ -264,7 +264,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-7-3"></a>2.7.3
 
-* **[Bug Fix]** Fixes unbound variable in UAA that causes BOSH Director to fail.
+* **[Bug Fix]** Fixes the unbound variable in UAA that causes BOSH Director to fail.
 
 <%= vars.ops_manager %> v2.7.3 uses the following component versions:
 
@@ -286,13 +286,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-7-2"></a> 2.7.2
 
-- **[Security Fix]** This patch addresses [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587).
-- **[Feature]** Operators see a warning about unrecognized verifiers instead of failing an **Apply Changes**.
-- **[Feature]** Operators can use the `DELETE /api/v0/staged` endpoint to revert pending changes.
-- **[Bug Fix]** API shows correct message for a given product when enabling or disabling unknown verifier.
-- **[Bug Fix]** Operators cannot modify vSphere availability zones that are associated with a deployed product with the API.
-- **[Bug Fix]** <%= vars.ops_manager %> does not show the **Revert** button in the UI after **Apply Changes**.
-- **[Bug Fix]** Users are allowed to uncheck all options in a `multi_select_options` property that is nested under a selector.
+* **[Security Fix]** This patch addresses [CVE-2019-15587](https://nvd.nist.gov/vuln/detail/CVE-2019-15587).
+* **[Feature]** Operators see a warning about unrecognized verifiers instead of failing an **Apply Changes**.
+* **[Feature]** Operators can use the `DELETE /api/v0/staged` <%= vars.ops_manager %> API endpoint to revert pending changes.
+* **[Bug Fix]** <%= vars.ops_manager %> API shows correct message for a given product when enabling or disabling unknown verifier.
+* **[Bug Fix]** Operators cannot modify vSphere availability zones that are associated with a deployed product with the <%= vars.ops_manager %> API.
+* **[Bug Fix]** <%= vars.ops_manager %> does not show the **Revert** button in the UI after **Apply Changes**.
+* **[Bug Fix]** Users are allowed to uncheck all options in a `multi_select_options` property that is nested under a selector.
 
 <%= vars.ops_manager %> v2.7.2 uses the following component versions:
 
@@ -320,7 +320,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Root CA certificate is only written to disk when it has changed.
 * **[Bug Fix]** Add AWS AMI IDs for eu-west-3 and eu-north-1 to the PDFs on Pivotal Network.
 * **[Bug Fix]** Tomcat logs from the UAA process are readable by the syslog user.
-* **[Bug Fix]** When an operator exports a runtime config only tile from <%= vars.ops_manager %> 2.6 on AWS, they can successfully import their `installation.zip` into <%= vars.ops_manager %> 2.7. Previously, there was a 5th-generation AWS instance schema migration failure.
+* **[Bug Fix]** When an operator exports a runtime config-only tile from <%= vars.ops_manager %> v2.6 on AWS, they can successfully import their `installation.zip` into <%= vars.ops_manager %> v2.7. Previously, there was a 5th-generation AWS instance schema migration failure.
 * **[Bug Fix]** Submitting a form with multiple unselected selector properties does not raise a `500` error.
 * **[Bug Fix]** Resolves an issue in which <%= vars.ops_manager %> hangs during **Apply Changes**.
 * **[Bug Fix]** <%= vars.ops_manager %> API shows deployed certificates when only BOSH Director has been deployed.
