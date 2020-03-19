@@ -395,4 +395,10 @@ For more information, see [Configure App Containers](http://docs.pivotal.io/plat
 
 ## <a id='known-issues'></a> Known Issues
 
-There are no known issues in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='iso-seg-name'></a> Smoke Test Fails When Isolation Segment Name Begins with Hyphen
+
+The Smoke Test errand fails for an Isolation Segment when the Isolation Segment name begins with a hyphen.
+
+To fix this issue, rename the Isolation Segment and click **Apply Changes**.
