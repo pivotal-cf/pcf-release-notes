@@ -15,11 +15,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2-8-5'></a> 2.8.5
 
-* **[Feature]** Operators can configure multiple certificates in the Server SSL Cert field for LDAP Settings.
-* **[Feature]** Adds **Set VM-HOST Affinity rule as SHOULD** checkbox to **Availability Zones** pane.
+* **[Feature]** Operators can configure multiple certificates in the **Server SSL Cert** field during **LDAP Server** configuration.
+* **[Feature]** Adds **Set VM-HOST Affinity rule as SHOULD** checkbox to the **Availability Zones** pane.
 * **[Bug Fix]** Deployed certificates endpoint show `configurable: true` for CredHub certs marked as `generated: null`.
 * **[Bug Fix]** BOSH DNS certificates are regenerated during a certificate rotation when BOSH and product are redeployed.
-* **[Bug Fix]** The `/api/v0/staged/products/:guid/properties` API endpoint rejects malformed secret properties.
+* **[Bug Fix]** The `/api/v0/staged/products/:guid/properties` <%= vars.ops_manager %> API endpoint rejects malformed secret properties.
 * **[Bug Fix]** Non-configurable jobs that default to zero instances do not appear in the **Resource Config** pane.
 * **[Bug Fix]** <%= vars.ops_manager %> marks RSA certificates with extra characters as invalid before deployment.
 
@@ -43,9 +43,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-8-4-withdrawn"></a> 2.8.4 - Withdrawn
 
-<p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network because it shipped with an unintentional breaking change in BOSH DNS which causes PAS Windows deployments to fail. </p>
+<p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network because it shipped with an unintentional breaking change in BOSH DNS which causes <%= vars.windows_runtime_full %> deployments to fail. </p>
 
-* **[Feature]** Adds **VM-HOST Affinity Rule** dropdown to **Availability Zones** pane. This dropdown is available if you have availability zones (AZs) on vSphere. In the dropdown, you can select either MUST or SHOULD to add a Distributed Resource Scheduler (DRS) rule for the AZ.   
+* **[Feature]** Adds **VM-HOST Affinity Rule** dropdown to the **Availability Zones** pane. This dropdown is available if you have availability zones (AZs) on vSphere. In the dropdown, you can select either **MUST** or **SHOULD** to add a Distributed Resource Scheduler (DRS) rule for the AZ.   
 
 <%= vars.ops_manager %> v2.8.4 uses the following component versions:
 
@@ -113,11 +113,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-8-1"></a> 2.8.1
 
-* **[Feature]** Operators can use an encrypted private key for Provider Client Certificate Private Key when configuring HSM in BOSH.
+* **[Feature]** Operators can use an encrypted private key for **Provider Client Certificate Private Key** when configuring HSM in BOSH.
 * **[Feature]** Operators can use an encrypted private key in Tile settings.
 * **[Bug Fix]** System metrics certificate is redacted in BOSH output.
-* **[Bug Fix]** Fixes upgrade issue for deployments where operators have used the `add_job_to_instance_group` API endpoint.
-* **[Bug Fix]** Apply changes no longer fails when tiles use the `allow_encrypted_key` feature.
+* **[Bug Fix]** Fixes upgrade issue for deployments where operators have used the `add_job_to_instance_group` <%= vars.ops_manager %> API endpoint.
+* **[Bug Fix]** **Apply Changes** no longer fails when tiles use the `allow_encrypted_key` feature.
 
 <%= vars.ops_manager %> v2.8.1 uses the following component versions:
 
@@ -140,7 +140,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id="2-8-0"></a> 2.8.0
 
 * See [New Features in <%= vars.ops_manager %> v2.8](#major-features)
-* See [Breaking Changes](./breaking-changes.html)
+* See [Breaking Changes](breaking-changes.html)
 
 <table border="1" class="nice">
   <thead>
