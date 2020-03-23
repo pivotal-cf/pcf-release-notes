@@ -12,7 +12,7 @@ This topic highlights important new features included in <%= vars.platform_name 
 
 ## <a id='om'></a> <%= vars.ops_manager_full %> Highlights
 
-<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following important major
+<%= vars.ops_manager_full %> <%= vars.v_major_version %> includes the following important major
 features. For additional information about these and other features included in
 <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %>
 <%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
@@ -20,8 +20,9 @@ features. For additional information about these and other features included in
 ### <a id='deployment-log-improved'></a> Improved Deployment Log Display
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> provides UI and performance improvements to the
-deployment log display, including separate pages for historical logs and streaming logs. Each step in these pages is collapsable, with indicators that show
-whether the step was successful, failed, or not yet executed.
+deployment log display, including separate pages for historical logs and streaming logs. Each step
+in these pages is collapsable, with indicators that show whether the step was successful, failed,
+or not yet executed.
 
 Additional UI and performance improvements to the deployment log display:
 
@@ -30,16 +31,17 @@ Additional UI and performance improvements to the deployment log display:
 * Start and end time are clearly displayed
 * Stages are more clearly delineated
 
-### <a id='om-api-rotate-credhub-certs'></a> Ops Manager API Rotates BOSH CredHub Certificates and Certificate Authorities
+### <a id='om-api-rotate-credhub-certs'></a> <%= vars.ops_manager %> API Rotates BOSH CredHub Certificates and Certificate Authorities
 
 The `certificate_authorities` API endpoints in <%= vars.ops_manager %> <%= vars.v_major_version %>
-rotates certificates in BOSH CredHub as well as in Ops Manager if the following conditions are met:
+rotates certificates in BOSH CredHub as well as in <%= vars.ops_manager %> if the following
+conditions are met:
 
 * <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> or later is installed.
 * <%= vars.k8s_runtime_full %> is not installed.
 
-The Ops Manager API rotates both Certificate Authorities and leaf certificates. However, some
-certificates in MySQL for VMware Tanzu and VMware Tanzu GemFire are not rotated.
+The <%= vars.ops_manager %> API rotates both Certificate Authorities and leaf certificates.
+However, some certificates in MySQL for VMware Tanzu and VMware Tanzu GemFire are not rotated.
 
 ### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Authentication Settings
 
@@ -61,14 +63,15 @@ This feature also includes:
 * Improved response status and errors from the API endpoint
 * Visual identification when customers enter advanced mode
 
-You can access these fields in the <%= vars.ops_manager %> Config pane. For unlockable fields, you
+You can access these fields in the **Director Config** pane. For unlockable fields, you
 can also modify the values of these settings by using the `/api/v0/staged/director/properties`
 <%= vars.ops_manager %> API endpoint in Advanced Mode.
 
-### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for AWS S3 Blobstores
+### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for Amazon S3 Blobstores
 
-<%= vars.ops_manager %> supports virtual-hosted-style, or domain-style, URLs for AWS S3-compatible
-blobstores. Operators can use virtual-hosted-style URLs for S3-compatible blobstores before AWS ends support for path-style URLs after September 30, 2020.
+<%= vars.ops_manager %> supports virtual-hosted-style, or domain-style, URLs for Amazon
+S3-compatible blobstores. Operators can use virtual-hosted-style URLs for S3-compatible blobstores
+before AWS ends support for path-style URLs.
 
 This feature allows operators to:
 
@@ -76,39 +79,48 @@ This feature allows operators to:
 * View and update proxy settings using the API
 * Update the decryption passphrase using the API
 * Use an encrypted private key for a CredHub HSM
-* Recreate the BOSH Director VM during an Apply Change
+* Re-create the BOSH Director VM during an Apply Change
 
 ### <a id='openapi-documentation'></a> API Documentation Follows OpenAPI Specification
 
-<%= vars.ops_manager %> API documentation follows the
-[OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/). 
+<%= vars.ops_manager %> API documentation follows the OpenAPI Specification as documented in
+[OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/) in GitHub.
 
 This update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API
 documentation and improves general formatting.
 
 ---
 
-## <a id='pas'></a> <%= vars.app_runtime_full %> Highlights
+## <a id='tas'></a> <%= vars.app_runtime_full %> Highlights
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major
-features. For additional information about these and other features included in
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %>
-<%= vars.v_major_version %> Release Notes](runtime-rn.html).
+<%= vars.app_runtime_full %> <%= vars.v_major_version %> (<%= vars.app_runtime_abbr %>) includes
+the following important major features. For additional information about these and other features
+included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see
+[<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](runtime-rn.html).
 
 ### <a id='app-log-rate-limits'></a> Configurable App Logging Rate Limits
 
-Operators can set app logging rate limits. These limits can eliminate log loss resulting from
-excessive logging from another app colocated on a cell.
-They can also keep excessive logging from
-depleting critical resources required by Diego to remain in a healthy state. Operators can set
-different limits for isolated and <%= vars.app_runtime_full %> Diego cells.
+Operators can limit the number of log entries that each app instance generates per second by
+configuring the **App log rate limit (beta)** in the **App Containers** pane.
 
-### <a id='app-log-rate-limits'></a> Configurable App Graceful Shutdown Period
+These limits prevent app instances from overloading the Loggregator Agent with logs, so that the
+Loggregator Agent does not drop logs for other app instances co-located on a Cell. These limits can
+also keep excessive logging from depleting critical resources required by Diego to remain in a
+healthy state.
 
-Operators can configure the timeout interval between `TERM` and `KILL` signals sent to containers
-during a graceful shutdown to improve the handling of in-flight requests. Some processes require
-more than the default 10-second timeout interval to complete properly. Operators can set different
-intervals for isolated and <%= vars.app_runtime_full %> Diego cells.
+Operators can set a limit for <%= vars.app_runtime_abbr %> Diego Cells and a separate limit for
+isolated Cells.
+
+### <a id='app-timeout-interval'></a> Configurable App Graceful Shutdown Period
+
+Operators can configure the timeout interval between `TERM` and `KILL` signals for graceful
+shutdowns in the **App graceful shutdown period** field in the **Advanced Features** pane.
+<%= vars.app_runtime_abbr %> sends these signals to containers during a graceful shutdown to handle
+in-flight requests. When a process requires more than the default 10-second timeout interval to
+complete properly, the Operator can increase the timeout interval to an appropriate value.
+
+Operators can set a timeout interval for <%= vars.app_runtime_abbr %> Diego Cells and a separate
+timeout interval for isolated Cells.
 
 ### <a id='route-emitter-to-nats-encryption'></a> Route-Emitter to NATS Encrypted Communication
 
@@ -116,3 +128,43 @@ Operators can configure the Diego route-emitter to send encrypted messages to NA
 
 This feature reduces reliance on security policy exceptions or security add-ons to meet security
 compliance requirements.
+
+---
+
+## <a id='tas-windows'></a> <%= vars.windows_runtime_full %> Highlights
+
+<%= vars.windows_runtime_full %> <%= vars.v_major_version %> (<%= vars.windows_runtime_abbr %>)
+includes the following important major features. For additional information about these and other
+features included in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>, see
+[<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes](windows-rn.html).
+
+### <a id='windows-app-log-rate-limits'></a> Configurable App Logging Rate Limits
+
+Operators can limit the number of log entries that each app instance in an isolation segment
+generates per second by configuring the **App log rate limit (beta)** in the **App Containers** pane
+of the <%= vars.segment_runtime_full %> tile.
+
+These limits prevent app instances from overloading the Loggregator Agent with logs, so that the
+Loggregator Agent does not drop logs for other app instances co-located on a Cell. These limits can
+also prevents app from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface
+(cf CLI) or increasing the CPU usage on the Diego Cell.
+
+### <a id='externalized-event-logs'></a> Externalized Event Logs
+
+Operators can use the `EventLog.Stream.Console` NuGet Package to stream app and Windows event logs
+to the console.
+
+### <a id='signed-url-support'></a> Signed URL support for Windows VMs
+
+Operators can use signed URLs for communication between the BOSH agent and the blobstore
+for Windows VMs.
+
+### <a id='signed-url-support'></a> Improvements to Stembuild
+
+Stembuild improvements include:
+
+* Automatically obtain updated root certificates from the Windows Update Server
+* Keeps up-to-date with the most recent version of OpenSSH
+
+<p class="note"><strong>Note:</strong> Stembuild requires outbound network access to the Windows
+Update Server. Without this access, operators must update root certificates when necessary.</p>
