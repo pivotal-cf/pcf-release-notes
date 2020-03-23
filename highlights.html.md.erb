@@ -98,11 +98,12 @@ features. For additional information about these and other features included in
 ### <a id='app-log-rate-limits'></a> Configurable App Logging Rate Limits
 
 Operators can set app logging rate limits. These limits can eliminate log loss resulting from
-excessive logging from another app colocated on a cell, and can keep excessive logging from
-depleting critical resources required by Diego tp remain in a healthy state. Operators can set
+excessive logging from another app colocated on a cell.
+They can also keep excessive logging from
+depleting critical resources required by Diego to remain in a healthy state. Operators can set
 different limits for isolated and <%= vars.app_runtime_full %> Diego cells.
 
-### <a id='app-log-rate-limits'></a> Configurable App Logging Rate Limits
+### <a id='app-log-rate-limits'></a> Configurable App Graceful Shutdown Period
 
 Operators can configure the timeout interval between `TERM` and `KILL` signals sent to containers
 during a graceful shutdown to improve the handling of in-flight requests. Some processes require
