@@ -1,27 +1,117 @@
 ---
-title: Pivotal Platform v2.9 Feature Highlights
+title: Ops Manager and Runtime Feature Highlights
 modified_date: false
 ---
 
 <% current_page.data.title = vars.platform_name + " " + vars.v_major_version + " and Runtime Feature Highlights" %>
 
- <%# This list comes from combining, selecting, and summarizing all the release notes, and punching them up a bit, informed by marketing -- see the Wiki https://docs-wiki.cfapps.io/wiki/team/release-manager.html#feature-highlights %>
+<p class="note"><strong>Note:</strong><%= vars.platform_name %> is now part of VMware Tanzu.</p>
 
-<p class="note"><strong>Note:</strong>
-  Pivotal Platform is now part of VMware Tanzu.
-</p>
-
-This topic highlights important new features included in <%= vars.platform_name %> <%= vars.v_major_version %>.
-
+This topic highlights important new features included in <%= vars.platform_name %>
+<%= vars.v_major_version %>.
 
 ## <a id='om'></a> <%= vars.ops_manager_full %> Highlights
 
-<%= vars.ops_manager %> <%= vars.v_major_version %> includes the important major features. For additional information about these and other features included in <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following important major
+features. For additional information about these and other features included in
+<%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %>
+<%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
 
+### <a id='deployment-log-improved'></a> Improved Deployment Log Display
 
+<%= vars.ops_manager %> <%= vars.v_major_version %> provides UI and performance improvements to the
+deployment log display, including separate pages for historical logs and streaming logs. Each step in these pages is collapsable, with indicators that show
+whether the step was successful, failed, or not yet executed.
+
+Additional UI and performance improvements to the deployment log display:
+
+* Deployment logs render more quickly
+* One-click view of a stage with errors
+* Start and end time are clearly displayed
+* Stages are more clearly delineated
+
+### <a id='om-api-rotate-credhub-certs'></a> Ops Manager API Rotates BOSH CredHub Certificates and Certificate Authorities
+
+The `certificate_authorities` API endpoints in <%= vars.ops_manager %> <%= vars.v_major_version %>
+rotates certificates in BOSH CredHub as well as in Ops Manager if the following conditions are met:
+
+* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> or later is installed.
+* <%= vars.k8s_runtime_full %> is not installed.
+
+The Ops Manager API rotates both Certificate Authorities and leaf certificates. However, some
+certificates in MySQL for VMware Tanzu and VMware Tanzu GemFire are not rotated.
+
+### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Authentication Settings
+
+Operators can view and update the current authentication settings through the
+<%= vars.ops_manager %>  UI and API at any time. Operators can set authentication to one of the
+following:
+
+* **Internal Authentication** (default)
+* **LDAP**
+* **SAML (SSO)**
+
+### <a id='advanced-mode-fields'></a> Modifications to Locked and Unlockable Fields
+
+Operators can update the BOSH Director properties after initial deployment by first unlocking them
+in Advanced Mode.
+
+This feature also includes:
+
+* Improved response status and errors from the API endpoint
+* Visual identification when customers enter advanced mode
+
+You can access these fields in the <%= vars.ops_manager %> Config pane. For unlockable fields, you
+can also modify the values of these settings by using the `/api/v0/staged/director/properties`
+<%= vars.ops_manager %> API endpoint in Advanced Mode.
+
+### <a id='domain-style'></a> Support for Virtual-Hosted-Style URLs for AWS S3 Blobstores
+
+<%= vars.ops_manager %> supports virtual-hosted-style, or domain-style, URLs for AWS S3-compatible
+blobstores. Operators can use virtual-hosted-style URLs for S3-compatible blobstores before AWS ends support for path-style URLs after September 30, 2020.
+
+This feature allows operators to:
+
+* Use host-style S3 bucket URLs
+* View and update proxy settings using the API
+* Update the decryption passphrase using the API
+* Use an encrypted private key for a CredHub HSM
+* Recreate the BOSH Director VM during an Apply Change
+
+### <a id='openapi-documentation'></a> API Documentation Follows OpenAPI Specification
+
+<%= vars.ops_manager %> API documentation follows the
+[OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/). 
+
+This update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API
+documentation and improves general formatting.
 
 ---
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %> Highlights
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](runtime-rn.html).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major
+features. For additional information about these and other features included in
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %>
+<%= vars.v_major_version %> Release Notes](runtime-rn.html).
+
+### <a id='app-log-rate-limits'></a> Configurable App Logging Rate Limits
+
+Operators can set app logging rate limits. These limits can eliminate log loss resulting from
+excessive logging from another app colocated on a cell, and can keep excessive logging from
+depleting critical resources required by Diego tp remain in a healthy state. Operators can set
+different limits for isolated and <%= vars.app_runtime_full %> Diego cells.
+
+### <a id='app-log-rate-limits'></a> Configurable App Logging Rate Limits
+
+Operators can configure the timeout interval between `TERM` and `KILL` signals sent to containers
+during a graceful shutdown to improve the handling of in-flight requests. Some processes require
+more than the default 10-second timeout interval to complete properly. Operators can set different
+intervals for isolated and <%= vars.app_runtime_full %> Diego cells.
+
+### <a id='route-emitter-to-nats-encryption'></a> Route-Emitter to NATS Encrypted Communication
+
+Operators can configure the Diego route-emitter to send encrypted messages to NATS over TLS.
+
+This feature reduces reliance on security policy exceptions or security add-ons to meet security
+compliance requirements.
