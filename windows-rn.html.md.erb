@@ -18,13 +18,24 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
  
-### <a id='2.9.0-rc.2'></a> 2.9.0-rc.2
+### <a id='2-9-0'></a> v2.9.0
 
-**Release Date:** 03/17/2020
+**Release Date:** March 24, 2020
 
-* Add new release smoke-tests at version `2.0.6`
-* Bump windowsfs-release to version `2.10.0`
-* Removed cf-windows-smoke-tests release
+* **[Feature]** Make app log rate limit configurable.
+  For more information, see [New Features in <%= vars.windows_runtime_abbr %> v2.9](#new-features).
+
+* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all app containers.
+
+* **[Feature]** Expose all platform metrics on Prometheus endpoints.
+
+* **[Feature Improvement]** Allow disabling the V2 Firehose.
+
+* **[Security Fix]** Address CVE 2020-0601: Windows CryptoAPI Spoofing Vulnerability.
+
+* **[Bug Fix]** Fix race condition in Loggregator agent.
+
+* **[Change]** Remove loggregator release.
 
 <table border="1" class="nice">
   <thead>
@@ -50,272 +61,6 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
 </table>
  
  
- 
-### <a id='2.9.0-rc.1'></a> 2.9.0-rc.1
-
-**Release Date:** 03/05/2020
-
-* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all app containers
-* **[Feature]** Make app log rate limit configurable
-* **[Bug Fix]** Fix race condition in Loggregator agent
-* Bump windows2019 stemcell to version `2019.17`
-* Bump cf-windows-smoke-tests to version `40.0.127`
-* Bump diego to version `2.44.0`
-* Bump loggregator-agent to version `5.3.7`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.17</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.127</td></tr>
-    <tr><td>diego</td><td>2.44.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.10</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.13</td></tr>
-    <tr><td>loggregator-agent</td><td>5.3.7</td></tr>
-    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.5.0</td></tr>
-  </tbody>
-</table>
- 
- 
- 
-### <a id='2.9.0-beta.1'></a> 2.9.0-beta.1
-
-**Release Date:** 02/07/2020
-
-* Bump garden-runc to version `1.19.10`
-* Bump loggregator-agent to version `5.3.6`
-* Bump windowsfs-release to version `2.5.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.15</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.125</td></tr>
-    <tr><td>diego</td><td>2.42.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.10</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.13</td></tr>
-    <tr><td>loggregator-agent</td><td>5.3.6</td></tr>
-    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.5.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.9.0-alpha.6'></a> 2.9.0-alpha.6
-
-**Release Date:** 01/18/2020
-
-* **[Security Fix]** Addresses CVE 2020-0601: Windows CryptoAPI Spoofing Vulnerability
-* Bump windows2019 stemcell to version `2019.15`
-* Bump diego to version `2.42.0`
-* Bump loggregator-agent to version `5.3.4`
-* Bump windowsfs-release to version `2.4.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.15</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.125</td></tr>
-    <tr><td>diego</td><td>2.42.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.9</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.13</td></tr>
-    <tr><td>loggregator-agent</td><td>5.3.4</td></tr>
-    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.4.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.9.0-alpha.5'></a> 2.9.0-alpha.5
-
-**Release Date:** 01/16/2020
-
-* Bump cf-windows-smoke-tests to version `40.0.125`
-* Bump loggregator-agent to version `5.3.3`
-* Removed loggregator release
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.14</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.125</td></tr>
-    <tr><td>diego</td><td>2.41.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.9</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.13</td></tr>
-    <tr><td>loggregator-agent</td><td>5.3.3</td></tr>
-    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.9.0-alpha.4'></a> 2.9.0-alpha.4
-
-**Release Date:** 12/26/2019
-
-* **[Feature]**  Expose all platform metrics on Prometheus endpoints
-* Bump windows2019 stemcell to version `2019.14`
-* Bump cf-windows-smoke-tests to version `40.0.124`
-* Bump loggregator-agent to version `5.3.1`
-* Bump loggregator to version `106.3.2`
-* Add new release metrics-discovery at version `2.0.2`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.14</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.124</td></tr>
-    <tr><td>diego</td><td>2.41.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.9</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.13</td></tr>
-    <tr><td>loggregator-agent</td><td>5.3.1</td></tr>
-    <tr><td>loggregator</td><td>106.3.2</td></tr>
-    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.9.0-alpha.3'></a> 2.9.0-alpha.3
-
-**Release Date:** 12/09/2019
-
-* Bump windows2019 stemcell to version `2019.13`
-* Bump diego to version `2.41.0`
-* Bump garden-runc to version `1.19.9`
-* Bump hwc-offline-buildpack to version `3.1.13`
-* Bump loggregator-agent to version `5.2.4`
-* Bump loggregator to version `106.3.0`
-* Bump windowsfs-release to version `2.3.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.13</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.123</td></tr>
-    <tr><td>diego</td><td>2.41.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.9</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.13</td></tr>
-    <tr><td>loggregator-agent</td><td>5.2.4</td></tr>
-    <tr><td>loggregator</td><td>106.3.0</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.3.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.9.0-alpha.2'></a> 2.9.0-alpha.2
-
-**Release Date:** 11/20/2019
-
-* **[Feature Improvement]** Allow disabling the V2 Firehose
-* Bump diego to version `2.40.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.12</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.123</td></tr>
-    <tr><td>diego</td><td>2.40.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.8</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.12</td></tr>
-    <tr><td>loggregator-agent</td><td>5.2.0</td></tr>
-    <tr><td>loggregator</td><td>106.2.0</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
-  </tbody>
-</table>
-
-### <a id='2.9.0-alpha.1'></a> 2.9.0-alpha.1
-
-**Release Date:** 11/07/2019
-
-* Bump cf-windows-smoke-tests to version `40.0.123`
-* Bump hwc-offline-buildpack to version `3.1.12`
-* Bump loggregator-agent to version `5.2.0`
-* Bump loggregator to version `106.2.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>windows2019 stemcell</td><td>2019.12</td></tr>
-    <tr><td>cf-windows-smoke-tests</td><td>40.0.123</td></tr>
-    <tr><td>diego</td><td>2.39.0</td></tr>
-    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
-    <tr><td>event-log</td><td>0.8.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.8</td></tr>
-    <tr><td>hwc-offline-buildpack</td><td>3.1.12</td></tr>
-    <tr><td>loggregator-agent</td><td>5.2.0</td></tr>
-    <tr><td>loggregator</td><td>106.2.0</td></tr>
-    <tr><td>winc</td><td>2.0.0</td></tr>
-    <tr><td>windows-utilities</td><td>0.13.0</td></tr>
-    <tr><td>windowsfs-release</td><td>2.1.0</td></tr>
-  </tbody>
-</table>
-
-
 ## <a id='upgrade'></a> How to Upgrade
 
 The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is available with the release of <%= vars.platform_name %>
