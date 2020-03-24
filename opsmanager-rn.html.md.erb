@@ -20,7 +20,18 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-### <a id="2-9-0-rc-1"></a> 2.9.0 Release Candidate 1
+### <a id="2-9-0"></a> v2.9.0
+
+**Release Date:** March 25, 2020
+
+* See [New Features in <%= vars.ops_manager %> v2.9](#major-features).
+* See [Breaking Changes](breaking-changes.html).
+
+
+* **[Feature]:** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
+
+* **[Feature]** Each step in the Historical and Streaming Logs page is collapsable with indication on whether the step was successful, failed, or not executed yet.
+* **[Feature]** Historical and Streaming Logs page has **Open All** and **Close All** buttons for expandable sections
 
 <table border="1" class="nice">
   <thead>
@@ -38,61 +49,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   </tbody>
 </table>
 
-### <a id="2-9-0-beta-1"></a> 2.9.0 Beta 1
 
-* **[Feature]** Pre-signed blobstore URLs are on by default
-* **[Feature]** Support domain-style S3 paths with an Ops Manager blobstore verifier
-* **[Feature]** Each step in the Historical and Streaming Logs page is collapsable with indication on whether the step was successful, failed, or not executed yet.
-* **[Feature]** Historical and Streaming Logs page has **Open All** and **Close All** buttons for expandable sections
-* **[Feature]** Ops Manager API documentation is redesigned.
-  See [Ops Manager API Reference (2.9)](https://docs.pivotal.io/platform/2-9/opsman-api).
 
-<%= vars.ops_manager %> <%= vars.v_major_version %>.0 Beta 1 uses the following component versions:
 
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.9.0-build.76*</td>
-  </tr>
-  <tr><td>Stemcell</td><td>621.51*</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.11.1*</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11*</td></tr><tr><td>CredHub</td><td>2.5.11*</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.5*</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>81*</td></tr><tr><td>Azure CPI</td><td>37.2.0*</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>53.0.7*</td></tr><tr><td>BOSH CLI</td><td>6.2.0</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.7.0*</td></tr><tr><td>Telemetry</td><td>1.0.1*</td></tr>
-    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  </tbody>
-</table>
 
-### <a id='2-9-0-alpha-1'></a> 2.9.0 Alpha 1
 
-* **[Feature]:** Operators can view and update authentication settings by using the <%= vars.ops_manager %> `/api/v0/settings/authentication` API endpoint or by accessing the **Settings** pane of the <%= vars.ops_manager %> UI.
-* **[Feature]:** Operators can update the <%= vars.ops_manager %> decryption passphrase by using the <%= vars.ops_manager %> `/api/v0/settings/decryption-passphrase` API endpoint.
-* **[Feature]:** Operators can view and update proxy settings in <%= vars.ops_manager %> by using the <%= vars.ops_manager %> `/api/v0/settings/proxy_settings` API endpoint.
-* **[Feature]:** When in Advanced Mode, operators can update additional fields related to blobstore location, Luna HSM, GCS blobstore and S3 blobstore settings in the **Director Config** screen after deploying the BOSH Director. Previously the fields were frozen after deployment.
-* **[Feature]:** <%= vars.ops_manager %> supports domain-style URLs as the default for configuring AWS S3 compatible blobstores.
-* **[Feature]:** <%= vars.ops_manager %> API documentation now follows the OpenAPI Specification (OAS). This update provides operators with a machine-parsable version of the <%= vars.ops_manager %> API docs and improves general formatting.
-* **[UI Improvement]:** When in Advanced Mode, operators see a special banner in the <%= vars.ops_manager %> UI.
-* **[Feature Improvement]:** Performance and UI improvements to the deployment log display.
-  See [Improved Deployment Log Display](#deployment-log-improved) below.
-
-<%= vars.ops_manager %> <%= vars.v_major_version %>.0 Alpha 1 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><%= vars.ops_manager %></td><td>2.9.0-build.59</td>
-  </tr>
-  <tr><td>Stemcell</td><td>621.50</td></tr><tr><td>BBR SDK</td><td>1.17.2</td></tr><tr><td>BOSH Director</td><td>270.11.0</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.10</td></tr><tr><td>CredHub</td><td>2.5.9</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.13.0</td></tr><tr><td>BPM</td><td>1.1.6</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>80</td></tr><tr><td>Azure CPI</td><td>37.0.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>53.0.5</td></tr><tr><td>BOSH CLI</td><td>6.2.0</td></tr><tr><td>Credhub CLI</td><td>2.6.2</td></tr><tr><td>BBR CLI</td><td>1.5.2</td></tr><tr><td>Telemetry</td><td>1.0.0</td></tr>
-  </tbody>
-</table>
 
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
