@@ -309,4 +309,6 @@ To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Cer
 
 For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
+### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Ubuntu Xenial Stemcell 456.100 Is Out of Date
 
+<%= partial "/pcf/core/#{vars.current_major_version.sub('.', '-')}/om_known_issue_stemcell_456-100" %>
