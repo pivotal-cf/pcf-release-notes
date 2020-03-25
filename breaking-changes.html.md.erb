@@ -56,6 +56,8 @@ configured to use an external GCP or Azure database.
 you want to use the same external GCP or Azure database configured
 in the **Databases** pane.
 
+* You enabled TLS communication for the GCP or Azure external database by adding a Certificate Authority (CA) certificate to the **Database CA certificate** field in the **Databases** pane. 
+
 If your deployment meets these conditions, you must disable hostname validation
 before you upgrade to <%= vars.v_major_version %>.
 Failure to disable hostname validation can cause the upgrade to fail
