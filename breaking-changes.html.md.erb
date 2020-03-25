@@ -42,14 +42,31 @@ If you are running NSX-T v2.2 or earlier, you must upgrade NSX-T before deployin
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %> <%= vars.v_major_version %>
 
-There are no breaking changes in this release of <%= vars.app_runtime_abbr %>.
+See the following <%= vars.app_runtime_full %> <%= vars.v_major_version %> breaking changes:
+
+### <a id='disable-hostname-validation'></a> Disable Hostname Validation for External Databases on GCP and Azure
+
+This breaking change applies only to deployments where the following
+conditions are met:
+
+* In the **Databases** pane, Pivotal Application Service (PAS) v2.8 is
+configured to use an external GCP or Azure database.
+
+* In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>,
+you want to use the same external GCP or Azure database configured
+in the **Databases** pane.
+
+If your deployment meets these conditions, you must disable hostname validation
+before you upgrade to <%= vars.v_major_version %>.
+Failure to disable hostname validation can cause the upgrade to fail
+for deployments that use external databases on GCP or Azure.
+
+For more information about disabling hostname validation, see [Disable Hostname Validation for External Databases on GCP and Azure](https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation) in _Upgrade Preparation Checklist_.
 
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> <%= vars.v_major_version %>
 
-See the following <%= vars.windows_runtime_abbr %> breaking changes:
-
-
+There are no breaking changes in this release of <%= vars.windows_runtime_abbr %>.
 
 ## <a id='ist'></a> <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
