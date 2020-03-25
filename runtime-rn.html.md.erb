@@ -839,18 +839,6 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='log-metric-agent-arhcitecture'></a> Log and Metric Agent Architecture (Beta)
-
-The Log and Metric Agent Architecture includes components that collect, store, and forward logs and metrics in your deployment. The components of the Log and Metric Agent Architecture use a shared-nothing architecture that requires several fewer VMs than the Loggregator system. <%= vars.app_runtime_abbr %> v2.8.1 adds two new jobs, `metrics-agent` and `metrics-discovery-registrar`.
-
-The Metrics Agent receives logs and metrics in Loggregator V2 envelopes and exposes them on Prometheus endpoints. Similarly, the Service Metrics Agent receives metrics from service instances and exposes them on Prometheus endpoints.
-
-The Metrics Discovery Registrar then publishes the endpoint scrape location to NATS so you can automate a scrape configuration, using an external tool such as Telegraf. This creates a pull-based architecture to access logs and metrics, replacing the push-based architecture of Loggregator.
-
-To use the Log and Metric Agent Architecture components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. To configure these components, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
-
-For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](http://docs.pivotal.io/platform/application-service/2-9/loggregator/agent-architecture.html).
-
 ### <a id='app-graceful-shutdown'></a> Increase App Graceful Shutdown Period
 
 You can increase the graceful shutdown period for your apps.
@@ -895,6 +883,23 @@ see [Outbound Communications](https://docs.pivotal.io/platform/2-9/security/netw
 For more information about how NATS TLS affects routing in <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>), 
 see [<%= vars.windows_runtime_abbr %> Uses Route Emitters to Communicate with NATS Over TLS](windows-rn.html#route-emitters) in _<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
+### <a id='tls-external-databases'></a> Hostname Validation Enabled By Default for External Databases
+
+An **Enable hostname validation** checkbox is added to the <%= vars.app_runtime_abbr %> **Databases** pane.
+When **Enable hostname validation** is selected for an external database with TLS enabled,
+<%= vars.app_runtime_abbr %> verifies the hostname of the external database
+for communication between <%= vars.app_runtime_abbr %> and the external database.
+
+The **Enable hostname validation** checkbox is selected by default. For more information about enabling hostname validation or enabling TLS for external databases, see [Configure Databases](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-db) in _Configure <%= vars.app_runtime_abbr %>_.
+
+<p class="note warning">
+<b>Warning:</b> If your deployment uses a GCP or Azure external database for <%= vars.app_runtime_abbr %> and TLS is enabled for the database, you must deselect the <strong>Enable hostname validation</strong> checkbox. For more information, see <a href="https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation">Disable Hostname Validation for External Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist</em>.
+</p>
+
+<p class="note">
+<b>Note:</b> The <strong>Enable hostname validation</strong> checkbox does not enable hostname validation for communication between <%= vars.app_runtime_abbr %> components and external CredHub databases. To enable or disable hostname validation for CredHub external databases, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#credhub">Configure CredHub</a> in <em>Configure <%= vars.app_runtime_abbr %></em>.
+</p>
+
 ### <a id='app-revisions'></a> App Revisions Are Enabled by Default (Beta)
 
 App revisions are enabled by default.
@@ -927,6 +932,18 @@ For information about how to install Metric Store, see [Metric Store](https://do
 
 For more information about viewing key metrics for your apps,
 see [Manage an App](https://docs.pivotal.io/platform/application-service/2-9/console/manage-apps.html#manage-app) in _Using Apps Manager_.
+
+### <a id='log-metric-agent-arhcitecture'></a> Log and Metric Agent Architecture (Beta)
+
+The Log and Metric Agent Architecture includes components that collect, store, and forward logs and metrics in your deployment. The components of the Log and Metric Agent Architecture use a shared-nothing architecture that requires several fewer VMs than the Loggregator system. <%= vars.app_runtime_abbr %> v2.8.1 adds two new jobs, `metrics-agent` and `metrics-discovery-registrar`.
+
+The Metrics Agent receives logs and metrics in Loggregator V2 envelopes and exposes them on Prometheus endpoints. Similarly, the Service Metrics Agent receives metrics from service instances and exposes them on Prometheus endpoints.
+
+The Metrics Discovery Registrar then publishes the endpoint scrape location to NATS so you can automate a scrape configuration, using an external tool such as Telegraf. This creates a pull-based architecture to access logs and metrics, replacing the push-based architecture of Loggregator.
+
+To use the Log and Metric Agent Architecture components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. To configure these components, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](http://docs.pivotal.io/platform/application-service/2-9/loggregator/agent-architecture.html).
 
 
 ## <a id='known-issues'></a> Known Issues
