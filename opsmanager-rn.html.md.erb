@@ -266,4 +266,6 @@ For more information about rotating certificates using the <%= vars.ops_manager 
 
 ### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Ubuntu Xenial Stemcell 456.100 Is Out of Date
 
-<%= partial "/pcf/core/#{vars.current_major_version.sub('.', '-')}/om_known_issue_stemcell_456-100" %>
+When you upload Ubuntu Xenial stemcell 456.100 to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date. The Stemcell Library erroneously lists Ubuntu Xenial stemcell 456.98 as the required stemcell.
+
+You can use Ubuntu Xenial stemcell 456.100 and ignore the warning.
