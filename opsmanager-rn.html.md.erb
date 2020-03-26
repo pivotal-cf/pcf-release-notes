@@ -264,8 +264,8 @@ To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Cer
 
 For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
-### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Ubuntu Xenial Stemcell 456.100 Is Out of Date
+### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date
 
-When you upload Ubuntu Xenial stemcell 456.100 to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date. The Stemcell Library erroneously lists Ubuntu Xenial stemcell 456.98 as the required stemcell.
+When you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date. This is because <%= vars.ops_manager %> erroneously interprets triple-digit minor release numbers as being older than double-digit minor release numbers. The Stemcell Library then erroneously lists the most recent double-digit minor release stemcell you uploaded as the required stemcell.
 
-You can use Ubuntu Xenial stemcell 456.100 and ignore the warning.
+You can use stemcells with triple-digit minor release numbers and ignore the warning.
