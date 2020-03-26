@@ -266,6 +266,8 @@ For more information about rotating certificates using the <%= vars.ops_manager 
 
 ### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date
 
-When you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date. This is because <%= vars.ops_manager %> erroneously interprets triple-digit minor release numbers as being older than double-digit minor release numbers. The Stemcell Library then erroneously lists the most recent double-digit minor release stemcell you uploaded as the required stemcell.
+When you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date.
+
+This is because <%= vars.ops_manager %> erroneously interprets triple-digit minor release numbers as being older than double-digit minor release numbers. The Stemcell Library then erroneously lists the most recent double-digit minor release stemcell you uploaded as the required stemcell.
 
 You can use stemcells with triple-digit minor release numbers and ignore the warning.
