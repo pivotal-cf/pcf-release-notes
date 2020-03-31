@@ -182,15 +182,15 @@ in the <%= vars.k8s_runtime_abbr %> documentation.
 
 ### <a id='service-mesh'></a> VMware Tanzu Service Mesh Support
 
-<%= vars.k8s_runtime_abbr %> v1.7 supports the VMware Tanzu Service Mesh. 
-This enhancement enables new features, including support for multiple VMware vSphere with 
-NSX-T Tier-0 (T0) logical routers in multi-tenant environments. 
+<%= vars.k8s_runtime_abbr %> v1.7 supports integration with the VMware Tanzu Service Mesh by VMware NSX (NSX-SM).  
 For more information, see 
 [VMware Tanzu Service Mesh by VMware NSX (Beta)](https://docs.pivotal.io/pks/1-7/nsxt-service-mesh.html).   
 
 ### <a id='kubernetes-profiles'></a> Kubernetes Profile Support
 
-<%= vars.k8s_runtime_abbr %> v1.7 adds Kubernetes Profile support for validated and unvalidated profile configurations. 
+<%= vars.k8s_runtime_abbr %> v1.7 adds Kubernetes Profile support 
+enabling cluster administrators and cluster managers to 
+customize Kubernetes component settings for any clusters that they provision.
 For more information, see 
 [Validated vs Experimental Customizations](https://docs.pivotal.io/pks/1-7/k8s-profiles.html#validated) 
 in _Using Kubernetes Profiles_.
@@ -205,4 +205,4 @@ workloads networked with vSphere with NSX-T.
 <%= vars.k8s_runtime_abbr %> v1.7 adds new Kubernetes monitoring enhancements 
 and support for monitoring Node Exporter metrics. For more information, see 
 [Telegraf](https://docs.pivotal.io/pks/1-7/installing-pks-vsphere.html#telegraf) 
-in the _Installing_ topic for your IaaS.
+in the _Installation_ topic for your IaaS.
