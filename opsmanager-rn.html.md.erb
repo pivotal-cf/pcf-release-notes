@@ -244,6 +244,22 @@ to the deployment log display:
 * Erroring stage is accessible with one click
 * Start and end time are clearly displayed
 
+### <a id='vm-affinity-rule'></a> Ability to Set the VM-Host Affinity Rule to "Should" for Clusters in vSphere
+
+In <%= vars.ops_manager %> v2.9.0 and later, you can modify the **VM-Host Affinity Rule** for a cluster in the **Availability Zones** pane.
+
+By default, **VM-Host Affinity Rule** is set to **MUST**, which means that all VMs in the cluster must run on hosts in the specified host group. There are no exceptions.
+
+Changing the value to **SHOULD** means that during normal operations, VMs in the cluster are run on hosts in the specified host group. However, vSphere can start these VMs in another host group in the event of an AZ failure. This flexibility helps ensure high availability in stretched cluster topologies in vSphere.
+
+For information on changing this setting in Ops Manager, see [Configuring BOSH Director on vSphere](https://docs.pivotal.io/platform/ops-manager/2-9/vsphere/config.html#create-az).
+
+For more information about VM-Host Affinity Rules, see [VM-Host Affinity Rules
+](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-2FB90EF5-7733-4095-8B66-F10D6C57B820.html) in the vSphere documentation.
+
+For more information about stretched clusters, see [Introduction to Stretched Clusters
+](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vsan-planning.doc/GUID-1BDC7194-67A7-4E7C-BF3A-3A0A32AEECA9.html) in the vSphere documentation.
+
 
 ## <a id='known-issues'></a> Known Issues
 
