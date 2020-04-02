@@ -8,7 +8,7 @@ owner: Release Engineering
 This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 
-## <a id='opsman'></a> <%= vars.ops_manager_full %>
+## <a id='opsman'></a> <%= vars.ops_manager %>
 
 There are no breaking changes in this release of <%= vars.ops_manager %>.
 
@@ -33,11 +33,11 @@ For more information, see [<%= vars.app_runtime_abbr %> Must Use At Least One Cr
 
 ### <a id='syslog-adapters-removed'></a> Syslog Adapters Are Removed
 
-Syslog Adapters are not supported in <%= vars.app_runtime_abbr %> v2.8. If you disabled Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, you must enable Syslog Agents before you upgrade to v2.8.x. If you do not enable Syslog Agents prior to upgrade, the upgrade fails in order to prevent potential log loss.
+Syslog Adapters are not supported in <%= vars.app_runtime_abbr %> v2.8. If you disabled Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7, you must enable Syslog Agents before you upgrade to <%= vars.app_runtime_abbr %> v2.8. If you do not enable Syslog Agents prior to upgrade, the upgrade fails in order to prevent potential log loss.
 
 To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the following:
 
-* Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile and select the **Enable agent-based syslog egress for app logs** checkbox.
+* Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile and select the **Enable syslog egress through Syslog Agents** checkbox.
 
 * Set the `properties.syslog_agent_enabled` property to `true`.
 
