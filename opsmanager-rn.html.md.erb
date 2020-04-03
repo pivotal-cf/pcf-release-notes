@@ -250,7 +250,7 @@ In <%= vars.ops_manager %> v2.9.0 and later, you can modify the **VM-Host Affini
 
 By default, **VM-Host Affinity Rule** is set to **MUST**, which means that all VMs in the cluster must run on hosts in the specified host group. There are no exceptions.
 
-Changing the value to **SHOULD** means that during normal operations, VMs in the cluster are run on hosts in the specified host group. However, vSphere can start these VMs in another host group in the event of an AZ failure. This flexibility helps ensure high availability in stretched cluster topologies in vSphere.
+Changing the value to **SHOULD** means that during normal operations, VMs in the cluster are run on hosts in the specified host group. However, vSphere can start these VMs in another host group in the event of an AZ failure. This flexibility helps ensure high availability for stretched cluster topologies in vSphere.
 
 For information on changing this setting in the Ops Manager UI, see [Configuring BOSH Director on vSphere](https://docs.pivotal.io/platform/ops-manager/2-9/vsphere/config.html#create-az). To change the setting with the Ops Manager API, see [Ops Manager API Documentation](https://docs.pivotal.io/platform/2-9/opsman-api/#tag/Availability-Zones/paths/~1api~1v0~1staged~1director~1availability_zones~1{az_guid}/put).
 
