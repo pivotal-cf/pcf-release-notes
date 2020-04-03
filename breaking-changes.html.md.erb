@@ -73,19 +73,29 @@ For more information about removing Consul clients from your products, see [Tile
 
 Do not change your Syslog Agent configuration when you stage <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7 for the first time. For example, if Syslog Agents are enabled on your current version of <%= vars.app_runtime_abbr %>, ensure that Syslog Agents are enabled when you stage <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7 for the first time.
 
-If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](runtime-rn.html#duplicate-logs).
+If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](runtime-rn.html#duplicate-logs) in _<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Release Notes_.
 
 You can edit the Syslog Agent configuration on <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.7 after the first deploy. 
 
-To enable or disable Syslog Agents:  
+To enable or disable Syslog Agents:
 
-1. Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile.
+1. Navigate to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click the <%= vars.app_runtime_abbr %> tile.
+
+1. Select **System Logging**.
 
 1. Do one of the following:
-  * **Enable Syslog Agents**: Select **Enable syslog egress through Syslog Agents**.
-  * **Disable Syslog Agents**: Deselect **Enable syslog egress through Syslog Agents**.
+  * **To enable Syslog Agents:** Select the **Enable syslog egress through Syslog Agents** checkbox.
+  * **To disable Syslog Agents:** Deselect the **Enable syslog egress through Syslog Agents** checkbox.
 
-1. Click **Apply Changes**. 
+1. Click **Save**.
+
+1. Return to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click **Review Pending Changes**.
+
+1. Click **Apply Changes**.
 
 ### <a id='props-changed'></a> Changed Properties and Jobs
 
