@@ -1248,6 +1248,45 @@ The Firehose is enabled by default and configurable. You can enable or disable t
 
 To enable or disable the Firehose, see [Configure System Logging](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_. For more information about Traffic Controller and how it handles logs, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html).
 
+
+### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
+
+If you disable the V1 Firehose in <%= vars.app_runtime_abbr %> v2.7, you must also disable the
+smoke test errand. 
+
+If you do not disable the smoke test errand, the deploy fails with an error similar to the
+following:
+
+```
+Waiting for app to start...  
+    name:            SMOKES-1-APP-c19f146f3ab78951  
+    requested state: started
+    routes:          smokes-1-app-c19f146f3ab78951.apps.sys.hoge.foo.io  
+    last uploaded:   Thu 13 Feb 09:24:31 UTC 2020  
+    stack:           cflinuxfs3  
+    buildpacks:      ruby  
+    type:            web  
+    instances:       1/1  
+    memory usage:    1024M  
+    start command:   bundle exec rackup config.ru -p $PORT  
+         state     since                  cpu    memory    disk      details  
+    #0   running   2020-02-13T09:24:42Z   0.0%   0 of 1G   0 of 1G     
+    [32m[2020-02-13 09:24:46.72 (UTC)]> cf logs --recent SMOKES-1-APP-c19f146f3ab78951 [0m  
+    Retrieving logs for app SMOKES-1-APP-c19f146f3ab78951 in org system / space SMOKE-1-SPACE-be9b05a382fa29d3 as smoke_tests...  
+    unknown issue when making HTTP request to Loggregator  
+    FAILED
+```
+
+To disable the smoke test errand:
+
+1. Navigate to the **Errands** pane in the <%= vars.app_runtime_abbr %> tile.
+
+1. For **Smoke Test Errand**, select **Off**.
+
+For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-7/operating/configure-pas.html#errands)
+in _Configuring <%= vars.app_runtime_abbr %>_.
+
+
 ### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
 
 In <%= vars.app_runtime_abbr %> v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables creating services with a consistent metadata format across <%= vars.app_runtime_abbr %> and Kubernetes. For more information about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
