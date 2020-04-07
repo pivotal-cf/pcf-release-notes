@@ -20,9 +20,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 **Release Date:** 04/07/2020
 
 * **[Feature]** Allow Zero Instances of MySQL Monitor
+* **[Feature Improvement]** Apps Manager revisions tab only shows the 'Redeploy' option for revisions that can be redeployed
 * **[Bug Fix]** Fix DNS Loggregator Trafficcontroller DNS issue
 * **[Bug Fix]** Bump Tomcat in UAA to fix SAML login issues
 * **[Bug Fix]** garden-runc - bump to latest release in supported versions
+* **[Bug Fix]** Make app status in Apps Manager more accurate by replacing 'Crashed' status with 'Down' status
+* **[Bug Fix]** Enable users to view logs larger than 4MB in Apps Manager
+* **[Bug Fix]** Honor option to hide service plan prices in Apps Manager services tables
+* **[Bug Fix]** Expose buildpack versions in app page settings tab of Apps Manager
+* **[Bug Fix]** Account for numerical statuses in Spring and Steeltoe health actuator endpoints in Apps Manager
 * **[Bug Fix]** Fix error when viewing app settings tab in Apps Manager while restarting a Spring or Steeltoe app is in progress
 * **[Bug Fix]** GoRouter correctly handles control characters in URLs
 * **[Bug Fix]** Ensure usage service correctly considers usage events when installed after PAS
