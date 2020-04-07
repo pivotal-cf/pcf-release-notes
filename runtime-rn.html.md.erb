@@ -1926,3 +1926,11 @@ This issue is resolved in PAS v2.6.7 and later.
 ### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.x Not Compatible with PAS v2.6.15 and Later
 
 <%= partial "/pcf/app-service-kis/pcf_metrics_incompatible" %>
+
+### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe `/health` endpoint causes Apps Manager to crash
+
+Apps Manager did not account for asynchronous `\health` actuator endpoint responses when attempting to get the status of an application.
+
+This manifests in the form of the error `TypeError: Cannot read property 'code' of undefined` on the overview tab for an application.
+
+This issue is resolved in PAS v2.6.16 and later.
