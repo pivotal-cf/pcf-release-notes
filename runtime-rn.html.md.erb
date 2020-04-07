@@ -1382,7 +1382,7 @@ When using the `cflinuxfs3` stack in <%= vars.app_runtime_abbr %> v2.3 or later,
 
 To resolve this issue, ensure that all apps are using environment variables that do not contain periods or dashes.
 
-For more information, see [Missing environment variables when using <%= vars.app_runtime_abbr %> 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Knowledge Base.
+For more information, see [Missing environment variables when using <%= vars.app_runtime_abbr %> 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
@@ -1392,13 +1392,19 @@ If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, t
 
 If BOSH turns on the Syslog Agents before it turns off the Syslog Adapter VMs, then there are duplicate logs until the Syslog Adapter VMs are off.
 
-This period of log loss or log duplication is signifantly reduced in <%= vars.app_runtime_abbr %> v2.7.7 and later. For more information, see [Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later](#duplicate-missing-logs-2-7-7).
+This period of log loss or log duplication is signifantly reduced in
+<%= vars.app_runtime_abbr %> v2.7.7 and later. For more information, see
+[Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later](#duplicate-missing-logs-2-7-7).
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
 ### <a id='duplicate-missing-logs-2-7-7'></a> Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later
 
-If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from <%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled in your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short period of log loss or log duplication if you enable Syslog Agents oi <%= vars.app_runtime_abbr %> v2.7.7 or later.   
+If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from
+<%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled on
+your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short
+period of log loss or log duplication if you enable Syslog Agents on
+<%= vars.app_runtime_abbr %> v2.7.7 or later.   
 
 This log loss or log duplication occurs when BOSH enables Syslog Agents and turns off Syslog Adapter VMs. For more information about the cause of the log loss or duplication, see [Duplicate or Missing Logs](#duplicate-logs).    
 
