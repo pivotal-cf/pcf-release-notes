@@ -865,3 +865,11 @@ This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
 In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager uses an inefficient method of loading app logs. 
 This method causes the logs page to remain in a loading state for a long time before displaying logs.
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
+
+### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe `/health` endpoint causes Apps Manager to crash
+
+Apps Manager did not account for asynchronous `\health` actuator endpoint responses when attempting to get the status of an application.
+
+This manifests in the form of the error `TypeError: Cannot read property 'code' of undefined` on the overview tab for an application.
+
+This issue is resolved in PAS v2.8.4 and later.
