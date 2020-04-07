@@ -1236,10 +1236,10 @@ For more information, see [Using Apps Manager](https://docs.pivotal.io/platform/
 
 You can do the following in Apps Manager to manage app re-deployments and revisions:
 
-- View revisions for an app.
-- Deploy a revision of an app.
-- View the deployment status of an app revision.
-- View the environment variables associated with an app revision.
+* View revisions for an app.
+* Deploy a revision of an app.
+* View the deployment status of an app revision.
+* View the environment variables associated with an app revision.
 
 You can manage app re-deployments and revisions in the **Revisions** pane of the Apps Manager UI.
 
@@ -1284,23 +1284,25 @@ For more information, see [Accessing Apps with SSH](https://docs.pivotal.io/plat
 Agent-based syslog egress removes the need for VMs dedicated to syslog drains. So, any instance groups and properties related to these VMs were removed in <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6.
 
 The following instance groups are removed:
-- `syslog_adapter`
-- `syslog_scheduler` 
+
+* `syslog_adapter`
+* `syslog_scheduler` 
 
 The following property is removed:
-- `syslog_metrics_to_syslog_enabled`
+
+* `syslog_metrics_to_syslog_enabled`
 
 <p class="note"><strong>Note:</strong>The <code>syslog_adapter</code> and <code>syslog_scheduler</code> instance groups and the <code>syslog_metrics_to_syslog_enabled</code> property are availble in <%= vars.app_runtime_abbr %> v2.7.7. This allows you to optionally disable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7.</p>
 
 For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
-### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route-Emitter
+### <a id='diego-route-consistency'></a> Improved Route Consistency in Diego Route Emitter
 
-<%= vars.app_runtime_abbr %> v2.7 improves route consistency in the route-emitter component of Diego.
+<%= vars.app_runtime_abbr %> v2.7 improves route consistency in the Route Emitter component of Diego.
 
 This Diego enhancement ensures better routing resiliency in the event of control plane downtime. For example, if NATS experiences downtime or the network becomes unstable, apps can remain routable since <%= vars.app_runtime_abbr %> no longer prunes routes on time-to-live (TTL).
 
-This modification to the route-emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in <%= vars.app_runtime_abbr %> v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in _<%= vars.app_runtime_full %> v2.6 Release Notes_.
+This modification to the Route Emitter removes the need for the **Prune routes on TTL expiry for TLS back ends** configuration option in <%= vars.app_runtime_abbr %> v2.7. For more information, see [Intermittent Misrouting of Apps in Large PCF Foundations](https://docs.pivotal.io/platform/2-6/pcf-release-notes/runtime-rn.html#stale-routes) in _<%= vars.app_runtime_full %> v2.6 Release Notes_.
 
 ### <a id='mtls'></a> Mutual TLS Communication Between Routing API and Other Components
 
@@ -1348,7 +1350,6 @@ To enable or disable the Firehose, see [Configure System Logging](https://docs.p
 
 <p class="note warning"><strong>Warning:</strong> If you disable the Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a> below.</p>
 
-
 ### <a id='annotations'></a> Annotation Keys and Key Prefixes Use Kubernetes Format
 
 In <%= vars.app_runtime_abbr %> v2.7, annotation keys and key prefixes use the same metadata format as Kubernetes. This feature enables creating services with a consistent metadata format across <%= vars.app_runtime_abbr %> and Kubernetes. For more information about annotation keys and key prefixes, see [Using Metadata](https://docs.pivotal.io/platform/2-7/adminguide/metadata.html).
@@ -1392,19 +1393,13 @@ If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, t
 
 If BOSH turns on the Syslog Agents before it turns off the Syslog Adapter VMs, then there are duplicate logs until the Syslog Adapter VMs are off.
 
-This period of log loss or log duplication is signifantly reduced in
-<%= vars.app_runtime_abbr %> v2.7.7 and later. For more information, see
-[Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later](#duplicate-missing-logs-2-7-7).
+This period of log loss or log duplication is signifantly reduced in <%= vars.app_runtime_abbr %> v2.7.7 and later. For more information, see [Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later](#duplicate-missing-logs-2-7-7).
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
 ### <a id='duplicate-missing-logs-2-7-7'></a> Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later
 
-If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from
-<%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled on
-your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short
-period of log loss or log duplication if you enable Syslog Agents on
-<%= vars.app_runtime_abbr %> v2.7.7 or later.   
+If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from <%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled on your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short period of log loss or log duplication if you enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7 or later.   
 
 This log loss or log duplication occurs when BOSH enables Syslog Agents and turns off Syslog Adapter VMs. For more information about the cause of the log loss or duplication, see [Duplicate or Missing Logs](#duplicate-logs).    
 
