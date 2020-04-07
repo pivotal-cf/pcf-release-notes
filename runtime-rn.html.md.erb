@@ -1290,17 +1290,23 @@ For more information, see [Missing environment variables when using <%= vars.app
 
 Syslog Agents are required on <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6. When you upgrade to <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6, BOSH turns on Syslog Agents and turns off Syslog Adapter VMs.  
 
-If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, then there are no logs for a significant period of time while BOSH turns on the Syslog Agents on each Diego cell. 
+If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, then there are no logs for a significant period of time while BOSH turns on the Syslog Agents on each Diego Cell. 
 
 If BOSH turns on the Syslog Agents before it turns off the Syslog Adapter VMs, then there are duplicate logs until the Syslog Adapter VMs are off.
 
-This period of log loss or log duplication is signifantly reduced in <%= vars.app_runtime_abbr %> v2.7.7. For more information, see [Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7](#duplicate-missing-logs-2-7-7).
+This period of log loss or log duplication is signifantly reduced in
+<%= vars.app_runtime_abbr %> v2.7.7 and later. For more information, see
+[Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later](#duplicate-missing-logs-2-7-7).
 
 For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enabled by Default](#agent-based-syslog-egress).
 
-### <a id='duplicate-missing-logs-2-7-7'></a> Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7
+### <a id='duplicate-missing-logs-2-7-7'></a> Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later
 
-If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 from v2.6.x and Syslog Agents were disabled on your v2.6.x deployment, there is a short period of log loss or log duplication if you enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7.   
+If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from
+<%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled on
+your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short
+period of log loss or log duplication if you enable Syslog Agents on
+<%= vars.app_runtime_abbr %> v2.7.7 or later.   
 
 This log loss or log duplication occurs when BOSH enables Syslog Agents and turns off Syslog Adapter VMs. For more information about the cause of the log loss or duplication, see [Duplicate or Missing Logs](#duplicate-logs).    
 
