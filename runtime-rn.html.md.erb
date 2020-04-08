@@ -21,17 +21,20 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 04/07/2020
 
-* **[Feature Improvement]** Apps Manager revisions tab only shows the 'Redeploy' option for revisions that can be redeployed
+* **[Feature Improvement]** Apps Manager Revisions tab only shows the Redeploy button for revisions
+    that can be redeployed.
 * **[Bug Fix]** Bump Tomcat in UAA to fix SAML login issues
 * **[Bug Fix]** garden-runc - bump to latest release in supported versions
 * **[Bug Fix]** Fix issue that caused traffic-controller/doppler jobs to not start
-* **[Bug Fix]** Make app status in Apps Manager more accurate by replacing 'Crashed' status with 'Down' status
-* **[Bug Fix]** Enable users to view logs larger than 4MB in Apps Manager
-* **[Bug Fix]** Honor option to hide service plan prices in Apps Manager services tables
-* **[Bug Fix]** Expose buildpack versions in app page settings tab of Apps Manager
-* **[Bug Fix]** Account for numerical statuses in Spring and Steeltoe health actuator endpoints in Apps Manager
-* **[Bug Fix]** Fix error when viewing app settings tab in Apps Manager while restarting a Spring or Steeltoe app is in progress
-* **[Bug Fix]** GoRouter correctly handles control characters in URLs
+* **[Bug Fix]** Apps now show a status of down instead of crashed.
+* **[Bug Fix]** You can now view logs larger than 4&nbsp;MB in Apps Manager.
+* **[Bug Fix]** Honor option to hide service plan prices in Apps Manager services tables.
+* **[Bug Fix]** Expose buildpack versions in the Settings tab for the app in Apps Manager
+* **[Bug Fix]** Account for numerical statuses in Spring and Steeltoe `\health` actuator endpoints
+    in Apps Manager
+* **[Bug Fix]** Fix error when viewing the Settings tab for an app in Apps Manager
+    while a Spring or Steeltoe app is restarting
+* **[Bug Fix]** Gorouter correctly handles control characters in URLs
 * **[Bug Fix]** Ensure usage service correctly considers usage events when installed after PAS
 * **[Bug Fix]**  App developers now receive a 401 when using an expired access token with policy server
 * **[Bug Fix]** Autoscaler smoke test works when router rejects requests on port 80
