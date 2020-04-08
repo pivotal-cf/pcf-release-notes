@@ -1504,19 +1504,14 @@ In <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.9, Apps Manager uses an inef
 causes the logs page to remain in a loading state for a long time before displaying logs.
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.10.
 
-### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe /health Endpoint Causes Apps Manager to Crash
+### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe \health Endpoint Causes Apps Manager to Crash
 
-AFTER
+This issue only applies to PAS v2.7.9 and earlier.
 
-This issue applies to PAS v2.7.9 and earlier.
+If your Spring or Steeltoe app uses an asynchronous `\health` actuator endpoint,
+you might see the error `TypeError: Cannot read property 'code' of undefined`
+in the Overview tab for the app.
+The normal contents of the Overview tab are not displayed.
 
-When Apps Manager tries to get the status of an app,
-the error `TypeError: Cannot read property 'code' of undefined` appears on the overview tab for the app. 
-
-BEFORE
-
-When attempting to get the status of an app, Apps Manager did not account for asynchronous `\health` actuator endpoint responses.
-
-This manifests in the form of the error `TypeError: Cannot read property 'code' of undefined` on the overview tab for an application.
-
-This issue is resolved in PAS v2.7.10 and later.
+This does not indicate a problem with the app, and information on the other tabs
+displays correctly.
