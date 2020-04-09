@@ -166,6 +166,20 @@ For more information, see [Configure App Containers](http://docs.pivotal.io/plat
 
 ### <a id='iso-seg-name'></a> Smoke Test Fails When Isolation Segment Name Begins with Hyphen
 
-The Smoke Test errand fails for an Isolation Segment when the Isolation Segment name begins with a hyphen.
+The Smoke Test errand fails for an isolation segment when the isolation segment name begins with a hyphen.
 
-To fix this issue, rename the Isolation Segment and click **Apply Changes**.
+To fix this issue, you must rename the isolation segment to remove the hyphen at the beginning of the name. To rename the isolation segment:
+
+1. In the <%= vars.segment_runtime_full %> tile, navigate to the **Compute and Networking Isolation** pane.
+
+1. Under **Compute isolation**, edit the name in the **Segment name** field.
+
+1. Click **Save**.
+
+1. Return to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click **Review Pending Changes**
+
+1. Click **Apply Changes**.
+
+For more information about isolation segment names, see [Configure Pane](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#pane-config) in _Installing <%= vars.segment_runtime_full %>_. For more information about the Smoke Test errand, see [Configure Smoke Tests](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) and [Configure Errands](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
