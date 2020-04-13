@@ -30,7 +30,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Honor option to hide service plan prices in Apps Manager services tables
 * **[Bug Fix]** Expose buildpack versions in the Settings tab for the app in Apps Manager
 * **[Bug Fix]** Apps Manager accepts numerical status, such as 500,
-    from the Spring and Steeltoe `\health` actuator endpoints
+    from the Spring and Steeltoe `health` actuator endpoints
 * **[Bug Fix]** Fix error when viewing the Settings tab for an app in Apps Manager
     while a Spring or Steeltoe app is restarting
 * **[Bug Fix]** Gorouter correctly handles control characters in URLs
@@ -869,11 +869,11 @@ In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager uses an inef
 This method causes the logs page to remain in a loading state for a long time before displaying logs.
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
 
-### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe \health Endpoint Causes Apps Manager to Crash
+### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe health Endpoint Causes Apps Manager to Crash
 
 This issue only applies to PAS v2.8.3 and earlier.
 
-If your Spring or Steeltoe app uses an asynchronous `\health` actuator endpoint,
+If your Spring or Steeltoe app uses an asynchronous `health` actuator endpoint,
 you might see the error `TypeError: Cannot read property 'code' of undefined`
 in the Overview tab for the app.
 The normal contents of the Overview tab are not displayed.
