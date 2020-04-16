@@ -17,6 +17,31 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> includes the following minor releases:
 
+### <a id="2-7-15"></a> 2.7.15
+
+* **[Bug Fix]**: Credhub-generated variables are not displayed in plain text on the streaming and historical log pages.
+* **[Feature]**: Ops Manager sanitizes carriage returns and line feeds in certificates. 
+* **[Bug Fix]**: Fixes issue where the <%= vars.ops_manager %> Stemcell Library displayed a warning that a stemcell is out of date if it has a triple-digit minor release number.
+* **[Bug Fix]**: You can view UAA logs at `/home/tempest-web/uaa/tomcat/log/uaa.log`.
+
+<%= vars.ops_manager %> v2.7.15 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.7.15-build.296*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.104*</td></tr><tr><td>BBR SDK</td><td>1.17.4*</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.21*</td></tr><tr><td>BPM</td><td>1.1.8*</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.9*</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
 ### <a id="2-7-14"></a> 2.7.14
 
 * **[Feature]** Operators can configure multiple certificates in the **Server SSL Cert** field during **LDAP Server** configuration.
@@ -485,8 +510,10 @@ To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Cer
 
 ### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date
 
-When you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date.
+In <%= vars.ops_manager %> v2.7.14 and earlier, when you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date.
 
 This is because <%= vars.ops_manager %> erroneously interprets triple-digit minor release numbers, such as Ubuntu Xenial stemcell 456.100, as being older than double-digit minor release numbers, such as Ubuntu Xenial stemcell 456.98. The Stemcell Library then erroneously lists the most recent double-digit minor release stemcell you uploaded as the required stemcell.
 
 You can use stemcells with triple-digit minor release numbers and ignore the warning.
+
+This issue is resolved in <%= vars.ops_manager %> v2.7.15.
