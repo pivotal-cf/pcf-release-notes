@@ -346,6 +346,17 @@ You can use the Web Config Transform Extension Buildpack to externalize .NET Fra
 For more information about using the buildpack, see the [Web Config Transform Buildpack](https://github.com/cloudfoundry-community/web-config-transform-buildpack) repository on GitHub.
 
 
+### <a id='dns-search-domains'></a> DNS Search Domains Support
+
+<%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> supports DNS Search Domains.
+<%= vars.windows_runtime_abbr %> apps use the domains 
+configured in the <%= vars.app_runtime_abbr %> **DNS Search Domains** field as their domain search list.  
+
+For more information about configuring DNS Search Domains, 
+see [Configure Networking](https://docs-pcf-staging.cfapps.io/platform/application-service/2-9/operating/configure-pas.html#networking) 
+in _Configuring <%= vars.app_runtime_abbr %>_.
+
+
 ## <a id='adv-features'></a> New Advanced Features
 
 The **Advanced Features** pane of the <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile includes new functionality that may have certain constraints.
