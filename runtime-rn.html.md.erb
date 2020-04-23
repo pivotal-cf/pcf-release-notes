@@ -967,3 +967,22 @@ This issue affects PAS v2.8.4 and later.
 If the PCF Metrics tile is installed on a foundation,
 then a link to the PCF Metrics dashboard usually appears on the app Overview tab in Apps Manager.
 In PAS v2.8.4 and later, this link either does not appear or is broken.
+
+### <a id="large-number-unnecessary-queries"></a> Traffic Controller Can Issue a Large Number of Unnecessary DNS Queries
+
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.6 and later.
+
+In PAS v2.8.5, Loggregator release version 106.2.4 uses an upgraded version of GOLANG GRPC. By default, GRPC attempts
+to find the hostname `q-s0.doppler.NETWORK-NAME.cf-GUID.bosh` through BOSH DNS for A, SRV, and TXT records. If this
+attempt fails or is delayed, GRPC sends DNS lookups to all of the external DNS servers listed in `/etc/resolv.conf`.
+This can result in the Loggregator Traffic Controller generating hundreds of requests per second.
+
+Example log message from BOSH DNS server:
+
+<pre class="terminal">
+[RequestLoggerHandler] 2020/03/27 12:06:04 WARN - handlers.DiscoveryHandler Request qtype=[TXT] qname=[q-s0.doppler.pas.cf-GUID.bosh.] rcode=SERVFAIL time=17000ns
+</pre>
+
+To work around this issue in <%= vars.app_runtime_abbr %> v2.8.5, see
+[Loggregator continuously generates hundreds of DNS requests per second to external DNS servers](https://community.pivotal.io/s/article/Loggregator-Continuously-generates-hundreds-of-dns-requests-per-second-to-external-dns-servers)
+in the Knowledge Base.
