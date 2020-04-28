@@ -215,7 +215,7 @@ If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detecti
 ### <a id='nats-tls'></a> NATS Shares Messages with NATS TLS
 
 The `nats-tls` job is added to the NATS VM. 
-This job configures the Diego route emitter to send routing information to NATS, which then shares that information with NATS TLS.
+This job configures the Diego Route Emitter to send routing information to NATS, which then shares that information with NATS TLS.
 
 For more information about routing architecture in <%= vars.app_runtime_abbr %>, 
 see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/platform/application-service/2-9/concepts/cf-routing-architecture.html). 
@@ -236,11 +236,11 @@ for communication between <%= vars.app_runtime_abbr %> and the external database
 The **Enable hostname validation** checkbox is selected by default. For more information about enabling hostname validation or enabling TLS for external databases, see [Configure Databases](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-db) in _Configure <%= vars.app_runtime_abbr %>_.
 
 <p class="note warning">
-<b>Warning:</b> If your deployment uses a GCP or Azure external database for <%= vars.app_runtime_abbr %> and TLS is enabled for the database, you must deselect the <strong>Enable hostname validation</strong> checkbox. For more information, see <a href="https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation">Disable Hostname Validation for External Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist</em>.
+<strong>Warning:</strong> If your deployment uses a GCP or Azure external database for <%= vars.app_runtime_abbr %> and TLS is enabled for the database, you must deselect the <strong>Enable hostname validation</strong> checkbox. For more information, see <a href="https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation">Disable Hostname Validation for External Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist</em>.
 </p>
 
 <p class="note">
-<b>Note:</b> The <strong>Enable hostname validation</strong> checkbox does not enable hostname validation for communication between <%= vars.app_runtime_abbr %> components and external CredHub databases. To enable or disable hostname validation for CredHub external databases, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#credhub">Configure CredHub</a> in <em>Configure <%= vars.app_runtime_abbr %></em>.
+<strong>Note:</strong> The <strong>Enable hostname validation</strong> checkbox does not enable hostname validation for communication between <%= vars.app_runtime_abbr %> components and external CredHub databases. To enable or disable hostname validation for CredHub external databases, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#credhub">Configure CredHub</a> in <em>Configure <%= vars.app_runtime_abbr %></em>.
 </p>
 
 ### <a id='app-revisions'></a> App Revisions Are Enabled by Default (Beta)
