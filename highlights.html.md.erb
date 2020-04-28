@@ -10,9 +10,9 @@ modified_date: false
 This topic highlights important new features included in <%= vars.platform_name %>
 <%= vars.v_major_version %>.
 
-## <a id='om'></a> <%= vars.ops_manager_full %> Highlights
+## <a id='om'></a> <%= vars.ops_manager %> Highlights
 
-<%= vars.ops_manager_full %> <%= vars.v_major_version %> includes the following important major
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following important major
 features. For additional information about these and other features included in
 <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %>
 <%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
@@ -37,8 +37,8 @@ The `certificate_authorities` API endpoints in <%= vars.ops_manager %> <%= vars.
 rotates certificates in BOSH CredHub as well as in <%= vars.ops_manager %> if the following
 conditions are met:
 
-* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> or later is installed.
-* <%= vars.k8s_runtime_full %> is not installed.
+* <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> or later is installed.
+* <%= vars.k8s_runtime_full %> (<%= vars.k8s_runtime_abbr %>) is not installed.
 
 The <%= vars.ops_manager %> API rotates both Certificate Authorities and leaf certificates.
 However, some certificates in MySQL for VMware Tanzu and VMware Tanzu GemFire are not rotated.
@@ -46,7 +46,7 @@ However, some certificates in MySQL for VMware Tanzu and VMware Tanzu GemFire ar
 ### <a id='authentication-update'></a> View and Update <%= vars.ops_manager %> Authentication Settings
 
 Operators can view and update the current authentication settings through the
-<%= vars.ops_manager %>  UI and API at any time. Operators can set authentication to one of the
+<%= vars.ops_manager %> UI and API at any time. Operators can set authentication to one of the
 following:
 
 * **Internal Authentication** (default)
@@ -93,7 +93,7 @@ documentation and improves general formatting.
 
 ## <a id='tas'></a> <%= vars.app_runtime_full %> Highlights
 
-<%= vars.app_runtime_full %> <%= vars.v_major_version %> (<%= vars.app_runtime_abbr %>) includes
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes
 the following important major features. For additional information about these and other features
 included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see
 [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](runtime-rn.html).
@@ -104,12 +104,12 @@ Operators can limit the number of log entries that each app instance generates p
 configuring the **App log rate limit (beta)** in the **App Containers** pane.
 
 These limits prevent app instances from overloading the Loggregator Agent with logs, so that the
-Loggregator Agent does not drop logs for other app instances co-located on a Cell. These limits can
+Loggregator Agent does not drop logs for other app instances co-located on a Diego Cell. These limits can
 also keep excessive logging from depleting critical resources required by Diego to remain in a
 healthy state.
 
 Operators can set a limit for <%= vars.app_runtime_abbr %> Diego Cells and a separate limit for
-isolated Cells.
+isolated Diego Cells.
 
 ### <a id='app-timeout-interval'></a> Configurable App Graceful Shutdown Period
 
@@ -120,11 +120,11 @@ in-flight requests. When a process requires more than the default 10-second time
 complete properly, the Operator can increase the timeout interval to an appropriate value.
 
 Operators can set a timeout interval for <%= vars.app_runtime_abbr %> Diego Cells and a separate
-timeout interval for isolated Cells.
+timeout interval for isolated Diego Cells.
 
 ### <a id='route-emitter-to-nats-encryption'></a> Route-Emitter to NATS Encrypted Communication
 
-Operators can configure the Diego route-emitter to send encrypted messages to NATS over TLS.
+Operators can configure the Diego Route-Emitter to send encrypted messages to NATS over TLS.
 
 This feature reduces reliance on security policy exceptions or security add-ons to meet security
 compliance requirements.
@@ -145,7 +145,7 @@ generates per second by configuring the **App log rate limit (beta)** in the **A
 of the <%= vars.segment_runtime_full %> tile.
 
 These limits prevent app instances from overloading the Loggregator Agent with logs, so that the
-Loggregator Agent does not drop logs for other app instances co-located on a Cell. These limits can
+Loggregator Agent does not drop logs for other app instances co-located on a Diego Cell. These limits can
 also prevents app from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface
 (cf CLI) or increasing the CPU usage on the Diego Cell.
 
