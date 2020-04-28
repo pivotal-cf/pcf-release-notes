@@ -224,11 +224,15 @@ TLS is now always enabled for the internal blobstore. You can no longer toggle T
 
 <%= vars.recommended_by %> recommends that you enable TLS for the internal blobstore before you upgrade. You can do this by selecting **Enable TLS** in the **Director Config** pane. There may be errors if the blobstore CA is expired.
 
-### <a id='optional-dependencies'></a> <%= vars.ops_manager %> Optional Dependencies
+### <a id='optional-dependencies'></a> Specify Optional Tile Dependencies
 
-Tile dependencies can now be specified as optional by specifying `optional: true`, see tile dev [docs](https://docs.pivotal.io/tiledev/2-8/property-template-references.html#top-requires).
+You can specify tile dependencies as optional.
+To add optional dependencies, use the `optional: true` field under the
+`requires_product_versions` property in the tile directory's `tile.yml` file.
 
-#### UI and API Show More Information about Dependencies
+For more information about the difference between required and optional dependencies, see [Dependencies](https://docs.pivotal.io/tiledev/2-8/tile-structure.html#dependencies) in _How Tiles Work_.
+
+### <a id='dependency-information'></a> UI and API Show More Information about Dependencies
 
 <%= vars.ops_manager %> v2.8 changes the way dependencies appear when you selectively deploy products. When you click **Review Pending Changes** in the <%= vars.ops_manager %> UI, each product lists its dependencies in the **Depends on** section. When you make a request to the `pending_changes` <%= vars.ops_manager %> API endpoint, the response lists each product's dependencies in the `depends_on` section.
 
