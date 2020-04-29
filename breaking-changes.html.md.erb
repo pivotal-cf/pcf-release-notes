@@ -49,14 +49,14 @@ See the following <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> break
 This breaking change applies only to deployments where the following
 conditions are met:
 
-* In the **Databases** pane, Pivotal Application Service (PAS) v2.8 is
+* In the **Databases** pane, PAS v2.8 is
 configured to use an external GCP or Azure database.
 
 * In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>,
 you want to use the same external GCP or Azure database configured
 in the **Databases** pane.
 
-* You enabled TLS communication for the GCP or Azure external database by adding a Certificate Authority (CA) certificate to the **Database CA certificate** field in the **Databases** pane. 
+* You enabled TLS communication for the GCP or Azure external database by adding a certificate authority (CA) certificate to the **Database CA certificate** field in the **Databases** pane. 
 
 If your deployment meets these conditions, you must disable hostname validation
 before you upgrade to <%= vars.v_major_version %>.
@@ -90,6 +90,6 @@ This section lists support changes to buildpacks associated with this release:
 
 If your app depends on any of these language distributions and use the buildpacks packaged for TAS for VMs, you should consider updating the apps and their dependencies prior to upgrading to TAS for VMs v2.9.0.
 
-### <a id='2-6'></a> Ops Manager v2.6 and Pivotal Application Service v2.6
+### <a id='2-6'></a> Ops Manager v2.6 and PAS v2.6
 
-Shortly after Ops Manager and TAS for VMs v2.9 are released, Ops Manager v2.6 and Pivotal Application Service v2.6 reach their end of general support.
+Shortly after Ops Manager and TAS for VMs v2.9 are released, Ops Manager v2.6 and PAS v2.6 reach their end of general support.
