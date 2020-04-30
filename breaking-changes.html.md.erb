@@ -81,6 +81,14 @@ In PAS v2.6, the NFS-Legacy Mounter is removed. Migrating to the NFS volume serv
 
 For more information on how to migrate apps from `nfs-legacy` to `nfs`, see [Upgrade Preparation Checklist for PCF v2.6](https://docs.pivotal.io/pivotalcf/2-6/upgrading/checklist.html).
 
+### <a id="check-mysql-ram"></a> New Internal MySQL Buffer Pool Size
+
+Starting in PAS v2.6.8, the buffer pool size for the internal MySQL database has changed from 2&nbsp;GB to 50% of available memory.
+
+You may need to choose a VM type with a larger amount of RAM to avoid Out of Memory (OOM) errors.
+
+For example, if the internal MySQL database is configured with 8&nbsp;GB of RAM and 6&nbsp;GB is currently being used, then 2&nbsp;GB is consumed by the buffer pool while 4&nbsp;GB is consumed by everything else. Upgrading <%= vars.app_runtime_abbr %> will cause OOM errors since the buffer pool will now consume 4&nbsp;GB, leaving 0&nbsp;GB of available RAM.
+
 
 ## <a id='pas-windows'></a> Pivotal Application Service for Windows (PASW)
 
