@@ -128,11 +128,17 @@ In PAS v2.4, the **DNS Servers** field was removed from the PAS UI, but the `dns
 
 ### <a id="check-mysql-ram"></a> New Internal MySQL Buffer Pool Size
 
-Starting in PAS v2.5.13, the buffer pool size for the internal MySQL database has changed from 2&nbsp;GB to 50% of available memory.
+In <%= vars.app_runtime_abbr %> v2.5.13 and later,
+the buffer pool size for the internal MySQL database is changed from 2&nbsp;GB to 50% of available memory.
 
 You may need to choose a VM type with a larger amount of RAM to avoid Out of Memory (OOM) errors.
 
-For example, if the internal MySQL database is configured with 8&nbsp;GB of RAM and 6&nbsp;GB is currently being used, then 2&nbsp;GB is consumed by the buffer pool while 4&nbsp;GB is consumed by everything else. Upgrading <%= vars.app_runtime_abbr %> will cause OOM errors since the buffer pool will now consume 4&nbsp;GB, leaving 0&nbsp;GB of available RAM.
+For example, in <%= vars.app_runtime_abbr %> v2.5.12 and earlier,
+if the internal MySQL VM is configured with 8&nbsp;GB of RAM and 6&nbsp;GB is currently used,
+then 2&nbsp;GB is consumed by the buffer pool and 4&nbsp;GB is consumed by everything else.
+
+In this example, upgrading to <%= vars.app_runtime_abbr %> v2.5.13 or later causes OOM errors
+because the buffer pool consumes 4&nbsp;GB, which leaves 0&nbsp;GB of available RAM.
 
 
 ## <a id='pas-windows'></a> Pivotal Application Service for Windows (PASW)
