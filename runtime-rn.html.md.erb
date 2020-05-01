@@ -766,19 +766,19 @@ The text `Deployed (Active)` appears in the **Status** column of the table to in
 
 For more information about using the Apps Manager UI, see [Using Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/console/index.html). 
 
-### <a id='sidecars-buildpack'></a> Deploy Sidecar Processes with a Buildpack
-
-You can deploy a sidecar process for an app with a buildpack rather than with an app manifest.
-
-<p class="note"><strong>Note:</strong> PAS v2.8 does not support using sidecar buildpacks with Java apps.</p>
-
-For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/platform/application-service/2-8/buildpacks/sidecar-buildpacks.html).
-
 ### <a id='cli-support-sidecars'></a> cf CLI Supports Sidecar Processes
 
 The Cloud Foundry Command-Line Interface (cf CLI) adds support for sidecar processes. You can add a sidecar process to an app process using an app manifest. The cf CLI displays the sidecar process alongside the app process to which it is attached.
 
 For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
+
+### <a id='sidecars-buildpack'></a> Deploy Sidecar Processes with a Custom Buildpack
+
+As an alternative to using an app manifest, you can deploy a sidecar process for an app with a custom buildpack.
+
+<p class="note"><strong>Note:</strong> PAS v2.8 does not support using custom buildpacks to push sidecars for Java apps. You can only push sidecars for Java apps by using an app manifest.</p>
+
+For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/platform/application-service/2-8/buildpacks/sidecar-buildpacks.html).
 
 ### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
 
