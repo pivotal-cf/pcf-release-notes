@@ -126,7 +126,7 @@ To download the Log Cache Cloud Foundry Command Line Interface (cf CLI) plugin, 
 
 In PAS v2.4, the **DNS Servers** field was removed from the PAS UI, but the `dns_servers` property was not removed so as not to break Platform Automation scripts. In PAS v2.5, the `dns_servers` property is removed, which breaks Platform Automation scripts if that parameter is still configured for your tiles.
 
-### <a id="check-mysql-ram"></a> New Internal MySQL Buffer Pool Size
+### <a id="check-mysql-ram"></a> New Internal MySQL Buffer Pool Size in <%= vars.app_runtime_abbr %> v2.5.13 and Later
 
 In <%= vars.app_runtime_abbr %> v2.5.13 and later,
 the buffer pool size for the internal MySQL database is changed from 2&nbsp;GB to 50% of available memory.
