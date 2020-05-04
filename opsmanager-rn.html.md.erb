@@ -20,6 +20,18 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
+### <a id="2-9-1"></a> v2.9.1
+
+**Release Date:** May 4, 2020
+
+* **[Feature]**: Ops Manager and BOSH Director support the Hong Kong region in AWS.
+* **[Feature]**: In the Ops Manager UI, the text of the Pivotal Network link is updated to VMware Tanzu Network. 
+* **[Bug Fix]**: Fixes issue where rsyslog stops forwarding logs after first log rotation.
+* **[Bug Fix]**: Fixes issue where CredHub-generated variables are displayed in plain text on the streaming and historical log pages.
+* **[Bug Fix]**: Fixes issue in Ops Manager UI where stemcell versions are compared as strings and incorrectly report stemcell out-of-date messages.
+* **[Bug Fix]**: Fixes issue where Ops Manager API did not mark products as having an update when staged version differs from last successful deploy.
+* **[Bug Fix]**: Fixes issue where the `configurable` field incorrectly displays `true` for auto-generated certificates in CredHub. This issue affected CredHub certificates that set `generated` to `null` during the upgrade from Ops Manager v2.6 to v2.7.
+
 ### <a id="2-9-0"></a> v2.9.0
 
 **Release Date:** April 10, 2020
