@@ -28,7 +28,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** In the Ops Manager UI, the text of the Pivotal Network link is updated to VMware Tanzu Network. 
 * **[Bug Fix]** Fixes issue where rsyslog stops forwarding logs after first log rotation.
 * **[Bug Fix]** Fixes issue where CredHub-generated variables are displayed in plain text on the streaming and historical log pages.
-* **[Bug Fix]** Fixes issue in Ops Manager UI where stemcell versions are compared as strings and incorrectly report stemcell out-of-date messages.
+* **[Bug Fix]** Fixes issue in Ops Manager UI where stemcell versions are compared as strings and incorrectly report stemcell out-of-date messages. This resolves [Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date ](#triple-digit-stemcell) known issue.
 * **[Bug Fix]** Fixes issue where Ops Manager API did not mark products as having an update when staged version differs from last successful deploy.
 * **[Bug Fix]** Fixes issue where the `configurable` field incorrectly displays `true` for auto-generated certificates in CredHub. This issue affected CredHub certificates that set `generated` to `null` during the upgrade from Ops Manager v2.6 to v2.7.
 
@@ -308,10 +308,12 @@ To reset a certificate in CredHub, see [Reviewing and Resetting Manually Set Cer
 
 For more information about rotating certificates using the <%= vars.ops_manager %> API, see [Rotating Certificates](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/api-cert-rotation.html). For more information about the `certificate_authorities/active/regenerate` endpoint, see [Rotate Certificates](https://docs.pivotal.io/pivotalcf/2-9/opsman-api/#create-root-certificate-authorities) in the <%= vars.ops_manager %> API documentation.
 
-### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date
+### <a id='triple-digit-stemcell'></a> Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date 
 
-When you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date.
+In Ops Manager v2.9.0, when you upload a stemcell with a triple-digit minor release number to the <%= vars.ops_manager %> Stemcell Library, you see a warning that the stemcell is out of date.
 
 This is because <%= vars.ops_manager %> erroneously interprets triple-digit minor release numbers, such as Ubuntu Xenial stemcell 456.100, as being older than double-digit minor release numbers, such as Ubuntu Xenial stemcell 456.98. The Stemcell Library then erroneously lists the most recent double-digit minor release stemcell you uploaded as the required stemcell.
 
 You can use stemcells with triple-digit minor release numbers and ignore the warning.
+
+This is resolved in Ops Manager v2.9.1.
