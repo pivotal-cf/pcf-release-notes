@@ -2108,14 +2108,15 @@ This issue affects App Metrics v2.0.0.
 If the App Metrics v2.0.0 tile is installed on a foundation,
 then the **View in Metrics** link on the app Overview tab in Apps Manager
 does not appear or is broken.
-### <a id="app-metrics-route-deprecated"></a> App Metrics Route Change Results In 'Unexpected error occurrence'.
 
-This issue affects App Metrics v2.0.1 and later.
+### <a id="app-metrics-route-deprecated"></a> App Metrics Route Change Results In "Unexpected error occurrence"
+
+This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
 
 The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in 
 v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
 
-If the **Multi-foundation configuration (beta)** field of the Apps Manager section
-in a foundation's PAS tile has been set, the `metricsUrl` field may need to be updated to reflect
-this change. If not adjusted, clicking through the **View in Metrics** link on the app
-Overview tab in Apps Manager will result in an 'Unexpected error occurence' message.
+If you have set the **Multi-foundation configuration (beta)** field of the Apps Manager section
+in a PAS tile, you must update the **metricsUrl** field to reflect
+the route change. If the field is not updated, then clicking **View in Metrics** on the app
+Overview tab in Apps Manager results in an `Unexpected error occurence` message.
