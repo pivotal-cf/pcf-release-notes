@@ -1076,3 +1076,15 @@ Example log message from BOSH DNS server:
 To work around this issue in <%= vars.app_runtime_abbr %> v2.8.5, see
 [Loggregator continuously generates hundreds of DNS requests per second to external DNS servers](https://community.pivotal.io/s/article/Loggregator-Continuously-generates-hundreds-of-dns-requests-per-second-to-external-dns-servers)
 in the Knowledge Base.
+
+### <a id="app-metrics-route-deprecated"></a> App Metrics Route Change Results In 'Unexpected error occurrence'.
+
+This issue affects App Metrics v2.0.1 and later.
+
+The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in 
+v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
+
+If the **Multi-foundation configuration (beta)** field of the Apps Manager section
+in a foundation's PAS tile has been set, the `metricsUrl` field may need to be updated to reflect
+this change. If not adjusted, clicking through the **View in Metrics** link on the app
+Overview tab in Apps Manager will result in an 'Unexpected error occurence' message.
