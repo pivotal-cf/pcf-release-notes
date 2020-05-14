@@ -1632,6 +1632,34 @@ Where `APP-NAME` is the name of the app from which you deleted the log drain.
 
 <p class='note'><strong>Note:</strong> To view the number of syslog drains in a foundation, ensure that the Log Cache CLI plugin</a> is installed, and run <code>cf tail syslog_agent -n 100 | grep 'GAUGE drains'</code>. To install the Log Cache CLI plugin, see <a href="https://plugins.cloudfoundry.org/#log-cache">log-cache</a> on the cf CLI Plugins website.</p>
 
+### <a id='apps-fail-to-stage-forwarder-agent'></a> Forwarder Agent CPU Causes Apps to Fail to Stage in v2.7.13 and v2.7.14
+
+In PAS v2.7.13 and v2.7.14, apps can fail to stage with one the following errors:
+
+* `stderr: Error staging application: StagingTimeExpired`
+
+* `"description": "Stager error: bbs stager client staging failed:
+   the requested resource already exists",
+   "error_code": "CF-StagerError"`
+
+These errors occur because the Loggregator Forwarder Agent has high CPU usage.
+The Forwarder Agent high CPU usage is caused by the upgrade to Golang v1.14.1.
+
+To resolve this issue, do one of the following:
+
+* Schedule a `cron` job to restart the `loggr-forwarder-agent` process
+  for `diego_database` and `diego_brain`. Run:
+
+    ```
+    bosh -d <CF_DEPLOYMENT> ssh diego_database -c "PATH=$PATH:/var/vcap/bosh/bin sudo monit restart loggr-forwarder-agent"
+    ```
+    Where `CF_DEPLOYMENT` is your deployment name.
+
+* Increase the `vm_type` for `diego_database` and `diego_brain`
+  to assign more CPU instances.
+
+For more information, see the [Applications failing to stage after upgrading to PAS 2.7.13 or 2.7.14](https://community.pivotal.io/s/article/apps-failed-to-stage-after-upgrading-PAS-tile?language=en_US) Knowledge Base article.
+
 ### <a id='syslog-drain-type'></a> Cannot Choose Drain Type
 
 Syslog drains provide the ability to send only logs or metrics to their syslog endpoint, rather than a combination of both. However, <%= vars.app_runtime_abbr %> v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
