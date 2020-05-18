@@ -1707,7 +1707,7 @@ Where `APP-NAME` is the name of the app from which you deleted the log drain.
 
 ### <a id='apps-fail-to-stage-forwarder-agent'></a> Forwarder Agent CPU Causes Apps to Fail to Stage in v2.7.13 and v2.7.14
 
-In PAS v2.7.13 and v2.7.14, apps can fail to stage with one the following errors:
+After upgrading to PAS v2.7.13 and v2.7.14, apps can fail to stage with one the following errors:
 
 * `stderr: Error staging application: StagingTimeExpired`
 
@@ -1724,9 +1724,9 @@ To resolve this issue, do one of the following:
   for `diego_database` and `diego_brain`. Run:
 
     ```
-    bosh -d <CF_DEPLOYMENT> ssh diego_database -c "PATH=$PATH:/var/vcap/bosh/bin sudo monit restart loggr-forwarder-agent"
+    bosh -d CF-DEPLOYMENT ssh diego_database -c "PATH=$PATH:/var/vcap/bosh/bin sudo monit restart loggr-forwarder-agent"
     ```
-    Where `CF_DEPLOYMENT` is your deployment name.
+    Where `CF-DEPLOYMENT` is your deployment name.
 
 * Increase the `vm_type` for `diego_database` and `diego_brain`
   to assign more CPU instances.
