@@ -1,5 +1,5 @@
 ---
-title: Pivotal Operations Manager v2.10 Release Notes
+title: Ops Manager v2.10 Release Notes
 owner: Ops Manager
 ---
 
@@ -26,6 +26,18 @@ To upgrade to <%= vars.ops_manager_full %> <%= vars.v_major_version %>, see [Upg
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> includes the following major features:
 
+### <a id="bosh-overrides"></a> BOSH Manifest Overrides
+
+In Ops Manager v2.10, you can use the Ops Manager API to 
+override properties in the BOSH Director manifest. 
+You can only override properties that appear 
+in the instance groups and networks sections of the manifest.
+
+You must be in Advanced Mode to use this feature.
+
+For information on the Ops Manager API endpoints related to this feature, see [Advanced Manifest Configuration](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation.
+
+For more information about enabling Advanced Mode using the Ops Manager API, see [Advanced Mode](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation.
 
 ## <a id='known-issues'></a> Known Issues
 
