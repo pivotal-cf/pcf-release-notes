@@ -16,7 +16,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.15'></a> 2.7.15
 
 **Release Date:** 05/18/2020
@@ -87,8 +87,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.22</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 ### <a id='2.7.14'></a> 2.7.14 - Withdrawn
 
 <p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to the severity of the <a href="#apps-fail-to-stage-forwarder-agent">Forwarder Agent CPU Causes Apps to Fail to Stage in v2.7.13 and v2.7.14</a> known issue.</p>
@@ -180,9 +180,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.22</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.13'></a> 2.7.13 - Withdrawn
 
 <p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to the severity of the <a href="#apps-fail-to-stage-forwarder-agent">Forwarder Agent CPU Causes Apps to Fail to Stage in v2.7.13 and v2.7.14</a> known issue.</p>
@@ -258,9 +258,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.12'></a> 2.7.12
 
 **Release Date:** 04/07/2020
@@ -365,9 +365,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.11'></a> 2.7.11
 
 **Release Date:** 03/13/2020
@@ -450,9 +450,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.10'></a> 2.7.10
 
 **Release Date:** 02/27/2020
@@ -461,7 +461,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426), [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449), [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in Credhub
 * **[Feature Improvement]** Allow Syslog Adapters to scale to zero
 * **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
-* **[Feature Improvement]** The latest routing release adds the `gorouter_time` field, which logs the total time it takes for a request to travel through Gorouter. For more information, see [About Access Logs](https://docs.pivotal.io/platform/application-service/2-7/concepts/architecture/router.html#about-access-logs).
+* **[Feature Improvement]** The latest routing release adds the `gorouter_time`
+field, which logs the total time it takes for a request to travel through Gorouter.
+Because this changes the access log format, you might need to update your external monitoring configuration.
+For more information, see [About Access Logs](https://docs.pivotal.io/platform/application-service/2-7/concepts/architecture/router.html#about-access-logs).
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
 * **[Feature Improvement]** Introduce read only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
 * **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
@@ -550,9 +553,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.17</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.9'></a> 2.7.9
 
 **Release Date:** 02/07/2020
@@ -563,9 +566,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Use the Diego logging format for the Garden job
 * **[Bug Fix]** Show spring mappings in Apps Manager for apps using Spring Boot 2.2.x
 * **[Bug Fix]** Add empty state message to Marketplace for orgs without spaces in Apps Manager
-* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager 
+* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager
 * **[Bug Fix]** The Apps Manager bound services list correctly shows the number of bound apps when a table is paginated
-* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager 
+* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager
 * **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view
     Cloud Controller resources in Apps Manager
 * **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view
@@ -647,9 +650,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.16</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.8'></a> 2.7.8
 
 **Release Date:** 01/16/2020
@@ -836,7 +839,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.16</td></tr>
   </tbody>
 </table>
- 
+
 ### <a id='2.7.6'></a> 2.7.6
 
 **Release Date:** 12/09/2019
@@ -1540,7 +1543,7 @@ Agent-based syslog egress removes the need for VMs dedicated to syslog drains. S
 The following instance groups are removed:
 
 * `syslog_adapter`
-* `syslog_scheduler` 
+* `syslog_scheduler`
 
 The following property is removed:
 
@@ -1641,9 +1644,9 @@ For more information, see [Missing environment variables when using <%= vars.app
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
-Syslog Agents are required on <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6. When you upgrade to <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6, BOSH turns on Syslog Agents and turns off Syslog Adapter VMs.  
+Syslog Agents are required on <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6. When you upgrade to <%= vars.app_runtime_abbr %> v2.7.0 through v2.7.6, BOSH turns on Syslog Agents and turns off Syslog Adapter VMs.
 
-If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, then there are no logs for a significant period of time while BOSH turns on the Syslog Agents on each Diego Cell. 
+If BOSH turns off the Syslog Adapter VMs before it turns on the Syslog Agents, then there are no logs for a significant period of time while BOSH turns on the Syslog Agents on each Diego Cell.
 
 If BOSH turns on the Syslog Agents before it turns off the Syslog Adapter VMs, then there are duplicate logs until the Syslog Adapter VMs are off.
 
@@ -1653,36 +1656,36 @@ For more information about Syslog Agents, see [Agent-Based Syslog Egress Is Enab
 
 ### <a id='duplicate-missing-logs-2-7-7'></a> Duplicate or Missing Logs After Enabling Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 and Later
 
-If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from <%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled on your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short period of log loss or log duplication if you enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7 or later.   
+If you upgrade to <%= vars.app_runtime_abbr %> v2.7.7 or later from <%= vars.app_runtime_abbr %> v2.6 and Syslog Agents were disabled on your <%= vars.app_runtime_abbr %> v2.6 deployment, there is a short period of log loss or log duplication if you enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7 or later.
 
-This log loss or log duplication occurs when BOSH enables Syslog Agents and turns off Syslog Adapter VMs. For more information about the cause of the log loss or duplication, see [Duplicate or Missing Logs](#duplicate-logs).    
+This log loss or log duplication occurs when BOSH enables Syslog Agents and turns off Syslog Adapter VMs. For more information about the cause of the log loss or duplication, see [Duplicate or Missing Logs](#duplicate-logs).
 
 ### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
 
 If you disable the V1 Firehose in <%= vars.app_runtime_abbr %> v2.7,
 you must also disable the
-smoke test errand. 
+smoke test errand.
 
 If you do not disable the smoke test errand,
 the deploy fails with an error similar to the following:
 
 ```
-Waiting for app to start...  
-    name:            SMOKES-1-APP-c19f146f3ab78951  
+Waiting for app to start...
+    name:            SMOKES-1-APP-c19f146f3ab78951
     requested state: started
-    routes:          smokes-1-app-c19f146f3ab78951.apps.sys.hoge.foo.io  
-    last uploaded:   Thu 13 Feb 09:24:31 UTC 2020  
-    stack:           cflinuxfs3  
-    buildpacks:      ruby  
-    type:            web  
-    instances:       1/1  
-    memory usage:    1024M  
-    start command:   bundle exec rackup config.ru -p $PORT  
-         state     since                  cpu    memory    disk      details  
-    #0   running   2020-02-13T09:24:42Z   0.0%   0 of 1G   0 of 1G     
-    [32m[2020-02-13 09:24:46.72 (UTC)]> cf logs --recent SMOKES-1-APP-c19f146f3ab78951 [0m  
-    Retrieving logs for app SMOKES-1-APP-c19f146f3ab78951 in org system / space SMOKE-1-SPACE-be9b05a382fa29d3 as smoke_tests...  
-    unknown issue when making HTTP request to Loggregator  
+    routes:          smokes-1-app-c19f146f3ab78951.apps.sys.hoge.foo.io
+    last uploaded:   Thu 13 Feb 09:24:31 UTC 2020
+    stack:           cflinuxfs3
+    buildpacks:      ruby
+    type:            web
+    instances:       1/1
+    memory usage:    1024M
+    start command:   bundle exec rackup config.ru -p $PORT
+         state     since                  cpu    memory    disk      details
+    #0   running   2020-02-13T09:24:42Z   0.0%   0 of 1G   0 of 1G
+    [32m[2020-02-13 09:24:46.72 (UTC)]> cf logs --recent SMOKES-1-APP-c19f146f3ab78951 [0m
+    Retrieving logs for app SMOKES-1-APP-c19f146f3ab78951 in org system / space SMOKE-1-SPACE-be9b05a382fa29d3 as smoke_tests...
+    unknown issue when making HTTP request to Loggregator
     FAILED
 ```
 
@@ -1747,11 +1750,11 @@ If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web p
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
-A defect in the mapfs FUSE driver causes errors to occur in file append operations when you enable the ID mapping feature with NFS in <%= vars.app_runtime_abbr %> v2.7.4 through <%= vars.app_runtime_abbr %> v2.7.7. 
+A defect in the mapfs FUSE driver causes errors to occur in file append operations when you enable the ID mapping feature with NFS in <%= vars.app_runtime_abbr %> v2.7.4 through <%= vars.app_runtime_abbr %> v2.7.7.
 
 You enable the ID mapping feature by specifying either the `uid` or `username` option in service instance or service bind configurations.
 
-When this issue occurs, appending files within the mounted file system fails with the error `File operation not supported`. For example, `echo hello >> test.txt` fails. 
+When this issue occurs, appending files within the mounted file system fails with the error `File operation not supported`. For example, `echo hello >> test.txt` fails.
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.8.
 
@@ -1808,7 +1811,7 @@ does not appear or is broken.
 
 This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
 
-The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in 
+The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in
 v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
 
 If you have set the **Multi-foundation configuration (beta)** field of the Apps Manager section
