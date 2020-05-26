@@ -12,9 +12,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 <hr>
 
 ## <a id='releases'></a> Releases
- 
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.9'></a> 2.8.9
 
 **Release Date:** 05/18/2020
@@ -84,9 +84,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.15</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.8'></a> 2.8.8
 
 **Release Date:** 05/05/2020
@@ -175,9 +175,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.15</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.7'></a> 2.8.7
 
 **Release Date:** 04/22/2020
@@ -250,9 +250,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.13</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.6'></a> 2.8.6
 
 **Release Date:** 04/07/2020
@@ -359,9 +359,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.13</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.5'></a> 2.8.5
 
 **Release Date:** 03/13/2020
@@ -446,8 +446,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.10</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 ### <a id='2.8.4'></a> 2.8.4 - Do Not Use
 
 <p class="note warning"><strong>WARNING</strong>: Pivotal advises that you <strong>do not upgrade</strong> to PAS v2.8.4 at this time. Pivotal is investigating issues reported with the stability of PAS v2.8.4. If you have already upgraded to PAS v2.8.4 and are experiencing instability in your PAS deployment, such as <code>cf push</code> failure, contact <a href="https://support.pivotal.io">Support</a>.</p>
@@ -459,7 +459,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
 * **[Feature Improvement]** Add circuit breaker to Logcache so users can push apps even if metrics are unavailable
 * **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
-* **[Feature Improvement]** The latest routing release adds the `gorouter_time` field, which logs the total time it takes for a request to travel through Gorouter. For more information, see [About Access Logs](https://docs.pivotal.io/platform/application-service/2-8/concepts/architecture/router.html#about-access-logs).
+* **[Feature Improvement]** The latest routing release adds the `gorouter_time`
+field, which logs the total time it takes for a request to travel through Gorouter.
+Because this changes the access log format, you might need to update your external monitoring configuration.
+For more information, see [About Access Logs](https://docs.pivotal.io/platform/application-service/2-8/concepts/architecture/router.html#about-access-logs).
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
 * **[Feature Improvement]** Introduce read-only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
 * **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
@@ -548,9 +551,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.9</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.3'></a> 2.8.3
 
 **Release Date:** 02/06/2020
@@ -561,9 +564,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** Use the Diego logging format for the Garden job
 * **[Bug Fix]** Show spring mappings in Apps Manager for apps using Spring Boot 2.2.x
 * **[Bug Fix]** Add empty state message to Marketplace for orgs without spaces in Apps Manager
-* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager 
+* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager
 * **[Bug Fix]** The Apps Manager bound services list correctly shows the number of bound apps when a table is paginated
-* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager 
+* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager
 * **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view
     Cloud Controller resources in Apps Manager
 * **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view
@@ -643,9 +646,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.2'></a> 2.8.2
 
 **Release Date:** 01/16/2020
@@ -928,7 +931,7 @@ On the Apps Manager **Revisions** page for an app, you can view which revision v
 
 The text `Deployed (Active)` appears in the **Status** column of the table to indicate that the revision version is active.
 
-For more information about using the Apps Manager UI, see [Using Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/console/index.html). 
+For more information about using the Apps Manager UI, see [Using Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/console/index.html).
 
 ### <a id='cli-support-sidecars'></a> cf CLI Supports Sidecar Processes
 
@@ -998,7 +1001,7 @@ For more information about Loggregator components, see [Loggregator Architecture
 
 You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
 
-<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. <%= vars.recommended_by %> recommends that you do not disable the Firehose if you are dependent on any of the following: 
+<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. <%= vars.recommended_by %> recommends that you do not disable the Firehose if you are dependent on any of the following:
   <ul>
     <li>Service tile metrics</li>
     <li>Pivotal Healthwatch or Pivotal App Metrics</li>
@@ -1064,19 +1067,19 @@ The existing BOSH system metrics forwarder emits 2 metric envelopes per VM each 
 
 ### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
 
-If you disable the V1 or V2 Firehose in <%= vars.app_runtime_abbr %> v2.8, you must also disable the smoke test errand. 
+If you disable the V1 or V2 Firehose in <%= vars.app_runtime_abbr %> v2.8, you must also disable the smoke test errand.
 
 If you do not disable the smoke test errand, the deploy fails with an error similar to the following:
 
 ```
-[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m  
-          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m  
-          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m  
-          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m  
-          --- FAIL: TestSmokeTests (56.17s)  
-          FAIL  
-          Ginkgo ran 2 suites in 1m7.050120251s  
-          Test Suite Failed  
+[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m
+          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m
+          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m
+          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m
+          --- FAIL: TestSmokeTests (56.17s)
+          FAIL
+          Ginkgo ran 2 suites in 1m7.050120251s
+          Test Suite Failed
 Stderr     Error: failed to run job-process: exit status 1 (exit status 1)
 ```
 
@@ -1104,7 +1107,7 @@ This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
 
 ### <a id="apps-manager-slow-logs"></a> Logs Take a Long Time to Load in Apps Manager
 
-In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager uses an inefficient method of loading app logs. 
+In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager uses an inefficient method of loading app logs.
 This method causes the logs page to remain in a loading state for a long time before displaying logs.
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
 
@@ -1155,7 +1158,7 @@ in the Knowledge Base.
 
 This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
 
-The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in 
+The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in
 v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
 
 If you have set the **Multi-foundation configuration (beta)** field of the Apps Manager section
