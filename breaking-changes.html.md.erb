@@ -10,13 +10,24 @@ This topic describes the breaking changes you need to be aware of when upgrading
 
 See the following Ops Manager breaking changes:
 
+### <a id="cflinuxfs2-unsupported"></a> cflinuxfs2 is Unsupported
+
+Operators cannot upgrade the platform from PAS v2.5.10 or later to PAS v2.6 until all app instances (AIs) are using cflinuxfs3.
+If you are running PAS v2.5.10 or a later v2.5 patch, you must migrate all AIs to cflinuxfs3.
+
+During upgrade, you must check a box to verify that all AIs have been migrated. If you check the box and the AIs have not been migrated, the upgrade causes all AIs to fail.
+
+<%= vars.recommended_by %> recommends that you communicate the change of stack to your development teams and have them migrate to cflinuxfs3 before upgrading to PAS v2.6.
+
+For more information about this change, see [PAS Only Supports cflinuxfs3](https://docs.pivotal.io/pivotalcf/2-5/pcf-release-notes/runtime-rn.html#cflinuxfs3) in _Pivotal Application Service v2.5 Release Notes_.
+
 ### <a id='ssh-private-key'></a> Passwords Not Supported for Ops Manager VM on vSphere
 
 You can only SSH onto the Ops Manager VM in a vSphere deployment with a private SSH key. You cannot SSH onto the Ops Manager VM with a password.
 
-To avoid upgrade failure and errors when authenticating, add a public key to the OVF template for the Ops Manager VM. Then, use the private key to SSH onto the Ops Manager VM. 
+To avoid upgrade failure and errors when authenticating, add a public key to the OVF template for the Ops Manager VM. Then, use the private key to SSH onto the Ops Manager VM.
 
-For more information about adding a public key to the OVF template, see [Deploy Ops Manager](https://docs.pivotal.io/pivotalcf/2-6/om/vsphere/deploy.html#deploy) in _Deploying Ops Manager on vSphere_. 
+For more information about adding a public key to the OVF template, see [Deploy Ops Manager](https://docs.pivotal.io/pivotalcf/2-6/om/vsphere/deploy.html#deploy) in _Deploying Ops Manager on vSphere_.
 
 <p class="note warning"><strong>Warning:</strong> You cannot upgrade successfully without adding a public key. If you do not add a key, Ops Manager shuts down automatically because it cannot find a key and may enter a reboot loop.</p>
 
@@ -24,13 +35,13 @@ For more information about adding a public key to the OVF template, see [Deploy 
 
 The `stemcell` property for the `/api/v0/diagnostic_report` endpoint is removed. Update any automation that uses the stemcell information in the `/api/v0/diagnostic_report` endpoint to avoid errors.
 
-Information about all stemcells for both staged and deployed products is listed under a new `added_products` property for the `/api/v0/diagnostic_report` endpoint. Stemcell information under the `added_products` property includes the stemcell filename, OS, and version.  
+Information about all stemcells for both staged and deployed products is listed under a new `added_products` property for the `/api/v0/diagnostic_report` endpoint. Stemcell information under the `added_products` property includes the stemcell filename, OS, and version.
 
-For more information about the `/api/v0/diagnostic_report` endpoint, see [Diagnostic Report](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#diagnostic-report) in the Ops Manager API documentation. 
+For more information about the `/api/v0/diagnostic_report` endpoint, see [Diagnostic Report](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#diagnostic-report) in the Ops Manager API documentation.
 
 ### <a id='stemcell-version-key'></a> Stemcell Version Key for Pending Changes is Moved and Renamed
 
-For the `/api/v0/staged/pending_changes` endpoint, the `stemcell_version` key from previous versions of the Ops Manager API is now the `version` sub-key under the `stemcells` key.  
+For the `/api/v0/staged/pending_changes` endpoint, the `stemcell_version` key from previous versions of the Ops Manager API is now the `version` sub-key under the `stemcells` key.
 
 Update any automation that uses the stemcell information in the `/api/v0/pending_changes` endpoint to avoid errors.
 
@@ -61,13 +72,13 @@ See the following PAS breaking changes:
 
 ### <a id='http-healtcheck'></a> HTTP Health Check Server Disabled for SSH Proxy
 
-If your SSH load balancer is configured with an HTTP health check, remove the healthcheck before upgrading. This is the load balancer specified in the **Diego Brain** row of the **Resource Config** pane. 
+If your SSH load balancer is configured with an HTTP health check, remove the healthcheck before upgrading. This is the load balancer specified in the **Diego Brain** row of the **Resource Config** pane.
 
-<p class="note"><strong>Note:</strong> Neither the Terraform templates for installing PAS nor the PAS installation instructions specify a HTTP healthcheck for the SSH Load balancer.</p> 
+<p class="note"><strong>Note:</strong> Neither the Terraform templates for installing PAS nor the PAS installation instructions specify a HTTP healthcheck for the SSH Load balancer.</p>
 
-The `ssh_proxy` job running on the Diego Brain VM no longer starts a HTTP health check server. This feature was previously added to allow GCP load balancers to health check the service. However, GCP load balancers no longer require an HTTP endpoint for health checks. 
+The `ssh_proxy` job running on the Diego Brain VM no longer starts a HTTP health check server. This feature was previously added to allow GCP load balancers to health check the service. However, GCP load balancers no longer require an HTTP endpoint for health checks.
 
-Additionally, making this healthcheck server inaccessible improves the security of the platform. 
+Additionally, making this healthcheck server inaccessible improves the security of the platform.
 
 ### <a id='router-cpus'></a> Default VM Type Change for Gorouter VMs
 
@@ -97,7 +108,7 @@ buffer pool consumes 4&nbsp;GB, which leaves 0&nbsp;GB of available RAM.
 
 ## <a id='pas-windows'></a> Pivotal Application Service for Windows (PASW)
 
-See the following PASW breaking changes:  
+See the following PASW breaking changes:
 
 * The **Use "cf" as deployment name in emitted metrics instead of unique name** option is removed from the **Adavanced Features** pane of the PASW tile.
 
