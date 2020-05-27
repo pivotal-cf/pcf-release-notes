@@ -2124,3 +2124,10 @@ If you have set the **Multi-foundation configuration (beta)** field of the Apps 
 in a PAS tile, you must update the **metricsUrl** field to reflect
 the route change. If the field is not updated, then clicking **View in Metrics** on the app
 Overview tab in Apps Manager results in an `Unexpected error occurence` message.
+
+### <a id="apps-manager-app-metrics-logout"></a> App Metrics v2.0.x Causes Apps Manager to Logout
+
+This issue affects all App Metrics v2.0.x versions, and is fixed in PAS 2.6.16 and later.
+
+If the App Metrics v2.0.x tile is installed on a foundation, viewing any app related page in Apps Manager
+will immediately cause the user's session to expire.
