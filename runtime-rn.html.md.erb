@@ -1166,9 +1166,10 @@ in a PAS tile, you must update the **metricsUrl** field to reflect
 the route change. If the field is not updated, then clicking **View in Metrics** on the app
 Overview tab in Apps Manager results in an `Unexpected error occurence` message.
 
-### <a id="apps-manager-app-metrics-logout"></a> App Metrics v2.0.x Causes Apps Manager to Log Out
+### <a id="apps-manager-app-metrics-logout"></a> App Metrics v2.0 Causes Apps Manager to Log Out on PAS 2.8.3 and Earlier
 
-This issue affects all App Metrics v2.0.x versions, and is fixed in PAS v2.8.4 and later.
+For deployments with both App Metrics v2.0 and PAS v2.8.3 or earlier installed, viewing any app **Overview** page in Apps Manager causes the user session to expire, which results in a log out.
 
-If you have the App Metrics v2.0.x tile installed, viewing any app-related page in Apps Manager
-immediately causes your session to expire.
+For deployments with PAS 2.8.3 and earlier, this issue affects all App Metrics v2.0 patch versions.
+
+This issue is resolved in PAS 2.8.4 and later.
