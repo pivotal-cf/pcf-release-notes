@@ -41,7 +41,7 @@ For more information about enabling Advanced Mode using the Ops Manager API, see
 
 ### <a id='safety-checks'></a> CredHub Maestro Runs Safety Checks During Certificate Rotation
 
-When you are rotating certificates for Ops Manager and CredHub, the CredHub Maestro CLI stops unsafe API commands and returns an error. A command is unsafe when you run it out of the proper order, such as if you generate a new root certificate authority (CA) and attempt to activate it before clicking **Apply Changes**. Performing steps out of the correct order during certificate rotations could make your deployment unstable or risk downtime.
+When you are rotating certificates within Ops Manager and CredHub, the CredHub Maestro CLI runs safety checks on Ops Manager API commands for certificate rotation. If an API command is unsafe, CredHub Maestro stops the command and returns an error. An API command is unsafe when you run it out of order, such as if you generate a new root certificate authority (CA) and attempt to activate it before clicking **Apply Changes**. Performing steps out of the correct order during certificate rotations can make your deployment unstable or risk downtime.
 
 To skip these safety checks, you can pass the `skip_safety_check` parameter to the Ops Manager API endpoints for certificate rotation. This automatically appends the `--skip-safety-check` flag to the CredHub Maestro CLI commands that Ops Manager runs during the certificate rotation. Skipping the safety checks allows you to rotate your certificates in an unsafe manner when necessary. For example, if your CA has already expired and your apps are experiencing downtime, skipping safety checks allows you to bring your apps back faster.
 
