@@ -620,7 +620,7 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-## <a id='syslog-no-metrics'></a>Aggregate Syslog Drains Contain Logs Only
+### <a id='syslog-no-metrics'></a>Aggregate Syslog Drains Contain Logs Only
 
 When you configure an aggregate syslog drain in <%= vars.app_runtime_abbr %> v2.10, by default you receive logs only.
 You do not also receive metrics.
@@ -628,6 +628,13 @@ You do not also receive metrics.
 If you want the aggregate drain to send metrics along with logs, you can modify your drain URLs.
 
 To continue to see metrics in your drains after upgrading to <%= vars.app_runtime_abbr %> v2.10, append the following query to your aggregate drain URLs: `?include-metrics-deprecated=true`.
+
+### <a id='disable-logs-firehose'></a> Send Only Metrics to Firehose
+
+You can choose to send app metrics to the Loggregator Firehose while getting app logs through an aggregate syslog drain. This decreases the load on your platform and allows you to scale down component VMs for the Firehose.
+
+To configure the Firehose to receive only metrics, enable the **Disable logs in Firehose** checkbox in the **System Logging** pane of the TAS for VMs tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+
 
 ## <a id='known-issues'></a> Known Issues
 
