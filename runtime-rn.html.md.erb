@@ -629,11 +629,11 @@ If you want the aggregate drain to send metrics along with logs, you can modify 
 
 To continue to see metrics in your drains after upgrading to <%= vars.app_runtime_abbr %> v2.10, append the following query to your aggregate drain URLs: `?include-metrics-deprecated=true`.
 
-### <a id='disable-logs-firehose'></a> Send Only Metrics to Firehose
+### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
-You can choose to send app metrics to the Loggregator Firehose while getting app logs through an aggregate syslog drain. This decreases the load on your platform and allows you to scale down component VMs for the Firehose.
+You can choose to prevent the Loggregator Firehose from emitting app logs but still allow Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on TAS for VMs by allowing you to scale down Doppler and Traffic Controller VMs.
 
-To configure the Firehose to receive only metrics, enable the **Disable logs in Firehose** checkbox in the **System Logging** pane of the TAS for VMs tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+To configure the Firehose to receive only app metrics, enable the **Disable logs in Firehose** checkbox in the **System Logging** pane of the TAS for VMs tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
 
 
 ## <a id='known-issues'></a> Known Issues
