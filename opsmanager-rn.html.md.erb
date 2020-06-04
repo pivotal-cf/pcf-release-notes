@@ -24,6 +24,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** June 3, 2020
 
+* **[Feature]**: Adds an **Enable additional System Metrics** checkbox to the Director Config screen and adds `metrics_server_enabled` and `system_metrics_runtime_enabled` accessors to `$director`. These configurations are used in Tanzu Application Service for VMs (TAS for VMs) deployments.
+  <p class="note"><strong>Note</strong>: The checkbox and accessors are currently placeholders and are only functional with a future release of TAS for VMs.</p> 
+
 <%= vars.ops_manager %> v2.9.4 uses the following component versions:
 
 <table border="1" class="nice">
@@ -100,13 +103,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** May 4, 2020
 
-* **[Feature]** Ops Manager and BOSH Director support the Hong Kong region in AWS.
-* **[Feature]** In the Ops Manager UI, the text of the Pivotal Network link is updated to VMware Tanzu Network. 
-* **[Bug Fix]** Fixes issue where rsyslog stops forwarding logs after first log rotation.
+* **[Feature]**: Ops Manager and BOSH Director support the Hong Kong region in AWS.
+* **[Feature]**: In the Ops Manager UI, the text of the Pivotal Network link is updated to VMware Tanzu Network. 
+* **[Bug Fix]**: Fixes issue where rsyslog stops forwarding logs after first log rotation.
 * **[Bug Fix]** Fixes issue where CredHub-generated variables are displayed in plain text on the streaming and historical log pages.
-* **[Bug Fix]** Fixes issue in Ops Manager UI where stemcell versions are compared as strings and incorrectly report stemcell out-of-date messages. This resolves [Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date ](#triple-digit-stemcell) known issue.
-* **[Bug Fix]** Fixes issue where Ops Manager API did not mark products as having an update when staged version differs from last successful deploy.
-* **[Bug Fix]** Fixes issue where the `configurable` field incorrectly displays `true` for auto-generated certificates in CredHub. This issue affected CredHub certificates that set `generated` to `null` during the upgrade from Ops Manager v2.6 to v2.7.
+* **[Bug Fix]**: Fixes issue in Ops Manager UI where stemcell versions are compared as strings and incorrectly report stemcell out-of-date messages. This resolves [Stemcell Library Warns That Stemcells with Triple-Digit Minor Release Numbers Are Out of Date ](#triple-digit-stemcell) known issue.
+* **[Bug Fix]**: Fixes issue where Ops Manager API did not mark products as having an update when staged version differs from last successful deploy.
+* **[Bug Fix]**: Fixes issue where the `configurable` field incorrectly displays `true` for auto-generated certificates in CredHub. This issue affected CredHub certificates that set `generated` to `null` during the upgrade from Ops Manager v2.6 to v2.7.
 
 <%= vars.ops_manager %> v2.9.1 uses the following component versions:
 
