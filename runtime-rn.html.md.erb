@@ -707,10 +707,19 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 When you configure an aggregate syslog drain in <%= vars.app_runtime_abbr %> v2.10, by default you receive logs only.
 You do not also receive metrics.
+By not including metrics alongside logs, your syslog drain uses fewer resources and reduces network traffic between <%= vars.app_runtime_abbr %> components and your external logging service.
 
 If you want the aggregate drain to send metrics along with logs, you can modify your drain URLs.
 
-To continue to see metrics in your drains after upgrading to <%= vars.app_runtime_abbr %> v2.10, append the following query to your aggregate drain URLs: `?include-metrics-deprecated=true`.
+To continue to see metrics in your drains after upgrading to <%= vars.app_runtime_abbr %> v2.10:
+
+1. Navigate to the Ops Manager Installation Dashboard.
+1. Click the **VMware Tanzu Application Service for VMs** tile in the Installation Dashboard.
+1. Select **System Logging**.
+1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
+1. Click **Save**.
+
+For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/platform/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
 
 ### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
