@@ -392,7 +392,7 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you mus
 
 You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on TAS for VMs by allowing you to scale down Doppler and Traffic Controller VMs.
 
-To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose** and **Log Cache syslog ingestion** checkboxes, deselect the **Enable V1 Firehose** and **Enable V2 Firehose** checkboxes, and configure an **Aggregate log and metric drain** destination in the **System Logging** pane of the TAS for VMs tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the TAS for VMs tile. You must also configure an **Aggregate log and metric drain** destination in the **System Logging** pane of the TAS for VMs tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
 
 
 ## <a id='known-issues'></a> Known Issues
