@@ -21,6 +21,11 @@ See the following <%= vars.ops_manager %> breaking changes:
 
 See the following <%= vars.app_runtime_abbr %> breaking changes:
 
+### Aggregate Syslog Drains Contain Logs Only
+
+In TAS for VMs v2.10, aggregate syslog drains contain only logs by default, and do not contain metrics. If you rely on metrics sent through aggregate syslog drains, you must add <code>?include-metrics-deprecated=true</code> to your aggregate drain URLs to continue to receive metrics in the drains.
+
+For more information, see <a href="https://docs-pcf-staging.cfapps.io/platform/2-10/release-notes/runtime-rn.html#syslog-no-metrics">Aggregate Syslog Drains Contain Logs Only</a> in the _TAS for VMs v2.10 Release Notes_.
 
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
