@@ -13,6 +13,45 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
  
+### <a id='2.7.18'></a> 2.7.18
+
+**Release Date:** 06/25/2020
+
+* **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
+* **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
+* Bump ubuntu-xenial stemcell to version `456.114`
+* Bump cflinuxfs3 to version `0.195.0`
+* Bump diego to version `2.47.0`
+* Bump loggregator-agent to version `3.21.11`
+* Bump nfs-volume to version `2.3.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>456.114</td></tr>
+    <tr><td>bpm</td><td>1.1.1</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.195.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.6.1</td></tr>
+    <tr><td>loggregator-agent</td><td>3.21.11</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>nfs-volume</td><td>2.3.9</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
 ### <a id='2.7.17'></a> 2.7.17
 
 **Release Date:** 06/11/2020
