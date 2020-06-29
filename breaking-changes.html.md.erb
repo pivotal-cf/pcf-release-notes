@@ -42,10 +42,30 @@ To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the fo
 * Set the `properties.syslog_agent_enabled` property to `true`.
 
 
+### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress is Enabled by Default
+
+Agent-based syslog egress is enabled in PAS v2.8.0 and cannot be disabled.
+Syslog Agents forward logs to Loggregator and syslog drains that you configure.
+
+If you did not enable Agent-based syslog egress in PAS v2.7, app logs appear in a new format and contain new metadata tags.
+You must update any external monitoring configuration you use to account for the new format and tags.
+
+The new metadata tags appear in app logs in the following format:
+
+```
+[tags@47450 app_id="APP-GUID" app_name="APP-NAME"
+deployment="DEPLOYMENT-NAME" index="INDEX-GUID" instance_id="0"
+ip="INSTANCE-IP" job="JOB-VM" organization_id="ORG-GUID"
+organization_name="ORG-NAME" origin="rep" process_id="PROCESS-GUID"
+process_instance_id="PROCESS-INSTANCE-GUID" process_type="web"
+product="Pivotal Application Service" source_id="SOURCE-GUID"
+source_type="APP/PROC/WEB" space_id="SPACE-GUID" space_name="SPACE-NAME"
+system_domain="SYSTEM-DOMAIN-URL"]
+```
+
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
 
 There are no breaking changes in this release of <%= vars.windows_runtime_abbr %>.
-
 
 ## <a id='ist'></a> <%= vars.segment_runtime_full %>
 
@@ -63,7 +83,7 @@ The property `.isolated_diego_cell.placement_tag` is renamed `.properties.comput
 
 * `.properties.compute_isolation.enabled.isolation_segment_name` to add a placement tag for your Diego Cells when compute isolation is enabled
 
-You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs. 
+You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs.
 
 For more information, see [Compute and Networking Isolation](segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
 
