@@ -17,11 +17,13 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.6'></a> 2.9.6
 
 **Release Date:** 06/25/2020
 
+* **[Breaking Change]**: If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
+The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
 * **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
 * Bump ubuntu-xenial stemcell to version `621.76`
 * Bump cflinuxfs3 to version `0.195.0`
