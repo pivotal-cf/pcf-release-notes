@@ -893,6 +893,36 @@ You can choose to prevent the Loggregator Firehose from emitting app logs but st
 
 To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
+### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
+
+<%= vars.app_runtime_abbr %> v2.10.0 introduces RFC3339 log format support for several components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs using human-readable timestamps results in easier debugging.
+
+In earlier versions of <%= vars.app_runtime_abbr %>, components produce logs with timestamps that vary in format. The inconsistency in timestamps makes debugging more difficult.
+
+The RFC3339-formatted timestamps always follow the RFC3339 spec, always include nine points of precision where possible, and are always in UTC. For example:
+
+* 2019-11-21T22:16:18.750673404Z
+* 2019-11-21T22:16:18.750000000Z 
+
+For more information about configuring these log formats, see [System Logging](https://docs.pivotal.io/platform/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+In <%= vars.app_runtime_abbr %> v2.10.0, some components still do not include support for RFC3339 timestamps. More components are scheduled to converge on supporting RFC3339 timestamps in subsequent <%= vars.app_runtime_abbr %> minor and patch releases.
+
+Selecting the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs** configures logs from the following component releases and jobs: 
+
+| Component | Jobs |
+| ------------ | ----- |
+| `routing` | `gorouter` |
+| `silk` | `iptables logger`, `silk-daemon` |
+| `diego` | `auctioneer`, `bbs`, `file_server`, `locket`, `rep`, `route_emitter`, `ssh_proxy` |
+| `garden-runc` | `garden` |
+| `pxc` | `pxc-mysql`, `proxy`, `galera-agent`, `gra-log-purger` |
+| `mysql-monitoring` | `mysql-metrics`, `replication-canary` | 
+
+Components not listed either have not been updated yet or were already using the RFC3339 timestamp format.
+
+To check which components are affected by selecting **Converge to human-readable RFC3339 format**, go to the `debug/files` endpoint at `https://OPS-MANAGER-FQDN/debug/files`, where `OPS-MANAGER-FQDN` is the fully-qualified domain name of your Ops Manager instance. For these components, the `logging.format.timestamp` property is set to `rfc3339`.
+
 ### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
 You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.
