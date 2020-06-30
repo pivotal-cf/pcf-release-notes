@@ -80,9 +80,17 @@ For more information about deploying sidecar processes with apps, see [Pushing A
 
 ### <a id='credhub-instance-count'></a> <%= vars.app_runtime_abbr %> Deployed With CredHub by Default
 
-CredHub is now required in <%= vars.app_runtime_abbr %>. Components in <%= vars.app_runtime_abbr %> require data stored in CredHub.
+CredHub is now a required component in <%= vars.app_runtime_abbr %>.
+The default number of CredHub instances changes from `0` to `2`.
 
-You must use at least one CredHub VM when you deploy <%= vars.app_runtime_abbr %> v2.8. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs <%= vars.app_runtime_abbr %> uses in the **Resource Config** pane of the <%= vars.app_runtime_abbr %> tile.
+You must set the number of CredHub instances to at least `1` when you deploy
+<%= vars.app_runtime_abbr %> v2.8. To set the number of CredHub instances
+for <%= vars.app_runtime_abbr %>, use the **Resource Config** pane of the
+<%= vars.app_runtime_abbr %> tile.
+
+For more information about runtime CredHub, see
+[Runtime CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html#runtime)
+in _CredHub_.
 
 ### <a id='cpu-entitlement'></a> CPU Usage Metric Is Relative to CPU Entitlement for the Container
 
