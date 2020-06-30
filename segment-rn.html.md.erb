@@ -14,13 +14,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 <hr>
 
 ## <a id='releases'></a> Releases
- 
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.12'></a> 2.8.12
 
 **Release Date:** 06/25/2020
 
+* **[Breaking Change]**: If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
+The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
 * **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
 * **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
 * Bump ubuntu-xenial stemcell to version `621.76`
