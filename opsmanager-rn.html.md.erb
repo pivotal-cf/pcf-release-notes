@@ -22,7 +22,30 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id="2-9-6"></a> v2.9.6
 
+* **[Feature]:** Operators can rotate Redis certificates.
+* **[Feature]:** Operators can rotate RabbitMQ certificates.
+* **[Bug Fix]:** NSX configuration settings are applied to jobs defined in the BOSH Director manifest, including the BOSH Director VM.
+* **[Bug Fix]:** BOSH Director can deploy on Openstack environments with multiple regions.
+* **[Bug Fix]:** The Ops Manager `/api/v0/staged/director/properties` endpoint returns S3 and GCS blobstore credentials.
+* **[Bug Fix]:** `IaasConfigurationVerifier` connects to the correct authentication endpoint on Azure Government environments.
+
 <%= vars.ops_manager %> v2.9.6 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.9.6-build.148*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>621.76*</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.11.1</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11</td></tr><tr><td>CredHub</td><td>2.5.12</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.17</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>22.0.0</td></tr><tr><td>AWS CPI</td><td>81</td></tr><tr><td>Azure CPI</td><td>37.2.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>54.1.0</td></tr><tr><td>BOSH CLI</td><td>6.3.0*</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr><tr><td>Telemetry</td><td>1.1.0</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
 
 ### <a id="2-9-5"></a> v2.9.5
 
