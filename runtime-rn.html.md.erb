@@ -1288,29 +1288,13 @@ In the **Custom Branding** pane of <%= vars.app_runtime_abbr %> v2.8, you can cu
 
 For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
+### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Cannot Be Disabled
 
 Agent-based syslog egress is enabled in PAS v2.8.0 and cannot be disabled.
 Syslog Agents forward logs to Loggregator and syslog drains that you configure.
 This feature removes the need for VMs dedicated to syslog drains.
 
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the PAS v2.7 release notes.
-
-If you disabled Agent-based syslog egress in PAS v2.7, your app logs in PAS v2.8 appear in a new format.
-Syslog Agents also include new metadata tags for app logs and metrics.
-
-The new metadata tags appear in app logs in the following format:
-
-```
-[tags@47450 app_id="APP-GUID" app_name="APP-NAME"
-deployment="DEPLOYMENT-NAME" index="INDEX-GUID" instance_id="0"
-ip="INSTANCE-IP" job="JOB-VM" organization_id="ORG-GUID"
-organization_name="ORG-NAME" origin="rep" process_id="PROCESS-GUID"
-process_instance_id="PROCESS-INSTANCE-GUID" process_type="web"
-product="Pivotal Application Service" source_id="SOURCE-GUID"
-source_type="APP/PROC/WEB" space_id="SPACE-GUID" space_name="SPACE-NAME"
-system_domain="SYSTEM-DOMAIN-URL"]
-```
 
 ## <a id='known-issues'></a> Known Issues
 

@@ -41,15 +41,10 @@ To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the fo
 
 * Set the `properties.syslog_agent_enabled` property to `true`.
 
+### <a id="agent-based-syslog-egress-format"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
 
-### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
-
-Agent-based syslog egress is enabled in PAS v2.8.0 and cannot be disabled.
-Syslog Agents forward logs to Loggregator and syslog drains that you configure.
-
-If you disabled Agent-based syslog egress in PAS v2.7, your app logs in PAS v2.8 appear in a new format.
-Syslog Agents also include new metadata tags for app logs and metrics.
-You must update any external monitoring configuration you use to account for the new format and tags.
+Syslog Agents include new metadata tags for app logs and metrics.
+To account for the new tags, you must update any external monitoring configuration you use.
 
 The new metadata tags appear in app logs in the following format:
 
@@ -63,6 +58,16 @@ product="Pivotal Application Service" source_id="SOURCE-GUID"
 source_type="APP/PROC/WEB" space_id="SPACE-GUID" space_name="SPACE-NAME"
 system_domain="SYSTEM-DOMAIN-URL"]
 ```
+
+For more information, see [Human-Friendly Metadata](https://docs.pivotal.io/platform/application-service/2-9/operating/identify-metric-source.html#human-friendly-metric-tags) in _Identifying the Source Deployment of Metrics_.
+
+### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Cannot Be Disabled
+
+If you disabled Agent-based syslog egress in PAS v2.7.7 or later, then you must update your external monitoring configuration.
+
+Agent-based syslog egress is always enabled in PAS v2.8.0.
+Agent-based syslog egress was enabled by default in PAS v2.7.0, but you could optionally disable the egress in PAS v2.7.7 and later.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the Pivotal Application Service v2.7 Release Notes.
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>)
 
