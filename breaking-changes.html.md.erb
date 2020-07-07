@@ -84,7 +84,7 @@ in _Configuring <%= vars.app_runtime_abbr %>_.
 
 Agent-based syslog egress is enabled and non-configurable in <%= vars.app_runtime_abbr %> v2.7.6 and earlier, but can be disabled in <%= vars.app_runtime_abbr %> v2.7.7 and later. Syslog Agents forward logs to Loggregator and syslog drains that you configure.
 
-If you enable Agent-based syslog egress in <%= vars.app_runtime_abbr %> v2.7.7 or later, your app logs appear in a new format. Syslog Agents also include new metadata tags for app logs and metrics. You must update any external monitoring configuration you use to account for the new format and tags.
+If you enable Agent-based syslog egress in <%= vars.app_runtime_abbr %> v2.7.7 or later, your app logs appear in a new format. Syslog Agents also include new metadata tags for app logs and metrics, appearing after the header of each syslog message and before the syslog message text. You must update any external monitoring configuration you use to account for the new format and tags.
 
 The new metadata tags appear in app logs in the following format:
 
