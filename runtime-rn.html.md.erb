@@ -923,6 +923,8 @@ To confirm which <%= vars.app_runtime_abbr %> components use RFC3339 timestamps:
 
 1. For each component, confirm that the `logging.format.timestamp` property is set to `rfc3339`.
 
+<p class='note breaking'><strong>Breaking Change:</strong> The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.10, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='breaking-changes.html#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a> in <em>Ops Manager and Runtime Breaking Changes</em>.</p>
+
 ### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
 You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.

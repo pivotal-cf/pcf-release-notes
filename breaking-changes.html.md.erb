@@ -21,6 +21,18 @@ See the following <%= vars.ops_manager %> breaking changes:
 
 See the following <%= vars.app_runtime_abbr %> breaking changes:
 
+### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
+
+The **Format of timestamps in Diego logs** feature is removed from the **App Containers** pane of the TAS for VMs tile. This is because you can instead select **Converge to human-readable RFC3339 format** under **Timestamp format for component logs** in the **System Logging** pane of TAS for VMs v2.10. However, when you upgrade to TAS for VMs v2.10, the option that was selected under **Format of timestamps in Diego logs** in your previous deployment is applied to **Timestamp format for component logs** as follows:
+
+* If the **RFC3339 timestamps** option for **Format of timestamps in Diego logs** had been selected previously, then the **Converge to human-readable RFC3339 format** option for **Timestamp format for component logs** is selected by default. If you then select **Maintain previous format**, the Diego component logs use seconds since the Unix epoch rather than RFC3339 timestamps after the platform upgrade.
+
+* If the **Seconds since the Unix epoch** option for **Format of timestamps in Diego logs** had been selected previously, then the **Maintain previous format** option for **Timestamp format for component logs** is selected by default.
+
+Additionally, you must ensure that you update any external monitoring configuration you use to account for this new feature.
+
+For more information about configuring RFC3339 timestamps for component logs, see [Optionally Use Human-Readable Timestamps for Component Logs](runtime-rn.html#timestamps) in _VMware Tanzu Application Service for VMs v2.10 Release Notes_ and [System Logging](https://docs.pivotal.io/platform/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+
 ### Aggregate Syslog Drains Contain Logs Only
 
 In TAS for VMs v2.10, aggregate syslog drains contain only logs by default, and do not contain metrics. If you rely on metrics sent through aggregate syslog drains, you must add <code>?include-metrics-deprecated=true</code> to your aggregate drain URLs to continue to receive metrics in the drains.
