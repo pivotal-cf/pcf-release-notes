@@ -30,20 +30,24 @@ To upgrade to <%= vars.ops_manager_full %> <%= vars.v_major_version %>, see [Upg
 
 In Ops Manager v2.10, you can use the `/api/v0/staged/director/overrides`
 Ops Manager API endpoint to override properties in the BOSH Director manifest.
-With this endpoint you can only override properties that appear
+With this endpoint, you can only override properties that appear
 in the instance groups and networks sections of the manifest.
 
 You must be in Advanced Mode to use this feature.
 
 For information on the Ops Manager API endpoints related to this feature, see [Advanced Manifest Configuration](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Manifest-Configuration) in Ops Manager API Documentation.
 
-For more information about enabling Advanced Mode using the Ops Manager API, see [Advanced Mode](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation.
+For information about enabling Advanced Mode using the Ops Manager API, see [Advanced Mode](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation.
 
 ### <a id="runtime-config-overrides"></a> Override Runtime Config Properties Using the Ops Manager API
 
-If you enable Advanced Mode in Ops Manager v2.10, you can use the Ops Manager API to override certain runtime config properties.
+In Ops Manager v2.10, you can use an Ops Manager API endpoint to override
+the runtime config properties in the BOSH Director manifest.
 
-You can use the `api/v0/staged/director/runtime_configs/overrides` endpoint to override the following runtime configs:
+You must be in Advanced Mode to use this feature.
+
+You can use the `api/v0/staged/director/runtime_configs/overrides` endpoint to override properties
+in the runtime configs:
 
 <table>
   <tr>
@@ -66,7 +70,16 @@ You can use the `api/v0/staged/director/runtime_configs/overrides` endpoint to o
   </tr>
 </table>
 
-For more information about enabling Advanced Mode using the Ops Manager API, see [Advanced Mode](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation.
+For example, the log level for the BOSH DNS logs cannot be changed through the Ops Manager UI.
+However, using the override, you can change the log level, perhaps to DEBUG for more information
+or to WARNING for less verbose logs.
+
+For more information, see:
+
++ [BOSH DNS job spec](https://github.com/cloudfoundry/bosh-dns-release/blob/master/jobs/bosh-dns/spec) in GitHub
++ [Provide a new list of runtime config overrides for the BOSH
+Director](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Manifest-Configuration/paths/~1api~1v0~1staged~1director~1runtime_configs~1overrides/get)
++ [Advanced Mode](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation
 
 ### <a id='safety-checks'></a> CredHub Maestro Runs Safety Checks During Certificate Rotation
 
