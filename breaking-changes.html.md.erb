@@ -80,6 +80,25 @@ or later after the first deploy. To edit your Syslog Agent configuration, see
 [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-7/operating/configure-pas.html#sys-logging)
 in _Configuring <%= vars.app_runtime_abbr %>_.
 
+### <a id='syslog-agent-metadata'></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
+
+Agent-based syslog egress is enabled and non-configurable in <%= vars.app_runtime_abbr %> v2.7.6 and earlier, but can be disabled in <%= vars.app_runtime_abbr %> v2.7.7 and later. Syslog Agents forward logs to Loggregator and syslog drains that you configure.
+
+If you enable Agent-based syslog egress in <%= vars.app_runtime_abbr %> v2.7.7 or later, your app logs appear in a new format. Syslog Agents also include new metadata tags for app logs and metrics. You must update any external monitoring configuration you use to account for the new format and tags.
+
+The new metadata tags appear in app logs in the following format:
+
+```
+[tags@47450 app_id="APP-GUID" app_name="APP-NAME"
+deployment="DEPLOYMENT-NAME" index="INDEX-GUID" instance_id="0"
+ip="INSTANCE-IP" job="JOB-VM" organization_id="ORG-GUID"
+organization_name="ORG-NAME" origin="rep" process_id="PROCESS-GUID"
+process_instance_id="PROCESS-INSTANCE-GUID" process_type="web"
+product="Pivotal Application Service" source_id="SOURCE-GUID"
+source_type="APP/PROC/WEB" space_id="SPACE-GUID" space_name="SPACE-NAME"
+system_domain="SYSTEM-DOMAIN-URL"]
+```
+
 ### <a id='props-changed'></a> Changed Properties and Jobs
 
 The following <%= vars.app_runtime_abbr %> tile properties and <%= vars.app_runtime_abbr %> jobs have changed in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
