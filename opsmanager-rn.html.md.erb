@@ -81,6 +81,21 @@ For more information, see:
 Director](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Manifest-Configuration/paths/~1api~1v0~1staged~1director~1runtime_configs~1overrides/get)
 + [Advanced Mode](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Mode) in Ops Manager API Documentation
 
+### <a id='certs-om-ui'></a> View Certificates in the Ops Manager UI
+
+The Ops Manager UI introduces a new tab called **Certificates**. This tab lists which of your certificates are rotated through the Ops Manager API, which certificates cannot be rotated through the Ops Manager API, and when each certificate is due to expire.
+
+The **Certificates** tab displays all the certificates listed by the `/api/v0/deployed/certificates` endpoint, as well as the following details:
+
+* **Certificate name:** The name of the certificate.
+* **Product:** The product for which the certificate is issued, such as BOSH or MySQL.
+* **Location:** Whether it is stored in Ops Manager or CredHub.
+* **Type:** Whether it is a leaf certificate or a certificate authority (CA).
+* **Configurable:** Whether it is configurable.
+* **Valid until:** The expiry date and the number of days before expiration.
+
+For more information, see [Using the Ops Manager Interface](https://docs.pivotal.io/platform/ops-manager/2-10/pcf-interface.html).
+
 ### <a id='safety-checks'></a> CredHub Maestro Runs Safety Checks During Certificate Rotation
 
 When you are rotating certificates that are stored in Ops Manager and CredHub, the CredHub Maestro CLI runs safety checks on Ops Manager API commands for certificate rotation. If an API command is unsafe, CredHub Maestro stops the command and returns an error. An API command is unsafe when you run it out of order, such as if you generate a new root certificate authority (CA) and attempt to activate it before clicking **Apply Changes**. Performing steps out of the correct order during certificate rotations can make your deployment unstable or risk downtime.
