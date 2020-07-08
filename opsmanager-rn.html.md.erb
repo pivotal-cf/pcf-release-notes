@@ -41,13 +41,12 @@ For information about enabling Advanced Mode using the Ops Manager API, see [Adv
 
 ### <a id="runtime-config-overrides"></a> Override Runtime Config Properties Using the Ops Manager API
 
-In Ops Manager v2.10, you can use an Ops Manager API endpoint to override
-the runtime config properties in the BOSH Director manifest.
+In Ops Manager v2.10, you can override the runtime config properties in the BOSH Director manifest.
 
 You must be in Advanced Mode to use this feature.
 
-You can use the `/api/v0/staged/director/runtime_configs/overrides` endpoint to override properties
-in the runtime configs:
+You use the `/api/v0/staged/director/runtime_configs/overrides` endpoint in the runtime configs
+to override properties:
 
 <table>
   <tr>
@@ -71,7 +70,8 @@ in the runtime configs:
 </table>
 
 For example, the log level for the BOSH DNS logs cannot be changed through the Ops Manager UI.
-However, using the override, you can change the log level, perhaps to debug for more information
+However, using the <code>/api/v0/staged/director/runtime_configs/overrides</code> endpoint,
+you can change the log level, perhaps to debug for more information
 or to warning for less verbose logs.
 
 For more information, see:
