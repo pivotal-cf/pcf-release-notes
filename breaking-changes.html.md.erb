@@ -44,7 +44,7 @@ To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the fo
 ### <a id="agent-based-syslog-egress-format"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
 
 Syslog Agents include new metadata tags for app logs and metrics, appearing after the header of each syslog message and before the syslog message text.
-To account for the new tags, you must update any external monitoring configuration you use.
+If your external monitoring depends on a specific format for app logs, you must update the configuration.
 
 The new metadata tags appear in app logs in the following format:
 
