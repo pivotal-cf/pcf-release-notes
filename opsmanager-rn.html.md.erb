@@ -83,16 +83,16 @@ Director](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Manifes
 
 ### <a id='certs-om-ui'></a> View Certificates in the Ops Manager UI
 
-The Ops Manager UI introduces a new tab called **Certificates**. This tab lists which of your certificates are rotated through the Ops Manager API, which certificates cannot be rotated through the Ops Manager API, and when each certificate is due to expire.
+The Ops Manager UI introduces a new page called **Certificates**. This page lists which of your certificates are rotated through the Ops Manager API, which certificates cannot be rotated through the Ops Manager API, and when each certificate is due to expire.
 
-The **Certificates** tab displays all the certificates listed by the `/api/v0/deployed/certificates` endpoint, as well as the following details:
+The **Certificates** page displays all the certificates listed by the `/api/v0/deployed/certificates` endpoint, as well as the following details:
 
 * **Certificate name:** The name of the certificate.
 * **Product:** The product for which the certificate is issued, such as BOSH or MySQL.
-* **Location:** Whether it is stored in Ops Manager or CredHub.
-* **Type:** Whether it is a leaf certificate or a certificate authority (CA).
-* **Configurable:** Whether it is configurable.
-* **Valid until:** The expiry date and the number of days before expiration.
+* **Location:** Whether the certificate is stored in Ops Manager or CredHub.
+* **Type:** Whether the certificate is a leaf certificate or a certificate authority (CA).
+* **Configurable:** Whether the certificate is configurable.
+* **Valid until:** The expiry date of the certificate and the number of days before expiration.
 
 For more information, see [Using the Ops Manager Interface](https://docs.pivotal.io/platform/ops-manager/2-10/pcf-interface.html).
 
