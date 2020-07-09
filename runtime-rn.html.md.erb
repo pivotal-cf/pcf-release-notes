@@ -1,5 +1,5 @@
 ---
-title: Pivotal Application Service v2.10 Release Notes
+title: Tanzu Application Service v2.10 Release Notes
 owner: Release Engineering
 ---
 
@@ -1013,6 +1013,17 @@ By default, Gorouter uses `JSESSIONID`. Some apps require a different session na
 For example, Spring WebFlux requires `SESSION` for the session cookie name.
 
 To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platform/application-service/2-10/operating/configure-pas.html#networking) in _Configuring PAS_.
+
+### <a id='autoscaler'></a>  Improvements to App Autoscaler
+
+TAS for VMs v2.10 includes the following improvements to App Autoscaler:
+
++ App Autoscaler uses TLS to secure communications with its database.
++ App Autoscaler no longer returns an error when you set an `executes_at` time in the past.
+  This lets you re-use scheduling rules without modification.
+  App Autoscaler calculates future execution dates based on the past date.
++ You can use rules that are based on the HTTP throughput metric even when logging volume is high.
+  For information the metric, see [Default Metrics for Scaling Rules](https://docs.pivotal.io/platform/application-service/2-10/appsman-services/autoscaler/about-app-autoscaler.html#custom-metrics)
 
 
 ## <a id='known-issues'></a> Known Issues
