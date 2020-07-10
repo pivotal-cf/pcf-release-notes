@@ -349,6 +349,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix issue in App Autoscaler where rules that were based on the HTTP-throughput metric failed to fire.
    For information about the HTTP Throughput metric, see [Default Metrics for Scaling
    Rules](https://docs.pivotal.io/platform/application-service/2-7/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+* **[Bug Fix]** Fix issue in App Autoscaler where the Scheduler API returned an error
+  when `executes_at` was set to a time that was in the past.
 * Bump ubuntu-xenial stemcell to version `456.112`
 * Bump cf-autoscaling to version `230`
 * Bump cflinuxfs3 to version `0.180.0`
