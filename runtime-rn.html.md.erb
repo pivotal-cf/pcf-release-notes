@@ -358,7 +358,10 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 **Release Date:** 05/18/2020
 
 * **[Security Fix]** Support various CVE impacted components
-* **[Bug Fix]** Fix scheduling bug in `loggregator agent` by upgrading to Go 1.14.2
+* **[Bug Fix]** Fix scheduling issue in `loggregator agent` by upgrading to Go 1.14.2
+* **[Bug Fix]** Fix issue in App Autoscaler where rules that were based on the HTTP-throughput metric failed to fire.
+  For information about the HTTP Throughput metric, see [Default Metrics for Scaling
+  Rules](https://docs.pivotal.io/platform/application-service/2-9/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
 * Bump ubuntu-xenial stemcell to version `621.74`
 * Bump cf-autoscaling to version `230`
 * Bump cflinuxfs3 to version `0.180.0`
