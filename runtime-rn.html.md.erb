@@ -1018,13 +1018,12 @@ To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platf
 
 TAS for VMs v2.10 includes the following improvements to App Autoscaler:
 
-+ App Autoscaler uses TLS to secure communications with its database.
-+ App Autoscaler no longer returns an error when you set an `executes_at` time in the past.
-  This lets you re-use scheduling rules without modification.
++ App Autoscaler no longer returns an error when you set an `executes_at` time that is in the past.
+  This lets you re-use scheduled limit changes through the Scheduler API.
   App Autoscaler calculates future execution dates based on the past date.
-+ You can use rules that are based on the HTTP throughput metric even when logging volume is high.
++ You can use rules that are based on the HTTP throughput metric when the number of the requests is high.
   For information the metric, see [Default Metrics for Scaling
-  Rules](https://docs.pivotal.io/platform/application-service/2-10/appsman-services/autoscaler/about-app-autoscaler.html#custom-metrics).
+  Rules](https://docs.pivotal.io/platform/application-service/2-10/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
 
 
 ## <a id='known-issues'></a> Known Issues
