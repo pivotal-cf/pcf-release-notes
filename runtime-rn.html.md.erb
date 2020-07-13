@@ -26,6 +26,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 07/09/2020
 
+[Breaking Change]: If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch. The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the openvswitch job to fail when you deploy.
 * **[Security Fix]** Stop logging credentials in Autoscaler app
 * **[Bug Fix]** For sets of logs larger than 4MB, Apps Manager does not make requests to log cache with an invalid log limit
 * **[Bug Fix]** Display correct guid for App subresources in v2 GET response
