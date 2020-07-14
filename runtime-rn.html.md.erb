@@ -538,6 +538,9 @@ For more information, see [About Access Logs](https://docs.pivotal.io/platform/a
 
 **Release Date:** 02/06/2020
 
+* **[Known Issue]** Java clients, including App Metrics v2.0, cannot connect to the Gorouter over TLS.
+   The connection fails with the exception: `javax.net.ssl.SSLHandshakeException`.
+   This issue is fixed in PAS v2.6.16.
 * **[Security Fix]** [CVE-2020-5399](https://nvd.nist.gov/vuln/detail/CVE-2020-5399) - Use TLS for MySQL database connections in CredHub
 * **[Feature Improvement]** Replace Metric Forwarder integration with Metric Registrar integration in Apps Manager
 * **[Feature Improvement]** The HSM Client Private Key for CredHub can be encrypted.
