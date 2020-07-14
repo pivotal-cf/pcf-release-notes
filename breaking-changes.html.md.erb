@@ -84,20 +84,25 @@ in _Configuring <%= vars.app_runtime_abbr %>_.
 
 Agent-based syslog egress is enabled and non-configurable in <%= vars.app_runtime_abbr %> v2.7.6 and earlier, but can be disabled in <%= vars.app_runtime_abbr %> v2.7.7 and later. Syslog Agents forward logs to Loggregator and syslog drains that you configure.
 
-If you enable Agent-based syslog egress in <%= vars.app_runtime_abbr %> v2.7.7 or later, your app logs appear in a new format. Syslog Agents also include new metadata tags for app logs and metrics, appearing after the header of each syslog message and before the syslog message text. You must update any external monitoring configuration you use to account for the new format and tags.
+If you enable Agent-based syslog egress in <%= vars.app_runtime_abbr %> v2.7.7 or later, your app logs and metrics include metadata tags.
+Tags appear after the header of each syslog message and before the syslog message text.
+You must update any external monitoring configuration you use to account for the new format and tags.
 
 The new metadata tags appear in app logs in the following format:
 
-```
-[tags@47450 app_id="APP-GUID" app_name="APP-NAME"
-deployment="DEPLOYMENT-NAME" index="INDEX-GUID" instance_id="0"
-ip="INSTANCE-IP" job="JOB-VM" organization_id="ORG-GUID"
-organization_name="ORG-NAME" origin="rep" process_id="PROCESS-GUID"
-process_instance_id="PROCESS-INSTANCE-GUID" process_type="web"
-product="Pivotal Application Service" source_id="SOURCE-GUID"
-source_type="APP/PROC/WEB" space_id="SPACE-GUID" space_name="SPACE-NAME"
-system_domain="SYSTEM-DOMAIN-URL"]
-```
+<pre class="terminal">
+956 <14>1 2020-03-31T12:11:02.529497+00:00 Tax_us-uat.AI.tax-plis-blue
+ec3cd4e4-baf9-456d-965a-96bcb2c61a47 [APP/PROC/WEB/0]
+[tags@47450 deployment="cf-78e7a9442158adb53366" index="c57b95c6-d79f-4cfb-b7f3-08a770946b7a"
+instance_id="0" ip="10.214.110.84" job="diego_cell" origin="rep"
+process_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+process_instance_id="1cf3854e-29d8-4825-7685-11ec" process_type="web"
+product="Pivotal Application Service" source_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+source_type="APP/PROC/WEB" system_domain="example.my-domain.io"]
+2020-03-31 07:11:02.529 INFO [tax-plis,B2347215-T21118008-COWF/35558169/38311791]
+--- [http-nio-8080-exec-5] c.c.b.t.p.s.p.b.BatchPostProcessor :
+Report file created in 47 ms
+</pre>
 
 ### <a id='props-changed'></a> Changed Properties and Jobs
 
