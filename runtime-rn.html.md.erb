@@ -1381,6 +1381,31 @@ This feature removes the need for VMs dedicated to syslog drains.
 
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the PAS v2.7 release notes.
 
+### <a id="new-metatags"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
+
+The following agent-based syslog metadata tags have been added in v2.8:
+
+- `app_id`
+- `app_name`
+- `org_id`
+- `org_name`
+- `space_id`
+- `space_name`
+
+The new metadata tags appear in app logs in the following format:
+
+<pre class="terminal">
+[tags@47450 app_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" app_name="my-app-blue"
+deployment="cf-78e7a9442158adb53366" index="c57b95c6-d79f-4cfb-b7f3-08a770946b7a"
+instance_id="0" ip="10.214.110.84" job="diego_cell"
+organization_id="c23f6fb2-beeb-4d2f-8c1d-693be5bd502c"
+organization_name="my-org" origin="rep" process_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+process_instance_id="1cf3854e-29d8-4825-7685-11ec" process_type="web"
+product="Pivotal Application Service" source_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+source_type="APP/PROC/WEB" space_id="93e9f375-1567-4ea4-b2a1-ef6fd7e0125b"
+space_name="my-space" system_domain="example.mydomain.io"]
+</pre>
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
