@@ -14,7 +14,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.13'></a> 2.8.13
 
 **Release Date:** 07/09/2020
@@ -92,8 +92,8 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.8.12'></a> 2.8.12
 
@@ -1381,20 +1381,25 @@ This feature removes the need for VMs dedicated to syslog drains.
 
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the PAS v2.7 release notes.
 
-### <a id="new-metatags"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
+### <a id="new-metatags"></a> New Metadata Tags Appear in App Logs and Metrics
 
-The following agent-based syslog metadata tags have been added in v2.8:
+In PAS v2.8, six new metadata tags appear in app logs and metrics.
+The new tags correspond to the name and unique identifier for your app, as well as the org and space where the app runs.
+
+The following syslog metadata tags have been added in v2.8:
 
 - `app_id`
 - `app_name`
-- `org_id`
-- `org_name`
+- `organization_id`
+- `organization_name`
 - `space_id`
 - `space_name`
 
 The new metadata tags appear in app logs in the following format:
 
 <pre class="terminal">
+956 <14>1 2020-03-31T12:11:02.529497+00:00 Tax_us-uat.AI.tax-plis-blue
+ec3cd4e4-baf9-456d-965a-96bcb2c61a47 [APP/PROC/WEB/0]
 [tags@47450 app_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" app_name="my-app-blue"
 deployment="cf-78e7a9442158adb53366" index="c57b95c6-d79f-4cfb-b7f3-08a770946b7a"
 instance_id="0" ip="10.214.110.84" job="diego_cell"
@@ -1403,7 +1408,10 @@ organization_name="my-org" origin="rep" process_id="ec3cd4e4-baf9-456d-965a-96bc
 process_instance_id="1cf3854e-29d8-4825-7685-11ec" process_type="web"
 product="Pivotal Application Service" source_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
 source_type="APP/PROC/WEB" space_id="93e9f375-1567-4ea4-b2a1-ef6fd7e0125b"
-space_name="my-space" system_domain="example.mydomain.io"]
+space_name="my-space" system_domain="example.my-domain.io"]
+2020-03-31 07:11:02.529 INFO [tax-plis,B2347215-T21118008-COWF/35558169/38311791]
+--- [http-nio-8080-exec-5] c.c.b.t.p.s.p.b.BatchPostProcessor :
+Report file created in 47 ms
 </pre>
 
 ## <a id='known-issues'></a> Known Issues
