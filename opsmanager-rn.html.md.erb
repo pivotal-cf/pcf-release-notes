@@ -69,10 +69,10 @@ to override properties:
   </tr>
 </table>
 
-For example, the log level for the BOSH DNS logs cannot be changed through the Ops Manager UI.
-However, using the <code>/api/v0/staged/director/runtime_configs/overrides</code> endpoint,
-you can change the log level, perhaps to debug for more information
-or to warning for less verbose logs.
+For example, although you cannot change the log level for the BOSH DNS logs through the Ops Manager UI,
+you can change the log level using the <code>/api/v0/staged/director/runtime_configs/overrides</code> endpoint.
+Increase the log level to `DEBUG` for more information
+or decrease the level for less verbose logs.
 
 For more information, see:
 
