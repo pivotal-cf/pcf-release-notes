@@ -41,25 +41,28 @@ To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the fo
 
 * Set the `properties.syslog_agent_enabled` property to `true`.
 
-### <a id="agent-based-syslog-egress-format"></a> Agent-Based Syslog Egress Introduces Additional Metadata Tags
+### <a id="agent-based-syslog-egress-format"></a> Additional Metadata Tags for Metrics and App Logs
 
-Syslog Agents include new metadata tags for app logs and metrics, appearing after the header of each syslog message and before the syslog message text.
+In PAS v2.8, metadata tags for app logs and metrics appear after the header of each syslog message and before the syslog message text.
 If your external monitoring depends on a specific format for app logs, you must update the configuration.
 
-The new metadata tags appear in app logs in the following format:
+The new metadata tags appear in syslogs in the following format:
 
-```
-[tags@47450 app_id="APP-GUID" app_name="APP-NAME"
-deployment="DEPLOYMENT-NAME" index="INDEX-GUID" instance_id="0"
-ip="INSTANCE-IP" job="JOB-VM" organization_id="ORG-GUID"
-organization_name="ORG-NAME" origin="rep" process_id="PROCESS-GUID"
-process_instance_id="PROCESS-INSTANCE-GUID" process_type="web"
-product="Pivotal Application Service" source_id="SOURCE-GUID"
-source_type="APP/PROC/WEB" space_id="SPACE-GUID" space_name="SPACE-NAME"
-system_domain="SYSTEM-DOMAIN-URL"]
-```
+<pre class="terminal">
+956 <14>1 2020-03-31T12:11:02.529497+00:00 My-org.My-space.my-app-blue ec3cd4e4-baf9-456d-965a-96bcb2c61a47
+[APP/PROC/WEB/0] - [tags@47450 app_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" app_name="my-app-blue"
+deployment="cf-78e7a9442158adb53366" index="c57b95c6-d79f-4cfb-b7f3-08a770946b7a" instance_id="0"
+ip="10.214.110.84" job="diego_cell" organization_id="c23f6fb2-beeb-4d2f-8c1d-693be5bd502c"
+organization_name="My-org" origin="rep" process_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+process_instance_id="1cf3854e-29d8-4825-7685-11ec" process_type="web" product="Pivotal Application Service"
+source_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" source_type="APP/PROC/WEB"
+space_id="93e9f375-1567-4ea4-b2a1-ef6fd7e0125b" space_name="My-space"
+system_domain="example.mydomain.io"] 2020-03-31 07:11:02.529
+INFO [my-app,B2347215-T21118008-COWF/35558169/38311791] --- [http-nio-8080-exec-5]
+c.c.b.t.p.s.p.b.BatchPostProcessor : Report file created in 47 ms
+</pre>
 
-For more information, see [Human-Friendly Metadata](https://docs.pivotal.io/platform/application-service/2-9/operating/identify-metric-source.html#human-friendly-metric-tags) in _Identifying the Source Deployment of Metrics_.
+For more information, see [Human-Friendly Metadata](https://docs.pivotal.io/platform/application-service/2-8/operating/identify-metric-source.html#human-friendly-metric-tags) in _Identifying the Source Deployment of Metrics_.
 
 ### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Cannot Be Disabled
 
