@@ -1385,7 +1385,7 @@ For more information, see [Agent-Based Syslog Egress Is Enabled by Default](http
 ### <a id="new-metatags"></a> Additional Metadata Tags for Metrics and App Logs
 
 In PAS v2.8, six new metadata tags appear in app logs and metrics.
-The following syslog metadata tags have been added in v2.8:
+The following metadata tags have been added to outgoing syslogs in v2.8:
 
 - `app_id`
 - `app_name`
@@ -1394,7 +1394,7 @@ The following syslog metadata tags have been added in v2.8:
 - `space_id`
 - `space_name`
 
-The tags correspond to the internal names and IDs of the app and its org and space.
+The tags correspond to the internal name and ID of the app and its org and space.
 
 The new metadata tags appear in app logs in the following format:
 
@@ -1417,7 +1417,7 @@ Tags](https://docs.pivotal.io/platform/2-7/release-notes/breaking-changes.html#s
 in _Pivotal Platform v2.7 Breaking Changes_.
 
 For information about a known issue related to the metadata tags,
-see [Metadata Tags Not Updated if App, Org, or Space Name Changed](#metadata-tags-known-issue). 
+see [Metadata Tags Not Updated if App, Org, or Space Name Changed](#metadata-tags-known-issue).
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -1553,9 +1553,8 @@ This issue is resolved in PAS v2.8.4 and later.
 
 ### <a id="metadata-tags-known-issue"></a>Metadata Tags Not Updated if App, Org, or Space Name Changed
 
-If you rename an app, org, or space, the agent-based syslog metadata tags do not update to
-reflect the new names.
+If you rename an app, org, or space, the metadata tags for metrics and app logs do not update to reflect the new names.
 The original names persist in the metrics and app logs.
 
-For more info about these metatags,
+For more info about these metadata tags,
 see [Additional Metadata Tags for Metrics and App Logs](#new-metatags) above.
