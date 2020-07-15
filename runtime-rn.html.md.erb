@@ -16,7 +16,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.19'></a> 2.7.19
 
 **Release Date:** 07/09/2020
@@ -93,9 +93,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.25</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.18'></a> 2.7.18
 
 **Release Date:** 06/25/2020
@@ -172,9 +172,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.24</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.17'></a> 2.7.17
 
 **Release Date:** 06/11/2020
@@ -256,9 +256,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.24</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.16'></a> 2.7.16
 
 **Release Date:** 06/02/2020
@@ -337,8 +337,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.23</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.7.15'></a> 2.7.15
 
@@ -1886,7 +1886,7 @@ The following property is removed:
 
 <p class="note"><strong>Note:</strong>The <code>syslog_adapter</code> and <code>syslog_scheduler</code> instance groups and the <code>syslog_metrics_to_syslog_enabled</code> property are availble in <%= vars.app_runtime_abbr %> v2.7.7. This allows you to optionally disable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7.</p>
 
-<p class='note breaking'><strong>Breaking Change:</strong> If you enable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 or later, new metadata tags for app logs and metrics are added to outgoing syslog messages. You must update any external monitoring configuration you use to account for the new format and tags. For more information, see <a href='breaking-changes.html#syslog-agent-metadata'>Agent-Based Syslog Egress Introduces Additional Metadata Tags</a> in <em><%= vars.platform_name %> v2.7 Breaking Changes</em>.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> If you enable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 or later, metadata tags for app logs and metrics are added to outgoing syslog messages. You must update any external monitoring configuration you use to account for the new format and tags. For more information, see <a href='breaking-changes.html#syslog-agent-metadata'>Metadata Tags for Metrics and App Logs</a> in <em><%= vars.platform_name %> v2.7 Breaking Changes</em>.</p>
 
 For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
