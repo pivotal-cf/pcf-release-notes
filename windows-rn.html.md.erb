@@ -17,7 +17,7 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.7'></a> 2.9.7
 
 **Release Date:** 07/09/2020
@@ -47,9 +47,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.15.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.6'></a> 2.9.6
 
 **Release Date:** 06/25/2020
@@ -82,9 +82,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.15.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.5'></a> 2.9.5
 
 **Release Date:** 06/11/2020
@@ -114,9 +114,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.14.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.4'></a> 2.9.4
 
 **Release Date:** 06/03/2020
@@ -148,9 +148,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.14.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.3'></a> 2.9.3
 
 **Release Date:** 05/18/2020
@@ -180,14 +180,15 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.13.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.2'></a> 2.9.2
 
 **Release Date:** 05/05/2020
 
 * **[Feature Improvement]** NATS TLS server runs alongside NATS server
+* **[Feature Improvement]** NATS communication happens securely over TLS for Windows Diego Cells
 * Bump windows2019 stemcell to version `2019.20`
 * Bump windowsfs-release to version `2.13.0`
 
@@ -213,9 +214,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.13.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.1'></a> 2.9.1
 
 **Release Date:** 04/22/2020
@@ -246,9 +247,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.12.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2-9-0'></a> v2.9.0
 
 **Release Date:** April 10, 2020
@@ -277,9 +278,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windows-utilities</td><td>0.14.0</td></tr>
     <tr><td>windowsfs-release</td><td>2.12.0</td></tr>
   </tbody>
-</table> 
- 
- 
+</table>
+
+
 ## <a id='upgrade'></a> How to Upgrade
 
 The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is available with the release of <%= vars.platform_name %>
@@ -292,6 +293,12 @@ you must install <%= vars.ops_manager_full %> <%= vars.v_major_version %> or lat
 ## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='route-emitter-nats-tls'></a> Route Emitters Communicate with NATS Over TLS
+
+Route Emitters for Windows Diego Cells send messages to NATS over TLS. This allows your <%= vars.windows_runtime_abbr %> deployment to meet security compliance requirements while relying less on security policy exceptions or add-ons. TLS encryption from Route Emitters to NATS cannot be disabled.
+
+For more information about Route Emitters and TLS encryption, see [TLS to Apps and Other Back End Services](http://docs.pivotal.io/platform/application-service/2-9/concepts/http-routing.html#tls-to-back-end) in _HTTP Routing_.
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
 
