@@ -20,6 +20,10 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 **Release Date:** 07/16/2020
 
 * **[Security Fix]** Fix for [CVE-2020-15586](https://www.cloudfoundry.org/blog/cve-2020-15586/): Bump golang to version 1.14.5 with a fix in the net/http/httputil package for an issue which could cause the Gorouter to crash if a malicious client sends specially crafted HTTP requests.
+* **[Feature Improvement]** Platform operators can see X-Cf-RouterError response headers in router access logs
+* **[Feature Improvement]** Application developers can successfully deploy a reverse-proxy with support for sticky sessions
+* **[Feature Improvement]** Gorouter provides improved logging when the following error is received: `x509: certificate has expired or is not yet valid`
+
 * Bump cf-cli to version `1.27.0`
 * Bump cf-smoke-tests to version `40.0.132`
 * Bump cflinuxfs3 to version `0.198.0`
