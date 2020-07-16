@@ -11,7 +11,7 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.10.0-rc.5'></a> 2.10.0-rc.5
 
 **Release Date:** 07/09/2020
@@ -41,9 +41,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.15.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-rc.4'></a> 2.10.0-rc.4
 
 **Release Date:** 06/25/2020
@@ -75,9 +75,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.15.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-rc.3'></a> 2.10.0-rc.3
 
 **Release Date:** 06/15/2020
@@ -108,9 +108,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.14.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-rc.2'></a> 2.10.0-rc.2
 
 **Release Date:** 06/03/2020
@@ -143,9 +143,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.14.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-rc.1'></a> 2.10.0-rc.1
 
 **Release Date:** 05/18/2020
@@ -174,9 +174,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.13.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-beta.1'></a> 2.10.0-beta.1
 
 **Release Date:** 05/05/2020
@@ -209,9 +209,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.13.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-alpha.5'></a> 2.10.0-alpha.5
 
 **Release Date:** 04/22/2020
@@ -241,9 +241,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.12.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-alpha.4'></a> 2.10.0-alpha.4
 
 **Release Date:** 04/07/2020
@@ -276,9 +276,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.12.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-alpha.3'></a> 2.10.0-alpha.3
 
 **Release Date:** 03/19/2020
@@ -311,9 +311,9 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.10.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.0-alpha.2'></a> 2.10.0-alpha.2
 
 **Release Date:** 03/05/2020
@@ -346,8 +346,8 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
     <tr><td>windowsfs-release</td><td>2.5.0</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.10.0-alpha.1'></a> 2.10.0-alpha.1
 
@@ -387,6 +387,12 @@ The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is availab
 ## <a id='new-features'></a> New Features in <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='route-emitter-nats-tls'></a> Route Emitter Can Communicate with NATS Over TLS
+
+Route Emitter sends messages to NATS over TLS. This allows your <%= vars.windows_runtime_abbr %> deployment to meet security compliance requirements while relying less on security policy exceptions or add-ons. TLS encryption from Route Emitter to NATS cannot be disabled.
+
+For more information about Route Emitter and TLS encryption, see [TLS to Apps and Other Back End Services](http://docs.pivotal.io/platform/application-service/2-10/concepts/http-routing.html#tls-to-back-end) in _HTTP Routing_.
 
 ### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
