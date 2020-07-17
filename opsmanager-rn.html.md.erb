@@ -17,12 +17,38 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> includes the following minor releases:
 
+### <a id="2-7-20"></a> 2.7.20
+
+**Release Date:** July 17, 2020
+
+* **[Bug Fix]:** When you have any tiles staged that have not been fully configured or are otherwise not ready to be deployed, `PrivilegeVerifier` shows a warning instead of an error when you attempt to **Apply Changes**.
+
+* **[Bug Fix]:** For the `hm_emailer_options.recipients` key, the `PUT /api/v0/staged/director/properties` endpoint accepts the format used by `GET /api/v0/staged/director/properties` endpoint for this key in addition to the existing format accepted.
+
+<%= vars.ops_manager %> v2.7.20 uses the following component versions:
+
+<table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Ops Manager</td><td>2.7.20-build.339*</td>
+  </tr>
+  <tr><td>Stemcell</td><td>456.114</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.12</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.25*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11</td></tr><tr><td>BOSH CLI</td><td>6.3.1*</td></tr><tr><td>CredHub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
+  </tbody>
+</table>
+
 ### <a id="2-7-19"></a> 2.7.19
 
 **Release Date:** July 1, 2020
 
 * **[Bug Fix]:** NSX configuration settings are applied to jobs defined in the BOSH Director manifest, including the BOSH Director VM.
-* **[Bug Fix]:** BOSH Director can deploy on Openstack environments with multiple regions.
+* **[Bug Fix]:** BOSH Director can deploy on OpenStack environments with multiple regions.
 * **[Bug Fix]:** The Ops Manager `/api/v0/staged/director/properties` endpoint returns S3 and GCS blobstore credentials.
 * **[Bug Fix]:** `IaasConfigurationVerifier` connects to the correct authentication endpoint on Azure Government environments.
 * **[Bug Fix]:** Ops Manager UAA allows spaces and escaped characters in LDAP external group names.
@@ -41,7 +67,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   <tr>
     <td>Ops Manager</td><td>2.7.19-build.333*</td>
   </tr>
-  <tr><td>Stemcell</td><td>456.114*</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.12*</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.24*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11</td></tr><tr><td>BOSH CLI</td><td>6.3.0*</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
+  <tr><td>Stemcell</td><td>456.114*</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.12*</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.24*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11</td></tr><tr><td>BOSH CLI</td><td>6.3.0*</td></tr><tr><td>CredHub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
 </table>
@@ -63,7 +89,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   <tr>
     <td>Ops Manager</td><td>2.7.18-build.315*</td>
   </tr>
-  <tr><td>Stemcell</td><td>456.112</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.23*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
+  <tr><td>Stemcell</td><td>456.112</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.23*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>CredHub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
 </table>
@@ -88,7 +114,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   <tr>
     <td>Ops Manager</td><td>2.7.17-build.313*</td>
   </tr>
-  <tr><td>Stemcell</td><td>456.112*</td></tr><tr><td>BBR SDK</td><td>1.18.0*</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0*</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.22</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11*</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
+  <tr><td>Stemcell</td><td>456.112*</td></tr><tr><td>BBR SDK</td><td>1.18.0*</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.21.0*</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.22</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.11*</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>CredHub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
 </table>
@@ -111,7 +137,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   <tr>
     <td>Ops Manager</td><td>2.7.16-build.305*</td>
   </tr>
-  <tr><td>Stemcell</td><td>456.110*</td></tr><tr><td>BBR SDK</td><td>1.17.4</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.22*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.9</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
+  <tr><td>Stemcell</td><td>456.110*</td></tr><tr><td>BBR SDK</td><td>1.17.4</td></tr><tr><td>BOSH Director</td><td>270.4.3</td></tr><tr><td>BOSH DNS</td><td>1.17.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>CredHub</td><td>2.5.11</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>73.4.22*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>21.0.0</td></tr><tr><td>AWS CPI</td><td>78</td></tr><tr><td>Azure CPI</td><td>36.0.1</td></tr><tr><td>Google CPI</td><td>29.0.1</td></tr><tr><td>OpenStack CPI</td><td>43</td></tr><tr><td>vSphere CPI</td><td>53.0.9</td></tr><tr><td>BOSH CLI</td><td>6.2.1</td></tr><tr><td>CredHub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr>
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
   </tbody>
 </table>
