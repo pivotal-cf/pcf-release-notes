@@ -15,16 +15,16 @@ see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= p
 
 See the following <%= vars.ops_manager %> breaking changes:
 
-### <a id='credhub-regenerate'></a> CredHub Maestro Updates the Regenerate Command
+### <a id='credhub-regenerate'></a> CredHub Maestro Removes the "update-transitional latest" Command
 
 Ops Manager v2.10 includes CredHub Maestro v8.0.0.
-In this version of CredHub Maestro, you run `maestro regenerate ca` to regenerate a certificate authority (CA) and mark the latest version of the CA as transitional.
-This command performs both actions, while previous versions of CredHub Maestro use a separate command for each task.
-
-The `maestro update-transitional latest` command is removed in CredHub Maestro v8.0.0.
+In this version of CredHub Maestro, the `maestro update-transitional latest` command is removed.
 
 If you have scripts that rely on the `maestro update-transitional latest` command,
 remove references to the command before you upgrade to Ops Manager v2.10.
+
+In CredHub Maestro v8.0.0, you run `maestro regenerate ca` to regenerate a certificate authority (CA) and mark the latest version of the CA as transitional.
+This command performs both actions, while previous versions of CredHub Maestro use a separate command for each task.
 
 For information about rotating CAs and certificates using CredHub Maestro, see [Advanced Certificate Rotation with CredHub Maestro](https://docs.pivotal.io/platform/2-9/security/pcf-infrastructure/advanced-certificate-rotation.html).
 
