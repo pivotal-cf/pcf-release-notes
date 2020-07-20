@@ -36,9 +36,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <td>Ops Manager</td><td>2.10.0-build.47*</td>
   </tr>
   <tr><td>Stemcell</td><td>621.76</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.11.1</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11</td></tr><tr><td>CredHub</td><td>2.7.1*</td></tr><tr><td>CredHub Maestro</td><td>8.0.0</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.18</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>22.0.0</td></tr><tr><td>AWS CPI</td><td>81</td></tr><tr><td>Azure CPI</td><td>37.2.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>54.1.0</td></tr><tr><td>BOSH CLI</td><td>6.3.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr><tr><td>Telemetry</td><td>1.1.1</td></tr>
-  
+
     <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
+
   </tbody>
 </table>
 
@@ -108,16 +108,14 @@ Director](https://docs.pivotal.io/platform/2-10/opsman-api/#tag/Advanced-Manifes
 
 ### <a id='certs-om-ui'></a> View Certificates in the Ops Manager UI
 
-The Ops Manager UI introduces a new pane called **Certificates**. This pane lists which of your certificates are rotated through the Ops Manager API, which certificates cannot be rotated through the Ops Manager API, and when each certificate is due to expire.
-
-The **Certificates** pane displays all the certificates listed by the `/api/v0/deployed/certificates` endpoint, as well as the following details:
+The Ops Manager UI introduces a new page called **Certificates**. This page displays all the certificates listed by the `/api/v0/deployed/certificates` endpoint, as well as the following details:
 
 * **Certificate name:** The name of the certificate.
-* **Product:** The product for which the certificate is issued, such as BOSH or MySQL.
+* **Product GUID:** The product for which the certificate is issued, such as BOSH or MySQL.
 * **Location:** Whether the certificate is stored in Ops Manager or CredHub.
 * **Type:** Whether the certificate is a leaf certificate or a certificate authority (CA).
 * **Configurable:** Whether the certificate is configurable.
-* **Valid until:** The expiry date of the certificate and the number of days before expiration.
+* **Valid until:** The expiration date of the certificate and the number of days before expiration.
 
 For more information, see [Using the Ops Manager Interface](https://docs.pivotal.io/platform/ops-manager/2-10/pcf-interface.html).
 
