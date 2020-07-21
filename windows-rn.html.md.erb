@@ -17,12 +17,12 @@ This topic contains release notes for <%= vars.windows_runtime_full %> <%= vars.
 **Release Date:** 07/TBD/2020
 
 * **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all app containers
+* **[Feature]** Optionally Converge on Human Readable Timestamps for TAS Component Logs
 * **[Feature]** Make app log rate limit configurable
 * **[Feature Improvement]** Removes metrics by default in aggregate drains
 * **[Feature Improvement]** NATS TLS server runs alongside NATS server
 * **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
 * **[Bug Fix]** Loggregator Agent - Fix certificate issues for all agent metrics
-* **[Feature]** Optionally Converge on Human Readable Timestamps for TAS Component Logs
 * **[Bug Fix]** Migrate `services/intermediate_tls_ca` to `/services/tls_leaf` for Maestro
 * **[Bug Fix]** Fix `server_name` value to use Common Name as metrics_agent_metrics_tls
 * Add new release smoke-tests at version `2.0.6`
