@@ -76,11 +76,61 @@ Route Emitters for Windows Diego Cells send messages to NATS over TLS. This allo
 
 For more information about Route Emitters and TLS encryption, see [TLS to Apps and Other Back End Services](http://docs.pivotal.io/platform/application-service/2-10/concepts/http-routing.html#tls-to-back-end) in _HTTP Routing_.
 
+### <a id='syslog-no-metrics'></a>Aggregate Syslog Drains Contain Logs Only
+
+When you configure an aggregate syslog drain in <%= vars.app_runtime_abbr %> v2.10, by default you receive logs only.
+You do not also receive metrics.
+By not including metrics alongside logs, your syslog drain uses fewer resources and reduces network traffic between <%= vars.app_runtime_abbr %> components and your external logging service.
+
+If you want the aggregate drain to send metrics along with logs, you can modify your drain URLs.
+
+To continue to see metrics in your drains after upgrading to <%= vars.app_runtime_abbr %> v2.10:
+
+1. Navigate to the Ops Manager Installation Dashboard.
+1. Click the **VMware Tanzu Application Service for VMs** tile in the Installation Dashboard.
+1. Select **System Logging**.
+1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
+1. Click **Save**.
+
+For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/platform/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+
 ### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
 You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on <%= vars.windows_runtime_abbr %> by allowing you to scale down Doppler and Traffic Controller VMs.
 
 To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
+
+<%= vars.app_runtime_abbr %> v2.10 introduces RFC3339 log format support for several TAS for VMs components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+
+RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
+
+* 2019-11-21T22:16:18.750673404Z
+* 2019-11-21T22:16:18.750000000Z 
+
+For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/platform/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+In <%= vars.app_runtime_abbr %> v2.10.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
+
+| Component | Jobs |
+| ------------ | ----- |
+| `routing` | `gorouter` |
+| `silk` | `iptables logger`, `silk-daemon` |
+| `diego` | `auctioneer`, `bbs`, `file_server`, `locket`, `rep`, `route_emitter`, `ssh_proxy` |
+| `garden-runc` | `garden` |
+| `pxc` | `pxc-mysql`, `proxy`, `galera-agent`, `gra-log-purger` |
+| `mysql-monitoring` | `mysql-metrics`, `replication-canary` | 
+
+Components not listed in the table above either do not support RFC3339 timestamps in <%= vars.app_runtime_abbr %> v2.10.0 or were already using the RFC3339 timestamp format. Selecting **Converge to human-readable RFC3339 format** ensures that any additional components that add support for RFC3339 timestamps in later releases of <%= vars.app_runtime_abbr %> v2.10 are automatically configured to use RFC3339 timestamps after you upgrade.
+
+To confirm which <%= vars.app_runtime_abbr %> components use RFC3339 timestamps:
+
+1. Go to the `debug/files` endpoint at `https://OPS-MANAGER-FQDN/debug/files`, where `OPS-MANAGER-FQDN` is the fully-qualified domain name of your Ops Manager instance.
+
+1. For each component, confirm that the `logging.format.timestamp` property is set to `rfc3339`.
+
+<p class='note breaking'><strong>Breaking Change:</strong> The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.10, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='breaking-changes.html#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a> in <em>Ops Manager and Runtime Breaking Changes</em>.</p>
 
 
 ## <a id='known-issues'></a> Known Issues
