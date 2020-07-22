@@ -613,6 +613,8 @@ You access the **Installation Log** page from the **Change Log** page by clickin
 
 Audit logs from the <%= vars.ops_manager %> UAA component do not forward to a syslog server due to file permission issues.
 
+This issue is resolved in Ops Manager v2.7.15.
+
 ### <a id="monit"></a> Monit Inaccurately Reports Health of UAA
 
 When BOSH Director reboots, Monit may report UAA as running, even though its process state is unhealthy. The Monit start scripts for UAA use the UAA `/healthz` endpoint to verify UAA is running, but the `/healthz` endpoint does not know there is a database requirement. Monit detects UAA is healthy, even though UAA is stuck, and never restarts it.
