@@ -2169,10 +2169,6 @@ To resolve this issue, do one of the following:
 
 For more information, see the [Applications failing to stage after upgrading to PAS 2.7.13 or 2.7.14](https://community.pivotal.io/s/article/apps-failed-to-stage-after-upgrading-PAS-tile?language=en_US) Knowledge Base article.
 
-### <a id='syslog-drain-type'></a> Cannot Choose Drain Type
-
-Syslog drains provide the ability to send only logs or metrics to their syslog endpoint, rather than a combination of both. However, <%= vars.app_runtime_abbr %> v2.7 has a known issue in which both logs and metrics are sent, regardless of the settings for any given drain. This corresponds to the `--type` option of `cf drain`.
-
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
 
 If a multi-process app is set to scale on HTTP Metrics, the metrics of non-web processes can cause Autoscaler to scale the web process incorrectly.
