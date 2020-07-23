@@ -24,32 +24,38 @@ This topic highlights important new features included in <%= vars.platform_name 
 
 **TAS for VMs**
 
-+ Operators can configure the type of key used for sticky sessions. See [Configurable Sticky Session Cookie Names](./runtime-rn.html#sticky-cookies).
++ Operators can configure the names of keys that are used for sticky sessions.
+See [Configurable Sticky Session Cookie Names](./runtime-rn.html#sticky-cookies).
 
-+ Enable a consistent human-readable timestamp format for component logs. See [Optionally Use Human-Readable Timestamps for Component Logs](runtime-rn.html#timestamps).
++ Operators can enable a consistent, human-readable timestamp format for <%= vars.app_runtime_abbr %> component logs.
+See [Optionally Use Human-Readable Timestamps for Component Logs](runtime-rn.html#timestamps).
 
 **TAS for VMs [Windows]**
 
-+ [Route Emitters Communicate with NATS Over TLS](windows-rn.html#route-emitter-nats-tls)
++ Communication between Route Emitters and NATS uses TLS for improved security.
+See [Route Emitters Communicate with NATS Over TLS](windows-rn.html#route-emitter-nats-tls).
 
++ Stemcell automation for Windows is generally available.
+See [Creating a Windows Stemcell for vSphere Using stembuild](http://docs.pivotal.io/platform/application-service-windows/2-10/create-vsphere-stemcell-automatically.html).
 
-+ [Windows Image (Stemcell) Automation is GA]()
++ The HWC buildpack adds support for 32-bit .NET Framework apps.
+See [HWC Buildpack](https://docs.pivotal.io/platform/application-service/2-10/buildpacks/hwc/index.html).
 
-+ [Ability to run heritage 32-bit .NET apps on TAS for VMs [Windows]]()
+**Scaling**
 
-**Scaling and scheduling**
++ Scheduler allows you to set memory and disk limits for tasks.
+See [Scheduler Release Notes](https://docs.pivotal.io/scheduler/1-2/release-notes.html).
 
-+ [Improvements to Scheduler]
-
-+ [Improvements to App Autoscaler](runtime-rn.html#autoscaler)
++ App Autoscaler includes updates for scheduling limit changes and using rules based on HTTP throughput.
+See [Improvements to App Autoscaler](runtime-rn.html#autoscaler).
 
 **Observability**
 
-+ Metric Store v1.4 is GA.
++ Metric Store v1.4 is generally available.
   See [Metric Store Release Notes](https://docs.pivotal.io/metric-store/1-4/release-notes.html).
 
-+ App Metrics v2.0 is GA.
-  See [App Metrics](https://docs.pivotal.io/app-metrics/2-0).
++ App Metrics v2.0 is generally available.
+  See [App Metrics Release Notes and Known Issues](https://docs.pivotal.io/app-metrics/2-0/rn-ki.html).
 
 **cf CLI**
 
