@@ -36,7 +36,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <td>Ops Manager</td><td>2.10.0-build.48</td>
   </tr>
   <tr><td>Stemcell</td><td>621.77</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.11.1</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11</td></tr><tr><td>CredHub</td><td>2.8.0</td></tr><tr><td>CredHub Maestro</td><td>8.0.1</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.18</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>22.0.0</td></tr><tr><td>AWS CPI</td><td>81</td></tr><tr><td>Azure CPI</td><td>37.2.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>54.1.0</td></tr><tr><td>BOSH CLI</td><td>6.3.1</td></tr><tr><td>Credhub CLI</td><td>2.7.0</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr><tr><td>Telemetry</td><td>1.1.1</td></tr>
-  
+
   </tbody>
 </table>
 
@@ -49,6 +49,16 @@ To upgrade to <%= vars.ops_manager_full %> <%= vars.v_major_version %>, see [Upg
 ## <a id='major-features'></a> New Features in <%= vars.ops_manager %> <%= vars.v_major_version %>
 
 <%= vars.ops_manager %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='lts'></a> Long-Term Support for Ops Manager v2.10
+
+Ops Manager v2.10 is the long-term supported (LTS) version of Ops Manager. Ops Manager v2.10 will be supported through April 2024.
+
+Over the lifecycle of Ops Manager v2.10, VMware will release security patches that occasionally include feature enhancements and maintenance updates.
+
+The migration period for upgrading to Ops Manager v2.10 is from August 2020 to March 2021. To accommodate this migration and provide customers with additional time to upgrade to Ops Manager v2.10, Ops Manager v2.7 will be supported through March 31, 2021.
+
+For more information about Ops Manager v2.10 LTS, please reach out to your Account Team.
 
 ### <a id="bosh-overrides"></a> BOSH Director Manifest Overrides
 
@@ -120,7 +130,7 @@ For more information, see [Using the Ops Manager Interface](https://docs.pivotal
 
 ### <a id='safety-checks'></a> CredHub Maestro Runs Safety Checks During Certificate Rotation
 
-CredHub Maestro v8.0, which is included in Ops Manager v2.10, performs basic safety checks when rotating certificates to prevent unsafe operations. 
+CredHub Maestro v8.0, which is included in Ops Manager v2.10, performs basic safety checks when rotating certificates to prevent unsafe operations.
 
 The Ops Manager API invokes the CredHub Maestro CLI when rotating certificates. If an Ops Manager API certificate rotation command is out-of-order or unsafe, CredHub Maestro stops the command and returns one or more safety violation errors.
 
