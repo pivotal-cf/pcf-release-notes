@@ -1052,7 +1052,7 @@ To configure the Firehose to receive only app metrics, you must select the **Dis
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
-<%= vars.app_runtime_abbr %> v2.10 introduces RFC3339 log format support for several TAS for VMs components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+<%= vars.app_runtime_abbr %> v2.10 introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
 
 RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
 
@@ -1089,10 +1089,10 @@ The Gorouter uses these cookies to support session affinity, or _sticky sessions
 For more information, see [Session Affinity](https://docs.pivotal.io/platform/2-10/concepts/http-routing.html#sessions)
 in _HTTP Routing_.
 
-By default, Gorouter uses `JSESSIONID`. Some apps require a different session name.
+By default, the Gorouter uses `JSESSIONID`. Some apps require a different session name.
 For example, Spring WebFlux requires `SESSION` for the session cookie name.
 
-To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platform/application-service/2-10/operating/configure-pas.html#networking) in _Configuring PAS_.
+To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platform/application-service/2-10/operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='autoscaler'></a>  Improvements to App Autoscaler
 
