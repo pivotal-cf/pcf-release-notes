@@ -12,15 +12,31 @@ This topic highlights important new features included in <%= vars.platform_name 
 
 ## <a id='om'></a> <%= vars.ops_manager_full %> Highlights
 
-<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following important major features. For additional information about these and other features included in <%= vars.ops_manager %> <%= vars.v_major_version %>, see [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
+<%= vars.ops_manager %> <%= vars.v_major_version %> includes the following important major features.
+For additional information about these features in <%= vars.ops_manager %>
+<%= vars.v_major_version %>, see [<%= vars.ops_manager_full %> <%= vars.v_major_version %> Release Notes](opsmanager-rn.html).
 
 + Ops Manager v2.10 is the long-term supported (LTS) version of Ops Manager. See [Long-Term Support for Ops Manager v2.10](opsmanager-rn.html#lts).
+
++ In Advanced Mode, you can override some Ops Manager properties that cannot be changed
+  through the Ops Manager UI or API.
+  See [BOSH Director Manifest Overrides](opsmanager-rn.html#bosh-overrides) and
+  [Override Runtime Config Properties Using the Ops Manager API](opsmanager-rn.html#certs-om-ui).
+
++ A new page in the UI that lists certificates with their expiration dates.
+  See [View Certificates in the Ops Manager UI](opsmanager-rn.html#certs-om-ui).
+
++ CredHub Maestro performs basic safety checks when rotating certificates.
+  See [CredHub Maestro Runs Safety Checks During Certificate Rotation](opsmanager-rn.html#safety-checks).
 
 ---
 
 ## <a id='pas'></a> <%= vars.app_runtime_full %> Highlights
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following important major features.
+For additional information about these and other features included in <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>, see [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes]
+(runtime-rn.html).
 
 **TAS for VMs**
 
@@ -63,9 +79,3 @@ TAS for VMs v2.10 is compatible with the cf CLI v7.
 
 New features in the cf CLI v7 simplify development and deployment of apps.
 For more information, see [TAS for VMs Is Compatible with cf CLI v7](runtime-rn.html#cf-cli).
-
-<br>
-
-**Additional Information**
-
-For additional information about these and other features included in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes](runtime-rn.html).
