@@ -22,7 +22,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
   In earlier patches, the apply changes failed.
   This only happened on vSphere environments.
 
-* **[Bug Fix]:** For the `hm_emailer_options.recipients` key, the PUT can receive the same format as the GET returns.
+* **[Bug Fix]:** For the `hm_emailer_options.recipients` key,
+    the `PUT` `/api/v0/staged/director/properties` endpoint accepts the format used by `GET`
+    `/api/v0/staged/director/properties` endpoint for this key in addition to the existing format accepted.
 
 * **[Bug Fix]:** Version checks for tile dependencies confirm the major, minor, and patch numbers
  but not build numbers.
