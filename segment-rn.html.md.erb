@@ -65,33 +65,33 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you mus
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
-* **[Feature Improvement]** Use the Diego logging format for the Garden job
-* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all app containers
-* **[Feature]** Make app log rate limit configurable
-* **[Feature]** HAProxy can now be configured with custom certificate authorities
-* **[Bug Fix]** Fix `server_name` value to use Common Name as metrics_agent_metrics_tls
-* **[Feature Improvement]** Sticky Session Cookie Names Are Configurable
-* **[Feature]** Optionally Converge on Human Readable Timestamps for TAS Component Logs
-* **[Feature]** Allow egress traffic from apps to addresses on host via host_tcp_services
-* **[Bug Fix]** Migrate `services/intermediate_tls_ca` to `/services/tls_leaf` for Maestro
-* **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
-* **[Feature Improvement]** Removes metrics by default in aggregate drains
-* **[Bug Fix]** Gorouter - Drain timeout always uses configured value
-* **[Bug Fix]** Silk - Continue container networking during cell drain
-* **[Bug Fix]** Loggregator Agent - Fix certificate issues for all agent metrics
-* **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
-* **[Security Fix]** Fix for [CVE-2020-15586](https://www.cloudfoundry.org/blog/cve-2020-15586/): Bump golang to version 1.14.5 with a fix in the net/http/httputil package for an issue which could cause the Gorouter to crash if a malicious client sends specially crafted HTTP requests.
+### <a id='syslog-no-metrics'></a>Aggregate Syslog Drains Contain Logs Only
 
+When you configure an aggregate syslog drain in <%= vars.app_runtime_abbr %> v2.10, by default you receive logs only.
+You do not also receive metrics.
+By not including metrics alongside logs, your syslog drain uses fewer resources and reduces network traffic between <%= vars.app_runtime_abbr %> components and your external logging service.
+
+If you want the aggregate drain to send metrics along with logs, you can modify your drain URLs.
+
+To continue to see metrics in your drains after upgrading to <%= vars.app_runtime_abbr %> v2.10:
+
+1. Navigate to the Ops Manager Installation Dashboard.
+1. Click the **<%= vars.app_runtime_abbr %>** tile in the Installation Dashboard.
+1. Select **System Logging**.
+1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
+1. Click **Save**.
+
+For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/platform/application-service/operating/installing-pcf-is.html#syslog) in _Installing Isolation Segment_.
 
 ### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
-You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on <%= vars.segment_runtime_full %> by allowing you to scale down Doppler and Traffic Controller VMs.
+You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on <%= vars.app_runtime_abbr %> by allowing you to scale down Doppler and Traffic Controller VMs.
 
 To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
-<%= vars.app_runtime_abbr %> v2.10 introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+<%= vars.app_runtime_abbr %> v2.10 introduces RFC3339 log format support for several TAS for VMs components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
 
 RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
 
