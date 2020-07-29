@@ -19,9 +19,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ### <a id='2.10.0'></a> 2.10.0
 
-
-* **[Security Fix]** Fix for [CVE-2020-15586](https://www.cloudfoundry.org/blog/cve-2020-15586/): Bump golang to version 1.14.5 with a fix in the net/http/httputil package for an issue which could cause the Gorouter to crash if a malicious client sends specially crafted HTTP requests.
-
 <table border="1" class="nice">
   <thead>
     <tr>
@@ -80,13 +77,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
-
-
-* **[Feature]** New and improved smoke-tests for Application Service
-* **[Feature Improvement]** Allow the Cloud Controller to use Domain Style URLs for AWS S3 Access
-* **[Feature Improvement]** Add the ability to scale down to 0 for `loggregator_trafficontroller`
-* **[Feature Improvement]** Allow users to cancel rolling deployments in process from the Apps Manager Revisions page for an application
-* **[Feature Improvement]** Remove Service Mesh Configuration Form
 
 ## <a id='upgrade'></a> How to Upgrade
 
