@@ -20,48 +20,6 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 ## <a id='releases'></a> Releases
 
-### <a id="2-9-7"></a> v2.9.7
-
-**Release Date:** July 28, 2020
-
-* **[Bug Fix]:** If you have a tile that is not configured and you apply changes,
-  you receive a warning message but changes to other configured tiles are applied.
-  In earlier patches, the apply changes failed.
-  This only happened on vSphere environments.
-
-* **[Bug Fix]:** For Redis for VMware Tanzu v2.4 and later, certificates can be rotated by CredHub Maestro.
-
-* **[Bug Fix]:** When the **Enable additional System Metrics** checkbox is cleared on the tile UI,
-  the `loggr-system-metrics-agent` and `loggr-system-metrics-agent-windows` jobs
-  of the `system-metrics` release are removed from the product tile.
-
-* **[Bug Fix]:** For the `hm_emailer_options.recipients` key,
-    the `PUT` `/api/v0/staged/director/properties` endpoint accepts the format used by `GET`
-    `/api/v0/staged/director/properties` endpoint for this key in addition to the existing format accepted.
-
-* **[Bug Fix]:** Version checks for tile dependencies confirm the major, minor, and patch numbers
-  but not build numbers.
-
-Ops Manager v2.9.7 uses the following component versions:
-
-<table border="1" class="nice">
-  <thead>
-  <tr>
-    <th>Component</th>
-    <th>Version</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Ops Manager</td><td>2.9.7-build.157*</td>
-  </tr>
-  <tr><td>Stemcell</td><td>621.77*</td></tr><tr><td>BBR SDK</td><td>1.18.0</td></tr><tr><td>BOSH Director</td><td>270.11.1</td></tr><tr><td>BOSH DNS</td><td>1.21.0</td></tr><tr><td>Metrics Server</td><td>0.0.24</td></tr><tr><td>System Metrics</td><td>2.0.11</td></tr><tr><td>CredHub</td><td>2.5.12</td></tr><tr><td>CredHub Maestro</td><td>6.0.0</td></tr><tr><td>Syslog</td><td>11.6.1</td></tr><tr><td>Windows Syslog</td><td>1.0.3</td></tr><tr><td>UAA</td><td>74.5.18*</td></tr><tr><td>BPM</td><td>1.1.8</td></tr><tr><td>Networking</td><td>9</td></tr><tr><td>OS Conf</td><td>22.0.0</td></tr><tr><td>AWS CPI</td><td>81</td></tr><tr><td>Azure CPI</td><td>37.2.0</td></tr><tr><td>Google CPI</td><td>30.0.0</td></tr><tr><td>OpenStack CPI</td><td>44</td></tr><tr><td>vSphere CPI</td><td>54.1.0</td></tr><tr><td>BOSH CLI</td><td>6.3.1*</td></tr><tr><td>Credhub CLI</td><td>2.8.0*</td></tr><tr><td>BBR CLI</td><td>1.7.2</td></tr><tr><td>Telemetry</td><td>1.1.1*</td></tr>
-  
-    <td colspan="2"><em>* Components marked with an asterisk have been updated.</em></td>
-  
-  </tbody>
-</table>
-
 ### <a id="2-9-6"></a> v2.9.6
 
 **Release Date:** July 1, 2020
