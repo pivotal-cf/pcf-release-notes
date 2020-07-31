@@ -66,3 +66,26 @@ See the following <%= vars.windows_runtime_abbr %> breaking changes:
 ## <a id='ist'></a> <%= vars.segment_runtime_full %>
 
 There are no breaking changes in this release of <%= vars.segment_runtime_full %>.
+
+
+## <a id='end-of-life'></a> End-of-Life Components
+
+This section lists of components that are either at their end-of-life (EOL) or nearing EOL.
+
+### <a id='buildpack'></a> Buildpack Support Changes
+
+This section lists support changes to buildpacks associated with this release:
+
+* **NGINX Buildpack:** NGINX v1.16.x and v1.17.x are removed from the NGINX buildpack v1.1.12 and later because NGINX v1.16.x and v1.17.x are out of support.
+
+* **Node.js Buildpack:** Node.js v13.x is removed from the Node.js buildpack v1.7.22 and later because Node.js v13.x is out of support.
+
+* **PHP Buildpack:** NGINX v1.16.x and v1.17.x are removed from the PHP buildpack v4.4.20 and later because NGINX v1.16.x and v1.17.x are out of support.
+
+If your app depends on any of these language distributions and use the buildpacks packaged for TAS for VMs, you should consider updating the apps and their dependencies prior to upgrading to TAS for VMs v2.10.
+
+### <a id='aws-path-deprecation'></a> AWS S3 Path-Based Access Model
+
+On September 30, 2020, AWS will no longer support the path-based model for accessing S3 buckets. Support for the path-based model will continue for S3 buckets created on or before September 30, 2020. S3 buckets created after that date must be accessed using the virtual-hosted model.
+
+For more information, see [Amazon S3 Path Deprecation Plan – The Rest of the Story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) on the AWS News Blog.
