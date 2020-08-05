@@ -85,6 +85,7 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 
 **Release Date:** 06/25/2020
 
+* **[Breaking Change]** Improper Application HTTP(S) Proxy Configuration breaks CredHub interpolation in container. In order to detect and update applications with improper HTTP(S) proxy, please see [KB 9305](https://community.pivotal.io/s/article/Credhub-Reference-Can-t-Be-Interpolated-Due-To-Improper-HTTP-S-Proxy-Configuration?language=en_US).
 * **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
 * **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
 * Bump ubuntu-xenial stemcell to version `456.114`
@@ -925,3 +926,4 @@ To resolve this issue, do one of the following:
   to assign more CPU instances.
 
 For more information about the related issue in PAS, see the [Applications failing to stage after upgrading to PAS 2.7.13 or 2.7.14](https://community.pivotal.io/s/article/apps-failed-to-stage-after-upgrading-PAS-tile?language=en_US) Knowledge Base article.
+

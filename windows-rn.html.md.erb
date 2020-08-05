@@ -48,6 +48,7 @@ This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars
 
 **Release Date:** 06/25/2020
 
+* **[Breaking Change]** Improper Application HTTP(S) Proxy Configuration breaks CredHub interpolation in container. In order to detect and update applications with improper HTTP(S) proxy, please see [KB 9305](https://community.pivotal.io/s/article/Credhub-Reference-Can-t-Be-Interpolated-Due-To-Improper-HTTP-S-Proxy-Configuration?language=en_US).
 * **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
 * Bump windows2019 stemcell to version `2019.22`
 * Bump cf-smoke-tests to version `40.0.128`
