@@ -184,6 +184,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 **Release Date:** 06/25/2020
 
+* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Breaking Changes](breaking-changes.html#credhub-interpolate-with-https).
 * **[Breaking Change]** If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
 The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
 * **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
