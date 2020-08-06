@@ -94,6 +94,7 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 
 **Release Date:** 06/25/2020
 
+* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Breaking Changes](breaking-changes.html#credhub-interpolate-with-https-iso).
 * **[Breaking Change]**: If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
 The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
 * **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
