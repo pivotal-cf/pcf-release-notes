@@ -14,7 +14,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.15'></a> 2.8.15
 
 **Release Date:** 08/07/2020
@@ -99,9 +99,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.14'></a> 2.8.14
 
 **Release Date:** 07/16/2020
@@ -184,8 +184,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.8.13'></a> 2.8.13
 
@@ -1727,6 +1727,9 @@ This issue is resolved in PAS v2.8.4 and later.
 
 If you rename an app, org, or space, the metadata tags for metrics and app logs do not update to reflect the new names.
 The original names persist in the metrics and app logs.
+
+To resolve this issue, restart the app.
+After the app restarts, app logs and metrics use the updated metadata tags.
 
 For more info about these metadata tags,
 see [Additional Metadata Tags for Metrics and App Logs](#new-metatags) above.
