@@ -13,6 +13,41 @@ This topic contains release notes for <%= vars.windows_runtime_full %> (<%= vars
  
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
  
+### <a id='2.7.17'></a> 2.7.17
+
+**Release Date:** 08/11/2020
+
+* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
+* **[Bug Fix]** Fix `prom_scraper` job to have `scrape` certs property. Restores Prometheus-style metrics emitting to Firehose.
+* Bump windows2019 stemcell to version `2019.24`
+* Bump cf-smoke-tests to version `40.0.134`
+* Bump garden-runc to version `1.19.14`
+* Bump windowsfs-release to version `2.16.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>windows2019 stemcell</td><td>2019.24</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.134</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>envoy-nginx</td><td>0.6.0</td></tr>
+    <tr><td>event-log</td><td>0.8.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.14</td></tr>
+    <tr><td>hwc-offline-buildpack</td><td>3.1.10</td></tr>
+    <tr><td>loggregator-agent</td><td>3.21.11</td></tr>
+    <tr><td>winc</td><td>2.0.0</td></tr>
+    <tr><td>windows-utilities</td><td>0.14.0</td></tr>
+    <tr><td>windowsfs-release</td><td>2.16.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
 ### <a id='2.7.16'></a> 2.7.16
 
 **Release Date:** 07/09/2020
