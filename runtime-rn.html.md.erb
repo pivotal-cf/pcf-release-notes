@@ -22,7 +22,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.9'></a> 2.9.9
 
 **Release Date:** 08/07/2020
@@ -101,9 +101,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.8'></a> 2.9.8
 
 **Release Date:** 07/16/2020
@@ -185,9 +185,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.7'></a> 2.9.7
 
 **Release Date:** 07/09/2020
@@ -264,8 +264,8 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.6'></a> 2.9.6
 
@@ -347,13 +347,12 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.17</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
 ### <a id='2.9.5'></a> 2.9.5
 
 **Release Date:** 06/15/2020
 
+* **[Feature]** Remove the option to enable dynamic egress via the UI
 * **[Feature Improvement]** Use same s3 path style as CAPI for Backup and Restore
 * **[Feature Improvement]** Service instances can send metrics to logcache over syslog
 * **[Feature Improvement]** Upgrade Bellsoft JDK to version 11.0.7+10
@@ -435,9 +434,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.17</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.4'></a> 2.9.4
 
 **Release Date:** 06/03/2020
@@ -519,9 +518,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.16</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.3'></a> 2.9.3
 
 **Release Date:** 05/18/2020
@@ -596,9 +595,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.15</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.2'></a> 2.9.2
 
 **Release Date:** 05/05/2020
@@ -688,9 +687,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.15</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.1'></a> 2.9.1
 
 **Release Date:** 04/22/2020
@@ -762,9 +761,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>uaa</td><td>74.5.13</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2-9-0'></a> v2.9.0
 
 **Release Date:** April 10, 2020
@@ -861,7 +860,7 @@ For more information, see [Shutdown](https://docs.pivotal.io/platform/applicatio
 
 ### <a id='java-buildpack-sidecars'></a> Deploy Sidecar Processes for Java Apps with a Buildpack (Beta)
 
-You can use a custom buildpack to deploy a sidecar process alongside your Java app. 
+You can use a custom buildpack to deploy a sidecar process alongside your Java app.
 
 Previously, you could only use an app manifest to deploy a sidecar for a Java app.
 
@@ -881,18 +880,24 @@ You can configure the Apps Manager, Search Server, and Invitations apps to deplo
 
 If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see [Buildpack Detection](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) in _How Buildpacks Work in <%= vars.app_runtime_abbr %>_.
 
+### <a id='dynamic-egress'></a> Dynamic Egress Configuration is Removed
+
+As of <%= vars.app_runtime_abbr %> v2.9.5, the option to enable dynamic egress through the <%= vars.app_runtime_abbr %> UI is removed. Dynamic egress is a beta feature that is no longer scheduled to be made generally available.
+
+<%= vars.company_name %> recommends using App Security Groups (ASGs) instead of dynamic egress policies. To administer ASGs for your apps, see [App Security Groups](https://docs.pivotal.io/platform/application-service/2-9/concepts/asg.html).
+
 ### <a id='nats-tls'></a> NATS Shares Messages with NATS TLS
 
-The `nats-tls` job is added to the NATS VM. 
+The `nats-tls` job is added to the NATS VM.
 This job configures the Diego Route Emitter to send routing information to NATS, which then shares that information with NATS TLS.
 
-For more information about routing architecture in <%= vars.app_runtime_abbr %>, 
-see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/platform/application-service/2-9/concepts/cf-routing-architecture.html). 
+For more information about routing architecture in <%= vars.app_runtime_abbr %>,
+see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/platform/application-service/2-9/concepts/cf-routing-architecture.html).
 
-For more information about outbound network communication paths from Diego, 
-see [Outbound Communications](https://docs.pivotal.io/platform/2-9/security/networking/diego-network-paths.html#outbound) in _Diego Network Communications_. 
+For more information about outbound network communication paths from Diego,
+see [Outbound Communications](https://docs.pivotal.io/platform/2-9/security/networking/diego-network-paths.html#outbound) in _Diego Network Communications_.
 
-For more information about how NATS TLS affects routing in <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>), 
+For more information about how NATS TLS affects routing in <%= vars.windows_runtime_full %> (<%= vars.windows_runtime_abbr %>),
 see [<%= vars.windows_runtime_abbr %> Uses Route Emitters to Communicate with NATS Over TLS](windows-rn.html#route-emitters) in _<%= vars.windows_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
 ### <a id='tls-external-databases'></a> Hostname Validation Enabled By Default for External Databases
@@ -920,14 +925,14 @@ To disable revisions in an app, you must manually turn them off using your Cloud
 
 ### <a id='view-sidecars'></a> View Sidecar Processes in Apps Manager (Beta)
 
-You can view sidecar processes associated with your apps through the Apps Manager UI. 
+You can view sidecar processes associated with your apps through the Apps Manager UI.
 
 To view the sidecars for an app in Apps Manager:
 
-1. Go to the **Overview** page for the app. 
+1. Go to the **Overview** page for the app.
 1. Under **Processes and Instances**, see **Sidecars**.
 
-For more information about viewing sidecar processes in Apps Manager, see [View Sidecar Processes](https://docs.pivotal.io/platform/application-service/2-9/console/manage-apps.html#view-sidecars) in _Managing Apps and Service Instances Using Apps Manager_. 
+For more information about viewing sidecar processes in Apps Manager, see [View Sidecar Processes](https://docs.pivotal.io/platform/application-service/2-9/console/manage-apps.html#view-sidecars) in _Managing Apps and Service Instances Using Apps Manager_.
 
 For more information about sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-9/devguide/sidecars.html).
 
@@ -938,7 +943,7 @@ If Metric Store is installed, you can view key metrics for an app on the app **O
 The key metrics are CPU, Memory, Disk, Request Latency, Request Rate, and Request Errors.
 
 For each metric, the **Overview** page includes a graph that shows metric behavior over the past three hours.
-The page also displays the average value for the metric over the past three hours. 
+The page also displays the average value for the metric over the past three hours.
 
 For information about how to install Metric Store, see [Metric Store](https://docs.pivotal.io/metric-store).
 
@@ -971,14 +976,14 @@ If you disable the V1 or V2 Firehose in <%= vars.app_runtime_abbr %> v2.9, you m
 If you do not disable the smoke test errand, the deploy fails with an error similar to the following:
 
 ```
-[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m  
-          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m  
-          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m  
-          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m  
-          --- FAIL: TestSmokeTests (56.17s)  
-          FAIL  
-          Ginkgo ran 2 suites in 1m7.050120251s  
-          Test Suite Failed  
+[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m
+          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m
+          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m
+          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m
+          --- FAIL: TestSmokeTests (56.17s)
+          FAIL
+          Ginkgo ran 2 suites in 1m7.050120251s
+          Test Suite Failed
 Stderr     Error: failed to run job-process: exit status 1 (exit status 1)
 ```
 
@@ -1002,7 +1007,7 @@ does not appear or is broken.
 
 This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
 
-The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in 
+The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in
 v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
 
 If you have set the **Multi-foundation configuration (beta)** field of the Apps Manager section
