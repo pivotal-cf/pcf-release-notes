@@ -2349,6 +2349,5 @@ Certain commands that are executed asyncronously (`cf delete-org`, `cf delete-sp
 `cf update-service`) may fail if they are enqueued mid-deployment. The job would timeout with the message, 
 "Job ([job-guid]) polling timeout has been reached." 
 
-This would occur if the job were enqueued while the api VM receiving the request was already updated, 
-while the worker VM dequeueing the request was not yet updated. Classes required to deserialize these jobs 
-were introduced in 2.7. Please retry any failed jobs after worker VMs complete deplployment.
+This may happen between the update of the `cloud_controller` and `cloud_controller_worker` instance groups.
+Please retry any failed jobs after the worker instance groups are have completed updating.
