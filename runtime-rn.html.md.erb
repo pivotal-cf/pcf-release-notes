@@ -1003,6 +1003,17 @@ If the App Metrics v2.0.0 tile is installed on a foundation,
 then the **View in Metrics** link on the app Overview tab in Apps Manager
 does not appear or is broken.
 
+### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
+
+This issue affects Cloud Controller and App Usage Service.
+
+When using the purge and reseed
+[API endpoint](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html),
+some generated app events may be missing valid GUIDs. This can cause errors with consumers (such as App Usage Service)
+when attempting to parse and correlate events.
+
+This was resolved in [Version 2.9.6](#2.9.6) ([learn more](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency)).
+
 ### <a id="app-metrics-route-deprecated"></a> App Metrics Route Change Results In "Unexpected error occurrence"
 
 This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
