@@ -2336,14 +2336,12 @@ Overview tab in Apps Manager results in an `Unexpected error occurence` message.
 
 ### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
 
-This issue affects Cloud Controller and App Usage Service.
 
-When using the purge and reseed
-[API endpoint](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html),
-some generated app events may be missing valid GUIDs. This can cause errors with consumers (such as App Usage Service)
-when attempting to parse and correlate events.
+The purge and reseed API endpoint may generate app events without valid GUIDs. These invalid GUIDs can cause errors with components that consume them when parsing and correlating events. This issue affects Cloud Controller and App Usage Service.
 
-This was resolved in [Version 2.7.18](#2.7.18) ([learn more](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency)).
+For more information about the API endpoint, see [Purge and reseed App Usage Events](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html) in the _App Usage Events API_ documentation. For more information about the issue, see [App Usage Service startup errors and data inconsistency](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency) in the knowledge base.
+
+This issue is resolved in <%= var.app_runtime_abbr %> v2.7.18.
 
 ### <a id="apps-manager-app-metrics-logout"></a> App Metrics v2.0 Causes Apps Manager to Log Out on PAS v2.7.4 and Earlier
 
