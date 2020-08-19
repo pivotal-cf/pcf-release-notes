@@ -16,7 +16,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.21'></a> 2.7.21
 
 **Release Date:** 08/11/2020
@@ -103,9 +103,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.25</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.20'></a> 2.7.20
 
 **Release Date:** 07/16/2020
@@ -189,8 +189,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.25</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.7.19'></a> 2.7.19
 
@@ -2337,7 +2337,7 @@ Overview tab in Apps Manager results in an `Unexpected error occurence` message.
 ### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
 
 
-The purge and reseed API endpoint may generate app events without valid GUIDs. These invalid GUIDs can cause errors with components that consume them when parsing and correlating events. This issue affects Cloud Controller and App Usage Service.
+In <%= vars.app_runtime_abbr %> v2.7.17 and earlier, The `/v2/app_usage_events/destructively_purge_all_and_reseed_started_apps` endpoint may generate app events without valid GUIDs. These invalid GUIDs can cause errors with components that consume them when parsing and correlating events. This issue affects Cloud Controller and App Usage Service.
 
 For more information about the API endpoint, see [Purge and reseed App Usage Events](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html) in the _App Usage Events API_ documentation. For more information about the issue, see [App Usage Service startup errors and data inconsistency](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency) in the knowledge base.
 
