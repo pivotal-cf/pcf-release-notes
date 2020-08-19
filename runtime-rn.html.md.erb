@@ -997,6 +997,22 @@ If the App Metrics v2.0.0 tile is installed on a foundation,
 then the **View in Metrics** link on the app Overview tab in Apps Manager
 does not appear or is broken.
 
+This issue is resolved in App Metrics v2.0.1.
+
+### <a id="apps-manager-app-metrics-link-no-proxy"></a>App Metrics Link Disappears in Apps Manager for Proxied Setups
+
+This issue affects App Metrics v2.0.x.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in App Metrics** link in Apps Manager may not appear.
+
+To resolve this issue:
+
+1. Log into the system org and system space.
+2. Locate the search-server app.
+3. Update the `no_proxy` setting on the app to include the system domain.
+    ```
+    cf set-env search-server no_proxy 'SYSTEM-DOMAIN'
+    ```
 
 ### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
 
