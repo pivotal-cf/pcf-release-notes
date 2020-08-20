@@ -400,7 +400,7 @@ Ops Manager v2.4.12 uses the following component versions:
 ### <a id="2.4.11"></a> 2.4.11
 
 - **[Security Fix]** Bumps stemcell to 170.69 to resolve [USN-3977-1](https://usn.ubuntu.com/3977-1/).
-- **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+- **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 - **[Bug Fix]** Ops Manager does not allow a revert on upgrade without deploying the BOSH Director.
 - **[Bug Fix]** Dropdowns for certain VM types are easier to use.
 - **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
@@ -910,7 +910,7 @@ Multiple Ops Manager administrators can use Ops Manager at the same time, to rec
 
 ### <a id='credhub-2.0'></a> Ops Manager Uses CredHub v2.0
 
-BOSH CredHub, the instance that manages credentials on the Ops Manager VM, now uses CredHub v2.0. For more information about where your credentials are stored, see [BOSH CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
+BOSH CredHub, the instance that manages credentials on the Ops Manager VM, now uses CredHub v2.0. For more information about where your credentials are stored, see [BOSH CredHub](https://docs.pivotal.io/pivotalcf/credhub/index.html#bosh).
 
 CredHub v2.0 includes bug fixes, improved security, and new options for managing credential permissions. These updates are not directly visible to PCF operators, but CredHub v2.0 introduces breaking changes for tile and service authors. For more information, see the [PCF v2.4 Partners Release Notice](https://docs.pivotal.io/tiledev/release-notes.html) in the PCF Tile Developer Guide.
 
@@ -964,13 +964,13 @@ Both of these panes use the new Syslog form template available to all tile autho
 
 You can now view the details from previous deployments for manifests and cloud, runtime, and CPI configs, from new API endpoints. This can be useful for troubleshooting or duplicating historical configurations for a deployment.
 
-For more information, see [Getting BOSH manifests from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-manifests-from-historical-installations) in the Ops Manager API documentation.
+For more information, see [Getting BOSH manifests from historical installations](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-manifests-from-historical-installations) in the Ops Manager API documentation.
 
 ### <a id="upgrade-config"></a> Staged and Current Config Details Are Available During Upgrade From the API
 
 You can now use the API to access various aspects of your deployment during an upgrade, when the rest of your deployment is unavailable. The CPI configs, runtime configs, cloud config, and manifest are all available during upgrade from the Ops Manager API.
 
-For more information, see [Staged BOSH Director](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) and [Staged Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-products) in the Ops Manager API documentation.
+For more information, see [Staged BOSH Director](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-bosh-director) and [Staged Products](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#staged-products) in the Ops Manager API documentation.
 
 ### <a id="syslog"></a> Syslog Form Template Available for Tile Authors
 
@@ -998,19 +998,19 @@ For more information, see [BOSH DNS Config Page](https://docs.pivotal.io/pivotal
 
 You can use the `resource_config` API endpoint to associate multiple networks to Diego cells or instance groups. Define the networks as usual with the Ops Manager UI or API, and then set the networks for a job with the `additional_networks` key in the API. This workflow supports complex container networking integrations, including precise management of per-instance group network settings for sets of VMs.
 
-For more information, see [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
+For more information, see [Retrieving resources for a job](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product).
 
 ### <a id="swap-size"></a> Swap Partition Size Is Configurable From the API
 
 You can customize the size of the swap partition of a VM's memory as a percent of total memory size per instance group. This allows more refined control of memory allocation across a deployment.
 
-For more information, see [Retrieving resources for a job](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product) in the Ops Manager API documentation.
+For more information, see [Retrieving resources for a job](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resource-configuration-for-a-product) in the Ops Manager API documentation.
 
 ### <a id="expiring-certificates"></a> SAML Certificate Expiration Information Is Available From the API
 
 You can view the expiration date for your SAML service provider certificate with the `/api/v0/deployed/certificates` endpoint, or use a different endpoint to rotate the certificates.
 
-For more information, see [Getting Information About Certificates from Products](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
+For more information, see [Getting Information About Certificates from Products](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-information-about-certificates-from-products).
 
 ### <a id='om-root-ca'></a> BOSH Director Can Require All Deployments To Trust Ops Manager Root Certificate Authority
 
@@ -1075,23 +1075,23 @@ Ops Manager v2.4 includes the following updates to the API. Some of these update
 
 The following existing sections of the API documentation are updated in Ops Manager v2.4:
 
-* [DNS Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes a new parameter:
+* [DNS Configuration](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes a new parameter:
   * `excluded_recursors`
-* [Security Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes the following new parameters:
+* [Security Configuration](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)*: This section includes the following new parameters:
   * `trusted_certificates`
   * `generate_vm_passwords`
   * `opsmanager_root_ca_trusted_certs`
-* [Iaas Configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)* : This section includes a new parameter:
+* [Iaas Configuration](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-director-iaas-and-security-properties-experimental) in *Updating director and Iaas properties (Experimental)* : This section includes a new parameter:
   * `additional_cloud_properties`
-* [Retrieving resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
+* [Retrieving resources for a job (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
   * `additional_networks`
-* [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
+* [Configuring resources for a job (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental): This section is designated as experimental and includes a new parameter:
   * `additional_networks`
-* [Setting the Custom Banners](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#setting-the-custom-banners): This section includes a new parameter:
+* [Setting the Custom Banners](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#setting-the-custom-banners): This section includes a new parameter:
   * `ssh_banner_contents`
-* [Updating the Syslog configuration](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-the-syslog-configuration): This section includes a new parameter:
+* [Updating the Syslog configuration](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#updating-the-syslog-configuration): This section includes a new parameter:
   * `transport_protocol`
-* [Retrieving manifest for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-manifest-for-a-deployed-product): This section includes a new parameter:
+* [Retrieving manifest for a deployed product](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-manifest-for-a-deployed-product): This section includes a new parameter:
   * `mode`
 
 <p class="note"><strong>Note:</strong> In Ops Manager v2.4, the <code>excluded_recursors</code> API endpoints have moved. This could cause some scripts to break. For more information, see <a href="https://docs.pivotal.io/pivotalcf/2-4/pcf-release-notes/breaking-changes.html#excluded-recursors">Excluded Recursors API Field Has Moved</a>.</p>
@@ -1100,17 +1100,17 @@ The following existing sections of the API documentation are updated in Ops Mana
 
 The following sections are new in Ops Manager v2.4:
 
-* [Custom Manifest Operations (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#custom-manifest-operations-experimental)
-* [Getting a List of All Manifest Operations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-a-list-of-all-manifest-operations)
-* [Deleting a Manifest Operation](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#deleting-a-manifest-operation)
-* [Adding a Job to the Director VM](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#adding-a-job-to-the-director-vm)
-* [Retrieving syslog configuration for a product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-syslog-configuration-for-a-product)
-* [Configuring product syslog](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-product-syslog)
-* [Fetching the staged director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-the-staged-director-runtime-configs)
-* [Fetching staged product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-staged-product-runtime-configs)
-* [Retrieving syslog configuration for a deployed product](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#list-jobs-for-a-given-product)
-* [Fetching deployed product runtime configs](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-deployed-product-runtime-configs)
-* [Getting BOSH CPI Config from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-cpi-config-from-historical-installations)
-* [Getting BOSH runtime configs from historical installations](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-runtime-configs-from-historical-installations)
-* [Fetching the deployed director runtime configs](http://docs.pivotal.io/pivotalcf/2-4/
+* [Custom Manifest Operations (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#custom-manifest-operations-experimental)
+* [Getting a List of All Manifest Operations](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-a-list-of-all-manifest-operations)
+* [Deleting a Manifest Operation](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#deleting-a-manifest-operation)
+* [Adding a Job to the Director VM](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#adding-a-job-to-the-director-vm)
+* [Retrieving syslog configuration for a product](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#retrieving-syslog-configuration-for-a-product)
+* [Configuring product syslog](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-product-syslog)
+* [Fetching the staged director runtime configs](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-the-staged-director-runtime-configs)
+* [Fetching staged product runtime configs](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-staged-product-runtime-configs)
+* [Retrieving syslog configuration for a deployed product](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#list-jobs-for-a-given-product)
+* [Fetching deployed product runtime configs](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#fetching-deployed-product-runtime-configs)
+* [Getting BOSH CPI Config from historical installations](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-cpi-config-from-historical-installations)
+* [Getting BOSH runtime configs from historical installations](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#getting-bosh-runtime-configs-from-historical-installations)
+* [Fetching the deployed director runtime configs](https://docs.pivotal.io/pivotalcf/2-4/
 opsman-api/#fetching-the-deployed-director-runtime-configs)

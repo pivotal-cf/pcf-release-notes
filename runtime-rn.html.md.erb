@@ -1401,7 +1401,10 @@ See also:
 
 ## <a id='upgrade'></a> How to Upgrade
 
-The procedure for upgrading to Pivotal Application Service (PAS) v2.4 is documented in the [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-4/customizing/upgrading-pcf.html) topic.
+<<<<<<< Local Changes
+To upgrade to PAS v2.5, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
+=======
+The procedure for upgrading to Pivotal Application Service (PAS) v2.4 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/customizing/upgrading-pcf.html) topic.
 
 When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
@@ -1418,7 +1421,7 @@ When upgrading to PAS v2.4, be aware of the following upgrade considerations:
 
 ### <a id="credhub-ga"></a> Runtime CredHub is GA and Enabled by Default
 
-Runtime CredHub is enabled by default in the PAS tile. For more information about where your credentials are stored, see [Runtime CredHub](http://docs.pivotal.io/pivotalcf/credhub/index.html#runtime).
+Runtime CredHub is enabled by default in the PAS tile. For more information about where your credentials are stored, see [Runtime CredHub](https://docs.pivotal.io/pivotalcf/credhub/index.html#runtime).
 
 CredHub is generally available and includes bug fixes, security updates, and improvements to the `find` command in the CredHub CLI.
 
@@ -1440,20 +1443,21 @@ on GCP](#external-credhub) below.
 
 For more information, see the PAS topic that corresponds to your IaaS:
 
-* [Deploying PAS on AWS](http://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#credhub)
-* [Deploying PAS on AWS Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/aws-er-config-terraform.html#credhub)
-* [Deploying PAS on Azure](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#credhub)
-* [Deploying PAS on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/azure-er-config-terraform.html#credhub)
-* [Deploying PAS on GCP](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#credhub)
-* [Deploying PAS on GCP Using Terraform](http://docs.pivotal.io/pivotalcf/customizing/gcp-er-config-terraform.html#credhub)
-* [Deploying PAS on OpenStack](http://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#credhub)
-* [Deploying PAS on vSphere](http://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#credhub)
+* [Deploying PAS on AWS](https://docs.pivotal.io/pivotalcf/customizing/pcf-aws-manual-er-config.html#credhub)
+* [Deploying PAS on AWS Using Terraform](https://docs.pivotal.io/pivotalcf/customizing/aws-er-config-terraform.html#credhub)
+* [Deploying PAS on Azure](https://docs.pivotal.io/pivotalcf/customizing/azure-er-config.html#credhub)
+* [Deploying PAS on Azure Using Terraform](https://docs.pivotal.io/pivotalcf/customizing/azure-er-config-terraform.html#credhub)
+* [Deploying PAS on GCP](https://docs.pivotal.io/pivotalcf/customizing/gcp-er-config.html#credhub)
+* [Deploying PAS on GCP Using Terraform](https://docs.pivotal.io/pivotalcf/customizing/gcp-er-config-terraform.html#credhub)
+* [Deploying PAS on OpenStack](https://docs.pivotal.io/pivotalcf/customizing/openstack-er-config.html#credhub)
+* [Deploying PAS on vSphere](https://docs.pivotal.io/pivotalcf/customizing/config-er-vmware.html#credhub)
 
 ### <a id="cflinuxfs3"></a> PAS Uses cflinuxfs3 by Default
 
 PAS v2.4 uses the `cflinuxfs3` stack and related buildpacks by default on new installs. Buildpacks have the same name but use a different stack.
 
 You can switch between `cflinuxfs2` and `cflinuxfs3` using the cf CLI (Cloud Foundry Command Line Interface). For more information, see [Changing Stacks](https://docs.pivotal.io/pivotalcf/2-4/devguide/deploy-apps/stacks.html).
+>>>>>>> External Changes
 
 You can also set your default stack in the **Cloud Controller** pane of the PAS tile. For more information, see [Cloud Controller](https://docs.pivotal.io/pivotalcf/2-4/customizing/pas-config.html#config-cc).
 
@@ -1541,7 +1545,7 @@ For more information about the restage button in the Apps Manager UI, see [Start
 
 When service instance sharing is [enabled](https://docs.pivotal.io/pivotalcf//devguide/services/sharing-instances.html#enabling) by an operator, space developers can share a service instance from its **Overview** tab in Apps Manager, making it available for use in multiple spaces that they have access to.
 
-For more information, see [Service Instance Sharing](http://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
+For more information, see [Service Instance Sharing](https://docs.pivotal.io/pivotalcf/2-4/console/manage-apps.html#shared-instances).
 
 ### <a id="log-api"></a> Loggregator v2 API Is Readable through RLP Gateway
 
@@ -1557,8 +1561,8 @@ PAS v2.4 includes a new component: the Metric Registrar. The Metric Registrar al
 
 For more information, see the following topics:
 
-* [Configuring the Metric Registrar](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/index.html)
-* [Registering Custom App Metrics](http://docs.pivotal.io/pivotalcf/2-4/metric-registrar/using.html)
+* [Configuring the Metric Registrar](https://docs.pivotal.io/pivotalcf/2-4/metric-registrar/index.html)
+* [Registering Custom App Metrics](https://docs.pivotal.io/pivotalcf/2-4/metric-registrar/using.html)
 
 ### <a id="dynamic-egress"></a> Create Dynamic Egress Policies (Beta)
 
@@ -1615,7 +1619,7 @@ Operators configure container filesystem garbage collection based on the disk us
 
 PAS v2.4 replaces the **Clean up disk-space once threshold is reached** option with **Clean up disk-space once usage fills disk** in the **Application Containers** pane.
 
-For information about configuring garbage collection values, see [Configuring Cell Disk Cleanup Scheduling](http://docs.pivotal.io/pivotalcf/2-4/opsguide/config-cell-cleanup.html).
+For information about configuring garbage collection values, see [Configuring Cell Disk Cleanup Scheduling](https://docs.pivotal.io/pivotalcf/2-4/opsguide/config-cell-cleanup.html).
 
 ### <a id="bpm"></a> All Components Use BOSH Process Manager
 
@@ -1625,7 +1629,20 @@ Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, 
 
 Users in the `usage_service.audit` group can access the Usage Service API with their CF OAuth token. Previously, only users of the `cloud_controller.admin` group could access the Usage Service API with CF OAuth.
 
+<<<<<<< Local Changes
+```
+curl: (60) server certificate verification failed.
+CAfile: /etc/ssl/certs/ca-certificates.crt
+CRLfile: none
+More details here: https://curl.haxx.se/docs/sslcerts.html
+curl performs SSL certificate verification by default, using a "bundle" of Certificate Authority (CA) public keys (CA certs).
+If the default bundle file isn't adequate, you can specify an alternate file using the --cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in the bundle, the certificate verification probably failed due to a problem with the certificate (it might be expired, or the name might not match the domain name in the URL).
+If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)
+```
+=======
 This update allows `usage_service.audit` users to quickly generate reports on historical system- and org-level usage for apps, tasks, and service instances. For more information about accessing the Usage Service API to view app, task, and service instance usage, see [Reporting App, Task, and Service Instance Usage](https://docs.pivotal.io/pivotalcf/2-4/opsguide/accounting-report.html).
+>>>>>>> External Changes
 
 
 ## <a id='known-issues'></a> Known Issues
