@@ -350,7 +350,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 **Release Date:** 06/15/2020
 
-* The option to enable dynamic egress through the <%= vars.app_runtime_abbr %> UI is removed. To administer App Security Groups (ASGs) for your apps instead of dynamic egress policies, see [App Security Groups](https://docs.pivotal.io/platform/application-service/2-8/concepts/asg.html).
+* The option to enable dynamic egress through the <%= vars.app_runtime_abbr %> UI is removed. To administer App Security Groups (ASGs) for your apps instead of dynamic egress policies, see [App Security Groups](https://docs.pivotal.io/application-service/2-8/concepts/asg.html).
 * **[Feature Improvement]** Service instances can send metrics to logcache over syslog
 * **[Feature Improvement]** Upgrade Bellsoft JDK to version 11.0.7+10
 * **[Bug Fix]** Update App Metrics UAA client to support cloud_controller.admin scope
@@ -521,7 +521,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 * **[Bug Fix]** Fix scheduling issue in `loggregator agent` by upgrading to Go 1.14.2
 * **[Bug Fix]** Fix issue in App Autoscaler where rules that were based on the HTTP-throughput metric failed to fire.
    For information about the HTTP Throughput metric, see [Default Metrics for Scaling
-   Rules](https://docs.pivotal.io/platform/application-service/2-8/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+   Rules](https://docs.pivotal.io/application-service/2-8/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
 * **[Bug Fix]** Fix issue in App Autoscaler where the Scheduler API returned an error
   when `executes_at` was set to a time that was in the past.
 * Bump ubuntu-xenial stemcell to version `621.74`
@@ -966,7 +966,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 * **[Feature Improvement]** The latest routing release adds the `gorouter_time`
 field, which logs the total time it takes for a request to travel through Gorouter.
 Because this changes the access log format, you might need to update your external monitoring configuration.
-For more information, see [About Access Logs](https://docs.pivotal.io/platform/application-service/2-8/concepts/architecture/router.html#about-access-logs).
+For more information, see [About Access Logs](https://docs.pivotal.io/application-service/2-8/concepts/architecture/router.html#about-access-logs).
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
 * **[Feature Improvement]** Introduce read-only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
 * **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
@@ -1404,7 +1404,7 @@ For more information, see [About Access Logs](https://docs.pivotal.io/platform/a
 
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
@@ -1421,13 +1421,13 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
 
-For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](http://docs.pivotal.io/platform/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of <%= vars.app_runtime_abbr %> apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](https://docs.pivotal.io/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of <%= vars.app_runtime_abbr %> apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
 
 ### <a id='appsman-scs'></a> Spring Cloud Services Configuration in Apps Manager
 
 For Spring Cloud Services (SCS) instances, Apps Manager shows the current status of the SCS Config Server and lets you trigger the Config Server to update app configurations.
 
-For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/platform/application-service/2-8/console/manage-apps.html#configure-scs) in _Managing Apps and Service Instances Using Apps Manager_.
+For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/application-service/2-8/console/manage-apps.html#configure-scs) in _Managing Apps and Service Instances Using Apps Manager_.
 
 ### <a id='active-droplet'></a> View the Active Droplet for an App in Apps Manager
 
@@ -1435,13 +1435,13 @@ On the Apps Manager **Revisions** page for an app, you can view which revision v
 
 The text `Deployed (Active)` appears in the **Status** column of the table to indicate that the revision version is active.
 
-For more information about using the Apps Manager UI, see [Using Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/console/index.html).
+For more information about using the Apps Manager UI, see [Using Apps Manager](https://docs.pivotal.io/application-service/2-8/console/index.html).
 
 ### <a id='cli-support-sidecars'></a> cf CLI Supports Sidecar Processes
 
 The Cloud Foundry Command-Line Interface (cf CLI) adds support for sidecar processes. You can add a sidecar process to an app process using an app manifest. The cf CLI displays the sidecar process alongside the app process to which it is attached.
 
-For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-8/devguide/sidecars.html).
+For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/application-service/2-8/devguide/sidecars.html).
 
 ### <a id='sidecars-buildpack'></a> Deploy Sidecar Processes with a Custom Buildpack
 
@@ -1449,7 +1449,7 @@ As an alternative to using an app manifest, you can deploy a sidecar process for
 
 <p class="note"><strong>Note:</strong> PAS v2.8 does not support using custom buildpacks to push sidecars for Java apps. You can only push sidecars for Java apps by using an app manifest.</p>
 
-For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/platform/application-service/2-8/buildpacks/sidecar-buildpacks.html).
+For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/application-service/2-8/buildpacks/sidecar-buildpacks.html).
 
 ### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
 
@@ -1457,7 +1457,7 @@ Usage Service deletes granular data after 365 days by default. You can configure
 
 This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.
 
-For more information, see [Usage Data Retention](https://docs.pivotal.io/platform/application-service/2-8/operating/accounting-report.html#usage-retention) in _Reporting App, Task, and Service Instance Usage_.
+For more information, see [Usage Data Retention](https://docs.pivotal.io/application-service/2-8/operating/accounting-report.html#usage-retention) in _Reporting App, Task, and Service Instance Usage_.
 
 ### <a id='smb-default'></a> SMB Volume Services Enabled by Default
 
@@ -1465,9 +1465,9 @@ SMB volume services are enabled by default. When SMB volume services are enabled
 
 To disable SMB volume services in the <%= vars.app_runtime_abbr %> tile, select **App Containers** and clear the **Enable SMB volume services** checkbox, and then select **Errands** and set the **SMB Broker Errand** to **Off**.
 
-For more information, see [Enable SMB Volume Services](http://docs.pivotal.io/platform/application-service/2-8/operating/enable-vol-services.html#smb-enable) in _Enabling Volume Services_.
+For more information, see [Enable SMB Volume Services](https://docs.pivotal.io/application-service/2-8/operating/enable-vol-services.html#smb-enable) in _Enabling Volume Services_.
 
-For general information about volume services, see [Using an External File System (Volume Services)](http://docs.pivotal.io/platform/application-service/2-8/devguide/services/using-vol-services.html).
+For general information about volume services, see [Using an External File System (Volume Services)](https://docs.pivotal.io/application-service/2-8/devguide/services/using-vol-services.html).
 
 ### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
 
@@ -1483,7 +1483,7 @@ URL encoding is defined by RFC 6749. For more information, see the [2.3.1. Clien
 
 By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
 
-For more information about configuring the **Client basic auth compatibility mode** checkbox, see [Configure UAA](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#uaa) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring the **Client basic auth compatibility mode** checkbox, see [Configure UAA](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#uaa) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 <p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
 
@@ -1493,13 +1493,13 @@ When you push container images hosted in AWS Elastic Container Registry (ECR) wi
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
-For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
 
 ### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
 
 Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
 
-For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
 
 ### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
 
@@ -1515,9 +1515,9 @@ You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Fireh
 
 <p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
 
-To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see [Configure System Logging](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/platform/application-service/2-8/loggregator/architecture.html).
+For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/application-service/2-8/loggregator/architecture.html).
 
 ### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
 
@@ -1527,7 +1527,7 @@ This allows you to forward logs and metrics for all apps in your foundation with
 
 You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
 
-To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='credhub-vm'></a> <%= vars.app_runtime_abbr %> Must Use At Least One CredHub VM
 
@@ -1537,13 +1537,13 @@ For high availability, <%= vars.recommended_by %> recommends that you use at lea
 
 <p class="note warning"><strong>Warning:</strong> If you use an external GCP or Azure database for <%= vars.app_runtime_abbr %> and previously set CredHub instances to 0 in <%= vars.app_runtime_abbr %> v2.7, you must also disable hostname verification before you upgrade to <%= vars.app_runtime_abbr %> v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist for <%= vars.platform_name %> v2.8</em>.</p>
 
-For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see [Configure Resources](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see [Configure Resources](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='apps-man-marketplace'></a> Customizable Marketplace URL and Secondary Navigation Links in Apps Manager
 
 In the **Custom Branding** pane of <%= vars.app_runtime_abbr %> v2.8, you can customize the Marketplace URL and secondary navigation links that appear in your Apps Manager deployment.
 
-For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Cannot Be Disabled
 
@@ -1636,7 +1636,7 @@ To disable the smoke test errand:
 
 1. For **Smoke Test Errand**, select **Off**.
 
-For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#errands) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [Configure Errands](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#errands) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
