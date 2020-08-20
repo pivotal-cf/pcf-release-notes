@@ -32,19 +32,19 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
 
 2. Verify that your updates publish to the appropriate staging site correctly. You may need to refresh the site in your browser to see the changes.
 
-    * [PCF 1.10 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-10/pcf-release-notes/index.html)
-    * [PCF 1.11 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-11/pcf-release-notes/index.html)
-    * [PCF 1.12 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/1-12/pcf-release-notes/index.html)
-    * [PCF 2.0 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-0/pcf-release-notes/index.html)
-    * [PCF 2.1 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-1/pcf-release-notes/index.html)
-    * [PCF 2.2 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-2/pcf-release-notes/index.html)
-    * [PCF 2.3 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-3/pcf-release-notes/index.html)
-    * [PCF 2.4 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/index.html)
-    * [PCF 2.5 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/index.html)
-    * [PCF 2.6 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-6/pcf-release-notes/index.html)
-    * [Pivotal Platform 2.7 staging site](http://docs-pcf-staging.cfapps.io/platform/2-7/pcf-release-notes/index.html)
-    * [Pivotal Platform 2.8 staging site](http://docs-pcf-staging.cfapps.io/platform/2-8/pcf-release-notes/index.html)
-    * [Pivotal Platform 2.9 staging site](http://docs-pcf-staging.cfapps.io/platform/2-9/pcf-release-notes/index.html)
+    * [PCF 1.10 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/1-10/pcf-release-notes/index.html)
+    * [PCF 1.11 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/1-11/pcf-release-notes/index.html)
+    * [PCF 1.12 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/1-12/pcf-release-notes/index.html)
+    * [PCF 2.0 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-0/pcf-release-notes/index.html)
+    * [PCF 2.1 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-1/pcf-release-notes/index.html)
+    * [PCF 2.2 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-2/pcf-release-notes/index.html)
+    * [PCF 2.3 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-3/pcf-release-notes/index.html)
+    * [PCF 2.4 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/index.html)
+    * [PCF 2.5 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/index.html)
+    * [PCF 2.6 staging site](https://docs-pcf-staging.cfapps.io/pivotalcf/2-6/pcf-release-notes/index.html)
+    * [Pivotal Platform 2.7 staging site](https://docs-pcf-staging.cfapps.io/platform/2-7/pcf-release-notes/index.html)
+    * [Pivotal Platform 2.8 staging site](https://docs-pcf-staging.cfapps.io/platform/2-8/pcf-release-notes/index.html)
+    * [Pivotal Platform 2.9 staging site](https://docs-pcf-staging.cfapps.io/platform/2-9/pcf-release-notes/index.html)
 
 3. Open the appropriate tab in Concourse, click the **production** box, then click the **+** button in the top right to start a production build.
 

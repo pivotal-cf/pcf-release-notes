@@ -409,9 +409,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
 
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
@@ -431,7 +431,7 @@ You can increase the graceful shutdown period for your apps.
 
 When <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the <%= vars.app_runtime_abbr %> tile.
 
-For more information, see [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#advanced_features) in _Installing <%= vars.segment_runtime_full %>_.
+For more information, see [Shutdown](https://docs.pivotal.io/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#advanced_features) in _Installing <%= vars.segment_runtime_full %>_.
 
 ### <a id='smoke-tests'></a> Run Smoke Tests for <%= vars.segment_runtime_full %>
 
@@ -442,12 +442,12 @@ The app runs basic functionality tests against both the <%= vars.app_runtime_abb
 
 The Smoke Test errand is on by default. You can turn off the Smoke Test errand in the **Errands** pane.
 
-For more information, see [Configure Smoke Tests](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) in _Installing <%= vars.segment_runtime_full %>_.
+For more information, see [Configure Smoke Tests](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) in _Installing <%= vars.segment_runtime_full %>_.
 
 <p class='note warning'><strong>Warning:</strong> If you configure the <strong>Compute and Networking Isolation</strong> pane
    and the <strong>Gorouters reject requests for isolation segments</strong> checkbox in the <%= vars.app_runtime_abbr %> tile
    in a manner other than the use cases that <%= vars.recommended_by %> recommends, the smoke tests fail.
-   For more information, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#compute-networking-isolation-configs">Options
+   For more information, see <a href="https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#compute-networking-isolation-configs">Options
    for Configuring Compute and Networking Isolation</a> in <em>Installing <%= vars.segment_runtime_full %></em>.
    </p>
 
@@ -457,7 +457,7 @@ The **Errands** pane is added to the <%= vars.segment_runtime_full %> tile. In t
 
 Errands are scripts that <%= vars.ops_manager %> runs automatically when it installs or uninstalls a product, such as a new version of <%= vars.app_runtime_abbr %>. By default, <%= vars.ops_manager %> always runs all errands.  For more information about how <%= vars.ops_manager %> manages errands, see [Managing Errands in <%= vars.ops_manager %>](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/customizing/managing_errands.html).
 
-This pane allows you to configure whether the Smoke Test errand runs. For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
+This pane allows you to configure whether the Smoke Test errand runs. For more information, see [Configure Errands](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
 
@@ -465,7 +465,7 @@ You can limit the number of log lines each app instance in your isolation segmen
 
 This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
 
-For more information, see [Configure App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
+For more information, see [Configure App Containers](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
 
 
 ## <a id='known-issues'></a> Known Issues
@@ -490,4 +490,4 @@ To fix this issue, you must rename the isolation segment to remove the hyphen at
 
 1. Click **Apply Changes**.
 
-For more information about isolation segment names, see [Configure Pane](http://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#pane-config) in _Installing <%= vars.segment_runtime_full %>_. For more information about the Smoke Test errand, see [Configure Smoke Tests](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) and [Configure Errands](https://docs.pivotal.io/platform/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
+For more information about isolation segment names, see [Configure Pane](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#pane-config) in _Installing <%= vars.segment_runtime_full %>_. For more information about the Smoke Test errand, see [Configure Smoke Tests](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) and [Configure Errands](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.

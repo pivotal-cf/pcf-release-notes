@@ -352,7 +352,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 **Release Date:** 06/15/2020
 
-* The option to enable dynamic egress through the <%= vars.app_runtime_abbr %> UI is removed. To administer App Security Groups (ASGs) for your apps instead of dynamic egress policies, see [App Security Groups](https://docs.pivotal.io/platform/application-service/2-9/concepts/asg.html).
+* The option to enable dynamic egress through the <%= vars.app_runtime_abbr %> UI is removed. To administer App Security Groups (ASGs) for your apps instead of dynamic egress policies, see [App Security Groups](https://docs.pivotal.io/application-service/2-9/concepts/asg.html).
 * **[Feature Improvement]** Use same s3 path style as CAPI for Backup and Restore
 * **[Feature Improvement]** Service instances can send metrics to logcache over syslog
 * **[Feature Improvement]** Upgrade Bellsoft JDK to version 11.0.7+10
@@ -529,7 +529,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 * **[Bug Fix]** Fix scheduling issue in `loggregator agent` by upgrading to Go 1.14.2
 * **[Bug Fix]** Fix issue in App Autoscaler where rules that were based on the HTTP-throughput metric failed to fire.
   For information about the HTTP Throughput metric, see [Default Metrics for Scaling
-  Rules](https://docs.pivotal.io/platform/application-service/2-9/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+  Rules](https://docs.pivotal.io/application-service/2-9/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
 * **[Bug Fix]** Fix issue in App Autoscaler where the Scheduler API returned an error
   when `executes_at` was set to a time that was in the past.
 * Bump ubuntu-xenial stemcell to version `621.74`
@@ -833,7 +833,7 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
@@ -856,7 +856,7 @@ You can increase the graceful shutdown period for your apps.
 
 When <%= vars.app_runtime_abbr %> requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the <%= vars.app_runtime_abbr %> tile.
 
-For more information, see [Shutdown](https://docs.pivotal.io/platform/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#advanced) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [Shutdown](https://docs.pivotal.io/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#advanced) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='java-buildpack-sidecars'></a> Deploy Sidecar Processes for Java Apps with a Buildpack (Beta)
 
@@ -864,7 +864,7 @@ You can use a custom buildpack to deploy a sidecar process alongside your Java a
 
 Previously, you could only use an app manifest to deploy a sidecar for a Java app.
 
-For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/sidecar-buildpacks.html).
+For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/application-service/2-9/buildpacks/sidecar-buildpacks.html).
 
 ### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
 
@@ -872,13 +872,13 @@ You can limit the number of log lines each app instance generates per second by 
 
 This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
 
-For more information, see [Configure App Containers](http://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#application-containers-config) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [Configure App Containers](https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#application-containers-config) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='apps-manager-buildpacks'></a> Configure Buildpacks for Apps Manager
 
-You can configure the Apps Manager, Search Server, and Invitations apps to deploy with buildpacks you specify. To specify which buildpacks you want these apps to use, enter them in the **Apps Manager** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
+You can configure the Apps Manager, Search Server, and Invitations apps to deploy with buildpacks you specify. To specify which buildpacks you want these apps to use, enter them in the **Apps Manager** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see [Buildpack Detection](https://docs.pivotal.io/platform/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) in _How Buildpacks Work in <%= vars.app_runtime_abbr %>_.
+If you do not specify a buildpack, <%= vars.app_runtime_abbr %> uses the detection process to determine a single buildpack to use. For more information about the detection process, see [Buildpack Detection](https://docs.pivotal.io/application-service/2-9/buildpacks/understand-buildpacks.html#buildpack-detection) in _How Buildpacks Work in <%= vars.app_runtime_abbr %>_.
 
 ### <a id='nats-tls'></a> NATS Shares Messages with NATS TLS
 
@@ -886,7 +886,7 @@ The `nats-tls` job is added to the NATS VM.
 This job configures the Diego Route Emitter to send routing information to NATS, which then shares that information with NATS TLS.
 
 For more information about routing architecture in <%= vars.app_runtime_abbr %>,
-see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/platform/application-service/2-9/concepts/cf-routing-architecture.html).
+see [<%= vars.app_runtime_abbr %> Routing Architecture](https://docs.pivotal.io/application-service/2-9/concepts/cf-routing-architecture.html).
 
 For more information about outbound network communication paths from Diego,
 see [Outbound Communications](https://docs.pivotal.io/platform/2-9/security/networking/diego-network-paths.html#outbound) in _Diego Network Communications_.
@@ -901,21 +901,21 @@ When **Enable hostname validation** is selected for an external database with TL
 <%= vars.app_runtime_abbr %> verifies the hostname of the external database
 for communication between <%= vars.app_runtime_abbr %> and the external database.
 
-The **Enable hostname validation** checkbox is selected by default. For more information about enabling hostname validation or enabling TLS for external databases, see [Configure Databases](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-db) in _Configure <%= vars.app_runtime_abbr %>_.
+The **Enable hostname validation** checkbox is selected by default. For more information about enabling hostname validation or enabling TLS for external databases, see [Configure Databases](https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#sys-db) in _Configure <%= vars.app_runtime_abbr %>_.
 
 <p class="note warning">
 <strong>Warning:</strong> If your deployment uses a GCP or Azure external database for <%= vars.app_runtime_abbr %> and TLS is enabled for the database, you must deselect the <strong>Enable hostname validation</strong> checkbox. For more information, see <a href="https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation">Disable Hostname Validation for External Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist</em>.
 </p>
 
 <p class="note">
-<strong>Note:</strong> The <strong>Enable hostname validation</strong> checkbox does not enable hostname validation for communication between <%= vars.app_runtime_abbr %> components and external CredHub databases. To enable or disable hostname validation for CredHub external databases, see <a href="https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#credhub">Configure CredHub</a> in <em>Configure <%= vars.app_runtime_abbr %></em>.
+<strong>Note:</strong> The <strong>Enable hostname validation</strong> checkbox does not enable hostname validation for communication between <%= vars.app_runtime_abbr %> components and external CredHub databases. To enable or disable hostname validation for CredHub external databases, see <a href="https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#credhub">Configure CredHub</a> in <em>Configure <%= vars.app_runtime_abbr %></em>.
 </p>
 
 ### <a id='app-revisions'></a> App Revisions Are Enabled by Default
 
 App revisions are enabled by default.
 
-To disable revisions in an app, you must manually turn them off using your Cloud Foundry API (CAPI) endpoint. For more information, see [Disable Revisions for an App](https://docs.pivotal.io/platform/application-service/2-9/devguide/revisions.html#disable) in _App Revisions_.
+To disable revisions in an app, you must manually turn them off using your Cloud Foundry API (CAPI) endpoint. For more information, see [Disable Revisions for an App](https://docs.pivotal.io/application-service/2-9/devguide/revisions.html#disable) in _App Revisions_.
 
 ### <a id='view-sidecars'></a> View Sidecar Processes in Apps Manager (Beta)
 
@@ -926,9 +926,9 @@ To view the sidecars for an app in Apps Manager:
 1. Go to the **Overview** page for the app.
 1. Under **Processes and Instances**, see **Sidecars**.
 
-For more information about viewing sidecar processes in Apps Manager, see [View Sidecar Processes](https://docs.pivotal.io/platform/application-service/2-9/console/manage-apps.html#view-sidecars) in _Managing Apps and Service Instances Using Apps Manager_.
+For more information about viewing sidecar processes in Apps Manager, see [View Sidecar Processes](https://docs.pivotal.io/application-service/2-9/console/manage-apps.html#view-sidecars) in _Managing Apps and Service Instances Using Apps Manager_.
 
-For more information about sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/platform/application-service/2-9/devguide/sidecars.html).
+For more information about sidecar processes, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/application-service/2-9/devguide/sidecars.html).
 
 ### <a id='view-key-metrics'></a> View Key Metrics in Apps Manager (Beta)
 
@@ -942,15 +942,15 @@ The page also displays the average value for the metric over the past three hour
 For information about how to install Metric Store, see [Metric Store](https://docs.pivotal.io/metric-store).
 
 For more information about viewing key metrics for your apps,
-see [Manage an App](https://docs.pivotal.io/platform/application-service/2-9/console/manage-apps.html#manage-app) in _Using Apps Manager_.
+see [Manage an App](https://docs.pivotal.io/application-service/2-9/console/manage-apps.html#manage-app) in _Using Apps Manager_.
 
 ### <a id='log-metric-agent-arhcitecture'></a> Log and Metric Agent Architecture (Beta)
 
 The Log and Metric Agent Architecture includes components that collect, store, and forward logs and metrics in your deployment. The components of the Log and Metric Agent Architecture use a shared-nothing architecture that requires several fewer VMs than the Loggregator system.
 
-To use the Log and Metric Agent Architecture components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. To configure these components, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-9/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+To use the Log and Metric Agent Architecture components, you must also configure Syslog Agents, aggregate drains, and Log Cache to send logs to a shared destination. To configure these components, see [Configure System Logging](https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](http://docs.pivotal.io/platform/application-service/2-9/loggregator/agent-architecture.html).
+For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](https://docs.pivotal.io/application-service/2-9/loggregator/agent-architecture.html).
 
 
 ## <a id='known-issues'></a> Known Issues
