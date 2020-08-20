@@ -2352,11 +2352,20 @@ For deployments with PAS v2.7.4 and earlier, this issue affects all App Metrics 
 
 This issue is resolved in PAS v2.7.5 and later.
 
-### <a id="deserialization-enqueue-failure"></a>Certain Asyncronous Jobs Enqueued During Deployment May Fail.
+### <a id="deserialization-enqueue-failure"></a> Asynchronous Jobs May Fail
 
-Certain commands that are executed asyncronously (`cf delete-org`, `cf delete-space`, `cf create-service`, 
-`cf update-service`) may fail if they are enqueued mid-deployment. The job would timeout with the message, 
-"Job ([job-guid]) polling timeout has been reached." 
 
-This may happen between the update of the `cloud_controller` and `cloud_controller_worker` instance groups.
-Please retry any failed jobs after the worker instance groups are have completed updating.
+The following commands that are executed asynchronously may fail if they are enqueued mid-deployment:
+
+
+- `cf delete-org`
+- `cf delete-space`
+- `cf create-service` 
+- `cf update-service`
+
+
+The job times out with the message, `Job ([JOB-GUID]) polling timeout has been reached.`<br>
+Where `JOB-GUID` is the GUID of the job. 
+
+The job failure may occur between the update of the `cloud_controller` and `cloud_controller_worker` instance groups.
+To mitigate this issue, retry any failed jobs after the worker instance groups complete updating.
