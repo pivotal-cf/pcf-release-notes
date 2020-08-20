@@ -999,21 +999,6 @@ does not appear or is broken.
 
 This issue is resolved in App Metrics v2.0.1.
 
-### <a id="apps-manager-app-metrics-link-no-proxy"></a>App Metrics Link Disappears in Apps Manager for Proxied Setups
-
-This issue affects App Metrics v2.0.x.
-
-If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in App Metrics** link in Apps Manager may not appear.
-
-To resolve this issue:
-
-1. Log into the system org and system space.
-2. Locate the search-server app.
-3. Update the `no_proxy` setting on the app to include the system domain.
-    ```
-    cf set-env search-server no_proxy 'SYSTEM-DOMAIN'
-    ```
-
 ### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
 
 
@@ -1035,3 +1020,31 @@ If you have set the **Multi-foundation configuration (beta)** field of the Apps 
 in a PAS tile, you must update the **metricsUrl** field to reflect
 the route change. If the field is not updated, then clicking **View in Metrics** on the app
 Overview tab in Apps Manager results in an `Unexpected error occurence` message.
+
+
+### <a id="apps-manager-app-metrics-link-no-proxy"></a>App Metrics Link Disappears in Apps Manager for Proxied Setups
+
+This issue affects <%= vars.app_runtime_abbr %> v2.9.0 and later deployments that have App Metrics installed.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in App Metrics** link may not appear in Apps Manager.
+
+To resolve this issue:
+
+1. Using the cf CLI, log in to the system org and system space.
+2. Locate the `search-server` app.
+3. Update the `no_proxy` environment variable for the `search-server` app to include your system domain.
+
+    ```
+    cf set-env search-server no_proxy 'SYSTEM-DOMAIN'
+    ```
+    where `SYSTEM-DOMAIN` is the system domain configured for your <%= vars.app_runtime_abbr %> deployment.
+    For example:
+    <pre class="terminal">
+    cf set-env search-server no_proxy 'example.com'
+    </pre>
+
+4. Restage the `search-server` app.
+
+    ```
+    cf restage search-server
+    ```
