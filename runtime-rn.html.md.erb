@@ -2351,3 +2351,12 @@ viewing any app **Overview** page in Apps Manager causes the user session to exp
 For deployments with PAS v2.7.4 and earlier, this issue affects all App Metrics v2.0 patch versions.
 
 This issue is resolved in PAS v2.7.5 and later.
+
+### <a id="deserialization-enqueue-failure"></a>Certain Asyncronous Jobs Enqueued During Deployment May Fail.
+
+Certain commands that are executed asyncronously (`cf delete-org`, `cf delete-space`, `cf create-service`, 
+`cf update-service`) may fail if they are enqueued mid-deployment. The job would timeout with the message, 
+"Job ([job-guid]) polling timeout has been reached." 
+
+This may happen between the update of the `cloud_controller` and `cloud_controller_worker` instance groups.
+Please retry any failed jobs after the worker instance groups are have completed updating.
