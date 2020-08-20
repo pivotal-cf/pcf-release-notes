@@ -635,7 +635,7 @@ Ops Manager v2.6.0 uses the following component versions:
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-To upgrade to Ops Manager v2.6, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html).
+To upgrade to Ops Manager v2.6, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-6/customizing/upgrading-pcf.html).
 
 
 ## <a id='major-features'></a> New Features in Ops Manager v2.6
@@ -668,7 +668,7 @@ For more information about using multiple stemcells as a tile developer, see [Su
 
 vSphere's vCenter allows you to designate folder names with multiple words separated by spaces. That ability is reflected in Ops Manager. You can specify folder names in vCenter using spaces between words and Ops Manager accepts them as valid.
 
-For an example of folder names with spaces, see [Using the Cisco Nexus 1000v Switch with Ops Manager](http://docs.pivotal.io/pivotalcf/2-6/customizing/nexus-switch.html).
+For an example of folder names with spaces, see [Using the Cisco Nexus 1000v Switch with Ops Manager](https://docs.pivotal.io/pivotalcf/2-6/customizing/nexus-switch.html).
 
 ### <a id="vsphere-properties"></a> Tile Developers Can Implement a Form Verifier to Confirm vSphere Properties
 
@@ -697,7 +697,7 @@ For more information, see [Running a pre-deploy check for the staged BOSH Direct
 
 The Ops Manager API allows you to specify a monitor port when defining an NSX load balancer with the `monitor_port` parameter. This means the monitor port value does not default to the same value as the traffic port.
 
-For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
+For more information, see [Configuring resources for a job (Experimental)](https://docs.pivotal.io/pivotalcf/2-4/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
 
 ### <a id='port-optional'></a> Operators Not Required to Specify a Port for NSX Load Balancers
 
@@ -705,7 +705,7 @@ The Ops Manager API no longer requires you to specify a port for NSX load balanc
 
 This feature helps to support NSX load balancer compatibility with the Gorouter, which requires a monitor port of `8080` and a traffic port of `80`.
 
-For more information, see [Configuring resources for a job (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
+For more information, see [Configuring resources for a job (Experimental)](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#configuring-resources-for-a-job-experimental) in the Ops Manager API documentation.
 
 ### <a id='automatic-ca'></a> Fresh Installations of Ops Manager Create New Default Certificate Authority in CredHub
 
@@ -719,7 +719,7 @@ For more information about certificates and certificate authorities, see [Certif
 
 The Ops Manager Change Log page has an improved UI, with deployment status and build times listed individually for each product, as well as for the deployment as a whole.
 
-For more information, see [Change Log Page](http://docs.pivotal.io/pivotalcf/2-6/customizing/pcf-interface.html#changelog) in _Using the Ops Manager Interface_.
+For more information, see [Change Log Page](https://docs.pivotal.io/pivotalcf/2-6/customizing/pcf-interface.html#changelog) in _Using the Ops Manager Interface_.
 
 ### <a id='deploy-times'></a> Product Deployment Times from API and Change Log Page
 
@@ -773,9 +773,9 @@ For more information about using the `exported_from` field, see [Locking Compile
 
 In addition to features described above, the Ops Manager v2.6 API also includes the following changes:
 
-* Operators can override the NATS maximum payload. Deployments with a large number of custom domains may use certificates that are larger than the default 1 MB NATS payload size. As a workaround, operators can override the default maximum. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+* Operators can override the NATS maximum payload. Deployments with a large number of custom domains may use certificates that are larger than the default 1 MB NATS payload size. As a workaround, operators can override the default maximum. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 
-* When a request to `POST /api/v0/installations` fails to trigger Apply Changes, the response contains more details about which products are not fully configured. For more information, see [Triggering an installation](http://docs.pivotal.io/pivotalcf/2-6/opsman-api/#triggering-an-installation) in the Ops Manager API documentation.
+* When a request to `POST /api/v0/installations` fails to trigger Apply Changes, the response contains more details about which products are not fully configured. For more information, see [Triggering an installation](https://docs.pivotal.io/pivotalcf/2-6/opsman-api/#triggering-an-installation) in the Ops Manager API documentation.
 
 
 ## <a id='known-issues'></a> Known Issues
