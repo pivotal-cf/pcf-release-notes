@@ -207,13 +207,13 @@ To continue to see metrics in your drains after upgrading to <%= vars.app_runtim
 1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
 1. Click **Save**.
 
-For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/platform/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
 
 ### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
 You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on <%= vars.app_runtime_abbr %> by allowing you to scale down Doppler and Traffic Controller VMs.
 
-To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
@@ -224,7 +224,7 @@ RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of pre
 * 2019-11-21T22:16:18.750673404Z
 * 2019-11-21T22:16:18.750000000Z 
 
-For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/platform/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 In <%= vars.app_runtime_abbr %> v2.10.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
 
@@ -257,7 +257,7 @@ in _HTTP Routing_.
 By default, the Gorouter uses `JSESSIONID`. Some apps require a different session name.
 For example, Spring WebFlux requires `SESSION` for the session cookie name.
 
-To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platform/application-service/2-10/operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
+To supply cookie names, see [Configure Networking](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='autoscaler'></a>  Improvements to App Autoscaler
 
@@ -268,22 +268,22 @@ To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platf
   App Autoscaler calculates future execution dates based on the past date.
 + You can use rules that are based on the HTTP throughput metric when the number of the requests is high.
   For information about the metric, see [Default Metrics for Scaling
-  Rules](https://docs.pivotal.io/platform/application-service/2-10/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+  Rules](https://docs.pivotal.io/application-service/2-10/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
 
 ### <a id='cf-cli'></a>  TAS for VMs Is Compatible with cf CLI v7
 
 TAS for VMs v2.10 paired with cf CLI v7 allows you to do the following:
 
 + Push updates to apps without incurring downtime.
-  See [Rolling App Deployments](https://docs.pivotal.io/platform/application-service/2-10/devguide/deploy-apps/rolling-deploy.html).
+  See [Rolling App Deployments](https://docs.pivotal.io/application-service/2-10/devguide/deploy-apps/rolling-deploy.html).
 + Exercise granular control over the `cf push` process.
-  See [Running cf push Sub-Step Commands](https://docs.pivotal.io/platform/application-service/2-10/devguide/push-sub-commands.html).
+  See [Running cf push Sub-Step Commands](https://docs.pivotal.io/application-service/2-10/devguide/push-sub-commands.html).
 + Use a single command to push apps that run multiple processes.
-  See [Pushing an App with Multiple Processes](https://docs.pivotal.io/platform/application-service/2-10/devguide/multiple-processes.html).
+  See [Pushing an App with Multiple Processes](https://docs.pivotal.io/application-service/2-10/devguide/multiple-processes.html).
 + Run additional processes in the same container as your app.
-  See [Pushing Apps with Sidecar Processes](https://docs.pivotal.io/platform/application-service/2-10/devguide/sidecars.html).
+  See [Pushing Apps with Sidecar Processes](https://docs.pivotal.io/application-service/2-10/devguide/sidecars.html).
 + Add metadata to resources such as spaces and apps.
-  See [Using Metadata](https://docs.pivotal.io/platform/application-service/2-10/adminguide/metadata.html).
+  See [Using Metadata](https://docs.pivotal.io/application-service/2-10/adminguide/metadata.html).
 
 For more information about the GA release of cf CLI v7,
 see [Cloud Foundry Further Simplifies Modern App Development: An Inside Look at the New cf CLI v7]

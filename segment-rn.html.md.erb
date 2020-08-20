@@ -92,9 +92,9 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 
 The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
 
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/platform/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
@@ -124,7 +124,7 @@ To continue to see metrics in your drains after upgrading to <%= vars.segment_ru
 1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
 1. Click **Save**.
 
-For more information about configuring aggregate syslog drains, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+For more information about configuring aggregate syslog drains, see [Configure System Logging](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
 
 ### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
@@ -136,7 +136,7 @@ in _HTTP Routing_.
 By default, the Gorouter uses `JSESSIONID`. Some apps require a different session name.
 For example, Spring WebFlux requires `SESSION` for the session cookie name.
 
-To supply cookie names, see [Configure Networking](https://docs.pivotal.io/platform/application-service/2-10/operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
+To supply cookie names, see [Configure Networking](https://docs.pivotal.io/application-service/2-10/operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
 
 
 ## <a id='known-issues'></a> Known Issues

@@ -108,7 +108,7 @@ The <%= vars.windows_runtime_abbr %> <%= vars.v_major_version %> tile is availab
 
 Route Emitters for Windows Diego Cells send messages to NATS over TLS. This allows your <%= vars.windows_runtime_abbr %> deployment to meet security compliance requirements while relying less on security policy exceptions or add-ons. TLS encryption from Route Emitters to NATS cannot be disabled.
 
-For more information about Route Emitters and TLS encryption, see [TLS to Apps and Other Back End Services](http://docs.pivotal.io/platform/application-service/2-10/concepts/http-routing.html#tls-to-back-end) in _HTTP Routing_.
+For more information about Route Emitters and TLS encryption, see [TLS to Apps and Other Back End Services](http://docs.pivotal.io/application-service/2-10/concepts/http-routing.html#tls-to-back-end) in _HTTP Routing_.
 
 ### <a id='syslog-no-metrics'></a>Aggregate Syslog Drains Contain Logs Only
 
@@ -126,13 +126,13 @@ To continue to see metrics in your drains after upgrading to <%= vars.app_runtim
 1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
 1. Click **Save**.
 
-For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/platform/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
 
 ### <a id='disable-logs-firehose'></a> Send Only App Metrics to Firehose
 
 You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on <%= vars.windows_runtime_abbr %> by allowing you to scale down Doppler and Traffic Controller VMs.
 
-To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/platform/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
@@ -143,7 +143,7 @@ RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of pre
 * 2019-11-21T22:16:18.750673404Z
 * 2019-11-21T22:16:18.750000000Z 
 
-For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/platform/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 In <%= vars.app_runtime_abbr %> v2.10.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
 
