@@ -606,7 +606,7 @@ Ops Manager v2.5.4 uses the following component versions:
 
 ### <a id="2-5-3"></a> 2.5.3
 
-- **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
+- **[Feature]** Operators can override the NATS max payload using the Ops Manager API. For more information, see [Updating director and Iaas properties (Experimental)](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in the Ops Manager API documentation.
 - **[Bug Fix]** 'Cloud Config' does not show up in the sidebar or in the main column of product diffs.
 - **[Bug Fix]** Dropdowns for certain VM types are easier to use.
 - **[Bug Fix]** UAA session timeouts obey the access or refresh token lifetime.
@@ -764,7 +764,7 @@ Ops Manager v2.5.0 uses the following component versions:
 
 ## <a id='how-to-upgrade'></a> How to Upgrade
 
-To upgrade to Ops Manager v2.5, see [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
+To upgrade to Ops Manager v2.5, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
 
 
 ## <a id='major-features'></a> New Features in Ops Manager v2.5
@@ -785,7 +785,7 @@ Ops Manager operators and administrators can now configure Availability Zones (A
 
 AZs are only available for new installations of Ops Manager. Existing installations that are being upgraded from Ops Manager v2.4 must use Availability Sets.
 
-For more information, see [Configuring BOSH Director on Azure](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](http://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
+For more information, see [Configuring BOSH Director on Azure](https://docs.pivotal.io/pivotalcf/2-5/om/azure/config-manual.html) and [Configuring BOSH Director on Azure Using Terraform](https://docs.pivotal.io/pivotalcf/2-5/om/azure/config-terraform.html).
 
 ### <a id="host-groups"></a> Host Group Configuration Available for vSphere Availability Zones
 
@@ -809,7 +809,7 @@ You can now configure a pre-created client account to manage automation tasks an
 
 You can configure a pre-created client for Ops Manager either before you deploy Ops Manager for the first time, or by adding it to an existing deployment.
 
-For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](http://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
+For more information about Ops Manager users and clients, see [Creating and Managing Ops Manager User and Client Accounts](https://docs.pivotal.io/pivotalcf/2-5/customizing/opsman-users.html).
 
 ### <a id="vm-extensions"></a> Apply Custom VM Extensions to BOSH Director in the Ops Manager API
 
@@ -817,7 +817,7 @@ You can define custom VM extensions for the BOSH Director VM by creating them in
 
 Use this endpoint to configure custom behavior for the BOSH Director VM, such as allowing the Director to read or write directly to a blobstore.
 
-For more information about custom VM extensions, see [Staged VM Extensions](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#staged-vm-extensions) in the Ops Manager API documentation.
+For more information about custom VM extensions, see [Staged VM Extensions](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#staged-vm-extensions) in the Ops Manager API documentation.
 
 ### <a id="ui-text"></a> Ops Manager User Interface Text is Updated
 
@@ -914,41 +914,41 @@ Ops Manager v2.5 includes the following updates to the API. Some of these update
 
 The following sections of the API documentation are updated in Ops Manager v2.5:
 
-* [Setting up with an internal userstore](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-an-internal-userstore) in *Setup*: This section includes a new parameter:
+* [Setting up with an internal userstore](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-an-internal-userstore) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
 
-* [Setting up with SAML](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-saml) in *Setup*: This section includes a new parameter:
+* [Setting up with SAML](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-saml) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
 
-* [Setting up with LDAP](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-ldap) in *Setup*: This section includes a new parameter:
+* [Setting up with LDAP](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-up-with-ldap) in *Setup*: This section includes a new parameter:
  * `setup[precreated_client_secret]`
 
 * [Updating director and Iaas properties (Experimental)]
-(http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in *Setup*: This section includes a new parameter:
+(https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental) in *Setup*: This section includes a new parameter:
  * `job_configuration_on_tmpfs`
 
-* [Retrieving a list of install time verifiers for the director](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-a-list-of-install-time-verifiers-for-the-director) in *Staged BOSH Director*: This section is renamed.
+* [Retrieving a list of install time verifiers for the director](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-a-list-of-install-time-verifiers-for-the-director) in *Staged BOSH Director*: This section is renamed.
 
-* [Deployed BOSH Director (Advanced)](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#deployed-bosh-director-advanced): This section is designated "advanced."
+* [Deployed BOSH Director (Advanced)](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#deployed-bosh-director-advanced): This section is designated "advanced."
 
-* [Fetching a deployed manifest](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-manifest) in *Deployed BOSH Director (Advanced)*: This section is renamed.
+* [Fetching a deployed manifest](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-manifest) in *Deployed BOSH Director (Advanced)*: This section is renamed.
 
-* [Fetching a deployed cloud config](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-cloud-config) in *Deployed BOSH Director (Advanced)*: This section is renamed.
+* [Fetching a deployed cloud config](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-deployed-cloud-config) in *Deployed BOSH Director (Advanced)*: This section is renamed.
 
 ### <a id="new-sections"></a> New Sections
 
 The following sections are new in Ops Manager v2.5:
 
-* [Upgrading a stemcell](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#upgrading-a-stemcell)
+* [Upgrading a stemcell](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#upgrading-a-stemcell)
 
-* [Syslog Configuration](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental)
+* [Syslog Configuration](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#updating-director-and-iaas-properties-experimental)
 
-* [Retrieving information about a deployed product](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-information-about-a-deployed-product)
+* [Retrieving information about a deployed product](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-information-about-a-deployed-product)
 
-* [Retrieving information about a staged product](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-information-about-a-staged-product)
+* [Retrieving information about a staged product](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#retrieving-information-about-a-staged-product)
 
-* [Setting precreated-client secret](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-precreated-client-secret)
+* [Setting precreated-client secret](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#setting-precreated-client-secret)
 
-* [Diffs](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs): This section also includes new subsections:
-  * [Fetching the BOSH Director diff](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-the-bosh-director-diff)
-  * [Fetching a product diff](http://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-product-diff)
+* [Diffs](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#diffs): This section also includes new subsections:
+  * [Fetching the BOSH Director diff](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-the-bosh-director-diff)
+  * [Fetching a product diff](https://docs.pivotal.io/pivotalcf/2-5/opsman-api/#fetching-a-product-diff)
