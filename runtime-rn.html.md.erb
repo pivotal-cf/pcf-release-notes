@@ -524,7 +524,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Bug Fix]** Fix scheduling issue in `loggregator agent` by upgrading to Go 1.14.2
 * **[Bug Fix]** Fix issue in App Autoscaler where rules that were based on the HTTP-throughput metric failed to fire.
    For information about the HTTP Throughput metric, see [Default Metrics for Scaling
-   Rules](https://docs.pivotal.io/platform/application-service/2-7/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+   Rules](https://docs.pivotal.io/application-service/2-7/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
 * **[Bug Fix]** Fix issue in App Autoscaler where the Scheduler API returned an error
   when `executes_at` was set to a time that was in the past.
 * Bump ubuntu-xenial stemcell to version `456.112`
@@ -969,7 +969,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Feature Improvement]** The latest routing release adds the `gorouter_time`
 field, which logs the total time it takes for a request to travel through Gorouter.
 Because this changes the access log format, you might need to update your external monitoring configuration.
-For more information, see [About Access Logs](https://docs.pivotal.io/platform/application-service/2-7/concepts/architecture/router.html#about-access-logs).
+For more information, see [About Access Logs](https://docs.pivotal.io/application-service/2-7/concepts/architecture/router.html#about-access-logs).
 * **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
 * **[Feature Improvement]** Introduce read only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
 * **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
@@ -1785,7 +1785,7 @@ For more information, see [About Access Logs](https://docs.pivotal.io/platform/a
 * **[Security Fix]** UAA Patch release to address privilege escalation vulnerabilities
 * **[Security Fix]** Bump garden-runc release to take Go HTTP/2 and containerd gRPC fixes
 * **[Security Fix]** Upgrade gRPC-java to patch HTTP/2 vulnerability
-* **[Feature Improvement]** Make TCP Router Request Timeout Configurable. For more information, see [Configuring TCP Routing in <%= vars.app_runtime_abbr %>](https://docs.pivotal.io/platform/application-service/2-7/operating/tcp-routing-ert-config.html).
+* **[Feature Improvement]** Make TCP Router Request Timeout Configurable. For more information, see [Configuring TCP Routing in <%= vars.app_runtime_abbr %>](https://docs.pivotal.io/application-service/2-7/operating/tcp-routing-ert-config.html).
 * **[Feature Improvement]** Metric Registrar - Allow app developers to register custom routes for metrics endpoints
 * **[Feature Improvement]** Docker image applications hosted in AWS ECR continue to run when restarted after the typical AWS ECR credential expiration period
 * **[Feature Improvement]** Show revision number on processes in Apps Manager when revisions are enabled for an application
@@ -1950,7 +1950,7 @@ For more information, see [About Access Logs](https://docs.pivotal.io/platform/a
 
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
@@ -1994,7 +1994,7 @@ For more information about configuring this limit, see [Configure Advanced Featu
 <%= vars.app_runtime_abbr %> v2.7 includes CAPI v1.83.0, which supports upgrading service instances to the latest version of a service plan. This is an optional feature that service authors can implement.
 
 App developers can check the `upgrade available` column in the output of the `cf services` command to see if a service broker supports upgrades.
-For more information, see [Upgrade a Service Instance](https://docs.pivotal.io/platform/application-service/2-7/devguide/services/managing-services.html#upgrade) in _Managing Service Instances with the cf CLI_.
+For more information, see [Upgrade a Service Instance](https://docs.pivotal.io/application-service/2-7/devguide/services/managing-services.html#upgrade) in _Managing Service Instances with the cf CLI_.
 
 If you are a service author and want to enable this feature, see [Updating a Service Instance](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md#updating-a-service-instance) in the _Open Service Broker API Specification_ on GitHub.
 
@@ -2017,7 +2017,7 @@ You can do the following in Apps Manager to manage app re-deployments and revisi
 
 You can manage app re-deployments and revisions in the **Revisions** pane of the Apps Manager UI.
 
-For more information, see [Manage App Revisions](http://docs.pivotal.io/platform/2-7/console/manage-apps.html#revisions)
+For more information, see [Manage App Revisions](https://docs.pivotal.io/platform/2-7/console/manage-apps.html#revisions)
 in _Managing Apps and Service Instances Using Apps Manager_.
 
 ### <a id='uaadb'></a> UAA Property uaadb.tls Consolidates TLS Configuration Options
@@ -2043,7 +2043,7 @@ For more information about how to configure KMS providers for CredHub in <%= var
 
 <%= vars.app_runtime_abbr %> v2.7 introduces the option to enable MySQL proxies to listen on port 3336. If you enable this option, you can run auditing and reporting queries on a MySQL node that is not currently serving traffic. By running these queries on an inactive node, the active MySQL nodes continue to serve requests with no effect on performance.
 
-To enable this option, select the **Enable inactive MySQL port** checkbox in the **Internal MySQL** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure Internal MySQL](http://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#internal-mysql) in _Configuring <%= vars.app_runtime_abbr %>_.
+To enable this option, select the **Enable inactive MySQL port** checkbox in the **Internal MySQL** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure Internal MySQL](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#internal-mysql) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='ssh-windows-linux'></a> SSH Into Linux and Windows Apps on NSX-T
 
@@ -2136,7 +2136,7 @@ When you push container images hosted in AWS Elastic Container Registry (ECR) wi
 
 This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
 
-For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/platform/application-service/2-7/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/application-service/2-7/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
 
 
 ## <a id='known-issues'></a> Known Issues
@@ -2214,7 +2214,7 @@ To disable the smoke test errand:
 
 1. For **Smoke Test Errand**, select **Off**.
 
-For more information, see [Configure Errands](https://docs.pivotal.io/platform/application-service/2-7/operating/configure-pas.html#errands)
+For more information, see [Configure Errands](https://docs.pivotal.io/application-service/2-7/operating/configure-pas.html#errands)
 in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='last-syslog-drain'></a> Cannot Delete Last Remaining Syslog Drain
