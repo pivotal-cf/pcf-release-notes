@@ -75,6 +75,13 @@ for deployments that use external databases on GCP or Azure.
 
 For more information about disabling hostname validation, see [Disable Hostname Validation for External Databases on GCP and Azure](https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation) in _Upgrade Preparation Checklist_.
 
+### <a id='apps-manager-app-metrics-link-no-proxy'></a>App Metrics Link Disappears in Apps Manager for Proxied Setups
+
+This breaking change applies to deployments that have any version of PCF Metrics or App Metrics installed.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in App Metrics** link may no longer appear in Apps Manager after you upgrade to <%= vars.app_runtime_abbr %> v2.9.
+
+To resolve this issue, follow the steps in the related [known issue](#apps-manager-app-metrics-link-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> <%= vars.v_major_version %>
 
