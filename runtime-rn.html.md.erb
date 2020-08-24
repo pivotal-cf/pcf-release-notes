@@ -2232,12 +2232,12 @@ To resolve this issue:
 3. Update the `no_proxy` environment variable for the `search-server` app to include your system domain.
 
     ```
-    cf set-env search-server no_proxy 'SYSTEM-DOMAIN'
+    cf set-env search-server no_proxy '*.SYSTEM-DOMAIN'
     ```
     where `SYSTEM-DOMAIN` is the system domain configured for your <%= vars.app_runtime_abbr %> deployment.
     For example:
     <pre class="terminal">
-    cf set-env search-server no_proxy 'example.com'
+    cf set-env search-server no_proxy '*.example.com'
     </pre>
 
 4. Restage the `search-server` app.
