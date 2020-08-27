@@ -94,7 +94,15 @@ This breaking change applies to deployments that have any version of PCF Metrics
 
 If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in App Metrics** link may no longer appear in Apps Manager after you upgrade to <%= vars.app_runtime_abbr %> v2.9.
 
-To resolve this issue, follow the steps in the related [known issue](#apps-manager-app-metrics-link-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
+To resolve this issue, follow the steps in the related [known issue](runtime-rn.html#apps-manager-app-metrics-link-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
+
+### <a id='autoscaler-apps-manager-no-proxy'></a>Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups
+
+This breaking change applies to deployments that manage the Autoscaler service for individual apps in Apps Manager.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then Autoscaler controls may not appear for apps within Apps Manager even when the Autoscaler service is enabled for an org.
+
+To resolve this issue, follow the steps in the related [known issue](runtime-rn.html#autoscaler-apps-manager-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
 
 ## <a id='pasw'></a> <%= vars.windows_runtime_full %> <%= vars.v_major_version %>
 
