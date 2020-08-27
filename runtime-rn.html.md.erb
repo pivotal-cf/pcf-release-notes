@@ -1041,6 +1041,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 02/27/2020
 
+* **[Breaking Change]** Autoscaler controls do not appear for apps in Apps Manager. For the workaround, see the known issue [Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
 * **[Breaking Change]** PCF Metrics link disappears from Apps Manager. For the workaround, see the known issue [PCF Metrics Link Disappears in Apps Manager for Proxied Setups](#apps-manager-app-metrics-link-no-proxy).
 * **[Security Fix]** Stop logging private data in background jobs
 * **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426), [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449), [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in Credhub
@@ -2477,3 +2478,24 @@ To resolve this issue:
     ```
     cf restage search-server
     ```
+
+### <a id="autoscaler-apps-manager-no-proxy"></a>Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups
+
+This issue affects <%= vars.app_runtime_abbr %> v2.7.10 and later deployments that manage the Autoscaler service for individual apps in Apps Manager.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then Autoscaler controls may not appear for apps within Apps Manager even when the Autoscaler service is enabled for an org.
+
+To resolve this issue:
+
+1. Using the cf CLI, log in to the system org and system space.
+2. Locate the `search-server` app.
+3. Update the `no_proxy` environment variable for the `search-server` app to include your system domain.
+
+    ```
+    cf set-env search-server no_proxy '*.SYSTEM-DOMAIN'
+    ```
+    where `SYSTEM-DOMAIN` is the system domain configured for your <%= vars.app_runtime_abbr %> deployment.
+    For example:
+    <pre class="terminal">
+    cf set-env search-server no_proxy '*.example.com'
+    </pre>
