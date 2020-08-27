@@ -2241,7 +2241,7 @@ When using the `cflinuxfs3` stack in <%= vars.app_runtime_abbr %> v2.3 or later,
 
 To resolve this issue, ensure that all apps are using environment variables that do not contain periods or dashes.
 
-For more information, see [Missing environment variables when using <%= vars.app_runtime_abbr %> 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Pivotal Knowledge Base.
+For more information, see [Missing environment variables when using <%= vars.app_runtime_abbr %> 2.3+ and the cflinuxfs3 stack](https://community.pivotal.io/s/article/missing-environment-variables-when-using-pas-2-3-and-the-cflinuxfs3-stack) in the Knowledge Base.
 
 ### <a id='duplicate-logs'></a> Duplicate or Missing Logs
 
@@ -2418,7 +2418,6 @@ Overview tab in Apps Manager results in an `Unexpected error occurence` message.
 
 ### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
 
-
 In <%= vars.app_runtime_abbr %> v2.7.17 and earlier, the `/v2/app_usage_events/destructively_purge_all_and_reseed_started_apps` endpoint may generate app events without valid GUIDs. These invalid GUIDs can cause errors with components that consume them when parsing and correlating events. This issue affects Cloud Controller and App Usage Service.
 
 For more information about the API endpoint, see [Purge and reseed App Usage Events](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html) in the _App Usage Events API_ documentation. For more information about the issue, see [App Usage Service startup errors and data inconsistency](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency) in the knowledge base.
@@ -2451,6 +2450,14 @@ Where `JOB-GUID` is the GUID of the job.
 
 The job failure may occur between the update of the `cloud_controller` and `cloud_controller_worker` instance groups.
 To mitigate this issue, retry any failed jobs after the worker instance groups complete updating.
+
+### <a id="app-staging-errors-during-upgrade"></a> cf push App Staging Errors During Upgrade to <%= vars.app_runtime_abbr %> v2.7
+
+During the upgrade <%= vars.app_runtime_abbr %> v2.7, users may receive app staging errors when pushing apps. These errors are due to the `file_server` property on Cloud Controllers being updated to use TLS communications. Staging may continue to fail while Diego Brain jobs are being upgraded to v2.7.
+
+This issue is resolved after all Diego Brains job have been updated to v2.7.
+
+For more information, see the [Upgrade From TAS v2.6 to 2.7 CAPI Impact Overview](https://community.pivotal.io/s/article/5000e00001m72hv1598050373803) Knowledge Base article.
 
 ### <a id="apps-manager-app-metrics-link-no-proxy"></a>PCF Metrics Link Disappears in Apps Manager for Proxied Setups
 
