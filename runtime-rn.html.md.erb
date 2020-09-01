@@ -1401,9 +1401,6 @@ See also:
 
 ## <a id='upgrade'></a> How to Upgrade
 
-<<<<<<< Local Changes
-To upgrade to PAS v2.5, see [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-5/customizing/upgrading-pcf.html).
-=======
 The procedure for upgrading to Pivotal Application Service (PAS) v2.4 is documented in the [Upgrading Pivotal Cloud Foundry](https://docs.pivotal.io/pivotalcf/2-4/customizing/upgrading-pcf.html) topic.
 
 When upgrading to PAS v2.4, be aware of the following upgrade considerations:
@@ -1629,20 +1626,7 @@ Starting in v2.3, some PAS components used BOSH Process Manager (BPM). In v2.4, 
 
 Users in the `usage_service.audit` group can access the Usage Service API with their CF OAuth token. Previously, only users of the `cloud_controller.admin` group could access the Usage Service API with CF OAuth.
 
-<<<<<<< Local Changes
-```
-curl: (60) server certificate verification failed.
-CAfile: /etc/ssl/certs/ca-certificates.crt
-CRLfile: none
-More details here: https://curl.haxx.se/docs/sslcerts.html
-curl performs SSL certificate verification by default, using a "bundle" of Certificate Authority (CA) public keys (CA certs).
-If the default bundle file isn't adequate, you can specify an alternate file using the --cacert option.
-If this HTTPS server uses a certificate signed by a CA represented in the bundle, the certificate verification probably failed due to a problem with the certificate (it might be expired, or the name might not match the domain name in the URL).
-If you'd like to turn off curl's verification of the certificate, use the -k (or --insecure) option. Error: failed to run job-process: exit status 1 (exit status 1)
-```
-=======
 This update allows `usage_service.audit` users to quickly generate reports on historical system- and org-level usage for apps, tasks, and service instances. For more information about accessing the Usage Service API to view app, task, and service instance usage, see [Reporting App, Task, and Service Instance Usage](https://docs.pivotal.io/pivotalcf/2-4/opsguide/accounting-report.html).
->>>>>>> External Changes
 
 
 ## <a id='known-issues'></a> Known Issues
