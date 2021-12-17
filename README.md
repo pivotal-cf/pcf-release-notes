@@ -52,6 +52,8 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
     * [PCF 2.4 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-4/pcf-release-notes/index.html)
     * [PCF 2.5 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-5/pcf-release-notes/index.html)
     * [PCF 2.6 staging site](http://docs-pcf-staging.cfapps.io/pivotalcf/2-6/pcf-release-notes/index.html)
+    
+    I think these staging sites are wrong. Try https://docs-pcf-staging.sc2-04-pcf1-apps.oc.vmware.com/pivotalcf/2-6/pcf-release-notes/index.html instead.
 
 3. Open the appropriate tab in Concourse, click the **production** box, then click the **+** button in the top right to start a production build.
 
@@ -65,3 +67,5 @@ If you have access permission to the `cf-release-notes` Concourse pipeline, foll
     * [PCF 2.4](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-4)
     * [PCF 2.5](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-5)
     * [PCF 2.6](https://concourse.run.pivotal.io/teams/cf-docs/pipelines/cf-release-notes?groups=pcf-2-6)
+
+    Look on concourse: https://runway-ci.eng.vmware.com/teams/mapbu-docs/pipelines/cf-release-notes
