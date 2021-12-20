@@ -19,12 +19,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 12/16/2021
 
-  <p class="note">
-    <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">This vulnerability</a> in TAS Java and PHP Buildpacks, was previously mitigatable via a manual process documented <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">here</a>. If you are for any reason unable to consume this release, apply the linked mitigation process as soon as possible. The mitigation document also has guidance around using TAS platform features to mitigate impacted applications on the platform.
-  </p>
-  <p class="note">
-    Ops Manager was also impacted. <a href="https://network.pivotal.io/products/ops-manager/">Ops Manager 2.10.23</a> is available and should also be deployed as soon as possible.
-  </p>
+  <div class="note warning"><strong>Warning:</strong>
+    <p>See the following warnings:</p>
+      <ul>
+      <li>VMware recommends upgrading <%= vars.app_runtime_abbr %> as soon as possible to address <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>. If you are unable to upgrade, you can mitigate this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Workaround instructions to address CVE-2021-44228 and CVE-2021-45046 in Tanzu Application Service v2.7 - v2.12</a>.</li>
+      <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
+    </ul>
+  </div>
 
 * **[Security Fix]** Java and PHP Buildpacks - Fix remote code execution vulnerability related to Log4j ([CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046))
 * Bump java-offline-buildpack to version `4.45`
@@ -97,12 +98,13 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 12/15/2021
 
-  <p class="note">
-    <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">This vulnerability</a> in TAS Java and PHP Buildpacks, was previously mitigatable via a manual process documented <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">here</a>. If you are for any reason unable to consume this release, apply the linked mitigation process as soon as possible. The mitigation document also has guidance around using TAS platform features to mitigate impacted applications on the platform.
-  </p>
-  <p class="note">
-    Ops Manager was also impacted. <a href="https://network.pivotal.io/products/ops-manager/">Ops Manager 2.10.23</a> is available and should also be deployed as soon as possible.
-  </p>
+<div class="note warning"><strong>Warning:</strong>
+  <p>See the following warnings:</p>
+    <ul>
+    <li>VMware recommends upgrading <%= vars.app_runtime_abbr %> as soon as possible to address <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>. If you are unable to upgrade, you can mitigate this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Workaround instructions to address CVE-2021-44228 and CVE-2021-45046 in Tanzu Application Service v2.7 - v2.12</a>.</li>
+    <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
+  </ul>
+</div>
 
 * **[Security Fix]** Java and PHP Buildpacks - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 * **[Security Fix]** CredHub - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) and [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))
@@ -248,9 +250,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.10</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.20'></a> 2.6.20
 
 **Release Date:** 05/05/2020
@@ -335,9 +337,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.10</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.19'></a> 2.6.19
 
 **Release Date:** 04/22/2020
@@ -408,9 +410,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.8</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.18'></a> 2.6.18
 
 **Release Date:** 04/07/2020
@@ -506,9 +508,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.8</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.17'></a> 2.6.17
 
 **Release Date:** 03/13/2020
@@ -588,9 +590,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>71.8</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.16'></a> 2.6.16
 
 **Release Date:** 02/27/2020
@@ -692,9 +694,9 @@ For more information, see [About Access Logs](https://docs.pivotal.io/pivotalcf/
     <tr><td>uaa</td><td>71.8</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.15'></a> 2.6.15
 
 **Release Date:** 02/06/2020
@@ -712,9 +714,9 @@ For more information, see [About Access Logs](https://docs.pivotal.io/pivotalcf/
 * **[Bug Fix]** Show spring mappings in Apps Manager for apps using Spring Boot 2.2.x
 * **[Bug Fix]** Resize tooltip in the Apps Manager bind services flyout to make text fully visible
 * **[Bug Fix]** Add empty state message to Marketplace for orgs without spaces in Apps Manager
-* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager 
+* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager
 * **[Bug Fix]** The Apps Manager bound services list correctly shows the number of bound apps when a table is paginated
-* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager 
+* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager
 * **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view
     Cloud Controller resources in Apps Manager
 * **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view
@@ -797,9 +799,9 @@ For more information, see [About Access Logs](https://docs.pivotal.io/pivotalcf/
     <tr><td>uaa</td><td>71.7</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.6.14'></a> 2.6.14
 
 **Release Date:** 01/16/2020
@@ -2171,7 +2173,7 @@ For more information, see [Pushing Apps with Sidecar Processes (Beta)](https://d
 
 Traditionally, Garden uses runc directly to create, delete, and run container processes. Garden v1.15.0 and later support delegating some of the container lifecycle through containerd, which is the industry standard wrapper around runc.
 
-PAS v2.6 enables containerd mode by default to bring PAS in line with other container providers. When you upgrade to PAS v2.6, Garden switches the container runtime from runc to containerd. Since the restart of Garden and the re-creation of containers are a normal part of a PAS upgrade, there is no operational impact to running applications. 
+PAS v2.6 enables containerd mode by default to bring PAS in line with other container providers. When you upgrade to PAS v2.6, Garden switches the container runtime from runc to containerd. Since the restart of Garden and the re-creation of containers are a normal part of a PAS upgrade, there is no operational impact to running applications.
 
 To disable containerd mode, deselect the **Enable Containerd Delegation** checkbox in the **Application Containers** pane of the PAS tile.
 
@@ -2362,7 +2364,7 @@ does not appear or is broken.
 
 This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
 
-The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in 
+The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in
 v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
 
 If you have set the **Multi-foundation configuration (beta)** field of the Apps Manager section
